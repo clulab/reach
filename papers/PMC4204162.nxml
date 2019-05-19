@@ -1,0 +1,1823 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="review-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">J Cancer Prev</journal-id>
+      <journal-id journal-id-type="iso-abbrev">J Cancer Prev</journal-id>
+      <journal-id journal-id-type="publisher-id">JCP</journal-id>
+      <journal-title-group>
+        <journal-title>Journal of Cancer Prevention</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">2288-3649</issn>
+      <issn pub-type="epub">2288-3657</issn>
+      <publisher>
+        <publisher-name>Korean Society of Cancer Prevention</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">25337577</article-id>
+      <article-id pub-id-type="pmc">4204162</article-id>
+      <article-id pub-id-type="doi">10.15430/JCP.2014.19.2.97</article-id>
+      <article-id pub-id-type="publisher-id">jcp-19-097</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Review</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Oxidative Stress and Cytokines in the Pathogenesis of Pancreatic Cancer</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yu</surname>
+            <given-names>Ji Hoon</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-jcp-19-097">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kim</surname>
+            <given-names>Hyeyoung</given-names>
+          </name>
+          <xref ref-type="aff" rid="af2-jcp-19-097">
+            <sup>2</sup>
+          </xref>
+          <xref ref-type="corresp" rid="c1-jcp-19-097"/>
+        </contrib>
+      </contrib-group>
+      <aff id="af1-jcp-19-097"><label>1</label>New Drug Development Center, Daegu-Gyeongbuk Medical Innovation Foundation, Daegu, Korea</aff>
+      <aff id="af2-jcp-19-097"><label>2</label>Department of Food and Nutrition, Brain Korea 21 PLUS Project, College of Human Ecology, Yonsei University, Seoul, Korea</aff>
+      <author-notes>
+        <corresp id="c1-jcp-19-097">Correspondence to: Hyeyoung Kim, Department of Food and Nutrition, College of Human Ecology, Yonsei University, 50 Yonsei-ro, Seodaemun-gu, Seoul 120-749, Korea, Tel: +82-2-2123-3125, Fax: +82-2-364-5781, E-mail: <email>kim626@yonsei.ac.kr</email></corresp>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <month>6</month>
+        <year>2014</year>
+      </pub-date>
+      <volume>19</volume>
+      <issue>2</issue>
+      <fpage>97</fpage>
+      <lpage>102</lpage>
+      <history>
+        <date date-type="received">
+          <day>29</day>
+          <month>5</month>
+          <year>2014</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>17</day>
+          <month>6</month>
+          <year>2014</year>
+        </date>
+        <date date-type="accepted">
+          <day>17</day>
+          <month>6</month>
+          <year>2014</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2014 Korean Society of Cancer Prevention</copyright-statement>
+        <copyright-year>2014</copyright-year>
+        <license>
+          <license-p>This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by-nc/3.0">http://creativecommons.org/licenses/by-nc/3.0</ext-link>) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Pancreatic cancer is one of the most aggressive, drug-resistant and lethal types of cancer with poor prognosis. Various factors including reactive oxygen species, cytokines, growth factors, and extracellular matrix proteins are reported to be involved in the development of pancreatic cancer. However, the pathogenesis of pancreatic cancer has not been completely elucidated. Oxidative stress has been shown to contribute to the development of pancreatic cancer. Evidences supporting the role of reactive oxygen species and cytokines as a risk for pancreatic cancer and the concept of antioxidant supplementation as a preventive approach for pancreatic cancer have been proposed. Here, we review the literature on oxidative stress, cytokine expression, inflammatory signaling, and natural antioxidant supplementation in relation to pancreatic cancer.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Oxidative stress</kwd>
+        <kwd>Cytokines</kwd>
+        <kwd>Pancreatic cancer</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="intro">
+      <title>INTRODUCTION</title>
+      <p>Reactive oxygen species (ROS) and cytokines are considered to be important factors in the pathogenesis of pancreatic cancer.<xref rid="b1-jcp-19-097" ref-type="bibr">1</xref>,<xref rid="b2-jcp-19-097" ref-type="bibr">2</xref> As a source of ROS, nicotinamide adenine dinucleotide phosphate (NADPH) oxidase (NOX) is involved in pancreatic cancer development.<xref rid="b3-jcp-19-097" ref-type="bibr">3</xref> ROS activate signaling pathways mediated by p38 mitogen-activated protein kinases (MAPK), NF-&#x3BA;B, and janus kinase/signal transducer and activator of transcription (JAK/STAT),<xref rid="b4-jcp-19-097" ref-type="bibr">4</xref>&#x2013;<xref rid="b8-jcp-19-097" ref-type="bibr">8</xref> which inhibits cancer cell apoptosis<xref rid="b9-jcp-19-097" ref-type="bibr">9</xref> and induces cytokine expression<xref rid="b8-jcp-19-097" ref-type="bibr">8</xref> and epithelial-mesenchymal transition (EMT).<xref rid="b10-jcp-19-097" ref-type="bibr">10</xref>,<xref rid="b11-jcp-19-097" ref-type="bibr">11</xref> High levels of fibronectin and laminin,<xref rid="b10-jcp-19-097" ref-type="bibr">10</xref>,<xref rid="b11-jcp-19-097" ref-type="bibr">11</xref> cytokines (interleukin-1&#x3B2; [IL-1&#x3B2;], IL-6, IL-8, and tumor necrosis factor-&#x3B2; [TNF-&#x3B2;],<xref rid="b12-jcp-19-097" ref-type="bibr">12</xref>,<xref rid="b13-jcp-19-097" ref-type="bibr">13</xref> and growth factors (insulin-like growth factor-1 [IGF-1] and transforming growth factor-&#x3B2; [TGF-&#x3B2;])<xref rid="b14-jcp-19-097" ref-type="bibr">14</xref> are observed in pancreatic cancer. Growth factors,<xref rid="b14-jcp-19-097" ref-type="bibr">14</xref> extracellular matrix (ECM) proteins,<xref rid="b10-jcp-19-097" ref-type="bibr">10</xref> and cytokines (interferon-&#x3B3; [IFN-&#x3B3;] and TNF-&#x3B1;)<xref rid="b14-jcp-19-097" ref-type="bibr">14</xref>&#x2013;<xref rid="b17-jcp-19-097" ref-type="bibr">17</xref> have been shown to activate NOX in the pathogenesis of pancreatic cancer development. Bioactive compounds such as curcumin, genistein, and resveratrol have antioxidant<xref rid="b18-jcp-19-097" ref-type="bibr">18</xref>&#x2013;<xref rid="b20-jcp-19-097" ref-type="bibr">20</xref> and antitumor activities<xref rid="b21-jcp-19-097" ref-type="bibr">21</xref>&#x2013;<xref rid="b29-jcp-19-097" ref-type="bibr">29</xref> against pancreatic cancer. We will briefly review the role of ROS and cytokines in the pathogenesis of pancreatic cancer. In addition, bioactive compounds that may prevent the development of pancreatic cancer will also be discussed.</p>
+    </sec>
+    <sec>
+      <title>REACTIVE OXYGEN SPECIES AND NICOTINAMIDE ADENINE DINUCLEOTIDE PHOSPHATE OXIDASE IN PANCREATIC CANCER</title>
+      <p>Since ROS and pro-inflammatory cytokines induce genetic instability, these factors may contribute to cancer development.<xref rid="b1-jcp-19-097" ref-type="bibr">1</xref>,<xref rid="b30-jcp-19-097" ref-type="bibr">30</xref> Activation of NOX releases high amounts of ROS, which may contribute to development of cancers. Pro-inflammatory cytokine IFN-&#x3B3; induces the activation of a family of NOX, dual oxidase 2 (DUOX2), to produce ROS in human pancreatic cancer cells.<xref rid="b16-jcp-19-097" ref-type="bibr">16</xref></p>
+      <p>K-ras mutation is identified in 95% of pancreatic cancer, implying its critical role in the pathogenesis of pancreatic cancer. Recent study showed that NOX2 protein is present in pancreatic tumor cells and tumorigenic cells expressing K-ras while NOX2 was absent in the non-tumorigenic pancreatic ductal epithelial cells.<xref rid="b31-jcp-19-097" ref-type="bibr">31</xref> In pancreatic cancer cells with K-ras, genetically silencing rac decreases ROS production and inhibits cell growth.<xref rid="b31-jcp-19-097" ref-type="bibr">31</xref> The study demonstrates that NOX is important for ROS production and growth inhibition in K-ras-expressing cells since rac is a component of the active form of NOX.</p>
+      <p>Growth factors and ECM proteins mediate growth of pancreatic cancer cells. Growth factors such as IGF-1 and IGF-2 stimulate NOX4 and produce ROS, which protect pancreatic cancer cells (MIA PaCa-2 and PANC-1) from apoptosis.<xref rid="b9-jcp-19-097" ref-type="bibr">9</xref>,<xref rid="b14-jcp-19-097" ref-type="bibr">14</xref> In addition, ROS induce activation of JAK2-STAT1/3 pathway, leading to suppression of apoptosis.<xref rid="b5-jcp-19-097" ref-type="bibr">5</xref> ECM proteins fibronectin and laminin also activate NOX in pancreatic cancer cells.<xref rid="b10-jcp-19-097" ref-type="bibr">10</xref> ROS have shown to mediate epithelial-mesenchymal transition (EMT) in pathophysiological condition.<xref rid="b11-jcp-19-097" ref-type="bibr">11</xref> NOX4-generated ROS are involved in TGF-&#x3B2;-induced EMT in pancreatic cancer cells by activating p38 MAPK and inhibiting protein tyrosine phosphatase 1B (PTP1B).<xref rid="b11-jcp-19-097" ref-type="bibr">11</xref> Since PTP1B inhibits EMT, inhibition of PTP1B by ROS contribute EMT in pancreatic cancer development.</p>
+      <p>DUOX is one of the 7 members of the NOX family. The pro-inflammatory stimuli such as IFN-&#x3B3; enhance the expression of DUOX2, leading to the production of substantial amounts of extracellular H<sub>2</sub>O<sub>2</sub> in human pancreatic cancer BxPC-3 and AsPC-1 cells.<xref rid="b16-jcp-19-097" ref-type="bibr">16</xref> H<sub>2</sub>O<sub>2</sub> induces the activation of STAT1 and NF-&#x3BA;B signaling pathways in pancreatic cancer cells.<xref rid="b16-jcp-19-097" ref-type="bibr">16</xref> Crosstalk of ROS and cytokines in cancer-related signaling is summarized in <xref ref-type="fig" rid="f1-jcp-19-097">Figure</xref>. ROS are produced by NOX with stimulation of extracellular matrix (ECM) proteins,<xref rid="b10-jcp-19-097" ref-type="bibr">10</xref>,<xref rid="b11-jcp-19-097" ref-type="bibr">11</xref> growth factors,<xref rid="b14-jcp-19-097" ref-type="bibr">14</xref> and cytokines.<xref rid="b15-jcp-19-097" ref-type="bibr">15</xref>&#x2013;<xref rid="b17-jcp-19-097" ref-type="bibr">17</xref> ROS activates p38 MAPK,<xref rid="b8-jcp-19-097" ref-type="bibr">8</xref> NF-&#x3BA;B,<xref rid="b4-jcp-19-097" ref-type="bibr">4</xref> and JAK2-STAT1/3,<xref rid="b5-jcp-19-097" ref-type="bibr">5</xref> which is believed to contribute to the carcinogenesis of pancreas since these signaling mediators induce ECM and expression of cytokines (IL-1&#x3B2;, IL-6, IL-8, TNF-&#x3B1;, and TGF-&#x3B2;)<xref rid="b12-jcp-19-097" ref-type="bibr">12</xref>&#x2013;<xref rid="b15-jcp-19-097" ref-type="bibr">15</xref>,<xref rid="b32-jcp-19-097" ref-type="bibr">32</xref>&#x2013;<xref rid="b34-jcp-19-097" ref-type="bibr">34</xref> as well as inhibit apoptosis of cancer cells. Antioxidant compounds such as curcumin,<xref rid="b18-jcp-19-097" ref-type="bibr">18</xref> resveratrol,<xref rid="b19-jcp-19-097" ref-type="bibr">19</xref> and genistein<xref rid="b20-jcp-19-097" ref-type="bibr">20</xref> may inhibit ROS-mediated signaling and thus prevent the development of pancreatic cancer.</p>
+    </sec>
+    <sec>
+      <title>INFLAMMATORY CYTOKINES IN PANCREATIC CANCER</title>
+      <p>Cytokines promote pancreatic tumor cell progression by modulating tumor microenvironment as well as directly acting on cancer cells for growth, invasion and metastasis. Cytokines are produced from the leukocytes and stellate cells which are infiltrated into the damaged tissues. In the serum of pancreatic cancer patients, pro-inflammatory cytokines IL-6, IL-8, TGF-&#x3B2;, TNF-&#x3B1;, and IL-1&#x3B2; were increased compared to healthy controls.<xref rid="b2-jcp-19-097" ref-type="bibr">2</xref>,<xref rid="b12-jcp-19-097" ref-type="bibr">12</xref>&#x2013;<xref rid="b15-jcp-19-097" ref-type="bibr">15</xref>,<xref rid="b32-jcp-19-097" ref-type="bibr">32</xref>&#x2013;<xref rid="b34-jcp-19-097" ref-type="bibr">34</xref></p>
+      <p>IL-6 induces the expression of vascular endothelial growth factor (VEGF) in pancreatic cancer cells and stimulates angiogenesis and tumor vascularization.<xref rid="b35-jcp-19-097" ref-type="bibr">35</xref> IL-6 induced phosphorylation of STAT3, which in turn, mitochondrial localization of pSTAT3 promotes pancreatic tumorigenesis by activating cell proliferation and inhibiting autophagy.<xref rid="b36-jcp-19-097" ref-type="bibr">36</xref></p>
+      <p>IL-1&#x3B2; promotes pancreatic cancer cell invasiveness.<xref rid="b37-jcp-19-097" ref-type="bibr">37</xref> IL-1&#x3B2; induces constitutive activation of NF-&#x3BA;B and expression of cyclooxygenase-2 of pancreatic cancer cells and these cancer cells become chemoresistant.<xref rid="b38-jcp-19-097" ref-type="bibr">38</xref>,<xref rid="b39-jcp-19-097" ref-type="bibr">39</xref> Patients with both a high IL-6 level and a high IL-1&#x3B2; level exhibited shortened overall and progression-free survival, a reduction in the tumor control rate, and a high dose intensity of gemcitabine monotherapy compared with pancreatic cancer patients with low levels of both IL-6 and IL-1&#x3B2;.<xref rid="b40-jcp-19-097" ref-type="bibr">40</xref> Therefore, the serum levels of IL-6 and IL-1&#x3B2; predict the efficacy of gemcitabine monotherapy in patients with advanced pancreatic cancer.</p>
+      <p>IL-8 stimulates the expression of VEGF, neuropilin-2, and VEGF receptor, which are key molecules in angiogenesis. In addition, IL-8 increases the activation of MAPK pathway for cell growth, survival, and tumorigenesis.<xref rid="b12-jcp-19-097" ref-type="bibr">12</xref> It has been reported that IL-8 promotes tumor aggressiveness and invasiveness in pancreatic cancer.<xref rid="b32-jcp-19-097" ref-type="bibr">32</xref> In addition, IL-8 enhances the invasiveness by regulating matrix metalloproteinase-2 activity in human pancreatic cancer cells.<xref rid="b41-jcp-19-097" ref-type="bibr">41</xref> Both IL-8 and chemokine CXCL12 promote migration and invasion of pancreatic cancer cells.<xref rid="b32-jcp-19-097" ref-type="bibr">32</xref></p>
+      <p>TNF-&#x3B1; promotes pancreatic cancer cell proliferation.<xref rid="b14-jcp-19-097" ref-type="bibr">14</xref> TNF-&#x3B1; induces the invasiveness of human pancreatic cancer cells and promotes tumor growth and metastasis in mice.<xref rid="b42-jcp-19-097" ref-type="bibr">42</xref> Treatment of anti-TNF-&#x3B1; suppresses tumor growth and metastasis.<xref rid="b42-jcp-19-097" ref-type="bibr">42</xref></p>
+    </sec>
+    <sec>
+      <title>BIOACTIVE COMPOUNDS IN PANCREATIC CANCER</title>
+      <p>Treatments for pancreatic cancer patients are surgery, chemotherapy, radiation, and targeted therapy. However, low survival rate of patients with pancreatic cancer needs improved therapeutic and chemopreventive strategies. Since ROS mediate cancer-associated signaling in pancreatic cancer development as described above, supplementation of antioxidant compounds may prevent pancreatic cancer development. Curcumin, resveratrol, and genistein have antioxidant activities<xref rid="b18-jcp-19-097" ref-type="bibr">18</xref>&#x2013;<xref rid="b20-jcp-19-097" ref-type="bibr">20</xref> and showed anti-cancer effects against pancreatic cancer in vitro and in vivo experiments.<xref rid="b21-jcp-19-097" ref-type="bibr">21</xref>&#x2013;<xref rid="b29-jcp-19-097" ref-type="bibr">29</xref></p>
+      <p>Curcumin (diferuloylmethane) inhibits the proliferation of pancreatic cancer cells and suppresses the activation of NF-&#x3BA;B.<xref rid="b43-jcp-19-097" ref-type="bibr">43</xref>,<xref rid="b44-jcp-19-097" ref-type="bibr">44</xref> Soluble curcumin analogue inhibits NF-&#x3BA;B-DNA binding activity and induces apoptotic cell death in pancreatic cancer cells.<xref rid="b45-jcp-19-097" ref-type="bibr">45</xref> Moreover, curcumin inhibits cell growth and induces apoptosis through down-regulating the Notch signaling pathway in pancreatic cancer BxPC-3 and PANC-1 cells.<xref rid="b24-jcp-19-097" ref-type="bibr">24</xref>,<xref rid="b25-jcp-19-097" ref-type="bibr">25</xref> Using orthotopic xenograft model of human pancreatic cancer Mia PaCa-2 cells, curcumin enhanced the antitumor activity of gemcitabine by inhibiting cell proliferation and NF-&#x3BA;B-regulated cyclin D1, Bcl-xL and survivin genes.<xref rid="b46-jcp-19-097" ref-type="bibr">46</xref> In addition, curcumin inhibits constitutive STAT3 phosphorylation and down-regulation of survivin expression in human pancreatic cancer cells.<xref rid="b47-jcp-19-097" ref-type="bibr">47</xref> Regarding EMT in carcinogenesis, curcumin reverses EMT of TGF-&#x3B2;-stimulated pancreatic PANC-1 cancer cells by inhibiting the Hedgehog signaling.<xref rid="b48-jcp-19-097" ref-type="bibr">48</xref></p>
+      <p>Resveratrol plays dual roles in pancreatic cancer: as a tumor suppressor via the up-regulation of Bax; as a tumor activator via the up-regulation of VEGF-B; and the anticancer effect of resveratrol is much stronger than its cancer promotion effect. Since resveratrol shows chemosensitization effect on tumor cells, the combination of resveratrol with pharmacological inhibitor of VEGF-B has been suggested as a promising modality for clinical pancreatic cancer therapy.<xref rid="b29-jcp-19-097" ref-type="bibr">29</xref> The chemosensitization of tumor cells by resveratrol appears to be mediated through its ability to modulate multiple cell-signaling molecules, including drug transporters, cell survival proteins, cell proliferative proteins, and members of the NF-&#x3BA;B and STAT3 signaling pathways.<xref rid="b28-jcp-19-097" ref-type="bibr">28</xref> Besides, resveratrol inhibits EMT of pancreatic BxPC-3 and PANC-1 cancer cells through the PI-3K/AKT/NF-kB signaling.<xref rid="b49-jcp-19-097" ref-type="bibr">49</xref></p>
+      <p>Genistein stimulates apoptotic effects of the chemotherapeutic drugs cisplatin<xref rid="b21-jcp-19-097" ref-type="bibr">21</xref> and gemcitabine<xref rid="b22-jcp-19-097" ref-type="bibr">22</xref> by inhibiting NF-&#x3BA;B activity. Treatment of genistein inhibits pancreatic cancer cell growth and induces apoptosis through the down-regulation of NF-&#x3BA;B and Notch-1 signaling.<xref rid="b23-jcp-19-097" ref-type="bibr">23</xref> Genistein reverses the epithelial to mesenchymal transition (EMT) of FoxM1-overexpressing pancreatic AsPC-1 cancer cells.<xref rid="b50-jcp-19-097" ref-type="bibr">50</xref></p>
+    </sec>
+    <sec sec-type="conclusions">
+      <title>CONCLUSIONS</title>
+      <p>ROS are produced by the activated NOX in pancreatic cancer. Growth factors, ECM proteins, and cytokines protect pancreatic cancer cells from apoptosis. ROS induce activation of p38 MAPK, NF-&#x3BA;B, and JAK2-STAT1/3 pathway, leading to suppression of apoptosis as well as induction of EMT and cytokine expression which amplify ROS-mediated signaling in pancreatic cancer cells. Cytokines promote pancreatic tumor cell progression, angiogenesis, and the activation of MAPK pathway, which is important for cell growth, survival, and tumorigenesis. STAT3 contributes to tumor initiation by promoting the dedifferentiation of the acinar cells to cancer cells. Since ROS activate STAT3 and MAPK as well as induction of cytokines, targeting ROS may contribute to the prevention of cancer progression in pancreatic tissues. Curcumin inhibits the proliferation of pancreatic cancer cells and suppresses the activation of NF-&#x3BA;B and expression of cyclooxygenase-2 in pancreatic cancer cells. Resveratrol inhibit proliferation of pancreatic cancer. Genistein stimulates apoptotic effects of the chemotherapeutic drugs, and reverses EMT of pancreatic cancer cells. Taken together, supplement of antioxidant compounds may be beneficial for preventing the development and/or initiation of pancreatic cancer.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>This work was supported by the NRF of Korea grant, which is funded by the Korean government (MSIP) (2007-0056092).</p>
+    </ack>
+    <fn-group>
+      <fn>
+        <p>CONFLICTS OF INTEREST</p>
+        <p>No potential conflicts of interest were disclosed.</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <title>REFERENCES</title>
+      <ref id="b1-jcp-19-097">
+        <label>1.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chiera</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Meccia</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Degan</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Aquilina</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Pietraforte</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Minetti</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Overexpression of human NOX1 complex induces genome instability in mammalian cells</article-title>
+          <source>Free Radic Biol Med</source>
+          <year>2008</year>
+          <volume>44</volume>
+          <fpage>332</fpage>
+          <lpage>42</lpage>
+          <pub-id pub-id-type="pmid">17963706</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b2-jcp-19-097">
+        <label>2.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Miron</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Miron</surname>
+              <given-names>MM</given-names>
+            </name>
+            <name>
+              <surname>Milea</surname>
+              <given-names>VG</given-names>
+            </name>
+            <name>
+              <surname>Cristea</surname>
+              <given-names>V</given-names>
+            </name>
+          </person-group>
+          <article-title>Proinflammatory cytokines: an insight into pancreatic oncogenesis</article-title>
+          <source>Roum Arch Microbiol Immunol</source>
+          <year>2010</year>
+          <volume>69</volume>
+          <fpage>183</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="pmid">21462832</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b3-jcp-19-097">
+        <label>3.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wu</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Antony</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Juhasz</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Ge</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Jiang</surname>
+              <given-names>G</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Up-regulation and sustained activation of Stat1 are essential for interferon-gamma (IFN-gamma)-induced dual oxidase 2 (Duox2) and dual oxidase A2 (DuoxA2) expression in human pancreatic cancer cell lines</article-title>
+          <source>J Biol Chem</source>
+          <year>2011</year>
+          <volume>286</volume>
+          <fpage>12245</fpage>
+          <lpage>56</lpage>
+          <pub-id pub-id-type="pmid">21321110</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b4-jcp-19-097">
+        <label>4.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Green</surname>
+              <given-names>DR</given-names>
+            </name>
+          </person-group>
+          <article-title>Death and NF-kappaB in T cell activation: life at the edge</article-title>
+          <source>Mol Cell</source>
+          <year>2003</year>
+          <volume>11</volume>
+          <fpage>551</fpage>
+          <lpage>2</lpage>
+          <pub-id pub-id-type="pmid">12667438</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b5-jcp-19-097">
+        <label>5.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>JK</given-names>
+            </name>
+            <name>
+              <surname>Edderkaoui</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Truong</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Ohno</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Jang</surname>
+              <given-names>KT</given-names>
+            </name>
+            <name>
+              <surname>Berti</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>NADPH oxidase promotes pancreatic cancer cell survival via inhibiting JAK2 dephosphorylation by tyrosine phosphatases</article-title>
+          <source>Gastroenterology</source>
+          <year>2007</year>
+          <volume>133</volume>
+          <fpage>1637</fpage>
+          <lpage>48</lpage>
+          <pub-id pub-id-type="pmid">17983808</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b6-jcp-19-097">
+        <label>6.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fukuda</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>SC</given-names>
+            </name>
+            <name>
+              <surname>Morris</surname>
+              <given-names>JP</given-names>
+              <suffix>4th</suffix>
+            </name>
+            <name>
+              <surname>Folias</surname>
+              <given-names>AE</given-names>
+            </name>
+            <name>
+              <surname>Liou</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>GE</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Stat3 and MMP7 contribute to pancreatic ductal adenocarcinoma initiation and progression</article-title>
+          <source>Cancer Cell</source>
+          <year>2011</year>
+          <volume>19</volume>
+          <fpage>441</fpage>
+          <lpage>55</lpage>
+          <pub-id pub-id-type="pmid">21481787</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b7-jcp-19-097">
+        <label>7.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lesina</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kurkowski</surname>
+              <given-names>MU</given-names>
+            </name>
+            <name>
+              <surname>Ludes</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Rose-John</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Treiber</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kl&#xF6;ppel</surname>
+              <given-names>G</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Stat3/Socs3 activation by IL-6 transsignaling promotes progression of pancreatic intraepithelial neoplasia and development of pancreatic cancer</article-title>
+          <source>Cancer Cell</source>
+          <year>2011</year>
+          <volume>19</volume>
+          <fpage>456</fpage>
+          <lpage>69</lpage>
+          <pub-id pub-id-type="pmid">21481788</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b8-jcp-19-097">
+        <label>8.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ju</surname>
+              <given-names>KD</given-names>
+            </name>
+            <name>
+              <surname>Lim</surname>
+              <given-names>JW</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>KH</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Potential role of NADPH oxidase -mediated activation of NADPH oxidase-mediated activation of Jak2/Stat3 and mitogen-activated protein kinases and expression of TGF-b1 in the pathophysiology of acute pancreatitis</article-title>
+          <source>Inflamm Res</source>
+          <year>2011</year>
+          <volume>60</volume>
+          <fpage>791</fpage>
+          <lpage>800</lpage>
+          <pub-id pub-id-type="pmid">21509626</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b9-jcp-19-097">
+        <label>9.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vaquero</surname>
+              <given-names>EC</given-names>
+            </name>
+            <name>
+              <surname>Edderkaoui</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Pandol</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Gukovsky</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Gukovskaya</surname>
+              <given-names>AS</given-names>
+            </name>
+          </person-group>
+          <article-title>Reactive oxygen species produced by NAD(P)H oxidase inhibit apoptosis in pancreatic cancer cells</article-title>
+          <source>J Biol Chem</source>
+          <year>2004</year>
+          <volume>279</volume>
+          <fpage>34643</fpage>
+          <lpage>54</lpage>
+          <pub-id pub-id-type="pmid">15155719</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b10-jcp-19-097">
+        <label>10.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Edderkaoui</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Hong</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Vaquero</surname>
+              <given-names>EC</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>JK</given-names>
+            </name>
+            <name>
+              <surname>Fischer</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Friess</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Extracellular matrix stimulates reactive oxygen species production and increases pancreatic cancer cell survival through 5-lipoxygenase and NADPH oxidase</article-title>
+          <source>Am J Physiol Gastrointest Liver Physiol</source>
+          <year>2005</year>
+          <volume>289</volume>
+          <fpage>G1137</fpage>
+          <lpage>47</lpage>
+          <pub-id pub-id-type="pmid">16037546</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b11-jcp-19-097">
+        <label>11.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hiraga</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Kato</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Miyagawa</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Kamata</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Nox4-derived ROS signaling contributes to TGF-beta-induced epithelial-mesenchymal transition in pancreatic cancer cells</article-title>
+          <source>Anticancer Res</source>
+          <year>2013</year>
+          <volume>33</volume>
+          <fpage>4431</fpage>
+          <lpage>8</lpage>
+          <pub-id pub-id-type="pmid">24123012</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b12-jcp-19-097">
+        <label>12.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Li</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Feurino</surname>
+              <given-names>LW</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Fisher</surname>
+              <given-names>WE</given-names>
+            </name>
+            <name>
+              <surname>Brunicardi</surname>
+              <given-names>FC</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Interleukin-8 increases vascular endothelial growth factor and neuropilin expression and stimulates ERK activation in human pancreatic cancer</article-title>
+          <source>Cancer Sci</source>
+          <year>2008</year>
+          <volume>99</volume>
+          <fpage>733</fpage>
+          <lpage>7</lpage>
+          <pub-id pub-id-type="pmid">18307536</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b13-jcp-19-097">
+        <label>13.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dima</surname>
+              <given-names>SO</given-names>
+            </name>
+            <name>
+              <surname>Tanase</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Albulescu</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Herlea</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Chivu-Economescu</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Purnichescu-Purtan</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>An exploratory study of inflammatory cytokines as prognostic biomarkers in patients with ductal pancreatic adenocarcinoma</article-title>
+          <source>Pancreas</source>
+          <year>2012</year>
+          <volume>41</volume>
+          <fpage>1001</fpage>
+          <lpage>7</lpage>
+          <pub-id pub-id-type="pmid">22722257</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b14-jcp-19-097">
+        <label>14.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Friess</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Guo</surname>
+              <given-names>XZ</given-names>
+            </name>
+            <name>
+              <surname>Nan</surname>
+              <given-names>BC</given-names>
+            </name>
+            <name>
+              <surname>Kleeff</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>B&#xFC;chler</surname>
+              <given-names>MW</given-names>
+            </name>
+          </person-group>
+          <article-title>Growth factors and cytokines in pancreatic carcinogenesis</article-title>
+          <source>Ann N Y Acad Sci</source>
+          <year>1999</year>
+          <volume>880</volume>
+          <fpage>110</fpage>
+          <lpage>21</lpage>
+          <pub-id pub-id-type="pmid">10415856</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b15-jcp-19-097">
+        <label>15.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Talar-Wojnarowska</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Gasiorowska</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Smolarz</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Romanowicz-Makowska</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Kulig</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Malecka-Panas</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Tumor necrosis factor alpha and interferon gamma genes polymorphisms and serum levels in pancreatic adenocarcinoma</article-title>
+          <source>Neoplasma</source>
+          <year>2009</year>
+          <volume>56</volume>
+          <fpage>56</fpage>
+          <lpage>62</lpage>
+          <pub-id pub-id-type="pmid">19152246</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b16-jcp-19-097">
+        <label>16.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wu</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Antony</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Juhasz</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Jiang</surname>
+              <given-names>G</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Activation of TLR4 is required for the synergistic induction of dual oxidase 2 and dual oxidase A2 by IFN-gamma and lipopolysaccharide in human pancreatic cancer cell lines</article-title>
+          <source>J Immunol</source>
+          <year>2013</year>
+          <volume>190</volume>
+          <fpage>1859</fpage>
+          <lpage>72</lpage>
+          <pub-id pub-id-type="pmid">23296709</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b17-jcp-19-097">
+        <label>17.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Abdullah</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Bayraktutan</surname>
+              <given-names>U</given-names>
+            </name>
+          </person-group>
+          <article-title>NADPH oxidase mediates TNF-a-evoked in vitro brain barrier dysfunction: roles of apoptosis and time</article-title>
+          <source>Mol Cell Neurosci</source>
+          <year>2014</year>
+          <volume>61C</volume>
+          <fpage>72</fpage>
+          <lpage>84</lpage>
+          <pub-id pub-id-type="pmid">24907586</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b18-jcp-19-097">
+        <label>18.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Prasad</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Gupta</surname>
+              <given-names>SC</given-names>
+            </name>
+            <name>
+              <surname>Tyagi</surname>
+              <given-names>AK</given-names>
+            </name>
+            <name>
+              <surname>Aggarwal</surname>
+              <given-names>BB</given-names>
+            </name>
+          </person-group>
+          <article-title>Curcumin, a component of golden spice: From bedside to bench and back [published online ahead of print April 30, 2014]</article-title>
+          <source>Biotechnol Adv</source>
+          <pub-id pub-id-type="doi">10.1016/j.biotechadv.2014.04.004</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b19-jcp-19-097">
+        <label>19.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Li</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Feng</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Xing</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Du</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Xu</surname>
+              <given-names>C</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Radioprotective and antioxidant effect of resveratrol in hippocampus by activating Sirt1</article-title>
+          <source>Int J Mol Sci</source>
+          <year>2014</year>
+          <volume>15</volume>
+          <fpage>5928</fpage>
+          <lpage>39</lpage>
+          <pub-id pub-id-type="pmid">24722566</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b20-jcp-19-097">
+        <label>20.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gong</surname>
+              <given-names>DK</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>BH</given-names>
+            </name>
+            <name>
+              <surname>Tan</surname>
+              <given-names>XH</given-names>
+            </name>
+          </person-group>
+          <article-title>Genistein prevents cadmium-induced neurotoxic effects through its antioxidant mechanisms [published online ahead of print June 11, 2014]</article-title>
+          <source>Drug Res(Stuttg)</source>
+          <pub-id pub-id-type="doi">10.1055/s-0034-1372595</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b21-jcp-19-097">
+        <label>21.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mohammad</surname>
+              <given-names>RM</given-names>
+            </name>
+            <name>
+              <surname>Banerjee</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Aboukameel</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Kucuk</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Sarkar</surname>
+              <given-names>FH</given-names>
+            </name>
+          </person-group>
+          <article-title>Cisplatin-induced antitumor activity is potentiated by the soy isoflavone genistein in BxPC-3 pancreatic tumor xenografts</article-title>
+          <source>Cancer</source>
+          <year>2006</year>
+          <volume>106</volume>
+          <fpage>1260</fpage>
+          <lpage>8</lpage>
+          <pub-id pub-id-type="pmid">16475211</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b22-jcp-19-097">
+        <label>22.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Banerjee</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Ali</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Bhuiyan</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Chiao</surname>
+              <given-names>PJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Molecular evidence for increased antitumor activity of gemcitabine by genistein in vitro and in vivo using an orthotopic model of pancreatic cancer</article-title>
+          <source>Cancer Res</source>
+          <year>2005</year>
+          <volume>65</volume>
+          <fpage>9064</fpage>
+          <lpage>72</lpage>
+          <pub-id pub-id-type="pmid">16204081</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b23-jcp-19-097">
+        <label>23.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Banerjee</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Sarkar</surname>
+              <given-names>FH</given-names>
+            </name>
+          </person-group>
+          <article-title>Inhibition of NF-kB activity by genistein is mediated via Notch-1 signaling pathway in pancreatic cancer cells</article-title>
+          <source>Int J Cancer</source>
+          <year>2006</year>
+          <volume>118</volume>
+          <fpage>1930</fpage>
+          <lpage>6</lpage>
+          <pub-id pub-id-type="pmid">16284950</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b24-jcp-19-097">
+        <label>24.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lev-Ari</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Starr</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Vexler</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Karaush</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Loew</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Greif</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Inhibition of pancreatic and lung adenocarcinoma cell survival by curcumin is associated with increased apoptosis, down-regulation of COX-2 and EGFR and inhibition of Erk1/2 activity</article-title>
+          <source>Anticancer Res</source>
+          <year>2006</year>
+          <volume>26</volume>
+          <fpage>4423</fpage>
+          <lpage>30</lpage>
+          <pub-id pub-id-type="pmid">17201164</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b25-jcp-19-097">
+        <label>25.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Banerjee</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Sarkar</surname>
+              <given-names>FH</given-names>
+            </name>
+          </person-group>
+          <article-title>Notch-1 down-regulation by curcumin is associated with the inhibition of cell growth and the induction of apoptosis in pancreatic cancer cells</article-title>
+          <source>Cancer</source>
+          <year>2006</year>
+          <volume>106</volume>
+          <fpage>2503</fpage>
+          <lpage>13</lpage>
+          <pub-id pub-id-type="pmid">16628653</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b26-jcp-19-097">
+        <label>26.</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lev-Ari</surname><given-names>S</given-names></name><name><surname>Zinger</surname><given-names>H</given-names></name><name><surname>Kazanov</surname><given-names>D</given-names></name><name><surname>Yona</surname><given-names>D</given-names></name><name><surname>Ben-Yosef</surname><given-names>R</given-names></name><name><surname>Starr</surname><given-names>A</given-names></name><etal/></person-group><article-title>Curcumin synergistically potentiates the growth inhibitory and pro-apoptotic effects of celecoxib in pancreatic adenocarcinoma cells</article-title><source>Biomed Pharmacother</source><year>2005</year><volume>59</volume>(<issue>suppl 2</issue>)<fpage>S276</fpage><lpage>80</lpage><pub-id pub-id-type="pmid">16507392</pub-id></mixed-citation>
+      </ref>
+      <ref id="b27-jcp-19-097">
+        <label>27.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Glienke</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Maute</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Wicht</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Bergmann</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Curcumin inhibits constitutive STAT3 phosphorylation in human pancreatic cancer cell lines and downregulation of survivin/BIRC5 gene expression</article-title>
+          <source>Cancer Invest</source>
+          <year>2010</year>
+          <volume>28</volume>
+          <fpage>166</fpage>
+          <lpage>71</lpage>
+          <pub-id pub-id-type="pmid">20121547</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b28-jcp-19-097">
+        <label>28.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gupta</surname>
+              <given-names>SC</given-names>
+            </name>
+            <name>
+              <surname>Kannappan</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Reuter</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Aggarwal</surname>
+              <given-names>BB</given-names>
+            </name>
+          </person-group>
+          <article-title>Chemosensitization of tumors by resveratrol</article-title>
+          <source>Ann N Y Acad Sci</source>
+          <year>2011</year>
+          <volume>1215</volume>
+          <fpage>150</fpage>
+          <lpage>60</lpage>
+          <pub-id pub-id-type="pmid">21261654</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b29-jcp-19-097">
+        <label>29.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Tian</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Zhu</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Resveratrol plays dual roles in pancreatic cancer cells</article-title>
+          <source>J Cancer Res Clin Oncol</source>
+          <year>2014</year>
+          <volume>140</volume>
+          <fpage>749</fpage>
+          <lpage>55</lpage>
+          <pub-id pub-id-type="pmid">24604347</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b30-jcp-19-097">
+        <label>30.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Du</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Nelson</surname>
+              <given-names>ES</given-names>
+            </name>
+            <name>
+              <surname>Simons</surname>
+              <given-names>AL</given-names>
+            </name>
+            <name>
+              <surname>Olney</surname>
+              <given-names>KE</given-names>
+            </name>
+            <name>
+              <surname>Moser</surname>
+              <given-names>JC</given-names>
+            </name>
+            <name>
+              <surname>Schrock</surname>
+              <given-names>HE</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Regulation of pancreatic cancer growth by superoxide</article-title>
+          <source>Mol Carcinog</source>
+          <year>2013</year>
+          <volume>52</volume>
+          <fpage>555</fpage>
+          <lpage>67</lpage>
+          <pub-id pub-id-type="pmid">22392697</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b31-jcp-19-097">
+        <label>31.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Du</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>BJ</given-names>
+            </name>
+            <name>
+              <surname>Tsao</surname>
+              <given-names>MS</given-names>
+            </name>
+            <name>
+              <surname>Cullen</surname>
+              <given-names>JJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Role of Rac1-dependent NADPH oxidase in the growth of pancreatic cancer</article-title>
+          <source>Cancer Gene Ther</source>
+          <year>2011</year>
+          <volume>18</volume>
+          <fpage>135</fpage>
+          <lpage>43</lpage>
+          <pub-id pub-id-type="pmid">21037555</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b32-jcp-19-097">
+        <label>32.</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Matsuo</surname><given-names>Y</given-names></name><name><surname>Ochi</surname><given-names>N</given-names></name><name><surname>Sawai</surname><given-names>H</given-names></name><name><surname>Yasuda</surname><given-names>A</given-names></name><name><surname>Takahashi</surname><given-names>H</given-names></name><name><surname>Funahashi</surname><given-names>H</given-names></name><etal/></person-group><article-title>CXCL8/IL-8 and CXCL12/SDF-1alpha co-operatively promote invasiveness and angiogenesis in pancreatic cancer</article-title><source>Int J Cancer</source><year>2009</year><volume>124</volume><fpage>853</fpage>-<lpage>61</lpage><pub-id pub-id-type="pmid">19035451</pub-id></mixed-citation>
+      </ref>
+      <ref id="b33-jcp-19-097">
+        <label>33.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wigmore</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Fearon</surname>
+              <given-names>KC</given-names>
+            </name>
+            <name>
+              <surname>Sangster</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Maingay</surname>
+              <given-names>JP</given-names>
+            </name>
+            <name>
+              <surname>Garden</surname>
+              <given-names>OJ</given-names>
+            </name>
+            <name>
+              <surname>Ross</surname>
+              <given-names>JA</given-names>
+            </name>
+          </person-group>
+          <article-title>Cytokine regulation of constitutive production of interleukin-8 and -6 by human pancreatic cancer cell lines and serum cytokine concentrations in patients with pancreatic cancer</article-title>
+          <source>Int J Oncol</source>
+          <year>2002</year>
+          <volume>21</volume>
+          <fpage>881</fpage>
+          <lpage>6</lpage>
+          <pub-id pub-id-type="pmid">12239630</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b34-jcp-19-097">
+        <label>34.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bellone</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Smirne</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Mauri</surname>
+              <given-names>FA</given-names>
+            </name>
+            <name>
+              <surname>Tonel</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Carbone</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Buffolino</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Cytokine expression profile in human pancreatic carcinoma cells and in surgical specimens: implications for survival</article-title>
+          <source>Cancer Immunol Immunother</source>
+          <year>2006</year>
+          <volume>55</volume>
+          <fpage>684</fpage>
+          <lpage>98</lpage>
+          <pub-id pub-id-type="pmid">16094523</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b35-jcp-19-097">
+        <label>35.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tang</surname>
+              <given-names>RF</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>SX</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>FR</given-names>
+            </name>
+            <name>
+              <surname>Peng</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>SX</given-names>
+            </name>
+            <name>
+              <surname>Xiao</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Interleukin-1alpha, 6 regulate the secretion of vascular endothelial growth factor A, C in pancreatic cancer</article-title>
+          <source>Hepatobiliary Pancreat Dis Int</source>
+          <year>2005</year>
+          <volume>4</volume>
+          <fpage>460</fpage>
+          <lpage>3</lpage>
+          <pub-id pub-id-type="pmid">16109537</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b36-jcp-19-097">
+        <label>36.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kang</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Tang</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Lotze</surname>
+              <given-names>MT</given-names>
+            </name>
+            <name>
+              <surname>Zeh</surname>
+              <given-names>HJ</given-names>
+              <suffix>3rd</suffix>
+            </name>
+          </person-group>
+          <article-title>AGER/RAGE-mediated autophagy promotes pancreatic tumorigenesis and bioenergetics through the IL6-pSTAT3 pathway</article-title>
+          <source>Autophagy</source>
+          <year>2012</year>
+          <volume>8</volume>
+          <fpage>989</fpage>
+          <lpage>91</lpage>
+          <pub-id pub-id-type="pmid">22722139</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b37-jcp-19-097">
+        <label>37.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Greco</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Basso</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Fogar</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Mazza</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Navaglia</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Zambon</surname>
+              <given-names>CF</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Pancreatic cancer cells invasiveness is mainly affected by interleukin-1beta not by transforming growth factor-beta1</article-title>
+          <source>Int J Biol Markers</source>
+          <year>2005</year>
+          <volume>20</volume>
+          <fpage>235</fpage>
+          <lpage>41</lpage>
+          <pub-id pub-id-type="pmid">16398405</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b38-jcp-19-097">
+        <label>38.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Arlt</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Vorndamm</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Muerk&#xF6;ster</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Yu</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Schmidt</surname>
+              <given-names>WE</given-names>
+            </name>
+            <name>
+              <surname>F&#xF6;lsch</surname>
+              <given-names>UR</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Autocrine production of interleukin 1beta confers constitutive nuclear factor kappaB activity and chemoresistance in pancreatic carcinoma cell lines</article-title>
+          <source>Cancer Res</source>
+          <year>2002</year>
+          <volume>62</volume>
+          <fpage>910</fpage>
+          <lpage>6</lpage>
+          <pub-id pub-id-type="pmid">11830551</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b39-jcp-19-097">
+        <label>39.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Angst</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Reber</surname>
+              <given-names>HA</given-names>
+            </name>
+            <name>
+              <surname>Hines</surname>
+              <given-names>OJ</given-names>
+            </name>
+            <name>
+              <surname>Eibl</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>Mononuclear cell-derived interleukin-1 beta confers chemoresistance in pancreatic cancer cells by upregulation of cyclooxygenase-2</article-title>
+          <source>Surgery</source>
+          <year>2008</year>
+          <volume>144</volume>
+          <fpage>57</fpage>
+          <lpage>65</lpage>
+          <pub-id pub-id-type="pmid">18571585</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b40-jcp-19-097">
+        <label>40.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mitsunaga</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Ikeda</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Shimizu</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Ohno</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Furuse</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Inagaki</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Serum levels of IL-6 and IL-1b can predict the efficacy of gemcitabine in patients with advanced pancreatic cancer</article-title>
+          <source>Br J Cancer</source>
+          <year>2013</year>
+          <volume>108</volume>
+          <fpage>2063</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="pmid">23591198</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b41-jcp-19-097">
+        <label>41.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kuwada</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Sasaki</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Morinaka</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Kitadai</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Mukaida</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Chayama</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Potential involvement of IL-8 and its receptors in the invasiveness of pancreatic cancer cells</article-title>
+          <source>Int J Oncol</source>
+          <year>2003</year>
+          <volume>22</volume>
+          <fpage>765</fpage>
+          <lpage>71</lpage>
+          <pub-id pub-id-type="pmid">12632066</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b42-jcp-19-097">
+        <label>42.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Egberts</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Cloosters</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Noack</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Schniewind</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Thon</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Klose</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Anti-tumor necrosis factor therapy inhibits pancreatic tumor growth and metastasis</article-title>
+          <source>Cancer Res</source>
+          <year>2008</year>
+          <volume>68</volume>
+          <fpage>1443</fpage>
+          <lpage>50</lpage>
+          <pub-id pub-id-type="pmid">18316608</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b43-jcp-19-097">
+        <label>43.</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Sato</surname><given-names>A</given-names></name><name><surname>Kudo</surname><given-names>C</given-names></name><name><surname>Yamakoshi</surname><given-names>H</given-names></name><name><surname>Uehara</surname><given-names>Y</given-names></name><name><surname>Ohori</surname><given-names>H</given-names></name><name><surname>Ishioka</surname><given-names>C</given-names></name><etal/></person-group>.<article-title>Curcumin analog GO-Y030 is a novel inhibitor of IKKb that suppresses NF-kB signaling and induces apoptosis</article-title><source>Cancer Sci</source><year>2011</year><volume>102</volume><fpage>1045</fpage><lpage>51</lpage><pub-id pub-id-type="pmid">21272158</pub-id></mixed-citation>
+      </ref>
+      <ref id="b44-jcp-19-097">
+        <label>44.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kunnumakkara</surname>
+              <given-names>AB</given-names>
+            </name>
+            <name>
+              <surname>Guha</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Krishnan</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Diagaradjane</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Gelovani</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Aggarwal</surname>
+              <given-names>BB</given-names>
+            </name>
+          </person-group>
+          <article-title>Curcumin potentiates antitumor activity of gemcitabine in an orthotopic model of pancreatic cancer through suppression of proliferation, angiogenesis, and inhibition of nuclear factor-kappaB-regulated gene products</article-title>
+          <source>Cancer Res</source>
+          <year>2007</year>
+          <volume>67</volume>
+          <fpage>3853</fpage>
+          <lpage>61</lpage>
+          <pub-id pub-id-type="pmid">17440100</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b45-jcp-19-097">
+        <label>45.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sato</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Kudo</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Yamakoshi</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Uehara</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Ohori</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Ishioka</surname>
+              <given-names>C</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Curcumin analog GO-Y030 is a novel inhibitor of IKKb that suppresses NF-kB signaling and induces apoptosis</article-title>
+          <source>Cancer Sci</source>
+          <year>2011</year>
+          <volume>102</volume>
+          <fpage>1045</fpage>
+          <lpage>51</lpage>
+          <pub-id pub-id-type="pmid">21272158</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b46-jcp-19-097">
+        <label>46.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kunnumakkara</surname>
+              <given-names>AB</given-names>
+            </name>
+            <name>
+              <surname>Guha</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Krishnan</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Diagaradjane</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Gelovani</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Aggarwal</surname>
+              <given-names>BB</given-names>
+            </name>
+          </person-group>
+          <article-title>Curcumin potentiates antitumor activity of gemcitabine in an orthotopic model of pancreatic cancer through suppression of proliferation, angiogenesis, and inhibition of nuclear factor-kappaB-regulated gene products</article-title>
+          <source>Cancer Res</source>
+          <year>2007</year>
+          <volume>67</volume>
+          <fpage>3853</fpage>
+          <lpage>61</lpage>
+          <pub-id pub-id-type="pmid">17440100</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b47-jcp-19-097">
+        <label>47.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Glienke</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Maute</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Wicht</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Bergmann</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Curcumin inhibits constitutive STAT3 phosphorylation in human pancreatic cancer cell lines and downregulation of survivin/BIRC5 gene expression</article-title>
+          <source>Cancer Invest</source>
+          <year>2010</year>
+          <volume>28</volume>
+          <fpage>166</fpage>
+          <lpage>71</lpage>
+          <pub-id pub-id-type="pmid">20121547</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b48-jcp-19-097">
+        <label>48.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sun</surname>
+              <given-names>XD</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>XE</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>DS</given-names>
+            </name>
+          </person-group>
+          <article-title>Curcumin reverses the epithelial-mesenchymal transition of pancreatic cancer cells by inhibiting the Hedgehog signaling pathway</article-title>
+          <source>Oncol Rep</source>
+          <year>2013</year>
+          <volume>29</volume>
+          <fpage>2401</fpage>
+          <lpage>7</lpage>
+          <pub-id pub-id-type="pmid">23563640</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b49-jcp-19-097">
+        <label>49.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Li</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Ma</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Ma</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Han</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Resveratrol inhibits the epithelial-mesenchymal transition of pancreatic cancer cells via suppression of the PI-3K/Akt/NF-kB pathway</article-title>
+          <source>Curr Med Chem</source>
+          <year>2013</year>
+          <volume>20</volume>
+          <fpage>4185</fpage>
+          <lpage>94</lpage>
+          <pub-id pub-id-type="pmid">23992306</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b50-jcp-19-097">
+        <label>50.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bao</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Ali</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Kong</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Banerjee</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Ahmad</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Over-expression of FoxM1 leads to epithelial-mesenchymal transition and cancer stem cell phenotype in pancreatic cancer cells</article-title>
+          <source>J Cell Biochem</source>
+          <year>2011</year>
+          <volume>112</volume>
+          <fpage>2296</fpage>
+          <lpage>306</lpage>
+          <pub-id pub-id-type="pmid">21503965</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="f1-jcp-19-097" orientation="portrait" position="float">
+      <label>Figure.</label>
+      <caption>
+        <p>Crosstalk of reactive oxygen species (ROS) and cytokines for cancer-related signaling in pancreatic cancer. High levels of growth factors (insulin-like growth factor-1 [IGF-1], transforming growth factor-1 [TGF-&#x3B2;]), cytokines (interleukin-1&#x3B2; [IL-1&#x3B2;], IL-6, IL-8, and tumor necrosis factor-&#x3B1; [TNF-&#x3B1;]), and extracellular matrix (ECM) proteins (fibronectin and laminin) are observed in pancreatic cancer. Growth factors, cytokines (interferon-&#x3B3; [IFN-&#x3B3;], TNF-&#x3B1;) and ECM proteins activate nicotinamide adenine dinucleotide phosphate (NADPH) oxidase (NOX) and dual oxidase 2 (DUOX2) and produce ROS in pancreatic cancer cells. ROS activate signaling pathways mediated by p38 mitogen-activated protein kinase (MAPK), NF-&#x3BA;B, and janus kinase/signal transducer and activator of transcription (JAK/STAT), which inhibits cancer cell apoptosis and induces cytokine expression and epithelial-mesenchymal transition (EMT). ROS inhibit protein tyrosine phoshatase 1B (PTP 1B) which suppress EMT. Therefore, ROS induce phosphorylation of p38 MAPK and EMT in the course of pancreatic cancer development. Bioactive compounds, having antioxidant activities, such as curcumin, resveratrol, and genistein, reduce ROS levels and thus, may inhibit ROS-mediated signaling of p38 MAPK, NF-&#x3BA;B, and JAK/STAT. The compounds inhibit EMT and cytokine expression and induce cancer cell apoptosis.</p>
+      </caption>
+      <graphic xlink:href="jcp-19-097f1"/>
+    </fig>
+  </floats-group>
+</article>
+</pmc-articleset>
