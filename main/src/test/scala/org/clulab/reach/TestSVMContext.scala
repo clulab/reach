@@ -29,16 +29,186 @@ class TestSVMContext extends FlatSpec with Matchers {
 
   // In this test suite, I'm testing more on inhibition papers rather than activation papers, since they are shorter in length, and thus take lesser time to run through reach.
 
-  // TESTS AND VARIABLES FOR ACTIVATION PAPER: PMC2910130
+
+
+  // ************ TESTS AND VARIABLES FOR ACTIVATION PAPER: PMC2910130 ************
   val activationPath1 = config.getString("papersDir").concat(s"/activation/PMC2910130.nxml")
   val nxmlAct1 = nxmlReader.read(activationPath1)
   val docAct1 = reachSystem.mkDoc(nxmlAct1)
   val mentionsActivPaper1 = reachSystem.extractFrom(docAct1)
   // convert resultant from extractEvtId to string when you check against this
-  val activevtCtxPair1 = "41520,tissuelist:TS-0500" // expected prediction: 1
-  val activevtCtxPair2 = "41520,cl:CL:0000312" // expected prediction: 0
-  val activevtCtxPair3 = "51618,tissuelist:TS-0500" // expected prediction: 1
+  val activevtCtxPair1 = "41520,tissuelist:TS-0500" // expected prediction: 1 //dmax7 //conmax 2 //closmax 1
+  val activevtCtxPair2 = "41520,cl:CL:0000312" // expected prediction: 0 //dmax7 //conmax 4 //closmax 1
+  val activevtCtxPair3 = "51618,tissuelist:TS-0500" // expected prediction: 1 //dmax8 //conmax 2 //closmax 1
   val outPaperDirPathActiv1 = config.getString("contextEngine.params.contextOutputDir").concat(s"activation/PMC2910130/")
+
+
+  // Pair 1 tests start
+  activevtCtxPair1 should "have prediction 1" in {
+    val evtID = activevtCtxPair1.split(",")(0)
+    val ctxID = activevtCtxPair1.split(",")(1)
+    val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
+    pred(0) should be (1)
+  }
+
+
+  activevtCtxPair1 should "have min sentence distance of 1" in {
+    val evtID = activevtCtxPair1.split(",")(0)
+    val ctxID = activevtCtxPair1.split(",")(1)
+    val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("sentenceDistance_min")
+    val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
+    valueSentMin should be (1)
+  }
+
+  activevtCtxPair1 should "have maximum sentence distance of 4" in {
+    val evtID = activevtCtxPair1.split(",")(0)
+    val ctxID = activevtCtxPair1.split(",")(1)
+    val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("sentenceDistance_max")
+    val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
+    valueSentMin should be (4)
+  }
+
+
+  //context_frequency_max
+  activevtCtxPair1 should "have maximum dependency distance of 7" in {
+    val evtID = activevtCtxPair1.split(",")(0)
+    val ctxID = activevtCtxPair1.split(",")(1)
+    val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("dependencyDistance_max")
+    val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
+    valueSentMin should be (7)
+  }
+
+  activevtCtxPair1 should "have maximum context frequency of 2" in {
+    val evtID = activevtCtxPair1.split(",")(0)
+    val ctxID = activevtCtxPair1.split(",")(1)
+    val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("context_frequency_max")
+    val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
+    valueSentMin should be (2)
+  }
+
+  activevtCtxPair1 should "have maximum closest context of 1" in {
+    val evtID = activevtCtxPair1.split(",")(0)
+    val ctxID = activevtCtxPair1.split(",")(1)
+    val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("closesContextOfClass_max")
+    val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
+    valueSentMin should be (1)
+  }
+  // pair 1 tests end
+
+
+  // pair 2 tests start
+  activevtCtxPair2 should "have prediction 0" in {
+    val evtID = activevtCtxPair2.split(",")(0)
+    val ctxID = activevtCtxPair2.split(",")(1)
+    val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
+    pred(0) should be (0)
+  }
+
+  activevtCtxPair2 should "have minimum sentence distance of 0" in {
+    val evtID = activevtCtxPair2.split(",")(0)
+    val ctxID = activevtCtxPair2.split(",")(1)
+    val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("sentenceDistance_min")
+    val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
+    valueSentMin should be (0)
+  }
+
+  activevtCtxPair2 should "have max sentence distance of 3" in {
+    val evtID = activevtCtxPair2.split(",")(0)
+    val ctxID = activevtCtxPair2.split(",")(1)
+    val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("sentenceDistance_max")
+    val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
+    valueSentMin should be (3)
+  }
+
+  activevtCtxPair2 should "have max dep distance of 7" in {
+    val evtID = activevtCtxPair2.split(",")(0)
+    val ctxID = activevtCtxPair2.split(",")(1)
+    val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("dependencyDistance_max")
+    val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
+    valueSentMin should be (7)
+  }
+
+  activevtCtxPair2 should "have maximum context frequency of 4" in {
+    val evtID = activevtCtxPair2.split(",")(0)
+    val ctxID = activevtCtxPair2.split(",")(1)
+    val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("context_frequency_max")
+    val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
+    valueSentMin should be (4)
+  }
+  activevtCtxPair2 should "have maximum closest context of 1" in {
+    val evtID = activevtCtxPair2.split(",")(0)
+    val ctxID = activevtCtxPair2.split(",")(1)
+    val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("closesContextOfClass_max")
+    val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
+    valueSentMin should be (1)
+  }
+  // pair 2 tests end
+
+
+  // pair 3 tests start
+  activevtCtxPair3 should "have min sentence distance of 5" in {
+    val evtID = activevtCtxPair3.split(",")(0)
+    val ctxID = activevtCtxPair3.split(",")(1)
+    val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("sentenceDistance_min")
+    val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
+    valueSentMin should be (5)
+  }
+
+  activevtCtxPair3 should "have max sentence distance of 5" in {
+    val evtID = activevtCtxPair3.split(",")(0)
+    val ctxID = activevtCtxPair3.split(",")(1)
+    val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("sentenceDistance_max")
+    val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
+    valueSentMin should be (5)
+  }
+
+  activevtCtxPair3 should "have max dep distance of 8" in {
+    val evtID = activevtCtxPair3.split(",")(0)
+    val ctxID = activevtCtxPair3.split(",")(1)
+    val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("dependencyDistance_max")
+    val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
+    valueSentMin should be (5)
+  }
+
+  activevtCtxPair3 should "have maximum context frequency of 2" in {
+    val evtID = activevtCtxPair3.split(",")(0)
+    val ctxID = activevtCtxPair3.split(",")(1)
+    val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("context_frequency_max")
+    val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
+    valueSentMin should be (2)
+  }
 
   activevtCtxPair3 should "not have empty mentions" in {
     mentionsActivPaper1 should not be (empty)
@@ -52,25 +222,20 @@ class TestSVMContext extends FlatSpec with Matchers {
     val pred = trainedSVMInstance.predict(Seq(activeRow3))
     pred(0) should be (1)
   }
-
-  activevtCtxPair2 should "have prediction 0" in {
-    val evtID = activevtCtxPair2.split(",")(0)
-    val ctxID = activevtCtxPair2.split(",")(1)
+  activevtCtxPair3 should "have maximum closest context of 1" in {
+    val evtID = activevtCtxPair3.split(",")(0)
+    val ctxID = activevtCtxPair3.split(",")(1)
     val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
     val activeRow3 = readAggRowFromFile(filePath)
-    val pred = trainedSVMInstance.predict(Seq(activeRow3))
-    pred(0) should be (0)
+    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("closesContextOfClass_max")
+    val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
+    valueSentMin should be (1)
   }
+  // pair 3 tests end
+  // ************ CONCLUDING TESTS AND VARIABLES FOR ACTIVATION PAPER: PMC2910130 ************
 
-  activevtCtxPair1 should "have prediction 1" in {
-    val evtID = activevtCtxPair1.split(",")(0)
-    val ctxID = activevtCtxPair1.split(",")(1)
-    val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
-    val activeRow3 = readAggRowFromFile(filePath)
-    val pred = trainedSVMInstance.predict(Seq(activeRow3))
-    pred(0) should be (1)
-  }
-  // CONCLUDING TESTS AND VARIABLES FOR ACTIVATION PAPER: PMC2910130
+
+
 
 
 
