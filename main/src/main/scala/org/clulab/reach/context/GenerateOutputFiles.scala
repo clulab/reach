@@ -11,9 +11,6 @@ import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.mentions.BioTextBoundMention
 import org.clulab.struct.Interval
 object GenerateOutputFiles extends App {
-
-    // need to refine the code for generating intervals
-    println("Inside generate output class")
     val config = ConfigFactory.load()
     val typeOfPaper = ""
     val dirForType = if(typeOfPaper.length != 0) config.getString("papersDir").concat(s"/${typeOfPaper}") else config.getString("papersDir")
@@ -22,8 +19,6 @@ object GenerateOutputFiles extends App {
     lazy val reachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
         contextEngineType = contextEngineType,
         contextParams = contextEngineParams)
-
-
 
 
     // ********* Writing to sentences.txt ************

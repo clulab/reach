@@ -50,19 +50,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       // If we have already run infer
       case Some(ctxMentions) =>
 
-        val contextFrequencyMap = collection.mutable.Map[String, Double]()
-        ctxMentions.map(f => {
-          val id = f.nsId()
-          if(contextFrequencyMap.contains(id)) {
-            val get = contextFrequencyMap(id)
-            contextFrequencyMap(id) = get + 1
-          }
-
-          else {
-            val newEntry = Map(id -> 1.0)
-            contextFrequencyMap ++= newEntry
-          }
-        })
+        val contextFrequencyMap = calculateContextFreq(ctxMentions)
 
         // Collect the event mentions
         val evtMentions = mentions collect  {
@@ -86,8 +74,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         val tempo = pairs.map{p =>
           extractFeaturesToCalcByBestFeatSet(p, ctxMentions, contextFrequencyMap.toMap)
         }
-
-        //pairs map extractFeaturesToCalcByBestFeatSet
         val flattenedMap = tempo.flatMap(t=>t).toMap
         val features:Seq[InputRow] = tempo.flatMap(t => t.keySet)
         // Aggregate the features of all the instances of a pair
@@ -120,16 +106,14 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
                 }
 
 
-
                 logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
-
                 val featureListForDebugging = Seq("sentenceDistance_min","sentenceDistance_max", "dependencyDistance_max", "context_frequency_max", "closesCtxOfClass_max", "ctxNegationIntTail_max", "evtSentenceFirstPerson_max", "ctxSentencePastTense_max","evtSentencePresentTense_max", "ctxDepTail_subj_auxpass_max", "ctxDepTail_cc_cc_max", "ctxDepTail_subj_subj_max", "ctxDepTail_subj_mod_max")
                 featureListForDebugging.map(f => {
                   if(aggregatedFeature.featureGroupNames.contains(f)) {
-                  val index = aggregatedFeature.featureGroupNames.indexOf(f)
-                  val featVal = aggregatedFeature.featureGroups(index)
-                  logger.info(s"${f} : ${featVal}")
-                }
+                    val index = aggregatedFeature.featureGroupNames.indexOf(f)
+                    val featVal = aggregatedFeature.featureGroups(index)
+                    logger.info(s"${f} : ${featVal}")
+                  }
                   else logger.info(s"This feature is not contained in the aggregated feature: ${f}")})
                 (ctxId, prediction)
             }
@@ -200,7 +184,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   // we have to take a slight detour of using InputRow and then AggregatedRowNew, instead of using AggregatedRowNew directly, as ml4ai does.
   // please contact the authors of the ml4ai package if you experience a roadblock while using the utilities it provides.
 
-  private def extractFeaturesToCalcByBestFeatSet(datum:(BioEventMention, BioTextBoundMention), contextMentions:Seq[BioTextBoundMention], ctxFreqMap:Map[String,Double]):Map[InputRow, (Map[String,Double],Map[String,Double],Map[String,Double])] =
+  def extractFeaturesToCalcByBestFeatSet(datum:(BioEventMention, BioTextBoundMention), contextMentions:Seq[BioTextBoundMention], ctxFreqMap:Map[String,Double]):Map[InputRow, (Map[String,Double],Map[String,Double],Map[String,Double])] =
   {
 
     // val file
@@ -269,14 +253,29 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     entry
   }
 
-  private def extractEvtId(evt:BioEventMention):EventID = {
+  def extractEvtId(evt:BioEventMention):EventID = {
     val sentIndex = evt.sentence
     val tokenIntervalStart = (evt.tokenInterval.start).toString()
     val tokenIntervalEnd = (evt.tokenInterval.end).toString()
     sentIndex+tokenIntervalStart+tokenIntervalEnd
   }
+  def calculateContextFreq(ctxMentions: Seq[BioTextBoundMention]):collection.mutable.Map[String, Double] = {
+    val contextFrequencyMap = collection.mutable.Map[String, Double]()
+    ctxMentions.map(f => {
+      val id = f.nsId()
+      if(contextFrequencyMap.contains(id)) {
+        val get = contextFrequencyMap(id)
+        contextFrequencyMap(id) = get + 1
+      }
 
-  private def aggregateFeatures(instances:Seq[InputRow], featValLookUp:Map[InputRow, (Map[String,Double],Map[String,Double],Map[String,Double])]):AggregatedRow = {
+      else {
+        val newEntry = Map(id -> 1.0)
+        contextFrequencyMap ++= newEntry
+      }
+    })
+    contextFrequencyMap
+  }
+  def aggregateFeatures(instances:Seq[InputRow], featValLookUp:Map[InputRow, (Map[String,Double],Map[String,Double],Map[String,Double])]):AggregatedRow = {
 
     val label = None
     val featureSetNames = collection.mutable.ListBuffer[String]()
@@ -362,7 +361,26 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     addAggregatedOnce(ctxFeatVal)
     addAggregatedOnce(evtFeatVal)
     val newAggRow = AggregatedRow(0, instances(0).PMCID, "", "", label, featureSetValues.toArray,featureSetNames.toArray)
+    //writeRowToFile(newAggRow)
     newAggRow
+  }
+
+  private def writeRowToFile(row:AggregatedRow):Unit = {
+    val typeOfPaper = "activation"
+    val dirForType = if(typeOfPaper.length != 0) config.getString("papersDir").concat(s"/${typeOfPaper}") else config.getString("papersDir")
+    val fileListUnfiltered = new File(dirForType)
+    val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
+    for(file <- fileList) {
+      val pmcid = file.getName.slice(0,file.getName.length-5)
+      val outPaperDirPath = config.getString("contextEngine.params.contextOutputDir").concat(s"${pmcid}")
+      // creating output directory if it doesn't already exist
+      val outputPaperDir = new File(outPaperDirPath)
+      if(!outputPaperDir.exists()) {
+        outputPaperDir.mkdirs()
+      }
+
+      val pathForRow = outPaperDirPath.concat("/AggregatedRow.txt")
+    }
   }
 
   private def intersentenceDependencyPath(datum:(BioEventMention, BioTextBoundMention)): Option[Seq[String]] = {
@@ -604,9 +622,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
     // Negation in context mention
     val ctxNegationInTail = if(ctxDependencyTails.filter(tail => tail.contains("neg")).size > 0) 1.0 else 0.0
-    logger.info("inside calculate feature value function")
-    logger.info(s"Current event ID: ${extractEvtId(event)}")
-    logger.info(s"Current context ID: ${context.nsId()}")
     result ++= Map("ctxNegationIntTail" -> ctxNegationInTail)
 
 
@@ -629,14 +644,10 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   private def calculateCtxDepFeatureVals(datum:(BioEventMention, BioTextBoundMention)):Map[String,Double] = {
     val context = datum._2
     val doc = context.document
-    logger.info("inside calculate dep tail function")
-    logger.info(s"Current event ID: ${extractEvtId(datum._1)}")
-    logger.info(s"current context ID: ${datum._2.nsId()}")
+
     val ctxDependencyTails = dependencyTails(context.sentence, context.tokenInterval, doc)
     val ctxDepStrings = ctxDependencyTails.map(c => c.mkString("_"))
-    ctxDepStrings.map(c => {
-      logger.info(c)
-    })
+
    ctxDepStrings.map(t => s"ctxDepTail_$t").groupBy(identity).mapValues(_.length).mapValues(_.toDouble)
   }
 
