@@ -27,8 +27,8 @@ class TestSVMContext extends FlatSpec with Matchers {
     contextEngineType = contextEngineType,
     contextParams = contextEngineParams)
 
-
-  // TESTS AND VARIABLES FOR 1ST ACTIVATION PAPER: PMC2910130
+  // In this test suite, I'm testing more on inhibition papers rather than activation papers, since they are shorter in length, and thus taking lesser time.
+  // TESTS AND VARIABLES FOR ACTIVATION PAPER: PMC2910130
   val activationPath1 = config.getString("papersDir").concat(s"/activation/PMC2910130.nxml")
   val nxmlAct1 = nxmlReader.read(activationPath1)
   val docAct1 = reachSystem.mkDoc(nxmlAct1)
@@ -71,51 +71,6 @@ class TestSVMContext extends FlatSpec with Matchers {
   }
   // CONCLUDING TESTS AND VARIABLES FOR 1ST ACTIVATION PAPER: PMC2910130
 
-
-
-  // TESTS AND VARIABLES FOR 2ND ACTIVATION PAPER: PMC4446607
-  val activationPath2 = config.getString("papersDir").concat(s"/activation/PMC4446607.nxml")
-  val nxmlAct2 = nxmlReader.read(activationPath2)
-  val docAct2 = reachSystem.mkDoc(nxmlAct2)
-  val mentionsActivPaper2 = reachSystem.extractFrom(docAct2)
-  val activPaper2Pair1 = "872526,uberon:UBERON:0000376" // expected output : 0
-  val activPaper2Pair2 = "8637,tissuelist:TS-0362" // expected output: 1
-  val activPaper2Pair3 = "96424,tissuelist:TS-0574.txt" // expected output: 0
-  val outPaperDirPathActiv2 = config.getString("contextEngine.params.contextOutputDir").concat("PMC4446607/")
-
-
-  activPaper2Pair1 should "not have empty mentions" in {
-    mentionsActivPaper2 should not be (empty)
-  }
-
-  activPaper2Pair1 should "have prediction 0" in {
-    val evtID = activPaper2Pair1.split(",")(0)
-    val ctxID = activPaper2Pair1.split(",")(1)
-    val filePath = outPaperDirPathActiv2.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
-    val activeRow3 = readAggRowFromFile(filePath)
-    val pred = trainedSVMInstance.predict(Seq(activeRow3))
-    pred(0) should be (0)
-  }
-
-  activPaper2Pair2 should "have prediction 1" in {
-    val evtID = activPaper2Pair2.split(",")(0)
-    val ctxID = activPaper2Pair2.split(",")(1)
-    val filePath = outPaperDirPathActiv2.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
-    val activeRow3 = readAggRowFromFile(filePath)
-    val pred = trainedSVMInstance.predict(Seq(activeRow3))
-    pred(0) should be (1)
-  }
-
-  activPaper2Pair3 should "have prediction 0" in {
-    val evtID = activPaper2Pair3.split(",")(0)
-    val ctxID = activPaper2Pair3.split(",")(1)
-    val filePath = outPaperDirPathActiv2.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
-    val activeRow3 = readAggRowFromFile(filePath)
-    val pred = trainedSVMInstance.predict(Seq(activeRow3))
-    pred(0) should be (0)
-  }
-
-  // CONCLUDING TESTS AND VARIABLES FOR 2ND ACTIVATION PAPER: PMC4446607
 
 
 
