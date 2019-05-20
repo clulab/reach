@@ -101,7 +101,7 @@ class TestSVMContext extends FlatSpec with Matchers {
     val ctxID = activevtCtxPair1.split(",")(1)
     val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
     val activeRow3 = readAggRowFromFile(filePath)
-    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("closesContextOfClass_max")
+    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("closesCtxOfClass_max")
     val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
     valueSentMin should be (1)
   }
@@ -162,7 +162,7 @@ class TestSVMContext extends FlatSpec with Matchers {
     val ctxID = activevtCtxPair2.split(",")(1)
     val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
     val activeRow3 = readAggRowFromFile(filePath)
-    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("closesContextOfClass_max")
+    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("closesCtxOfClass_max")
     val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
     valueSentMin should be (1)
   }
@@ -170,14 +170,14 @@ class TestSVMContext extends FlatSpec with Matchers {
 
 
   // pair 3 tests start
-  activevtCtxPair3 should "have min sentence distance of 5" in {
+  activevtCtxPair3 should "have min sentence distance of 2" in {
     val evtID = activevtCtxPair3.split(",")(0)
     val ctxID = activevtCtxPair3.split(",")(1)
     val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
     val activeRow3 = readAggRowFromFile(filePath)
     val indexOfSentMin = activeRow3.featureGroupNames.indexOf("sentenceDistance_min")
     val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
-    valueSentMin should be (5)
+    valueSentMin should be (2)
   }
 
   activevtCtxPair3 should "have max sentence distance of 5" in {
@@ -197,7 +197,7 @@ class TestSVMContext extends FlatSpec with Matchers {
     val activeRow3 = readAggRowFromFile(filePath)
     val indexOfSentMin = activeRow3.featureGroupNames.indexOf("dependencyDistance_max")
     val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
-    valueSentMin should be (5)
+    valueSentMin should be (8)
   }
 
   activevtCtxPair3 should "have maximum context frequency of 2" in {
@@ -227,7 +227,7 @@ class TestSVMContext extends FlatSpec with Matchers {
     val ctxID = activevtCtxPair3.split(",")(1)
     val filePath = outPaperDirPathActiv1.concat(s"AggregatedRow_PMC2910130_${evtID}_${ctxID}.txt")
     val activeRow3 = readAggRowFromFile(filePath)
-    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("closesContextOfClass_max")
+    val indexOfSentMin = activeRow3.featureGroupNames.indexOf("closesCtxOfClass_max")
     val valueSentMin = activeRow3.featureGroups(indexOfSentMin).toInt
     valueSentMin should be (1)
   }
