@@ -27,7 +27,7 @@ object GenerateOutputFiles extends App {
     val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
     for(file <- fileList) {
         val pmcid = file.getName.slice(0,file.getName.length-5)
-        val outPaperDirPath = config.getString("contextEngine.params.contextOutputDir").concat(s"${pmcid}")
+        val outPaperDirPath = config.getString("contextEngine.params.contextOutputDir").concat(s"${typeOfPaper}/${pmcid}")
         // creating output directory if it doesn't already exist
         val outputPaperDir = new File(outPaperDirPath)
         if(!outputPaperDir.exists()) {

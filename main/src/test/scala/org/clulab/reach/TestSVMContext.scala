@@ -37,7 +37,7 @@ class TestSVMContext extends FlatSpec with Matchers {
   val activevtCtxPair1 = "41520,tissuelist:TS-0500" // expected prediction: 1
   val activevtCtxPair2 = "41520,cl:CL:0000312" // expected prediction: 0
   val activevtCtxPair3 = "51618,tissuelist:TS-0500" // expected prediction: 1
-  val outPaperDirPathActiv1 = config.getString("contextEngine.params.contextOutputDir").concat("PMC2910130/")
+  val outPaperDirPathActiv1 = config.getString("contextEngine.params.contextOutputDir").concat(s"activation/PMC2910130/")
 
   activevtCtxPair3 should "not have empty mentions" in {
     mentionsActivPaper1 should not be (empty)
@@ -74,7 +74,7 @@ class TestSVMContext extends FlatSpec with Matchers {
 
 
 
-
+  // STARTING TESTS AND VARIABLES FOR ACTIVATION PAPER: PMC2636845
 
 
 
