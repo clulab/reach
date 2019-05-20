@@ -1,6 +1,8 @@
 package org.clulab.reach
+import java.io.{FileInputStream, ObjectInputStream}
+
 import org.scalatest.{FlatSpec, Matchers}
-import org.clulab.reach.context.{SVMContextEngine, ContextEngine}
+import org.clulab.reach.context.{ContextEngine, SVMContextEngine}
 
 import scala.util.Try
 import ai.lum.nxmlreader.NxmlReader
@@ -32,8 +34,9 @@ class TestSVMContext extends FlatSpec with Matchers {
   val activevtCtxPair1 = "41520,tissuelist:TS-0500" // expected prediction: 1
   val activevtCtxPair2 = "41520,cl:CL:0000312" // expected prediction: 0
   val activevtCtxPair3 = "51618,tissuelist:TS-0500" // expected prediction: 1
-
-/*
+  val outPaperDirPath = config.getString("contextEngine.params.contextOutputDir").concat("PMC2910130/AggregatedRow.txt")
+  val activeRow1= readAggRowFromFile(outPaperDirPath)
+  /*
   val activationPath2 = config.getString("papersDir").concat(s"/activation/PMC4446607.nxml")
   val activevtCtxPairSeq2 = Seq(("872526",	"uberon:UBERON:0000376"), ("8637", "tissuelist:TS-0362"), ("872526","uberon:UBERON:0000376"))
   val activexpectedPredSeq2 = Seq(0,1,0)
@@ -61,10 +64,16 @@ class TestSVMContext extends FlatSpec with Matchers {
   }
 
   activevtCtxPair1 should "have prediction 1" in {
-    val evtID = activevtCtxPair1.split(",")(0)
-    val ctxID = activevtCtxPair1.split(",")(1)
-    val evtMentionsOnly = mentions.collect { case evt: BioEventMention => (evt.sentence, evt.tokenInterval) }
+    val pred = trainedSVMInstance.predict(Seq(activeRow1))
+    pred(0) should be (1)
 
+  }
+
+  def readAggRowFromFile(fileName: String):AggregatedRow = {
+    val is = new ObjectInputStream(new FileInputStream(fileName))
+    val c = is.readObject().asInstanceOf[AggregatedRow]
+    is.close()
+    c
   }
 
 
