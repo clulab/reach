@@ -86,8 +86,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             v =>
               v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s =>  {
                 val seqOfInputRowsToPass = s map (_._2)
-
-                aggregateFeatures(seqOfInputRowsToPass, flattenedMap)}).toSeq
+                val aggRow = aggregateFeatures(seqOfInputRowsToPass, flattenedMap)
+              aggRow}).toSeq
           }
 
         val predictions:Map[EventID, Seq[(ContextID, Boolean)]] = {
@@ -97,6 +97,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             val x = a.map {
               case (ctxId, aggregatedFeature) =>
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
+                writeRowToFile(aggregatedFeature, k.toString, ctxId._2)
                 val prediction = {
                   predArrayIntForm(0) match {
                     case 1 => true
@@ -354,11 +355,10 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     addAggregatedOnce(ctxFeatVal)
     addAggregatedOnce(evtFeatVal)
     val newAggRow = AggregatedRow(0, instances(0).PMCID, "", "", label, featureSetValues.toArray,featureSetNames.toArray)
-    writeRowToFile(newAggRow)
     newAggRow
   }
 
-  private def writeRowToFile(row:AggregatedRow):Unit = {
+  private def writeRowToFile(row:AggregatedRow, evtID: String, ctxID: String):Unit = {
     val typeOfPaper = "activation"
     val dirForType = if(typeOfPaper.length != 0) config.getString("papersDir").concat(s"/${typeOfPaper}") else config.getString("papersDir")
     val fileListUnfiltered = new File(dirForType)
@@ -372,7 +372,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         outputPaperDir.mkdirs()
       }
 
-      val pathForRow = outPaperDirPath.concat("/AggregatedRow.txt")
+      val pathForRow = outPaperDirPath.concat(s"/AggregatedRow_${evtID}_${ctxID}.txt")
       val sentenceFile = new File(pathForRow)
       if (!sentenceFile.exists()) {
         sentenceFile.createNewFile()
