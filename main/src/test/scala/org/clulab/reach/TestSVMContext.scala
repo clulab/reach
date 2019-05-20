@@ -121,11 +121,44 @@ class TestSVMContext extends FlatSpec with Matchers {
 
  // STARTING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2587086
   val inhibitionPath1 = config.getString("papersDir").concat(s"/inhibition/PMC2587086.nxml")
-  val inhibevtCtxPairSeq1 = Seq(("6024", "taxonomy:9606"), ("314", "taxonomy:10090"), ("606", "tissuelist:TS-1047"))
-  val inhibexpectedPredSeq1 = Seq(1,0,1)
+  val outPaperDirPathInhib2 = config.getString("contextEngine.params.contextOutputDir").concat(s"inhibition/PMC2587086/")
   val nxmlInhib1 = nxmlReader.read(inhibitionPath1)
   val docInhib1 = reachSystem.mkDoc(nxmlInhib1)
+  val mentions4 = reachSystem.extractFrom(docInhib1)
+  val inhibitP1 = "6024,taxonomy:9606" // expected prediction: 1
+  val inhibitP2 = "314,tissuelist:TS-1047" // expected prediction: 0
+  val inhibitP3 = "606,go:GO:0005777" // expected prediction: 1
 
+  inhibitP1 should "not have empty mentions" in {
+    mentions4 should not be (empty)
+  }
+
+  inhibitP1 should "have prediction 1" in {
+    val evtID = inhibitP1.split(",")(0)
+    val ctxID = inhibitP1.split(",")(1)
+    val filePath = outPaperDirPathInhib2.concat(s"AggregatedRow_PMC2587086_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
+    pred(0) should be (1)
+  }
+
+  inhibitP2 should "have prediction 0" in {
+    val evtID = inhibitP2.split(",")(0)
+    val ctxID = inhibitP2.split(",")(1)
+    val filePath = outPaperDirPathInhib2.concat(s"AggregatedRow_PMC2587086_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
+    pred(0) should be (0)
+  }
+
+  inhibitP3 should "have prediction 1" in {
+    val evtID = inhibitP3.split(",")(0)
+    val ctxID = inhibitP3.split(",")(1)
+    val filePath = outPaperDirPathInhib2.concat(s"AggregatedRow_PMC2587086_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
+    pred(0) should be (1)
+  }
   // CONCLUDING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2587086
 
 
