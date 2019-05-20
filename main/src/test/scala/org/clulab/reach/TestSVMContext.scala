@@ -27,7 +27,8 @@ class TestSVMContext extends FlatSpec with Matchers {
     contextEngineType = contextEngineType,
     contextParams = contextEngineParams)
 
-  // In this test suite, I'm testing more on inhibition papers rather than activation papers, since they are shorter in length, and thus taking lesser time.
+  // In this test suite, I'm testing more on inhibition papers rather than activation papers, since they are shorter in length, and thus take lesser time to run through reach.
+
   // TESTS AND VARIABLES FOR ACTIVATION PAPER: PMC2910130
   val activationPath1 = config.getString("papersDir").concat(s"/activation/PMC2910130.nxml")
   val nxmlAct1 = nxmlReader.read(activationPath1)
@@ -74,7 +75,50 @@ class TestSVMContext extends FlatSpec with Matchers {
 
 
 
-  // STARTING TESTS AND VARIABLES FOR ACTIVATION PAPER: PMC2636845
+  // STARTING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2636845
+
+  val inhibitionPath2 = config.getString("papersDir").concat(s"/inhibition/PMC2636845.nxml")
+  val outPaperDirPathInhib1 = config.getString("contextEngine.params.contextOutputDir").concat(s"inhibition/PMC2636845/")
+  val nxmlInhib2 = nxmlReader.read(inhibitionPath2)
+  val docInhib2 = reachSystem.mkDoc(nxmlInhib2)
+  val mentions3 = reachSystem.extractFrom(docInhib2)
+  val inhibitPair1 = "52831,cl:CL:0000056" // expected prediction: 1
+  val inhibitPair2 = "71114,cl:CL:0000056" // expected prediction: 1
+  val inhibitPair3 = "5331,cl:CL:0000187" // expected prediction: 0
+
+  inhibitPair1 should "not have empty mentions" in {
+    mentions3 should not be (empty)
+  }
+
+  inhibitPair1 should "have prediction 1" in {
+    val evtID = inhibitPair1.split(",")(0)
+    val ctxID = inhibitPair1.split(",")(1)
+    val filePath = outPaperDirPathInhib1.concat(s"AggregatedRow_PMC2636845_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
+    pred(0) should be (1)
+  }
+
+  inhibitPair2 should "have prediction 1" in {
+    val evtID = inhibitPair2.split(",")(0)
+    val ctxID = inhibitPair2.split(",")(1)
+    val filePath = outPaperDirPathInhib1.concat(s"AggregatedRow_PMC2636845_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
+    pred(0) should be (1)
+  }
+
+  inhibitPair3 should "have prediction 0" in {
+    val evtID = inhibitPair3.split(",")(0)
+    val ctxID = inhibitPair3.split(",")(1)
+    val filePath = outPaperDirPathInhib1.concat(s"AggregatedRow_PMC2636845_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
+    pred(0) should be (0)
+  }
+
+
+  // CONCLUDING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2636845
 
 
 
@@ -87,11 +131,7 @@ class TestSVMContext extends FlatSpec with Matchers {
   val nxmlInhib1 = nxmlReader.read(inhibitionPath1)
   val docInhib1 = reachSystem.mkDoc(nxmlInhib1)
 
-  val inhibitionPath2 = config.getString("papersDir").concat(s"/inhibition/PMC2636845.nxml")
-  val inhibevtCtxPairSeq2 = Seq(("52831","cl:CL:0000056"), ("71114","cl:CL:0000056"), ("5331","cl:CL:0000187"))
-  val inhibexpectedPredSeq2 = Seq(1,1,0)
-  val nxmlInhib2 = nxmlReader.read(inhibitionPath2)
-  val docInhib2 = reachSystem.mkDoc(nxmlInhib2)
+
 */
 
 
