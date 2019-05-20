@@ -35,7 +35,7 @@ class TestSVMContext extends FlatSpec with Matchers {
   val activevtCtxPair2 = "41520,cl:CL:0000312" // expected prediction: 0
   val activevtCtxPair3 = "51618,tissuelist:TS-0500" // expected prediction: 1
   val outPaperDirPath = config.getString("contextEngine.params.contextOutputDir").concat("PMC2910130/AggregatedRow.txt")
-  val activeRow1= readAggRowFromFile(outPaperDirPath)
+  val activeRow3 = readAggRowFromFile(outPaperDirPath)
   /*
   val activationPath2 = config.getString("papersDir").concat(s"/activation/PMC4446607.nxml")
   val activevtCtxPairSeq2 = Seq(("872526",	"uberon:UBERON:0000376"), ("8637", "tissuelist:TS-0362"), ("872526","uberon:UBERON:0000376"))
@@ -59,15 +59,16 @@ class TestSVMContext extends FlatSpec with Matchers {
 
 
 
-  activevtCtxPair1 should "not have empty mentions" in {
+  activevtCtxPair3 should "not have empty mentions" in {
     mentions should not be (empty)
   }
 
-  activevtCtxPair1 should "have prediction 1" in {
-    val pred = trainedSVMInstance.predict(Seq(activeRow1))
+  activevtCtxPair3 should "have prediction 1" in {
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
     pred(0) should be (1)
 
   }
+
 
   def readAggRowFromFile(fileName: String):AggregatedRow = {
     val is = new ObjectInputStream(new FileInputStream(fileName))
