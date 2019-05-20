@@ -75,7 +75,6 @@ class TestSVMContext extends FlatSpec with Matchers {
   }
 
 
-  //context_frequency_max
   activevtCtxPair1 should "have maximum dependency distance of 7" in {
     val evtID = activevtCtxPair1.split(",")(0)
     val ctxID = activevtCtxPair1.split(",")(1)
@@ -240,8 +239,7 @@ class TestSVMContext extends FlatSpec with Matchers {
 
 
 
-  // STARTING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2636845
-
+  // ************ STARTING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2636845  ************
   val inhibitionPath2 = config.getString("papersDir").concat(s"/inhibition/PMC2636845.nxml")
   val outPaperDirPathInhib1 = config.getString("contextEngine.params.contextOutputDir").concat(s"inhibition/PMC2636845/")
   val nxmlInhib2 = nxmlReader.read(inhibitionPath2)
@@ -251,6 +249,8 @@ class TestSVMContext extends FlatSpec with Matchers {
   val inhibitPair2 = "71114,cl:CL:0000056" // expected prediction: 1
   val inhibitPair3 = "5331,tissuelist:TS-0725" // expected prediction: 0
 
+
+  // pair 1 tests begin
   inhibitPair1 should "not have empty mentions" in {
     mentions3 should not be (empty)
   }
@@ -264,6 +264,61 @@ class TestSVMContext extends FlatSpec with Matchers {
     pred(0) should be (1)
   }
 
+
+  inhibitPair1 should "have minimum sentence distance of 1" in {
+    val evtID = inhibitPair1.split(",")(0)
+    val ctxID = inhibitPair1.split(",")(1)
+    val filePath = outPaperDirPathInhib1.concat(s"AggregatedRow_PMC2636845_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val ind = activeRow3.featureGroupNames.indexOf("sentenceDistance_min")
+    val value = activeRow3.featureGroups(ind).toInt
+    value should be (1)
+  }
+
+  inhibitPair1 should "have max sentence distance of 1" in {
+    val evtID = inhibitPair1.split(",")(0)
+    val ctxID = inhibitPair1.split(",")(1)
+    val filePath = outPaperDirPathInhib1.concat(s"AggregatedRow_PMC2636845_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val ind = activeRow3.featureGroupNames.indexOf("sentenceDistance_max")
+    val value = activeRow3.featureGroups(ind).toInt
+    value should be (1)
+  }
+
+  inhibitPair1 should "have max dep distance of 14" in {
+    val evtID = inhibitPair1.split(",")(0)
+    val ctxID = inhibitPair1.split(",")(1)
+    val filePath = outPaperDirPathInhib1.concat(s"AggregatedRow_PMC2636845_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val ind = activeRow3.featureGroupNames.indexOf("dependencyDistance_max")
+    val value = activeRow3.featureGroups(ind).toInt
+    value should be (14)
+  }
+
+  inhibitPair1 should "have max context frequency of 2" in {
+    val evtID = inhibitPair1.split(",")(0)
+    val ctxID = inhibitPair1.split(",")(1)
+    val filePath = outPaperDirPathInhib1.concat(s"AggregatedRow_PMC2636845_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val ind = activeRow3.featureGroupNames.indexOf("context_frequency_max")
+    val value = activeRow3.featureGroups(ind).toInt
+    value should be (2)
+  }
+
+
+  inhibitPair1 should "have max closest context of 1" in {
+    val evtID = inhibitPair1.split(",")(0)
+    val ctxID = inhibitPair1.split(",")(1)
+    val filePath = outPaperDirPathInhib1.concat(s"AggregatedRow_PMC2636845_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val ind = activeRow3.featureGroupNames.indexOf("closesCtxOfClass_max")
+    val value = activeRow3.featureGroups(ind).toInt
+    value should be (1)
+  }
+  // pair1 tests end
+
+
+  // pair 2 tests begin
   inhibitPair2 should "have prediction 1" in {
     val evtID = inhibitPair2.split(",")(0)
     val ctxID = inhibitPair2.split(",")(1)
@@ -273,6 +328,63 @@ class TestSVMContext extends FlatSpec with Matchers {
     pred(0) should be (1)
   }
 
+  inhibitPair2 should "have min sentence distance of 3" in {
+    val evtID = inhibitPair2.split(",")(0)
+    val ctxID = inhibitPair2.split(",")(1)
+    val filePath = outPaperDirPathInhib1.concat(s"AggregatedRow_PMC2636845_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val ind = activeRow3.featureGroupNames.indexOf("sentenceDistance_min")
+    val value = activeRow3.featureGroups(ind).toInt
+    value should be (3)
+  }
+
+  //sentenceDistance_max
+  inhibitPair2 should "have max sentence distance of 3" in {
+    val evtID = inhibitPair2.split(",")(0)
+    val ctxID = inhibitPair2.split(",")(1)
+    val filePath = outPaperDirPathInhib1.concat(s"AggregatedRow_PMC2636845_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val ind = activeRow3.featureGroupNames.indexOf("sentenceDistance_max")
+    val value = activeRow3.featureGroups(ind).toInt
+    value should be (3)
+  }
+
+  //dependencyDistance_max
+  inhibitPair2 should "have max dep distance of 16" in {
+    val evtID = inhibitPair2.split(",")(0)
+    val ctxID = inhibitPair2.split(",")(1)
+    val filePath = outPaperDirPathInhib1.concat(s"AggregatedRow_PMC2636845_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val ind = activeRow3.featureGroupNames.indexOf("dependencyDistance_max")
+    val value = activeRow3.featureGroups(ind).toInt
+    value should be (16)
+  }
+
+  //context_frequency_max
+  inhibitPair2 should "have max context frequency of 2" in {
+    val evtID = inhibitPair2.split(",")(0)
+    val ctxID = inhibitPair2.split(",")(1)
+    val filePath = outPaperDirPathInhib1.concat(s"AggregatedRow_PMC2636845_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val ind = activeRow3.featureGroupNames.indexOf("context_frequency_max")
+    val value = activeRow3.featureGroups(ind).toInt
+    value should be (2)
+  }
+
+  //closesCtxOfClass_max
+  inhibitPair2 should "have max closest context of 0" in {
+    val evtID = inhibitPair2.split(",")(0)
+    val ctxID = inhibitPair2.split(",")(1)
+    val filePath = outPaperDirPathInhib1.concat(s"AggregatedRow_PMC2636845_${evtID}_${ctxID}.txt")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val ind = activeRow3.featureGroupNames.indexOf("closesCtxOfClass_max")
+    val value = activeRow3.featureGroups(ind).toInt
+    value should be (0)
+  }
+  //pair 2 tests end
+
+
+  // pair 3 tests begin
   inhibitPair3 should "have prediction 0" in {
     val evtID = inhibitPair3.split(",")(0)
     val ctxID = inhibitPair3.split(",")(1)
@@ -281,6 +393,7 @@ class TestSVMContext extends FlatSpec with Matchers {
     val pred = trainedSVMInstance.predict(Seq(activeRow3))
     pred(0) should be (0)
   }
+  // pair 3 tests end
   // CONCLUDING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2636845
 
 
