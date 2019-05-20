@@ -279,7 +279,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val specfeatureNamesToUse = instances(0).specificFeatureNames
     val ctxFeatureNamesToUse = instances(0).ctx_dependencyTails
     val evtFeatureNamesToUse = instances(0).evt_dependencyTails
-
     def featureValuePairing(aggr:Map[String,(Double,Double, Double, Int)]): Seq[(String,Double)] = {
       val pairings = collection.mutable.ListBuffer[(String,Double)]()
       for((key,value) <- aggr) {
@@ -363,24 +362,29 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val dirForType = if(typeOfPaper.length != 0) config.getString("papersDir").concat(s"/${typeOfPaper}") else config.getString("papersDir")
     val fileListUnfiltered = new File(dirForType)
     val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
+    val currentPMCID = s"PMC${row.PMCID.split("_")(0)}"
     for(file <- fileList) {
-      val pmcid = file.getName.slice(0,file.getName.length-5)
-      val outPaperDirPath = config.getString("contextEngine.params.contextOutputDir").concat(s"${pmcid}")
+      val fileNamePMCID = file.getName.slice(0,file.getName.length-5)
+      val outPaperDirPath = config.getString("contextEngine.params.contextOutputDir").concat(s"${fileNamePMCID}")
       // creating output directory if it doesn't already exist
       val outputPaperDir = new File(outPaperDirPath)
       if(!outputPaperDir.exists()) {
         outputPaperDir.mkdirs()
       }
 
-      val pathForRow = outPaperDirPath.concat(s"/AggregatedRow_${evtID}_${ctxID}.txt")
-      val sentenceFile = new File(pathForRow)
-      if (!sentenceFile.exists()) {
-        sentenceFile.createNewFile()
-      }
-      val os = new ObjectOutputStream(new FileOutputStream(pathForRow))
 
-      os.writeObject(row)
-      os.close()
+      if(currentPMCID == fileNamePMCID) {
+        val pathForRow = outPaperDirPath.concat(s"/AggregatedRow_${evtID}_${ctxID}.txt")
+        val sentenceFile = new File(pathForRow)
+        if (!sentenceFile.exists()) {
+          sentenceFile.createNewFile()
+        }
+        val os = new ObjectOutputStream(new FileOutputStream(pathForRow))
+
+        os.writeObject(row)
+        os.close()
+      }
+
     }
   }
 
