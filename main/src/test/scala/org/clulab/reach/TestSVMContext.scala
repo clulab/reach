@@ -69,7 +69,7 @@ class TestSVMContext extends FlatSpec with Matchers {
     val pred = trainedSVMInstance.predict(Seq(activeRow3))
     pred(0) should be (1)
   }
-  // CONCLUDING TESTS AND VARIABLES FOR 1ST ACTIVATION PAPER: PMC2910130
+  // CONCLUDING TESTS AND VARIABLES FOR ACTIVATION PAPER: PMC2910130
 
 
 
