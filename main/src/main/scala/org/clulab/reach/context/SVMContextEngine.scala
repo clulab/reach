@@ -373,8 +373,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       }
 
 
-      if(currentPMCID == fileNamePMCID) {
-        val pathForRow = outPaperDirPath.concat(s"/AggregatedRow_${evtID}_${ctxID}.txt")
+        val pathForRow = outPaperDirPath.concat(s"/AggregatedRow_${currentPMCID}_${evtID}_${ctxID}.txt")
         val sentenceFile = new File(pathForRow)
         if (!sentenceFile.exists()) {
           sentenceFile.createNewFile()
@@ -383,7 +382,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
         os.writeObject(row)
         os.close()
-      }
+
 
     }
   }
