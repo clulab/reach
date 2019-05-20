@@ -107,14 +107,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
 
                 logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
-                val featureListForDebugging = Seq("sentenceDistance_min","sentenceDistance_max", "dependencyDistance_max", "context_frequency_max", "closesCtxOfClass_max", "ctxNegationIntTail_max", "evtSentenceFirstPerson_max", "ctxSentencePastTense_max","evtSentencePresentTense_max", "ctxDepTail_subj_auxpass_max", "ctxDepTail_cc_cc_max", "ctxDepTail_subj_subj_max", "ctxDepTail_subj_mod_max")
-                featureListForDebugging.map(f => {
-                  if(aggregatedFeature.featureGroupNames.contains(f)) {
-                    val index = aggregatedFeature.featureGroupNames.indexOf(f)
-                    val featVal = aggregatedFeature.featureGroups(index)
-                    logger.info(s"${f} : ${featVal}")
-                  }
-                  else logger.info(s"This feature is not contained in the aggregated feature: ${f}")})
+
                 (ctxId, prediction)
             }
 
@@ -361,7 +354,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     addAggregatedOnce(ctxFeatVal)
     addAggregatedOnce(evtFeatVal)
     val newAggRow = AggregatedRow(0, instances(0).PMCID, "", "", label, featureSetValues.toArray,featureSetNames.toArray)
-    //writeRowToFile(newAggRow)
+    writeRowToFile(newAggRow)
     newAggRow
   }
 
@@ -380,8 +373,18 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       }
 
       val pathForRow = outPaperDirPath.concat("/AggregatedRow.txt")
+      val sentenceFile = new File(pathForRow)
+      if (!sentenceFile.exists()) {
+        sentenceFile.createNewFile()
+      }
+      val os = new ObjectOutputStream(new FileOutputStream(pathForRow))
+
+      os.writeObject(row)
+      os.close()
     }
   }
+
+
 
   private def intersentenceDependencyPath(datum:(BioEventMention, BioTextBoundMention)): Option[Seq[String]] = {
     def pathToRoot(currentNodeIndx:Int, currentSentInd:Int, currentDoc:Document): Seq[String] = {

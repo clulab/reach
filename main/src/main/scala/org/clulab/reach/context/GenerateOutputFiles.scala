@@ -12,7 +12,7 @@ import org.clulab.reach.mentions.BioTextBoundMention
 import org.clulab.struct.Interval
 object GenerateOutputFiles extends App {
     val config = ConfigFactory.load()
-    val typeOfPaper = ""
+    val typeOfPaper = "activation"
     val dirForType = if(typeOfPaper.length != 0) config.getString("papersDir").concat(s"/${typeOfPaper}") else config.getString("papersDir")
     val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
     val contextEngineType = Engine.withName(config.getString("contextEngine.type"))

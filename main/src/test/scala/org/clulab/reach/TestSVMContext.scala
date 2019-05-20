@@ -10,6 +10,7 @@ import org.clulab.odin.EventMention
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
 import org.ml4ai.data.classifiers.LinearSVMWrapper
+import org.ml4ai.data.utils.AggregatedRow
 
 class TestSVMContext extends FlatSpec with Matchers {
   val config = ConfigFactory.load()
