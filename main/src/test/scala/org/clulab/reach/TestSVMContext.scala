@@ -84,7 +84,7 @@ class TestSVMContext extends FlatSpec with Matchers {
   val mentions3 = reachSystem.extractFrom(docInhib2)
   val inhibitPair1 = "52831,cl:CL:0000056" // expected prediction: 1
   val inhibitPair2 = "71114,cl:CL:0000056" // expected prediction: 1
-  val inhibitPair3 = "5331,cl:CL:0000187" // expected prediction: 0
+  val inhibitPair3 = "5331,tissuelist:TS-0725" // expected prediction: 0
 
   inhibitPair1 should "not have empty mentions" in {
     mentions3 should not be (empty)
@@ -116,30 +116,17 @@ class TestSVMContext extends FlatSpec with Matchers {
     val pred = trainedSVMInstance.predict(Seq(activeRow3))
     pred(0) should be (0)
   }
-
-
   // CONCLUDING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2636845
 
 
-
-
-  /*
-
+ // STARTING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2587086
   val inhibitionPath1 = config.getString("papersDir").concat(s"/inhibition/PMC2587086.nxml")
   val inhibevtCtxPairSeq1 = Seq(("6024", "taxonomy:9606"), ("314", "taxonomy:10090"), ("606", "tissuelist:TS-1047"))
   val inhibexpectedPredSeq1 = Seq(1,0,1)
   val nxmlInhib1 = nxmlReader.read(inhibitionPath1)
   val docInhib1 = reachSystem.mkDoc(nxmlInhib1)
 
-
-*/
-
-
-
-
-
-
-
+  // CONCLUDING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2587086
 
 
   def readAggRowFromFile(fileName: String):AggregatedRow = {
