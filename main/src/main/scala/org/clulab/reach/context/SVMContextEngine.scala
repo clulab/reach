@@ -97,7 +97,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             val x = a.map {
               case (ctxId, aggregatedFeature) =>
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
-                //writeRowToFile(aggregatedFeature, k.toString, ctxId._2)
+                writeRowToFile(aggregatedFeature, k.toString, ctxId._2)
                 val prediction = {
                   predArrayIntForm(0) match {
                     case 1 => true
@@ -373,15 +373,19 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       }
 
 
-        val pathForRow = outPaperDirPath.concat(s"/AggregatedRow_${currentPMCID}_${evtID}_${ctxID}.txt")
-        val sentenceFile = new File(pathForRow)
-        if (!sentenceFile.exists()) {
-          sentenceFile.createNewFile()
-        }
-        val os = new ObjectOutputStream(new FileOutputStream(pathForRow))
 
-        os.writeObject(row)
-        os.close()
+        if(currentPMCID == fileNamePMCID) {
+          val pathForRow = outPaperDirPath.concat(s"/AggregatedRow_${currentPMCID}_${evtID}_${ctxID}.txt")
+          val sentenceFile = new File(pathForRow)
+          if (!sentenceFile.exists()) {
+            sentenceFile.createNewFile()
+          }
+          val os = new ObjectOutputStream(new FileOutputStream(pathForRow))
+
+          os.writeObject(row)
+          os.close()
+        }
+
 
 
     }
