@@ -97,7 +97,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             val x = a.map {
               case (ctxId, aggregatedFeature) =>
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
-                writeRowToFile(aggregatedFeature, k.toString, ctxId._2)
+                //writeRowToFile(aggregatedFeature, k.toString, ctxId._2)
                 val prediction = {
                   predArrayIntForm(0) match {
                     case 1 => true
