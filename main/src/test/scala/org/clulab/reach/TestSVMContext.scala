@@ -412,7 +412,7 @@ class TestSVMContext extends FlatSpec with Matchers {
   // pair 3 tests end
 
 
-  val inhibitPair4 = "71114,cl:CL:0000187" // expected prediction: 1
+  val inhibitPair4 = "7014,tissuelist:TS-0725" // expected prediction: 1
   val inhibitPair5 = "52831,cl:CL:0000187" // expected prediction: 1
   val inhibitPair6 = "52831,cl:CL:0002372" // expected prediction: 0
   val inhibitPair7 = "42225,cl:CL:0000056" // expected prediction: 0
