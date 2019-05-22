@@ -414,9 +414,9 @@ class TestSVMContext extends FlatSpec with Matchers {
 
   val inhibitPair4 = "71114,cl:CL:0000187" // expected prediction: 1
   val inhibitPair5 = "52831,cl:CL:0000187" // expected prediction: 1
-  val inhibitPair6 = "5331,tissuelist:TS-0725" // expected prediction: 0
+  val inhibitPair6 = "52831,cl:CL:0002372" // expected prediction: 0
   val inhibitPair7 = "42225,cl:CL:0000056" // expected prediction: 0
-  val inhibitPair8 = "52831,cl:CL:0002372" // expected prediction: 0
+
   inhibitPair4 should "have prediction 1" in {
     val evtID = inhibitPair3.split(",")(0)
     val ctxID = inhibitPair3.split(",")(1)
@@ -449,14 +449,7 @@ class TestSVMContext extends FlatSpec with Matchers {
     val pred = trainedSVMInstance.predict(Seq(activeRow3))
     pred(0) should be (0)
   }
-  inhibitPair8 should "have prediction 0" in {
-    val evtID = inhibitPair8.split(",")(0)
-    val ctxID = inhibitPair8.split(",")(1)
-    val filePath = outPaperDirPathInhib1.concat(s"AggregatedRow_PMC2636845_${evtID}_${ctxID}.txt")
-    val activeRow3 = readAggRowFromFile(filePath)
-    val pred = trainedSVMInstance.predict(Seq(activeRow3))
-    pred(0) should be (0)
-  }
+
   // CONCLUDING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2636845
 
 
