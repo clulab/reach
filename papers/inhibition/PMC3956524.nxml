@@ -1,0 +1,298 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="editorial">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Cell Cycle</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Cell Cycle</journal-id>
+      <journal-id journal-id-type="publisher-id">CC</journal-id>
+      <journal-title-group>
+        <journal-title>Cell Cycle</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1538-4101</issn>
+      <issn pub-type="epub">1551-4005</issn>
+      <publisher>
+        <publisher-name>Landes Bioscience</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">24335435</article-id>
+      <article-id pub-id-type="pmc">3956524</article-id>
+      <article-id pub-id-type="publisher-id">2013FT1043</article-id>
+      <article-id pub-id-type="doi">10.4161/cc.27510</article-id>
+      <article-id pub-id-type="pii">27510</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Editorials: Cell Cycle Features</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Basal cell origins of smoking-induced airway epithelial disorders</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Shaykhiev</surname>
+            <given-names>Renat</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Crystal</surname>
+            <given-names>Ronald G</given-names>
+          </name>
+          <xref ref-type="corresp" rid="cor1">*</xref>
+        </contrib>
+        <aff>Department of Genetic Medicine; Weill Cornell Medical College; New York, NY USA</aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="cor1"><label>*</label>Correspondence to: Ronald G Crystal, Email: <email xlink:href="geneticmedicine@med.cornell.edu">geneticmedicine@med.cornell.edu</email></corresp>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <day>01</day>
+        <month>2</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>13</day>
+        <month>12</month>
+        <year>2013</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>13</day>
+        <month>12</month>
+        <year>2013</year>
+      </pub-date>
+      <!-- PMC Release delay is 0 months and 0 days and was based on the
+							<pub-date pub-type="epub"/>. -->
+      <volume>13</volume>
+      <issue>3</issue>
+      <fpage>341</fpage>
+      <lpage>342</lpage>
+      <history>
+        <date date-type="received">
+          <day>21</day>
+          <month>8</month>
+          <year>2013</year>
+        </date>
+        <date date-type="accepted">
+          <day>28</day>
+          <month>9</month>
+          <year>2013</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2014 Landes Bioscience</copyright-statement>
+        <copyright-year>2014</copyright-year>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by-nc/3.0/">
+          <license-p>This is an open-access article licensed under a Creative Commons Attribution-NonCommercial 3.0 Unported License. The article may be redistributed, reproduced, and reused for non-commercial purposes, provided the original source is properly cited.</license-p>
+        </license>
+      </permissions>
+      <kwd-group kwd-group-type="author">
+        <title>Keywords: </title>
+        <kwd>airway epithelium</kwd>
+        <kwd>basal cell</kwd>
+        <kwd>stem cells</kwd>
+        <kwd>progenitor cells</kwd>
+        <kwd>cigarette smoking</kwd>
+        <kwd>epidermal growth factor receptor</kwd>
+        <kwd>differentiation</kwd>
+        <kwd>lung cancer</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <p>The airway epithelium, a pseudostratified layer of cells lining the tracheobronchial tree, is the primary barrier protecting the lungs from environmental pollutants, toxins, allergens, and microbes present in the inhaled air. This function is provided by the unique histologic architecture of the differentiated airway epithelium, composed of 4 principal cell types: ciliated, secretory, intermediate undifferentiated columnar, and basal cells (BC; <xref ref-type="fig" rid="F1">Fig.&#xA0;1</xref>). Ciliated cells comprise 60&#x2013;80% of all airway epithelium throughout the airways, except for the terminal and respiratory bronchioles, where the predominant cell population is non-mucous secretory cells producing secretoglobins and other proteins with antimicrobial, anti-inflammatory, and antioxidant properties. In the larger airways, mucus-producing goblet cells are the major secretory cell population, contributing to 5&#x2013;15% of epithelial cells and, together with ciliated cells, mediating mucociliary clearance of microbes and other foreign particles from the airway surface. The differentiated airway epithelium has tight junctions between adjacent cells that prevent the passage of microbes and xenobiotics across the epithelial layer. The BC population include the stem/progenitor cells capable of self-renewal and generating the differentiated cells of the airway epithlium.<xref rid="R1" ref-type="bibr"><sup>1</sup></xref> BC are located immediately above the basement membrane throughout the respiratory tract in humans. In the large airways, BC constitute 10&#x2013; 20% of epithelial cells; the proportion of BC decreases to &lt;10% in the small airways &gt; 6th generation.</p>
+    <fig id="F1" fig-type="figure" orientation="portrait" position="float">
+      <caption>
+        <p><bold>Figure&#xA0;1.</bold> Basal cell (BC) origin of smoking-induced airway remodeling. Cigarette smoking induces expression of epidermal growth factor (EGF) in ciliated cells, which, via interaction with EGF receptor (EGFR) on BC stem/progenitor cells, alters the normal architecture of the airway epithelium and results in smoking-associated pathologic airway epithelial phenotypes relevant to COPD and lung cancer.</p>
+      </caption>
+      <graphic xlink:href="cc-13-341-g1"/>
+    </fig>
+    <p>In cigarette smokers, the airway epithelial architecture changes dramatically (<xref ref-type="fig" rid="F1">Fig.&#xA0;1</xref>). The first lesions associated with smoking are characterized by hyperplasia of BC. This is often accompanied by squamous metaplasia, in which differentiated ciliated cells are replaced with keratinocyte-like squamous cells not present in the normal airways. There is also mucous cell hyperplasia, which leads to airway obstruction due to increased secretion of mucus into the airway lumen. In the small airways, increased number of mucus-producing cells is paralleled by the loss of protective non-mucous secretoglobin-secreting cells. Smoking also increases airway permeability, through the broad suppression of the components that maintain junctional barrier assembly and integrity, and induces some features of epithelial&#x2013;mesenchymal transition (EMT). These phenotypes, all relevant to the development of chronic obstructive pulmonary disease (COPD) and lung cancer, the 2 major smoking-induced diseases, are preceded by dramatic gene expression changes in the airways of clinically &#x201C;healthy&#x201D; smokers.<xref rid="R2" ref-type="bibr"><sup>2</sup></xref></p>
+    <p>How does cigarette smoking cause such broad changes in the airway epithelial architecture? This question was central to our recent study.<xref rid="R3" ref-type="bibr"><sup>3</sup></xref> Based on the knowledge that BC are the stem/progenitor cells responsible for maintenance of the normally differentiated airway epithelium,<xref rid="R1" ref-type="bibr"><sup>1</sup></xref> and our recent advances in isolation and characterization of human airway BC,<xref rid="R4" ref-type="bibr"><sup>4</sup></xref> we identified the epidermal growth factor receptor (EGFR) pathway, previously implicated in smoking-induced airway disorders and regulation of stem cell functions in different organs, among those enriched in the human airway BC transciptome.<xref rid="R4" ref-type="bibr"><sup>4</sup></xref> We hypothesized that smoking-induced disorganization of the airway epithelium results from EGFR-mediated reprogramming of BC stem/progenitor cell function. In support of this hypothesis, we found that EGF, one of the EGFR ligands, is upregulated in ciliated cells of smokers, which, given decreased junctional barrier integrity caused by smoking, can potentially interact with EGFR-expressing BC. Strikingly, application of EGF to BC differentiating in vitro recapitulated the major pathologic phenotypes observed in the airway epithelium of smokers in vivo, including squamous metaplasia, decreased differentiation toward ciliated and non-mucous secretory lineages, suppression of the junctional barrier integrity accompanied by increased epithelial permeability, and acquisition of the EMT-like features.<xref rid="R3" ref-type="bibr"><sup>3</sup></xref> These data support the concept that human airway BC are likely the common cell-of-origin of smoking-induced airway epithelial remodeling (<xref ref-type="fig" rid="F1">Fig.&#xA0;1</xref>).</p>
+    <p>In agreement with this concept, in a separate study we found that airway BC of clinically healthy smokers acquire an embryonic stem cell (ESC)-specific gene expression signature.<xref rid="R5" ref-type="bibr"><sup>5</sup></xref> Surprisingly, this set of ESC genes is also upregulated in lung cancers in association with smoking status and <italic>TP53</italic> mutations.<xref rid="R5" ref-type="bibr"><sup>5</sup></xref> Based on the high expression of the BC signature genes, we identified a novel, &#x201C;BC-high&#x201D; subtype of lung adenocarcinoma, which exhibited a much more aggressive phenotype and shorter survival.<xref rid="R6" ref-type="bibr"><sup>6</sup></xref> This lung adenocarcinoma subtype was more prevalent in smokers, supporting the concept that smoking-induced reprogramming of airway BC is relevant to the pathogenesis of lung cancer. Consistent with these findings, Gomperts and coworkers<xref rid="R7" ref-type="bibr"><sup>7</sup></xref> have observed that a subset of BC that express keratin 14, a gene which was induced by EGF in airway BC in our study,<xref rid="R3" ref-type="bibr"><sup>3</sup></xref> is enriched in the tumors of smokers with lung cancer.<xref rid="R7" ref-type="bibr"><sup>7</sup></xref> In another study, we identified chemokine CXCL14 as a gene induced by smoking in the airway epithelium via EGF-mediated activation of airway BC in association with broad genome-wide changes relevant to both COPD and lung cancer.<xref rid="R8" ref-type="bibr"><sup>8</sup></xref></p>
+    <p>Altogether, multiple lines of evidence support the concept that airway BC stem/progenitor cells are the origin of the earliest molecular and histologic changes in the airway epithelium relevant to the pathogenesis and phenotype of smoking-induced lung diseases. Further understanding of the specific molecular mechanisms underlying reprogramming of airway BC in human lung diseases, including those induced by cigarette smoking, will facilitate development of novel therapeutic approaches to target the development of common and currently incurable chronic lung diseases, such as COPD and lung cancer, at their very early stages.</p>
+  </body>
+  <back>
+    <fn-group>
+      <fn fn-type="other">
+        <p>Previously published online: <ext-link ext-link-type="uri" xlink:href="http://www.landesbioscience.com/journals/cc/article/27510/">www.landesbioscience.com/journals/cc/article/27510</ext-link></p>
+      </fn>
+    </fn-group>
+    <notes>
+      <p>
+<related-article id="d36e212" related-article-type="commentary-article" ext-link-type="doi" xlink:href="10.1073/pnas.1303058110">
+<person-group person-group-type="author"><name><surname>Shaykhiev</surname><given-names>R</given-names></name><etal/></person-group>
+<source>Proc Natl Acad Sci U S A</source>
+<year>2013</year>
+<volume>110</volume>
+<fpage>12102</fpage>
+<lpage>7</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.1303058110</pub-id>
+</related-article>
+</p>
+    </notes>
+    <notes>
+      <p>
+<ext-link ext-link-type="uri" xlink:href="10.4161/cc.27510">10.4161/cc.27510</ext-link>
+</p>
+    </notes>
+    <ref-list>
+      <title>References</title>
+      <ref id="R1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rock</surname>
+              <given-names>JR</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <source>Dis Model Mech</source>
+          <year>2010</year>
+          <volume>3</volume>
+          <fpage>545</fpage>
+          <lpage>56</lpage>
+          <pub-id pub-id-type="doi">10.1242/dmm.006031</pub-id>
+          <pub-id pub-id-type="pmid">20699479</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shaykhiev</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <source>Cell Mol Life Sci</source>
+          <year>2011</year>
+          <volume>68</volume>
+          <fpage>877</fpage>
+          <lpage>92</lpage>
+          <pub-id pub-id-type="doi">10.1007/s00018-010-0500-x</pub-id>
+          <pub-id pub-id-type="pmid">20820852</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shaykhiev</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2013</year>
+          <volume>110</volume>
+          <fpage>12102</fpage>
+          <lpage>7</lpage>
+          <pub-id pub-id-type="doi">10.1073/pnas.1303058110</pub-id>
+          <pub-id pub-id-type="pmid">23818594</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R4">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hackett</surname>
+              <given-names>NR</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <source>PLoS One</source>
+          <year>2011</year>
+          <volume>6</volume>
+          <fpage>e18378</fpage>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0018378</pub-id>
+          <pub-id pub-id-type="pmid">21572528</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shaykhiev</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <source>Stem Cells</source>
+          <year>2013</year>
+          <volume>31</volume>
+          <fpage>1992</fpage>
+          <lpage>2002</lpage>
+          <pub-id pub-id-type="doi">10.1002/stem.1459</pub-id>
+          <pub-id pub-id-type="pmid">23857717</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fukui</surname>
+              <given-names>T</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <source>Eur Respir J</source>
+          <year>2013</year>
+          <volume>42</volume>
+          <fpage>1332</fpage>
+          <lpage>44</lpage>
+          <pub-id pub-id-type="doi">10.1183/09031936.00144012</pub-id>
+          <pub-id pub-id-type="pmid">23645403</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ooi</surname>
+              <given-names>AT</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <source>Cancer Res</source>
+          <year>2010</year>
+          <volume>70</volume>
+          <fpage>6639</fpage>
+          <lpage>48</lpage>
+          <pub-id pub-id-type="doi">10.1158/0008-5472.CAN-10-0455</pub-id>
+          <pub-id pub-id-type="pmid">20710044</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R8">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shaykhiev</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <source>Am J Respir Cell Mol Biol</source>
+          <year>2013</year>
+          <volume>49</volume>
+          <fpage>418</fpage>
+          <lpage>25</lpage>
+          <pub-id pub-id-type="doi">10.1165/rcmb.2012-0396OC</pub-id>
+          <pub-id pub-id-type="pmid">23597004</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>
