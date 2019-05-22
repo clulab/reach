@@ -32,7 +32,8 @@ class TestSVMContext extends FlatSpec with Matchers {
 
 
   // ************ TESTS AND VARIABLES FOR ACTIVATION PAPER: PMC2910130 ************
-  val activationPath1 = config.getString("papersDir").concat(s"/activation/PMC2910130.nxml")
+  val testingActivationPapers = "activation_papers_for_testing"
+  val activationPath1 = config.getString("papersDir").concat(s"/${testingActivationPapers}/PMC2910130.nxml")
   val nxmlAct1 = nxmlReader.read(activationPath1)
   val docAct1 = reachSystem.mkDoc(nxmlAct1)
   val mentionsActivPaper1 = reachSystem.extractFrom(docAct1)
@@ -398,7 +399,8 @@ class TestSVMContext extends FlatSpec with Matchers {
 
 
  // STARTING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2587086
-  val inhibitionPath1 = config.getString("papersDir").concat(s"/inhibition/PMC2587086.nxml")
+  val testingInhibitionPapers = "inhibition_papers_for_testing"
+  val inhibitionPath1 = config.getString("papersDir").concat(s"/${testingInhibitionPapers}/PMC2587086.nxml")
   val outPaperDirPathInhib2 = config.getString("contextEngine.params.contextOutputDir").concat(s"inhibition/PMC2587086/")
   val nxmlInhib1 = nxmlReader.read(inhibitionPath1)
   val docInhib1 = reachSystem.mkDoc(nxmlInhib1)
