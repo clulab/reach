@@ -450,17 +450,17 @@ class TestSVMContext extends FlatSpec with Matchers {
   // so I ran another paper to get a wider variety of event-ctx pairs.
   val letterPaperID = "PMC1764734"
   val letterPaperPath = config.getString("contextEngine.params.contextOutputDir").concat(s"activation/${letterPaperID}/")
-  val pairA = "225311,tissuelist:TS-0013"
-  val pairB = "222616,go:GO:0016020"
-  val pairC = "164810,taxonomy:9606"
-  val pairD = "242716,tissuelist:TS-0672"
-  val pairE = "3435,uberon:UBERON:0007023"
-  val pairF = "21806,tissuelist:TS-0672"
-  val pairG = "313033,tissuelist:TS-0681"
-  val pairH = "1834,cellosaurus:CVCL_0372"
-  val pairI = "2221416,cellosaurus:CVCL_0372"
-  val pairJ = "2727,uberon:UBERON:0000479"
-  val pairK = "180710,taxonomy:76720"
+  val pairA = "1972051,cl:CL:0000010"
+  val pairB = "1954446,uberon:UBERON:2005000"
+  val pairC = "1953746,uberon:UBERON:0000104"
+  val pairD = "1903136,tissuelist:TS-0672"
+  val pairE = "24749,tissuelist:TS-0672"
+  val pairF = "2482225,cellosaurus:CVCL_0019"
+  val pairG = "2482225,cl:CL:0000010"
+  val pairH = "2482427,taxonomy:10090"
+  val pairI = "82426,go:GO:0030424"
+  val pairJ = "8526,cl:CL:0000010"
+  val pairK = "979,cl:CL:0000010"
 
   pairA should "have prediction 1" in {
     val evtID = pairA.split(",")(0)
