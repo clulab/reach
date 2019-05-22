@@ -440,6 +440,123 @@ class TestSVMContext extends FlatSpec with Matchers {
   // CONCLUDING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2587086
 
 
+
+
+  // new pairs from activation/PMC1764734. Will test against 1 for all pairs, and hopefully detect some 0 prediction pairs also.
+  // I've had to do this because I haven't found many pairs with 0 predictions yet. Either the context ID or the event ID keeps repeating itself
+  // so I ran another paper to get a wider variety of event-ctx pairs.
+  val letterPaperID = "PMC1764734"
+  val letterPaperPath = config.getString("contextEngine.params.contextOutputDir").concat(s"activation/${letterPaperID}/")
+  val pairA = "225311,tissuelist:TS-0013"
+  val pairB = "222616,go:GO:0016020"
+  val pairC = "164810,taxonomy:9606"
+  val pairD = "242716,tissuelist:TS-0672"
+  val pairE = "3435,uberon:UBERON:0007023"
+  val pairF = "21806,tissuelist:TS-0672"
+  val pairG = "313033,tissuelist:TS-0681"
+  val pairH = "1834,cellosaurus:CVCL_0372"
+  val pairI = "2221416,cellosaurus:CVCL_0372"
+  val pairJ = "2727,uberon:UBERON:0000479"
+  val pairK = "180710,taxonomy:76720"
+
+  pairA should "have prediction 1" in {
+    val evtID = pairA.split(",")(0)
+    val ctxID = pairA.split(",")(1)
+    val filePath = letterPaperPath.concat(s"AggregatedRow_${letterPaperID}_${evtID}_${ctxID}")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
+    pred(0) should be (1)
+  }
+
+  pairB should "have prediction 1" in {
+    val evtID = pairB.split(",")(0)
+    val ctxID = pairB.split(",")(1)
+    val filePath = letterPaperPath.concat(s"AggregatedRow_${letterPaperID}_${evtID}_${ctxID}")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
+    pred(0) should be (1)
+  }
+
+  pairC should "have prediction 1" in {
+    val evtID = pairC.split(",")(0)
+    val ctxID = pairC.split(",")(1)
+    val filePath = letterPaperPath.concat(s"AggregatedRow_${letterPaperID}_${evtID}_${ctxID}")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
+    pred(0) should be (1)
+  }
+
+
+  pairD should "have prediction 1" in {
+    val evtID = pairD.split(",")(0)
+    val ctxID = pairD.split(",")(1)
+    val filePath = letterPaperPath.concat(s"AggregatedRow_${letterPaperID}_${evtID}_${ctxID}")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
+    pred(0) should be (1)
+  }
+
+  pairE should "have prediction 1" in {
+    val evtID = pairE.split(",")(0)
+    val ctxID = pairE.split(",")(1)
+    val filePath = letterPaperPath.concat(s"AggregatedRow_${letterPaperID}_${evtID}_${ctxID}")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
+    pred(0) should be (1)
+  }
+
+  pairF should "have prediction 1" in {
+    val evtID = pairF.split(",")(0)
+    val ctxID = pairF.split(",")(1)
+    val filePath = letterPaperPath.concat(s"AggregatedRow_${letterPaperID}_${evtID}_${ctxID}")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
+    pred(0) should be (1)
+  }
+
+  pairG should "have prediction 1" in {
+    val evtID = pairG.split(",")(0)
+    val ctxID = pairG.split(",")(1)
+    val filePath = letterPaperPath.concat(s"AggregatedRow_${letterPaperID}_${evtID}_${ctxID}")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
+    pred(0) should be (1)
+  }
+  pairH should "have prediction 1" in {
+    val evtID = pairH.split(",")(0)
+    val ctxID = pairH.split(",")(1)
+    val filePath = letterPaperPath.concat(s"AggregatedRow_${letterPaperID}_${evtID}_${ctxID}")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
+    pred(0) should be (1)
+  }
+  pairI should "have prediction 1" in {
+    val evtID = pairI.split(",")(0)
+    val ctxID = pairI.split(",")(1)
+    val filePath = letterPaperPath.concat(s"AggregatedRow_${letterPaperID}_${evtID}_${ctxID}")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
+    pred(0) should be (1)
+  }
+  pairJ should "have prediction 1" in {
+    val evtID = pairJ.split(",")(0)
+    val ctxID = pairJ.split(",")(1)
+    val filePath = letterPaperPath.concat(s"AggregatedRow_${letterPaperID}_${evtID}_${ctxID}")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
+    pred(0) should be (1)
+  }
+  pairK should "have prediction 1" in {
+    val evtID = pairK.split(",")(0)
+    val ctxID = pairK.split(",")(1)
+    val filePath = letterPaperPath.concat(s"AggregatedRow_${letterPaperID}_${evtID}_${ctxID}")
+    val activeRow3 = readAggRowFromFile(filePath)
+    val pred = trainedSVMInstance.predict(Seq(activeRow3))
+    pred(0) should be (1)
+  }
+
+
+
   def readAggRowFromFile(fileName: String):AggregatedRow = {
     val is = new ObjectInputStream(new FileInputStream(fileName))
     val c = is.readObject().asInstanceOf[AggregatedRow]
