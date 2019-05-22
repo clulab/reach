@@ -418,8 +418,8 @@ class TestSVMContext extends FlatSpec with Matchers {
   val inhibitPair7 = "42225,cl:CL:0000056" // expected prediction: 0
 
   inhibitPair4 should "have prediction 1" in {
-    val evtID = inhibitPair3.split(",")(0)
-    val ctxID = inhibitPair3.split(",")(1)
+    val evtID = inhibitPair4.split(",")(0)
+    val ctxID = inhibitPair4.split(",")(1)
     val filePath = outPaperDirPathInhib1.concat(s"AggregatedRow_PMC2636845_${evtID}_${ctxID}.txt")
     val activeRow3 = readAggRowFromFile(filePath)
     val pred = trainedSVMInstance.predict(Seq(activeRow3))
