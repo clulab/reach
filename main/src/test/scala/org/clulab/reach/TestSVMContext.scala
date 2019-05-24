@@ -34,10 +34,7 @@ class TestSVMContext extends FlatSpec with Matchers {
   // ************ TESTS AND VARIABLES FOR ACTIVATION PAPER: PMC2910130 ************
   val testingActivationPapers = "activation_papers_for_testing"
   val activationPath1 = config.getString("papersDir").concat(s"/${testingActivationPapers}/PMC2910130.nxml")
-  val nxmlAct1 = nxmlReader.read(activationPath1)
-  val docAct1 = reachSystem.mkDoc(nxmlAct1)
-  val mentionsActivPaper1 = reachSystem.extractFrom(docAct1)
-  // convert resultant from extractEvtId to string when you check against this
+
   val activevtCtxPair1 = "41520,tissuelist:TS-0500" // expected prediction: 1 //dmax7 //conmax 2 //closmax 1
   val activevtCtxPair2 = "41520,cl:CL:0000312" // expected prediction: 0 //dmax7 //conmax 4 //closmax 1
   val activevtCtxPair3 = "51618,tissuelist:TS-0500" // expected prediction: 1 //dmax8 //conmax 2 //closmax 1
@@ -213,9 +210,6 @@ class TestSVMContext extends FlatSpec with Matchers {
     valueSentMin should be (2)
   }
 
-  activevtCtxPair3 should "not have empty mentions" in {
-    mentionsActivPaper1 should not be (empty)
-  }
 
   activevtCtxPair3 should "have prediction 1" in {
     val evtID = activevtCtxPair3.split(",")(0)
@@ -258,18 +252,10 @@ class TestSVMContext extends FlatSpec with Matchers {
   val testingInhibitionPapers = "inhibition_papers_for_testing"
   val inhibitionPath2 = config.getString("papersDir").concat(s"/${testingInhibitionPapers}/PMC2636845.nxml")
   val outPaperDirPathInhib1 = config.getString("contextEngine.params.contextOutputDir").concat(s"inhibition/PMC2636845/")
-  val nxmlInhib2 = nxmlReader.read(inhibitionPath2)
-  val docInhib2 = reachSystem.mkDoc(nxmlInhib2)
-  val mentions3 = reachSystem.extractFrom(docInhib2)
   val inhibitPair1 = "52831,cl:CL:0000056" // expected prediction: 1
   val inhibitPair2 = "71114,cl:CL:0000056" // expected prediction: 1
   val inhibitPair3 = "5331,tissuelist:TS-0725" // expected prediction: 0
 
-
-  // pair 1 tests begin
-  inhibitPair1 should "not have empty mentions" in {
-    mentions3 should not be (empty)
-  }
 
   inhibitPair1 should "have prediction 1" in {
     val evtID = inhibitPair1.split(",")(0)
@@ -457,16 +443,10 @@ class TestSVMContext extends FlatSpec with Matchers {
 
   val inhibitionPath1 = config.getString("papersDir").concat(s"/${testingInhibitionPapers}/PMC2587086.nxml")
   val outPaperDirPathInhib2 = config.getString("contextEngine.params.contextOutputDir").concat(s"inhibition/PMC2587086/")
-  val nxmlInhib1 = nxmlReader.read(inhibitionPath1)
-  val docInhib1 = reachSystem.mkDoc(nxmlInhib1)
-  val mentions4 = reachSystem.extractFrom(docInhib1)
   val inhibitP1 = "6024,taxonomy:9606" // expected prediction: 1
   val inhibitP2 = "314,tissuelist:TS-1047" // expected prediction: 0
   val inhibitP3 = "606,go:GO:0005777" // expected prediction: 1
 
-  inhibitP1 should "not have empty mentions" in {
-    mentions4 should not be (empty)
-  }
 
   inhibitP1 should "have prediction 1" in {
     val evtID = inhibitP1.split(",")(0)
