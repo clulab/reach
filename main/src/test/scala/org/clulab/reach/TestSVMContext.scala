@@ -21,20 +21,12 @@ class TestSVMContext extends FlatSpec with Matchers {
   val svmWrapper = new LinearSVMWrapper(null)
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
 
-  val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
-  val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
-  lazy val reachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
-    contextEngineType = contextEngineType,
-    contextParams = contextEngineParams)
 
   // In this test suite, I'm testing more on inhibition papers rather than activation papers, since they are shorter in length, and thus take lesser time to run through reach.
 
 
 
   // ************ TESTS AND VARIABLES FOR ACTIVATION PAPER: PMC2910130 ************
-  val testingActivationPapers = "activation_papers_for_testing"
-  val activationPath1 = config.getString("papersDir").concat(s"/${testingActivationPapers}/PMC2910130.nxml")
-
   val activevtCtxPair1 = "41520,tissuelist:TS-0500" // expected prediction: 1 //dmax7 //conmax 2 //closmax 1
   val activevtCtxPair2 = "41520,cl:CL:0000312" // expected prediction: 0 //dmax7 //conmax 4 //closmax 1
   val activevtCtxPair3 = "51618,tissuelist:TS-0500" // expected prediction: 1 //dmax8 //conmax 2 //closmax 1
@@ -249,8 +241,7 @@ class TestSVMContext extends FlatSpec with Matchers {
 
 
   // ************ STARTING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2636845  ************
-  val testingInhibitionPapers = "inhibition_papers_for_testing"
-  val inhibitionPath2 = config.getString("papersDir").concat(s"/${testingInhibitionPapers}/PMC2636845.nxml")
+
   val outPaperDirPathInhib1 = config.getString("contextEngine.params.contextOutputDir").concat(s"inhibition/PMC2636845/")
   val inhibitPair1 = "52831,cl:CL:0000056" // expected prediction: 1
   val inhibitPair2 = "71114,cl:CL:0000056" // expected prediction: 1
@@ -441,7 +432,6 @@ class TestSVMContext extends FlatSpec with Matchers {
 
  // STARTING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2587086
 
-  val inhibitionPath1 = config.getString("papersDir").concat(s"/${testingInhibitionPapers}/PMC2587086.nxml")
   val outPaperDirPathInhib2 = config.getString("contextEngine.params.contextOutputDir").concat(s"inhibition/PMC2587086/")
   val inhibitP1 = "6024,taxonomy:9606" // expected prediction: 1
   val inhibitP2 = "314,tissuelist:TS-1047" // expected prediction: 0
