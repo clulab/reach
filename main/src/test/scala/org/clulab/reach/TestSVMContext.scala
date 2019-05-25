@@ -2,15 +2,7 @@ package org.clulab.reach
 import java.io.{FileInputStream, ObjectInputStream}
 
 import org.scalatest.{FlatSpec, Matchers}
-import org.clulab.reach.context.{ContextEngine, SVMContextEngine}
-
-import scala.util.Try
-import ai.lum.nxmlreader.NxmlReader
-import org.clulab.reach.PaperReader.{contextEngineParams, ignoreSections, preproc, procAnnotator}
 import com.typesafe.config.ConfigFactory
-import org.clulab.odin.EventMention
-import org.clulab.reach.context.ContextEngineFactory.Engine
-import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
 import org.ml4ai.data.classifiers.LinearSVMWrapper
 import org.ml4ai.data.utils.AggregatedRow
 
@@ -32,7 +24,7 @@ class TestSVMContext extends FlatSpec with Matchers {
   val activevtCtxPair3 = "51618,tissuelist:TS-0500" // expected prediction: 1 //dmax8 //conmax 2 //closmax 1
   val pair4 = "41820,cl:CL:0000312" // expected: 0
 
-  val outPaperDirPathActiv1 = config.getString("contextEngine.params.contextOutputDir").concat(s"activation/PMC2910130/")
+  val outPaperDirPathActiv1 = "/home/sthumsi/enter/reach/main/src/test/resources/SVMContext/PMC2910130"
 
 
   // Pair 1 tests start
@@ -241,8 +233,7 @@ class TestSVMContext extends FlatSpec with Matchers {
 
 
   // ************ STARTING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2636845  ************
-
-  val outPaperDirPathInhib1 = config.getString("contextEngine.params.contextOutputDir").concat(s"inhibition/PMC2636845/")
+  val outPaperDirPathInhib1 = "/home/sthumsi/enter/reach/main/src/test/resources/SVMContext/PMC2636845"
   val inhibitPair1 = "52831,cl:CL:0000056" // expected prediction: 1
   val inhibitPair2 = "71114,cl:CL:0000056" // expected prediction: 1
   val inhibitPair3 = "5331,tissuelist:TS-0725" // expected prediction: 0
@@ -432,7 +423,7 @@ class TestSVMContext extends FlatSpec with Matchers {
 
  // STARTING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2587086
 
-  val outPaperDirPathInhib2 = config.getString("contextEngine.params.contextOutputDir").concat(s"inhibition/PMC2587086/")
+  val outPaperDirPathInhib2 = "/home/sthumsi/enter/reach/main/src/test/resources/SVMContext/PMC2587086"
   val inhibitP1 = "6024,taxonomy:9606" // expected prediction: 1
   val inhibitP2 = "314,tissuelist:TS-1047" // expected prediction: 0
   val inhibitP3 = "606,go:GO:0005777" // expected prediction: 1
