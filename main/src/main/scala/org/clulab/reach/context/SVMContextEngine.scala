@@ -2,20 +2,21 @@ package org.clulab.reach.context
 
 import java.io._
 import java.io.PrintWriter
+
 import org.clulab.processors.Document
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 import org.ml4ai.data.classifiers.LinearSVMWrapper
 import org.ml4ai.data.utils.{AggregatedRow, CodeUtils, InputRow}
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
-import scala.util.{Try, Success, Failure}
+
+import scala.util.{Failure, Success, Try}
 import scala.collection.mutable.ListBuffer
 import org.clulab.struct.Interval
 
 import scala.collection.mutable
-
-
 import scala.collection.immutable
+import scala.io.Source
 class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine with LazyLogging {
 
   type Pair = (BioEventMention, BioTextBoundMention)
@@ -37,6 +38,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   val numericFeaturesInputRow = hardCodedFeatures.drop(4)
   val (allFeatures, bestFeatureDict) = CodeUtils.featureConstructor(configAllFeaturesPath)
   val featSeq = bestFeatureDict("NonDep_Context")
+  val labelFile = config.getString("svmContext.labelFile")
 
 
 
@@ -71,7 +73,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         }
 
 
-
+        val generatePredictionMap = collection.mutable.HashMap[(String,String,String), Int]()
 
         // here, we will use a Seq(Map), where each map has InputRow as a key, and as value, we have a tuple of feature values
         // so for a given InputRow, I can look up the table and return the values of the features present in the InputRow.
@@ -111,6 +113,10 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                   }
                 }
 
+                val paperID = s"PMC${aggregatedFeature.PMCID.split("_")(0)}"
+                val tup = (paperID,k.toString,ctxId._2)
+                generatePredictionMap ++= Map(tup -> predArrayIntForm(0))
+
 
                 logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
 
@@ -124,7 +130,9 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           map.toMap
         }
 
-
+        val labelMap = generateLabelMap(labelFile)
+        val intersect = labelMap.keySet.intersect(generatePredictionMap.keySet)
+        logger.info(s"Size of intersection of annotated and captured mentions: ${intersect.size}")
 
 
         // Loop over all the mentions to generate the context dictionary
@@ -687,6 +695,24 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
       }
     }
     resultingMap.toMap
+  }
+
+  def generateLabelMap(fileName: String): Map[(String,String,String), Int] = {
+    val map = collection.mutable.HashMap[(String,String,String), Int]()
+    val source = Source.fromFile(fileName)
+    val lines = source.getLines()
+    val content = lines.drop(1)
+    for(c <- content) {
+      val array = c.split(",")
+      val pmcid = array(0)
+      val evtID = array(1)
+      val ctxID = array(2)
+      val label = Integer.parseInt(array(3))
+      val tup = (pmcid,evtID,ctxID)
+      map ++= Map(tup -> label)
+    }
+
+    map.toMap
   }
 
 }
