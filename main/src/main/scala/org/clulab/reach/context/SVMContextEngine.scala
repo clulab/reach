@@ -70,13 +70,12 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             pairs
         }
 
-        // Extract features for each of the pairs
-        // change to filtered pairs when you know the best value of sentence distance.
-        //val features:Seq[InputRow] = filteredPairs map extractFeaturesToCalcByBestFeatSet
+
+
 
         // here, we will use a Seq(Map), where each map has InputRow as a key, and as value, we have a tuple of feature values
         // so for a given InputRow, I can look up the table and return the values of the features present in the InputRow.
-        val tempo = pairs.map{p =>
+        val tempo = filteredPairs.map{p =>
           extractFeaturesToCalcByBestFeatSet(p, ctxMentions, contextFrequencyMap.toMap)
         }
         val flattenedMap = tempo.flatMap(t=>t).toMap
