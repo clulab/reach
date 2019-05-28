@@ -104,7 +104,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
                 listForFolds += aggregatedFeature
                 // comment row to file function before testing
-                //writeRowToFile(aggregatedFeature, k.toString, ctxId._2)
+                writeRowToFile(aggregatedFeature, k.toString, ctxId._2)
                 val prediction = {
                   predArrayIntForm(0) match {
                     case 1 => true
