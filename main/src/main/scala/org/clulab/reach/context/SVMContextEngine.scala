@@ -16,7 +16,7 @@ import scala.collection.mutable
 
 // This script currently tests papers in the old data
 import scala.collection.immutable
-class SVMContextEngine extends ContextEngine with LazyLogging {
+class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine with LazyLogging {
 
   type Pair = (BioEventMention, BioTextBoundMention)
   type EventID = String
@@ -60,9 +60,14 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         // Generate all the event/ctx mention pairs
         val pairs:Seq[Pair] = for(evt <- evtMentions; ctx <- ctxMentions) yield (evt, ctx)
 
-        val filteredPairs = pairs filter {
-          case (evt, ctx) =>
-            Math.abs(evt.sentence - ctx.sentence) <= 50
+        val filteredPairs = sentenceWindow match {
+          case Some(bound) =>
+            pairs.filter {
+              case (evt, ctx) =>
+                Math.abs(evt.sentence - ctx.sentence) <= bound
+            }
+          case None =>
+            pairs
         }
 
         // Extract features for each of the pairs
@@ -359,14 +364,14 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   }
 
   private def writeRowToFile(row:AggregatedRow, evtID: String, ctxID: String):Unit = {
-    val typeOfPaper = config.getString("contextEngine.params.paperType")
+    val typeOfPaper = config.getString("svmContext.paperType")
     val dirForType = if(typeOfPaper.length != 0) config.getString("papersDir").concat(s"/${typeOfPaper}") else config.getString("papersDir")
     val fileListUnfiltered = new File(dirForType)
     val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
     val currentPMCID = s"PMC${row.PMCID.split("_")(0)}"
     for(file <- fileList) {
       val fileNamePMCID = file.getName.slice(0,file.getName.length-5)
-      val outPaperDirPath = config.getString("contextEngine.params.contextOutputDir").concat(s"${typeOfPaper}/${fileNamePMCID}")
+      val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${fileNamePMCID}")
       // creating output directory if it doesn't already exist
       val outputPaperDir = new File(outPaperDirPath)
       if(!outputPaperDir.exists()) {
