@@ -16,7 +16,7 @@ import scala.collection.mutable
 
 // This script currently tests papers in the old data
 import scala.collection.immutable
-class SVMContextEngine extends ContextEngine with LazyLogging {
+class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine with LazyLogging {
 
   type Pair = (BioEventMention, BioTextBoundMention)
   type EventID = String
@@ -60,9 +60,14 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         // Generate all the event/ctx mention pairs
         val pairs:Seq[Pair] = for(evt <- evtMentions; ctx <- ctxMentions) yield (evt, ctx)
 
-        val filteredPairs = pairs filter {
-          case (evt, ctx) =>
-            Math.abs(evt.sentence - ctx.sentence) <= 50
+        val filteredPairs = sentenceWindow match {
+          case Some(bound) =>
+            pairs.filter {
+              case (evt, ctx) =>
+                Math.abs(evt.sentence - ctx.sentence) <= bound
+            }
+          case None =>
+            pairs
         }
 
         // Extract features for each of the pairs

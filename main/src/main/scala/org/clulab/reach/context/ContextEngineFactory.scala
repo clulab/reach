@@ -37,7 +37,10 @@ object ContextEngineFactory {
                 case None => new BidirectionalPaddingContext
             }
             case Dummy => new DummyContextEngine
-            case SVMPolicy => new SVMContextEngine
+            case SVMPolicy => bound match {
+              case w @ Some(b) => new SVMContextEngine(w)
+              case None => new SVMContextEngine
+            }
             case _ => new DummyContextEngine
         }
     }
