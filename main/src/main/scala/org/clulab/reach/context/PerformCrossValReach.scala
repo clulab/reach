@@ -7,10 +7,10 @@ import scala.io.Source
 object PerformCrossValReach extends App with LazyLogging {
   val svmWrapper = new LinearSVMWrapper(null)
   val config = ConfigFactory.load()
-  val untrainedConfigPath = config.getString("contextEngine.params.untrainedSVMPath")
+  val untrainedConfigPath = config.getString("svmContext.untrainedSVMPath")
   val untrainedSVMInstance = svmWrapper.loadFrom(untrainedConfigPath)
-  val foldsForSVMContextEngine = Source.fromFile(config.getString("contextEngine.params.folds"))
-  val groupedPath = config.getString("contextEngine.params.groupedFeatures")
+  val foldsForSVMContextEngine = Source.fromFile(config.getString("svmContext.folds"))
+  val groupedPath = config.getString("svmContext.groupedFeatures")
   val hardCodedFeaturesPath = config.getString("contextEngine.params.hardCodedFeatures")
   val (_,rows) = CodeUtils.loadAggregatedRowsFromFile(groupedPath, hardCodedFeaturesPath)
 

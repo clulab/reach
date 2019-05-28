@@ -359,14 +359,14 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   }
 
   private def writeRowToFile(row:AggregatedRow, evtID: String, ctxID: String):Unit = {
-    val typeOfPaper = config.getString("contextEngine.params.paperType")
+    val typeOfPaper = config.getString("svmContext.paperType")
     val dirForType = if(typeOfPaper.length != 0) config.getString("papersDir").concat(s"/${typeOfPaper}") else config.getString("papersDir")
     val fileListUnfiltered = new File(dirForType)
     val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
     val currentPMCID = s"PMC${row.PMCID.split("_")(0)}"
     for(file <- fileList) {
       val fileNamePMCID = file.getName.slice(0,file.getName.length-5)
-      val outPaperDirPath = config.getString("contextEngine.params.contextOutputDir").concat(s"${typeOfPaper}/${fileNamePMCID}")
+      val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${fileNamePMCID}")
       // creating output directory if it doesn't already exist
       val outputPaperDir = new File(outPaperDirPath)
       if(!outputPaperDir.exists()) {

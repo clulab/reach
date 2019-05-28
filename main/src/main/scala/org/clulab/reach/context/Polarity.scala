@@ -15,7 +15,7 @@ object Polarity extends App {
     case None =>
   }*/
 
-  val inhibitionJSONPath = config.getString("contextEngine.params.inhibitionJSON")
+  val inhibitionJSONPath = config.getString("polarityContext.inhibitionJSON")
   val inhibitionJSONString = Source.fromFile(inhibitionJSONPath).getLines().mkString
   val inhibitionContents = JSON.parseFull(inhibitionJSONString) match {
     //case Some(t) => t.asInstanceOf[List[Map[String,Any]]]
