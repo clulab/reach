@@ -38,8 +38,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   val numericFeaturesInputRow = hardCodedFeatures.drop(4)
   val (allFeatures, bestFeatureDict) = CodeUtils.featureConstructor(configAllFeaturesPath)
   val featSeq = bestFeatureDict("NonDep_Context")
-  val labelFile = config.getString("svmContext.labelFile")
-
 
 
   logger.info(s"The SVM model has been tuned to the following settings: C: ${trainedSVMInstance.classifier.C}, Eps: ${trainedSVMInstance.classifier.eps}, Bias: ${trainedSVMInstance.classifier.bias}")
@@ -73,7 +71,8 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         }
 
 
-        val generatePredictionMap = collection.mutable.HashMap[(String,String,String), Int]()
+
+        val listForFolds = collection.mutable.ListBuffer[AggregatedRow]()
 
         // here, we will use a Seq(Map), where each map has InputRow as a key, and as value, we have a tuple of feature values
         // so for a given InputRow, I can look up the table and return the values of the features present in the InputRow.
@@ -103,6 +102,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             val x = a.map {
               case (ctxId, aggregatedFeature) =>
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
+                listForFolds += aggregatedFeature
                 // comment row to file function before testing
                 //writeRowToFile(aggregatedFeature, k.toString, ctxId._2)
                 val prediction = {
@@ -113,9 +113,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                   }
                 }
 
-                val paperID = s"PMC${aggregatedFeature.PMCID.split("_")(0)}"
-                val tup = (paperID,k.toString,ctxId._2)
-                generatePredictionMap ++= Map(tup -> predArrayIntForm(0))
+
 
 
                 logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
@@ -129,10 +127,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           }
           map.toMap
         }
-
-        val labelMap = generateLabelMap(labelFile)
-        val intersect = labelMap.keySet.intersect(generatePredictionMap.keySet)
-        logger.info(s"Size of intersection of annotated and captured mentions: ${intersect.size}")
 
 
         // Loop over all the mentions to generate the context dictionary
