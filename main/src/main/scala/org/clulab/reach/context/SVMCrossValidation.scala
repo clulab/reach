@@ -19,7 +19,7 @@ object SVMCrossValidation extends App {
   val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/")
   val fileListUnfiltered = new File(outPaperDirPath)
   val directories = fileListUnfiltered.listFiles().filter(_.isDirectory)
-  val rowsSup = collection.mutable.ListBuffer[AggregatedRow]()
+  val rowsSup = collection.mutable.ArrayBuffer[AggregatedRow]()
   for(d<-directories) {
     val rowFiles = d.listFiles()
     val rows = rowFiles.map(readAggRowFromFile(_))
@@ -36,8 +36,8 @@ object SVMCrossValidation extends App {
   println(map.size)
 
 
-  def readAggRowFromFile(fileName: String):AggregatedRow = {
-    val is = new ObjectInputStream(new FileInputStream(fileName))
+  def readAggRowFromFile(file: File):AggregatedRow = {
+    val is = new ObjectInputStream(new FileInputStream(file))
     val c = is.readObject().asInstanceOf[AggregatedRow]
     is.close()
     c
