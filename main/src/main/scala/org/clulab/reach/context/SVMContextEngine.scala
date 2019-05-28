@@ -5,16 +5,16 @@ import java.io.PrintWriter
 import org.clulab.processors.Document
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 import org.ml4ai.data.classifiers.LinearSVMWrapper
-import org.ml4ai.data.utils.{AggregatedRow, Balancer, CodeUtils, InputRow}
+import org.ml4ai.data.utils.{AggregatedRow, CodeUtils, InputRow}
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import scala.util.{Try, Success, Failure}
 import scala.collection.mutable.ListBuffer
 import org.clulab.struct.Interval
-//changed ram to 62G
+
 import scala.collection.mutable
 
-// This script currently tests papers in the old data
+
 import scala.collection.immutable
 class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine with LazyLogging {
 
