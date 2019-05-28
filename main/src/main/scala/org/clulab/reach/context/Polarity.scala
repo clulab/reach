@@ -17,13 +17,11 @@ object Polarity extends App {
 
   val inhibitionJSONPath = config.getString("contextEngine.params.inhibitionJSON")
   val inhibitionJSONString = Source.fromFile(inhibitionJSONPath).getLines().mkString
-  val inhibitionContents = JSON.parseFull(inhibitionJSONString) match {
-    //case Some(t) => t.asInstanceOf[List[Map[String,Any]]]
-    case Some(t) => t
-    case None =>
-  }
+  val inhibitionContents = JSON.parseFull(inhibitionJSONString).asInstanceOf[Some[List[Map[String, Any]]]]
+  val mapList = inhibitionContents.getOrElse(List(Map()).asInstanceOf[List[Map[String, Any]]])
 
-  //println(activationContents(0))
-  println(inhibitionContents.getClass.getSimpleName)
+  println(mapList(0)("evidence"))
+
+
 
 }
