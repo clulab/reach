@@ -38,7 +38,7 @@ object SVMCrossValidation extends App {
 
   def readAggRowFromFile(file: File):AggregatedRow = {
     val is = new ObjectInputStream(new FileInputStream(file))
-    val c = is.readObject().asInstanceOf[AggregatedRow]
+    val c = is.read().asInstanceOf[AggregatedRow]
     is.close()
     c
   }
