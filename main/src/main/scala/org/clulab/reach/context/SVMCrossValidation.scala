@@ -1,7 +1,10 @@
 package org.clulab.reach.context
 
+import java.io.{File, FileInputStream, ObjectInputStream}
+
 import com.typesafe.config.ConfigFactory
 import org.ml4ai.data.classifiers.LinearSVMWrapper
+import org.ml4ai.data.utils.AggregatedRow
 
 import scala.io.Source
 
@@ -12,6 +15,34 @@ object SVMCrossValidation extends App {
   val svmWrapper = new LinearSVMWrapper(null)
   val unTrainedSVMInstance = svmWrapper.loadFrom(configPath)
   val labelFile = config.getString("svmContext.labelFile")
+  val typeOfPaper = config.getString("svmContext.paperType")
+  val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/")
+  val fileListUnfiltered = new File(outPaperDirPath)
+  val directories = fileListUnfiltered.listFiles().filter(_.isDirectory)
+  val rowsSup = collection.mutable.ListBuffer[AggregatedRow]()
+  for(d<-directories) {
+    val rowFiles = d.listFiles()
+    val rows = rowFiles.map(readAggRowFromFile(_))
+    rowsSup ++= rows
+
+
+    //arrayOfAggRows ++= rows
+
+  }
+
+  val pmcid = rowsSup.map(r => s"PMC${r.PMCID.split("_")(0)}")
+  val zip = pmcid zip rowsSup
+  val map = zip.groupBy(_._1)
+  println(map.size)
+
+
+  def readAggRowFromFile(fileName: String):AggregatedRow = {
+    val is = new ObjectInputStream(new FileInputStream(fileName))
+    val c = is.readObject().asInstanceOf[AggregatedRow]
+    is.close()
+    c
+  }
+
 
   def generateLabelMap(fileName: String): Map[(String,String,String), Int] = {
     val map = collection.mutable.HashMap[(String,String,String), Int]()
