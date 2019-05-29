@@ -75,6 +75,7 @@ object SVMCrossValidation extends App {
 
 
     val intersectingLabels = trainingLabelsIds.toSet.intersect(idMap.keySet)
+    println("size of intersecting key set: " + intersectingLabels.size)
     val trainingRows = collection.mutable.ListBuffer[AggregatedRow]()
     val trainingLabels = collection.mutable.ListBuffer[Int]()
     for(idTup <- intersectingLabels) {
