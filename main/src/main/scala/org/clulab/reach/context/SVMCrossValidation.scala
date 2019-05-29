@@ -20,35 +20,37 @@ object SVMCrossValidation extends App {
   val fileListUnfiltered = new File(outPaperDirPath)
   val directories = fileListUnfiltered.listFiles().filter(_.isDirectory)
   val rowsSup = collection.mutable.ArrayBuffer[AggregatedRow]()
+  val map = collection.mutable.HashMap[(String,String,String),AggregatedRow]()
+
   for(d<-directories) {
     val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
 
     val rows = rowFiles.map(file => {
       val pmcid = file.getName.split("_")(1)
+      val evtID = file.getName.split("_")(2)
+      val ctxID = file.getName.split("_")(3)
       val filePath = outPaperDirPath.concat(pmcid).concat(s"/${file.getName}")
-      readAggRowFromFile(filePath)
+      val row = readAggRowFromFile(filePath)
+      val tuple = (pmcid,evtID,ctxID)
+      val mapEntry = Map(tuple -> row)
+      map ++= mapEntry
+      row
     })
     rowsSup ++= rows
   }
 
-  val pmcid = rowsSup.map(r => s"PMC${r.PMCID.split("_")(0)}")
-  val zip = pmcid zip rowsSup
-  val map = zip.groupBy(_._1)
+  val groupedByPaperID = rowsSup.groupBy(row => s"PMC${row.PMCID}")
 
 
   val folds = collection.mutable.ArrayBuffer[(Seq[AggregatedRow], Seq[AggregatedRow])]()
 
-  map.keySet.map(s => {
-    val trainingKeys = map.keySet.filter(_!=s)
-    val trainingRows = trainingKeys.map(key => {
-      map(key).map(_._2)
-    })
-    val testingRows = map(s).map(_._2)
-    val perFold = (testingRows, trainingRows.flatten.toSeq)
-    folds += perFold
-  })
+  println(groupedByPaperID.size)
 
-  println(folds.size)
+
+
+
+
+
 
 
   def readAggRowFromFile(file: String):AggregatedRow = {
