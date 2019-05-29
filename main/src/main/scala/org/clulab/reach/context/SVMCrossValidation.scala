@@ -28,7 +28,7 @@ object SVMCrossValidation extends App {
     val rows = rowFiles.map(file => {
       val pmcid = file.getName.split("_")(1)
       val evtID = file.getName.split("_")(2)
-      val ctxID = file.getName.split("_")(3)
+      val ctxID = file.getName.split("_")(3).slice(0,file.getName.length-4)
       val filePath = outPaperDirPath.concat(pmcid).concat(s"/${file.getName}")
       val row = readAggRowFromFile(filePath)
       val tuple = (pmcid,evtID,ctxID)
@@ -74,7 +74,7 @@ object SVMCrossValidation extends App {
       trainingLabelsIds ++= evtCtxPerPaper
     })
 
-    println(trainingLabelsIds.size + " : Size of tuple list from reach run")
+    println(trainingLabelsIds.size + " : Size of tuple list from reach run (full training data)")
     println(generateLabelMap(labelFile).size + " : Size of tuple list from label file")
 
     val intersectingLabels = trainingLabelsIds.toSet.intersect(idMap.keySet)
