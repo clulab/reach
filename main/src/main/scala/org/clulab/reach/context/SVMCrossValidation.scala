@@ -22,7 +22,12 @@ object SVMCrossValidation extends App {
   val rowsSup = collection.mutable.ArrayBuffer[AggregatedRow]()
   for(d<-directories) {
     val rowFiles = d.listFiles()
-    val rows = rowFiles.map(file => readAggRowFromFile(file.getName))
+
+    val rows = rowFiles.map(file => {
+      val pmcid = file.getName.split("_")(1)
+      val filePath = outPaperDirPath.concat(pmcid)
+      readAggRowFromFile(filePath)
+    })
     rowsSup ++= rows
 
 
