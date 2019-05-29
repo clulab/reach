@@ -29,16 +29,26 @@ object SVMCrossValidation extends App {
       readAggRowFromFile(filePath)
     })
     rowsSup ++= rows
-
-
-    //arrayOfAggRows ++= rows
-
   }
 
   val pmcid = rowsSup.map(r => s"PMC${r.PMCID.split("_")(0)}")
   val zip = pmcid zip rowsSup
   val map = zip.groupBy(_._1)
-  println(map.size)
+
+
+  val folds = collection.mutable.ArrayBuffer[(Seq[AggregatedRow], Seq[AggregatedRow])]()
+
+  map.keySet.map(s => {
+    val trainingKeys = map.keySet.filter(_!=s)
+    val trainingRows = trainingKeys.map(key => {
+      map(key).map(_._2)
+    })
+    val testingRows = map(s).map(_._2)
+    val perFold = (testingRows, trainingRows.flatten.toSeq)
+    folds += perFold
+  })
+
+  println(folds.size)
 
 
   def readAggRowFromFile(file: String):AggregatedRow = {
