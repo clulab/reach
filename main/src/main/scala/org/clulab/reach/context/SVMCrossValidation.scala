@@ -4,7 +4,7 @@ import java.io.{File, FileInputStream, ObjectInputStream}
 
 import com.typesafe.config.ConfigFactory
 import org.ml4ai.data.classifiers.LinearSVMWrapper
-import org.ml4ai.data.utils.AggregatedRow
+import org.ml4ai.data.utils.{AggregatedRow, Balancer, CodeUtils}
 
 import scala.io.Source
 
@@ -20,7 +20,7 @@ object SVMCrossValidation extends App {
   val fileListUnfiltered = new File(outPaperDirPath)
   val directories = fileListUnfiltered.listFiles().filter(_.isDirectory)
   val rowsSup = collection.mutable.ArrayBuffer[AggregatedRow]()
-  val map = collection.mutable.HashMap[(String,String,String),AggregatedRow]()
+  val idMap = collection.mutable.HashMap[(String,String,String),AggregatedRow]()
 
   for(d<-directories) {
     val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
@@ -33,18 +33,71 @@ object SVMCrossValidation extends App {
       val row = readAggRowFromFile(filePath)
       val tuple = (pmcid,evtID,ctxID)
       val mapEntry = Map(tuple -> row)
-      map ++= mapEntry
+      idMap ++= mapEntry
       row
     })
     rowsSup ++= rows
   }
 
-  val groupedByPaperID = rowsSup.groupBy(row => s"PMC${row.PMCID}")
+  val groupedByPaperID = rowsSup.groupBy(row => s"PMC${row.PMCID.split("_")(0)}")
 
 
   val folds = collection.mutable.ArrayBuffer[(Seq[AggregatedRow], Seq[AggregatedRow])]()
 
   println(groupedByPaperID.size)
+
+
+  groupedByPaperID.keySet.map(s=> {
+    val trainingKeys = groupedByPaperID.keySet.filter(_ != s)
+    val trainingRows = trainingKeys.map(key => {
+      groupedByPaperID(key)
+    })
+    val testingRows = groupedByPaperID(s)
+    val perFold = (testingRows, trainingRows.flatten.toSeq)
+    folds += perFold
+
+  })
+
+
+  val giantTruthLabel = collection.mutable.ListBuffer[Int]()
+  val giantPredictedLabel = collection.mutable.ListBuffer[Int]()
+
+  for((test,train) <- folds) {
+    val trainingLabelsIds = collection.mutable.ListBuffer[(String,String,String)]()
+    train.map(row => {
+      val pmcid = row.PMCID
+      val evtCtxPerPaper = idMap.keySet.filter(_._1 == pmcid)
+      trainingLabelsIds ++= evtCtxPerPaper
+    })
+
+    val intersectingLabels = trainingLabelsIds.toSet.intersect(idMap.keySet)
+    val trainingRows = collection.mutable.ListBuffer[AggregatedRow]()
+    val trainingLabels = collection.mutable.ListBuffer[Int]()
+    for(idTup <- intersectingLabels) {
+      val row = idMap(idTup)
+      val label = generateLabelMap(labelFile)(idTup)
+      trainingRows += row
+      trainingLabels += label
+    }
+    //val balancedTrainingData = Balancer.balanceByPaperAgg(trainingRows, 1)
+    val (trainingRVFDataset, _) = unTrainedSVMInstance.dataConverter(trainingRows,Some(trainingLabels.toArray))
+    unTrainedSVMInstance.fit(trainingRVFDataset)
+    giantTruthLabel ++= trainingLabels
+    val predictedLabels = unTrainedSVMInstance.predict(test)
+    giantPredictedLabel ++= predictedLabels
+  }
+
+  val countsTest = CodeUtils.predictCounts(giantTruthLabel.toArray, giantPredictedLabel.toArray)
+  val precision = CodeUtils.precision(countsTest)
+  val recall = CodeUtils.recall(countsTest)
+  val accuracy = CodeUtils.accuracy(countsTest)
+
+  println(s"Precision: ${precision}")
+  println(s"Recall: ${recall}")
+  println(s"Accuracy: ${accuracy}")
+
+
+
 
 
 
