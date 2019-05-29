@@ -67,8 +67,9 @@ object SVMCrossValidation extends App {
   for((test,train) <- folds) {
     val trainingLabelsIds = collection.mutable.ListBuffer[(String,String,String)]()
     train.map(row => {
-      val pmcid = row.PMCID
-      val evtCtxPerPaper = idMap.keySet.filter(_._1 == pmcid)
+      val pmcid = row.PMCID.split("_")(0)
+      val pmcidReformat = s"PMC${pmcid}"
+      val evtCtxPerPaper = idMap.keySet.filter(_._1 == pmcidReformat)
       println(evtCtxPerPaper.size + " : Number of evt-ctx mentions per paper from reach")
       trainingLabelsIds ++= evtCtxPerPaper
     })
@@ -85,7 +86,6 @@ object SVMCrossValidation extends App {
       trainingRows += row
       trainingLabels += label
     }
-    println(trainingRows.size)
     //val balancedTrainingData = Balancer.balanceByPaperAgg(trainingRows, 1)
     val (trainingRVFDataset, _) = unTrainedSVMInstance.dataConverter(trainingRows,Some(trainingLabels.toArray))
     unTrainedSVMInstance.fit(trainingRVFDataset)
