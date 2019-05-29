@@ -44,7 +44,7 @@ object SVMCrossValidation extends App {
 
   val folds = collection.mutable.ArrayBuffer[(Seq[AggregatedRow], Seq[AggregatedRow])]()
 
-  println(groupedByPaperID.size)
+
 
 
   groupedByPaperID.keySet.map(s=> {
@@ -79,6 +79,7 @@ object SVMCrossValidation extends App {
       trainingRows += row
       trainingLabels += label
     }
+    println(trainingRows.size)
     //val balancedTrainingData = Balancer.balanceByPaperAgg(trainingRows, 1)
     val (trainingRVFDataset, _) = unTrainedSVMInstance.dataConverter(trainingRows,Some(trainingLabels.toArray))
     unTrainedSVMInstance.fit(trainingRVFDataset)
