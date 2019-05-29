@@ -25,7 +25,7 @@ object SVMCrossValidation extends App {
 
     val rows = rowFiles.map(file => {
       val pmcid = file.getName.split("_")(1)
-      val filePath = outPaperDirPath.concat(pmcid)
+      val filePath = outPaperDirPath.concat(pmcid).concat(s"/${file.getName}")
       readAggRowFromFile(filePath)
     })
     rowsSup ++= rows
