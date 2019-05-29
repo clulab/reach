@@ -70,6 +70,9 @@ object SVMCrossValidation extends App {
       trainingLabelsIds ++= evtCtxPerPaper
     })
 
+    println(trainingLabelsIds.size + " : Size of tuple list from reach run")
+    println(generateLabelMap(labelFile).size + " : Size of tuple list from label file")
+
     val intersectingLabels = trainingLabelsIds.toSet.intersect(idMap.keySet)
     val trainingRows = collection.mutable.ListBuffer[AggregatedRow]()
     val trainingLabels = collection.mutable.ListBuffer[Int]()
