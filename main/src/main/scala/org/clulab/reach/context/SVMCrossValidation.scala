@@ -67,6 +67,7 @@ object SVMCrossValidation extends App {
     train.map(row => {
       val pmcid = row.PMCID
       val evtCtxPerPaper = idMap.keySet.filter(_._1 == pmcid)
+      println(evtCtxPerPaper.size + " : Number of evt-ctx mentions per paper from reach")
       trainingLabelsIds ++= evtCtxPerPaper
     })
 
