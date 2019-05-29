@@ -21,7 +21,7 @@ object SVMCrossValidation extends App {
   val directories = fileListUnfiltered.listFiles().filter(_.isDirectory)
   val rowsSup = collection.mutable.ArrayBuffer[AggregatedRow]()
   for(d<-directories) {
-    val rowFiles = d.listFiles()
+    val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
 
     val rows = rowFiles.map(file => {
       val pmcid = file.getName.split("_")(1)
