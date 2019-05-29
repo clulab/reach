@@ -70,12 +70,9 @@ object SVMCrossValidation extends App {
       val pmcid = row.PMCID.split("_")(0)
       val pmcidReformat = s"PMC${pmcid}"
       val evtCtxPerPaper = idMap.keySet.filter(_._1 == pmcidReformat)
-      println(evtCtxPerPaper.size + " : Number of evt-ctx mentions per paper from reach")
       trainingLabelsIds ++= evtCtxPerPaper
     })
 
-    println(trainingLabelsIds.size + " : Size of tuple list from reach run (full training data)")
-    println(generateLabelMap(labelFile).size + " : Size of tuple list from label file")
 
     val intersectingLabels = trainingLabelsIds.toSet.intersect(idMap.keySet)
     val trainingRows = collection.mutable.ListBuffer[AggregatedRow]()
