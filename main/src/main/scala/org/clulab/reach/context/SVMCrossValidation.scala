@@ -21,6 +21,7 @@ object SVMCrossValidation extends App {
   val directories = fileListUnfiltered.listFiles().filter(_.isDirectory)
   val rowsSup = collection.mutable.ArrayBuffer[AggregatedRow]()
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedRow]()
+  val precisionMapPerPaper = collection.mutable.HashMap[String,(Double, Double, Double)]()
 
   for(d<-directories) {
     val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
@@ -93,17 +94,60 @@ object SVMCrossValidation extends App {
     giantTruthLabel ++= trainingLabels
     val predictedLabels = unTrainedSVMInstance.predict(test)
     giantPredictedLabel ++= predictedLabels
+
+
+    // calculating precision per paper as test case.
+    val testingLabelsIDs = collection.mutable.ListBuffer[(String,String,String)]()
+    test.map(row => {
+      val pmcid = row.PMCID.split("_")(0)
+      val pmcidReformat = s"PMC${pmcid}"
+      val evtCtxPerPaper = idMap.keySet.filter(_._1 == pmcidReformat)
+      testingLabelsIDs ++= evtCtxPerPaper
+    })
+    val intersectingTestingLabels = testingLabelsIDs.toSet.intersect(generateLabelMap(labelFile).keySet)
+    val testingRows = collection.mutable.ListBuffer[AggregatedRow]()
+    val testingLabels = collection.mutable.ListBuffer[Int]()
+    for(idTup <- intersectingTestingLabels) {
+      val row = idMap(idTup)
+      val label = generateLabelMap(labelFile)(idTup)
+      testingRows += row
+      testingLabels += label
+    }
+
+    val testPaperPMCID = test(0).PMCID
+    val testIDReformat = s"PMC${testPaperPMCID.split("_")(0)}"
+    val metricsPerTestCase = findMetrics(testingLabels.toArray, predictedLabels)
+    val metricsScorePerPaperID = Map(testIDReformat -> metricsPerTestCase)
+    precisionMapPerPaper ++= metricsScorePerPaperID
+
   }
 
+  val metrics = findMetrics(giantTruthLabel.toArray, giantPredictedLabel.toArray)
+
   val countsTest = CodeUtils.predictCounts(giantTruthLabel.toArray, giantPredictedLabel.toArray)
-  val precision = CodeUtils.precision(countsTest)
-  val recall = CodeUtils.recall(countsTest)
-  val accuracy = CodeUtils.accuracy(countsTest)
 
-  println(s"Precision: ${precision}")
-  println(s"Recall: ${recall}")
-  println(s"Accuracy: ${accuracy}")
 
+  println(s"Precision: ${metrics._1}")
+  println(s"Recall: ${metrics._2}")
+  println(s"Accuracy: ${metrics._3}")
+  println(countsTest("TP") + " : TP count")
+  println(countsTest("FP") + " : FP count")
+  println(countsTest("TN") + " : TN count")
+  println(countsTest("FN") + " : FN count")
+
+
+  for((paperID, metrics) <- precisionMapPerPaper) {
+    println("Current Paper ID: " + paperID)
+    println("Precision: " + metrics._1 + " \t Recall: " + metrics._2 + "\t Accuracy: " + metrics._3)
+  }
+
+  def findMetrics(truth:Array[Int], test:Array[Int]):(Double,Double,Double) = {
+    val countsTest = CodeUtils.predictCounts(truth, test)
+    val precision = CodeUtils.precision(countsTest)
+    val recall = CodeUtils.recall(countsTest)
+    val accuracy = CodeUtils.accuracy(countsTest)
+    (precision,recall,accuracy)
+  }
 
   def readAggRowFromFile(file: String):AggregatedRow = {
     val is = new ObjectInputStream(new FileInputStream(file))
