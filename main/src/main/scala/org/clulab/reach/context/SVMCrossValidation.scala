@@ -137,8 +137,7 @@ object SVMCrossValidation extends App {
 
 
   for((paperID, metrics) <- precisionMapPerPaper) {
-    println("Current Paper ID: " + paperID)
-    println("Precision: " + metrics._1 + " \t Recall: " + metrics._2 + "\t Accuracy: " + metrics._3)
+    println("Current Paper ID: " + paperID + " \t Precision: " + metrics._1 + " \t Recall: " + metrics._2 + "\t Accuracy: " + metrics._3)
   }
 
   def findMetrics(truth:Array[Int], test:Array[Int]):(Double,Double,Double) = {
