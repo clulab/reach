@@ -40,7 +40,6 @@ object SVMCrossValidation extends App {
     rowsSup ++= rows
   }
 
-  idMap.keySet.map(println)
 
   println(idMap.size + " : size of id map i.e. map of (pmcid,evtID,ctxID) -> row")
 
