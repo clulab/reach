@@ -41,10 +41,7 @@ object SVMCrossValidation extends App {
   }
 
 
-  println(idMap.size + " : size of id map i.e. map of (pmcid,evtID,ctxID) -> row")
 
-  println(idMap.contains(("PMC4236140","132212","tissuelist:TS-1102")) + " : Truth value of whether ID map contains (PMC4236140,132212,tissuelist:TS-1102)")
-  println(generateLabelMap(labelFile).contains(("PMC4236140","132212","tissuelist:TS-1102")) + " : Truth value of whether label map contains (PMC4236140,132212,tissuelist:TS-1102)")
   val groupedByPaperID = rowsSup.groupBy(row => s"PMC${row.PMCID.split("_")(0)}")
 
 
@@ -70,7 +67,6 @@ object SVMCrossValidation extends App {
   val giantPredictedLabel = collection.mutable.ListBuffer[Int]()
 
   for((test,train) <- folds) {
-    println(train.size + " : Size of training fold")
     val trainingLabelsIds = collection.mutable.ListBuffer[(String,String,String)]()
     train.map(row => {
       val pmcid = row.PMCID.split("_")(0)
@@ -81,13 +77,10 @@ object SVMCrossValidation extends App {
 
 
     val intersectingLabels = trainingLabelsIds.toSet.intersect(generateLabelMap(labelFile).keySet)
-    println("size of intersecting key set: " + intersectingLabels.size)
-    println(intersectingLabels.contains(("PMC4236140","132212","tissuelist:TS-1102")) + " : Truth value of whether intersection set contains (PMC4236140,132212,tissuelist:TS-1102)")
     val trainingRows = collection.mutable.ListBuffer[AggregatedRow]()
     val trainingLabels = collection.mutable.ListBuffer[Int]()
     for(idTup <- intersectingLabels) {
       val row = idMap(idTup)
-      println("Current ID : " + idTup)
       val label = generateLabelMap(labelFile)(idTup)
       trainingRows += row
       trainingLabels += label
@@ -108,15 +101,6 @@ object SVMCrossValidation extends App {
   println(s"Precision: ${precision}")
   println(s"Recall: ${recall}")
   println(s"Accuracy: ${accuracy}")
-
-
-
-
-
-
-
-
-
 
 
   def readAggRowFromFile(file: String):AggregatedRow = {
