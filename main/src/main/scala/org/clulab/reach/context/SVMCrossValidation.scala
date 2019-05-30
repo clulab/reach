@@ -82,6 +82,7 @@ object SVMCrossValidation extends App {
     val trainingLabels = collection.mutable.ListBuffer[Int]()
     for(idTup <- intersectingLabels) {
       val row = idMap(idTup)
+      println("Current ID : " + idTup)
       val label = generateLabelMap(labelFile)(idTup)
       trainingRows += row
       trainingLabels += label
