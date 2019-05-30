@@ -102,7 +102,6 @@ object SVMCrossValidation extends App {
       val pmcid = row.PMCID.split("_")(0)
       val pmcidReformat = s"PMC${pmcid}"
       val evtCtxPerPaper = idMap.keySet.filter(_._1 == pmcidReformat)
-      evtCtxPerPaper.map(println)
       testingLabelsIDs ++= evtCtxPerPaper
     })
     val intersectingTestingLabels = testingLabelsIDs.toSet.intersect(generateLabelMap(labelFile).keySet)
