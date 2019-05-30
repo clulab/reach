@@ -147,7 +147,7 @@ object SVMCrossValidation extends App {
     val countsTest = CodeUtils.predictCounts(truth, test)
     val precision = CodeUtils.precision(countsTest)
     val recall = CodeUtils.recall(countsTest)
-    val accuracy = CodeUtils.accuracy(countsTest)
+    val accuracy = accuracyDup(countsTest)
     (precision,recall,accuracy)
   }
 
@@ -175,5 +175,11 @@ object SVMCrossValidation extends App {
     }
 
     map.toMap
+  }
+
+
+  def accuracyDup(preds:Map[String, Int]): Double = {
+    if (!((preds("TP") + preds("FP") + preds("FN") + preds("TN")) == 0)) (preds("TP") + preds("TN")).toDouble/(preds("TP") + preds("TN") + preds("FP") + preds("FN")).toDouble
+    else 0.0
   }
 }
