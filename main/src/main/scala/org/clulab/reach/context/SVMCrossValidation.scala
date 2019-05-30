@@ -102,6 +102,7 @@ object SVMCrossValidation extends App {
       val pmcid = row.PMCID.split("_")(0)
       val pmcidReformat = s"PMC${pmcid}"
       val evtCtxPerPaper = idMap.keySet.filter(_._1 == pmcidReformat)
+      evtCtxPerPaper.map(println)
       testingLabelsIDs ++= evtCtxPerPaper
     })
     val intersectingTestingLabels = testingLabelsIDs.toSet.intersect(generateLabelMap(labelFile).keySet)
@@ -120,6 +121,8 @@ object SVMCrossValidation extends App {
     val metricsScorePerPaperID = Map(testIDReformat -> metricsPerTestCase)
     precisionMapPerPaper ++= metricsScorePerPaperID
 
+
+
   }
 
   val metrics = findMetrics(giantTruthLabel.toArray, giantPredictedLabel.toArray)
@@ -127,9 +130,9 @@ object SVMCrossValidation extends App {
   val countsTest = CodeUtils.predictCounts(giantTruthLabel.toArray, giantPredictedLabel.toArray)
 
 
-  println(f"Precision: ${metrics._1%1.3f}")
-  println(s"Recall: ${metrics._2%1.3f}")
-  println(s"Accuracy: ${metrics._3%1.3f}")
+  println(s"Precision: ${metrics._1}")
+  println(s"Recall: ${metrics._2}")
+  println(s"Accuracy: ${metrics._3}")
   println(countsTest("TP") + " : TP count")
   println(countsTest("FP") + " : FP count")
   println(countsTest("TN") + " : TN count")
