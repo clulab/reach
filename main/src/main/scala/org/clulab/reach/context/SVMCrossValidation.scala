@@ -136,6 +136,7 @@ object SVMCrossValidation extends App {
   println(countsTest("FN") + " : FN count")
 
 
+  println("Total sample count: " + precisionMapPerPaper.size)
   for((paperID, metrics) <- precisionMapPerPaper) {
     println("Current Paper ID: " + paperID + " \t Precision: " + metrics._1 + " \t Recall: " + metrics._2 + "\t Accuracy: " + metrics._3)
   }
