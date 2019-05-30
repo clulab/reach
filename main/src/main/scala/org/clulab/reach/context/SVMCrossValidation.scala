@@ -127,9 +127,9 @@ object SVMCrossValidation extends App {
   val countsTest = CodeUtils.predictCounts(giantTruthLabel.toArray, giantPredictedLabel.toArray)
 
 
-  println(s"Precision: ${metrics._1}")
-  println(s"Recall: ${metrics._2}")
-  println(s"Accuracy: ${metrics._3}")
+  println(s"Precision: ${metrics._1%1.3f}")
+  println(s"Recall: ${metrics._2%1.3f}")
+  println(s"Accuracy: ${metrics._3%1.3f}")
   println(countsTest("TP") + " : TP count")
   println(countsTest("FP") + " : FP count")
   println(countsTest("TN") + " : TN count")
@@ -138,7 +138,7 @@ object SVMCrossValidation extends App {
 
   println("Total sample count: " + precisionMapPerPaper.size)
   for((paperID, metrics) <- precisionMapPerPaper) {
-    println("Current Paper ID: " + paperID + " \t Precision: " + metrics._1 + " \t Recall: " + metrics._2 + "\t Accuracy: " + metrics._3)
+    println("Current Paper ID: " + paperID + " \t Precision: " + metrics._1%1.3f + " \t Recall: " + metrics._2%1.3f + "\t Accuracy: " + metrics._3%1.3f)
   }
 
   def findMetrics(truth:Array[Int], test:Array[Int]):(Double,Double,Double) = {
