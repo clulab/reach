@@ -70,6 +70,7 @@ object SVMCrossValidation extends App {
   val giantPredictedLabel = collection.mutable.ListBuffer[Int]()
 
   for((test,train) <- folds) {
+    println(train.size + " : Size of training fold")
     val trainingLabelsIds = collection.mutable.ListBuffer[(String,String,String)]()
     train.map(row => {
       val pmcid = row.PMCID.split("_")(0)
