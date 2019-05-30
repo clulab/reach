@@ -128,7 +128,7 @@ object SVMCrossValidation extends App {
 
   val countsTest = CodeUtils.predictCounts(giantTruthLabel.toArray, giantPredictedLabel.toArray)
 
-  println(giantTruthLabel.size == giantPredictedLabel.size + " : Truth value of whether we are dealing with the same size of labels")
+  println(giantTruthLabel.size == giantPredictedLabel.size)
   println(s"Precision: ${metrics._1.toString.take(5)}")
   println(s"Recall: ${metrics._2}")
   println(s"Accuracy: ${metrics._3}")
