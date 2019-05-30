@@ -43,6 +43,8 @@ object SVMCrossValidation extends App {
 
   println(idMap.size + " : size of id map i.e. map of (pmcid,evtID,ctxID) -> row")
 
+  println(idMap.contains(("PMC4236140","132212","tissuelist:TS-1102")) + " : Truth value of whether ID map contains (PMC4236140,132212,tissuelist:TS-1102)")
+  println(generateLabelMap(labelFile).contains(("PMC4236140","132212","tissuelist:TS-1102")) + " : Truth value of whether label map contains (PMC4236140,132212,tissuelist:TS-1102)")
   val groupedByPaperID = rowsSup.groupBy(row => s"PMC${row.PMCID.split("_")(0)}")
 
 
@@ -62,7 +64,6 @@ object SVMCrossValidation extends App {
 
   })
 
-  println(groupedByPaperID.contains("PMC4236140") + " : Truth value of whether PMC4236140 is included in the map")
 
 
   val giantTruthLabel = collection.mutable.ListBuffer[Int]()
