@@ -68,6 +68,7 @@ object SVMCrossValidation extends App {
 
   for((test,train) <- folds) {
     val trainingLabelsIds = collection.mutable.ListBuffer[(String,String,String)]()
+    test.map(t => println(t.PMCID))
     train.map(row => {
       val pmcid = row.PMCID.split("_")(0)
       val pmcidReformat = s"PMC${pmcid}"
