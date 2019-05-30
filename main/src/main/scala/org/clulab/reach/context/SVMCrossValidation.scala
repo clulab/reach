@@ -39,6 +39,8 @@ object SVMCrossValidation extends App {
     rowsSup ++= rows
   }
 
+  idMap.keySet.map(println)
+
   println(idMap.size + " : size of id map i.e. map of (pmcid,evtID,ctxID) -> row")
 
   val groupedByPaperID = rowsSup.groupBy(row => s"PMC${row.PMCID.split("_")(0)}")
