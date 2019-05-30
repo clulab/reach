@@ -62,13 +62,14 @@ object SVMCrossValidation extends App {
 
   })
 
+  println(groupedByPaperID.contains("PMC4236140") + " : Truth value of whether PMC4236140 is included in the map")
+
 
   val giantTruthLabel = collection.mutable.ListBuffer[Int]()
   val giantPredictedLabel = collection.mutable.ListBuffer[Int]()
 
   for((test,train) <- folds) {
     val trainingLabelsIds = collection.mutable.ListBuffer[(String,String,String)]()
-    test.map(t => println(t.PMCID))
     train.map(row => {
       val pmcid = row.PMCID.split("_")(0)
       val pmcidReformat = s"PMC${pmcid}"
