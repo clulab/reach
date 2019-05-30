@@ -86,7 +86,9 @@ object SVMCrossValidation extends App {
       trainingLabels += label
     }
     //val balancedTrainingData = Balancer.balanceByPaperAgg(trainingRows, 1)
+    //val (trainingRVFDataset, _) = unTrainedSVMInstance.dataConverter(balancedTrainingData,Some(trainingLabels.toArray))
     val (trainingRVFDataset, _) = unTrainedSVMInstance.dataConverter(trainingRows,Some(trainingLabels.toArray))
+
     unTrainedSVMInstance.fit(trainingRVFDataset)
     giantTruthLabel ++= trainingLabels
     val predictedLabels = unTrainedSVMInstance.predict(test)
