@@ -81,6 +81,7 @@ object SVMCrossValidation extends App {
 
     val intersectingLabels = trainingLabelsIds.toSet.intersect(idMap.keySet)
     println("size of intersecting key set: " + intersectingLabels.size)
+    println(intersectingLabels.contains(("PMC4236140","132212","tissuelist:TS-1102")) + " : Truth value of whether intersection set contains (PMC4236140,132212,tissuelist:TS-1102)")
     val trainingRows = collection.mutable.ListBuffer[AggregatedRow]()
     val trainingLabels = collection.mutable.ListBuffer[Int]()
     for(idTup <- intersectingLabels) {
