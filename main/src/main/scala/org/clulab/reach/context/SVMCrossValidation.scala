@@ -114,6 +114,11 @@ object SVMCrossValidation extends App {
       testingLabels += label
     }
 
+    val testTup = ("PMC4446607","49614","taxonomy:9606")
+    val testRow = idMap(testTup)
+    val pred = unTrainedSVMInstance.predict(Seq(testRow))
+    println(" The prediction for (PMC4446607,49614,taxonomy:9606) is: " + pred(0))
+
     val testPaperPMCID = test(0).PMCID
     val testIDReformat = s"PMC${testPaperPMCID.split("_")(0)}"
     val metricsPerTestCase = findMetrics(testingLabels.toArray, predictedLabels)
