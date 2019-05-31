@@ -21,7 +21,7 @@ object SVMCrossValidation extends App {
   val directories = fileListUnfiltered.listFiles().filter(_.isDirectory)
   val rowsSup = collection.mutable.ArrayBuffer[AggregatedRow]()
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedRow]()
-  val precisionMapPerPaper = collection.mutable.HashMap[String,(Double, Double, Double)]()
+  val metricsMapPerPaper = collection.mutable.HashMap[String,(Double, Double, Double)]()
 
   for(d<-directories) {
     val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
@@ -118,7 +118,7 @@ object SVMCrossValidation extends App {
     val testIDReformat = s"PMC${testPaperPMCID.split("_")(0)}"
     val metricsPerTestCase = findMetrics(testingLabels.toArray, predictedLabels)
     val metricsScorePerPaperID = Map(testIDReformat -> metricsPerTestCase)
-    precisionMapPerPaper ++= metricsScorePerPaperID
+    metricsMapPerPaper ++= metricsScorePerPaperID
 
 
 
@@ -138,10 +138,32 @@ object SVMCrossValidation extends App {
   println(countsTest("FN") + " : FN count")
 
 
-  println("Total sample count: " + precisionMapPerPaper.size)
-  for((paperID, metrics) <- precisionMapPerPaper) {
+  println("Total sample count: " + metricsMapPerPaper.size)
+  for((paperID, metrics) <- metricsMapPerPaper) {
     println("Current Paper ID: " + paperID + " \t Precision: " + metrics._1.toString.take(5) + " \t Recall: " + metrics._2 + "\t Accuracy: " + metrics._3.toString.take(5))
   }
+
+  val precisionOverAllPapers = collection.mutable.ListBuffer[Double]()
+    metricsMapPerPaper foreach (x => precisionOverAllPapers += x._2._1)
+  val precAggrMetrics = findAggrMetrics(precisionOverAllPapers)
+  println(s"Min precision over 14 papers: ${precAggrMetrics._1}")
+  println(s"Max precision over 14 papers: ${precAggrMetrics._2}")
+  println(s"Avg precision over 14 papers: ${precAggrMetrics._3}")
+
+  val recallOverAllPapers = collection.mutable.ListBuffer[Double]()
+    metricsMapPerPaper foreach (x => recallOverAllPapers += x._2._2)
+  val recAggrMetrics = findAggrMetrics(recallOverAllPapers)
+  println(s"Min recall over 14 papers: ${recAggrMetrics._1}")
+  println(s"Max recall over 14 papers: ${recAggrMetrics._2}")
+  println(s"Avg recall over 14 papers: ${recAggrMetrics._3}")
+
+  val accuracyOverAllPapers = collection.mutable.ListBuffer[Double]()
+    metricsMapPerPaper foreach (x => accuracyOverAllPapers += x._2._3)
+
+
+
+
+
 
   def findMetrics(truth:Array[Int], test:Array[Int]):(Double,Double,Double) = {
     val countsTest = CodeUtils.predictCounts(truth, test)
@@ -182,5 +204,14 @@ object SVMCrossValidation extends App {
   def accuracyDup(preds:Map[String, Int]): Double = {
     if (!((preds("TP") + preds("FP") + preds("FN") + preds("TN")) == 0)) (preds("TP") + preds("TN")).toDouble/(preds("TP") + preds("TN") + preds("FP") + preds("FN")).toDouble
     else 0.0
+  }
+
+
+  def findAggrMetrics(seq:Seq[Double]): (Double,Double,Double) = {
+    val min = seq.foldLeft(Double.MaxValue)(Math.min(_,_))
+    val max = seq.foldLeft(Double.MinValue)(Math.max(_,_))
+    val sum = seq.foldLeft(0.0)(_+_)
+    val avg = sum.toDouble/seq.size.toDouble
+    (min,max,avg)
   }
 }
