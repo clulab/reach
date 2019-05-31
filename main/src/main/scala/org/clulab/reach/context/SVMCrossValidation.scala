@@ -120,7 +120,8 @@ object SVMCrossValidation extends App {
     val metricsScorePerPaperID = Map(testIDReformat -> metricsPerTestCase)
     metricsMapPerPaper ++= metricsScorePerPaperID
 
-
+    val predictCountPerPaper = CodeUtils.predictCounts(testingLabels.toArray, predictedLabels)
+    if(testIDReformat == "PMC4446607") println(predictCountPerPaper)
 
   }
 
@@ -136,7 +137,7 @@ object SVMCrossValidation extends App {
   println(countsTest("TN") + " : TN count")
   println(countsTest("FN") + " : FN count")
 
-  println(generateLabelMap(labelFile)(("PMC4446607","49614","taxonomy:9606")) + " : Checking the value of (PMC4446607,49614,taxonomy:9606) from label file")
+
   println("Total sample count: " + metricsMapPerPaper.size)
   for((paperID, metrics) <- metricsMapPerPaper) {
     println("Current Paper ID: " + paperID + " \t Precision: " + metrics._1.toString.take(5) + " \t Recall: " + metrics._2 + "\t Accuracy: " + metrics._3.toString.take(5))
