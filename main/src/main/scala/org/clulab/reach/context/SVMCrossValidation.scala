@@ -126,13 +126,11 @@ object SVMCrossValidation extends App {
 
   val countsTest = CodeUtils.predictCounts(giantTruthLabel.toArray, giantPredictedLabel.toArray)
 
-  println(s"Precision: ${metrics._1.toString.take(5)}")
-  println(s"Recall: ${metrics._2}")
-  println(s"Accuracy: ${metrics._3.toString.take(5)}")
-  println(countsTest("TP") + " : TP count")
-  println(countsTest("FP") + " : FP count")
-  println(countsTest("TN") + " : TN count")
-  println(countsTest("FN") + " : FN count")
+
+
+  println(s"Micro-averaged Precision: ${metrics._1.toString.take(5)}")
+  println(s"Micro-averaged Recall: ${metrics._2}")
+  println(s"Micro-averaged Accuracy: ${metrics._3.toString.take(5)}")
 
 
   println("Total sample count: " + metricsMapPerPaper.size)
