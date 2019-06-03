@@ -80,7 +80,8 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         // here, we will use a Seq(Map), where each map has InputRow as a key, and as value, we have a tuple of feature values
         // so for a given InputRow, I can look up the table and return the values of the features present in the InputRow.
         val tempo = filteredPairs.map{p =>
-          extractFeaturesToCalcByBestFeatSet(p, ctxMentions, contextFrequencyMap.toMap)
+          val featureExtractor = new FeatureExtractor(p, ctxMentions, contextFrequencyMap.toMap)
+          featureExtractor.extractFeaturesToCalcByBestFeatSet()
         }
         val flattenedMap = tempo.flatMap(t=>t).toMap
         val features:Seq[ContextPairInstance] = tempo.flatMap(t => t.keySet)
@@ -107,7 +108,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
                 listForFolds += aggregatedFeature
                 // comment row to file function before testing
-                writeRowToFile(aggregatedFeature, k.toString, ctxId._2)
+                //writeRowToFile(aggregatedFeature, k.toString, ctxId._2)
                 val prediction = {
                   predArrayIntForm(0) match {
                     case 1 => true
@@ -574,8 +575,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
     }
     else
       true
-
-
 
   }
 
