@@ -5,7 +5,6 @@ import java.io.{File, FileInputStream, ObjectInputStream}
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
-import org.clulab.context.utils.{AggregatedContextInstance, Balancer, CodeUtils}
 import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
 
 import scala.io.Source
@@ -166,7 +165,7 @@ object SVMCrossValidation extends App {
     val countsTest = CodeUtils.predictCounts(truth, test)
     val precision = CodeUtils.precision(countsTest)
     val recall = CodeUtils.recall(countsTest)
-    val accuracy = accuracyDup(countsTest)
+    val accuracy = CodeUtils.accuracy(countsTest)
     (precision,recall,accuracy)
   }
 
