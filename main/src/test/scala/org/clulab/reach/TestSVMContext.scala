@@ -13,6 +13,7 @@ class TestSVMContext extends FlatSpec with Matchers {
   val configPath = config.getString("contextEngine.params.svmPath")
   val svmWrapper = new LinearSVMContextClassifier(null)
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
+  val rootDir = config.getString("rootDir")
 
 
   // In this test suite, I'm testing more on inhibition papers rather than activation papers, since they are shorter in length, and thus take lesser time to run through reach.
@@ -25,7 +26,9 @@ class TestSVMContext extends FlatSpec with Matchers {
   val activevtCtxPair3 = "51618,tissuelist:TS-0500" // expected prediction: 1 //dmax8 //conmax 2 //closmax 1
   val pair4 = "41820,cl:CL:0000312" // expected: 0
 
-  val outPaperDirPathActiv1 = "/home/sthumsi/enter/reach/main/src/test/resources/SVMContext/PMC2910130/"
+  //"/home/sthumsi/enter/reach/main/src/test/resources/SVMContext/PMC2910130/"
+
+  val outPaperDirPathActiv1 = rootDir.concat("/main/src/test/resources/SVMContext/PMC2910130/")
 
 
   // Pair 1 tests start
@@ -234,7 +237,9 @@ class TestSVMContext extends FlatSpec with Matchers {
 
 
   // ************ STARTING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2636845  ************
-  val outPaperDirPathInhib1 = "/home/sthumsi/enter/reach/main/src/test/resources/SVMContext/PMC2636845/"
+  //rootDir.concat
+  //rootDir.concat("/main/src/test/resources/SVMContext/PMC2636845/")
+  val outPaperDirPathInhib1 = rootDir.concat("/main/src/test/resources/SVMContext/PMC2636845/")
   val inhibitPair1 = "52831,cl:CL:0000056" // expected prediction: 1
   val inhibitPair2 = "71114,cl:CL:0000056" // expected prediction: 1
   val inhibitPair3 = "5331,tissuelist:TS-0725" // expected prediction: 0
