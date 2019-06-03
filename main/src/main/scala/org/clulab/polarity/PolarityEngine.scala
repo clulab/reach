@@ -88,6 +88,9 @@ object PolarityEngine extends LazyLogging {
   def apply(engineName:String): PolarityEngine = engineName match {
     case "Linguistic" =>
       LinguisticPolarityEngine
+   case "DeepLearning" =>
+      val deepLearningClassifier = new DeepLearningPolarityClassifier()
+      new MLPolarityEngine(deepLearningClassifier)
     case _ =>
       logger.error(s"Requesting an unknown polarity engine: $engineName. Returning the default engine")
       // Return the default engine
