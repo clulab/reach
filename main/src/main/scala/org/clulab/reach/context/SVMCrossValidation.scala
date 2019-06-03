@@ -6,6 +6,7 @@ import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
 import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
+import org.clulab.learning.LinearSVMClassifier
 
 import scala.io.Source
 
@@ -13,7 +14,8 @@ object SVMCrossValidation extends App {
 
   val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.untrainedSVMPath")
-  val svmWrapper = new LinearSVMContextClassifier(null)
+  val SVMClassifier = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
+  val svmWrapper = new LinearSVMContextClassifier(SVMClassifier)
   val unTrainedSVMInstance = svmWrapper.loadFrom(configPath)
   val labelFile = config.getString("svmContext.labelFile")
   val typeOfPaper = config.getString("svmContext.paperType")
