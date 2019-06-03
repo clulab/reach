@@ -8,7 +8,7 @@ import org.clulab.struct.Interval
 
 import scala.util.{Failure, Success, Try}
 
-class FeatureExtractor(datum:(BioEventMention, BioTextBoundMention), contextMentions:Seq[BioTextBoundMention], ctxFreqMap:Map[String,Double]){
+class FeatureExtractor(datum:(BioEventMention, BioTextBoundMention), contextMentions:Seq[BioTextBoundMention]){
   type Pair = (BioEventMention, BioTextBoundMention)
   type EventID = String
   type ContextID = (String, String)
@@ -23,6 +23,7 @@ class FeatureExtractor(datum:(BioEventMention, BioTextBoundMention), contextMent
     val featSeq = bestFeatureDict("NonDep_Context")
     val allFeatures = bestFeatureDict("All_features")
     // val file
+    val contextFrequencyMap = calculateContextFreq(contextMentions)
     val PMCID = datum._1.document.id match {
       case Some(c) => c
       case None => "Unknown"
@@ -68,7 +69,7 @@ class FeatureExtractor(datum:(BioEventMention, BioTextBoundMention), contextMent
 
 
     // call feature value extractor here
-    val specFeatVal = calculateSpecificFeatValues(datum, contextMentions, ctxFreqMap)
+    val specFeatVal = calculateSpecificFeatValues(datum, contextMentions, contextFrequencyMap.toMap)
     val evtDepFeatVal = calculateEvtDepFeatureVals(datum)
     val ctxDepFeatVal = calculateCtxDepFeatureVals(datum)
 
@@ -363,6 +364,23 @@ class FeatureExtractor(datum:(BioEventMention, BioTextBoundMention), contextMent
     else
       true
 
+  }
+
+  def calculateContextFreq(ctxMentions: Seq[BioTextBoundMention]):collection.mutable.Map[String, Double] = {
+    val contextFrequencyMap = collection.mutable.Map[String, Double]()
+    ctxMentions.map(f => {
+      val id = f.nsId()
+      if(contextFrequencyMap.contains(id)) {
+        val get = contextFrequencyMap(id)
+        contextFrequencyMap(id) = get + 1
+      }
+
+      else {
+        val newEntry = Map(id -> 1.0)
+        contextFrequencyMap ++= newEntry
+      }
+    })
+    contextFrequencyMap
   }
 }
 

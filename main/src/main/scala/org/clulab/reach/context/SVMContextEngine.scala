@@ -34,14 +34,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.svmPath")
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
-  val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
-  val hardCodedFeaturesPath = config.getString("contextEngine.params.hardCodedFeatures")
-  val hardCodedFeatures = CodeUtils.readHardcodedFeaturesFromFile(hardCodedFeaturesPath)
-  val numericFeaturesInputRow = hardCodedFeatures.drop(4)
-  val bestFeatureDict = CodeUtils.featureConstructor(configAllFeaturesPath)
-  val featSeq = bestFeatureDict("NonDep_Context")
-  val allFeatures = bestFeatureDict("All_features")
-  //All_features
+
 
   logger.info(s"The SVM model has been tuned to the following settings: C: ${trainedSVMInstance.classifier.C}, Eps: ${trainedSVMInstance.classifier.eps}, Bias: ${trainedSVMInstance.classifier.bias}")
 
@@ -52,8 +45,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
       case None => mentions
       // If we have already run infer
       case Some(ctxMentions) =>
-
-        val contextFrequencyMap = calculateContextFreq(ctxMentions)
 
         // Collect the event mentions
         val evtMentions = mentions collect  {
@@ -77,10 +68,10 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
         val listForFolds = collection.mutable.ListBuffer[AggregatedContextInstance]()
 
-        // here, we will use a Seq(Map), where each map has InputRow as a key, and as value, we have a tuple of feature values
-        // so for a given InputRow, I can look up the table and return the values of the features present in the InputRow.
+        // here, we will use a Seq(Map), where each map has ContextPairInstance as a key, and as value, we have a tuple of feature values
+        // so for a given ContextPairInstance, I can look up the table and return the values of the features present in the ContextPairInstance.
         val tempo = filteredPairs.map{p =>
-          val featureExtractor = new FeatureExtractor(p, ctxMentions, contextFrequencyMap.toMap)
+          val featureExtractor = new FeatureExtractor(p, ctxMentions)
           featureExtractor.extractFeaturesToCalcByBestFeatSet()
         }
         val flattenedMap = tempo.flatMap(t=>t).toMap
@@ -88,8 +79,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         // Aggregate the features of all the instances of a pair
         val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedContextInstance)]] =
           (pairs zip features).groupBy{
-            // change to filtered pairs when you know the best value of sentence distance.
-          //(filteredPairs zip features).groupBy{
             case (pair, _) => extractEvtId(pair._1) // Group by their EventMention
           }.mapValues{
             v =>
@@ -116,10 +105,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                     case _ => false
                   }
                 }
-
-
-
-
                 logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
 
                 (ctxId, prediction)
@@ -183,80 +168,12 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
   // the following code examines the best performing set from the ml4ai package.
   // the basic logic is that if a feature exists, it should have value 1 else 0.
-  // When we apply this logic to any Seq[InputRow] (refer to ml4ai.data.utils for the code), we may get many rows having value 1 for the same feature.
-  // Note that this will affect the _min, _mean and _max values for every feature for that Seq[InputRow].
+  // When we apply this logic to any Seq[ContextPairInstance] (refer to ml4ai.data.utils for the code), we may get many rows having value 1 for the same feature.
+  // Note that this will affect the _min, _mean and _max values for every feature for that Seq[ContextPairInstance].
   // Given that the dataset on which we will test the model here is not read from file unlike ml4ai,
-  // we have to take a slight detour of using InputRow and then AggregatedRowNew, instead of using AggregatedRowNew directly, as ml4ai does.
+  // we have to take a slight detour of using ContextPairInstance and then AggregatedRowNew, instead of using AggregatedRowNew directly, as ml4ai does.
   // please contact the authors of the ml4ai package if you experience a roadblock while using the utilities it provides.
 
-  def extractFeaturesToCalcByBestFeatSet(datum:(BioEventMention, BioTextBoundMention), contextMentions:Seq[BioTextBoundMention], ctxFreqMap:Map[String,Double]):Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])] =
-  {
-
-    // val file
-    val PMCID = datum._1.document.id match {
-      case Some(c) => c
-      case None => "Unknown"
-    }
-    val label = None
-    val sentencePos = datum._1.sentence
-    val evntId = extractEvtId(datum._1)
-    val ctxId = ContextEngine.getContextKey(datum._2)
-
-    val hardCodedFeatureNames = collection.mutable.ListBuffer[String]()
-    val ctxDepFeatures = collection.mutable.ListBuffer[String]()
-    val evtDepFeatures = collection.mutable.ListBuffer[String]()
-
-
-    def unAggregateFeatureName(features: Seq[String]): Array[String] = {
-      val fixedFeatureNames = collection.mutable.ListBuffer[String]()
-      for(f <- features) {
-        if(f.contains("_min") || f.contains("_max") || f.contains("_avg")) {
-          val subst = f.slice(0,f.length-4)
-          fixedFeatureNames += subst
-        }
-        else fixedFeatureNames += f
-      }
-      fixedFeatureNames.toArray
-    }
-
-
-    val dependencyFeatures = unAggregateFeatureName(allFeatures).toSet -- (unAggregateFeatureName(hardCodedFeatures).toSet ++ Seq(""))
-    unAggregateFeatureName(numericFeaturesInputRow).map(h => {
-      if(unAggregateFeatureName(featSeq).contains(h))
-        hardCodedFeatureNames += h
-    })
-
-    dependencyFeatures foreach {
-      case evt:String if evt.startsWith("evtDepTail") => {
-        if(unAggregateFeatureName(featSeq).contains(evt)) evtDepFeatures += evt
-      }
-      case ctx:String if ctx.startsWith("ctxDepTail")=> {
-        if(unAggregateFeatureName(featSeq).contains(ctx)) ctxDepFeatures += ctx
-      }
-    }
-
-
-
-    // call feature value extractor here
-    val specFeatVal = calculateSpecificFeatValues(datum, contextMentions, ctxFreqMap)
-    val evtDepFeatVal = calculateEvtDepFeatureVals(datum)
-    val ctxDepFeatVal = calculateCtxDepFeatureVals(datum)
-
-
-
-    val row = ContextPairInstance(sentencePos,
-      PMCID,
-      label,
-      evntId,
-      ctxId._2,
-      hardCodedFeatureNames.toSet.toArray,
-      ctxDepFeatures.toSet,
-      evtDepFeatures.toSet)
-
-    val entry = Map(row -> (specFeatVal, evtDepFeatVal, ctxDepFeatVal))
-
-    entry
-  }
 
   def extractEvtId(evt:BioEventMention):EventID = {
     val sentIndex = evt.sentence
@@ -264,22 +181,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
     val tokenIntervalEnd = (evt.tokenInterval.end).toString()
     sentIndex+tokenIntervalStart+tokenIntervalEnd
   }
-  def calculateContextFreq(ctxMentions: Seq[BioTextBoundMention]):collection.mutable.Map[String, Double] = {
-    val contextFrequencyMap = collection.mutable.Map[String, Double]()
-    ctxMentions.map(f => {
-      val id = f.nsId()
-      if(contextFrequencyMap.contains(id)) {
-        val get = contextFrequencyMap(id)
-        contextFrequencyMap(id) = get + 1
-      }
 
-      else {
-        val newEntry = Map(id -> 1.0)
-        contextFrequencyMap ++= newEntry
-      }
-    })
-    contextFrequencyMap
-  }
   def aggregateFeatures(instances:Seq[ContextPairInstance], featValLookUp:Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])]):AggregatedContextInstance = {
 
     val label = None
@@ -311,7 +213,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
       }
     }
 
-    //aggregateInputRowFeatValues
+
     // we read through the input row values and add them to a name -> list of features map.
     // So for a given feature name as key, we will have a list of double as values, where the doubles are the values to the feature in a given input row.
 
@@ -402,277 +304,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
     }
   }
 
-
-
-  private def intersentenceDependencyPath(datum:(BioEventMention, BioTextBoundMention)): Option[Seq[String]] = {
-    def pathToRoot(currentNodeIndx:Int, currentSentInd:Int, currentDoc:Document): Seq[String] = {
-      val dependencies = currentDoc.sentences(currentSentInd).dependencies.get
-      val allRoots = dependencies.roots.toSeq
-      val paths = allRoots flatMap  {
-        r =>
-          val ps = dependencies.shortestPathEdges(r, currentNodeIndx)
-          ps map (sequence => sequence map (_._3))
-      }
-
-      paths.sortBy(p => p.size).head
-    }
-    val evtShortestPath = pathToRoot(datum._1.tokenInterval.start, datum._1.sentence, datum._1.document)
-    val ctxShortestPath = pathToRoot(datum._2.tokenInterval.start, datum._2.sentence, datum._2.document)
-    val numOfJumps = Seq.fill(Math.abs(datum._1.sentence - datum._2.sentence))("sentenceJump")
-
-    val first = if(datum._1.sentence < datum._2.sentence) evtShortestPath else ctxShortestPath
-    val second = if(datum._2.sentence < datum._1.sentence) ctxShortestPath else evtShortestPath
-    val selectedPath = (first.reverse ++ numOfJumps ++ second).map(FeatureProcessing.clusterDependency)
-
-    val bigrams = (selectedPath zip selectedPath.drop(1)).map{ case (a, b) => s"${a}_${b}" }
-
-    Some(bigrams)
-  }
-
-
-  private def constructDependencyPath(datum:(BioEventMention, BioTextBoundMention)): Option[Seq[String]] = {
-
-
-    if(datum._1.sentence == datum._2.sentence) {
-      val currentSentContents = datum._1.document.sentences(datum._1.sentence)
-      val dependencies = currentSentContents.dependencies.get
-      val (first, second) = if(datum._1.tokenInterval.start <= datum._2.tokenInterval.start) (datum._1.tokenInterval, datum._2.tokenInterval) else (datum._2.tokenInterval, datum._1.tokenInterval)
-
-      val paths = first flatMap {
-        i:Int =>
-          second flatMap  {
-            j:Int =>
-              val localPaths:Seq[Seq[String]] = dependencies.shortestPathEdges(i, j, ignoreDirection = true) map (s => s map (_._3))
-              localPaths
-          }
-      }
-      val sequence = Try(paths.filter(_.size > 0).sortBy(_.size).head.map(FeatureProcessing.clusterDependency))
-      sequence match {
-        case Success(s) =>
-          // make bigrams
-          val bigrams:Seq[String] = {
-            if(s.size == 1)
-              s
-            else{
-              val shifted = s.drop(1)
-              s.zip(shifted).map{ case (a, b) => s"${a}_${b}" }
-            }
-          }
-
-
-          Some(bigrams)
-        case Failure(e) =>
-          println("DEBUG: Problem when extracting dependency path for features")
-          None
-      }
-    }
-    else intersentenceDependencyPath(datum)
-  }
-
-  def sentenceContainsPRP(doc:Document, ix:Int):Boolean = {
-    val targetWords = Set("we", "us", "our", "ours", "ourselves", "i", "me", "my", "mine", "myself")
-    val sentence = doc.sentences(ix)
-    val tags = sentence.tags.get
-    val lemmas = sentence.lemmas.get
-
-    val x = (tags zip lemmas) filter {
-      case (tag, lemma) =>
-       tag == "PRP" && targetWords.contains(lemma)
-
-    }
-
-    !x.isEmpty
-  }
-
-  def dependencyTails(sentence:Int, interval:Interval, doc:Document):Seq[Seq[String]] = {
-
-    val deps = doc.sentences(sentence).dependencies.get
-
-    def helper(nodeIx:Int, depth:Int, maxDepth:Int):List[List[String]] = {
-
-      // Get all the edges connected to the current node as long as they don't incide into another token of the
-      val incoming = Try(deps.getIncomingEdges(nodeIx)) match {
-        case Success(edges) => edges.filter(e => !interval.contains(e._1)).toList
-        case Failure(e) => Nil
-      }
-
-      val outgoing = Try(deps.getOutgoingEdges(nodeIx)) match {
-        case Success(edges) => edges.filter(e => !interval.contains(e._1)).toList
-        case Failure(e) => Nil
-      }
-
-      val edges = incoming ++ outgoing
-
-      if(depth == maxDepth)
-        Nil
-      else{
-        edges.toList flatMap {
-          e =>
-            val label = FeatureProcessing.clusterDependency(e._2)
-            val further = helper(e._1, depth+1, maxDepth)
-
-            further match {
-              case Nil => List(List(label))
-              case list:List[List[String]] => list map (l => label::l)
-            }
-        }
-      }
-    }
-
-    helper(interval.start, 0, 2) ++ helper(interval.end, 0, 2)
-  }
-
-  def sentenceContainsSimplePRP(doc:Document, ix:Int):Boolean = sentenceContainsSimpleTags(doc, ix, Set("PRP"))
-
-  def sentenceContainsSimplePastTense(doc:Document, ix:Int):Boolean = sentenceContainsSimpleTags(doc, ix, Set("VBD", "VBN"))
-
-  def sentenceContainsSimplePresentTense(doc:Document, ix:Int):Boolean = sentenceContainsSimpleTags(doc, ix, Set("VBG", "VBP", "VBZ"))
-
-  def sentenceContainsSimpleTags(doc:Document, ix:Int, tags:Set[String]):Boolean = {
-    val sentence = doc.sentences(ix)
-    val tags = sentence.tags.get.toSet
-    val evidence:Iterable[Boolean] = tags map {
-      tag =>
-        tags contains tag
-    }
-
-    evidence.exists(identity)
-  }
-
-  def eventSentenceContainsPRP(doc:Document, event:BioEventMention):Boolean = sentenceContainsPRP(doc, event.sentence)
-  def contextSentenceContainsPRP(doc:Document, context:BioTextBoundMention):Boolean = sentenceContainsPRP(doc, context.sentence)
-  def eventSentenceContainsPastTense(doc:Document, event:BioEventMention):Boolean = sentenceContainsSimplePastTense(doc, event.sentence)
-  def contextSentenceContainsPastTense(doc:Document, context:BioTextBoundMention):Boolean = sentenceContainsSimplePastTense(doc, context.sentence)
-  def eventSentenceContainsPresentTense(doc:Document, event:BioEventMention):Boolean = sentenceContainsSimplePresentTense(doc, event.sentence)
-  def contextSentenceContainsPresentTense(doc:Document, context:BioTextBoundMention):Boolean = sentenceContainsSimplePresentTense(doc, context.sentence)
-  def isItClosestContextOfSameCategory(event:BioEventMention,
-                                       context:BioTextBoundMention,
-                                       otherContexts:Iterable[BioTextBoundMention]):Boolean = {
-    val bounds = Seq(event.sentence, context.sentence)
-    val (start, end) = (bounds.min, bounds.max)
-
-
-    val filteredContexts = otherContexts.filter{
-      c =>
-        (!(c.sentence == context.sentence &&  c.tokenInterval == context.tokenInterval && c.nsId() == context.nsId()))
-
-    }
-    assert(filteredContexts.size == otherContexts.size -1)
-    val interval = start to end
-
-    if(interval.length >= 3){
-      val contextCategory = context.nsId().split(":")(0)
-
-      val contextClasses = filteredContexts.collect{
-        case c if interval.contains(c.sentence) =>
-          c.nsId().split(":")(0)
-      }.toList.toSet
-
-      //println(s"$contextCategory || ${contextClasses.toSet}")
-      val ret = !contextClasses.contains(contextCategory)
-
-      ret
-    }
-    else
-      true
-
-  }
-
-  private def calculateSpecificFeatValues(datum:(BioEventMention, BioTextBoundMention), contextMentions:Seq[BioTextBoundMention], ctxTypeFreq:Map[String,Double]):Map[String,Double] = {
-    val event = datum._1
-    val context = datum._2
-    val doc = event.document
-    val result = collection.mutable.Map[String,Double]()
-
-
-
-    // ****************INTEGER VALUE FEATURES BEGIN****************
-    val sentenceDistance = Math.abs(datum._1.sentence - datum._2.sentence)
-    val sentDistEntry = Map("sentenceDistance" -> sentenceDistance.toDouble)
-    result ++= sentDistEntry
-
-    val dependencyPath = constructDependencyPath(datum)
-    val dependencyDistance = dependencyPath match {
-      case Some(path) => path.size.toDouble
-      case None => 0.0
-    }
-
-    val dependencyDistEntry = Map("dependencyDistance" -> dependencyDistance)
-    result ++= dependencyDistEntry
-
-    val context_frequency = ctxTypeFreq(context.nsId())
-    result ++= Map("context_frequency" -> context_frequency)
-
-
-    // Dependency tails
-    val evtDependencyTails = dependencyTails(event.sentence,event.tokenInterval, doc)
-    val ctxDependencyTails = dependencyTails(context.sentence, context.tokenInterval, doc)
-    // ****************INTEGER VALUE FEATURES END****************
-
-
-
-    // ****************BOOLEAN VALUE FEATURES BEGIN****************
-    val evtSentenceFirstPerson = if(eventSentenceContainsPRP(doc, event)) 1.0 else 0.0
-    val evtSentenceFirstPersonEntry = Map("evtSentenceFirstPerson" -> evtSentenceFirstPerson)
-    result ++= evtSentenceFirstPersonEntry
-
-    val ctxSentenceFirstPerson = if(contextSentenceContainsPRP(doc, context)) 1.0 else 0.0
-    val ctxSentenceFirstPersonEntry = Map("ctxSentenceFirstPerson" -> ctxSentenceFirstPerson)
-    result ++= ctxSentenceFirstPersonEntry
-
-
-    val evtSentencePastTense = if(eventSentenceContainsPastTense(doc, event)) 1.0 else 0.0
-    result ++= Map("evtSentencePastTense" -> evtSentencePastTense)
-
-
-    val ctxSentencePastTense = if(contextSentenceContainsPastTense(doc, context)) 1.0 else 0.0
-    result ++= Map("ctxSentencePastTense" -> ctxSentencePastTense)
-
-
-    val evtSentencePresentTense = if(eventSentenceContainsPresentTense(doc, event)) 1.0 else 0.0
-    result ++= Map("evtSentencePresentTense" -> evtSentencePresentTense)
-
-    val ctxSentencePresentTense = if(contextSentenceContainsPresentTense(doc, context)) 1.0 else 0.0
-    result ++= Map("ctxSentencePresentTense" -> ctxSentencePresentTense)
-
-    val closesCtxOfClass = if(isItClosestContextOfSameCategory(event, context, contextMentions)) 1.0 else 0.0
-    result ++= Map("closesCtxOfClass" -> closesCtxOfClass)
-
-
-    // Negation in context mention
-    val ctxNegationInTail = if(ctxDependencyTails.filter(tail => tail.contains("neg")).size > 0) 1.0 else 0.0
-    result ++= Map("ctxNegationIntTail" -> ctxNegationInTail)
-
-
-    val evtNegationInTail = if(evtDependencyTails.filter(tail => tail.contains("neg")).size > 0) 1.0 else 0.0
-    result ++= Map("evtNegationInTail" -> evtNegationInTail)
-    // ****************BOOLEAN VALUE FEATURES END****************
-
-
-    result.toMap
-  }
-
-  private def calculateEvtDepFeatureVals(datum:(BioEventMention, BioTextBoundMention)):Map[String,Double] = {
-    val event = datum._1
-    val doc = event.document
-    val evtDependencyTails = dependencyTails(event.sentence,event.tokenInterval, doc)
-    val evtDepStrings = evtDependencyTails.map(e => e.mkString("_"))
-    evtDepStrings.map(t => s"evtDepTail_$t").groupBy(identity).mapValues(_.length)
-  }
-
-  private def calculateCtxDepFeatureVals(datum:(BioEventMention, BioTextBoundMention)):Map[String,Double] = {
-    val context = datum._2
-    val doc = context.document
-
-    val ctxDependencyTails = dependencyTails(context.sentence, context.tokenInterval, doc)
-    val ctxDepStrings = ctxDependencyTails.map(c => c.mkString("_"))
-
-   ctxDepStrings.map(t => s"ctxDepTail_$t").groupBy(identity).mapValues(_.length).mapValues(_.toDouble)
-  }
-
-
-
-
   def aggregateInputRowFeatValues(features:Seq[String], lookUpTable: Map[String,mutable.ListBuffer[Double]]):Map[String,(Double,Double, Double, Int)] = {
     val resultingMap = collection.mutable.Map[String,(Double,Double, Double, Int)]()
     for(r <- features) {
@@ -693,22 +324,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
     resultingMap.toMap
   }
 
-  def generateLabelMap(fileName: String): Map[(String,String,String), Int] = {
-    val map = collection.mutable.HashMap[(String,String,String), Int]()
-    val source = Source.fromFile(fileName)
-    val lines = source.getLines()
-    val content = lines.drop(1)
-    for(c <- content) {
-      val array = c.split(",")
-      val pmcid = array(0)
-      val evtID = array(1)
-      val ctxID = array(2)
-      val label = Integer.parseInt(array(3))
-      val tup = (pmcid,evtID,ctxID)
-      map ++= Map(tup -> label)
-    }
 
-    map.toMap
-  }
 
 }
