@@ -307,9 +307,9 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
 }
 
 
-object DeepLearningPolarityClassifier extends App{
-  //def load(path:String):DeepLearningPolarityClassifier = ???
-  val lstmClassifier = new DeepLearningPolarityClassifier()
-  lstmClassifier.fit()
-  //lstmClassifier.loadModelEval()
-}
+// object DeepLearningPolarityClassifier extends App{
+//   //def load(path:String):DeepLearningPolarityClassifier = ???
+//   val lstmClassifier = new DeepLearningPolarityClassifier()
+//   lstmClassifier.fit()
+//   //lstmClassifier.loadModelEval()
+// }
