@@ -196,13 +196,6 @@ object SVMCrossValidation extends App {
   }
 
 
-  // change this to CodeUtils.accuracy when Enrique finishes merging
-  def accuracyDup(preds:Map[String, Int]): Double = {
-    if (!((preds("TP") + preds("FP") + preds("FN") + preds("TN")) == 0)) (preds("TP") + preds("TN")).toDouble/(preds("TP") + preds("TN") + preds("FP") + preds("FN")).toDouble
-    else 0.0
-  }
-
-
   def findAggrMetrics(seq:Seq[Double]): (Double,Double,Double) = {
     val min = seq.foldLeft(Double.MaxValue)(Math.min(_,_))
     val max = seq.foldLeft(Double.MinValue)(Math.max(_,_))
