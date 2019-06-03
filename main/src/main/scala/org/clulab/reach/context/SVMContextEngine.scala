@@ -1,24 +1,15 @@
 package org.clulab.reach.context
 
 import java.io._
-import java.io.PrintWriter
-
-import org.clulab.processors.Document
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
-import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils, ContextPairInstance}
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils, ContextPairInstance}
-import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils, ContextPairInstance}
-
-import scala.util.{Failure, Success, Try}
 import scala.collection.mutable.ListBuffer
-import org.clulab.struct.Interval
-
 import scala.collection.mutable
 import scala.collection.immutable
-import scala.io.Source
+
 class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine with LazyLogging {
 
   type Pair = (BioEventMention, BioTextBoundMention)
