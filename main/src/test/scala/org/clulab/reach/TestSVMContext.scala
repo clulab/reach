@@ -428,8 +428,8 @@ class TestSVMContext extends FlatSpec with Matchers {
 
 
  // STARTING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2587086
-
-  val outPaperDirPathInhib2 = "/home/sthumsi/enter/reach/main/src/test/resources/SVMContext/PMC2587086/"
+  rootDir.concat("/main/src/test/resources/SVMContext/PMC2587086/")
+  val outPaperDirPathInhib2 = rootDir.concat("/main/src/test/resources/SVMContext/PMC2587086/")
   val inhibitP1 = "6024,taxonomy:9606" // expected prediction: 1
   val inhibitP2 = "314,tissuelist:TS-1047" // expected prediction: 0
   val inhibitP3 = "606,go:GO:0005777" // expected prediction: 1
