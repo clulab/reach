@@ -16,6 +16,7 @@ object SVMCrossValidation extends App {
   val configPath = config.getString("contextEngine.params.untrainedSVMPath")
   val SVMClassifier = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
   val svmWrapper = new LinearSVMContextClassifier(SVMClassifier)
+  svmWrapper.saveModel(configPath)
   val unTrainedSVMInstance = svmWrapper.loadFrom(configPath)
   val labelFile = config.getString("svmContext.labelFile")
   val typeOfPaper = config.getString("svmContext.paperType")
