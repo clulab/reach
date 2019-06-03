@@ -13,7 +13,7 @@ trait PolarityClassifier {
     * @param events Training data
     * @param labels Training labels
     */
-  def fit(events:Seq[BioEventMention], labels:Seq[Polarity])
+  def fit(trainingPath:String, trainRatio:Float, saveFlag:Boolean)
 
 
   /**
@@ -34,7 +34,7 @@ trait PolarityClassifier {
     * @param event to get its polarity predicted
     * @return polarity of the argument
     */
-  def predict(event:BioEventMention):Polarity = predict(Seq(event)).head
+  def predict(event:BioEventMention):Polarity
 
   /**
     * Saves the model parameter's to a file
