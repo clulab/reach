@@ -13,7 +13,7 @@ import scala.io.Source
 object SVMCrossValidation extends App {
 
   val config = ConfigFactory.load()
-  val configPath = config.getString("contextEngine.params.untrainedSVMPath")
+  val configPath = config.getString("svmContext.untrainedSVMPath")
   val SVMClassifier = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
   val svmWrapper = new LinearSVMContextClassifier(SVMClassifier)
   svmWrapper.saveModel(configPath)
