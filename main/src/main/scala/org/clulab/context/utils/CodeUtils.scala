@@ -143,12 +143,12 @@ object CodeUtils {
     (rectifiedHeaders, ret)
   }
 
-  def featureConstructor(file:String):(Seq[String], Map[String, Seq[String]]) = {
+  def featureConstructor(file:String):Map[String, Seq[String]] = {
     val is = new ObjectInputStream(new FileInputStream(file))
     val headers = is.readObject().asInstanceOf[Array[String]]
     val rectifiedHeaders = rectifyWrongFeatures(headers)
     is.close()
-    (rectifiedHeaders, createBestFeatureSet(rectifiedHeaders))
+    createBestFeatureSet(rectifiedHeaders)
   }
 
  private def rectifyWrongFeatures(headers:Seq[String]): Seq[String] = {

@@ -38,9 +38,10 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   val hardCodedFeaturesPath = config.getString("contextEngine.params.hardCodedFeatures")
   val hardCodedFeatures = CodeUtils.readHardcodedFeaturesFromFile(hardCodedFeaturesPath)
   val numericFeaturesInputRow = hardCodedFeatures.drop(4)
-  val (allFeatures, bestFeatureDict) = CodeUtils.featureConstructor(configAllFeaturesPath)
+  val bestFeatureDict = CodeUtils.featureConstructor(configAllFeaturesPath)
   val featSeq = bestFeatureDict("NonDep_Context")
-
+  val allFeatures = bestFeatureDict("All_features")
+  //All_features
 
   logger.info(s"The SVM model has been tuned to the following settings: C: ${trainedSVMInstance.classifier.C}, Eps: ${trainedSVMInstance.classifier.eps}, Bias: ${trainedSVMInstance.classifier.bias}")
 

@@ -12,10 +12,10 @@ object ML4AIPackageLauncher extends App {
 
   // *** DATA LOADING *****===========
   val config = ConfigFactory.load()
-  val foldsPath = config.getString("folds.filePath")
-  val allFeatsPath = config.getString("features.allFeatures")
-  val groupedFeaturesPath = config.getString("features.groupedFeatures")
-  val hardCodedFeaturePath = config.getString("features.hardCodedFeatures")
+  val foldsPath = config.getString("svmContext.folds")
+  val allFeatsPath = config.getString("contextEngine.params.allFeatures")
+  val groupedFeaturesPath = config.getString("svmContext.groupedFeatures")
+  val hardCodedFeaturePath = config.getString("contextEngine.params.hardCodedFeatures")
   CodeUtils.writeHardcodedFeaturesToFile(hardCodedFeaturePath)
   val (allFeatures,rows) = CodeUtils.loadAggregatedRowsFromFile(groupedFeaturesPath, hardCodedFeaturePath)
   CodeUtils.writeAllFeaturesToFile(allFeatures, allFeatsPath)
@@ -35,7 +35,7 @@ object ML4AIPackageLauncher extends App {
 
 
   // =========================== LINEAR SVM RESULTS ===========================
-  val fileName = config.getString("svm.untrainedModel")
+  val fileName = config.getString("svmContext.untrainedSVMPath")
 
   // svm instance using liblinear
   val SVMClassifier = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
@@ -43,7 +43,7 @@ object ML4AIPackageLauncher extends App {
   svmInstance.saveModel(fileName)
   val loadedModelWrapper = svmInstance.loadFrom(fileName)
   // the loadedModel variable is an instance of LinearSVMWrapper. If you want access to the LinearSVMClassifier instance,
-  // just call loadedModel.classifier.
+  // you need to just call loadedModel.classifier.
   val (truthTestSVM, predTestSVM) = FoldMaker.svmControllerLinearSVM(loadedModelWrapper, trainValCombined, rows2)
   val svmResult = CodeUtils.scoreMaker("Linear SVM", truthTestSVM, predTestSVM)
   scoreDictionary ++= svmResult

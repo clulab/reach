@@ -8,11 +8,11 @@ import org.clulab.learning.LinearSVMClassifier
 object SVMTrainSaveInstance extends App {
   //data preprocessing
   val config = ConfigFactory.load()
-  val fileName = config.getString("svm.trainedModel")
+  val fileName = config.getString("contextEngine.params.svmPath")
   val SVMClassifier = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
   val svmInstance = new LinearSVMContextClassifier(SVMClassifier)
-  val groupedFeatures = config.getString("features.groupedFeatures")
-  val hardCodedFeaturePath = config.getString("features.hardCodedFeatures")
+  val groupedFeatures = config.getString("svmContext.groupedFeatures")
+  val hardCodedFeaturePath = config.getString("contextEngine.params.hardCodedFeatures")
   val (allFeatures,rows) = CodeUtils.loadAggregatedRowsFromFile(groupedFeatures, hardCodedFeaturePath)
   val nonNumericFeatures = Seq("PMCID", "label", "EvtID", "CtxID", "")
   val numericFeatures = allFeatures.toSet -- nonNumericFeatures.toSet
