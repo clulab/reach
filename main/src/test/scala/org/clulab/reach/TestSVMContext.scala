@@ -3,14 +3,15 @@ import java.io.{FileInputStream, ObjectInputStream}
 
 import org.scalatest.{FlatSpec, Matchers}
 import com.typesafe.config.ConfigFactory
-import org.ml4ai.data.classifiers.LinearSVMWrapper
-import org.ml4ai.data.utils.AggregatedRow
+import org.clulab.context.classifiers.LinearSVMContextClassifier
+import org.clulab.context.utils.AggregatedContextInstance
+import org.clulab.context.utils.AggregatedContextInstance
 
 class TestSVMContext extends FlatSpec with Matchers {
   val config = ConfigFactory.load()
 
   val configPath = config.getString("contextEngine.params.svmPath")
-  val svmWrapper = new LinearSVMWrapper(null)
+  val svmWrapper = new LinearSVMContextClassifier(null)
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
 
 
@@ -511,9 +512,9 @@ class TestSVMContext extends FlatSpec with Matchers {
 
 
 
-  def readAggRowFromFile(fileName: String):AggregatedRow = {
+  def readAggRowFromFile(fileName: String):AggregatedContextInstance = {
     val is = new ObjectInputStream(new FileInputStream(fileName))
-    val c = is.readObject().asInstanceOf[AggregatedRow]
+    val c = is.readObject().asInstanceOf[AggregatedContextInstance]
     is.close()
     c
   }

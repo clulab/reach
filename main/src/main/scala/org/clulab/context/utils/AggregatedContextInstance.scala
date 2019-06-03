@@ -1,7 +1,7 @@
 package org.clulab.context.utils
 
 import scala.collection.mutable
-case class AggregatedRow(
+case class AggregatedContextInstance(
                              sentenceIndex:Int,
                              PMCID:String,
                              EvtID: String,
@@ -11,8 +11,8 @@ case class AggregatedRow(
                              featureGroupNames:Array[String])
 
 
-object AggregatedRow {
-  def apply(str: String, headers: Seq[String], allOtherFeatures: Set[String], indices: Map[String, Int], listOfSpecificFeatures: Array[String]):AggregatedRow = {
+object AggregatedContextInstance {
+  def apply(str: String, headers: Seq[String], allOtherFeatures: Set[String], indices: Map[String, Int], listOfSpecificFeatures: Array[String]):AggregatedContextInstance = {
     val rowData = str.split(",")
     val sentencePos = rowData(0).toInt
     var evt_dependencyTails = new mutable.ListBuffer[Double]
@@ -55,6 +55,6 @@ object AggregatedRow {
     featureGroups ++= ctx_dependencyTails
     featureNames ++= evt_dependencyFeatures
     featureNames ++= ctx_dependencyFeatures
-    AggregatedRow(sentencePos, pmcid, evt, ctx, Some(label.toBoolean), featureGroups.toArray, featureNames.toArray)
+    AggregatedContextInstance(sentencePos, pmcid, evt, ctx, Some(label.toBoolean), featureGroups.toArray, featureNames.toArray)
   }
 }

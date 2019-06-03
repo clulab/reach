@@ -5,10 +5,12 @@ import java.io.PrintWriter
 
 import org.clulab.processors.Document
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
-import org.ml4ai.data.classifiers.LinearSVMWrapper
-import org.ml4ai.data.utils.{AggregatedRow, CodeUtils, InputRow}
+import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils, ContextPairInstance}
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
+import org.clulab.context.classifiers.LinearSVMContextClassifier
+import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils, ContextPairInstance}
+import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils, ContextPairInstance}
 
 import scala.util.{Failure, Success, Try}
 import scala.collection.mutable.ListBuffer
@@ -27,7 +29,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   var orderedContextMentions:Map[Int, Seq[BioTextBoundMention]] = _
   var defaultContexts:Option[Map[String, String]] = None
 
-  val svmWrapper = new LinearSVMWrapper(null)
+  val svmWrapper = new LinearSVMContextClassifier(null)
 
   val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.svmPath")
@@ -72,7 +74,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
 
 
-        val listForFolds = collection.mutable.ListBuffer[AggregatedRow]()
+        val listForFolds = collection.mutable.ListBuffer[AggregatedContextInstance]()
 
         // here, we will use a Seq(Map), where each map has InputRow as a key, and as value, we have a tuple of feature values
         // so for a given InputRow, I can look up the table and return the values of the features present in the InputRow.
@@ -80,9 +82,9 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           extractFeaturesToCalcByBestFeatSet(p, ctxMentions, contextFrequencyMap.toMap)
         }
         val flattenedMap = tempo.flatMap(t=>t).toMap
-        val features:Seq[InputRow] = tempo.flatMap(t => t.keySet)
+        val features:Seq[ContextPairInstance] = tempo.flatMap(t => t.keySet)
         // Aggregate the features of all the instances of a pair
-        val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedRow)]] =
+        val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedContextInstance)]] =
           (pairs zip features).groupBy{
             // change to filtered pairs when you know the best value of sentence distance.
           //(filteredPairs zip features).groupBy{
@@ -185,7 +187,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   // we have to take a slight detour of using InputRow and then AggregatedRowNew, instead of using AggregatedRowNew directly, as ml4ai does.
   // please contact the authors of the ml4ai package if you experience a roadblock while using the utilities it provides.
 
-  def extractFeaturesToCalcByBestFeatSet(datum:(BioEventMention, BioTextBoundMention), contextMentions:Seq[BioTextBoundMention], ctxFreqMap:Map[String,Double]):Map[InputRow, (Map[String,Double],Map[String,Double],Map[String,Double])] =
+  def extractFeaturesToCalcByBestFeatSet(datum:(BioEventMention, BioTextBoundMention), contextMentions:Seq[BioTextBoundMention], ctxFreqMap:Map[String,Double]):Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])] =
   {
 
     // val file
@@ -240,7 +242,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
 
 
-    val row = InputRow(sentencePos,
+    val row = ContextPairInstance(sentencePos,
       PMCID,
       label,
       evntId,
@@ -276,7 +278,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
     })
     contextFrequencyMap
   }
-  def aggregateFeatures(instances:Seq[InputRow], featValLookUp:Map[InputRow, (Map[String,Double],Map[String,Double],Map[String,Double])]):AggregatedRow = {
+  def aggregateFeatures(instances:Seq[ContextPairInstance], featValLookUp:Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])]):AggregatedContextInstance = {
 
     val label = None
     val featureSetNames = collection.mutable.ListBuffer[String]()
@@ -360,11 +362,11 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
     addAggregatedOnce(specFeatVal)
     addAggregatedOnce(ctxFeatVal)
     addAggregatedOnce(evtFeatVal)
-    val newAggRow = AggregatedRow(0, instances(0).PMCID, "", "", label, featureSetValues.toArray,featureSetNames.toArray)
+    val newAggRow = AggregatedContextInstance(0, instances(0).PMCID, "", "", label, featureSetValues.toArray,featureSetNames.toArray)
     newAggRow
   }
 
-  private def writeRowToFile(row:AggregatedRow, evtID: String, ctxID: String):Unit = {
+  private def writeRowToFile(row:AggregatedContextInstance, evtID: String, ctxID: String):Unit = {
     val typeOfPaper = config.getString("svmContext.paperType")
     val dirForType = if(typeOfPaper.length != 0) config.getString("papersDir").concat(s"/${typeOfPaper}") else config.getString("papersDir")
     val fileListUnfiltered = new File(dirForType)

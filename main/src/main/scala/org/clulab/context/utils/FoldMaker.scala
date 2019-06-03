@@ -1,12 +1,11 @@
-package org.clulab.context.data.utils
+package org.clulab.context.utils
 
-import org.clulab.context.classifiers.{Baseline, LinearSVMWrapper}
-import org.clulab.context.classifiers.{Baseline, LinearSVMWrapper}
+import org.clulab.context.classifiers.{BaselineContextClassifier, LinearSVMContextClassifier}
 
 import scala.collection.mutable
 import scala.io.BufferedSource
 
-case class FoldMaker(groupedFeatures: Map[(String, String, String), AggregatedRow]) extends Iterable[(Array[Int], Array[Int], Array[Int])]{
+case class FoldMaker(groupedFeatures: Map[(String, String, String), AggregatedContextInstance]) extends Iterable[(Array[Int], Array[Int], Array[Int])]{
   def toFolds:Iterable[(Array[Int], Array[Int], Array[Int])] = new mutable.HashSet[(Array[Int], Array[Int], Array[Int])]()
   override def iterator:Iterator[(Array[Int], Array[Int], Array[Int])] = this.toFolds.iterator
 }
@@ -35,7 +34,7 @@ object FoldMaker {
     toReturn.toArray
   }
 
-  def baselineController(foldsFromCSV: Array[(Array[Int], Array[Int], Array[Int])], rows2: Seq[AggregatedRow]): (Array[Int], Array[Int]) = {
+  def baselineController(foldsFromCSV: Array[(Array[Int], Array[Int], Array[Int])], rows2: Seq[AggregatedContextInstance]): (Array[Int], Array[Int]) = {
     val giantTruthTestLabel = new mutable.ArrayBuffer[Int]()
     val giantPredTestLabel = new mutable.ArrayBuffer[Int]()
     for((train,_,test) <- foldsFromCSV) {
@@ -43,7 +42,7 @@ object FoldMaker {
       val balancedTrainingData = Balancer.balanceByPaperAgg(trainingData, 1)
       val kToF1Map = new mutable.HashMap[Int, Double]
       for(k_val <- 0 until 51) {
-        val trainInstance = new Baseline(k_val)
+        val trainInstance = new BaselineContextClassifier(k_val)
         val pred = trainInstance.predict(balancedTrainingData)
         val labelsToInt = trainInstance.createLabels(balancedTrainingData)
         val counts = CodeUtils.predictCounts(labelsToInt, pred)
@@ -51,7 +50,7 @@ object FoldMaker {
         kToF1Map += (k_val -> f1score)
       }
       val bestK = CodeUtils.argMax(kToF1Map.toMap)
-      val testInstance = new Baseline(bestK)
+      val testInstance = new BaselineContextClassifier(bestK)
       val testingData = test.collect{case x:Int => rows2(x)}
       val currentTruthTestInt = testInstance.createLabels(testingData)
       giantTruthTestLabel ++= currentTruthTestInt
@@ -63,7 +62,7 @@ object FoldMaker {
     (giantTruthTestLabel.toArray, giantPredTestLabel.toArray)
   }
 
-  def svmControllerLinearSVM(svmInstance: LinearSVMWrapper, foldsFromCSV: Array[(Array[Int], Array[Int])], rows2: Seq[AggregatedRow]): (Array[Int], Array[Int]) = {
+  def svmControllerLinearSVM(svmInstance: LinearSVMContextClassifier, foldsFromCSV: Array[(Array[Int], Array[Int])], rows2: Seq[AggregatedContextInstance]): (Array[Int], Array[Int]) = {
     val giantTruthTestLabel = new mutable.ArrayBuffer[Int]()
     val giantPredTestLabel = new mutable.ArrayBuffer[Int]()
     for((train,test) <- foldsFromCSV) {

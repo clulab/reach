@@ -2,7 +2,7 @@ package org.clulab.context.classifiers
 
 import org.clulab.context.utils.AggregatedContextInstance
 
-case class Baseline(k:Int) extends ContextClassifier {
+case class BaselineContextClassifier(k:Int) extends ContextClassifier {
   override def fit(xTrain: Seq[AggregatedContextInstance]): Unit = {}
 
   override def predict(xTest: Seq[AggregatedContextInstance]): Array[Int] = {

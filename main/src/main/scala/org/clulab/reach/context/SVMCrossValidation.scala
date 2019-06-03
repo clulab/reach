@@ -3,8 +3,10 @@ package org.clulab.reach.context
 import java.io.{File, FileInputStream, ObjectInputStream}
 
 import com.typesafe.config.ConfigFactory
-import org.ml4ai.data.classifiers.LinearSVMWrapper
-import org.ml4ai.data.utils.{AggregatedRow, Balancer, CodeUtils}
+import org.clulab.context.classifiers.LinearSVMContextClassifier
+import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
+import org.clulab.context.utils.{AggregatedContextInstance, Balancer, CodeUtils}
+import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
 
 import scala.io.Source
 
@@ -12,15 +14,15 @@ object SVMCrossValidation extends App {
 
   val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.untrainedSVMPath")
-  val svmWrapper = new LinearSVMWrapper(null)
+  val svmWrapper = new LinearSVMContextClassifier(null)
   val unTrainedSVMInstance = svmWrapper.loadFrom(configPath)
   val labelFile = config.getString("svmContext.labelFile")
   val typeOfPaper = config.getString("svmContext.paperType")
   val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/")
   val fileListUnfiltered = new File(outPaperDirPath)
   val directories = fileListUnfiltered.listFiles().filter(_.isDirectory)
-  val rowsSup = collection.mutable.ArrayBuffer[AggregatedRow]()
-  val idMap = collection.mutable.HashMap[(String,String,String),AggregatedRow]()
+  val rowsSup = collection.mutable.ArrayBuffer[AggregatedContextInstance]()
+  val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val metricsMapPerPaper = collection.mutable.HashMap[String,(Double, Double, Double)]()
 
   for(d<-directories) {
@@ -46,7 +48,7 @@ object SVMCrossValidation extends App {
   val groupedByPaperID = rowsSup.groupBy(row => s"PMC${row.PMCID.split("_")(0)}")
 
 
-  val folds = collection.mutable.ArrayBuffer[(Seq[AggregatedRow], Seq[AggregatedRow])]()
+  val folds = collection.mutable.ArrayBuffer[(Seq[AggregatedContextInstance], Seq[AggregatedContextInstance])]()
 
 
 
@@ -78,7 +80,7 @@ object SVMCrossValidation extends App {
 
 
     val intersectingLabels = trainingLabelsIds.toSet.intersect(generateLabelMap(labelFile).keySet)
-    val trainingRows = collection.mutable.ListBuffer[AggregatedRow]()
+    val trainingRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val trainingLabels = collection.mutable.ListBuffer[Int]()
     for(idTup <- intersectingLabels) {
       val row = idMap(idTup)
@@ -105,7 +107,7 @@ object SVMCrossValidation extends App {
       testingLabelsIDs ++= evtCtxPerPaper
     })
     val intersectingTestingLabels = testingLabelsIDs.toSet.intersect(generateLabelMap(labelFile).keySet)
-    val testingRows = collection.mutable.ListBuffer[AggregatedRow]()
+    val testingRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val testingLabels = collection.mutable.ListBuffer[Int]()
     for(idTup <- intersectingTestingLabels) {
       val row = idMap(idTup)
@@ -168,9 +170,9 @@ object SVMCrossValidation extends App {
     (precision,recall,accuracy)
   }
 
-  def readAggRowFromFile(file: String):AggregatedRow = {
+  def readAggRowFromFile(file: String):AggregatedContextInstance = {
     val is = new ObjectInputStream(new FileInputStream(file))
-    val c = is.readObject().asInstanceOf[AggregatedRow]
+    val c = is.readObject().asInstanceOf[AggregatedContextInstance]
     is.close()
     c
   }

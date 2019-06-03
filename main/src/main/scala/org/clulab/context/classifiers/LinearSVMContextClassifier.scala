@@ -6,7 +6,7 @@ import org.clulab.context.utils.AggregatedContextInstance
 import org.clulab.context.utils.AggregatedContextInstance
 import org.clulab.struct.Counter
 import org.clulab.learning._
-case class LinearSVMWrapper(classifier: LinearSVMClassifier[Int,String]) extends ContextClassifier {
+case class LinearSVMContextClassifier(classifier: LinearSVMClassifier[Int,String]) extends ContextClassifier {
  override def fit(xTrain: Seq[AggregatedContextInstance]): Unit = ()
 
   def fit(xTrain: RVFDataset[Int, String]):Unit = classifier.train(xTrain)
@@ -25,9 +25,9 @@ case class LinearSVMWrapper(classifier: LinearSVMClassifier[Int,String]) extends
     os.close()
   }
 
-  override def loadFrom(fileName: String): LinearSVMWrapper = {
+  override def loadFrom(fileName: String): LinearSVMContextClassifier = {
     val is = new ObjectInputStream(new FileInputStream(fileName))
-    val c = is.readObject().asInstanceOf[LinearSVMWrapper]
+    val c = is.readObject().asInstanceOf[LinearSVMContextClassifier]
     is.close()
     c
   }

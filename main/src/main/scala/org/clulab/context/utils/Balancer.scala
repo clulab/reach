@@ -7,11 +7,11 @@ object Balancer {
     * @param negsPerPos number of negatively labeled rows per positively labeled rows
     * @return A balanced collection of rows
     */
-  def balanceByPaper(rows: Iterable[InputRow], negsPerPos: Int): Iterable[InputRow] = {
+  def balanceByPaper(rows: Iterable[ContextPairInstance], negsPerPos: Int): Iterable[ContextPairInstance] = {
 
     val groups = rows.groupBy(_.PMCID)
     val groupByPMCID = groups.values
-    var allRows:Option[Iterable[InputRow]] = None
+    var allRows:Option[Iterable[ContextPairInstance]] = None
     for (g <- groupByPMCID) {
       allRows match {
         case None => {
@@ -25,7 +25,7 @@ object Balancer {
       }
     }
 
-    def toBeReturned(x:Option[Iterable[InputRow]]) = x match {
+    def toBeReturned(x:Option[Iterable[ContextPairInstance]]) = x match {
       case Some(a) => a
       case None => rows
     }
@@ -34,12 +34,12 @@ object Balancer {
 
   }
 
-  def randomRowSelection(rows: Iterable[InputRow], negsPerPos: Int): Iterable[InputRow] = {
+  def randomRowSelection(rows: Iterable[ContextPairInstance], negsPerPos: Int): Iterable[ContextPairInstance] = {
     val pos_rows = rows.filter(_.label == Some(true))
     val neg_rows = rows.filter(_.label == Some(false))
     val posLength = pos_rows.size
     val negLength = neg_rows.size
-    val all_rows: Iterable[InputRow] = {
+    val all_rows: Iterable[ContextPairInstance] = {
       if (negLength < posLength) {
         val numOfPos = negLength * negsPerPos
         if(numOfPos > posLength)
@@ -62,10 +62,10 @@ object Balancer {
   }
 
 
-  def balanceByPaperAgg(aggRows:Seq[AggregatedRow], negsPerPos:Int): Seq[AggregatedRow] = {
+  def balanceByPaperAgg(aggRows:Seq[AggregatedContextInstance], negsPerPos:Int): Seq[AggregatedContextInstance] = {
     val groups = aggRows.groupBy(l => l.PMCID)
     val groupsById = groups.values
-    var allRows:Option[Iterable[AggregatedRow]] = None
+    var allRows:Option[Iterable[AggregatedContextInstance]] = None
     for(g <- groupsById) {
       allRows match {
         case None => val random = randomRowAgg(g, negsPerPos)
@@ -76,7 +76,7 @@ object Balancer {
         }
       }
     }
-    def toBeReturned(x:Option[Iterable[AggregatedRow]]) = x match {
+    def toBeReturned(x:Option[Iterable[AggregatedContextInstance]]) = x match {
       case Some(a) => a
       case None => aggRows
     }
@@ -84,13 +84,13 @@ object Balancer {
     toBeReturned(allRows).toSeq
   }
 
-  private def randomRowAgg(rows: Iterable[AggregatedRow], negsPerPos: Int): Iterable[AggregatedRow] = {
+  private def randomRowAgg(rows: Iterable[AggregatedContextInstance], negsPerPos: Int): Iterable[AggregatedContextInstance] = {
     val pos_rows = rows.filter(_.label == Some(true))
     val neg_rows = rows.filter(_.label == Some(false))
     val posLength = pos_rows.size
     val negLength = neg_rows.size
     val randomNumGen = new scala.util.Random(13)
-    val all_rows: Iterable[AggregatedRow] = {
+    val all_rows: Iterable[AggregatedContextInstance] = {
       if (negLength < posLength) {
         val numOfPos = negLength * negsPerPos
         if(numOfPos > posLength)
