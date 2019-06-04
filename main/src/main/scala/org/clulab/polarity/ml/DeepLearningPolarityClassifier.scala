@@ -64,7 +64,7 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
     * @param trainingPath Training data
     * @param trainingRatio Ratio of training samples in the dataset
     */
-  override def fit(trainingPath:String = "SentencesInfo_all_label_final_ExactRecur.txt", trainRatio:Float=0.8.toFloat, saveFlag:Boolean=false): Unit = {
+  override def fit(trainingPath:String = "SentencesInfo_all_label_final_ExactRecur.txt", trainRatio:Float=0.8.toFloat, saveFlag:Boolean=true): Unit = {
     
     if (!_isFitted){
       val (sens_train, labels_train, sens_test, labels_test) = this.readFromSpreadsheet(trainingPath, trainRatio)

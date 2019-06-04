@@ -2,6 +2,7 @@ package org.clulab.polarity
 
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
+import org.clulab.polarity.ml.{DeepLearningPolarityClassifier, MLPolarityEngine}
 import org.clulab.reach.mentions.BioEventMention
 
 /**

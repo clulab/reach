@@ -1,8 +1,0 @@
-package org.clulab.polarity.ml
-
-object TrainDeepLearningClassifier extends App{
-  //def load(path:String):DeepLearningPolarityClassifier = ???
-  val lstmClassifier = new DeepLearningPolarityClassifier()
-  lstmClassifier.fit()
-  lstmClassifier.loadModelEval()
-}
