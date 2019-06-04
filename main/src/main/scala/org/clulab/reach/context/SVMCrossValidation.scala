@@ -215,6 +215,7 @@ object SVMCrossValidation extends App {
     for((key,valueTup) <- metricMap) {
       val string = s"${key},${valueTup._1},${valueTup._2},${valueTup._3}"
       pw.write(string)
+      pw.write("\n")
     }
     pw.close()
   }
