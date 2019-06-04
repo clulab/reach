@@ -7,6 +7,7 @@ import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
 import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
 import org.clulab.learning.LinearSVMClassifier
+import java.io._
 
 import scala.io.Source
 
@@ -141,6 +142,7 @@ object SVMCrossValidation extends App {
   for((paperID, metrics) <- metricsMapPerPaper) {
     println("Current Paper ID: " + paperID + " \t Precision: " + metrics._1.toString.take(5) + " \t Recall: " + metrics._2 + "\t Accuracy: " + metrics._3.toString.take(5))
   }
+  writeMetricsToCSV(metricsMapPerPaper.toMap)
 
   val precisionOverAllPapers = collection.mutable.ListBuffer[Double]()
     metricsMapPerPaper foreach (x => precisionOverAllPapers += x._2._1)
@@ -205,5 +207,15 @@ object SVMCrossValidation extends App {
     val sum = seq.foldLeft(0.0)(_+_)
     val avg = sum.toDouble/seq.size.toDouble
     (min,max,avg)
+  }
+
+  def writeMetricsToCSV(metricMap:Map[String,(Double,Double,Double)]): Unit = {
+    val cvmetricsFilePath = config.getString("svmContext.cvmetricsFilePath")
+    val pw = new PrintWriter(cvmetricsFilePath)
+    for((key,valueTup) <- metricMap) {
+      val string = s"${key},${valueTup._1},${valueTup._2},${valueTup._3}"
+      pw.write(string)
+    }
+    pw.close()
   }
 }
