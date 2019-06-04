@@ -213,7 +213,7 @@ object SVMCrossValidation extends App {
     val cvmetricsFilePath = config.getString("svmContext.cvmetricsFilePath")
     val pw = new PrintWriter(cvmetricsFilePath)
     for((key,valueTup) <- metricMap) {
-      val string = s"${key},${valueTup._1},${valueTup._2},${valueTup._3}"
+      val string = s"${key},${valueTup._1.toString.take(5)},${valueTup._2.toString.take(5)},${valueTup._3.toString.take(5)}"
       pw.write(string)
       pw.write("\n")
     }
