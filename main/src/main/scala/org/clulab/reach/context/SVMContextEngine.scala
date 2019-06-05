@@ -47,7 +47,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
         val pairGenerator = new EventContextPairGenerator(ctxMentions, sentenceWindow)
         val pairs = pairGenerator.yieldContextEventPairs()
-       // println(filteredPairs.size)
+        println(pairs.size)
         val filteredPairs = sentenceWindow match {
           case Some(bound) =>
             pairs.filter {
