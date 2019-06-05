@@ -38,9 +38,10 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
       case Some(ctxMentions) =>
 
     // Collect the event mentions
-   /*  val evtMentions = mentions collect  {
+/*     val evtMentions = mentions collect  {
         case evt:BioEventMention => evt
        }*/
+
 
         // Generate all the event/ctx mention pairs
         //val pairs:Seq[Pair] = for(evt <- evtMentions; ctx <- ctxMentions) yield (evt, ctx)
