@@ -7,6 +7,7 @@ class EventContextPairGenerator(mentions:Seq[BioMention], sentenceWindow:Option[
   type Pair = (BioEventMention, BioTextBoundMention)
   type EventID = String
   type ContextID = (String, String)
+  println(" Inside pair generator class, checking size of mentions " + mentions.size)
   // Collect the event mentions
   val evtMentions = mentions collect  {
     case evt:BioEventMention => evt
