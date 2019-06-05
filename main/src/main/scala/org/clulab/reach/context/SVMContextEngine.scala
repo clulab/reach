@@ -49,15 +49,17 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         }
 
         // here, we will use a Seq(Map), where each map has ContextPairInstance as a key, and as value, we have a tuple of feature values
-        // so for a given ContextPairInstance, I can look up the table and return the values of the features present in the ContextPairInstance.
+        // so for a given ContextPairInstance, I can look up the table and return the values of the contextPairInput present in the ContextPairInstance.
         val tempo = filteredPairs.map{p =>
           val featureExtractor = new ContextFeatureExtractor(p, ctxMentions)
           featureExtractor.extractFeaturesToCalcByBestFeatSet()
         }
-        val flattenedMap = tempo.flatMap(t=>t).toMap
-        val features:Seq[ContextPairInstance] = tempo.flatMap(t => t.keySet)
+       // val flattenedMap = tempo.flatMap(t=>t).toMap
+        val flattenedMap = ContextFeatValUtils.getFeatValMapPerInput(filteredPairs, ctxMentions)
+       // val contextPairInput:Seq[ContextPairInstance] = tempo.flatMap(t => t.keySet)
+       val contextPairInput:Seq[ContextPairInstance] = ContextFeatValUtils.getCtxPairInstances(filteredPairs, ctxMentions)
         val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedContextInstance)]] =
-          (pairs zip features).groupBy{
+          (pairs zip contextPairInput).groupBy{
             case (pair, _) => extractEvtId(pair._1) // Group by their EventMention
           }.mapValues{
             v =>
