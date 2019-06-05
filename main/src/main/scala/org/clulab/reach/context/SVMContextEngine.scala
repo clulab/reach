@@ -38,17 +38,19 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
       case Some(ctxMentions) =>
 
     // Collect the event mentions
-/*     val evtMentions = mentions collect  {
+/*
+     val evtMentions = mentions collect  {
         case evt:BioEventMention => evt
-       }*/
+       }
+*/
 
 
         // Generate all the event/ctx mention pairs
         //val pairs:Seq[Pair] = for(evt <- evtMentions; ctx <- ctxMentions) yield (evt, ctx)
 
-        val pairGenerator = new EventContextPairGenerator(ctxMentions, sentenceWindow)
+        val pairGenerator = new EventContextPairGenerator(mentions, sentenceWindow)
         val pairs = pairGenerator.yieldContextEventPairs()
-        println(pairs.size)
+        //println(pairs.size)
         val filteredPairs = sentenceWindow match {
           case Some(bound) =>
             pairs.filter {
