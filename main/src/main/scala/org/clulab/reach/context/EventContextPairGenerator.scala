@@ -2,7 +2,7 @@ package org.clulab.reach.context
 
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 
-class EventContextPairGenerator(mentions:Seq[BioMention], ctxMentions:Seq[BioTextBoundMention],sentenceWindow:Option[Int] = None) {
+class EventContextPairGenerator(mentions:Seq[BioMention], ctxMentions:Seq[BioTextBoundMention]) {
 
   type Pair = (BioEventMention, BioTextBoundMention)
   type EventID = String
@@ -12,13 +12,7 @@ class EventContextPairGenerator(mentions:Seq[BioMention], ctxMentions:Seq[BioTex
     case evt:BioEventMention => evt
   }
 
- /* val ctxMentions = mentions collect {
-    case ctx: BioTextBoundMention => ctx
-  }*/
-
-
   def yieldContextEventPairs():Seq[Pair] = {
-    //val pairs = collection.mutable.ListBuffer[Pair]()
 
     for(evt <- evtMentions; ctx <- ctxMentions) yield (evt, ctx)
 
