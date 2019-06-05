@@ -13,7 +13,7 @@ class FeatureExtractor(datum:(BioEventMention, BioTextBoundMention), contextMent
   type EventID = String
   type ContextID = (String, String)
   def extractFeaturesToCalcByBestFeatSet():Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])] = {
-
+    println(s"Inside feature extractor class, checking size of mentions: ${contextMentions.size}")
     val config = ConfigFactory.load()
     val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
     val hardCodedFeaturesPath = config.getString("contextEngine.params.hardCodedFeatures")
