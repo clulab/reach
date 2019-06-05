@@ -54,10 +54,10 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           val featureExtractor = new ContextFeatureExtractor(p, ctxMentions)
           featureExtractor.extractFeaturesToCalcByBestFeatSet()
         }
-       // val flattenedMap = tempo.flatMap(t=>t).toMap
-        val flattenedMap = ContextFeatValUtils.getFeatValMapPerInput(filteredPairs, ctxMentions)
-       // val contextPairInput:Seq[ContextPairInstance] = tempo.flatMap(t => t.keySet)
-       val contextPairInput:Seq[ContextPairInstance] = ContextFeatValUtils.getCtxPairInstances(filteredPairs, ctxMentions)
+        val flattenedMap = tempo.flatMap(t=>t).toMap
+        //val flattenedMap = ContextFeatValUtils.getFeatValMapPerInput(filteredPairs, ctxMentions)
+        val contextPairInput:Seq[ContextPairInstance] = tempo.flatMap(t => t.keySet)
+      // val contextPairInput:Seq[ContextPairInstance] = ContextFeatValUtils.getCtxPairInstances(filteredPairs, ctxMentions)
         val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedContextInstance)]] =
           (pairs zip contextPairInput).groupBy{
             case (pair, _) => extractEvtId(pair._1) // Group by their EventMention
