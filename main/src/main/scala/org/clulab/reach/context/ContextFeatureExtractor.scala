@@ -8,7 +8,7 @@ import org.clulab.struct.Interval
 
 import scala.util.{Failure, Success, Try}
 
-class FeatureExtractor(datum:(BioEventMention, BioTextBoundMention), contextMentions:Seq[BioTextBoundMention]){
+class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), contextMentions:Seq[BioTextBoundMention]){
   type Pair = (BioEventMention, BioTextBoundMention)
   type EventID = String
   type ContextID = (String, String)

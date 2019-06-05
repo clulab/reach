@@ -50,19 +50,14 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             pairs
         }
 
-
-
-        val listForFolds = collection.mutable.ListBuffer[AggregatedContextInstance]()
-
         // here, we will use a Seq(Map), where each map has ContextPairInstance as a key, and as value, we have a tuple of feature values
         // so for a given ContextPairInstance, I can look up the table and return the values of the features present in the ContextPairInstance.
         val tempo = filteredPairs.map{p =>
-          val featureExtractor = new FeatureExtractor(p, ctxMentions)
+          val featureExtractor = new ContextFeatureExtractor(p, ctxMentions)
           featureExtractor.extractFeaturesToCalcByBestFeatSet()
         }
         val flattenedMap = tempo.flatMap(t=>t).toMap
         val features:Seq[ContextPairInstance] = tempo.flatMap(t => t.keySet)
-        // Aggregate the features of all the instances of a pair
         val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedContextInstance)]] =
           (pairs zip features).groupBy{
             case (pair, _) => extractEvtId(pair._1) // Group by their EventMention
@@ -70,7 +65,9 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             v =>
               v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s =>  {
                 val seqOfInputRowsToPass = s map (_._2)
-                val aggRow = aggregateFeatures(seqOfInputRowsToPass, flattenedMap)
+                val featureAggregatorInstance = new ContextFeatureAggregator(seqOfInputRowsToPass, flattenedMap)
+               // val aggRow = aggregateFeatures(seqOfInputRowsToPass, flattenedMap)
+                val aggRow = featureAggregatorInstance.aggregateContextFeatures()
               aggRow}).toSeq
           }
 
@@ -81,7 +78,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             val x = a.map {
               case (ctxId, aggregatedFeature) =>
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
-                listForFolds += aggregatedFeature
                 // comment row to file function before testing
                 //writeRowToFile(aggregatedFeature, k.toString, ctxId._2)
                 val prediction = {
@@ -149,16 +145,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   }
 
   override def update(mentions: Seq[BioMention]): Unit = ()
-
-
-
-  // the following code examines the best performing set from the ml4ai package.
-  // the basic logic is that if a feature exists, it should have value 1 else 0.
-  // When we apply this logic to any Seq[ContextPairInstance] (refer to ml4ai.data.utils for the code), we may get many rows having value 1 for the same feature.
-  // Note that this will affect the _min, _mean and _max values for every feature for that Seq[ContextPairInstance].
-  // Given that the dataset on which we will test the model here is not read from file unlike ml4ai,
-  // we have to take a slight detour of using ContextPairInstance and then AggregatedRowNew, instead of using AggregatedRowNew directly, as ml4ai does.
-  // please contact the authors of the ml4ai package if you experience a roadblock while using the utilities it provides.
 
 
   def extractEvtId(evt:BioEventMention):EventID = {
