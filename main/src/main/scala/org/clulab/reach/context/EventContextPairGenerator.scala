@@ -14,7 +14,7 @@ class EventContextPairGenerator(contextMentions:Seq[BioTextBoundMention], senten
 
   val pairs:Seq[Pair] = for(evt <- evtMentions; ctx <- contextMentions) yield (evt, ctx)
   def yieldContextEventPairs():Seq[Pair] = {
-    val filteredPairs = sentenceWindow match {
+    /*val filteredPairs = sentenceWindow match {
       case Some(bound) =>
         pairs.filter {
           case (evt, ctx) =>
@@ -23,7 +23,8 @@ class EventContextPairGenerator(contextMentions:Seq[BioTextBoundMention], senten
       case None =>
         pairs
     }
-    filteredPairs
+    filteredPairs*/
+    pairs
   }
 
 
