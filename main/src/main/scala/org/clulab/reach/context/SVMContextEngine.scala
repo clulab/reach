@@ -45,10 +45,10 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         // Generate all the event/ctx mention pairs
         //val pairs:Seq[Pair] = for(evt <- evtMentions; ctx <- ctxMentions) yield (evt, ctx)
 
-        val pairGenerator = new EventContextPairGenerator(ctxMentions)
-        val pairs = pairGenerator.yieldContextEventPairs()
-        println(pairs.size)
-        val filteredPairs = sentenceWindow match {
+        val pairGenerator = new EventContextPairGenerator(ctxMentions, sentenceWindow)
+        val filteredPairs = pairGenerator.yieldContextEventPairs()
+        println(filteredPairs.size)
+       /* val filteredPairs = sentenceWindow match {
           case Some(bound) =>
             pairs.filter {
               case (evt, ctx) =>
@@ -56,7 +56,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             }
           case None =>
             pairs
-        }
+        }*/
 
 
 
