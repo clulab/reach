@@ -18,13 +18,9 @@ class EventContextPairGenerator(mentions:Seq[BioMention], sentenceWindow:Option[
 
 
   def yieldContextEventPairs():Seq[Pair] = {
-    val pairs = collection.mutable.ListBuffer[Pair]()
+    //val pairs = collection.mutable.ListBuffer[Pair]()
 
-    for(evt <- evtMentions; ctx <- ctxMentions) {
-      val currentPair = (evt, ctx)
-      pairs += currentPair
-    }
-    pairs
+    for(evt <- evtMentions; ctx <- ctxMentions) yield (evt, ctx)
 
   }
 
