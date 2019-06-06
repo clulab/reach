@@ -89,7 +89,7 @@ object PolarityEngine extends LazyLogging {
   def apply(engineName:String): PolarityEngine = engineName match {
     case "Linguistic" =>
       LinguisticPolarityEngine
-   case "DeepLearning" =>
+    case "DeepLearning" =>
       val deepLearningClassifier = new DeepLearningPolarityClassifier()
       new MLPolarityEngine(deepLearningClassifier)
     case _ =>

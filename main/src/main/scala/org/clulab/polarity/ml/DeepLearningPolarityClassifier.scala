@@ -9,8 +9,12 @@ import org.clulab.fatdynet.utils.Closer.AutoCloser
 import org.clulab.polarity.{NegativePolarity, Polarity, PositivePolarity}
 import org.clulab.reach.mentions.BioEventMention
 
+import scala.collection.mutable
+import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
 import scala.util.Random
+
+
 
 class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") extends PolarityClassifier{
 
@@ -24,9 +28,12 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
 
   val special_voc = lines.zipWithIndex.toMap
   val w2v_voc = lines2.zipWithIndex.toMap
+  val c2i = charToIndex(w2v_voc, special_voc)  //this c2i is good
+
 
   val VOC_SIZE = 3671
   val WEM_DIMENSIONS = 100
+  val CEM_DIMENSIONS = 30
   val NUM_LAYERS = 1
   val HIDDEN_SIZE = 30
   val N_EPOCH = 5
@@ -35,25 +42,32 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
   val pc = new ParameterCollection
   val w2v_wemb_lp: LookupParameter = pc.addLookupParameters(1579375, /*1579375,*/ Dim(Seq(WEM_DIMENSIONS)))
   val w2v_wemb_lp2: LookupParameter = pc.addLookupParameters(11691, /*1579375,*/ Dim(Seq(WEM_DIMENSIONS)))
+  val c2v_cemb:LookupParameter = pc.addLookupParameters(c2i.size, /*1579375,*/ Dim(Seq(CEM_DIMENSIONS)))
 
   val p_W = pc.addParameters(Dim(1, 2*HIDDEN_SIZE+1))
   val p_b = pc.addParameters(Dim(1))
 
 
-  val builderFwd = new LstmBuilder(NUM_LAYERS, WEM_DIMENSIONS, HIDDEN_SIZE, pc)
-  val builderBwd = new LstmBuilder(NUM_LAYERS, WEM_DIMENSIONS, HIDDEN_SIZE, pc)
+  val builderFwd = new LstmBuilder(NUM_LAYERS, WEM_DIMENSIONS+CEM_DIMENSIONS*2, HIDDEN_SIZE, pc)
+  val builderBwd = new LstmBuilder(NUM_LAYERS, WEM_DIMENSIONS+CEM_DIMENSIONS*2, HIDDEN_SIZE, pc)
+  val charFwRnnBuilder = new LstmBuilder(NUM_LAYERS, CEM_DIMENSIONS, CEM_DIMENSIONS, pc)
+  val charBwRnnBuilder = new LstmBuilder(NUM_LAYERS, CEM_DIMENSIONS, CEM_DIMENSIONS, pc)
+
 
   //val sgd = new SimpleSGDTrainer(pc)
   val sgd = new AdamTrainer(pc)
 
   val missing_vec = new FloatVector(WEM_DIMENSIONS)
+  val missing_charVec = new FloatVector(CEM_DIMENSIONS*2)
 
   private var _isFitted = false
   
   if (Files.exists(Paths.get(savedModelPath))){
+    println("Loading saved model ...")
     _isFitted=true
     val modelLoader = new ModelLoader(savedModelPath)
     modelLoader.populateModel(pc, "/allParams")
+    println("Loading model finished!")
   }
   
   
@@ -146,9 +160,12 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
     * @param modelPath file path to save the model to.
     */
   override def save(modelPath: String="SavedLSTM"): Unit = {
+    println("Saving model ...")
     new CloseableModelSaver(modelPath).autoClose { modelSaver =>
       modelSaver.addModel(pc, "/allParams")
     }
+    println("Saving trained model finished!")
+
   }
 
   def runInstance(words:Seq[String], rulePolarityNum:Int):Expression= {
@@ -158,29 +175,14 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
     val rulePolarity = Expression.input(rulePolarityNum)
 
     val inputsFwd = words map { word =>
-      if (w2v_voc.contains(word.toLowerCase())){
-        Expression.lookup(w2v_wemb_lp, w2v_voc(word.toLowerCase()))
-      }
-      else if (special_voc.contains(word.toLowerCase())){
-        Expression.lookup(w2v_wemb_lp2, special_voc(word.toLowerCase()))
-      }
-      else {
-        Expression.input(Dim(WEM_DIMENSIONS), missing_vec)
-      }
+      mkEmbedding(word.toLowerCase())
     }
     val inputsBwd = inputsFwd.reverse
 
-    builderFwd.newGraph() // map here is like the [f(i) for i in list] in python
-    builderFwd.startNewSequence()
-    val statesFwd = inputsFwd map { // transducer
-      w => builderFwd.addInput(w)
-    }
 
-    builderBwd.newGraph() // map here is like the [f(i) for i in list] in python
-    builderBwd.startNewSequence()
-    val statesBwd = inputsBwd map { // transducer
-      w => builderBwd.addInput(w)
-    }
+    val statesFwd = transduce(inputsFwd, builderFwd)
+    val statesBwd = transduce(inputsBwd, builderBwd)
+
 
     // Get the last embedding
     val selected = concatenate(statesFwd.last, statesBwd.last)
@@ -188,6 +190,82 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
 
     // Run the FF network for classification
     Expression.logistic(W * feedForwardInput + b)
+  }
+
+  def transduce(embeddings:Iterable[Expression], builder:RnnBuilder): Iterable[Expression] = {
+    builder.newGraph()
+    builder.startNewSequence()
+    val states = embeddings.map(builder.addInput)
+    states
+  }
+
+  def mkEmbedding(word: String):Expression = {
+    //
+    // make sure you preprocess the word similarly to the embedding library used!
+    //   GloVe large does not do any preprocessing
+    //   GloVe small lowers the case
+    //   Our Word2Vec uses Word2Vec.sanitizeWord
+    //
+    val sanitized = word // word.toLowerCase() // Word2Vec.sanitizeWord(word)
+
+    val wordEmbedding =
+      if (w2v_voc.contains(word)){
+        Expression.lookup(w2v_wemb_lp, w2v_voc(word))
+      }
+      else if (special_voc.contains(word.toLowerCase())){
+        Expression.lookup(w2v_wemb_lp2, special_voc(word))
+      }
+      else {
+        Expression.input(Dim(WEM_DIMENSIONS), missing_vec)
+      }
+
+    // biLSTM over character embeddings
+    val charEmbedding =
+      mkCharEmbedding(word)
+
+    concatenate(wordEmbedding, charEmbedding)
+  }
+
+  def mkCharEmbedding(word: String): Expression = {
+    //println(s"make embedding for word [$word]")
+    val charEmbeddings = new ArrayBuffer[Expression]()
+    if (word.length>0){
+      for(i <- word.indices) {
+        if(c2i.contains(word.charAt(i))){
+          charEmbeddings += Expression.lookup(c2v_cemb, c2i(word.charAt(i)))
+        }
+      }
+      if (charEmbeddings.length>0){
+        val fwOut = transduce(charEmbeddings, charFwRnnBuilder).last
+        val bwOut = transduce(charEmbeddings.reverse, charBwRnnBuilder).last
+        concatenate(fwOut, bwOut)
+      }
+      else{
+        Expression.input(Dim(CEM_DIMENSIONS*2), missing_vec)
+      }
+    }
+    else{
+      Expression.input(Dim(CEM_DIMENSIONS*2), missing_vec)
+    }
+  }
+
+  def charToIndex(w2v_voc:Map[String, Int], special_voc:Map[String, Int]):Map[Char,Int]={
+    println("Generating character embedding index ...")
+    val chars = new mutable.HashSet[Char]()
+    for (keyWord <- w2v_voc.keys) {
+      for(i <- keyWord.indices) {
+        chars += keyWord.charAt(i)
+      }
+    }
+    for (keyWord <- special_voc.keys) {
+      for(i <- keyWord.indices) {
+        chars += keyWord.charAt(i)
+      }
+    }
+
+    val c2i = chars.toList.sorted.zipWithIndex.toMap
+    println("Character index finished!")
+    c2i
   }
 
   def fitSingleEpoch(input_sens: Seq[(Seq[String],Int)],labels: Seq[Int]): Unit = {
@@ -249,7 +327,7 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
   }
 
   def readFromSpreadsheet(spreadsheet_path:String, train_ratio:Float): (Seq[(Seq[String], Int)], Seq[Int], Seq[(Seq[String], Int)], Seq[Int]) ={
-
+    println("Loading data from spreadsheet ...")
     var instances = Seq[(Seq[String],Int)]()
     var labels = Seq[Int]()
 
@@ -299,7 +377,7 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
     val labels_train = labels_shuffle.slice(0, n_training)
     val sens_test = sens_shuffled.slice(n_training, labels.length)
     val labels_test = labels_shuffle.slice(n_training, labels.length)
-
+    println("Loading data finished!")
 
     (sens_train, labels_train, sens_test, labels_test)
 
