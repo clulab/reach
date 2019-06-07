@@ -23,12 +23,10 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
   val dictPath = "vocab.txt"
   val w2vDictPath = "w2vvoc.txt"
 
-  val lines = Source.fromFile(dictPath).getLines().toList
-  val lines2 = Source.fromFile(w2vDictPath).getLines().toList
+  //val lines = Source.fromFile(dictPath).getLines().toList
+  //val lines2 = Source.fromFile(w2vDictPath).getLines().toList
 
-  val special_voc = lines.zipWithIndex.toMap
-  val w2v_voc = lines2.zipWithIndex.toMap
-  val c2i = charToIndex(w2v_voc, special_voc)  //this c2i is good
+  val (w2i, c2i) = mkVocabs()
 
 
   val VOC_SIZE = 3671
@@ -40,8 +38,7 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
 
   var loss: Float = 0
   val pc = new ParameterCollection
-  val w2v_wemb_lp: LookupParameter = pc.addLookupParameters(1579375, /*1579375,*/ Dim(Seq(WEM_DIMENSIONS)))
-  val w2v_wemb_lp2: LookupParameter = pc.addLookupParameters(11691, /*1579375,*/ Dim(Seq(WEM_DIMENSIONS)))
+  val w2v_wemb_lp: LookupParameter = pc.addLookupParameters(w2i.size, /*1579375,*/ Dim(Seq(WEM_DIMENSIONS)))
   val c2v_cemb:LookupParameter = pc.addLookupParameters(c2i.size, /*1579375,*/ Dim(Seq(CEM_DIMENSIONS)))
 
   val p_W = pc.addParameters(Dim(1, 2*HIDDEN_SIZE+1))
@@ -209,11 +206,8 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
     val sanitized = word // word.toLowerCase() // Word2Vec.sanitizeWord(word)
 
     val wordEmbedding =
-      if (w2v_voc.contains(word)){
-        Expression.lookup(w2v_wemb_lp, w2v_voc(word))
-      }
-      else if (special_voc.contains(word.toLowerCase())){
-        Expression.lookup(w2v_wemb_lp2, special_voc(word))
+      if (w2i.contains(word)){
+        Expression.lookup(w2v_wemb_lp, w2i(word))
       }
       else {
         Expression.input(Dim(WEM_DIMENSIONS), missing_vec)
@@ -381,6 +375,30 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
 
     (sens_train, labels_train, sens_test, labels_test)
 
+  }
+
+  def mkVocabs(spreadSheetPath:String = "SentencesInfo_all_label_final_ExactRecur.txt"): (Map[String, Int], Map[Char, Int]) = {
+    println("Making vocabulary for deep learning model ...")
+    val (trainSentences, _, _,_) = readFromSpreadsheet(spreadSheetPath, 0.8.toFloat)
+
+    val chars = new mutable.HashSet[Char]()
+    val words = new mutable.HashSet[String]()
+    for(instance <- trainSentences) {
+      for(token <- instance._1) {
+        val word = token.toLowerCase
+        words += word
+        for(i <- word.indices) {
+          chars += word.charAt(i)
+        }
+      }
+    }
+
+    val w2i = words.zipWithIndex.toMap
+    val c2i = chars.toList.sorted.zipWithIndex.toMap
+
+    println(s"Vocabulary build finished! W2I size ${w2i.size},  C2I size ${c2i.size}")
+
+    (w2i, c2i)
   }
 }
 
