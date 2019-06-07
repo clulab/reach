@@ -24,14 +24,13 @@ object SVMCrossValidation extends App {
   val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/")
   val fileListUnfiltered = new File(outPaperDirPath)
   val directories = fileListUnfiltered.listFiles().filter(_.isDirectory)
-  println(directories.size)
   val rowsSup = collection.mutable.ArrayBuffer[AggregatedContextInstance]()
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val metricsMapPerPaper = collection.mutable.HashMap[String,(Double, Double, Double)]()
 
   for(d<-directories) {
     val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
-
+    println(rowFiles.size)
     val rows = rowFiles.map(file => {
       val pmcid = file.getName.split("_")(1)
       val evtID = file.getName.split("_")(2)
