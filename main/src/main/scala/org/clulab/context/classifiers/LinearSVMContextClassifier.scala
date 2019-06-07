@@ -3,7 +3,6 @@ package org.clulab.context.classifiers
 import java.io._
 
 import org.clulab.context.utils.AggregatedContextInstance
-import org.clulab.context.utils.AggregatedContextInstance
 import org.clulab.struct.Counter
 import org.clulab.learning._
 case class LinearSVMContextClassifier(classifier: LinearSVMClassifier[Int,String]) extends ContextClassifier {

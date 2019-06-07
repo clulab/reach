@@ -21,7 +21,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   val svmWrapper = new LinearSVMContextClassifier(null)
 
   val config = ConfigFactory.load()
-  val configPath = config.getString("contextEngine.params.svmPath")
+  val configPath = config.getString("contextEngine.params.trainedSvmPath")
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
 
 
@@ -66,7 +66,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
               v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s =>  {
                 val seqOfInputRowsToPass = s map (_._2)
                 val featureAggregatorInstance = new ContextFeatureAggregator(seqOfInputRowsToPass, flattenedMap)
-               // val aggRow = aggregateFeatures(seqOfInputRowsToPass, flattenedMap)
                 val aggRow = featureAggregatorInstance.aggregateContextFeatures()
               aggRow}).toSeq
           }

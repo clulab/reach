@@ -1,0 +1,4124 @@
+[
+  {
+    "type": "Inhibition",
+    "subj": {
+      "name": "EGF",
+      "db_refs": {
+        "UP": "P01133",
+        "TEXT": "Epidermal growth factor",
+        "HGNC": "3229"
+      }
+    },
+    "obj": {
+      "name": "differentiation",
+      "db_refs": {
+        "GO": "GO:0030154",
+        "TEXT": "differentiation",
+        "MESH": "D002454"
+      }
+    },
+    "obj_activity": "activity",
+    "belief": 1.0,
+    "evidence": [
+      {
+        "source_api": "reach",
+        "pmid": "23087834",
+        "text": "The strongest argument to refute the idea that EGF signaling from the germline to the cyst cells directly prevents CySC death or differentiation is the observation that somatic cells next to the hub in agametic testes did not undergo cell death or express Eya.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "9b4b79d0-aa63-4fbc-be06-d9050e0bf091"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "23087834",
+          "TRID": 1877556,
+          "PMCID": "PMC3469438",
+          "DOI": "10.4161/SPMG.21380",
+          "TCID": 19458631,
+          "SOURCE": "pmc_oa",
+          "RID": 34243124,
+          "READER": "REACH"
+        },
+        "source_hash": -7170780736024027118
+      },
+      {
+        "source_api": "reach",
+        "pmid": "18701481",
+        "text": "EGF stimulates proliferation and inhibits differentiation in thyroid cells by activation of MEK and ERK.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "75a1d032-ae85-495e-b082-bc2062420cfa"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "18701481",
+          "TRID": 11510449,
+          "PMCID": "PMC2587086",
+          "DOI": "10.1158/0008-5472.CAN-08-0855",
+          "MANUSCRIPT_ID": "NIHMS56315",
+          "TCID": 19681897,
+          "SOURCE": "manuscripts",
+          "RID": 34534762,
+          "READER": "REACH"
+        },
+        "source_hash": -56851259210501182
+      },
+      {
+        "source_api": "reach",
+        "pmid": "9877330",
+        "text": "It has been shown that epidermal growth factor (EGF) inhibits dexamethasone induced differentiation and up-regulates EGF-receptor (EGF-R) expression, whereas EGF-R is down-regulated in the course of differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "epidermal growth factor",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "bd3c3abc-2eee-42aa-aa86-83e8b0bdc5dc"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "9877330",
+          "TRID": 8026012,
+          "TCID": 5041786,
+          "SOURCE": "pubmed",
+          "RID": 9673078,
+          "READER": "REACH"
+        },
+        "source_hash": -1508261707682370760
+      },
+      {
+        "source_api": "reach",
+        "pmid": "16984645",
+        "text": "These results demonstrate that the EGF induced disruption of lactogenic differentiation proceeds by blocking both the Ras-Raf-Mek-Erk pathway and the PI-3-kinase pathway.",
+        "annotations": {
+          "found_by": "Positive_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "08dc8e76-fee9-4703-b7af-f6b96fd16704"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "16984645",
+          "TRID": 23237780,
+          "PMCID": "PMC1590014",
+          "DOI": "10.1186/1471-2121-7-34",
+          "TCID": 18130462,
+          "SOURCE": "pmc_oa",
+          "RID": 32608868,
+          "READER": "REACH"
+        },
+        "source_hash": -2098088738536130180
+      },
+      {
+        "source_api": "reach",
+        "pmid": "25610650",
+        "text": "We also detected a substantial elevation in the percentage of proliferating neuroblasts expressing doublecortin (% BrdU + DCX +) in the SVZ in response to EGF blockade (16.1 +/- 0.1% in the anti-EGF group versus 2.2 +/- 0.7% in the IC group, P = 0.006, Figures XREF_FIG, XREF_FIG, and XREF_FIG), suggesting that the EGF blockade promoted the differentiation of SVZ NSCs to DCX + neuroblasts.",
+        "annotations": {
+          "found_by": "Positive_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "6e290313-37f9-4c5a-b6d7-3bf327c9d0c3"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "25610650",
+          "TRID": 467339,
+          "PMCID": "PMC4295609",
+          "DOI": "10.1155/2014/926134",
+          "TCID": 19555680,
+          "SOURCE": "pmc_oa",
+          "RID": 38094841,
+          "READER": "REACH"
+        },
+        "source_hash": 6140976578131174890
+      },
+      {
+        "source_api": "reach",
+        "pmid": "16809777",
+        "text": "Preadipocyte factor 1 (Pref-1), an epidermal growth factor repeat containing transmembrane protein found in the preadipocytes, inhibits adipocyte differentiation in vitro and in vivo.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "epidermal growth factor",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "c3edd8ba-6e0a-4ba9-9730-049579731d0b"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "16809777",
+          "TRID": 19175799,
+          "PMCID": "PMC1592724",
+          "DOI": "10.1128/MCB.02437-05",
+          "TCID": 12217066,
+          "SOURCE": "pubmed",
+          "RID": 16556374,
+          "READER": "REACH"
+        },
+        "source_hash": 5156282952931371420
+      },
+      {
+        "source_api": "reach",
+        "pmid": "17460755",
+        "text": "EGF and FGF2 together with B27 serum supplement suppressed differentiation and maintained the precursor cells at a stem cell stage.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "86d3921b-b9f5-406b-89d3-57278d3fea5d"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "17460755",
+          "TRID": 8396343,
+          "PMCID": "PMC1849968",
+          "DOI": "10.1371/JOURNAL.PONE.0000388",
+          "TCID": 18912326,
+          "SOURCE": "pmc_oa",
+          "RID": 32535873,
+          "READER": "REACH"
+        },
+        "source_hash": -8535323149272893029
+      },
+      {
+        "source_api": "reach",
+        "pmid": "11383888",
+        "text": "Histological findings in organ culture and in cell culture, with and without the application of EGF soaked beads, revealed that EGF inhibited the differentiation of cells to chondrocytes and induced phenotypic changes in fibroblastic cells.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "001e9568-7cc3-4e99-99a7-ade36f90ba87"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "11383888",
+          "TRID": 22104372,
+          "TCID": 14041044,
+          "SOURCE": "pubmed",
+          "RID": 11547805,
+          "READER": "REACH"
+        },
+        "source_hash": -5812396627721182685
+      },
+      {
+        "source_api": "reach",
+        "pmid": "26015066",
+        "text": "These results suggest that EGF and Smurf1 inhibits Wnt and beta-catenin-induced osteogenic differentiation and that Smurf1 downregulates Wnt and beta-catenin signaling by enhancing proteasomal degradation of beta-catenin.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "2e6401b8-bbb8-49d4-9c17-53865dfd168e"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "26015066",
+          "TRID": 13988701,
+          "DOI": "10.1002/JCB.25231",
+          "TCID": 8810283,
+          "SOURCE": "pubmed",
+          "RID": 29294697,
+          "READER": "REACH"
+        },
+        "source_hash": -3996146781920585217
+      },
+      {
+        "source_api": "reach",
+        "pmid": "16934795",
+        "text": "Epidermal growth factor also perturbed smooth muscle differentiation in culture.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "Epidermal growth factor",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "c7847995-bade-4eed-8ad0-54bddfcb06b1"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "16934795",
+          "TRID": 28034894,
+          "DOI": "10.1016/J.YDBIO.2006.07.006",
+          "TCID": 17608880,
+          "SOURCE": "pubmed",
+          "RID": 16799809,
+          "READER": "REACH"
+        },
+        "source_hash": -379767464106516132
+      },
+      {
+        "source_api": "reach",
+        "pmid": "23964022",
+        "text": "EGF activates V-SVZ progenitors directly and indirectly reversibly blocking their differentiation [XREF_BIBR, XREF_BIBR, XREF_BIBR, XREF_BIBR].",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "32f9ec13-090a-4aa7-95b2-28be8a09590b"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "23964022",
+          "TRID": 18943781,
+          "PMCID": "PMC4259462",
+          "DOI": "10.1002/STEM.1520",
+          "MANUSCRIPT_ID": "NIHMS637594",
+          "TCID": 19950666,
+          "SOURCE": "manuscripts",
+          "RID": 34855013,
+          "READER": "REACH"
+        },
+        "source_hash": -4360996684136950093
+      },
+      {
+        "source_api": "reach",
+        "pmid": "23391100",
+        "text": "EGF promotes cell survival, proliferation, chemotactic migration, and suppresses terminal differentiation, inhibits apoptosis etc. [XREF_BIBR].",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "9d1f2cef-7136-46bf-bad4-2b2c567f3d65"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "23391100",
+          "TRID": 14767181,
+          "PMCID": "PMC3608085",
+          "DOI": "10.1186/1471-2164-14-85",
+          "TCID": 18213132,
+          "SOURCE": "pmc_oa",
+          "RID": 32777924,
+          "READER": "REACH"
+        },
+        "source_hash": 5115097504398259755
+      },
+      {
+        "source_api": "reach",
+        "pmid": "28259960",
+        "text": "We previously demonstrated that epidermal growth factor (EGF) attenuates the MF differentiation of PDL derived endothelial progenitor cells in a MAPK and ERK dependent manner.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "epidermal growth factor",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "d472daf4-1423-423f-b119-bd25bc455aea"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "28259960",
+          "TRID": 17330490,
+          "PMCID": "PMC5360431",
+          "DOI": "10.3892/IJMM.2017.2896",
+          "TCID": 18218013,
+          "SOURCE": "pmc_oa",
+          "RID": 42473791,
+          "READER": "REACH"
+        },
+        "source_hash": -2458892610346062600
+      },
+      {
+        "source_api": "reach",
+        "pmid": "15334659",
+        "text": "Epidermal growth factor (EGF) and Ras mitogenic signal transduction pathways are frequently activated in breast carcinoma and inhibit mammary differentiation and apoptosis.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "Epidermal growth factor",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "5d34a12a-5f72-4dae-ad9e-4719f0ec1713"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "15334659",
+          "TRID": 12333250,
+          "PMCID": "PMC1586098",
+          "DOI": "10.1002/JCP.20077",
+          "TCID": 7695400,
+          "SOURCE": "pubmed",
+          "RID": 14597432,
+          "READER": "REACH"
+        },
+        "source_hash": -1792469616963075031
+      },
+      {
+        "source_api": "reach",
+        "pmid": "6315220",
+        "text": "SGF and also, to a certain extent, EGF profoundly inhibited morphogenesis and differentiation of the tooth germ, with concomitant stimulation of vascularization.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "cc80fb33-e98c-44ec-8121-6f413716da56"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "6315220",
+          "TRID": 17728905,
+          "TCID": 11244735,
+          "SOURCE": "pubmed",
+          "RID": 4881179,
+          "READER": "REACH"
+        },
+        "source_hash": -3306852606371892899
+      },
+      {
+        "source_api": "reach",
+        "pmid": "10766877",
+        "text": "Exogenous EGF inhibited chondrogenic differentiation of mesenchymal cells, and this effect was reversed by the EGF receptor inhibitor AG1478.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "85aa1dec-1937-43cb-9f3b-23d5ae4b5111"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "10766877",
+          "TRID": 17460054,
+          "TCID": 11065988,
+          "SOURCE": "pubmed",
+          "RID": 10660835,
+          "READER": "REACH"
+        },
+        "source_hash": 7452207961007738951
+      },
+      {
+        "source_api": "reach",
+        "pmid": "21655272",
+        "text": "In order to limit the exposure to EGF and FGF-2 that can deregulate the spatial identity and differentiation potential of neural precursors XREF_BIBR, only primary neurospheres were used in these experiments.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_5_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "04bd2465-6999-41b6-805d-b1c0e5e5e708"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "21655272",
+          "TRID": 2958390,
+          "PMCID": "PMC3104995",
+          "DOI": "10.1371/JOURNAL.PONE.0019926",
+          "TCID": 18223893,
+          "SOURCE": "pmc_oa",
+          "RID": 32650628,
+          "READER": "REACH"
+        },
+        "source_hash": -2255636358060458805
+      },
+      {
+        "source_api": "reach",
+        "pmid": "18957511",
+        "text": "Megf10, a novel multiple epidermal growth factor repeat transmembrane protein that impinges on Notch signaling stimulates myoblast proliferation and inhibits differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "epidermal growth factor",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "884fadbc-74b2-4dae-9cc8-503b2daaa43b"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "18957511",
+          "TRID": 1478307,
+          "PMCID": "PMC2636845",
+          "DOI": "10.1242/JCS.035493",
+          "MANUSCRIPT_ID": "NIHMS88871",
+          "TCID": 19973354,
+          "SOURCE": "manuscripts",
+          "RID": 34873181,
+          "READER": "REACH"
+        },
+        "source_hash": -4983469602313519190
+      },
+      {
+        "source_api": "reach",
+        "pmid": "16984645",
+        "text": "These results indicate that EGF blocks HC11 lactogenic differentiation in part via a PI-3-kinase and Akt dependent mechanism.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "a96eb6dd-dd39-422e-b260-1d7893d831e8"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "16984645",
+          "TRID": 23237780,
+          "PMCID": "PMC1590014",
+          "DOI": "10.1186/1471-2121-7-34",
+          "TCID": 18130462,
+          "SOURCE": "pmc_oa",
+          "RID": 32608868,
+          "READER": "REACH"
+        },
+        "source_hash": -6683559422126898779
+      },
+      {
+        "source_api": "reach",
+        "pmid": "2088019",
+        "text": "The epidermic growth factor (EGF) inhibits the morphogenesis and cellular differentiation of dental tissues during embryogenesis.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "a1e0cd99-97d6-4ab3-8f78-96adb0ca75c0"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "2088019",
+          "TRID": 13731778,
+          "TCID": 8652678,
+          "SOURCE": "pubmed",
+          "RID": 2102791,
+          "READER": "REACH"
+        },
+        "source_hash": 4173554283218229140
+      },
+      {
+        "source_api": "reach",
+        "pmid": "16984645",
+        "text": "This suggested that PI-3-kinase activation was an important component in the EGF induced block of phenotypic lactogenic differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_3_noun",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "0eff5e21-191f-4bc0-8653-6172bf08238f"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "16984645",
+          "TRID": 23237780,
+          "PMCID": "PMC1590014",
+          "DOI": "10.1186/1471-2121-7-34",
+          "TCID": 18130462,
+          "SOURCE": "pmc_oa",
+          "RID": 32608868,
+          "READER": "REACH"
+        },
+        "source_hash": -3159312644051056890
+      },
+      {
+        "source_api": "reach",
+        "pmid": "16984645",
+        "text": "However, the addition of PI-3-kinase inhibitors LY294002 or wortmannin in the absence of EGF reduced all markers of lactogenic differentiation (data not shown), indicating that survival signaling from this pathway was essential for HC11 differentiation to proceed.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "27d2cf6f-3e4d-442b-ba11-b7aca49a2e2d"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "16984645",
+          "TRID": 23237780,
+          "PMCID": "PMC1590014",
+          "DOI": "10.1186/1471-2121-7-34",
+          "TCID": 18130462,
+          "SOURCE": "pmc_oa",
+          "RID": 32608868,
+          "READER": "REACH"
+        },
+        "source_hash": -2358412234985993408
+      },
+      {
+        "source_api": "reach",
+        "pmid": "23331192",
+        "text": "15 Pref-1 is a member of the epidermal growth factor (EGF)-like protein family that is highly expressed by adipocyte precursor cells and inhibits adipocyte and osteoblast differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_5_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "1953ee40-5c43-4fb9-a80e-d07e94e8bb82"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "23331192",
+          "TRID": 7571412,
+          "PMCID": "PMC3640659",
+          "DOI": "10.1111/CEN.12144",
+          "MANUSCRIPT_ID": "NIHMS434550",
+          "TCID": 20050008,
+          "SOURCE": "manuscripts",
+          "RID": 34994069,
+          "READER": "REACH"
+        },
+        "source_hash": -6435384301835930117
+      },
+      {
+        "source_api": "reach",
+        "pmid": "24335899",
+        "text": "Most interesting, addition of soluble EGF to cells cultured on tethered EGF substrata reduced osteogenic differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "a2d65404-762d-45c3-8c53-726f9d268006"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "24335899",
+          "TRID": 12516905,
+          "PMCID": "PMC3961531",
+          "DOI": "10.1038/JID.2013.484",
+          "PII": "S0022-202X(15)36725-7",
+          "MANUSCRIPT_ID": "NIHMS538986",
+          "TCID": 19111870,
+          "SOURCE": "pmc_oa",
+          "RID": 33749503,
+          "READER": "REACH"
+        },
+        "source_hash": 388780584842346845
+      },
+      {
+        "source_api": "reach",
+        "pmid": "17372305",
+        "text": "These results may partially explain the observations that high EGF concentrations inhibit, whereas low concentrations support, preadipocyte differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "15e6636c-d243-4776-8624-0679316fbf85"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "17372305",
+          "TRID": 12365085,
+          "DOI": "10.1038/OBY.2007.562",
+          "TCID": 7733598,
+          "SOURCE": "pubmed",
+          "RID": 17331688,
+          "READER": "REACH"
+        },
+        "source_hash": 86296216965667888
+      },
+      {
+        "source_api": "reach",
+        "pmid": "19540579",
+        "text": "We found that tethered EGF, but not soluble EGF, increased the numbers of colonies formed regardless of adhesion background, and that tethered EGF did not impair early stages of osteogenic differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "adbeb78c-c20a-469a-be8f-6e469db7327d"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "19540579",
+          "TRID": 20697655,
+          "PMCID": "PMC3119364",
+          "DOI": "10.1016/J.BIOMATERIALS.2009.05.061",
+          "MANUSCRIPT_ID": "NIHMS121324",
+          "TCID": 19856070,
+          "SOURCE": "manuscripts",
+          "RID": 34732263,
+          "READER": "REACH"
+        },
+        "source_hash": 6235629830309832700
+      },
+      {
+        "source_api": "reach",
+        "pmid": "11821958",
+        "text": "Here we show paradoxically that EGF enhanced the OSM induced inhibition of proliferation and induction of cellular differentiation in both estrogen receptor positive and negative breast cancer cells.",
+        "annotations": {
+          "found_by": "Positive_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "a4fffe56-1ca2-47fa-be70-ecf6e2b3818a"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "11821958",
+          "TRID": 20369870,
+          "DOI": "10.1038/SJ.ONC.1205100",
+          "TCID": 12961387,
+          "SOURCE": "pubmed",
+          "RID": 12145178,
+          "READER": "REACH"
+        },
+        "source_hash": 4860742712501522323
+      },
+      {
+        "source_api": "reach",
+        "pmid": "9759855",
+        "text": "Exogenously added EGF arrested thymocyte growth and differentiation, acting at the transition from the CD4-CD8- (double negative (DN)) to the CD4+ CD8+ (double positive (DP)) phenotype.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "5e4aadf9-c639-414a-a4f3-46123d23b52e"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "9759855",
+          "TRID": 795577,
+          "TCID": 503411,
+          "SOURCE": "pubmed",
+          "RID": 9491551,
+          "READER": "REACH"
+        },
+        "source_hash": -4628233023671768596
+      },
+      {
+        "source_api": "reach",
+        "pmid": "6315220",
+        "text": "Nevertheless, tooth morphogenesis was also slightly inhibited by EGF, suggesting that growth factors which enhance proliferation do not necessarily stimulate morphogenesis and differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "125f332d-2a06-4676-a467-93dafe529958"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "6315220",
+          "TRID": 17728905,
+          "TCID": 11244735,
+          "SOURCE": "pubmed",
+          "RID": 4881179,
+          "READER": "REACH"
+        },
+        "source_hash": 4320038728330457776
+      },
+      {
+        "source_api": "reach",
+        "pmid": "28135608",
+        "text": "In ASCs, EGF and HC are thought to inhibit adipogenic differentiation and have lipolytic activities.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "d19392bb-6398-4f33-8742-a1246271b6e5"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "28135608",
+          "TRID": 8786405,
+          "DOI": "10.1016/J.DIFF.2017.01.002",
+          "PII": "S0301-4681(16)30139-6",
+          "TCID": 5507803,
+          "SOURCE": "pubmed",
+          "RID": 36295488,
+          "READER": "REACH"
+        },
+        "source_hash": -5309629265562656777
+      },
+      {
+        "source_api": "reach",
+        "pmid": "23964022",
+        "text": "EGF activates V-SVZ progenitors directly and indirectly reversibly blocking their differentiation [XREF_BIBR, XREF_BIBR, XREF_BIBR, XREF_BIBR].",
+        "annotations": {
+          "found_by": "Positive_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "87299c67-f571-4642-9bd4-dec4401dcb7e"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "23964022",
+          "TRID": 18943781,
+          "PMCID": "PMC4259462",
+          "DOI": "10.1002/STEM.1520",
+          "MANUSCRIPT_ID": "NIHMS637594",
+          "TCID": 19950666,
+          "SOURCE": "manuscripts",
+          "RID": 34855013,
+          "READER": "REACH"
+        },
+        "source_hash": -4360996684136950093
+      },
+      {
+        "source_api": "reach",
+        "pmid": "1707434",
+        "text": "It is proposed that EGF inhibits testicular germ cell differentiation by blocking the proliferation of type A spermatogonia stimulated by FSH.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "cadb11f0-a325-4a00-86f1-9d07f6fa6cc2"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "1707434",
+          "TRID": 22922133,
+          "TCID": 14557212,
+          "SOURCE": "pubmed",
+          "RID": 1542101,
+          "READER": "REACH"
+        },
+        "source_hash": -8921386951516965404
+      },
+      {
+        "source_api": "reach",
+        "pmid": "16984645",
+        "text": "EGF blocks HC11 lactogenic differentiation via Mek and Erk and PI-3-K dependent pathways.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "07260a43-bb4e-4084-b050-79592fbe4aea"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "16984645",
+          "TRID": 23237780,
+          "PMCID": "PMC1590014",
+          "DOI": "10.1186/1471-2121-7-34",
+          "TCID": 18130462,
+          "SOURCE": "pmc_oa",
+          "RID": 32608868,
+          "READER": "REACH"
+        },
+        "source_hash": 3331165667604330107
+      },
+      {
+        "source_api": "reach",
+        "pmid": "20165885",
+        "text": "Interestingly, the ability of EGF, and presumably of BTC, to attenuate cellular differentiation is not specific to the osteogenic phenotype, as EGF also decreases the chondrogenic and adipogenic differentiation of MSCs and, in doing so, reversibly maintains their multilineage potential.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "e20abc5b-1872-4ba5-b34a-ccf8e55c0bdb"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "20165885",
+          "TRID": 21842777,
+          "PMCID": "PMC2847694",
+          "DOI": "10.1007/S00441-010-0929-0",
+          "TCID": 17859480,
+          "SOURCE": "pmc_oa",
+          "RID": 32125916,
+          "READER": "REACH"
+        },
+        "source_hash": 5308290256889353354
+      },
+      {
+        "source_api": "reach",
+        "pmid": "1783357",
+        "text": "These results obtained demonstrate that EGF and retinoic acid inhibit the terminal differentiation of SCC-25 cells, and that the cell density is the important factor for the commitment of the terminal differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "823494e9-2e8e-4943-8270-e5712e424616"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "1783357",
+          "TRID": 9485983,
+          "TCID": 5931517,
+          "SOURCE": "pubmed",
+          "RID": 1708407,
+          "READER": "REACH"
+        },
+        "source_hash": 7987988706244017174
+      },
+      {
+        "source_api": "reach",
+        "pmid": "23713433",
+        "text": "This study demonstrates that even low concentrations of EGF and bFGF may limit the differentiation ability of stem cells during stem cell expansion in vitro.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "a80b6703-a4b5-4680-971c-63052fd4297f"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "23713433",
+          "TRID": 20285810,
+          "PMCID": "PMC3666248",
+          "DOI": "10.1089/CELL.2012.0077",
+          "TCID": 12902764,
+          "SOURCE": "pubmed",
+          "RID": 25945352,
+          "READER": "REACH"
+        },
+        "source_hash": 1597769295616233880
+      },
+      {
+        "source_api": "reach",
+        "pmid": "8912716",
+        "text": "Using immunocytochemistry, Western and Northern blotting, and RNase protection assays, we demonstrate that epidermal growth factor (EGF) significantly inhibits differentiation and promotes proliferation in cultured human fetal ventricular cardiac myocyte cell lines.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "epidermal growth factor",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "78b2dc13-1a0b-4f7d-b654-aae37ae2dc23"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "8912716",
+          "TRID": 4200147,
+          "DOI": "10.1006/EXCR.1996.0322",
+          "TCID": 2732372,
+          "SOURCE": "pubmed",
+          "RID": 8202157,
+          "READER": "REACH"
+        },
+        "source_hash": 4293204946295189195
+      },
+      {
+        "source_api": "reach",
+        "pmid": "3300648",
+        "text": "However, since the circulating level of EGF increases during lactation, and since functional EGF receptors are retained by the lactating cells, it seemed unlikely that EGF is an inhibitor of mammary differentiation in vivo.",
+        "annotations": {
+          "found_by": "Negative_activation_copula_1",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "1b57f00c-fb83-4aa3-9a9b-4e0c01f3fdb4"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "3300648",
+          "TRID": 12706639,
+          "TCID": 7948088,
+          "SOURCE": "pubmed",
+          "RID": 3722135,
+          "READER": "REACH"
+        },
+        "source_hash": 5653669320931921721
+      },
+      {
+        "source_api": "reach",
+        "pmid": "24886538",
+        "text": "Adachi et al. observed that EGF inhibits pre-adipocyte differentiation into mature adipocytes, but promotes adipogenesis in differentiated adipocytes in dose- and time dependent manners in 3T3-L1 cells [XREF_BIBR].",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "47bb8a6b-acc3-4adf-b89c-ba002ed7b8ab"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "24886538",
+          "TRID": 14194046,
+          "PMCID": "PMC4039748",
+          "DOI": "10.1186/1471-2164-15-381",
+          "TCID": 18208781,
+          "SOURCE": "pmc_oa",
+          "RID": 32778215,
+          "READER": "REACH"
+        },
+        "source_hash": 364675318903857802
+      },
+      {
+        "source_api": "reach",
+        "pmid": "25082004",
+        "text": "As EGF inhibits differentiation, it is never added to the media after rafts are lifted to the air-liquid interface.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "d508b15d-6a59-4b4f-835c-597f4b7d47a0"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "25082004",
+          "TRID": 19489324,
+          "PMCID": "PMC4221589",
+          "DOI": "10.1002/9780471729259.MC14B03S34",
+          "MANUSCRIPT_ID": "NIHMS619717",
+          "TCID": 19988165,
+          "SOURCE": "manuscripts",
+          "RID": 34898502,
+          "READER": "REACH"
+        },
+        "source_hash": 5315957133730368746
+      },
+      {
+        "source_api": "reach",
+        "pmid": "19710687",
+        "text": "It has been proposed that EGF prevents BMP mediated keratinocyte differentiation through inhibiting BMP signalling.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "c051a73d-1f16-4cab-b277-3d922bfb8489"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "19710687",
+          "TRID": 11178976,
+          "PMCID": "PMC3138418",
+          "DOI": "10.1038/JID.2009.259",
+          "MANUSCRIPT_ID": "NIHMS302246",
+          "TCID": 19853615,
+          "SOURCE": "manuscripts",
+          "RID": 34740058,
+          "READER": "REACH"
+        },
+        "source_hash": 6228753427920382489
+      },
+      {
+        "source_api": "reach",
+        "pmid": "27597818",
+        "text": "Although bFGF + PDGFaa and EGF + PDGFaa promoted extended division and inhibited differentiation of mouse cortical OPCs as described above, primary mouse OPCs can only be maintained in vitro for a limited period of time.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "2bbd234e-fcb6-492a-b2d4-8e38b85f34da"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "27597818",
+          "TRID": 7167098,
+          "PMCID": "PMC4992724",
+          "DOI": "10.3389/FNCEL.2016.00203",
+          "TCID": 18720595,
+          "SOURCE": "pmc_oa",
+          "RID": 33209559,
+          "READER": "REACH"
+        },
+        "source_hash": -8525942672945341110
+      },
+      {
+        "source_api": "reach",
+        "pmid": "9801459",
+        "text": "Epidermal growth factor (EGF) stimulates mammary epithelial growth and inhibits differentiation; its receptor is rapidly and dramatically down-regulated by gp52.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "111d56b4-9e91-417d-b970-7be8c7ad19d6"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "9801459",
+          "TRID": 4073670,
+          "TCID": 2615705,
+          "SOURCE": "pubmed",
+          "RID": 9548690,
+          "READER": "REACH"
+        },
+        "source_hash": 9193277813937347158
+      },
+      {
+        "source_api": "reach",
+        "pmid": "27709733",
+        "text": "By contrast to EGF, which suppresses the ciliated cell differentiation by inducing squamous phenotype [XREF_BIBR], AREG did not activate the squamous differentiation program, and decreased proportion of ciliated cells in the AREG derived epithelium was largely due to increased number of BC, undifferentiated IC and mucus producing cells.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_5_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "fec09f4c-27b3-4a7d-a598-7f5fb636f589"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "27709733",
+          "TRID": 16745959,
+          "PMCID": "PMC5330845",
+          "DOI": "10.1002/STEM.2512",
+          "MANUSCRIPT_ID": "NIHMS840598",
+          "TCID": 19833621,
+          "SOURCE": "manuscripts",
+          "RID": 34541180,
+          "READER": "REACH"
+        },
+        "source_hash": -6302234852214718497
+      },
+      {
+        "source_api": "reach",
+        "pmid": "20403327",
+        "text": "Consistent with previous studies, we observed that EGF significantly reduced the expression of the early differentiation marker, K1, in suspended keratinocytes (XREF_SUPPLEMENTARY).",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "bde06270-c41b-4a5a-9f01-b1ce7902a6f2"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "20403327",
+          "TRID": 11819294,
+          "PMCID": "PMC2858065",
+          "DOI": "10.1016/J.CELL.2010.03.013",
+          "MANUSCRIPT_ID": "NIHMS190910",
+          "TCID": 19861068,
+          "SOURCE": "manuscripts",
+          "RID": 34753694,
+          "READER": "REACH"
+        },
+        "source_hash": -4261762374481041116
+      },
+      {
+        "source_api": "reach",
+        "pmid": "19889578",
+        "text": "The EGF mediated stimulation of this population prevents TAC differentiation and induces cell migration into an infiltrative phenotype comparable to that seen in GBM tumors.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "a6e560ca-7da3-48e1-babe-51a94768aae9"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "19889578",
+          "TRID": 13203084,
+          "PMCID": "PMC2782740",
+          "DOI": "10.1016/J.MOLMED.2009.09.003",
+          "MANUSCRIPT_ID": "NIHMS158864",
+          "TCID": 19680469,
+          "SOURCE": "manuscripts",
+          "RID": 34533718,
+          "READER": "REACH"
+        },
+        "source_hash": -234419867428317776
+      },
+      {
+        "source_api": "reach",
+        "pmid": "3496882",
+        "text": "EGF stimulates the proliferation of adipocyte precursors with an ED50 of 2 ng/ml and inhibits their differentiation with an ED50 of 0.45 ng/ml.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "2a6129fd-8b2f-40bd-9493-4b0c93aea901"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "3496882",
+          "TRID": 10651908,
+          "TCID": 6626766,
+          "SOURCE": "pubmed",
+          "RID": 3905277,
+          "READER": "REACH"
+        },
+        "source_hash": -3585609249904694660
+      },
+      {
+        "source_api": "reach",
+        "pmid": "16984645",
+        "text": "Our previous study demonstrated that DN-Ras expression blocked EGF induced inhibition of HC11 cell lactogenic differentiation via inhibition of Raf/Mek/Erk signaling and enhanced Stat5 phosphorylation [XREF_BIBR].",
+        "annotations": {
+          "found_by": "Positive_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "22ff23d8-76b8-4868-8efe-1127e0ce822e"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "16984645",
+          "TRID": 23237780,
+          "PMCID": "PMC1590014",
+          "DOI": "10.1186/1471-2121-7-34",
+          "TCID": 18130462,
+          "SOURCE": "pmc_oa",
+          "RID": 32608868,
+          "READER": "REACH"
+        },
+        "source_hash": 6968000512444269362
+      },
+      {
+        "source_api": "reach",
+        "pmid": "3258184",
+        "text": "These changes, however, were not observed when the cells were grown in the presence of epidermal growth factor or retinoic acid, factors which inhibit the differentiation process.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_5_verb",
+          "agents": {
+            "raw_text": [
+              "epidermal growth factor",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "62167c14-79c8-4936-a46c-09ebd915bd02"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "3258184",
+          "TRID": 10552758,
+          "TCID": 6557225,
+          "SOURCE": "pubmed",
+          "RID": 3689276,
+          "READER": "REACH"
+        },
+        "source_hash": 3367334496674113051
+      },
+      {
+        "source_api": "reach",
+        "pmid": "27177218",
+        "text": "Although EGF is generally known to suppress chondrogenic differentiation and matrix secretion, it may also have anabolic effects.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "13fb8a19-5c30-46d0-9782-65d127fded33"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "27177218",
+          "TRID": 24106631,
+          "PMCID": "PMC4899115",
+          "DOI": "10.1016/J.BIOMATERIALS.2016.04.018",
+          "PII": "S0142-9612(16)30129-6",
+          "MANUSCRIPT_ID": "NIHMS786016",
+          "TCID": 20002533,
+          "SOURCE": "manuscripts",
+          "RID": 34923815,
+          "READER": "REACH"
+        },
+        "source_hash": -6713261659955032237
+      },
+      {
+        "source_api": "reach",
+        "pmid": "24335435",
+        "text": "Strikingly, application of EGF to BC differentiating in vitro recapitulated the major pathologic phenotypes observed in the airway epithelium of smokers in vivo, including squamous metaplasia, decreased differentiation toward ciliated and non mucous secretory lineages, suppression of the junctional barrier integrity accompanied by increased epithelial permeability, and acquisition of the EMT like features.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "2e8f0f2d-1bc7-4603-9344-45e8e4e2cddb"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "24335435",
+          "TRID": 4894443,
+          "PMCID": "PMC3956524",
+          "DOI": "10.4161/CC.27510",
+          "TCID": 17819017,
+          "SOURCE": "pmc_oa",
+          "RID": 32057492,
+          "READER": "REACH"
+        },
+        "source_hash": 4111017111218660587
+      },
+      {
+        "source_api": "reach",
+        "pmid": "27597818",
+        "text": "However, the percentage of EDU positive cells in EGF treated cultures decreased quickly thereafter, followed by an increase in MBP+ cells, indicating that EGF alone can stimulate the proliferation of mouse cortical OPCs, but can not prevent their differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "f2422dfb-805d-4f0a-8cd5-8c44ed9a9a67"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "27597818",
+          "TRID": 7167098,
+          "PMCID": "PMC4992724",
+          "DOI": "10.3389/FNCEL.2016.00203",
+          "TCID": 18720595,
+          "SOURCE": "pmc_oa",
+          "RID": 33209559,
+          "READER": "REACH"
+        },
+        "source_hash": 2965330284981154298
+      },
+      {
+        "source_api": "reach",
+        "pmid": "23967242",
+        "text": "Furthermore, as shown in XREF_FIG, the presence of EGF in differentiation medium does not inhibit myoblast differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "f1b73df8-285f-4060-93fc-d97db19bdac9"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "23967242",
+          "TRID": 18929459,
+          "PMCID": "PMC3744467",
+          "DOI": "10.1371/JOURNAL.PONE.0071770",
+          "TCID": 18347180,
+          "SOURCE": "pmc_oa",
+          "RID": 32882915,
+          "READER": "REACH"
+        },
+        "source_hash": -9203791002318522783
+      },
+      {
+        "source_api": "reach",
+        "pmid": "24451036",
+        "text": "In order to determine whether an EGFRI alleviated the inhibitory action of EGF on the SB mediated promotion of differentiation, the individual and combined effects of SB, EGF and PD153035 were measured.",
+        "annotations": {
+          "found_by": "Positive_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "440232cd-9e33-4e04-8851-74ef4fb53edb"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "24451036",
+          "TRID": 25652871,
+          "PMCID": "PMC4046644",
+          "DOI": "10.1111/EXD.12333",
+          "MANUSCRIPT_ID": "NIHMS560839",
+          "TCID": 20040764,
+          "SOURCE": "manuscripts",
+          "RID": 34971169,
+          "READER": "REACH"
+        },
+        "source_hash": -6112480684407208505
+      },
+      {
+        "source_api": "reach",
+        "pmid": "19544388",
+        "text": "0.4 ng/ml EGF (66.4 pM), 5-50 ng/ml (0.5-5 nM) of amphiregulin, and 50 ng/ml (2.3 nM) HB-EGF, all have been found to inhibit osteogenic differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "258c76fc-be68-4978-810c-ff22c6104775"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "19544388",
+          "TRID": 11784697,
+          "PMCID": "PMC3084602",
+          "DOI": "10.1002/JCP.21854",
+          "MANUSCRIPT_ID": "NIHMS119633",
+          "TCID": 19930542,
+          "SOURCE": "manuscripts",
+          "RID": 34827224,
+          "READER": "REACH"
+        },
+        "source_hash": 4683070739309851160
+      },
+      {
+        "source_api": "reach",
+        "pmid": "23391100",
+        "text": "Proliferation and differentiation are incompatible : promoting cell proliferation diverts the cells from differentiating and consequently, certain differentiation markers are suppressed by EGF.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_2_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "d713b7a3-f360-4762-8034-3f276d39b605"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "23391100",
+          "TRID": 14767181,
+          "PMCID": "PMC3608085",
+          "DOI": "10.1186/1471-2164-14-85",
+          "TCID": 18213132,
+          "SOURCE": "pmc_oa",
+          "RID": 32777924,
+          "READER": "REACH"
+        },
+        "source_hash": 5180337678590662000
+      },
+      {
+        "source_api": "reach",
+        "pmid": "9568676",
+        "text": "Basic FGF, EGF, TGFalpha, and PDGF, but not IGF, retinoic acid, 1,25-dihydroxyvitamin D3, or androgen, attenuated induction of differentiation by TGFbeta, by a mechanism apparently unrelated to proliferation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "ac12c926-7837-4ce6-870c-778bb0b7b716"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "9568676",
+          "TRID": 19376805,
+          "TCID": 12361378,
+          "SOURCE": "pubmed",
+          "RID": 9113401,
+          "READER": "REACH"
+        },
+        "source_hash": -3911692773098456867
+      },
+      {
+        "source_api": "reach",
+        "pmid": "21827414",
+        "text": "Typically, EGF and bFGF are included in culture media to support the growth of GSCs, inhibit spontaneous differentiation, and help to maintain genotypic similarity to the parental primary tumor.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "fb8ab548-e883-4b58-b441-b30a170394d2"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "21827414",
+          "TRID": 5097258,
+          "PMCID": "PMC3615428",
+          "MANUSCRIPT_ID": "NIHMS452506",
+          "TCID": 20078278,
+          "SOURCE": "manuscripts",
+          "RID": 35017465,
+          "READER": "REACH"
+        },
+        "source_hash": 4618735532480148822
+      },
+      {
+        "source_api": "reach",
+        "pmid": "7956906",
+        "text": "These results suggest that EGF shows biphasic effects on adipocytes : although EGF inhibits preadipocytes differentiation into mature adipocytes, it promotes adipogenesis in the differentiated adipocytes.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "600519af-52ea-40b9-bc4f-445a1c0a7d59"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "7956906",
+          "TRID": 25040369,
+          "DOI": "10.1210/ENDO.135.5.7956906",
+          "TCID": 15883937,
+          "SOURCE": "pubmed",
+          "RID": 6826899,
+          "READER": "REACH"
+        },
+        "source_hash": -5029402246034466378
+      },
+      {
+        "source_api": "reach",
+        "pmid": "21203407",
+        "text": "Ahmad and colleagues [XREF_BIBR] have also shown that EGF can mediate suppression of retinal rod photoreceptor differentiation.",
+        "annotations": {
+          "found_by": "Positive_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "f4fa92a2-d3d5-42d8-8bd1-9a407263a1a8"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "21203407",
+          "TRID": 2518707,
+          "PMCID": "PMC3012652",
+          "TCID": 19531963,
+          "SOURCE": "pmc_oa",
+          "RID": 34293088,
+          "READER": "REACH"
+        },
+        "source_hash": -9064171397247291908
+      },
+      {
+        "source_api": "reach",
+        "pmid": "17372305",
+        "text": "EGF promotes differentiation at concentrations < 1 nM but inhibits differentiation at higher concentrations, suggesting a dual role in adipogenesis.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "a86c95b0-e9a6-4b3e-a4b4-724e66a66e7e"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "17372305",
+          "TRID": 12365085,
+          "DOI": "10.1038/OBY.2007.562",
+          "TCID": 7733598,
+          "SOURCE": "pubmed",
+          "RID": 17331688,
+          "READER": "REACH"
+        },
+        "source_hash": -5526312543923587461
+      },
+      {
+        "source_api": "reach",
+        "pmid": "9528944",
+        "text": "Epidermal growth factor (EGF) is also a potent mitogen in these cells, but inhibits differentiation of preadipocytes.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "b49e0594-0c28-43da-abfd-f7f25dca8bf8"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "9528944",
+          "TRID": 4373724,
+          "DOI": "10.1210/ENDO.139.4.5920",
+          "TCID": 2858058,
+          "SOURCE": "pubmed",
+          "RID": 9185893,
+          "READER": "REACH"
+        },
+        "source_hash": 8413123907429289393
+      },
+      {
+        "source_api": "reach",
+        "pmid": "18629655",
+        "text": "However, in facilitating proliferation, the EGF and FGF growth factors also generally downregulate neuronal precursor cell differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "ddde430b-f2a8-40e9-acc7-a28d0a04d6fb"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "18629655",
+          "TRID": 3899149,
+          "PMCID": "PMC2724758",
+          "DOI": "10.1007/S12031-008-9097-Z",
+          "MANUSCRIPT_ID": "NIHMS108223",
+          "TCID": 19744110,
+          "SOURCE": "manuscripts",
+          "RID": 34618509,
+          "READER": "REACH"
+        },
+        "source_hash": 4746298253997285633
+      },
+      {
+        "source_api": "reach",
+        "pmid": "24631292",
+        "text": "In this study, we investigated the effect of EGF on the expression of Smurf1, and the role of Smurf1 in EGF inhibition of osteogenic differentiation using C2C12 cells, a murine myoblast cell line.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_3_noun",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "15aed911-5d82-4f55-b35e-5f6338ba142a"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "24631292",
+          "TRID": 24826051,
+          "DOI": "10.1016/J.YEXCR.2014.03.004",
+          "PII": "S0014-4827(14)00108-6",
+          "TCID": 15723955,
+          "SOURCE": "pubmed",
+          "RID": 27234832,
+          "READER": "REACH"
+        },
+        "source_hash": -666028819715609657
+      },
+      {
+        "source_api": "reach",
+        "pmid": "24451036",
+        "text": "The aims of this study were to determine whether EGF blocked the differentiation promoting effects of SB, and whether combined treatment with SB and PD153035 was more effective than either single treatment for the endpoints of decreased cell growth and increased terminal differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "1ba903fb-b065-4b9b-ba0a-a8c8880d90d0"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "24451036",
+          "TRID": 25652871,
+          "PMCID": "PMC4046644",
+          "DOI": "10.1111/EXD.12333",
+          "MANUSCRIPT_ID": "NIHMS560839",
+          "TCID": 20040764,
+          "SOURCE": "manuscripts",
+          "RID": 34971169,
+          "READER": "REACH"
+        },
+        "source_hash": -8297862861631104524
+      },
+      {
+        "source_api": "reach",
+        "pmid": "16984645",
+        "text": "The current study analyzes the mechanism of the PI-3-kinase pathway in an EGF induced block of HC11 lactogenic differentiation.",
+        "annotations": {
+          "found_by": "Positive_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "7221c916-aad0-493e-b38e-4cfa0123fc48"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "16984645",
+          "TRID": 23237780,
+          "PMCID": "PMC1590014",
+          "DOI": "10.1186/1471-2121-7-34",
+          "TCID": 18130462,
+          "SOURCE": "pmc_oa",
+          "RID": 32608868,
+          "READER": "REACH"
+        },
+        "source_hash": -1570844197344644282
+      },
+      {
+        "source_api": "reach",
+        "pmid": "24631292",
+        "text": "However, the mechanism underlying EGF inhibition of osteoblast differentiation remains unclear.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_3_noun",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "9fa61cb3-0cfc-4200-9478-1ab9a73e78ca"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "24631292",
+          "TRID": 24826051,
+          "DOI": "10.1016/J.YEXCR.2014.03.004",
+          "PII": "S0014-4827(14)00108-6",
+          "TCID": 15723955,
+          "SOURCE": "pubmed",
+          "RID": 27234832,
+          "READER": "REACH"
+        },
+        "source_hash": -7040098668981778877
+      },
+      {
+        "source_api": "reach",
+        "pmid": "25729882",
+        "text": "Even though basal cells covered the wound beds, further maturation and differentiation to form spinous layers may have been inhibited by the action of EGF.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_2_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "805318fa-89cf-4dd2-935d-9f083a0c1739"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "25729882",
+          "TRID": 16980429,
+          "PMCID": "PMC4371135",
+          "DOI": "10.1088/1748-6041/10/1/015026",
+          "MANUSCRIPT_ID": "NIHMS671220",
+          "TCID": 20085931,
+          "SOURCE": "manuscripts",
+          "RID": 35034312,
+          "READER": "REACH"
+        },
+        "source_hash": -2174050877879319354
+      },
+      {
+        "source_api": "reach",
+        "pmid": "10497313",
+        "text": "TSH and cAMP enhance, whereas EGF phorbol esters and HGF repress differentiation expression.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "749e8d16-2326-42c3-ae41-ea76aa8582fe"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "10497313",
+          "TRID": 13107388,
+          "DOI": "10.1002/(SICI)1097-4652(199911)181:2<342::AID-JCP16>3.0.CO;2-K",
+          "TCID": 8207444,
+          "SOURCE": "pubmed",
+          "RID": 10235948,
+          "READER": "REACH"
+        },
+        "source_hash": -4536027142945502240
+      },
+      {
+        "source_api": "reach",
+        "pmid": "24631292",
+        "text": "It has been demonstrated that epidermal growth factor (EGF) plays a role in supporting the proliferation of bone marrow stromal cells in bone but inhibits their osteogenic differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "310092e8-a396-4b6d-837d-c51b13bbbfdc"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "24631292",
+          "TRID": 24826051,
+          "DOI": "10.1016/J.YEXCR.2014.03.004",
+          "PII": "S0014-4827(14)00108-6",
+          "TCID": 15723955,
+          "SOURCE": "pubmed",
+          "RID": 27234832,
+          "READER": "REACH"
+        },
+        "source_hash": 3141615445692628994
+      },
+      {
+        "source_api": "reach",
+        "pmid": "22202053",
+        "text": "In the rodent SVZ, EGF prevents C cell differentiation and encourages infiltrative behavior similar to that seen in high-grade gliomas.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "b560e964-7472-40f8-a30a-b1b7f112c965"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "22202053",
+          "TRID": 5753820,
+          "PMCID": "PMC3635065",
+          "MANUSCRIPT_ID": "NIHMS448270",
+          "TCID": 20075743,
+          "SOURCE": "manuscripts",
+          "RID": 35019261,
+          "READER": "REACH"
+        },
+        "source_hash": -6726542261163567564
+      },
+      {
+        "source_api": "reach",
+        "pmid": "1659574",
+        "text": "Serum components, basic FGF (b-FGF), transforming growth factor beta (TGF-beta), and EGF, agents which suppress differentiation of muscle cells in vitro, down-regulate the activity of the Myf4 gene, suggesting that it constitutes a nuclear target for the negative control exerted by these factors.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_5_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "d996061a-a486-41d3-8bd3-77fd2d6b7b98"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "1659574",
+          "TRID": 5608623,
+          "PMCID": "PMC2289955",
+          "TCID": 18701586,
+          "SOURCE": "pmc_oa",
+          "RID": 33173899,
+          "READER": "REACH"
+        },
+        "source_hash": 266653017229474436
+      },
+      {
+        "source_api": "reach",
+        "pmid": "19353304",
+        "text": "However, the inclusion of EGF in the lactogenic hormone mix blocks differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "2088f6a4-e50f-41ac-b42b-d95e054eaf1a"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "19353304",
+          "TRID": 20257218,
+          "PMCID": "PMC2686753",
+          "DOI": "10.1007/S12079-009-0047-5",
+          "TCID": 18739636,
+          "SOURCE": "pmc_oa",
+          "RID": 33234933,
+          "READER": "REACH"
+        },
+        "source_hash": -7741432314447527437
+      },
+      {
+        "source_api": "reach",
+        "pmid": "3279054",
+        "text": "On the basis of cell morphology and smooth muscle alpha-isoactin synthesis, we demonstrate that EGF at physiological concentrations prevents the differentiation of these cells, whereas platelet derived growth factor has no apparent effect.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "628daf60-7168-4e1b-8c58-4bfb2da8a618"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "3279054",
+          "TRID": 1586473,
+          "PMCID": "PMC2115111",
+          "TCID": 18658647,
+          "SOURCE": "pmc_oa",
+          "RID": 33115653,
+          "READER": "REACH"
+        },
+        "source_hash": -4159858191658570568
+      },
+      {
+        "source_api": "reach",
+        "pmid": "1544380",
+        "text": "Apart from their mitogenic action, TSH enhances, while EGF and phorbol ester inhibit, the expression of differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "57bec07c-b371-4fd5-9e2d-44034250f0be"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "1544380",
+          "TRID": 19585460,
+          "TCID": 12465190,
+          "SOURCE": "pubmed",
+          "RID": 1460413,
+          "READER": "REACH"
+        },
+        "source_hash": -6781840598981810864
+      },
+      {
+        "source_api": "reach",
+        "pmid": "25425968",
+        "text": "Similarly to galectin-3, previous studies have indicated that tumor necrosis factor-alpha (TNF-alpha), epidermal growth factor, sclerostin, and Dickkopf1 can impair osteoblast differentiation XREF_BIBR, XREF_BIBR, XREF_BIBR, XREF_BIBR, XREF_BIBR.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "epidermal growth factor",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "9afb38fd-34f7-460a-98bb-e22c15258ed4"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "25425968",
+          "TRID": 23905601,
+          "PMCID": "PMC4240919",
+          "DOI": "10.1016/J.NEO.2014.09.005",
+          "TCID": 19614006,
+          "SOURCE": "pmc_oa",
+          "RID": 35842346,
+          "READER": "REACH"
+        },
+        "source_hash": -1103761341944050396
+      },
+      {
+        "source_api": "reach",
+        "pmid": "3000588",
+        "text": "We have shown previously that EGF stimulates DNA synthesis and proliferation and inhibits TSH induced markers of differentiation in dog thyroid follicle derived primary cultures.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "bde7e966-e5be-4eb1-b705-3b34f32df707"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "3000588",
+          "TRID": 19345525,
+          "TCID": 12337918,
+          "SOURCE": "pubmed",
+          "RID": 3386923,
+          "READER": "REACH"
+        },
+        "source_hash": -8594961091827527495
+      },
+      {
+        "source_api": "reach",
+        "pmid": "11742803",
+        "text": "In conclusion, mitogens like aFGF or bFGF allow brown adipocyte differentiation, whereas EGF and vasopressin inhibit the differentiation process.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "e3780a29-8f6f-44d0-bf4e-ed2c63a2b09c"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "11742803",
+          "TRID": 4578123,
+          "DOI": "10.1152/AJPCELL.01396.2000",
+          "TCID": 2987255,
+          "SOURCE": "pubmed",
+          "RID": 11976846,
+          "READER": "REACH"
+        },
+        "source_hash": -5816326981452288506
+      },
+      {
+        "source_api": "reach",
+        "pmid": "27597818",
+        "text": "At the same time, EGF cooperated with PDGFaa to inhibit OPC differentiation into mature OLs, as the percentage of MBP+ cells in the presence of EGF + PDGFaa was about 4%, as compared to 10.7% for PDGFaa treatment (P < 0.05).",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "18bd101a-a80b-401b-9623-ca0cb9eb6bf1"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "27597818",
+          "TRID": 7167098,
+          "PMCID": "PMC4992724",
+          "DOI": "10.3389/FNCEL.2016.00203",
+          "TCID": 18720595,
+          "SOURCE": "pmc_oa",
+          "RID": 33209559,
+          "READER": "REACH"
+        },
+        "source_hash": -4881348551654866555
+      },
+      {
+        "source_api": "reach",
+        "pmid": "7698260",
+        "text": "EGF, HB-EGF, TGF alpha or DC-HGF inhibited expression of the differentiation related marker keratin K3 in epithelial cells, both at the edge and at the center of the islands.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "4c500862-3fd4-439f-a241-ad3b8f4c80b7"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "7698260",
+          "TRID": 23770521,
+          "DOI": "10.1006/EXER.1994.1152",
+          "TCID": 15108637,
+          "SOURCE": "pubmed",
+          "RID": 6475192,
+          "READER": "REACH"
+        },
+        "source_hash": -2760162769039039245
+      },
+      {
+        "source_api": "reach",
+        "pmid": "15590903",
+        "text": "Epidermal growth factor (EGF) has been reported to inhibit FSH stimulated differentiation in porcine granulosa cells.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "Epidermal growth factor",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "f1406fe4-dd52-4557-aa6b-364abc31059a"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "15590903",
+          "TRID": 10113909,
+          "DOI": "10.1095/BIOLREPROD.104.034298",
+          "TCID": 6252696,
+          "SOURCE": "pubmed",
+          "RID": 14884657,
+          "READER": "REACH"
+        },
+        "source_hash": 4016856201698442464
+      },
+      {
+        "source_api": "reach",
+        "pmid": "21060307",
+        "text": "Interestingly, recent studies have identified that EGF induced activation of the EGFR can promote adipogenesis cells when administered in low concentrations (< 1 nM; 38); however, at higher doses EGF inhibits this differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "04f83ba3-f337-42e1-a6c6-88f0bf397dba"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "21060307",
+          "TRID": 7002918,
+          "PMCID": "PMC3058694",
+          "DOI": "10.1038/LABINVEST.2010.185",
+          "MANUSCRIPT_ID": "NIHMS238937",
+          "TCID": 19347519,
+          "SOURCE": "pmc_oa",
+          "RID": 34046760,
+          "READER": "REACH"
+        },
+        "source_hash": -4445942743828815955
+      },
+      {
+        "source_api": "reach",
+        "pmid": "25610650",
+        "text": "This finding suggests that an EGF blockade induces oligodendrogenesis in addition to neurogenesis, similar to the results of an earlier in vitro study, which demonstrated that EGF should be eliminated in order to allow the differentiation of EGF stimulated cells derived from the SVZ into O4 + oligodendrocytes [XREF_BIBR].",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "fb916c1e-934d-41b4-93df-94ca8b568d90"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "25610650",
+          "TRID": 467339,
+          "PMCID": "PMC4295609",
+          "DOI": "10.1155/2014/926134",
+          "TCID": 19555680,
+          "SOURCE": "pmc_oa",
+          "RID": 38094841,
+          "READER": "REACH"
+        },
+        "source_hash": 3690934161990376077
+      },
+      {
+        "source_api": "reach",
+        "pmid": "1783357",
+        "text": "EGF inhibited the expression of cell-surface differentiation marker in low cell-density, but not in high cell-density.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "86c2d338-9575-41b6-b3f6-e5473767d551"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "1783357",
+          "TRID": 9485983,
+          "TCID": 5931517,
+          "SOURCE": "pubmed",
+          "RID": 1708407,
+          "READER": "REACH"
+        },
+        "source_hash": -6086063897907022402
+      },
+      {
+        "source_api": "reach",
+        "pmid": "23391100",
+        "text": "While both EGF and RA generally inhibit keratinocyte differentiation, paradoxically, at the earliest time points many of the genes induced by one are suppressed by the other and vice versa.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "011f0b3e-86cd-4e6f-b51b-1af295eaafef"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "23391100",
+          "TRID": 14767181,
+          "PMCID": "PMC3608085",
+          "DOI": "10.1186/1471-2164-14-85",
+          "TCID": 18213132,
+          "SOURCE": "pmc_oa",
+          "RID": 32777924,
+          "READER": "REACH"
+        },
+        "source_hash": -5679946509356590080
+      },
+      {
+        "source_api": "reach",
+        "pmid": "19544388",
+        "text": "Surprisingly, addition of soluble EGF (sEGF) to cells cultured on tEGF substrata reduces osteogenic differentiation, even though EGFR signaling is more strongly activated in acute, short-term manner by sEGF treatment than by tEGF treatment.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "7f071037-ce26-4242-b662-63f6689b2a6e"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "19544388",
+          "TRID": 11784697,
+          "PMCID": "PMC3084602",
+          "DOI": "10.1002/JCP.21854",
+          "MANUSCRIPT_ID": "NIHMS119633",
+          "TCID": 19930542,
+          "SOURCE": "manuscripts",
+          "RID": 34827224,
+          "READER": "REACH"
+        },
+        "source_hash": 3114029640428323557
+      },
+      {
+        "source_api": "reach",
+        "pmid": "26546150",
+        "text": "This effect may reflect diminished LINGO-1 dependent degradation of other LINGO-1 targets such as EGF receptors, which inhibit neuronal differentiation of PC12 cells.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_5_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "cb3fd473-8cb4-4182-81fc-8cb599c5b676"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "26546150",
+          "TRID": 27203382,
+          "PMCID": "PMC4698043",
+          "DOI": "10.1016/J.MCN.2015.11.002",
+          "PII": "S1044-7431(15)30029-4",
+          "MANUSCRIPT_ID": "NIHMS738555",
+          "TCID": 20103296,
+          "SOURCE": "manuscripts",
+          "RID": 38522110,
+          "READER": "REACH"
+        },
+        "source_hash": 1191290838190105794
+      },
+      {
+        "source_api": "reach",
+        "pmid": "28797129",
+        "text": "We found that bFGF and TGFbeta-1 present in both the extracts positively regulated the osteogenic differentiation of MG-63 cells while EGF present in AME negatively regulated the osteogenic differentiation of MG-63 cells (XREF_FIG).",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "3cd431c3-da94-42c0-b89e-085cae4ea300"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "28797129",
+          "TRID": 1092423,
+          "PMCID": "PMC5552222",
+          "DOI": "10.1371/JOURNAL.PONE.0182716",
+          "TCID": 18868512,
+          "SOURCE": "pmc_oa",
+          "RID": 33597238,
+          "READER": "REACH"
+        },
+        "source_hash": 8539974328025237311
+      },
+      {
+        "source_api": "reach",
+        "pmid": "23713433",
+        "text": "EGF and bFGF added to medium promoted neural lineage differentiation and impaired the mesodermal differentiation ability of ASCs.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "5f63d14c-8b76-4208-a2aa-701a429fc671"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "23713433",
+          "TRID": 20285810,
+          "PMCID": "PMC3666248",
+          "DOI": "10.1089/CELL.2012.0077",
+          "TCID": 12902764,
+          "SOURCE": "pubmed",
+          "RID": 25945352,
+          "READER": "REACH"
+        },
+        "source_hash": 589201291034613691
+      },
+      {
+        "source_api": "reach",
+        "pmid": "22592159",
+        "text": "The somewhat stronger inhibition of keratins 1 and 10 relative to keratins 5 and 14 by HB-EGF is in agreement with a previous report that these differentiation related keratins are strongly suppressed by inclusion of EGF in the culture medium.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_2_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "b09ede8c-249a-452a-8005-678932a54880"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "22592159",
+          "TRID": 4453957,
+          "PMCID": "PMC3423535",
+          "DOI": "10.1038/JID.2012.78",
+          "MANUSCRIPT_ID": "NIHMS359035",
+          "TCID": 19109976,
+          "SOURCE": "pmc_oa",
+          "RID": 33753878,
+          "READER": "REACH"
+        },
+        "source_hash": 3401010664401675579
+      },
+      {
+        "source_api": "reach",
+        "pmid": "19353304",
+        "text": "However, the inclusion of EGF, other mitogenic growth factors or expression of transforming oncogenes in HC11 cells blocks lactogenic differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "2ccb9043-3c29-4493-a2fd-0779e05f2178"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "19353304",
+          "TRID": 20257218,
+          "PMCID": "PMC2686753",
+          "DOI": "10.1007/S12079-009-0047-5",
+          "TCID": 18739636,
+          "SOURCE": "pmc_oa",
+          "RID": 33234933,
+          "READER": "REACH"
+        },
+        "source_hash": -6323324498713161277
+      },
+      {
+        "source_api": "reach",
+        "pmid": "3877650",
+        "text": "Epidermal growth factor (EGF) markedly inhibited differentiation when added together with TSH.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "Epidermal growth factor",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "fa3adf55-5c5c-4aaf-990d-f927e0b17a9b"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "3877650",
+          "TRID": 3076845,
+          "TCID": 1882131,
+          "SOURCE": "pubmed",
+          "RID": 4292228,
+          "READER": "REACH"
+        },
+        "source_hash": -1599832939500815187
+      },
+      {
+        "source_api": "reach",
+        "pmid": "27597818",
+        "text": "We next investigated whether EGF could work synergistically with PDGFaa to promote OPC proliferation and repress differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "e5e09d33-835b-4424-81af-68696d1dcbb9"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "27597818",
+          "TRID": 7167098,
+          "PMCID": "PMC4992724",
+          "DOI": "10.3389/FNCEL.2016.00203",
+          "TCID": 18720595,
+          "SOURCE": "pmc_oa",
+          "RID": 33209559,
+          "READER": "REACH"
+        },
+        "source_hash": -1941223185330694972
+      },
+      {
+        "source_api": "reach",
+        "pmid": "23391100",
+        "text": "Conversely, both EGF and IFNgamma suppress keratinocyte differentiation and epidermis development genes.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "0a08c2a9-75b9-4161-a360-4ec90a797bf8"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "23391100",
+          "TRID": 14767181,
+          "PMCID": "PMC3608085",
+          "DOI": "10.1186/1471-2164-14-85",
+          "TCID": 18213132,
+          "SOURCE": "pmc_oa",
+          "RID": 32777924,
+          "READER": "REACH"
+        },
+        "source_hash": 6497552881103891879
+      },
+      {
+        "source_api": "reach",
+        "pmid": "28797129",
+        "text": "bFGF and TGFbeta-1 present in CME positively regulated the osteogenic differentiation of MG-63 cells, whereas EGF present in AME negatively regulated the differentiation of MG-63 cells.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "bda3c7fb-e703-43ad-a6f7-8122b0727669"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "28797129",
+          "TRID": 1092423,
+          "PMCID": "PMC5552222",
+          "DOI": "10.1371/JOURNAL.PONE.0182716",
+          "TCID": 18868512,
+          "SOURCE": "pmc_oa",
+          "RID": 33597238,
+          "READER": "REACH"
+        },
+        "source_hash": 5389028961564562084
+      },
+      {
+        "source_api": "reach",
+        "pmid": "8498501",
+        "text": "Epidermal growth factor (EGF) is a potent inhibitor of adipose differentiation in vitro and delays adipose tissue development in vivo.",
+        "annotations": {
+          "found_by": "Negative_activation_copula_1",
+          "agents": {
+            "raw_text": [
+              "Epidermal growth factor",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "ea0ba604-79a3-4f4f-816b-cc097bf6f5fc"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "8498501",
+          "TRID": 10120105,
+          "DOI": "10.1152/AJPENDO.1993.264.5.E800",
+          "TCID": 6272134,
+          "SOURCE": "pubmed",
+          "RID": 7611570,
+          "READER": "REACH"
+        },
+        "source_hash": -2924710094172213468
+      },
+      {
+        "source_api": "reach",
+        "pmid": "27597818",
+        "text": "EGF was found to be a potent mitogen for OPCs and cooperate with PDGFaa to extend cell division and inhibit their differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "ba85c121-a878-42bc-b8dc-a7f1e0e370ae"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "27597818",
+          "TRID": 7167098,
+          "PMCID": "PMC4992724",
+          "DOI": "10.3389/FNCEL.2016.00203",
+          "TCID": 18720595,
+          "SOURCE": "pmc_oa",
+          "RID": 33209559,
+          "READER": "REACH"
+        },
+        "source_hash": 6266208279321305230
+      },
+      {
+        "source_api": "reach",
+        "pmid": "22870197",
+        "text": "EGF treatment prevented neuroendocrine differentiation in these conditions, through activation of the MAPK pathway XREF_BIBR.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "8c011432-f4ee-4e3b-9ce1-851094e13a3d"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "22870197",
+          "TRID": 18372000,
+          "PMCID": "PMC3411611",
+          "DOI": "10.1371/JOURNAL.PONE.0040372",
+          "TCID": 18271679,
+          "SOURCE": "pmc_oa",
+          "RID": 32702423,
+          "READER": "REACH"
+        },
+        "source_hash": 6274263267659058621
+      },
+      {
+        "source_api": "reach",
+        "pmid": "28442994",
+        "text": "However, EGF appears to enhance the self-renewal of GRPs and OPCs by enhancing their responses to PDGFRalpha instead of directly inhibiting their differentiation.",
+        "annotations": {
+          "found_by": "Positive_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "b9f32179-1b59-4743-ab32-21f36a90eb0a"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "28442994",
+          "TRID": 6462570,
+          "PMCID": "PMC5387051",
+          "DOI": "10.3389/FNMOL.2017.00106",
+          "TCID": 18842270,
+          "SOURCE": "pmc_oa",
+          "RID": 33332508,
+          "READER": "REACH"
+        },
+        "source_hash": 6003307333717572239
+      },
+      {
+        "source_api": "reach",
+        "pmid": "27597818",
+        "text": "We found that bFGF and EGF had similar effects in synergizing with PDGFaa to promote mouse OPC proliferation and inhibit their differentiation in parallel experiments.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "0f84ed77-f041-40b5-a849-8e7e0ade0fff"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "27597818",
+          "TRID": 7167098,
+          "PMCID": "PMC4992724",
+          "DOI": "10.3389/FNCEL.2016.00203",
+          "TCID": 18720595,
+          "SOURCE": "pmc_oa",
+          "RID": 33209559,
+          "READER": "REACH"
+        },
+        "source_hash": -1685899777277281654
+      },
+      {
+        "source_api": "reach",
+        "pmid": "26983599",
+        "text": "Growth factor withdrawal is the first step of adipocyte differentiation in vitro, and it was reported that in vivo an autocrine EGF related growth factor, Pref-1, prevents differentiation via activation of ERK XREF_BIBR XREF_BIBR.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_5_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "321df6a5-a3cd-404e-bfcf-1ecc017940eb"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "26983599",
+          "TRID": 24469234,
+          "PMCID": "PMC4794806",
+          "DOI": "10.1038/SREP23074",
+          "TCID": 19298922,
+          "SOURCE": "pmc_oa",
+          "RID": 34066891,
+          "READER": "REACH"
+        },
+        "source_hash": 4755470423563964097
+      },
+      {
+        "source_api": "reach",
+        "pmid": "3498001",
+        "text": "EGF and TPA stimulated proliferation and inhibited differentiation of porcine thyroid cells in primary culture.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "9a6354d3-99f0-4600-8209-91af779db91c"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "3498001",
+          "TRID": 10646481,
+          "TCID": 6618772,
+          "SOURCE": "pubmed",
+          "RID": 3886190,
+          "READER": "REACH"
+        },
+        "source_hash": 912356206577897852
+      },
+      {
+        "source_api": "reach",
+        "pmid": "8250879",
+        "text": "Clone 168 mRNA decreases 80% in rat primary culture of adipocytes compared to preadipocytes and does not decrease when differentiation is blocked by PGF2 alpha or EGF, indicating that the decrease is correlated with expression of the differentiation phenotype.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_2_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "1437e5e4-5d46-4ea5-ba27-d8788e30c149"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "8250879",
+          "TRID": 17813124,
+          "DOI": "10.1006/BBRC.1993.2383",
+          "TCID": 11288671,
+          "SOURCE": "pubmed",
+          "RID": 7224283,
+          "READER": "REACH"
+        },
+        "source_hash": 8278479550471543948
+      },
+      {
+        "source_api": "reach",
+        "pmid": "25610650",
+        "text": "We found that therapy with anti-EGF Ab led to a 2.1-fold decrease in the level of BrdU + GFAP + NSCs, concomitant with a 7.3-fold increase in the number of BrdU + DCX + neuroblasts within the SVZ, suggesting that an EGF blockade induced type C differentiation into type A neuroblasts.",
+        "annotations": {
+          "found_by": "Positive_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "d648cc1c-7130-41d0-a4a2-592488062d8a"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "25610650",
+          "TRID": 467339,
+          "PMCID": "PMC4295609",
+          "DOI": "10.1155/2014/926134",
+          "TCID": 19555680,
+          "SOURCE": "pmc_oa",
+          "RID": 38094841,
+          "READER": "REACH"
+        },
+        "source_hash": 389876190055043073
+      },
+      {
+        "source_api": "reach",
+        "pmid": "16984645",
+        "text": "Several signaling mechanisms have been shown to facilitate the EGF induced block of lactogenic differentiation.",
+        "annotations": {
+          "found_by": "Positive_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "d02f66d5-86da-4066-9fe5-793fed6f2e8e"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "16984645",
+          "TRID": 23237780,
+          "PMCID": "PMC1590014",
+          "DOI": "10.1186/1471-2121-7-34",
+          "TCID": 18130462,
+          "SOURCE": "pmc_oa",
+          "RID": 32608868,
+          "READER": "REACH"
+        },
+        "source_hash": 950331476419969871
+      },
+      {
+        "source_api": "reach",
+        "pmid": "25120531",
+        "text": "The mesenchymal tissue is involved in thyroid development being that it releases Pro epidermal growth factor (EGF) and basic fibroblast growth factor-2 (FGF-2), promoting cell proliferation and repressing differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "Pro-epidermal growth factor",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "4e031507-eb71-4cd1-82f1-e0284093da0b"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "25120531",
+          "TRID": 19922051,
+          "PMCID": "PMC4110518",
+          "DOI": "10.3389/FENDO.2014.00124",
+          "TCID": 18713206,
+          "SOURCE": "pmc_oa",
+          "RID": 33211926,
+          "READER": "REACH"
+        },
+        "source_hash": 4352811597273880606
+      },
+      {
+        "source_api": "reach",
+        "pmid": "18560570",
+        "text": "Over-expression of sFRP-3 reverts EGF mediated inhibition of hair follicle development in the mouse ectoderm while its ablation in Xenopus maintains EGF mediated inhibition of ectoderm differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_3_noun",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "0be4c11f-8aa4-40d9-8a9a-d7a5a796ebdd"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "18560570",
+          "TRID": 4013004,
+          "PMCID": "PMC2424011",
+          "DOI": "10.1371/JOURNAL.PONE.0002471",
+          "TCID": 18905695,
+          "SOURCE": "pmc_oa",
+          "RID": 32528599,
+          "READER": "REACH"
+        },
+        "source_hash": 3386729567385178878
+      },
+      {
+        "source_api": "reach",
+        "pmid": "11164331",
+        "text": "EGF (10 nM) did not significantly inhibit the differentiation of clonally purified fetal ovine myoblasts, although there was increased proliferation of nondifferentiating cells.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "03fc6ea9-9ff3-4373-89b4-76ee1f3bd0c5"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "11164331",
+          "TRID": 20082677,
+          "TCID": 12797060,
+          "SOURCE": "pubmed",
+          "RID": 11289975,
+          "READER": "REACH"
+        },
+        "source_hash": -4867377424491076125
+      },
+      {
+        "source_api": "reach",
+        "pmid": "9406816",
+        "text": "Peptide growth factors of the epidermal growth factor family stimulate proliferation of clonal density human keratinocytes and suppress markers of terminal differentiation in confluent cultures of human keratinocytes.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "epidermal growth factor",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "56b51620-d496-47a2-a8c5-1fc8d9834902"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "9406816",
+          "TRID": 24959046,
+          "DOI": "10.1111/1523-1747.EP12340759",
+          "TCID": 15803576,
+          "SOURCE": "pubmed",
+          "RID": 8915945,
+          "READER": "REACH"
+        },
+        "source_hash": 1248166174343810694
+      },
+      {
+        "source_api": "reach",
+        "pmid": "27709733",
+        "text": "AREG induced a number of EGF mediated effects, for example, suppressed ciliated cell differentiation and decreased junctional barrier integrity.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "b5da3265-e2a1-4795-ac5e-3876a3b1f0e1"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "27709733",
+          "TRID": 16745959,
+          "PMCID": "PMC5330845",
+          "DOI": "10.1002/STEM.2512",
+          "MANUSCRIPT_ID": "NIHMS840598",
+          "TCID": 19833621,
+          "SOURCE": "manuscripts",
+          "RID": 34541180,
+          "READER": "REACH"
+        },
+        "source_hash": 2137234734158727905
+      },
+      {
+        "source_api": "reach",
+        "pmid": "28680477",
+        "text": "The epidermal growth factor (EGF) stimulates the proliferation of early pancreatic progenitor cells but inhibits endocrine differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "86335d8d-b5dc-4d46-87eb-9cb3c9bbbb43"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "28680477",
+          "TRID": 23425251,
+          "PMCID": "PMC5494890",
+          "DOI": "10.1186/S13036-017-0066-3",
+          "TCID": 18580135,
+          "SOURCE": "pmc_oa",
+          "RID": 32988610,
+          "READER": "REACH"
+        },
+        "source_hash": -2333229836554892593
+      },
+      {
+        "source_api": "reach",
+        "pmid": "16984645",
+        "text": "PI-3-kinase signaling contributes to the EGF block of lactogenic differentiation via Akt and p70S6K.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_3_noun",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "23ab1b4f-ad76-4534-a120-62d425c51685"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "16984645",
+          "TRID": 23237780,
+          "PMCID": "PMC1590014",
+          "DOI": "10.1186/1471-2121-7-34",
+          "TCID": 18130462,
+          "SOURCE": "pmc_oa",
+          "RID": 32608868,
+          "READER": "REACH"
+        },
+        "source_hash": 8174711188759602594
+      },
+      {
+        "source_api": "reach",
+        "pmid": "12652649",
+        "text": "We observed that EGF impairs neuronal differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "31d0ad2b-4811-4f2d-a6f1-b863afdc10fb"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "12652649",
+          "TRID": 13033505,
+          "DOI": "10.1002/JCP.10249",
+          "TCID": 8142646,
+          "SOURCE": "pubmed",
+          "RID": 13195897,
+          "READER": "REACH"
+        },
+        "source_hash": 1165665604333156296
+      },
+      {
+        "source_api": "reach",
+        "pmid": "25610650",
+        "text": "Indeed, we detected a 2.5-fold increase in% BrdU + NeuN + in the GCL of anti-EGF Ab treated mice, suggesting that an EGF blockade augments the hippocampal neuroblast differentiation into mature neurons.",
+        "annotations": {
+          "found_by": "Positive_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "58e66711-c831-4304-97c8-8702125d5f9f"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "25610650",
+          "TRID": 467339,
+          "PMCID": "PMC4295609",
+          "DOI": "10.1155/2014/926134",
+          "TCID": 19555680,
+          "SOURCE": "pmc_oa",
+          "RID": 38094841,
+          "READER": "REACH"
+        },
+        "source_hash": 1749196125929771306
+      },
+      {
+        "source_api": "reach",
+        "pmid": "16840544",
+        "text": "Previous work has demonstrated that epidermal growth factor family ligands, signaling through the MAPK and ERK pathway, prevent hen granulosa cell differentiation, in vitro, even in the presence of factors that promote differentiation (e.g. TGFbeta and FSH).",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "epidermal growth factor",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "faa1268e-b1da-40df-a4cd-b8e640a22ac5"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "16840544",
+          "TRID": 15459276,
+          "DOI": "10.1210/EN.2006-0194",
+          "TCID": 9747925,
+          "SOURCE": "pubmed",
+          "RID": 16633166,
+          "READER": "REACH"
+        },
+        "source_hash": 2108471868425220627
+      },
+      {
+        "source_api": "reach",
+        "pmid": "12713431",
+        "text": "Epidermal growth factor (EGF), an intraovarian hormone, suppresses granulosa cell differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "15a7efde-2180-4ec7-8a64-80e0f3ea1bd7"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "12713431",
+          "TRID": 12473269,
+          "TCID": 7773798,
+          "SOURCE": "pubmed",
+          "RID": 13237276,
+          "READER": "REACH"
+        },
+        "source_hash": 5348992165051992193
+      },
+      {
+        "source_api": "reach",
+        "pmid": "24298380",
+        "text": "Alternatively, the receptor of EGF is functional in spermatogonia and EGF has been proposed to inhibit testicular germ cell differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_5_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "8f44443f-199c-43c7-8b7d-3269eebf5bb4"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "24298380",
+          "TRID": 13431959,
+          "PMCID": "PMC3843855",
+          "TCID": 18422496,
+          "SOURCE": "pmc_oa",
+          "RID": 32747465,
+          "READER": "REACH"
+        },
+        "source_hash": 2648730968757932278
+      },
+      {
+        "source_api": "reach",
+        "pmid": "26609807",
+        "text": "PREF-1 is an EGF like protein that represses differentiation, promoting a preadipocyte phenotype.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_5_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "c1920685-2ebf-4e35-8857-0c92e93588bf"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "26609807",
+          "TRID": 10605784,
+          "PMCID": "PMC4661001",
+          "DOI": "10.3402/JEV.V4.29159",
+          "TCID": 18984689,
+          "SOURCE": "pmc_oa",
+          "RID": 33569404,
+          "READER": "REACH"
+        },
+        "source_hash": 7776682335402367670
+      }
+    ],
+    "id": "78991c48-3794-4aa5-aea2-43cc5ae69159"
+  },
+  {
+    "type": "Inhibition",
+    "subj": {
+      "name": "EGF",
+      "db_refs": {
+        "TEXT": "EGF",
+        "UP": "P01133",
+        "HGNC": "3229"
+      }
+    },
+    "obj": {
+      "name": "cell differentiation",
+      "db_refs": {
+        "TEXT": "cell differentiation",
+        "GO": "GO:0030154"
+      }
+    },
+    "obj_activity": "activity",
+    "belief": 1.0,
+    "evidence": [
+      {
+        "source_api": "reach",
+        "pmid": "18729215",
+        "text": "We propose that alteration of epithelial cell differentiation programs is a primary mechanism underlying EGF effects, which holds inter-papilla cells in a proliferative cycle and thereby inhibits cell differentiation programs for fungiform papilla formation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_5_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "cell differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "51b22316-dcf5-4eb4-8163-ea03a8f72ee6"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "18729215",
+          "TRID": 11698339,
+          "PMCID": "PMC2775556",
+          "DOI": "10.1002/DVDY.21657",
+          "MANUSCRIPT_ID": "NIHMS70258",
+          "TCID": 19708455,
+          "SOURCE": "manuscripts",
+          "RID": 34569575,
+          "READER": "REACH"
+        },
+        "source_hash": -2458101397304089372
+      },
+      {
+        "source_api": "reach",
+        "pmid": "2485697",
+        "text": "On the contrary, epidermal growth factor (EGF) stimulated cell proliferation in tooth explants, but at the same time inhibited tooth morphogenesis and dental cell differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "cell differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "a9b5b261-6d91-489e-a6f1-3897217048bd"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "2485697",
+          "TRID": 22966377,
+          "TCID": 14609049,
+          "SOURCE": "pubmed",
+          "RID": 2681551,
+          "READER": "REACH"
+        },
+        "source_hash": 8250123761664293595
+      },
+      {
+        "source_api": "reach",
+        "pmid": "3875510",
+        "text": "Fibroblast growth factor and platelet derived growth factor had no detectable effects but epidermal growth factor (EGF) inhibited dramatically the morphogenesis of teeth, and prevented odontoblast and ameloblast cell differentiation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "epidermal growth factor",
+              "cell differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "5e290f3b-96a9-4e90-a22d-dc75a718e80c"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "section_type": null,
+          "direct": false
+        },
+        "text_refs": {
+          "PMID": "3875510",
+          "TRID": 3070046,
+          "TCID": 1882024,
+          "SOURCE": "pubmed",
+          "RID": 4312107,
+          "READER": "REACH"
+        },
+        "source_hash": 2505386249012483225
+      },
+      {
+        "source_api": "reach",
+        "pmid": "3493183",
+        "text": "We have shown earlier that epidermal growth factor (EGF) inhibits morphogenesis and cell differentiation in mouse embryonic teeth in organ culture.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "cell differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "cdb05532-0acb-4a0e-b01b-3c20d118fa09"
+          ],
+          "content_source": "pubmed"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "3493183",
+          "TRID": 10634452,
+          "TCID": 6620659,
+          "SOURCE": "pubmed",
+          "RID": 3899388,
+          "READER": "REACH"
+        },
+        "source_hash": -7609669860531182028
+      }
+    ],
+    "id": "3e56027d-aee7-49b9-977a-a393d60f8ec6"
+  },
+  {
+    "type": "Inhibition",
+    "subj": {
+      "name": "EGF",
+      "db_refs": {
+        "TEXT": "Epidermal Growth Factor",
+        "UP": "P01133",
+        "HGNC": "3229"
+      }
+    },
+    "obj": {
+      "name": "Differentiation",
+      "db_refs": {
+        "TEXT": "Differentiation",
+        "GO": "GO:0030154"
+      }
+    },
+    "obj_activity": "activity",
+    "belief": 1.0,
+    "evidence": [
+      {
+        "source_api": "reach",
+        "pmid": "24905473",
+        "text": "Epidermal Growth Factor Inhibits Transforming Growth Factor-beta-Induced Fibrogenic Differentiation Marker Expression through ERK Activation.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_1_verb",
+          "agents": {
+            "raw_text": [
+              "Epidermal Growth Factor",
+              "Differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "d164e572-b2b5-4405-8235-b86c999e0b9b"
+          ],
+          "content_source": "manuscripts"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "24905473",
+          "TRID": 14170425,
+          "PMCID": "PMC4130781",
+          "DOI": "10.1016/J.CELLSIG.2014.05.018",
+          "PII": "S0898-6568(14)00194-6",
+          "MANUSCRIPT_ID": "NIHMS617989",
+          "TCID": 20161234,
+          "SOURCE": "manuscripts",
+          "RID": 35149702,
+          "READER": "REACH"
+        },
+        "source_hash": -3437470256090076729
+      },
+      {
+        "source_api": "reach",
+        "pmid": "26977284",
+        "text": "XREF_BIBR, XREF_BIBR Differentiation was inhibited by the addition of EGF to the culture medium, which reversed the profile.",
+        "annotations": {
+          "found_by": "Negative_activation_syntax_2_verb",
+          "agents": {
+            "raw_text": [
+              "EGF",
+              "Differentiation"
+            ]
+          },
+          "prior_uuids": [
+            "0ddca3d3-f226-43f4-8d1b-8ff442ec2f22"
+          ],
+          "content_source": "pmc_oa"
+        },
+        "epistemics": {
+          "direct": false,
+          "section_type": null
+        },
+        "text_refs": {
+          "PMID": "26977284",
+          "TRID": 24466298,
+          "PMCID": "PMC4765821",
+          "DOI": "10.1177/2041731415618342",
+          "TCID": 19289721,
+          "SOURCE": "pmc_oa",
+          "RID": 33995834,
+          "READER": "REACH"
+        },
+        "source_hash": 7335469365854395383
+      }
+    ],
+    "id": "b1702572-cca5-4d1f-9122-f337a2070802"
+  }
+]

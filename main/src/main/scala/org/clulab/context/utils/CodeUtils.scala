@@ -1,7 +1,7 @@
 package org.clulab.context.utils
 
 import java.io._
-
+import java.util.zip._
 import scala.collection.mutable
 import scala.io.Source
 
@@ -132,7 +132,9 @@ object CodeUtils {
     val listOfSpecificFeatures = readHardcodedFeaturesFromFile(hardCodedFilePath)
     def allOtherFeatures(headers:Seq[String]): Set[String] = headers.toSet -- (listOfSpecificFeatures ++ Seq(""))
     def indices(headers:Seq[String]): Map[String, Int] = headers.zipWithIndex.toMap
-    val source = Source.fromFile(groupedFeaturesFileName)
+    val fileInputStream = new FileInputStream(groupedFeaturesFileName)
+    val bufferedStream = new BufferedInputStream(new GZIPInputStream(fileInputStream))
+    val source = Source.fromInputStream(bufferedStream)
     val lines = source.getLines()
     val headers = lines.next() split ","
     val rectifiedHeaders = rectifyWrongFeatures(headers)
