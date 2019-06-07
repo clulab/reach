@@ -5,12 +5,11 @@ import org.scalatest.{FlatSpec, Matchers}
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.AggregatedContextInstance
-import org.clulab.context.utils.AggregatedContextInstance
 
 class TestSVMContext extends FlatSpec with Matchers {
   val config = ConfigFactory.load()
 
-  val configPath = config.getString("contextEngine.params.svmPath")
+  val configPath = config.getString("contextEngine.params.trainedSvmPath")
   val svmWrapper = new LinearSVMContextClassifier(null)
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
   val rootDir = config.getString("rootDir")
