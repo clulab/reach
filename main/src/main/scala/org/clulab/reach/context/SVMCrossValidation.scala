@@ -5,7 +5,6 @@ import java.io.{File, FileInputStream, ObjectInputStream}
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
-import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
 import org.clulab.learning.LinearSVMClassifier
 import java.io._
 
@@ -30,7 +29,6 @@ object SVMCrossValidation extends App {
 
   for(d<-directories) {
     val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
-    println(rowFiles.size)
     val rows = rowFiles.map(file => {
       val pmcid = file.getName.split("_")(1)
       val evtID = file.getName.split("_")(2)
