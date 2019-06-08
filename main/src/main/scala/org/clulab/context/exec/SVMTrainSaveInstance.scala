@@ -8,7 +8,7 @@ import org.clulab.learning.LinearSVMClassifier
 object SVMTrainSaveInstance extends App {
   //data preprocessing
   val config = ConfigFactory.load()
-  val fileName = config.getString("contextEngine.params.svmPath")
+  val fileName = config.getString("contextEngine.params.trainedSvmPath")
   val SVMClassifier = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
   val svmInstance = new LinearSVMContextClassifier(SVMClassifier)
   val groupedFeatures = config.getString("svmContext.groupedFeatures")
