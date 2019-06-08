@@ -5,8 +5,8 @@ import java.io._
 import org.clulab.context.utils.AggregatedContextInstance
 import org.clulab.struct.Counter
 import org.clulab.learning._
-case class LinearSVMContextClassifier(classifier: LinearSVMClassifier[Int,String], pathToClassifier:String = null) extends ContextClassifier {
- override def fit(xTrain: Seq[AggregatedContextInstance]): Unit = ()
+case class LinearSVMContextClassifier(classifier: LinearSVMClassifier[Int,String]= null, pathToClassifier:String = null) extends ContextClassifier {
+  override def fit(xTrain: Seq[AggregatedContextInstance]): Unit = ()
 
   private def checkForNullException(classForFunct: LinearSVMClassifier[Int,String], pathForFunct:String): Option[LinearSVMClassifier[Int,String]] = {
     if(classForFunct == null) {
