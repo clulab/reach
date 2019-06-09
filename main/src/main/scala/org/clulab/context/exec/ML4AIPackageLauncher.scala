@@ -39,7 +39,7 @@ object ML4AIPackageLauncher extends App {
 
   // svm instance using liblinear
   val SVMClassifier = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
-  val svmInstance = new LinearSVMContextClassifier(SVMClassifier)
+  val svmInstance = new LinearSVMContextClassifier(Some(SVMClassifier))
   svmInstance.saveModel(fileName)
   val loadedModelWrapper = svmInstance.loadFrom(fileName)
   // the loadedModel variable is an instance of LinearSVMWrapper. If you want access to the LinearSVMClassifier instance,

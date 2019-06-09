@@ -10,7 +10,7 @@ object SVMTrainSaveInstance extends App {
   val config = ConfigFactory.load()
   val fileName = config.getString("contextEngine.params.trainedSvmPath")
   val SVMClassifier = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
-  val svmInstance = new LinearSVMContextClassifier(SVMClassifier)
+  val svmInstance = new LinearSVMContextClassifier(Some(SVMClassifier))
   val groupedFeatures = config.getString("svmContext.groupedFeatures")
   val hardCodedFeaturePath = config.getString("contextEngine.params.hardCodedFeatures")
   val (allFeatures,rows) = CodeUtils.loadAggregatedRowsFromFile(groupedFeatures, hardCodedFeaturePath)

@@ -22,24 +22,13 @@ case class LinearSVMContextClassifier(classifier: Option[LinearSVMClassifier[Int
      }
    }
 
-    /*if(classForFunct == null) {
-      if(pathForFunct == null)
-        None
-      else {
-        val loadedWrapper = loadFrom(pathForFunct)
-        Some(loadedWrapper.classifier)
-      }
-    }
-    else Some(classForFunct)*/
-
-
   def fit(xTrain: RVFDataset[Int, String]):Unit = {
     val classifierToTrain = checkForNullException(classifier, pathToClassifier)
     classifierToTrain match {
       case Some(c) => c.train(xTrain)
       case None => println("ERROR: The Linear SVM model has not been trained yet, since default null parameters were detectected in the custructor. However, you can fit the model by loading it from file, using the loadFrom function.")
     }
-    //val modelWrap = loadFrom()
+
   }
 
   override def predict(data: Seq[AggregatedContextInstance]): Array[Int] = {
