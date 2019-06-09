@@ -10,7 +10,7 @@ class TestSVMContext extends FlatSpec with Matchers {
   val config = ConfigFactory.load()
 
   val configPath = config.getString("contextEngine.params.trainedSvmPath")
-  val svmWrapper = new LinearSVMContextClassifier(null)
+  val svmWrapper = new LinearSVMContextClassifier()
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
   val rootDir = config.getString("rootDir")
 

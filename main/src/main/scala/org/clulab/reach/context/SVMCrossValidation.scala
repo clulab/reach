@@ -15,7 +15,7 @@ object SVMCrossValidation extends App {
   val config = ConfigFactory.load()
   val configPath = config.getString("svmContext.untrainedSVMPath")
   val SVMClassifier = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
-  val svmWrapper = new LinearSVMContextClassifier(SVMClassifier)
+  val svmWrapper = new LinearSVMContextClassifier(Some(SVMClassifier))
   svmWrapper.saveModel(configPath)
   val unTrainedSVMInstance = svmWrapper.loadFrom(configPath)
   val labelFile = config.getString("svmContext.labelFile")
