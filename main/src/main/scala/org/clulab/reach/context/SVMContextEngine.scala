@@ -23,9 +23,12 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.trainedSvmPath")
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
+  val classifierToUse = trainedSVMInstance.classifier match {
+    case Some(x) => x
+  }
 
 
-  logger.info(s"The SVM model has been tuned to the following settings: C: ${trainedSVMInstance.classifier.C}, Eps: ${trainedSVMInstance.classifier.eps}, Bias: ${trainedSVMInstance.classifier.bias}")
+  logger.info(s"The SVM model has been tuned to the following settings: C: ${classifierToUse.C}, Eps: ${classifierToUse.eps}, Bias: ${classifierToUse.bias}")
 
   override def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
 
