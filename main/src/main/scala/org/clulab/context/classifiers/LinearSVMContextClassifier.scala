@@ -5,11 +5,24 @@ import java.io._
 import org.clulab.context.utils.AggregatedContextInstance
 import org.clulab.struct.Counter
 import org.clulab.learning._
-case class LinearSVMContextClassifier(classifier: LinearSVMClassifier[Int,String]= null, pathToClassifier:String = null) extends ContextClassifier {
+case class LinearSVMContextClassifier(classifier: Option[LinearSVMClassifier[Int,String]] = None, pathToClassifier:Option[String] = None) extends ContextClassifier {
   override def fit(xTrain: Seq[AggregatedContextInstance]): Unit = ()
 
-  private def checkForNullException(classForFunct: LinearSVMClassifier[Int,String], pathForFunct:String): Option[LinearSVMClassifier[Int,String]] = {
-    if(classForFunct == null) {
+  private def checkForNullException(classForFunct: Option[LinearSVMClassifier[Int,String]], pathForFunct:Option[String]): Option[LinearSVMClassifier[Int,String]] = {
+   classForFunct match {
+     case Some(c) => Some(c)
+     case None => {
+       pathForFunct match {
+         case Some(s) => {
+           val loadedWrapper = loadFrom(s)
+           loadedWrapper.classifier}
+         case None => None
+         }
+       }
+     }
+   }
+
+    /*if(classForFunct == null) {
       if(pathForFunct == null)
         None
       else {
@@ -17,8 +30,8 @@ case class LinearSVMContextClassifier(classifier: LinearSVMClassifier[Int,String
         Some(loadedWrapper.classifier)
       }
     }
-    else Some(classForFunct)
-  }
+    else Some(classForFunct)*/
+
 
   def fit(xTrain: RVFDataset[Int, String]):Unit = {
     val classifierToTrain = checkForNullException(classifier, pathToClassifier)
@@ -31,10 +44,26 @@ case class LinearSVMContextClassifier(classifier: LinearSVMClassifier[Int,String
 
   override def predict(data: Seq[AggregatedContextInstance]): Array[Int] = {
     val (_, individualRows) = dataConverter(data)
-    individualRows.map(classifier.classOf(_))}
+    val classifierToPredict = checkForNullException(classifier, pathToClassifier)
+    classifierToPredict match {
+      case Some(c) => individualRows.map(c.classOf(_))
+      case None => {
+        println("ERROR: No valid classifier was found on which I could predict. Please ensure you are passing a valid LinearSVM classifier, or a path to a classifier. I am now returning a default array of 0s")
+        Array.fill(individualRows.size)(0)
+      }
+    }
+    }
 
   def predict(testDatum:RVFDatum[Int, String]):Int = {
-    classifier.classOf(testDatum)
+    val classifierToPredict = checkForNullException(classifier, pathToClassifier)
+    classifierToPredict match {
+      case Some(c) => c.classOf(testDatum)
+      case None => {
+        println("I cannot predict the current datapoint on an empty classifier. Returning a default value of 0")
+      0
+      }
+    }
+    //classifier.classOf(testDatum)
   }
 
   override def saveModel(fileName: String): Unit = {
