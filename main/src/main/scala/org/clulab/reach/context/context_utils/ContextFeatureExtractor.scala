@@ -9,6 +9,9 @@ import org.clulab.struct.Interval
 
 import scala.util.{Failure, Success, Try}
 
+
+// This class calculates the values of pre-set linguistic features for (context-event) pairs detected by reach in previously unseen papers. The names of features are read from file, and the given pair i.e. (BioEventMention, BioTextBoundMention) is used to calculate the values of the features
+// Please contact Dr. Clayton Morrison's team for further information on the selection of the feature names.
 class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), contextMentions:Seq[BioTextBoundMention]){
   type Pair = (BioEventMention, BioTextBoundMention)
   type EventID = String
@@ -20,6 +23,10 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     val hardCodedFeatures = CodeUtils.readHardcodedFeaturesFromFile(hardCodedFeaturesPath)
     val numericFeaturesInputRow = hardCodedFeatures.drop(4)
     val bestFeatureDict = CodeUtils.featureConstructor(configAllFeaturesPath)
+
+    // Over all the feature names that were used, an exhaustive ablation study was performed to study the best performing subset of features,
+    // and this was found to be the union of non-dependency features and context-dependency features.
+    // We will only calculate the values of this subset of features
     val featSeq = bestFeatureDict("NonDep_Context")
     val allFeatures = bestFeatureDict("All_features")
     // val file
@@ -37,6 +44,9 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     val ctxDepFeatures = collection.mutable.ListBuffer[String]()
     val evtDepFeatures = collection.mutable.ListBuffer[String]()
 
+
+    // the names of the features read from file already contained _min, _max, etc, implying that feature values have been pre-aggregated when the Linear SVM model was trained.
+    // In order to maintain parity, we will "unaggregate" the feature names from file, so that feature names will be the same for the pre-trained SVM model and the fresh test dataset
 
     def unAggregateFeatureName(features: Seq[String]): Array[String] = {
       val fixedFeatureNames = collection.mutable.ListBuffer[String]()
@@ -69,6 +79,7 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
 
 
     // call feature value extractor here
+    // we will filter the feature names into "specific features", i.e. non-dependency features, context-dependency features, and finally event dependency features
     val specFeatVal = calculateSpecificFeatValues(datum, contextMentions, contextFrequencyMap.toMap)
     val evtDepFeatVal = calculateEvtDepFeatureVals(datum)
     val ctxDepFeatVal = calculateCtxDepFeatureVals(datum)
@@ -294,7 +305,7 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
       if(depth == maxDepth)
         Nil
       else{
-        edges.toList flatMap {
+        edges flatMap {
           e =>
             val label = FeatureProcessing.clusterDependency(e._2)
             val further = helper(e._1, depth+1, maxDepth)

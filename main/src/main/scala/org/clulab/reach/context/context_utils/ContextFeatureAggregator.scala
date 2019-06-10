@@ -14,12 +14,13 @@ class ContextFeatureAggregator(instances:Seq[ContextPairInstance], featValLookUp
 
     val inputRows = instances
     val featNameToVals = collection.mutable.Map[String,mutable.ListBuffer[Double]]()
+    // we are using the same set of features over all the ContextPairInstance instances, hence using the first ContextPairInstance in the sequence to get the names of the features is a safe step.
     val specfeatureNamesToUse = instances(0).specificFeatureNames
     val ctxFeatureNamesToUse = instances(0).ctx_dependencyTails
     val evtFeatureNamesToUse = instances(0).evt_dependencyTails
 
-    // we read through the input row values and add them to a name -> list of features map.
-    // So for a given feature name as key, we will have a list of double as values, where the doubles are the values to the feature in a given input row.
+    // we read through the ContextPairInstance values and add them to a name -> list of features map.
+    // So for a given feature name as key, we will have a list of double as values, where each double is the value to the feature in a given ContextPairInstance.
 
     for(in <- inputRows) {
       val (specificVals, evtVals, ctxVals) = featValLookUp(in)
@@ -70,6 +71,10 @@ class ContextFeatureAggregator(instances:Seq[ContextPairInstance], featValLookUp
     addAggregatedOnce(specFeatVal)
     addAggregatedOnce(ctxFeatVal)
     addAggregatedOnce(evtFeatVal)
+
+    // In the ContextPairInstance, we had filtered the feature names into three separate feature sets: non-dependency, ctx-dependency and evt-dependency.
+    // But in the AggregatedContextInstance, we will add them all into one list, called featureSetNames.
+    // featureSetNames and featureSetValues are of the same sizes. Both lists are created such that feature name at index i in featureSetNames has its corresponding value at index i in featureSetValues
     val newAggRow = AggregatedContextInstance(0, instances(0).PMCID, "", "", label, featureSetValues.toArray,featureSetNames.toArray)
     newAggRow
   }
