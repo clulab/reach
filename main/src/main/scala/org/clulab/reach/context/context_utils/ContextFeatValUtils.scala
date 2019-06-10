@@ -1,4 +1,4 @@
-package org.clulab.reach.context
+package org.clulab.reach.context.context_utils
 
 import java.io.{File, FileOutputStream, ObjectOutputStream}
 
@@ -19,21 +19,9 @@ object ContextFeatValUtils {
     val flattenedMap = tempo.flatMap(t=>t).toMap
     flattenedMap
 
-    //filteredMaps.flatMap(t=>t).toMap
-
-
   }
-  //Seq[Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])]]
-
-
 
   def getCtxPairInstances(ctxPairFeatValMap: Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])]): Seq[ContextPairInstance] = {
-   /* val tempo = filteredPairs.map{p =>
-      val featureExtractor = new ContextFeatureExtractor(p, ctxMentions)
-      featureExtractor.extractFeaturesToCalcByBestFeatSet()
-    }
-    tempo.flatMap(t => t.keySet)*/
-
     ctxPairFeatValMap.keySet.toSeq
   }
 

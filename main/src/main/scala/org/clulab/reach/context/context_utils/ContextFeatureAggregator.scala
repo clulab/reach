@@ -1,4 +1,4 @@
-package org.clulab.reach.context
+package org.clulab.reach.context.context_utils
 
 import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils, ContextPairInstance}
 

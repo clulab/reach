@@ -1,11 +1,12 @@
 package org.clulab.reach.context
 
-import java.io._
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.{AggregatedContextInstance, ContextPairInstance}
+import org.clulab.reach.context.context_utils.{ContextFeatValUtils, ContextFeatureAggregator, EventContextPairGenerator}
+
 import scala.collection.immutable
 
 class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine with LazyLogging {
@@ -58,15 +59,8 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
         // here, we will use a Seq(Map), where each map has ContextPairInstance as a key, and as value, we have a tuple of feature values
         // so for a given ContextPairInstance, I can look up the table and return the values of the contextPairInput present in the ContextPairInstance.
-      /* val tempo = filteredPairs.map{p =>
-         val featureExtractor = new ContextFeatureExtractor(p, ctxMentions)
-         featureExtractor.extractFeaturesToCalcByBestFeatSet()
-       }*/
-
 
         val flattenedMap = ContextFeatValUtils.getFeatValMapPerInput(filteredPairs, ctxMentions)
-        //val flattenedMap = tempo.flatMap(t=>t).toMap
-        //val contextPairInput:Seq[ContextPairInstance] = tempo.flatMap(t => t.keySet)
         val contextPairInput:Seq[ContextPairInstance] = ContextFeatValUtils.getCtxPairInstances(flattenedMap)
         val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedContextInstance)]] =
           (pairs zip contextPairInput).groupBy{
@@ -87,8 +81,8 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             val x = a.map {
               case (ctxId, aggregatedFeature) =>
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
-                // comment row to file function before testing
-                //writeRowToFile(aggregatedFeature, k.toString, ctxId._2)
+
+                //ContextFeatValUtils.writeRowToFile(aggregatedFeature, k.toString, ctxId._2)
                 val prediction = {
                   predArrayIntForm(0) match {
                     case 1 => true

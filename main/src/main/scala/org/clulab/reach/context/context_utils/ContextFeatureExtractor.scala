@@ -1,8 +1,9 @@
-package org.clulab.reach.context
+package org.clulab.reach.context.context_utils
 
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.utils.{CodeUtils, ContextPairInstance}
 import org.clulab.processors.Document
+import org.clulab.reach.context.ContextEngine
 import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
 import org.clulab.struct.Interval
 
