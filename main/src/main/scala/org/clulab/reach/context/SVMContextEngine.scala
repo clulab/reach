@@ -25,7 +25,12 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
   val classifierToUse = trainedSVMInstance.classifier match {
     case Some(x) => x
+    case None => {
+      null
+    }
   }
+
+  if(classifierToUse == null) throw new NullPointerException("No classifier found on which I can predict. Please make sure the SVMContextEngine class receives a valid Linear SVM classifier.")
 
 
   logger.info(s"The SVM model has been tuned to the following settings: C: ${classifierToUse.C}, Eps: ${classifierToUse.eps}, Bias: ${classifierToUse.bias}")
@@ -53,14 +58,16 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
         // here, we will use a Seq(Map), where each map has ContextPairInstance as a key, and as value, we have a tuple of feature values
         // so for a given ContextPairInstance, I can look up the table and return the values of the contextPairInput present in the ContextPairInstance.
-        /*val tempo = filteredPairs.map{p =>
-          val featureExtractor = new ContextFeatureExtractor(p, ctxMentions)
-          featureExtractor.extractFeaturesToCalcByBestFeatSet()
-        }*/
+      /* val tempo = filteredPairs.map{p =>
+         val featureExtractor = new ContextFeatureExtractor(p, ctxMentions)
+         featureExtractor.extractFeaturesToCalcByBestFeatSet()
+       }*/
+
+
         val flattenedMap = ContextFeatValUtils.getFeatValMapPerInput(filteredPairs, ctxMentions)
         //val flattenedMap = tempo.flatMap(t=>t).toMap
         //val contextPairInput:Seq[ContextPairInstance] = tempo.flatMap(t => t.keySet)
-        val contextPairInput:Seq[ContextPairInstance] = ContextFeatValUtils.getCtxPairInstances(filteredPairs, ctxMentions)
+        val contextPairInput:Seq[ContextPairInstance] = ContextFeatValUtils.getCtxPairInstances(flattenedMap)
         val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedContextInstance)]] =
           (pairs zip contextPairInput).groupBy{
             case (pair, _) => extractEvtId(pair._1) // Group by their EventMention
@@ -157,32 +164,5 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   }
 
 
-  private def writeRowToFile(row:AggregatedContextInstance, evtID: String, ctxID: String):Unit = {
-    val typeOfPaper = config.getString("svmContext.paperType")
-    val dirForType = if(typeOfPaper.length != 0) config.getString("papersDir").concat(s"/${typeOfPaper}") else config.getString("papersDir")
-    val fileListUnfiltered = new File(dirForType)
-    val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
-    val currentPMCID = s"PMC${row.PMCID.split("_")(0)}"
-    for(file <- fileList) {
-      val fileNamePMCID = file.getName.slice(0,file.getName.length-5)
-      val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${fileNamePMCID}")
-      // creating output directory if it doesn't already exist
-      val outputPaperDir = new File(outPaperDirPath)
-      if(!outputPaperDir.exists()) {
-        outputPaperDir.mkdirs()
-      }
 
-        if(currentPMCID == fileNamePMCID) {
-          val pathForRow = outPaperDirPath.concat(s"/AggregatedRow_${currentPMCID}_${evtID}_${ctxID}.txt")
-          val sentenceFile = new File(pathForRow)
-          if (!sentenceFile.exists()) {
-            sentenceFile.createNewFile()
-          }
-          val os = new ObjectOutputStream(new FileOutputStream(pathForRow))
-
-          os.writeObject(row)
-          os.close()
-        }
-    }
-  }
 }
