@@ -1,5 +1,6 @@
 package org.clulab.reach.context.context_utils
 
+// this object is used in the feature extractor to compare binned distances
 object FeatureProcessing{
   def binSentenceDistance(d:Int):BinnedDistance.Value = {
     if(d == 0)

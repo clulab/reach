@@ -12,6 +12,11 @@ class EventContextPairGenerator(mentions:Seq[BioMention], ctxMentions:Seq[BioTex
     case evt:BioEventMention => evt
   }
 
+
+  // The constructor of this class is supplied with all the mentions and BioTextBoundMentions (i.e. context IDs)
+  // Let the given Seq[BioTextBoundMention] be of size m
+  // We will filter the event mentions from the mentions (let it be of size n)
+  // A cross product is then generated for every context-event pairs. The resultant seq(pairs) will be of size m*n
   def yieldContextEventPairs():Seq[Pair] = {
 
     for(evt <- evtMentions; ctx <- ctxMentions) yield (evt, ctx)

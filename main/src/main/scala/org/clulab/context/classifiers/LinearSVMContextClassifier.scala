@@ -8,6 +8,12 @@ import org.clulab.learning._
 case class LinearSVMContextClassifier(classifier: Option[LinearSVMClassifier[Int,String]] = None, pathToClassifier:Option[String] = None) extends ContextClassifier {
   override def fit(xTrain: Seq[AggregatedContextInstance]): Unit = ()
 
+
+  // This class provides the basic API for training and predicting of a LinearSVM model.
+  // It also provides functions for saving LinearSVM models to file and reading from file.
+
+
+  // The function checkForNullException checks for the event that we are trying to call predict or fit on an empty model
   private def checkForNullException(classForFunct: Option[LinearSVMClassifier[Int,String]], pathForFunct:Option[String]): Option[LinearSVMClassifier[Int,String]] = {
    classForFunct match {
      case Some(c) => Some(c)
@@ -52,15 +58,19 @@ case class LinearSVMContextClassifier(classifier: Option[LinearSVMClassifier[Int
       0
       }
     }
-    //classifier.classOf(testDatum)
   }
 
+  // writes given model wrapper instance (LinearSVMContextClassifier) to file
   override def saveModel(fileName: String): Unit = {
     val os = new ObjectOutputStream(new FileOutputStream(fileName))
     os.writeObject(this)
     os.close()
   }
 
+
+  // reads the given file path and returns an instance of LinearSVMContextClassifier
+  // the classifier in the LinearSVMContextClassifier instance can be accessed by the classifier field, like instance.classifier
+  // please note that the classifier is an Option[LinearSVMClassifier]. This can be easily unwrapped using basic scala pattern matching.
   override def loadFrom(fileName: String): LinearSVMContextClassifier = {
     val is = new ObjectInputStream(new FileInputStream(fileName))
     val c = is.readObject().asInstanceOf[LinearSVMContextClassifier]
@@ -69,6 +79,8 @@ case class LinearSVMContextClassifier(classifier: Option[LinearSVMClassifier[Int
   }
 
 
+
+  // ******** Starting functions to convert data from AggregatedContextInstance to RVFDataSet, a useful format for using the in-house LinearSVMModel designed by Mihai's team.
   // Consider features as pairs of (feature name, feature value)
   private def mkRVFDatum[L](label:L, features:Array[(String, Double)]):RVFDatum[L, String] = {
     // In here, Counter[T] basically works as a dictionary, and String should be the simplest way to implement it
@@ -113,11 +125,14 @@ case class LinearSVMContextClassifier(classifier: Option[LinearSVMClassifier[Int
     result
   }
 
+
+  // This function is useful for converting your boolean labels to equivalent integer labels. 1 for true and 0 for false.
   def createLabels(data:Seq[AggregatedContextInstance]):Array[Int] = {
     val currentTruthTest = DummyClassifier.convertOptionalToBool(data)
     val currentTruthTestInt = DummyClassifier.convertBooleansToInt(currentTruthTest)
     currentTruthTestInt
   }
+  // ************* Ending functions to convert AggregatedInstance to RVFDataset
 
 
 }

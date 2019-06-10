@@ -20,7 +20,17 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   var orderedContextMentions:Map[Int, Seq[BioTextBoundMention]] = _
   var defaultContexts:Option[Map[String, String]] = None
 
-  val svmWrapper = new LinearSVMContextClassifier(null)
+  // The LinearSVMContextClassifier class is the container of our Linear SVM model.
+  // It contains the methods you will need for training your model and predicting on it.
+  // USAGE: val wrapper = new LinearSVMContextClassifier(LinearSVMClassifier[Int,String], String)
+  // Both parameters to the constructor are optional. You can either pass a linearSVMClassifier with customized hyper-parameters, or a string that is a path to a pre-saved model.
+  // If you do pass a string, the .fit function will load the model from the path and then train it.
+  // If you pass both, the customized LinearSVM model will be given higher precedence and will be used for training, rather than reading from file and training.
+  // Since both parameters are optional, you need not pass either. In that case, you can load a classifier from file, using the loadFrom(path) function
+  // The LinearSVMClassifier is in accordance with Scikit-learn's Liblinear classifier. Therefore, it uses .fit(dataset) to train and .predict(dataset) to test.
+  // Please refer to the class LinearSVMContextClassifier for further clarifications.
+
+  val svmWrapper = new LinearSVMContextClassifier()
 
   val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.trainedSvmPath")
@@ -108,7 +118,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 // It may be that we may need the aggregated instances for further analyses, like testing or cross-validation.
                 // Should such a need arise, you can write the aggregated instances to file by uncommenting the following line
                 // ContextFeatureUtils.writeRowToFile(aggregatedFeature, k.toString, ctxId._2)
-
                 // Please note that this function writes aggregated rows for each (eventID, contextID) pair. Therefore, you may have a large number of files written to your directory.
 
                 val prediction = {

@@ -22,9 +22,9 @@ object ContextFeatureUtils {
     }
     val flattenedMap = tempo.flatMap(t=>t).toMap
     flattenedMap
-
   }
 
+  // getCtxPairInstances takes a map of ContextPairInstance and their corresponding feature values, and returns the keyset, i.e. set[ContextPairInstance]
   def getCtxPairInstances(ctxPairFeatValMap: Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])]): Seq[ContextPairInstance] = {
     ctxPairFeatValMap.keySet.toSeq
   }
