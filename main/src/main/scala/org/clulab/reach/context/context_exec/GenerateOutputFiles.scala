@@ -14,6 +14,8 @@ import org.clulab.reach.mentions.BioTextBoundMention
 import scala.collection.immutable.ListMap
 
 object GenerateOutputFiles extends App {
+    // This class runs the papers through reach, and writes to file mention_intervals.txt, event_intervals.txt and sentences.txt.
+    // These files are required to run the annotator web app that was designed by Zechy.
     val config = ConfigFactory.load()
     val typeOfPaper = config.getString("polarityContext.typeOfPaper")
     val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
@@ -54,6 +56,16 @@ object GenerateOutputFiles extends App {
             sentenceFile.createNewFile()
         }
         val pw = new PrintWriter(sentenceFile)
+        /*contents of the sentences.txt file are in the following format:
+        sentence0
+        sentence1
+        sentence2
+          .
+          .
+          .
+        sentencen
+        The sentences are written by line in increasing order of sentenceIndex, as detected by reach.
+         */
         for (sen <- collectSent) {
             pw.write(sen)
             pw.write("\n")
@@ -72,6 +84,8 @@ object GenerateOutputFiles extends App {
             eventsFile.createNewFile()
         }
         val pwevent = new PrintWriter(eventsFile)
+        // for a given sentence index 1, if there is one event mention from token 3 to 5 and one from 7 to 9,
+        // the file will contain the line: 1 3-5 7-9
         for ((sentInd, group) <- sorted) {
             val inter = group.map(_._2)
             val intervalStringed = inter.map(i => {
@@ -95,6 +109,9 @@ object GenerateOutputFiles extends App {
             mentionsFile.createNewFile()
 
         val pwctx = new PrintWriter(mentionsFile)
+        // This file logs the context mentions line by line, and each looks something like this:
+        // 0 12%14%Stem_Cell_Hypothesis%cl:CL:0000034
+        // This means that in sentence 0, between the tokens 12 and 14, we found the words Stem Cell Hypothesis, whose grounding ID is cl:CL:0000034
         for ((sentId, ctxGroup) <- sortedContextGroups) {
             val ctx = ctxGroup.map(bt => (bt.nsId(), bt.tokenInterval, bt.sentenceObj))
             val ctxMentionStr = ctx.map(c => {

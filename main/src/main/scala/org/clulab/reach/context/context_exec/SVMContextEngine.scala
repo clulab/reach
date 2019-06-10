@@ -58,11 +58,33 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             pairs
         }
 
-        // here, we will use a Seq(Map), where each map has ContextPairInstance as a key, and as value, we have a tuple of feature values
-        // so for a given ContextPairInstance, I can look up the table and return the values of the contextPairInput present in the ContextPairInstance.
+        // The filteredPairs, as the name suggests, contains the subset of the context-event pairs, filtered based on the sentence distance window.
+        // A filteredPair is an instance of Pair as defined on line 15. Once we have the seq(filteredPair), we are ready to calculate the feature values.
 
-        val flattenedMap = ContextFeatureUtils.getFeatValMapPerInput(filteredPairs, ctxMentions)
-        val contextPairInput:Seq[ContextPairInstance] = ContextFeatureUtils.getCtxPairInstances(flattenedMap)
+        // To extract the feature values for a given pair, we will build an instance of ContextPairInstance, that has information about the event and context IDs, and feature values associated with that pair.
+        // ContextPairInstance basically is an object that contains information about paperID, eventID, contextID, and the set of features for which we need values.
+        // To associate each ContextPairInstance to its correct set of feature values, we will use a Map, where the map has ContextPairInstance as a key, and as value, we have a map of features with values
+        // for each pair, our map looks like: ContextPairInstance -> (sentenceDistance -> 0.0, dependencyDistance -> 1.0), etc.
+        // We can call this map the lookUpTable.
+
+        // the line below internally calls the feature extractor on each pair and constructs the map as described.
+        // For more information on feature extraction, please refer to the ContextFeatureExtractor class.
+        val lookUpTable = ContextFeatureUtils.getFeatValMapPerInput(filteredPairs, ctxMentions)
+
+        // In order to associate the correct ContextPairInstance to its values, we use the map from above to extract the keyset
+        // With this set, we can simply look up the lookUpTable and extract the correct values.
+        val contextPairInput:Seq[ContextPairInstance] = ContextFeatureUtils.getCtxPairInstances(lookUpTable)
+
+
+        // It is now time to introduce the FeatureAggregator. The basic idea behind the FeatureAggregator is that,
+        // for any given (eventID, contextID) pair, it is possible that reach detected many sentences that match the pair.
+        // Multiple sentences for the same pair means multiple feature values for the same feature name.
+        // In order to avoid bias of choosing one sentence over another, we will aggregate their feature values.
+        // We will take the arithmetic mean, minimum, and maximum of the values.
+        // We will then have an instance of AggregatedContextInstance, that has 3 times the number of features of the original ContextPairInstance,
+        // since each feature has been aggregated to min, max and avg values.
+        // The SVM model will then predict on this aggregated instance.
+
         val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedContextInstance)]] =
           (pairs zip contextPairInput).groupBy{
             case (pair, _) => extractEvtId(pair._1) // Group by their EventMention
@@ -70,7 +92,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             v =>
               v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s =>  {
                 val seqOfInputRowsToPass = s map (_._2)
-                val featureAggregatorInstance = new ContextFeatureAggregator(seqOfInputRowsToPass, flattenedMap)
+                val featureAggregatorInstance = new ContextFeatureAggregator(seqOfInputRowsToPass, lookUpTable)
                 val aggRow = featureAggregatorInstance.aggregateContextFeatures()
               aggRow}).toSeq
           }
@@ -83,7 +105,12 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
               case (ctxId, aggregatedFeature) =>
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
 
-                //ContextFeatValUtils.writeRowToFile(aggregatedFeature, k.toString, ctxId._2)
+                // It may be that we may need the aggregated instances for further analyses, like testing or cross-validation.
+                // Should such a need arise, you can write the aggregated instances to file by uncommenting the following line
+                // ContextFeatureUtils.writeRowToFile(aggregatedFeature, k.toString, ctxId._2)
+
+                // Please note that this function writes aggregated rows for each (eventID, contextID) pair. Therefore, you may have a large number of files written to your directory.
+
                 val prediction = {
                   predArrayIntForm(0) match {
                     case 1 => true
