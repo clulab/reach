@@ -25,7 +25,6 @@ class TestSVMContext extends FlatSpec with Matchers {
   val activevtCtxPair3 = "51618,tissuelist:TS-0500" // expected prediction: 1 //dmax8 //conmax 2 //closmax 1
   val pair4 = "41820,cl:CL:0000312" // expected: 0
 
-  //"/home/sthumsi/enter/reach/main/src/test/resources/SVMContext/PMC2910130/"
 
   val outPaperDirPathActiv1 = rootDir.concat("/main/src/test/resources/SVMContext/PMC2910130/")
 
@@ -236,8 +235,7 @@ class TestSVMContext extends FlatSpec with Matchers {
 
 
   // ************ STARTING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2636845  ************
-  //rootDir.concat
-  //rootDir.concat("/main/src/test/resources/SVMContext/PMC2636845/")
+
   val outPaperDirPathInhib1 = rootDir.concat("/main/src/test/resources/SVMContext/PMC2636845/")
   val inhibitPair1 = "52831,cl:CL:0000056" // expected prediction: 1
   val inhibitPair2 = "71114,cl:CL:0000056" // expected prediction: 1
@@ -427,7 +425,6 @@ class TestSVMContext extends FlatSpec with Matchers {
 
 
  // STARTING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2587086
-  rootDir.concat("/main/src/test/resources/SVMContext/PMC2587086/")
   val outPaperDirPathInhib2 = rootDir.concat("/main/src/test/resources/SVMContext/PMC2587086/")
   val inhibitP1 = "6024,taxonomy:9606" // expected prediction: 1
   val inhibitP2 = "314,tissuelist:TS-1047" // expected prediction: 0
