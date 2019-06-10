@@ -1,14 +1,17 @@
-package org.clulab.reach.context
-import org.clulab.reach.ReachSystem
-import com.typesafe.config.ConfigFactory
-import java.io._
+package org.clulab.reach.context.context_exec
 
-import scala.collection.immutable.ListMap
+import java.io.{File, PrintWriter}
+
 import ai.lum.nxmlreader.NxmlReader
+import com.typesafe.config.ConfigFactory
 import org.clulab.odin.EventMention
 import org.clulab.reach.PaperReader.{contextEngineParams, ignoreSections, preproc, procAnnotator}
+import org.clulab.reach.ReachSystem
+import org.clulab.reach.context.ContextEngine
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.mentions.BioTextBoundMention
+
+import scala.collection.immutable.ListMap
 
 object GenerateOutputFiles extends App {
     val config = ConfigFactory.load()
@@ -119,7 +122,3 @@ object GenerateOutputFiles extends App {
 
 
 }
-
-
-
-

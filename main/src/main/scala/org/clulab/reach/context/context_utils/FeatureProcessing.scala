@@ -1,7 +1,5 @@
 package org.clulab.reach.context.context_utils
 
-import org.clulab.reach.context.BinnedDistance
-
 object FeatureProcessing{
   def binSentenceDistance(d:Int):BinnedDistance.Value = {
     if(d == 0)

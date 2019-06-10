@@ -1,5 +1,7 @@
 package org.clulab.reach.context
 
+import org.clulab.reach.context.context_exec.SVMContextEngine
+
 
 object ContextEngineFactory {
 

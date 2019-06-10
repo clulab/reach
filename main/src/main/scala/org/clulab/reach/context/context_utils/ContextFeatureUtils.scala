@@ -6,7 +6,7 @@ import com.typesafe.config.ConfigFactory
 import org.clulab.context.utils.{AggregatedContextInstance, ContextPairInstance}
 import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
 
-object ContextFeatValUtils {
+object ContextFeatureUtils {
   type Pair = (BioEventMention, BioTextBoundMention)
   type EventID = String
   type ContextID = (String, String)

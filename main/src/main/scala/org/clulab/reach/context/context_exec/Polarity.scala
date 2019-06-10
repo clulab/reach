@@ -1,10 +1,5 @@
-package org.clulab.reach.context
-import scala.util.parsing.json._
-import com.typesafe.config.ConfigFactory
-import scala.io.Source
-import java.io.File
-import org.clulab.reach.ReachSystem
-import org.clulab.reach.context.ContextEngineFactory.Engine
+package org.clulab.reach.context.context_exec
+
 object Polarity extends App {
   val config = ConfigFactory.load()
 

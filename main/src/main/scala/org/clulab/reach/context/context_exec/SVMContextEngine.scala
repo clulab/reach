@@ -1,11 +1,12 @@
-package org.clulab.reach.context
+package org.clulab.reach.context.context_exec
 
-import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.{AggregatedContextInstance, ContextPairInstance}
-import org.clulab.reach.context.context_utils.{ContextFeatValUtils, ContextFeatureAggregator, EventContextPairGenerator}
+import org.clulab.reach.context.ContextEngine
+import org.clulab.reach.context.context_utils.{ContextFeatureAggregator, ContextFeatureUtils, EventContextPairGenerator}
+import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 
 import scala.collection.immutable
 
@@ -60,8 +61,8 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         // here, we will use a Seq(Map), where each map has ContextPairInstance as a key, and as value, we have a tuple of feature values
         // so for a given ContextPairInstance, I can look up the table and return the values of the contextPairInput present in the ContextPairInstance.
 
-        val flattenedMap = ContextFeatValUtils.getFeatValMapPerInput(filteredPairs, ctxMentions)
-        val contextPairInput:Seq[ContextPairInstance] = ContextFeatValUtils.getCtxPairInstances(flattenedMap)
+        val flattenedMap = ContextFeatureUtils.getFeatValMapPerInput(filteredPairs, ctxMentions)
+        val contextPairInput:Seq[ContextPairInstance] = ContextFeatureUtils.getCtxPairInstances(flattenedMap)
         val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedContextInstance)]] =
           (pairs zip contextPairInput).groupBy{
             case (pair, _) => extractEvtId(pair._1) // Group by their EventMention
