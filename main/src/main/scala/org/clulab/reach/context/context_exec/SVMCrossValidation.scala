@@ -25,7 +25,7 @@ object SVMCrossValidation extends App {
   val rowsSup = collection.mutable.ArrayBuffer[AggregatedContextInstance]()
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val metricsMapPerPaper = collection.mutable.HashMap[String,(Double, Double, Double)]()
-
+  var globalPMCID = ""
   for(d<-directories) {
     val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
     val rows = rowFiles.map(file => {
@@ -121,6 +121,7 @@ object SVMCrossValidation extends App {
     val metricsPerTestCase = findMetrics(testingLabels.toArray, predictedLabels)
     val metricsScorePerPaperID = Map(testIDReformat -> metricsPerTestCase)
     metricsMapPerPaper ++= metricsScorePerPaperID
+    globalPMCID = testIDReformat
 
   }
 
@@ -165,7 +166,8 @@ object SVMCrossValidation extends App {
 
   def findMetrics(truth:Array[Int], test:Array[Int]):(Double,Double,Double) = {
     val countsTest = CodeUtils.predictCounts(truth, test)
-    println(countsTest)
+    if(globalPMCID == "PMC4142739")
+      println(countsTest)
     val precision = CodeUtils.precision(countsTest)
     val recall = CodeUtils.recall(countsTest)
     val accuracy = CodeUtils.accuracy(countsTest)
