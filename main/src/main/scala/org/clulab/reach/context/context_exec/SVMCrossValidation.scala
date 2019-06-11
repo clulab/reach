@@ -26,6 +26,7 @@ object SVMCrossValidation extends App {
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val metricsMapPerPaper = collection.mutable.HashMap[String,(Double, Double, Double)]()
   var globalPMCID = ""
+  val metricsList = collection.mutable.ListBuffer[Map[String,Int]]()
   for(d<-directories) {
     val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
     val rows = rowFiles.map(file => {
@@ -129,7 +130,7 @@ object SVMCrossValidation extends App {
 
   val countsTest = CodeUtils.predictCounts(giantTruthLabel.toArray, giantPredictedLabel.toArray)
 
-
+  printMap(metricsList.toList)
 
   println(s"Micro-averaged Precision: ${metrics._1.toString.take(5)}")
   println(s"Micro-averaged Recall: ${metrics._2}")
@@ -166,12 +167,15 @@ object SVMCrossValidation extends App {
 
   def findMetrics(truth:Array[Int], test:Array[Int]):(Double,Double,Double) = {
     val countsTest = CodeUtils.predictCounts(truth, test)
-
-    println(s"The paper ${globalPMCID} has the following counts: ${countsTest}")
+    metricsList += countsTest
     val precision = CodeUtils.precision(countsTest)
     val recall = CodeUtils.recall(countsTest)
     val accuracy = CodeUtils.accuracy(countsTest)
     (precision,recall,accuracy)
+  }
+
+  private def printMap(list: List[Map[String,Int]]):Unit = {
+    list.map(println)
   }
 
   def readAggRowFromFile(file: String):AggregatedContextInstance = {
