@@ -146,21 +146,21 @@ object SVMCrossValidation extends App {
   val precAggrMetrics = findAggrMetrics(precisionOverAllPapers)
   /*println(s"Min precision over 14 papers: ${precAggrMetrics._1}")
   println(s"Max precision over 14 papers: ${precAggrMetrics._2}")*/
-  println(s"Avg precision over 14 papers: ${precAggrMetrics._3.toString.take(5)}")
+  println(s"Avg precision (arithmetic mean) over 14 papers: ${precAggrMetrics._3.toString.take(5)}")
 
   val recallOverAllPapers = collection.mutable.ListBuffer[Double]()
     metricsMapPerPaper foreach (x => recallOverAllPapers += x._2._2)
   val recAggrMetrics = findAggrMetrics(recallOverAllPapers)
   /*println(s"Min recall over 14 papers: ${recAggrMetrics._1}")
   println(s"Max recall over 14 papers: ${recAggrMetrics._2}")*/
-  println(s"Avg recall over 14 papers: ${recAggrMetrics._3.toString.take(5)}")
+  println(s"Avg recall (arithmetic mean) over 14 papers: ${recAggrMetrics._3.toString.take(5)}")
 
   val accuracyOverAllPapers = collection.mutable.ListBuffer[Double]()
     metricsMapPerPaper foreach (x => accuracyOverAllPapers += x._2._3)
   val accuracyAggrMetrics = findAggrMetrics(accuracyOverAllPapers)
   /*println(s"Min accuracy over 14 papers: ${accuracyAggrMetrics._1}")
   println(s"Max accuracy over 14 papers: ${accuracyAggrMetrics._2}")*/
-  println(s"Avg accuracy over 14 papers: ${accuracyAggrMetrics._3.toString.take(5)}")
+  println(s"Avg accuracy (arithmetic mean) over 14 papers: ${accuracyAggrMetrics._3.toString.take(5)}")
 
 
   def findMetrics(truth:Array[Int], test:Array[Int]):(Double,Double,Double) = {
