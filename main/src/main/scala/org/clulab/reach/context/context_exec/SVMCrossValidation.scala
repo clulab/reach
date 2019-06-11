@@ -118,6 +118,7 @@ object SVMCrossValidation extends App {
     }
 
     val testPaperPMCID = test(0).PMCID
+    (test(0).PMCID == test(1).PMCID)
     val testIDReformat = s"PMC${testPaperPMCID.split("_")(0)}"
     val metricsPerTestCase = findMetrics(testingLabels.toArray, predictedLabels)
     val metricsScorePerPaperID = Map(testIDReformat -> metricsPerTestCase)
