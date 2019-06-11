@@ -121,7 +121,6 @@ object SVMCrossValidation extends App {
     val metricsPerTestCase = findMetrics(testingLabels.toArray, predictedLabels)
     val metricsScorePerPaperID = Map(testIDReformat -> metricsPerTestCase)
     metricsMapPerPaper ++= metricsScorePerPaperID
-    println(metricsPerTestCase)
 
   }
 
@@ -166,6 +165,7 @@ object SVMCrossValidation extends App {
 
   def findMetrics(truth:Array[Int], test:Array[Int]):(Double,Double,Double) = {
     val countsTest = CodeUtils.predictCounts(truth, test)
+    println(countsTest)
     val precision = CodeUtils.precision(countsTest)
     val recall = CodeUtils.recall(countsTest)
     val accuracy = CodeUtils.accuracy(countsTest)
