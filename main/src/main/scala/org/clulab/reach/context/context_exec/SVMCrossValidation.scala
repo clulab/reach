@@ -175,7 +175,8 @@ object SVMCrossValidation extends App {
   }
 
   private def printMap(list: List[Map[String,Int]]):Unit = {
-    list.map(println)
+    val string = list.mkString(",")
+    println(string)
   }
 
   def readAggRowFromFile(file: String):AggregatedContextInstance = {
