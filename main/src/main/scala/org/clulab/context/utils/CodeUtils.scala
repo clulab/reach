@@ -21,18 +21,18 @@ object CodeUtils {
   }
 
   def precision(preds: Map[String, Int]): Double = {
-    if(!(preds("TP") + preds("FP") == 0)) preds("TP").toDouble / (preds("TP") + preds("FP")).toDouble
+    if(!(preds("TP").toDouble + preds("FP").toDouble == 0.toDouble)) preds("TP").toDouble / (preds("TP") + preds("FP")).toDouble
     else 0.0
   }
 
   def recall(preds: Map[String, Int]): Double = {
-    if (!(preds("TP") + preds("FN") == 0)) preds("TP").toDouble/(preds("TP") + preds("FN")).toDouble
+    if (!(preds("TP").toDouble + preds("FN").toDouble == 0)) preds("TP").toDouble/(preds("TP") + preds("FN")).toDouble
     else 0.0
   }
 
 
   def accuracy(preds:Map[String, Int]): Double = {
-    if (!((preds("TP") + preds("FP") + preds("FN") + preds("TN")) == 0)) (preds("TP") + preds("TN")).toDouble/(preds("TP") + preds("TN") + preds("FP") + preds("FN")).toDouble
+    if (!((preds("TP") + preds("FP") + preds("FN") + preds("TN").toDouble) == 0)) (preds("TP") + preds("TN")).toDouble/(preds("TP") + preds("TN") + preds("FP") + preds("FN")).toDouble
     else 0.0
   }
 
