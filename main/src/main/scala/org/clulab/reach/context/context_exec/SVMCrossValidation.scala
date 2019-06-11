@@ -121,6 +121,7 @@ object SVMCrossValidation extends App {
     val metricsPerTestCase = findMetrics(testingLabels.toArray, predictedLabels)
     val metricsScorePerPaperID = Map(testIDReformat -> metricsPerTestCase)
     metricsMapPerPaper ++= metricsScorePerPaperID
+    println(metricsPerTestCase)
 
   }
 
