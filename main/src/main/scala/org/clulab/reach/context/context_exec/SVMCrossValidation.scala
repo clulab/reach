@@ -167,7 +167,7 @@ object SVMCrossValidation extends App {
   def findMetrics(truth:Array[Int], test:Array[Int]):(Double,Double,Double) = {
     val countsTest = CodeUtils.predictCounts(truth, test)
     if(globalPMCID == "PMC4142739")
-      println(countsTest)
+      println(s"The paper ${globalPMCID} has the following counts: ${countsTest}")
     val precision = CodeUtils.precision(countsTest)
     val recall = CodeUtils.recall(countsTest)
     val accuracy = CodeUtils.accuracy(countsTest)
