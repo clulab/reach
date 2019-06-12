@@ -25,8 +25,6 @@ object SVMCrossValidation extends App {
   val rowsSup = collection.mutable.ArrayBuffer[AggregatedContextInstance]()
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val metricsMapPerPaper = collection.mutable.HashMap[String,(Double, Double, Double)]()
-  var globalPMCID = ""
-  val metricsList = collection.mutable.ListBuffer[Map[String,Int]]()
   for(d<-directories) {
     val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
     val rows = rowFiles.map(file => {
@@ -122,7 +120,6 @@ object SVMCrossValidation extends App {
     val metricsPerTestCase = findMetrics(testingLabels.toArray, predictedLabels)
     val metricsScorePerPaperID = Map(testIDReformat -> metricsPerTestCase)
     metricsMapPerPaper ++= metricsScorePerPaperID
-    globalPMCID = testIDReformat
 
   }
 
@@ -130,7 +127,6 @@ object SVMCrossValidation extends App {
 
   val countsTest = CodeUtils.predictCounts(giantTruthLabel.toArray, giantPredictedLabel.toArray)
 
-  printMap(metricsList.toList)
 
   println(s"Micro-averaged Precision: ${metrics._1.toString.take(5)}")
   println(s"Micro-averaged Recall: ${metrics._2}")
@@ -146,37 +142,25 @@ object SVMCrossValidation extends App {
   val precisionOverAllPapers = collection.mutable.ListBuffer[Double]()
     metricsMapPerPaper foreach (x => precisionOverAllPapers += x._2._1)
   val precAggrMetrics = findAggrMetrics(precisionOverAllPapers)
-  /*println(s"Min precision over 14 papers: ${precAggrMetrics._1}")
-  println(s"Max precision over 14 papers: ${precAggrMetrics._2}")*/
   println(s"Avg precision (arithmetic mean) over 14 papers: ${precAggrMetrics._3.toString.take(5)}")
 
   val recallOverAllPapers = collection.mutable.ListBuffer[Double]()
     metricsMapPerPaper foreach (x => recallOverAllPapers += x._2._2)
   val recAggrMetrics = findAggrMetrics(recallOverAllPapers)
-  /*println(s"Min recall over 14 papers: ${recAggrMetrics._1}")
-  println(s"Max recall over 14 papers: ${recAggrMetrics._2}")*/
   println(s"Avg recall (arithmetic mean) over 14 papers: ${recAggrMetrics._3.toString.take(5)}")
 
   val accuracyOverAllPapers = collection.mutable.ListBuffer[Double]()
     metricsMapPerPaper foreach (x => accuracyOverAllPapers += x._2._3)
   val accuracyAggrMetrics = findAggrMetrics(accuracyOverAllPapers)
-  /*println(s"Min accuracy over 14 papers: ${accuracyAggrMetrics._1}")
-  println(s"Max accuracy over 14 papers: ${accuracyAggrMetrics._2}")*/
   println(s"Avg accuracy (arithmetic mean) over 14 papers: ${accuracyAggrMetrics._3.toString.take(5)}")
 
 
   def findMetrics(truth:Array[Int], test:Array[Int]):(Double,Double,Double) = {
     val countsTest = CodeUtils.predictCounts(truth, test)
-    metricsList += countsTest
     val precision = CodeUtils.precision(countsTest)
     val recall = CodeUtils.recall(countsTest)
     val accuracy = CodeUtils.accuracy(countsTest)
     (precision,recall,accuracy)
-  }
-
-  private def printMap(list: List[Map[String,Int]]):Unit = {
-    val string = list.mkString(",")
-    println(string)
   }
 
   def readAggRowFromFile(file: String):AggregatedContextInstance = {
