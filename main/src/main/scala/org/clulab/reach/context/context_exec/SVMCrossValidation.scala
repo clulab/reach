@@ -123,16 +123,17 @@ object SVMCrossValidation extends App {
 
   }
 
-  println(giantTruthLabel.size == giantPredictedLabel.size)
+  println(s"Giant truth table size: ${giantTruthLabel.size}")
+  println(s"Giant predicted table size: ${giantPredictedLabel.size}")
 
   val metrics = findMetrics(giantTruthLabel.toArray, giantPredictedLabel.toArray)
 
   val countsTest = CodeUtils.predictCounts(giantTruthLabel.toArray, giantPredictedLabel.toArray)
 
 
-  println(s"Micro-averaged Precision: ${metrics._1.toString.take(5)}")
+  println(s"Micro-averaged Precision: ${metrics._1.toString.take(7)}")
   println(s"Micro-averaged Recall: ${metrics._2}")
-  println(s"Micro-averaged Accuracy: ${metrics._3.toString.take(5)}")
+  println(s"Micro-averaged Accuracy: ${metrics._3.toString.take(7)}")
 
 
   println("Total sample count: " + metricsMapPerPaper.size)
@@ -144,17 +145,17 @@ object SVMCrossValidation extends App {
   val precisionOverAllPapers = collection.mutable.ListBuffer[Double]()
     metricsMapPerPaper foreach (x => precisionOverAllPapers += x._2._1)
   val precAggrMetrics = findAggrMetrics(precisionOverAllPapers)
-  println(s"Avg precision (arithmetic mean) over 14 papers: ${precAggrMetrics._3.toString.take(5)}")
+  println(s"Avg precision (arithmetic mean) over 14 papers: ${precAggrMetrics._3.toString.take(7)}")
 
   val recallOverAllPapers = collection.mutable.ListBuffer[Double]()
     metricsMapPerPaper foreach (x => recallOverAllPapers += x._2._2)
   val recAggrMetrics = findAggrMetrics(recallOverAllPapers)
-  println(s"Avg recall (arithmetic mean) over 14 papers: ${recAggrMetrics._3.toString.take(5)}")
+  println(s"Avg recall (arithmetic mean) over 14 papers: ${recAggrMetrics._3.toString.take(7)}")
 
   val accuracyOverAllPapers = collection.mutable.ListBuffer[Double]()
     metricsMapPerPaper foreach (x => accuracyOverAllPapers += x._2._3)
   val accuracyAggrMetrics = findAggrMetrics(accuracyOverAllPapers)
-  println(s"Avg accuracy (arithmetic mean) over 14 papers: ${accuracyAggrMetrics._3.toString.take(5)}")
+  println(s"Avg accuracy (arithmetic mean) over 14 papers: ${accuracyAggrMetrics._3.toString.take(7)}")
 
 
   def findMetrics(truth:Array[Int], test:Array[Int]):(Double,Double,Double) = {
