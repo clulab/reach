@@ -120,6 +120,9 @@ object SVMCrossValidation extends App {
     val predictedLabels = unTrainedSVMInstance.predict(testingRows)
     for(t<- testingRows) {
 
+      //x.retain((k,v) => k > 1)
+      val zeroPred = idMap.retain((_,v) => v == t)
+      println(zeroPred)
       val indivLabel = unTrainedSVMInstance.predict(Seq(t))
       println(s"For the pair ${t.EvtID}, ${t.CtxID}, we have prediction ${indivLabel(0)}")
       giantPredictedLabel ++= indivLabel
