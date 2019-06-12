@@ -123,6 +123,8 @@ object SVMCrossValidation extends App {
 
   }
 
+  println(giantTruthLabel.size == giantPredictedLabel.size)
+
   val metrics = findMetrics(giantTruthLabel.toArray, giantPredictedLabel.toArray)
 
   val countsTest = CodeUtils.predictCounts(giantTruthLabel.toArray, giantPredictedLabel.toArray)
