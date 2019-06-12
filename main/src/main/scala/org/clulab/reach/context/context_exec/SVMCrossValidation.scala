@@ -25,6 +25,7 @@ object SVMCrossValidation extends App {
   val rowsSup = collection.mutable.ArrayBuffer[AggregatedContextInstance]()
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val metricsMapPerPaper = collection.mutable.HashMap[String,(Double, Double, Double)]()
+  val collectCountsMap = collection.mutable.ListBuffer[Map[String,Int]]()
   for(d<-directories) {
     val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
     val rows = rowFiles.map(file => {
@@ -118,7 +119,8 @@ object SVMCrossValidation extends App {
 
     val testPaperPMCID = test(0).PMCID
     val testIDReformat = s"PMC${testPaperPMCID.split("_")(0)}"
-    val metricsPerTestCase = findMetrics(testingLabels.toArray, predictedLabels)
+    val (metricsPerTestCase, countsPerTestCase) = findMetrics(testingLabels.toArray, predictedLabels)
+    collectCountsMap += countsPerTestCase
     val metricsScorePerPaperID = Map(testIDReformat -> metricsPerTestCase)
     metricsMapPerPaper ++= metricsScorePerPaperID
 
@@ -127,10 +129,12 @@ object SVMCrossValidation extends App {
   println(s"Giant truth table size: ${giantTruthLabel.size}")
   println(s"Giant predicted table size: ${giantPredictedLabel.size}")
 
-  val metrics = findMetrics(giantTruthLabel.toArray, giantPredictedLabel.toArray)
+  val (metrics, _) = findMetrics(giantTruthLabel.toArray, giantPredictedLabel.toArray)
 
-  val countsTest = CodeUtils.predictCounts(giantTruthLabel.toArray, giantPredictedLabel.toArray)
+  //val countsTest = CodeUtils.predictCounts(giantTruthLabel.toArray, giantPredictedLabel.toArray)
 
+  val countsMapToPrint = collectCountsMap.mkString(",")
+  println(countsMapToPrint)
 
   println(s"Micro-averaged Precision: ${metrics._1.toString.take(7)}")
   println(s"Micro-averaged Recall: ${metrics._2}")
@@ -159,12 +163,12 @@ object SVMCrossValidation extends App {
   println(s"Avg accuracy (arithmetic mean) over 14 papers: ${accuracyAggrMetrics._3.toString.take(7)}")
 
 
-  def findMetrics(truth:Array[Int], test:Array[Int]):(Double,Double,Double) = {
+  def findMetrics(truth:Array[Int], test:Array[Int]):((Double,Double,Double),Map[String,Int]) = {
     val countsTest = CodeUtils.predictCounts(truth, test)
     val precision = CodeUtils.precision(countsTest)
     val recall = CodeUtils.recall(countsTest)
     val accuracy = CodeUtils.accuracy(countsTest)
-    (precision,recall,accuracy)
+    ((precision,recall,accuracy), countsTest)
   }
 
   def readAggRowFromFile(file: String):AggregatedContextInstance = {
