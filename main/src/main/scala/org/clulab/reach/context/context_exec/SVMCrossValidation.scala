@@ -118,6 +118,7 @@ object SVMCrossValidation extends App {
     // check with Prof. Morrison if this kind of filtering is correct
     // leave it commented for now but uncomment the filtering code if he recommends you to.
     val predictedLabels = unTrainedSVMInstance.predict(testingRows)
+    if(test(0).PMCID == "4142739_4142739") println(predictedLabels)
     /*val predictedNonZeroLabels = predictedLabels.filter(_!=0)
     val predictedIndices = predictedNonZeroLabels.map(predictedLabels.indexOf(_))
     val trueNonZeroLabels = predictedIndices.collect{case k => testingLabels(k)}*/
@@ -153,7 +154,7 @@ object SVMCrossValidation extends App {
 
   println("Total sample count: " + metricsMapPerPaper.size)
   for((paperID, metrics) <- metricsMapPerPaper) {
-    println("Current Paper ID: " + paperID + " \t Precision: " + metrics._1.toString.take(5) + " \t Recall: " + metrics._2 + "\t Accuracy: " + metrics._3.toString.take(5))
+    println("Current Paper ID: " + paperID + " \t Precision: " + metrics._1.toString.take(7) + " \t Recall: " + metrics._2 + "\t Accuracy: " + metrics._3.toString.take(7))
   }
   writeMetricsToCSV(metricsMapPerPaper.toMap)
 
