@@ -115,6 +115,7 @@ object SVMCrossValidation extends App {
 
 
     // filtering out pairs for which the prediction was 0
+    // check with Prof. Morrison if this kind of filtering is correct
     val predictedLabels = unTrainedSVMInstance.predict(testingRows)
     val predictedNonZeroLabels = predictedLabels.filter(_!=0)
     val predictedIndices = predictedNonZeroLabels.map(predictedLabels.indexOf(_))
