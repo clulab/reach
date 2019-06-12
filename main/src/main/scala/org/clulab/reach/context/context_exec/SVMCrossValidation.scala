@@ -92,10 +92,6 @@ object SVMCrossValidation extends App {
     val (trainingRVFDataset, _) = unTrainedSVMInstance.dataConverter(trainingRows,Some(trainingLabels.toArray))
 
     unTrainedSVMInstance.fit(trainingRVFDataset)
-    giantTruthLabel ++= trainingLabels
-    val predictedLabels = unTrainedSVMInstance.predict(test)
-    giantPredictedLabel ++= predictedLabels
-
 
     // calculating precision per paper as test case.
     val testingLabelsIDs = collection.mutable.ListBuffer[(String,String,String)]()
@@ -114,6 +110,11 @@ object SVMCrossValidation extends App {
       testingRows += row
       testingLabels += label
     }
+
+    giantTruthLabel ++= testingLabels
+
+    val predictedLabels = unTrainedSVMInstance.predict(testingRows)
+    giantPredictedLabel ++= predictedLabels
 
     val testPaperPMCID = test(0).PMCID
     val testIDReformat = s"PMC${testPaperPMCID.split("_")(0)}"
