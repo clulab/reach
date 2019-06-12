@@ -112,10 +112,15 @@ object SVMCrossValidation extends App {
       testingLabels += label
     }
 
-    giantTruthLabel ++= testingLabels
 
+
+    // filtering out pairs for which the prediction was 0
     val predictedLabels = unTrainedSVMInstance.predict(testingRows)
-    giantPredictedLabel ++= predictedLabels
+    val predictedNonZeroLabels = predictedLabels.filter(_!=0)
+    val predictedIndices = predictedNonZeroLabels.map(predictedLabels.indexOf(_))
+    val trueNonZeroLabels = predictedIndices.collect{case k => testingLabels(k)}
+    giantTruthLabel ++= trueNonZeroLabels
+    giantPredictedLabel ++= predictedNonZeroLabels
 
     val testPaperPMCID = test(0).PMCID
     val testIDReformat = s"PMC${testPaperPMCID.split("_")(0)}"
