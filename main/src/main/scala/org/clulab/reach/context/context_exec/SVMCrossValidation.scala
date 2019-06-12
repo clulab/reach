@@ -119,7 +119,7 @@ object SVMCrossValidation extends App {
     // leave it commented for now but uncomment the filtering code if he recommends you to.
     val predictedLabels = unTrainedSVMInstance.predict(testingRows)
     if(test(0).PMCID == "4142739_4142739") {println(predictedLabels.mkString(","))
-    println(test.size)}
+    println(testingRows.size)}
     /*val predictedNonZeroLabels = predictedLabels.filter(_!=0)
     val predictedIndices = predictedNonZeroLabels.map(predictedLabels.indexOf(_))
     val trueNonZeroLabels = predictedIndices.collect{case k => testingLabels(k)}*/
