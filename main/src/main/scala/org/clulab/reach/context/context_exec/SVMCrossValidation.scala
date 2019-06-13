@@ -123,7 +123,7 @@ object SVMCrossValidation extends App {
     println(testingRows.size)}
 
     val nonZero = predictedLabels.filter(_==0)
-    println(nonZero.size)
+    if(nonZero.size > 0) println(test(0).PMCID)
 
     giantTruthLabel ++= testingLabels
     giantPredictedLabel ++= predictedLabels
