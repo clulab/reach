@@ -122,17 +122,6 @@ object SVMCrossValidation extends App {
     // check with Prof. Morrison if this kind of filtering is correct
     // leave it commented for now but uncomment the filtering code if he recommends you to.
     val predictedLabels = unTrainedSVMInstance.predict(testingRows)
-    for(t<- testingRows) {
-      val pred = unTrainedSVMInstance.predict(Seq(t))
-      val id = dupMap(t)
-      println(s"For the pair ${id}, we have prediction ${pred(0)}")
-    }
-
-    if(test(0).PMCID == "4142739_4142739") {println(predictedLabels.mkString(","))
-    println(testingRows.size)}
-
-    val nonZero = predictedLabels.filter(_==0)
-    if(nonZero.size > 0) println(test(0).PMCID)
 
     giantTruthLabel ++= testingLabels
     giantPredictedLabel ++= predictedLabels
@@ -147,15 +136,9 @@ object SVMCrossValidation extends App {
 
   }
 
-  println(s"Giant truth table size: ${giantTruthLabel.size}")
-  println(s"Giant predicted table size: ${giantPredictedLabel.size}")
-
   val (metrics, _) = findMetrics(giantTruthLabel.toArray, giantPredictedLabel.toArray)
 
   //val countsTest = CodeUtils.predictCounts(giantTruthLabel.toArray, giantPredictedLabel.toArray)
-
-  val countsMapToPrint = collectCountsMap.mkString(",")
-  println(countsMapToPrint)
 
   println(s"Micro-averaged Precision: ${metrics._1.toString.take(7)}")
   println(s"Micro-averaged Recall: ${metrics._2}")
