@@ -24,6 +24,7 @@ object SVMCrossValidation extends App {
   val directories = fileListUnfiltered.listFiles().filter(_.isDirectory)
   val rowsSup = collection.mutable.ArrayBuffer[AggregatedContextInstance]()
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
+  val dupMap = collection.mutable.HashMap[AggregatedContextInstance, (String,String,String)]()
   val metricsMapPerPaper = collection.mutable.HashMap[String,(Double, Double, Double)]()
   val collectCountsMap = collection.mutable.ListBuffer[Map[String,Int]]()
   for(d<-directories) {
@@ -38,6 +39,9 @@ object SVMCrossValidation extends App {
       val tuple = (pmcid,evtID,ctxID2)
       val mapEntry = Map(tuple -> row)
       idMap ++= mapEntry
+
+      val dupMapEntry = Map(row -> tuple)
+      dupMap ++= dupMapEntry
       row
     })
     rowsSup ++= rows
@@ -118,6 +122,11 @@ object SVMCrossValidation extends App {
     // check with Prof. Morrison if this kind of filtering is correct
     // leave it commented for now but uncomment the filtering code if he recommends you to.
     val predictedLabels = unTrainedSVMInstance.predict(testingRows)
+    for(t<- testingRows) {
+      val pred = unTrainedSVMInstance.predict(Seq(t))
+      val id = dupMap(t)
+      println(s"For the pair ${id}, we have prediction ${pred(0)}")
+    }
 
     if(test(0).PMCID == "4142739_4142739") {println(predictedLabels.mkString(","))
     println(testingRows.size)}
