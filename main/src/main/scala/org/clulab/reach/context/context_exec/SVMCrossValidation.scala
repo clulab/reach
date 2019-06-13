@@ -118,13 +118,12 @@ object SVMCrossValidation extends App {
     // check with Prof. Morrison if this kind of filtering is correct
     // leave it commented for now but uncomment the filtering code if he recommends you to.
     val predictedLabels = unTrainedSVMInstance.predict(testingRows)
-    for(t<- testingRows) {
-      val id = idMap.filter((t) => t._2 == t)
-      val indivLabel = unTrainedSVMInstance.predict(Seq(t))
-      println(s"For the pair ${id.mkString(",")} we have prediction ${indivLabel(0)}")
-    }
+
     if(test(0).PMCID == "4142739_4142739") {println(predictedLabels.mkString(","))
     println(testingRows.size)}
+
+    val nonZero = predictedLabels.filter(_==0)
+    println(nonZero.size)
 
     giantTruthLabel ++= testingLabels
     giantPredictedLabel ++= predictedLabels
