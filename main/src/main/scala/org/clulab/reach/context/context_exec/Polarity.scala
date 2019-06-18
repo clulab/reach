@@ -18,9 +18,8 @@ object Polarity extends App {
   printWriter.write("\n")
   val linePerRow = collection.mutable.ListBuffer[String]()
   for(pmcid<-paperList) {
-    val currentDir = new File(config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${pmcid}"))
-    val currentPolarityFile = currentDir.listFiles().filter(_.getName == "polarity.txt")
-    val lines = Source.fromFile(currentPolarityFile(0)).getLines()
+    val currentFile = new File(config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${pmcid}/polarity_output.txt"))
+    val lines = Source.fromFile(currentFile).getLines()
     linePerRow ++= lines
   }
 
