@@ -14,7 +14,7 @@ object Polarity extends App {
   if (!polarityFile.exists())
     polarityFile.createNewFile()
   val printWriter = new PrintWriter(polarityFile)
-  printWriter.write(header.mkString(","))
+  printWriter.write(header.mkString("%"))
   printWriter.write("\n")
   val linePerRow = collection.mutable.ListBuffer[String]()
   for(pmcid<-paperList) {
