@@ -145,10 +145,7 @@ object GenerateOutputFiles extends App {
         if (!polarityFile.exists())
             polarityFile.createNewFile()
         val printWriter = new PrintWriter(polarityFile)
-        val header = List("PMCID", "evtID", "ctxID", "polarity_type", "evt_sentence")
-        val headStr = header.mkString(",")
-        printWriter.write(headStr)
-        printWriter.write("\n")
+
 
         def extractEvtId(evt:BioEventMention):EventID = {
             val sentIndex = evt.sentence
