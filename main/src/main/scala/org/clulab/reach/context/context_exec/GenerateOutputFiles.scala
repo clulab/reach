@@ -136,7 +136,7 @@ object GenerateOutputFiles extends App {
         type Pair = (BioEventMention, BioTextBoundMention)
         type EventID = String
         type ContextID = (String, String)
-        val pathForPolarityOutput = outPaperDirPath.concat("/polarity_output.csv")
+        val pathForPolarityOutput = outPaperDirPath.concat("/polarity_output.txt")
         val crossProducter = new EventContextPairGenerator(mentions, contextMentions)
         val pairs = crossProducter.yieldContextEventPairs()
         val activationPapers = List("PMC2958340", "PMC2910130", "PMC4236140", "PMC4142739", "PMC4446607", "PMC4092102")
@@ -169,7 +169,7 @@ object GenerateOutputFiles extends App {
             val polarityType = if(activationPapers.contains(docId)) "activation" else if(inhibitionPapers.contains(docId)) "inhibition" else "unknown"
             perRowEntry += polarityType
             val evtSentInd = evtID.sentence
-            val evtSent = document.sentences(evtSentInd).words.mkString("%")
+            val evtSent = document.sentences(evtSentInd).words.mkString(" ")
             perRowEntry += evtSent
             val perRowString = perRowEntry.mkString(",")
             printWriter.write(perRowString)
