@@ -145,7 +145,8 @@ object GenerateOutputFiles extends App {
         if (!polarityFile.exists())
             polarityFile.createNewFile()
         val printWriter = new PrintWriter(polarityFile)
-        val header = List("PMCID", "evtID", "ctxID", "polarity_type", "evt_sentence", "ctx_sentence")
+        //val header = List("PMCID", "evtID", "ctxID", "polarity_type", "evt_sentence", "ctx_sentence")
+        val header = List("PMCID", "evtID", "ctxID", "polarity_type", "evt_sentence")
         val headStr = header.mkString(",")
         printWriter.write(headStr)
         printWriter.write("\n")
@@ -169,11 +170,11 @@ object GenerateOutputFiles extends App {
             val polarityType = if(activationPapers.contains(docId)) "activation" else if(inhibitionPapers.contains(docId)) "inhibition" else "unknown"
             perRowEntry += polarityType
             val evtSentInd = evtID.sentence
-            val evtSent = document.sentences(evtSentInd).words.mkString(" ")
+            val evtSent = document.sentences(evtSentInd).words.mkString("%")
             perRowEntry += evtSent
-            val ctxSentID = ctxID.sentence
+            /*val ctxSentID = ctxID.sentence
             val ctxSent = document.sentences(ctxSentID).words.mkString(" ")
-            perRowEntry += ctxSent
+            perRowEntry += ctxSent*/
             val perRowString = perRowEntry.mkString(",")
             printWriter.write(perRowString)
             printWriter.write("\n")
