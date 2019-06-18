@@ -168,7 +168,7 @@ object GenerateOutputFiles extends App {
             val evtSentInd = evtID.sentence
             val evtSent = document.sentences(evtSentInd).words.mkString(" ")
             perRowEntry += evtSent
-            val perRowString = perRowEntry.mkString(",")
+            val perRowString = perRowEntry.mkString("%")
             printWriter.write(perRowString)
             printWriter.write("\n")
         }
