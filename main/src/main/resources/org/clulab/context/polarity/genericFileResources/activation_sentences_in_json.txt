@@ -1,0 +1,391 @@
+The amplitude and duration of EGFR signalling to Ras and its downstream target MAPK (MAP kinase) affects cell fate; EGF stimulation of rat adrenal pheochromocytoma (PC-12) cells leads to transient Ras activation and proliferation whereas NGF stimulation results in sustained Ras-MAPK activation, exit from mitosis, and differentiation 12.
+This EGF induced differentiation of PC12 was found to be potentiated by the protein kinase inhibitor, K252a, in that PC12 cells treated with both EGF and K252a extended long branched neurites similar to those induced by nerve growth factor (NGF).
+EGF and bFGF were removed from the growth medium to induce differentiation, and the medium was supplemented with 1% fetal bovine serum (FBS).
+EGF and EGF receptor (EGFR) regulate survival, proliferation, and migration of neural precursor cells and induce their differentiation towards oligodendrocyte lineage.
+Grb2 associated binder 1 (Gab1) has been shown to mediate epidermal growth factor induced epidermal growth and differentiation via interaction with the Src homology-2-containing protein-tyrosine phosphatase (Shp2).
+The EGF induced differentiation of PC12h-R cells was not mediated by the indirect activation of p140trkA by EGF.
+Binding of EGF or of transforming growth factor-alpha (TGF-alpha) or other related factors activates the receptor and induces cell proliferation and differentiation.
+EGF is well-known to induce differentiation trophoblast cells as measured by syncytialization.
+Epidermal growth factor, which does not cause neuronal differentiation, stimulates only transient (< 1 hr) activation of p21ras and ERKs.
+EGF can promote DNA synthesis in intestinal mucosal cells and induce intestinal cell proliferation and differentiation.
+We found that the cell ELISA and cell counting assays could be used to determine the degree of PC12 cell differentiation caused by nerve growth factor, basic fibroblast growth factor and epidermal growth factor.
+However, it has been suggested that 10 ng/mL EGF alone is inadequate to produce organized epithelial differentiation.
+In our previous reports, we found that EGF can promote the differentiation of fetal bone marrow derived mesenchymal stem cells XREF_BIBR and fetal pancreatic stem cells XREF_BIBR into islet cells.
+EGF family members, including AR, induce proliferation and differentiation of normal and malignant epithelial cells, fibroblasts and keratinocytes XREF_BIBR, XREF_BIBR.
+These results indicated that 5-day administration of EGF (40 ng/mL) could induce the differentiation of Msi1 high cells in vitro.
+Neuregulin1, an epidermal growth factor family member, promotes embryonic stem cell differentiation into the cardiac lineage and improves survival in bone marrow derived mesenchymal stem cell and embryonic endothelial progenitor cells.
+Epidermal growth factor (EGF) is used in AE cell cultures to promote their growth and differentiation in vitro.
+In contrast, differentiation, induced by removal of Epidermal Growth Factor and culturing neurosphere derived cells on a laminin substrate, leads to clear nuclear expression of NeuN and suppression of nestin immunoreactivity (data not shown), suggesting that neurosphere derived cells can be committed to a neuronal lineage.
+These observations suggest that a high dose of EGF either directly or indirectly promotes cyst cell differentiation.
+It has been shown that EGF directly induces differentiation of MSCs and promotes mitosis to maintain growth and survival of synapses [XREF_BIBR].
+Our findings suggest that EGF is an important mediator in the initial activation of stromal keratocytes through stimulation of the EGF-R and that the PI-3K and Akt-1 signaling pathway plays a key role in the EGF induced keratocyte differentiation to proto-myofibroblasts, proliferation, and ECM production.
+For example, maintenance of the integrity of the Drosophila gut involves stem cell proliferation and differentiation, partially driven by local JAK and STAT, EGF, MAPK, and Wnt signaling.
+Neurotrophic cytokines, such as human epidermal growth factor (hEGF) and bovine fibroblast growth factor (bFGF) can induce differentiation into neural cells (NCs).
+We found that both 10 ng/ml EGF (0.37 +/- 0.04, p < 0.001) and 100 nM MgTx (0.20 +/- 0.02, p < 0.01) notably increased neuronal migration and differentiation (vs control, 0.13 +/- 0.02; Student 's t test at 500 mum) (XREF_FIG).
+EGF is a known inducer of differentiation in IL-3 dependent cell lines and is also involved in macrophage mediated cellular proliferation and is mitogenic for fibroblasts and smooth muscle cells.
+EGF did not promote HAECs differentiation or pluripotent genes expression.
+We conclude that EGF causes morphological differentiation, but not cell proliferation, of trophoblasts, and the differentiation results in increased hCG and hPL secretion from the syncytia.
+ErbB receptors, including the epidermal growth factor receptor (Egfr), are activated by EGF ligands to govern cell proliferation, survival, migration and differentiation.
+The arriving R1-R6 axons secrete hedgehog protein, and the EGF ligand spitz which induce neurogenesis and differentiation in the lamina ensuring that precisely the correct complement of lamina neurons is generated per ommatidium.
+EGF also promotes proliferation and neural rather than myogenic lineage determination of neural crest derived TC-1S cells, stimulates the proliferation of PC12 pheochromocytoma and neuroblastoma cells, and promotes their terminal differentiation.
+Cells were bathed in epidermal growth factor (EGF)-depleted medium to induce differentiation.
+The epidermal growth factor (EGF) signaling pathway is active in ISCs to promote GSC lineage differentiation partly by repressing dally expression.
+Both c-Met and EGF receptors cause the development of cancers by influencing their differentiation, proliferation, migration, invasion, cell cycle progression and apoptosis, etc..
+Withdrawal of EGF and FGF2 from culture medium is expected to induce differentiation of ReNcell VM, during which time the stem and progenitor cells experience significant changes in morphology, protein expression, and function to develop into terminally differentiated phenotypes.
+EGF promotes IEC proliferation and differentiation 80, IEC restitution after injury 81, and reduces IEC autophagy 82.
+Collectively, IGF, EGF and BMP-7 can function to induce the differentiation of MMSCs to epithelial cells, in addition to inhibiting fibroblast growth and promoting epithelial cell growth and proliferation.
+On the other hand, we found higher mRNA levels in EHT of proteins believed to enhance I Na function : epidermal growth factor (EGF), promoting ubiquitously growth, proliferation and differentiation 27; anchoring adaptor ankyrin-G (ANK3) 28, which is involved in ion channel trafficking to the cell membrane, and plakophilin-2 (PKP2), which is part of cytoskeleton and cell-cell contact 29.
+The regulations of NPCs ' differentiation and proliferation by the Ras-ERK pathway were also shown by the rescues of the effects of bFGF depletion, neuronal differentiation, and antiproliferation by epidermal growth factor.
+EGF and PDGF, in particular, i.e. possible interacting partners of DCN, promote cell proliferation, regulate tissue differentiation, and modulate organogenesis and have a fundamental role in testicular development.
+When confluent, differentiation was initiated by withdrawal of FGF-2, EGF and heparin.
+In a study by Garcez et al, quail trunk neural crest cells were exposed to a epidermal growth factor (EGF) and basic fibroblast growth factor (bFGF) cocktail, demonstrating for the first time that EGF induced differentiation of neural crest cells to a neuronal phenotype while bFGF induced a glial phenotype.
+At some serum concentrations, EGF (NGF) even directed differentiation (proliferation) at the single-cell level.
+For example, EGF or heregulin (HRG) induce transient vs sustained activation of ERK and proliferation vs differentiation of MCF7 breast cancer cells.
+Based on these considerations, we hypothesized that EGF treatment would promote OPC proliferation and differentiation, myelination, and clinical recovery in rabbit pups with IVH, which might be mediated by Akt-mTOR signaling.
+Differentiation of NHNP cells was induced by withdrawal of EGF and bFGF and supplementation of brain derived neurotrophic factor (BDNF).
+For example, Activin-A or TGFbeta1 mainly induces mesodermal cells, bFGF, BMP-4, EGF, or retinoic acid induces ectodermal and mesodermal differentiation, whereas NGF and HGF allow all three embryonic germ layer differentiations [XREF_BIBR].
+The results suggest that EGF promotes the differentiation of classical lactotropes in both GH3 cultures and pituitary cultures from neonatal rats, and that these cells are characterized by a high basal rate of PRL secretion.
+EGF enhances BMP9 induced osteogenic differentiation of MSCs.
+The EGF, a bioactive peptide [XREF_BIBR], stimulates epithelial proliferation and differentiation when supplied to the luminal side of the rumen via the saliva [XREF_BIBR].
+The factors of another group - retinoic acid, fibroblast growth factor (FGF) and epidermal growth factor (EGF) induce a direct differentiation of ESC to mesodermal and ectodermal cells.
+EGF induces lactotroph differentiation and targeted expression of a dominant negative EGFR in transgenic mice blocks both somatotroph and lactotroph development.
+EGF increase may potentially be triggering autocrine effects on BJ cells as well as paracrine effects on keratinocytes, by modulating epidermal proliferation and differentiation [XREF_BIBR], also emphasising the importance of the EGF effect in the wound closure of wound healing [XREF_BIBR, XREF_BIBR].
+Aspartyl (asparaginyl)-beta-hydroxylase (AAH) hydroxylates Asp and Asn residues within EGF like domains of Notch and Jagged, which mediate cell motility and differentiation.
+Based on these observations, we hypothesized that the presence of EGF and bFGF would enhance the proliferation and differentiation potential of cryopreserved hASCs.
+XREF_BIBR EGF also promotes cell survival, angiogenesis, and differentiation.
+In this study, we show that treatment of SFME cells with bone morphogenetic protein-4 (BMP-4), another member of the TGF-beta family, led to differentiation toward a neuronal lineage under conditions of low mitogenic stimulation (0.5 ng/mL) by EGF and fibroblast growth factor.
+Epidermal growth factor (EGF) is present at high concentrations in human saliva and modulates the growth and differentiation of various cancer cells.
+We have previously demonstrated that the FGF2 promotes the differentiation of NC cells to glial phenotypes, while the epidermal growth factor induces NC differentiation to neurons and melanocytes.
+Epidermal growth factor (EGF) has been shown to enhance cell multiplication or differentiation in a number of developing tissues.
+In this regard, recent studies show that an additional member of the EGF like factor family, neuregulin 1 (NRG1) Type III transcript is induced in granulosa cells of preovulatory follicles and acts coordinately with AREG and EREG to enhance granulosa cell differentiation and oocyte maturation and development.
+Results showed that EGF increased overall renal growth and specific differentiation of distal elements, but retarded differentiation of glomeruli and proximal tubules.
+The EGF stimulates complex signalling networks to promote proliferation, differentiation, migration or survival in a context dependent manner.
+Upon PDGFaa withdrawal, EGF promoted the terminal differentiation of OPCs by reducing apoptosis and increasing the number of mature OLs.
+EGF also caused SVZ cell emigration to the cerebral cortex, striatum, corpus callosum, and septum, and subsequent differentiation into astrocytes and oligodendrocytes.
+Ligand (epidermal growth factor or EGF) binding to the EGFR results in the coordinated activation and integration of biochemical signaling events to mediate cell growth, migration, and differentiation.
+EGF enhances cellular proliferation and differentiation of epidermal and epithelial cells, fibroblasts, and cartilage and bone derived cells during growth, maturation and healing [XREF_BIBR - XREF_BIBR].
+The JAK-STAT and the EGF (Epidermal growth factor) pathways are necessary to stimulate proliferation and differentiation of intestinal stem cells (ISCs) and thereby maintaining midgut epithelial homeostasis and regeneration [XREF_BIBR, XREF_BIBR].
+In this study, EGF has been shown to stimulate spermatogonial proliferation, but not their differentiation into spermatocytes, in newt testis harboring germ cells enclosed in cysts with the blood-testis barrier consisting of Sertoli cells.
+Neither forskolin nor epidermal growth factor can stimulate differentiation, yet both activate MAP kinase in these cells.
+The duration of Epidermal Growth Factor (EGF) stimulation modulates ERK dynamics and controls differentiation.
+Proliferation and differentiation responses of receptor expressing bone marrow cells stimulated by epidermal growth factor were measured.
+Interestingly, canine SGCs also reacted to supplementation with EGF, which stimulates proliferation, survival, migration and differentiation into the oligodendrocyte lineage 62.
+Although EGF alone, unlike NGF, did not cause morphological differentiation or prevent cell death, synergy between a cAMP mediated signal transduction pathway and a pathway activated by the EGF receptor tyrosine kinase resulted in the same irreversible differentiation.
+After 10 days in culture, EGF was withdrawn to induce differentiation.
+Here we report that at high concentrations, EGF can induce cell growth and differentiation in the absence of ErbB-1.
+In a lysolecithin induced demyelination model, intraventricular infusion of epidermal growth factor dramatically promoted proliferation, migration and differentiation of SVZ NSPCs into OLs XREF_BIBR.
+Hepatocyte growth factor, epidermal growth factor and oncostatin M did not further enhance hepatocytic differentiation.
+Epithelial cell attachment, DNA synthesis and differentiation are greatly stimulated by the presence of EGF and by an extracellular matrix (ECM) substratum.
+Although EGF is not sufficient to drive differentiation of PC12 cells on its own, in combination with exogenous mPea3 it was seen to enhance long axonal projections.
+EGF stimulates cellular growth and differentiation and inhibits gastric acid secretion.
+It is notable that the alteration of pERK in cells before and after the treatment with the inhibitors is so significant that no EGF stimulation is required to augment the differentiation.
+The epidermal growth factor (EGF) introduced in the culture at the rate of 2 ng/ml is able to promote differentiation of neurons from bone marrow mesenchymal stem cells in 27 days of cultivation.
+EGF can induce several types of mesenchymal stem cell (MSC) differentiation into epidermal lineage cells, maintain proliferation potency of epithelial cells, and accelerate skin wound healing.
+Barnes suggested that EGF may induce A431 cell differentiation [XREF_BIBR].
+Our data show that EGF contributes to differentiation and migration of myofibroblasts induced by TGF-beta1 through EGF-R activation and is an important modulator of wound healing and scar tissue formation.
+Taken together, these data suggest that EGF acts in a dose dependent manner to induce the proliferation of SVZ progenitors and their differentiation towards a glial lineage.
+First, smoking induces AREG expression as a result of EGF driven squamous differentiation of airway BC.
+Theoretically, high EGFR expression in SCC is expected because EGF promotes the proliferation and differentiation of epidermal like tissues.
+In the adult VZ-SVZ, intracerebral administration of EGF induces strong cell proliferation and migration and drives differentiation into oligodendrocyte lineage.
+Although proliferative effects can also be observed in vivo, intracerebroventricular infusion of EGF has been found to counteract neuronal determination and promote glial differentiation instead.
+EGF stimulates the growth, proliferation, differentiation, and survival of diverse cell types and facilitates cellular migration.
+We observed that low concentrations of bFGF and EGF in the culturing system were able to induce forebrain identity of the neural rosettes and promote subsequent cortical neuronal differentiation.
+EGF and LY294002 had an additive or synergistic effect on the inhibition of DIP induced mammary epithelial cell differentiation.
+ErbB receptor ligands, epidermal growth factor (EGF) and heregulin (HRG), induce dose dependent transient and sustained intracellular signaling, proliferation, and differentiation of MCF-7 breast cancer cells, respectively.
+These in vitro results strongly suggest that EGF signalling may synergize with BMP9 induced osteogenic signalling, although EGF signalling alone is seemingly insufficient to initiate osteogenic differentiation of MSCs.
+EGF stimulation or microinjection of differentiation inducing c-Crk I protein does not cause lamellipodia.
+There are no reports showing that EGF alone in the absence of osteogenic chemical cues promotes osteogenic differentiation of MSCs.
+We also found that epidermal growth factor enhances the efficiency of differentiation and that Sonic hedgehog is an important factor of the CM that influences sweat gland differentiation.
+Whether EGF receptors primarily mediate cell division or differentiation in hyperproliferative disease such as psoriasis vulgaris is unclear.
+Two ligands, EGF and HRG, activate ErbB family receptors to produce distinct cell fates (cell differentiation and cell proliferation, respectively) by provoking different signal durations which leads to the ligand specific biphasic production of c-Fos proteins after 20 min.
+In the organ culture of cryptorchid testis from adult mice, EGF induces differentiation of type A spermatogonia to type B spermatogonia and primary spermatocytes, but inhibits the mitotic and differentiating activity stimulated by FSH [XREF_BIBR].
+Activation of EGF signaling ensures encapsulation of germ cells by the cyst cell and promotes germ cell differentiation [XREF_BIBR, XREF_BIBR, XREF_BIBR, XREF_BIBR, XREF_BIBR, XREF_BIBR, XREF_BIBR, XREF_BIBR, XREF_BIBR].
+Early studies of salivary diagnostics for breast cancer assessed the use of proteins, including c-erbB-2 (human epidermal growth factor receptor 2, a receptor tyrosine kinase involved in cell growth), VEGF (vascular endothelial growth factor, a signal protein involved in vasculogenesis and angiogenesis), EGF (epidermal growth factor, which promotes cell growth, division and differentiation), and CEA (carcinoembryonic antigen, a glycoprotein tumor marker involved in cell adhesion) [XREF_BIBR - XREF_BIBR].
+The combination of EGF and TGF-beta 1 increased the differentiation rates significantly.
+Other ligands of tyrosine kinase receptors, such as fibroblast growth factor, which causes morphological differentiation, or epidermal growth factor, which induces cell growth, also increase APP mRNA levels in PC12 cells.
+In addition, macrophages produce cytokines and growth factors, such as IL-1, IL-6, TNF-alpha, TGFalpha, PDGF, VEGF and EGF, that stimulate proliferation, migration or differentiation of fibroblasts, keratinocytes and endothelial cells, and ultimately stimulate ECM deposition, re-epithelialization and neovascularization.
+Although the growth of the rat phaeochromocytoma cell line PC12 is stimulated by diffusible EGF, and differentiation is stimulated by diffusible nerve growth factor (NGF), immobilized (non diffusible) EGF stimulated PC12 differentiation.
+While bFGF, EGF, and BDNF all can induce the differentiation of NSCs into hair like cells, the synergies of bFGF+ EGF and bFGF+ EGF+BDNF are the best.
+Epidermal growth factor (EGF) and transforming growth factor-alpha (TGF-alpha) promote the differentiation and proliferation of epithelia as well as the proliferation and chemotaxis of fibroblasts.
+However, many studies reported that some growth factors such as BMP-2 [XREF_BIBR, XREF_BIBR], BMP-9 [XREF_BIBR], epidermal growth factor (EGF) [XREF_BIBR], growth and differentiation factor-5 (GDF-5) [XREF_BIBR] and basic fibroblast growth factor (bFGF) [XREF_BIBR, XREF_BIBR, XREF_BIBR], could promote osteogenic differentiation of MSCs as well as secretion of angiogenic factors by inducing both osteogenic and angiogenic signaling pathways without osteogenic induction medium.
+Marked induction of c-fos mRNA in astrocytes was observed after treatment with epidermal growth factor (EGF), basic fibroblast growth factor (bFGF), dibutyryl cyclic AMP (db-cAMP), and phorbol diester (TPA; 12-O-tetra-decanoylphorbol 13-acetate), which are known to induce the proliferation or differentiation of astrocytes.
+They produce a different growth pattern, and EGF fails to promote differentiation of the resultant daughter cells.
+We have previously shown that autocrine activation of epidermal growth factor (EGF) receptor interferes with normal PRL induced differentiation.
+Moreover, the expression of DNRasN17 prevented the block to lactogenic differentiation induced by EGF.
+In contrast, addition of 50 ng/ml (83 nM) EGF with media changes every 4 days and 5 ng/ml EGF (8.3 nM) were observed to increase osteogenic differentiation.
+Our experiments demonstrate that differentiated cells expressed increased immunoreactivities for neuronal marker MAP-2 and glial marker GFAP as well as the increased mRNA expression of these markers compared to undifferentiated stem cells; indicating that both ADSCs and BMSCs differentiate into neural cells through B 27, b-FGF and EGF mediated differentiation.
+The opposing cell-fate decisions caused by EGF and HRG (proliferation versus differentiation) should be underlined by distinct gene expression patterns.
+In this study, we investigated the effect of EGF on Wnt and beta-catenin signaling induced osteoblast differentiation using the C2C12 cell line.
+Since EGF is mitogenic for PC12 cells and differentiation may not occur until proliferation is inhibited, differentiation caused by cAMP and EGF may be due to the antiproliferative activity of cAMP.
+In contrast to their positive effects on growth, only EGF, not bFGF, stimulated stromal cell differentiation, as measured by an increase in PRL, laminin, and fibronectin production; moreover, stimulation of differentiation was dependent upon the presence of progestin in the culture medium.
+We further observed that simultaneous over-expression of EGF and EGFR promoted germline differentiation, while high levels of either EGF or EGFR alone had no effect on germline development.
+They initially encapsulated adipose derived stem cells in fibrin hydrogels and applied epidermal growth factor (EGF) which led to the differentiation of ASCs into epithelial cells near the air surface interface with the majority of mensenchymal cells remaining undifferentiated within the bulk matrix.
+In the present study, we have used combined biochemical and morphological approaches to study the ability of a number of GFs normally expressed during brain development, including basic fibroblast growth factor (bFGF), epidermal growth factor (EGF), insulin and insulin like growth factor I (IGF-I) to induce survival, differentiation, proliferation, and phenotypic expression of immortalized (GT1-1) LHRH neurones in vitro, at early (3-days in vitro, 3-DIV) and late (8-DIV) stages of neuronal differentiation.
+Epidermal growth factor enhances proliferation and differentiation of cells during growth, maturation, and tissue healing.
+EGF modulates the growth and differentiation of various cancer cells, as well as normal epithelial cells, and is excreted through human saliva [XREF_BIBR, XREF_BIBR].
+At the same concentration, the conjugate also inhibits both MAP kinase activation induced by nerve growth factor or epidermal growth factor in PC12 cells, and differentiation triggered by nerve growth factor.
+The differentiation of mouse embryonic stem cells (ESCs) was induced by depletion of fibroblast growth factor 2 (FGF2) and epidermal growth factor (EGF), either with or without ATP addition.
+This study was aimed at testing the hypothesis that epidermal growth factor (EGF) can modulate the gonadotropin dependent differentiation of theca-interstitial cells in vitro.
+More importantly, the immortalized hepatic progenitor cells retain the differentiation potential upon proper differentiation stimuli, such as Wnt signaling, dexamethasone, retinoic acids, or EGF.
+The epidermal growth factor (EGF) pathway stimulates proliferation and differentiation of epidermal and epithelial tissues, and plays an important role in tumorigenesis.
+Epidermal growth factor (EGF) signaling, which promotes gonialblast differentiation and enclosure of germ cells by somatic cyst cells in the testis, also affects the frequency of GSC divisions.
+These results emphasize that EGF and EGFR may promote both the proliferation and the differentiation of human pancreatic carcinoma cells, as in other sites.
+XREF_BIBR Based on the findings that epidermal growth factor (EGF), FGF-2, and BDNF augment the proliferation of NSCs and their differentiation to mature neurons in the brain, XREF_BIBR XREF_BIBR XREF_BIBR it was thought that ischemia could transiently increase the expression of neurotrophic factors in the brain and then induce neurogenesis via the activation of endogenous NSCs.
+The results indicate that EGF and PTH receptors are localized over specific types within the heterogeneous population of UMR 106 cells and suggest that EGF may reduce PTH action in these cultures by enhancing the proliferation of progenitor cells lacking PTH receptors and reducing differentiation in this cell population, which leads to PTH receptor enriched target cells.
+Here, we report that addition of a combination of EGF, fibroblast growth factor-10, and platelet derived growth factor-AA to the explant cultures promotes ductal differentiation, while preventing endocrine and acinar differentiation.
+The present study examines how the mitogenic and differentiation functions of transforming growth factor-beta (TGF-beta) are modulated by basic fibroblast growth factor (bFGF) and epidermal growth factor (EGF) in primary cultures of rat osteoblast like (ROB) cells.
+The model suggests that depending on the serum concentration, EGF (NGF) even directs differentiation (proliferation) at the single-cell level.
+In particular, EGF induces stem cell differentiation, whereas BMP4 and TGFB2 induce quiescence XREF_BIBR.
+We found that the addition of GDNF, NGF, EGF, and NT-3 to in vitro cultures of MASCs increased migration and differentiation toward neuronal phenotypes.
+The foregoing facts could be due to MSCs secreting trophic factors such as EGF, KGF, IGF-1, and bFGF that are particularly related to increased dermal fibroblast migration and proliferation and stimulate keratinocyte proliferation and differentiation.
+Epidermal growth factor can enhance differentiation of MSCs and soluble EGF was proved to increase MSC proliferation, while preserves early progenitors within MSC population, which therefore can not induce the cell differentiation 42.
+Binding of EGF or of transforming growth factor alpha or other associated factors activates the receptor and induces cell proliferation and differentiation.
+Besides their growth stimulatory effects, EGF, TGF and FGF signaling also induces cell differentiation in mammary epithelial cells and a down regulation of these pathways and associated proteins has been described before [XREF_BIBR, XREF_BIBR - XREF_BIBR].
+In PC12, increased amplitude and duration of ERK activation by EGF lead to differentiation instead of cell proliferation.
+To test this, basic fibroblast growth factor (bFGF) and epidermal growth factor (EGF) were withdrawn from the culture medium to induce differentiation of NPCs in a neurosphere culture.
+Epidermal growth factor (EGF), basic fibroblast growth factor (bFGF), insulin growth factor-I (IGF-I) and insulin (INS) induce neuronal and astroglial cell proliferation and differentiation.
+Epidermal growth factor, basic fibroblast growth factor, or hepatocyte growth factor could trigger the hepatocytic differentiation of sorted Thy1 (+) cells to form epithelial cell colonies, and the combination of the factors stimulated the emergence and expansion of the colonies.
+Furthermore, the addition of EGF to cultured SVZ derived type B NSCs induced their differentiation into highly migratory Olig2 +/NG2 cells, but these cells differentiated into S100beta + / O4 + oligodendrocytes only after EGF withdrawal [XREF_BIBR].
+Unlike nerve growth factor (NGF), epidermal growth factor (EGF) does not induce neuronal differentiation but promotes proliferation of the rat pheochromocytoma PC12 cells.
+EGF is well known to stimulate cell proliferation and differentiation in a variety of tissues.
+Furthermore, the ability of tethered EGF to restricted signaling to the cell surface promoted osteogenic differentiation of multipotent marrow stromal cells.
+Kratchmarova and her colleagues showed that EGF stimulation enhances osteogenic differentiation of human MSCs in the presence of chemical cues, whereas PDGF does not [XREF_BIBR].
+EGF induced regulation of stromal cells may also affect T-cell differentiation, as we observed that an EGF-pretreatment reduces the ability of thymic epithelial cells to sustain thymocyte differentiation in vitro.
+EGF at 10 nM stimulates a twofold increase both in cornified envelope formation and in epidermal transglutaminase activity, suggesting that high concentrations of EGF induce terminal differentiation in A431 cells.
+Two R-cell axon derived anterograde signals, Hedgehog (Hh) and the epidermal growth factor (EGF) homolog Spitz, promote the final division of LPCs and the generation and differentiation of lamina neurons, respectively.
+Since BMPs play a critical role in the mineralization process [XREF_BIBR, XREF_BIBR], one can predict that the supernatant cell culture of EGF treated cells could promote osteogenic differentiation more efficiently.
+In particular, the Delta and Notch like epidermal growth factor related receptor (DNER) can be induced by histone deacetylase inhibition to inhibit the growth of and induce the differentiation of Glioblastoma neurospheres and xenografts [XREF_BIBR].
+EGF and FGF are widely confirmed to promote ADSCs cell proliferation and epithelial differentiation [XREF_BIBR].
+EGF induced differentiation is a prerequisite for function of various cell types, among them cytotrophoblasts, a functionally important cellular fraction in human placenta.
+In general, mouse studies have indicated that EGF infusion can promote proliferation, migration and at least some neuronal differentiation while rat studies have shown proliferation, some migration and differentiation into glial cells, if they are found to differentiate at all.
+EGF stimulated differentiation into a proto-myofibroblasts phenotype with loss of dendritic shape and expression of alpha-SMA.
+In addition, EGF has been also shown to induce differentiation of cochlear hair cells from dividing progenitor cells from the embryonic developmental stage E13.5 which were directly isolated and plated as epithelial island without going through sphere formation XREF_BIBR.
+Where indicated, differentiation of HC11 stable cell lines was induced by culturing confluent cells in FBS and EGF free culture media.
+Human epidermal growth factor (hEGF) stimulates the growth and differentiation of various tissues.
+EGF promotes the proliferation and differentiation of mesenchymal and epithelial cells.
+EGF promotes cell growth, differentiation, and division, and quickly repairs damage in epithelial tissues [XREF_BIBR].
+In addition, HGF and epidermal growth factor (EGF) can induce hepatic progenitor cell proliferation and differentiation [XREF_BIBR] and VEGF increases angiogenesis, an important event for liver regeneration [XREF_BIBR].
+In vivo administration of EGF and the EGF-R ligand TGFalpha induce the expansion and differentiation of CNS neural progenitor cells.
+Epidermal growth factor (EGF) stimulates the mitosis and differentiation of a variety of cellular types.
+The inclusion of this growth factor, however, may be detrimental for neuronal progenitor production since stimulation of EGF receptors promotes glial progenitor proliferation and differentiation in the SVZ.
+Simultaneous administration of EGF and IGF-1 further enhanced differentiation of rhodopsin-immunoreactive cells, although the mechanism of the synergistic effect is unknown.
+Although the growth factor effects predominated (e.g., EGF induced maintenance of NSCs and NGF induced neural differentiation), the ECM also played a role, as illustrated by much less extensive NT-3-induced neural and CNTF induced astroglial differentiation on laminin vs. fibronectin [XREF_BIBR].
+In this study, the hepatocyte growth factor (HGF) and epidermal growth factor (EGF) were used to induce differentiation of mouse embryonic stem (ES) cells into hepatic oval cells.
+EGF inhibits apoptosis of trophoblasts and promotes their differentiation and invasion [XREF_BIBR - XREF_BIBR].
+EGFR tyrosine kinase inhibition was shown to inhibit EGF induced rat lactotroph differentiation and tumor growth, indicating a role for EGFR signaling in prolactinoma regulation.
+Although epidermal growth factor- (EGF) and NGF treated PC12 cells share several common properties, including activation of the mitogen activated protein (MAP) kinase pathway and induction of immediate early genes, EGF is mitogenic for PC12 cells and does not normally stimulate differentiation.
+However, the tethered form of EGF was shown to promote osteogenic differentiation.
+Thus, although EGF in the presence of KCl or cAMP is sufficient to induce morphological differentiation as defined by neurite outgrowth, synergism of the Ras and ERK and cAMP and PKA signaling pathways is not sufficient to promote the fully physiologically differentiated PC12 phenotype.
+We hypothesized that non viral transfection of a BMP-6 construct (pcDNA3-BMP6) would induce chondrogenic differentiation of ASCs encapsulated in alginate beads and that differentiation would be enhanced by the presence of the synthetic glucocorticoid dexamethasone (DEX) or the combination of epidermal growth factor (EGF), fibroblast growth factor-2 (FGF-2), and transforming growth factor beta-1 (TGF-beta1), collectively termed expansion factors (EFs).
+In this case, the EGF treatment of PC-12 neural precursors drives a transient ERK activation, which induces cell proliferation, whereas the NGF stimulus triggers a sustained ERK response, culminating in differentiation.
+Collectively, these data demonstrate that Srcasm plays a role in linking EGF receptor- and SFK dependent signaling to differentiation in keratinocytes.
+Therefore, EGF and Wnt3A treatment might have increased the enterocyte differentiation efficiency by enhancing the proliferation of human iPS derived intestinal stem and progenitor cells.
+Since EGF stimulation of these cells drives osteoblast differentiation, the authors hypothesized that PDGFR associated PI3K activation could be key to controlling biological response to differential growth factor stimulation.
+For example, in PC12 cells, stimulation of the endogenous EGF receptor leads to transient activation of ERK1/2 without differentiation, while overexpression of EGF leads to EGF dependent differentiation and sustained activation of ERKs [XREF_BIBR].
+Because epidermal growth factor (EGF) signaling is also known to induce mesodermal differentiation in human ES cells, the acquisition of a mesodermal fate by HCB treated mouse ES cells may also be due to the HCB dependent stimulation of EGFR trans-activation observed in cultured mammalian cells [XREF_BIBR].
+The molecular mechanisms underlying the promotion of differentiation by EGF, SB431542, and Wnt3A should be further examined in the future.
+The historically probed conundrum of neuronal development is how two different growth factors (NGF and epidermal growth factor (EGF)), which both activate the MAPK signaling cascade, could induce the opposing cellular responses of differentiation and proliferation, respectively.
+Moreover, a pulse of 2-hour EGF stimulation was sufficient to induce neuronal differentiation.
+Epidermal growth factor (EGF) stimulates cell growth, proliferation and differentiation.
+EGF enhances proliferation and differentiation of epithelial cells in the GI tract and has significant effects on healing of damaged mucosa after injury.
+EGF strongly stimulates proliferation, survival, migration and differentiation into the oligodendrocyte lineage.
+The existence of negative feedback and lowering of Smad4 amplitude upon rapid stimulation also suggests that the system works in a band-pass manner similar to GPCR mediated NFAT translocation 13 and EGF mediated differentiation 14.
+Furthermore, EGF is shown to significantly promote the proliferation and differentiation of the implanted iHPCs.
+EGF and bFGF added to medium promoted neural lineage differentiation and impaired the mesodermal differentiation ability of ASCs.
+For example, while exposure of human mesenchymal stem cells (hMSCs) to either EGF or PDGF leads to equivalent levels of MAP kinase enrichment in phosphotyrosine containing complexes, EGF induces MAP kinase dependent differentiation to bone cells, whereas PDGF does not [XREF_BIBR, XREF_BIBR].
+Epidermal growth factor (EGF) stimulates proliferation and differentiation in a wide range of cell types through its corresponding receptor, EGFR.
+Especially, as factors resulting in stimulating loss of AP activity in the pSSCs, bFGF, and EGF included in pSSCCM can be considered, supported by the previous reports that bFGF and/or EGF induce differentiation of stem cells in the extracellular signal-free niche.
+Among the important soluble mediators are epidermal growth factor (EGF), which is known to stimulate the proliferation and differentiation of a variety of transformed and benign tissues.
+In the organ culture, EGF stimulated spermatogonial proliferation, but not their differentiation into spermatocytes.
+Intact association between Sprouty2, Cbl and CIN85 is required for inhibition of EGFR endocytosis as well as EGF induced differentiation of PC12 cells.
+Our results showed that the combination of bFGF and EGF significantly enhanced the proliferation and differentiation of postnatal hENSCs containing enteric neurosphere cells in vitro.
+Our studies have demonstrated that neural epidermal growth factor like (NEL)-like protein 1 (NELL-1) is highly specific to the osteochondral lineage and induces MSC osteogenic differentiation both in vitro and in vivo [XREF_BIBR].
+EGF is well known to activate signaling pathways, such as ERK1/2 and PI3K-Akt, to regulate cell proliferation, survival and differentiation in various tumor cell models.
+EGF induced differentiation of PC12 required RNA synthesis and activity of the ras proto-oncogene product.
+EGF induced adipose tissue mesothelial cells undergo functional vascular smooth muscle differentiation.
+Although earlier studies have indicated that a lack of EGF in the culture environment drives the differentiation process [XREF_BIBR], there are some others which have suggested a role for EGF and its family members in establishing islet architecture [XREF_BIBR].
+Neuronal differentiation was induced by withdrawal of EGF and FGF2 and exposure to brain derived neurotrophic factor (BDNF) and ascorbic acid (AA) for three weeks which resulted in a high yield (> 90%) of NeuN +/Tuj1+ neurons.
+We found that the differentiation of human mesenchymal stem cells into bone forming cells is stimulated by epidermal growth factor (EGF) but not platelet derived growth factor (PDGF).
+We have previously reported that the combination of BMP-4, FGF7, FGF10, and EGF (BFFE) induces the differentiation of TC-1 mESCs into TEPs 20, 21.
+Since initial studies showed that EGF in the soluble state did not cause differentiation of MSCs but enhanced expansion, it was hypothesized that soluble EGF would similarly enhance survival of MSCs subjected to prodeath cytokines such as FasL and TRAIL in vitro.
+In conclusion, growth and functional differentiation of fetal primate adrenal gland can be accelerated prematurely by EGF and inhibited by glucocorticoid negative feedback.
+This EGF like molecule induces cell differentiation and proliferation and contributes to wound healing and tissue repair following infection or injury 29.
+Cell proliferation, maturation, and differentiation were modulated by EGF and CT : cultures maintained on EGF showed optimal growth but cells typically displayed only limited differentiation.
+Implantation of EGF pellets supports normal mammary gland differentiation in ovariectomized mice, as demonstrated by the development of terminal end buds XREF_BIBR.
+In C. elegans, LIN-3 and EGF activates LET-60 and Ras and MPK-1 and ERK to promote vulval differentiation through the modulation of multiple transcription factors [XREF_BIBR].
+In hypoxic fibroblasts cultured in high glucose, overexpression of GLO1 prevented reduced expression of both the EPC mobilizing chemokine stromal cell derived factor-1 (SDF-1) and of vascular epidermal growth factor, which modulates growth and differentiation of recruited EPCs.
+XREF_BIBR - XREF_BIBR EGFRs are expressed in podocytes XREF_BIBR - XREF_BIBR and EGF seems to trigger the proliferation and differentiation of podocyte precursor cells in isolated glomeruli.
+To test what effect EGF has on TGF-beta1-induced differentiation, RCK cultures were treated with EGF (50 ng/ml), TGF-beta1 (10 ng/ml) or a combination of both growth factors for 7 days, and the expression of alpha-SMA and FN were analyzed by immunofluorescence and Western blot.
+Epidermal Growth Factor Modulates Fetal Thymocyte Growth and Differentiation.
+Thus, EGF induced differentiation of airway BC toward the squamous phenotype generates AREG producing cells.
+Importantly, we found significantly higher activity of all four caspases in trophoblasts cultured 24 h compared with cells cultured 72 h. Colchicine and DMSO, which hinder trophoblast differentiation, enhanced the activity of all four caspases in cells cultured 72 h. Conversely, caspase activity was reduced in trophoblasts cultured for 24 h in the presence of epidermal growth factor, which enhances differentiation.
+After 4 days of differentiation, MC3T3 cells were treated with EGF for various times and doses.
+Epidermal growth factor (EGF) and NGF both activate ERK and p38 in PC12 cells, but only NGF trigger differentiation.
+XREF_BIBR Since no organized alpha-SMA stress fibers were found in the EGF treated cells, we conclude that EGF is not sufficient to induce keratocyte differentiation to myofibroblasts, requiring other mediators to cooperate in completion of cell differentiation.
+Our results suggest that high concentrations of EGF promote PSC differentiation into islet like clusters.
+EGF is a potent activator of cell growth, proliferation and differentiation, and EGF receptors are highly expressed in adipose and muscle tissues [XREF_BIBR].
+Here, we report that MBG grafted with an amino group (MBG-NH 2) and MBG-NH 2 adsorbed epidermal growth factor (EGF) (MBG-NH 2 / EGF) sustained-release EGF, and MBG-NH2 and EGF could accelerate osteoblast differentiation and mineralization in MC3T3-E1 cells.
+Mild EGF noise induces ectopic neuroblast differentiation in the previous mathematical model.
+Thus, we proceeded to assess differentiation induced by EGF and FGF2 withdrawal using both immunofluorescence and western blot analysis.
+For example, in a study to investigate the effect of microenvironmental factors on quail trunk neural crest (NC) stem cell development, EGF was found to induce differentiation of NC to neuronal and melanocytic phenotypes (neurogenesis and melanogenesis), while fibroblast growth factor 2 (FGF2) promoted NC differentiation to Schwann cells (gliogenesis).
+Overall, our results show that EGF signalling activation potentiates the vasculogenic differentiation of serum cultured ATMCs, leading to their transdifferentiation towards functional VSMC like cells.
+Previous work XREF_BIBR revealed that EGF triggered neuronal differentiation of PC12 cells when EGF receptors were overexpressed.
+Future studies will explore any further protection of beta cells gained from attachment of LIF-nanoparticles, or of compound LIF and EGF-nanoparticles, to the pegylated drape, given that LIF is known to support beta cells whilst LIF plus EGF synergise in pancreatic beta cell differentiation XREF_BIBR.
+As is well known, EGF contributes to cell growth, proliferation and differentiation by binding to its receptor, EGF-R, a tyrosine kinase that initiates a signal transduction cascade that also promotes motility and invasiveness of cancer cells XREF_BIBR; XREF_BIBR; XREF_BIBR; XREF_BIBR.
+EGF promotes cellular survival, differentiation, and proliferation.
+A combination of growth factors, HGF, EGF, Oncostatin and Dexamethasone administered over one week was used to induce hepatic differentiation for mouse hepatoblasts [XREF_BIBR].
+EGF stimulates the proliferation and differentiation of all types of epithelial cells and promotes wound repair.
+Withdrawal of bFGF and EGF and change into tri-lineage differentiation medium induced the differentiation of iNSCs.
+However, co-injection of sFRP-3 and EGF mRNAs caused a recover of the chevron like organization of the trunk and tail skeletal muscle and fully restored parietal muscles differentiation (XREF_FIG).
+Other immune factors present in human milk, including cytokines, chemokines, and growth factors [e.g., IL6, IL7, IL10, epidermal growth factor (EGF), TGFbeta], contribute to differentiation of IgA producing cells, playing a pivotal role in the maturation of the infant GI associated immune system and in protecting the newborn against infectious diseases.
+As a single-chain polypeptide of 53 amino acid residues, epidermal growth factor (EGF) could stimulate cell growth, proliferation and differentiation through autocrine, paracrine and endocrine mechanisms.
+Differentiation was induced by withdrawal of bFGF, EGF, and 4-hydroxytamoxifen (4-OHT).
+Stimulation of growth and differentiation of human epidermis by epidermal growth factor (EGF) is mediated by its binding to specific receptors.
+EGF is able to enhance neuron differentiation and maturation [XREF_BIBR], and midkine (MDK) is known to be involved in neuronal precursor cell growth [XREF_BIBR].
+To identify genes mediating EGF induced differentiation, we constructed a subtracted cDNA library between undifferentiated cytotrophoblast and differentiating cytotrophoblast.
+Addition of a TGFb-inhibitor (A8301), the Notch inhibitor DBZ and subsequently FGF7 and EGF promoted differentiation into 10-15% ductal cells expressing carbonic anhydrase II and up to 1% cells expressing carboxypeptidase 1, likely acinar cells though this is also a progenitor marker in the mouse pancreas [XREF_BIBR].
+Epidermal growth factor is a low molecular weight polypeptide with 53 amino acids and is known to stimulate cell proliferation and differentiation in a wide range of tissues.
+Removal of the mitogen EGF from the incubation medium induces cell differentiation of NPCs, with the appearance of neuroblasts and glial cells, such as astrocytes and oligodendrocytes XREF_BIBR, XREF_BIBR, XREF_BIBR.
+EGF activated the ET-R kinase and induced partial differentiation.
+As a matter of fact, EGF treatment alone promotes the differentiation of both GRP cells and OPCs in culture.
+Here we report that basic and acidic fibroblast growth factor (FGF) and epidermal growth factor, but not nerve growth factor, synergistically potentiate phorbolester induced differentiation.
+Relevantly, it has been demonstrated already that failure in differentiation leads to cell death in other paradigms such as in EGF induced differentiation of somato-lactotrope precursors into PRL secreting lactotrope cells or in erythropoietin induced differentiation of hematopoietic lineage.
+We have demonstrated that synergisms exist between EGF and TGF-beta1 which increase differentiation and migration of myofibroblasts.
+As EGF is known to stimulate keratinocyte growth and differentiation, we also measured the keratinocyte proliferation in the skin tissues.
+Epidermal growth factor (EGF) and other growth factors could promote keratinocyte growth, differentiation and migration [XREF_BIBR, XREF_BIBR].
+In addition to the previously reported requirement for EGF signaling in cyst formation, a low dose of EGF signaling is required for the progression of the germline cells through transit amplifying divisions, and a high dose of EGF signaling promotes terminal differentiation.
+Our results show that EGFR homodimers mediate action of EGF at high abundance, but at low abundance, EGF promotes differentiation through EGFR and EB2R heterodimer activation of Src and p38.
+Enhancement of EGF induced differentiation required at least nanomolar concentrations of NGF, consistent with the low-affinity p75 binding site.
+EGF strongly promotes cell proliferation and differentiation via MAPK, PKC, and Akt pathways in neural progenitor cells.
+Addition of EGF causes further differentiation from immature antral spheroids to mature antral organoids that form glandular and pit like structures 90.
+This EGF induced differentiation results in secretion of human chorionic gonadotropin [XREF_BIBR].
+XREF_BIBR, XREF_BIBR EGF at concentrations ranging from 100 to 200 ng/mL induced differentiation of type A spermatogonia.
+Epidermal growth factor (EGF), a polypeptide that stimulates cellular growth and differentiation, is localized in Paneth cells in the small intestine.
+The conclusion of Kratchmarova et al. [XREF_BIBR] - that EGF induces hMSC osteoblast differentiation by activating the MAP kinase pathway, whereas PDGF stimulation avoids the differentiation response by stimulating PI 3-kinase in addition to MAP kinase - suggests that cells also achieve appropriate signaling outputs through simple combinations of entire signaling pathways.
+We show for the first time that EGF induces differentiation of NC to the neuronal and melanocytic phenotypes, while fibroblast growth factor 2 (FGF2) promotes NC differentiation to Schwann cells.
+In comparison, GM-CSF, G-CSF, EGF, and CG have been shown to stimulate trophoblasts and induce differentiation to syncytium, in which only EGF has been shown to inhibit apoptosis 24.
+EGF, bFGF and PDGFaa administration in SC after injury could promote the activation and oligodendroglial differentiation.
+Combinations of epidermal growth factor (EGF) and KCl stimulate differentiation in PC12 cells, independent of extracellular calcium [Mark et al., Stimulation of neurite outgrowth in PC12 cells by EGF and KCl depolarization : a Ca2 +-independent phenomenon, J. Cell Biol., 130 (1995) 701-710].
+Recent investigations with neural stem cells reported that EGF, bFGF and/or leukemia inhibitory factor treatment of the cells before brain implantation directed their proliferation and differentiation potential toward different neuronal phenotypes.
+The localization of EGF receptors in vivo led to the idea that the system is operative in proliferation and differentiation of cells and tissues.
+Taken together, these data indicate that nucleobindin-2 regulates EGF stimulated MAPK kinase and Erk signaling, cell proliferation, and adipocyte differentiation.
+However, in other studies, EGF and/or EGF like ligands were shown to stimulate the osteoblast differentiation of human mesenchymal stem cells (HMSCs) through related EGFR phosphorylation [XREF_BIBR], and synergistically enhanced the differentiation of MG-63 cells into osteoblasts [XREF_BIBR].
+[XREF_BIBR] Pheochromocytoma cells treated with NGF exhibit prolonged MAPK signal activation that led to differentiation in contrast to transient activation by EGF that led to mitogenesis (10) Primary cultures of rat heptacytes show different MAPK pathway activation effects; transient pathway activation in response NGF led to increased DNA synthesis, whereas prolonged pathway activation from Erk overexpression or chemically induced sensitivity to NGF led to an increase in cell cycle arrest proteins and inhibition of DNA synthesis.
+Taken together, EGF increased osteoblast differentiation of hMSC cells most effectively with combination treatment of E.BMP-2.
+In cultured rat tracheal epithelial cells, EGF enhances mucous cell differentiation and mucin gene expression [XREF_BIBR].
+To assess if EGF and KCl and cAMP elicit the same suite of differentiation events as does NGF and bFGF, we used patch clamp recording to determine if EGF in the presence of KCl or a cAMP agonist also induced physiological differentiation as defined by upregulation of ion channels.
+A small number of differentiated cells observed in negative controls (none and IgG (Fc), respectively) appeared to be the result of spontaneous neuronal differentiation caused by removal of growth factors (FGF2 and EGF) from the culture medium.
+Epidermal growth factor (EGF) is excreted in a high concentration in human saliva and modulates the growth and differentiation of various cancer cells.
+Consisted with our previous findings showing that EGF can induce the differentiation of ESCs into Msi1 high cells and increase the percentage of Msi1 positive cells, 5-day EGF administration enhanced the percentage of SP cells, suggesting that the SP fraction probably contains a large proportion of stem or progenitor cells derived from ESCs, including the Msi1 positive cells [XREF_BIBR].
+Among these factors, basic fibroblast growth factor (bFGF) and epidermal growth factor have been well documented to promote the differentiation of NSCs into neurons and glial cells [XREF_BIBR XREF_BIBR XREF_BIBR XREF_BIBR] and these are commonly used in experimental research of NSC induction.
+By contrast, differentiation was enhanced by the combination of low EGF (0.1 ng/ml) and high calcium (2 mM).
+In contrast, EGF, bFGF and PDGFa have been reported to promote OPC differentiation.
+These results suggest that at low concentration EGF stimulates exclusively the differentiation of astrocytes, whereas at high concentration, EGF has also a mitogenic effect.
+Our data show that EGF alone does not induce differentiation in the absence of chemical or other cues, and does not alter human MSC differentiation processes into osteogenic, adipogenic, and chondrogenic lineages by chemical cues in vitro [XREF_BIBR].
+In the GI tract, EGF enhances proliferation and differentiation of epithelial cells, but also has significant effects on healing of damaged mucosa or on intestinal adaptation after injury.
+These results suggest that EGF, betacellulin, and activin A promote pancreatic cell proliferation, islet B-cell differentiation, and islet B-cell differentiation and functional maturation, respectively, and that EGF, betacellulin, and activin A, in this order, regulate islet B-cell neogenesis.
+Neurosphere differentiation was mediated by the withdrawal of neural supplements (B27, N2) and growth factors (EGF, FGF-2), and by supplementation with 2% bovine serum.
+EGF receptors (EGFRs) have been shown to drive tumor progression in a variety of cancers by regulating cell proliferation, differentiation and survival, as well as modulating downstream signaling pathways involved in invasion and angiogenesis [XREF_BIBR, XREF_BIBR].
+Although we used EGF here merely to activate ERK, crosstalk between EGF and ghrelinergic pathways could indeed occur via ERK, and EGF is a well-known modulator of neural stem cell proliferation, migration and differentiation.
+Furthermore, REN expression was also upregulated in both TC-1S and PC-12 cells (XREF_FIG E), during EGF induced neuronal differentiation.
+Meanwhile, covalently tethered EGF has been shown to alter ERK phosphorylation levels and promote increased survival and osteogenic differentiation of mesenchymal stem cells (MSCs) relative to conditions that received soluble EGF [XREF_BIBR, XREF_BIBR, XREF_BIBR].
+In some EGFR over-expressing cell lines such as vulva carcinoma A431 cells, EGF at pM range stimulates cell proliferation while EGF at nM range induces growth inhibition, terminal differentiation and apoptosis XREF_BIBR - XREF_BIBR.
+Here, we describe the involvement of one of the isolated genes, the thrombospondin-1, as a mediator of the neurotypic differentiation induced by EGF in TC-1S cells.
+XREF_BIBR - XREF_BIBR Epidermal growth factor (EGF) was isolated in 1962 and has been shown to stimulate the proliferation and differentiation of epidermal and epithelial tissues, via binding to the EGF receptor (EGFR).
+Among these growth factors, EGF has been shown to stimulate both cellular proliferation and differentiation [XREF_BIBR].
+Certain hormones and peptides such as growth hormone, insulin, insulin like-growth factor I (IGF-I), epidermal growth factor (EGF), prolactin and growth hormone releasing factor (GHRF) can influence directly newborn 's metabolism after intestinal absorption and promote growth and differentiation of several organs and target tissues.
+For example, EGF factor can be immobilized on the phage to induce differentiation of the progenitor cells to the neuronal phenotype [XREF_BIBR].
+EGF enhances the differentiation, maturation and survival of a variety of neurons.
+In fact, it was reported that the activation of EGF signalling may promote the proliferation and expansion of the pre-osteoblast progenitor cells at the expense of lineage specific differentiation [XREF_BIBR, XREF_BIBR, XREF_BIBR].
+Previous studies have suggested that epidermal growth factor (EGF) could stimulate proliferation, migration, and glial differentiation of SVZ progenitors.
+To test the possibility that ephrins can limit the differentiation defects induced by EGF and IL-1alpha, we first switched keratinocytes from low to high Ca 2+ in the presence of 1.0 microg/ml EfnA1-Fc for 24 h. Subsequently, we treated these keratinocytes with EGF and IL-1alpha for an additional 24 h.
+Epidermal growth factor (EGF) enhances alveolar type II cell differentiation.
+These findings support the previous finding that EGF promotes epithelial cell differentiation of the fetal lung without affecting body weight and lung weight.
+EGF, TGF-beta 1 and IGF-I increased differentiation rates significantly in two-cell embryos individually cultured for 68 hours.
+In conclusion, EGF and EGFR expressions manifested stage specific changes during follicular development and EGF mediated FSH induced cell proliferation and retarded cell differentiation in the prehierarchical follicles.
+Epidermal growth factor (EGF), which has significant structural homology with TGF alpha, has been shown to modulate differentiation of granulosa cells in vitro.
+In the presence of P, different growth factors can stimulate cell proliferation, but decidual differentiation is induced specifically by EGF, as shown by the production of prolactin (PRL), fibronectin, laminin, and insulin like growth factor binding protein 1 (IGFBP-1).
+Indeed, by contrast to EGF, which promotes squamous differentiation of BC [XREF_BIBR], AREG itself did not increase the expression of squamous related genes, for example, IVL, KRT6A, KRT6B, and stratifin (XREF_SUPPLEMENTARY), or the number of IVL + squamous cells (XREF_SUPPLEMENTARY).
+We have previously demonstrated that epidermal growth factor (EGF), colony stimulating factor-1 (CSF-I), and granulocyte-monocyte colony stimulating factor (GMCSF) stimulate, while transforming growth factor beta 1 (TGF beta 1) inhibits, cytotrophoblast differentiation.
+This finding suggests that an EGF blockade induces oligodendrogenesis in addition to neurogenesis, similar to the results of an earlier in vitro study, which demonstrated that EGF should be eliminated in order to allow the differentiation of EGF stimulated cells derived from the SVZ into O4 + oligodendrocytes [XREF_BIBR].
+As one of the key mitogenic factors for sweat gland development XREF_BIBR, XREF_BIBR, we hypothesized that EGF could not only accelerate wound healing but also induce the differentiation of BM-MSCs into sweat gland cells, assuming that the in vivo environment could ultimately provide cues for further regeneration of sweat glands.
+The addition of ATRA, EGF and BMP-7 induces BMSCs differentiation into tubular epithelial like cells in stimulated acute renal failure microenvironment in vitro.
+It is known that the epidermal growth factor (EGF) and the transforming growth factor-alpha (TGF-alpha) enhance renal cell proliferation, migration and differentiation during kidney development through binding to the same EGF receptor (EGFR).
+To determine the potential influence of PAR1 on the production of oligodendrocyte lineage cells from NSCs, SVZ NSCs were plated as monolayers on poly-L-lysine coated glass coverslips in stem cell media containing EGF and bFGF, or under conditions where EGF and bFGF were withdrawn to elicit differentiation (Figs XREF_FIG and XREF_FIG).
+For instance, epidermal growth factor (EGF) promotes osteoblast differentiation in human mesenchymal stem cells while platelet derived growth factor (PDGF) represses this process; this effect is PI3K dependent and explained at least in part by selective activation of PI3K in response to PDGF, but not EGF, stimulation.
+EGF could induce cell proliferation and accelerate wound healing process and skin repair through regulation of extracellular matrix proliferation and epidermal stem cells differentiation.
+Epidermal Growth Factor (EGF) Induces Corneal Keratocyte Differentiation via PI-3 Kinase Activity.
+In summary, DAX-1 expression increased upon differentiation induced by EGF withdrawal, and DAX-1 decreased response to estrogens in HC11 cells.
+Activation of EGF receptors can elicit multiple responses in cortical precursors : proliferation, migration, self-renewal as multipotent stem/TA cells, or differentiation into astrocytes rather than neurons or oligodendrocytes, with response choice dependent in part on ligand concentration.
+Epidermal growth factor (EGF), transforming growth factor beta (TGF-beta), and vascular endothelial growth factor (VEGF) mediate cellular proliferation, regulate differentiation, and stimulate vasculogenesis and angiogenesis, respectively [XREF_BIBR].
+We use here the clusterin gene as a model system to examine expression in PC12 cells under the control of differentiation and proliferation signals produced by nerve growth factor (NGF) and by epidermal growth factor (EGF) respectively.
+Both EGF and TGF-alpha induced a CPK MM to CPK BB transition and histologically induced abnormal differentiation of keratinocytes.
+In newborn and weaned piglets, systemic or oral administration of EGF significantly increased jejunal lactase and sucrase activities [XREF_BIBR], [XREF_BIBR], suggesting EGF modulates enterocyte differentiation.
+Finally, while 100 pmol/1 betacellulin converted all of the AR42J into insulin producing cells in the presence of activin A, 10 nmol/l epidermal growth factor induced differentiation in only about 30% of the cells.
+In the gastrointestinal tract, EGF enhances proliferation and differentiation of epithelial cells, but also has significant effects on healing of damaged mucosa or on intestinal adaptation after injury.
+The EGF and EGFR system promotes cell survival, differentiation, and growth by activating several signaling pathways.
+However, neurite length is increased when differentiation is induced by epidermal growth factor and forskolin or by dibutyryl-cAMP.
+Both exendin-4 and EGF direct the DE differentiation toward primitive gut tube endoderm, and enhance proinsulin biosynthesis and expansion of pancreatic progenitor at later stages of hESC and hiPSC differentiation [XREF_BIBR].
+Cofilin is known to be regulated by an EGFR dependent pathway in fibroblasts [XREF_BIBR], indicating that the EGF like factor-EGFR pathway induces differentiation of granulosa cells and cumulus cells during ovulation process via both changes in gene expression patterns and morphological changes of the cells.
+This member of the epidermal growth factor family stimulates survival, proliferation and differentiation of many different cell types, including myocytes [XREF_BIBR].
+PD98059 (MEK specific inhibitor) could reverse EGF mediated differentiation arrest.
+A High Dose of EGF Signaling Promoted Cyst Cell Differentiation.
+Epidermal growth factor enhances osteogenic differentiation of dental pulp stem cells in vitro.
+PCNA protein levels appeared to be more intense during the initiation growth of primordial follicles, EGF could promote the proliferation and differentiation of the primordial follicles.
+Members of the epidermal growth factor (EGF) family are known to stimulate the proliferation, differentiation, and survival of numerous cell types.
+EGF promotes differentiation at concentrations < 1 nM but inhibits differentiation at higher concentrations, suggesting a dual role in adipogenesis.
+EGF is a conventional mitogenic factor that stimulates the proliferation of epithelial cells and fibroblasts, but many studies showed that EGF also enhances the differentiation, maturation, and survival of various types of neuronal cells.
+EGF induces trophoblast invasion [XREF_BIBR, XREF_BIBR], trophoblast differentiation [XREF_BIBR, XREF_BIBR] and trophoblast proliferation [XREF_BIBR], and is therefore regarded a major regulator of the implantation process.
+Differential NSC proliferation and differentiation induced by EGF and bFGF concentrations generated in the microfluidic chip.
+To this end we have investigated genes differentially regulated during EGF induced neurogenic fate selection and report the identification of a novel EGF responsive gene, REN, upregulated by several neurogenic signals (RA and NGF), that exhibits developmentally regulated neural tissue specific expression in the embryo and promotes neuronal differentiation of undifferentiated cells while inducing growth arrest.
+A typical example is epidermal growth factor (EGF) which is a growth factor that stimulates cell growth, proliferation, and differentiation.
+Theoretically, high EGFR expression in squamous cell carcinomas is expected because EGF promotes the proliferation and differentiation of epidermal like tissues.
+(2) As a proverbial growth factor, epidermal growth factor (EGF) stimulates cell growth, proliferation, and differentiation by binding to its receptor EGFR [XREF_BIBR].
+In our previous study, we confirmed that a combination of bFGF, EGF and IGF-1 could induce the neuronal differentiation (NPCs) of BMSCs and significantly (p < 0.05) enhance BMSCs derived NPCs viability in undifferentiated state [XREF_BIBR].
+However, the EGF, VEGF, and HGF used in this study are secreted in human body, and can be safely manipulated to induce differentiation.
+Although high concentrations of epidermal growth factor (EGF) and basic fibroblast growth factor (bFGF) may induce the differentiation of stem cells, these factors have been widely used to enhance the propagation of stem cells, including adipose derived mesenchymal stem cells (ASCs).
+Tethered EGF blocks EGFR and ErbB1 endocytic internalization and enhances osteogenic differentiation through providing sustained activation of downstream signaling through EGFR and ErbB1, whereas 80pM of soluble EGF interferes with osteogenic differentiation through inducing receptor internalization and subsequent degradation [XREF_BIBR], in agreement with Krampera 's data [XREF_BIBR].
+EGF, in combination with FGF, is required to promote differentiation within the neural lineage and may allow the emergence of primitive neural stem cells.
+We also found that EGF stimulated the differentiation rate in addition to its mitogenic activity.
+ERK1/2 is frequently activated by growth factors, such as epidermal growth factor (EGF), which leads to increased cell growth, differentiation and migration.
+In these long-term cultures of human hepatocytes, hepatocyte growth factor and epidermal growth factor can stimulate growth and differentiation by interacting with their receptors and initiating downstream signaling.
+EGF (10 ng/mL) has been shown to promote cell proliferation and differentiation within the basal olfactory neuroepithelium.
+Our data revealed that neuronal differentiation of human NSC, which was initiated by FGF2 and EGF withdrawal, was strongly disturbed in the presence of 2-4 muM arsenite, including pronounced morphological changes, a decrease in cell survival and a dramatic decrease in yield of differentiated cells (XREF_FIG).
+Thus, EGF seemed not to stimulate spermatogonial differentiation into primary spermatocytes in the testis.
+EGF at concentrations ranging from 100 to 200 ng/ml induced differentiation of type A spermatogonia.
+EGF alone did not induce differentiation in PC12h cells, but it induced neurite formation in the presence of 3,4-dephostatin.
+Epidermal growth factor (EGF) stimulates cell growth, proliferation, and differentiation [XREF_BIBR].
+EGF and insulin were demonstrated to induce the differentiation of malignant phaeochromocytoma cells in primary culture.
+In addition, EGF induced the sustained tyrosine phosphorylation of the EGF receptor, mitogen activated protein (MAP) kinases, and 46 and 52 kDa proteins, and the prolonged activation of MAP kinases in PC12h-R cells compared with the parent PC12h, which does not show EGF induced differentiation.
+When adult MSCs were co-cultured with heat shocked SGCs, a subset of adult MSCs differentiated into SGCs, the percentage of differentiation being enhanced by epidermal growth factor and the injured microenviroment, but weakened by PD98059.
+Epidermal growth factor (EGF) has been shown to inhibit division of pituitary somato-lactotrope cells occurring in parallel with EGF mediated differentiation of these precursors into lactotrope cells.
+Furthermore, EGF has been shown to increase the proliferation and differentiation of corneal keratocytes and endothelial cells.
+The epidermal growth factor (EGF) may promote both testosterone induced wollfian duct differentiation and testicular descent by activating the androgen responsive systems.
+SGPP1 regulates EGF induced chemotaxis, XREF_BIBR autophagy, XREF_BIBR and keratinocyte differentiation.
+These cytokines have been well described and include the following : TGFb-1 (transforming growth factor-beta) is a morphogen that can stimulate osseous cellular activity; PDGF (platelet derived growth factor) regulates the migration and proliferation of mesenchymal cells in the vicinity of the extraction site to stimulate osseous, endothelial, and fibroblastic proliferation; VGEF (vascular endothelial growth factor) and EGF (epithelial growth factor) aid in the proliferation and differentiation of numerous cell types [XREF_BIBR, XREF_BIBR].
+EGF has been shown to induce altered epithelial basal differentiation towards an EMT like phenotype commonly seen in smokers [XREF_BIBR] and in other studies EGFR has been implicated in goblet cell hyperplasia [XREF_BIBR, XREF_BIBR].
+EGF promotes cellular proliferation and differentiation [XREF_BIBR - XREF_BIBR].
+AREG is upregulated by smoking in the airway epithelium as a result of EGF induced squamous differentiation of BC.
+We examined the mechanism by which EGF induced the neuronal differentiation in PC12h-R cells.
+EGF also prevented DNA degradation but did not lead to differentiation.
+Hedgehog drives lamina neuronal precursors through their final division, cell adhesion proteins promote the association of columns of lamina neurons with R cell axon fascicles, EGF induces lamina neuron differentiation, a yet to be identified signal regulates the development of lamina glia and Jeb selectively regulates L3 survival.
+To test whether EGF is able to stimulate the differentiation of spermatogonia into primary spermatocytes in the testis, the organs containing spermatogonial stage were cultured for 2 weeks in the absence or presence of FSH or EGF and observed for appearance of primary spermatocytes.
+However, combinations of EGF and low levels of cAMP stimulate differentiation even though neither agent alone does (Mark, M. D., Liu, Y., Wong, S. T., Hinds, T. R., and Storm, D.R. (1995) J. Cell Biol.
+EGF was shown to dramatically enhance neuronal cell differentiation, particularly the elongation of neuronal fibers.
+In brief, hNSCs were transduced by AICD, and EGF and bFGF were withdrawn to stimulate cell differentiation at 48h post transduction, when miR-663 was upregulated (XREF_FIG).
+Inclusion of EGF induced abnormal differentiation with minimal expression of keratin 13.
+EGF was shown to stimulate skeletal muscle growth and differentiation in vitro XREF_BIBR - XREF_BIBR, whereas EGFR ligands also have the potential to decrease muscle mass and reduce body weights (reviewed in 36).
+EGF promotes cell proliferation XREF_BIBR, cell differentiation XREF_BIBR as well as cell motility XREF_BIBR, XREF_BIBR.
+Epidermal growth factor modulated the differentiation of A431 and 686 with respect to involucrin immunohistochemistry and cornified enveloped competency.
+However, exposure of the cells to nerve growth factor (NGF), which stimulates differentiation of PC12 cells, or to epidermal growth factor (EGF) caused the generation of an intracellular pool of DOR [XREF_BIBR].
+In a Lysophosphatidylcholine (LPC)-induced demyelination model, intraventricular infusion of epidermal growth factor (EGF) dramatically promoted the proliferation and migration of SVZ NSPCs as well as their differentiation into oligodendrocytes.
+However, tethered form of EGF was shown to promote osteogenic differentiation.
+Previous studies have shown that TGF-beta, FGF, and EGF, which act to promote survival and differentiation of retina, were observed in the vitreous fluid [XREF_BIBR, XREF_BIBR, XREF_BIBR].
+Although epidermal growth factor (EGF) elicits many of the same early biochemical and molecular changes in PC12 cells observed in response to NGF, EGF does not induce molecular or morphological differentiation of PC12 cells.
+Light and electron microscopic studies showed EGF induced differentiation of cytotrophoblast to form syncytiotrophoblast.
+Also mesenchyme of the intestine of rats secretes several ligands for epidermal growth factor that induces the differentiation of epithelial cells and increases the uptake of trastuzumab by them.
+In conclusion, our studies demonstrate that EGF synergizes TGF-beta1 induction of keratocytes to myofibroblast differentiation, increases secretion of FN, and produces change in ECM components through activation of EGF-R and PI-3K and Akt-1 signaling.
+To induce neural differentiation of human EnSC in long-term cultures, the cells were cultured in the classical serum-free medium (DMEM and F12 supplemented with N2) and induced by bFGF, PDGF and EGF signalling molecules, which classically can lead to neural differentiation.
+Differentiation to photoreceptors is triggered by transient EGF signalling, which degrades YAN and up-regulates miR-7 in cells as they begin differentiating into photoreceptors.
+XREF_FIG shows a patient cell under EMT (CK+ and VIM+), as well as EGFR positive, which is a cell surface marker from the human epidermal growth factor receptor family that induces cell differentiation and proliferation and is activated by 7 growth factors.
+The TSP-1-integrin alpha3beta1 induced neurotypic differentiation of SCLC is further enhanced by epidermal growth factor (EGF), suggesting that TSP-1 and EGF work synergistically to induce differentiation of SCLC via integrin alpha3beta1 [XREF_BIBR].
