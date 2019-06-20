@@ -29,8 +29,9 @@ object Polarity extends App {
     val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${pmcid}")
     val pathForPolarity = outPaperDirPath.concat("/sentences.txt")
     val lines = Source.fromFile(pathForPolarity).getLines()
-    println(lines.size)
-    lines.map(println)
+    for(l<-lines) {
+      println(l)
+    }
   }
 
 }
