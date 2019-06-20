@@ -13,6 +13,7 @@ import org.clulab.reach.context.context_exec.GenerateOutputFiles.{nxmlReader, re
 import org.clulab.reach.context.context_utils.EventContextPairGenerator
 import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
 object Polarity extends App {
+  println("Hello world from polarity")
   val config = ConfigFactory.load()
   val activSentPath = config.getString("polarityContext.genericFileDir").concat("activation_sentences_in_json.txt")
   val inhibSentPath = config.getString("polarityContext.genericFileDir").concat("inhibition_sentences_in_json.txt")
