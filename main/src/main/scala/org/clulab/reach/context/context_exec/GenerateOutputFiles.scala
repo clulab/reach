@@ -131,49 +131,6 @@ object GenerateOutputFiles extends App {
         pwctx.close()
         // ********* Finished writing to mention_intervals.txt *********
 
-
-        // ********* Writing to polarity file *********
-        type Pair = (BioEventMention, BioTextBoundMention)
-        type EventID = String
-        type ContextID = (String, String)
-        val pathForPolarityOutput = outPaperDirPath.concat("/polarity_output.txt")
-        val crossProducter = new EventContextPairGenerator(mentions, contextMentions)
-        val pairs = crossProducter.yieldContextEventPairs()
-        val activationPapers = List("PMC2958340", "PMC2910130", "PMC4236140", "PMC4142739", "PMC4446607", "PMC4092102")
-        val inhibitionPapers = List("PMC2587086", "PMC3138418", "PMC3666248", "PMC2636845", "PMC3635065", "PMC3640659", "PMC2686753", "PMC3119364")
-        val polarityFile = new File(pathForPolarityOutput)
-        if (!polarityFile.exists())
-            polarityFile.createNewFile()
-        val printWriter = new PrintWriter(polarityFile)
-
-
-        def extractEvtId(evt:BioEventMention):EventID = {
-            val sentIndex = evt.sentence
-            val tokenIntervalStart = (evt.tokenInterval.start).toString()
-            val tokenIntervalEnd = (evt.tokenInterval.end).toString()
-            sentIndex+tokenIntervalStart+tokenIntervalEnd
-        }
-
-        for((evtID, ctxID) <- pairs) {
-            val perRowEntry = collection.mutable.ListBuffer[String]()
-            val docId = evtID.document.id match {
-                case Some(id) => s"PMC${id.split("_")(0)}"
-                case None => "Unknown"
-            }
-            perRowEntry += docId
-            perRowEntry += extractEvtId(evtID)
-            perRowEntry += ctxID.nsId()
-            val polarityType = if(activationPapers.contains(docId)) "activation" else if(inhibitionPapers.contains(docId)) "inhibition" else "unknown"
-            perRowEntry += polarityType
-            val evtSentInd = evtID.sentence
-            val evtSent = document.sentences(evtSentInd).words.mkString(" ")
-            perRowEntry += evtSent
-            val perRowString = perRowEntry.mkString("%")
-            printWriter.write(perRowString)
-            printWriter.write("\n")
-        }
-        // ********* Finished writing to polarity file *********
-
     }
 
 
