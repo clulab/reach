@@ -21,9 +21,12 @@ object Polarity extends App {
   val typeOfPaper = config.getString("polarityContext.typeOfPaper")
   val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
   val fileListUnfiltered = new File(dirForType)
-  val fileList = fileListUnfiltered.listFiles().filter(x => x.getName == "polarity_output.txt")
-  for(f<- fileList) {
-    val lines = Source.fromFile(f).getLines()
+  val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
+  for(file<- fileList) {
+    val pmcid = file.getName.slice(0,file.getName.length-5)
+    val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${pmcid}")
+    val pathForPolarity = outPaperDirPath.concat("/polarity_output.txt")
+    val lines = Source.fromFile(pathForPolarity).getLines()
     lines.map(println)
   }
 
