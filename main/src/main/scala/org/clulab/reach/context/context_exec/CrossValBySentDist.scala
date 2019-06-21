@@ -123,15 +123,6 @@ class CrossValBySentDist(testAggrRows: Seq[AggregatedContextInstance]) {
         }
 
 
-        val (metrics, _) = findMetrics(giantTruthLabel.toArray, giantPredictedLabel.toArray)
-
-        //val countsTest = CodeUtils.predictCounts(giantTruthLabel.toArray, giantPredictedLabel.toArray)
-
-        println(s"Micro-averaged Precision: ${metrics._1.toString.take(7)}")
-        println(s"Micro-averaged Recall: ${metrics._2}")
-        println(s"Micro-averaged Accuracy: ${metrics._3.toString.take(7)}")
-
-
         def findMetrics(truth:Array[Int], test:Array[Int]):((Double,Double,Double),Map[String,Int]) = {
           val countsTest = CodeUtils.predictCounts(truth, test)
           val precision = CodeUtils.precision(countsTest)
@@ -139,6 +130,14 @@ class CrossValBySentDist(testAggrRows: Seq[AggregatedContextInstance]) {
           val accuracy = CodeUtils.accuracy(countsTest)
           ((precision,recall,accuracy), countsTest)
         }
+
+        val (metrics, _) = findMetrics(giantTruthLabel.toArray, giantPredictedLabel.toArray)
+
+        //val countsTest = CodeUtils.predictCounts(giantTruthLabel.toArray, giantPredictedLabel.toArray)
+
+        println(s"Micro-averaged Precision: ${metrics._1.toString.take(7)}")
+        println(s"Micro-averaged Recall: ${metrics._2}")
+        println(s"Micro-averaged Accuracy: ${metrics._3.toString.take(7)}")
 
       }
   }
