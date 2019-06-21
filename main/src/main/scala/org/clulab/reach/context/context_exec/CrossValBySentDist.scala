@@ -4,7 +4,7 @@ import java.io.File
 
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
-import org.clulab.context.utils.AggregatedContextInstance
+import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
 import org.clulab.learning.LinearSVMClassifier
 import org.clulab.reach.context.context_utils.ContextFeatureUtils
 
@@ -67,8 +67,79 @@ class CrossValBySentDist(testAggrRows: Seq[AggregatedContextInstance]) {
         val giantTruthLabel = collection.mutable.ListBuffer[Int]()
         val giantPredictedLabel = collection.mutable.ListBuffer[Int]()
 
-        for(t<- testAggrRows)
-          println(t)
+
+        for((test,train) <- folds) {
+          val trainingLabelsIds = collection.mutable.ListBuffer[(String,String,String)]()
+          train.map(row => {
+            val pmcid = row.PMCID.split("_")(0)
+            val pmcidReformat = s"PMC${pmcid}"
+            val evtCtxPerPaper = idMap.keySet.filter(_._1 == pmcidReformat)
+            trainingLabelsIds ++= evtCtxPerPaper
+          })
+
+
+          val intersectingLabels = trainingLabelsIds.toSet.intersect(CodeUtils.generateLabelMap(labelFile).keySet)
+          val trainingRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
+          val trainingLabels = collection.mutable.ListBuffer[Int]()
+          for(idTup <- intersectingLabels) {
+            val row = idMap(idTup)
+            val label = CodeUtils.generateLabelMap(labelFile)(idTup)
+            trainingRows += row
+            trainingLabels += label
+          }
+
+          val (trainingRVFDataset, _) = unTrainedSVMInstance.dataConverter(trainingRows,Some(trainingLabels.toArray))
+
+          unTrainedSVMInstance.fit(trainingRVFDataset)
+
+          // calculating precision per paper as test case.
+          val testingLabelsIDs = collection.mutable.ListBuffer[(String,String,String)]()
+          test.map(row => {
+            val pmcid = row.PMCID.split("_")(0)
+            val pmcidReformat = s"PMC${pmcid}"
+            val evtCtxPerPaper = idMap.keySet.filter(_._1 == pmcidReformat)
+            testingLabelsIDs ++= evtCtxPerPaper
+          })
+          val intersectingTestingLabels = testingLabelsIDs.toSet.intersect(CodeUtils.generateLabelMap(labelFile).keySet)
+          val testingRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
+          val testingLabels = collection.mutable.ListBuffer[Int]()
+          for(idTup <- intersectingTestingLabels) {
+            val row = idMap(idTup)
+            val label = CodeUtils.generateLabelMap(labelFile)(idTup)
+            testingRows += row
+            testingLabels += label
+          }
+
+
+
+          // filtering out pairs for which the prediction was 0
+          // check with Prof. Morrison if this kind of filtering is correct
+          // leave it commented for now but uncomment the filtering code if he recommends you to.
+          val predictedLabels = unTrainedSVMInstance.predict(testingRows)
+
+          giantTruthLabel ++= testingLabels
+          giantPredictedLabel ++= predictedLabels
+
+        }
+
+
+        val (metrics, _) = findMetrics(giantTruthLabel.toArray, giantPredictedLabel.toArray)
+
+        //val countsTest = CodeUtils.predictCounts(giantTruthLabel.toArray, giantPredictedLabel.toArray)
+
+        println(s"Micro-averaged Precision: ${metrics._1.toString.take(7)}")
+        println(s"Micro-averaged Recall: ${metrics._2}")
+        println(s"Micro-averaged Accuracy: ${metrics._3.toString.take(7)}")
+
+
+        def findMetrics(truth:Array[Int], test:Array[Int]):((Double,Double,Double),Map[String,Int]) = {
+          val countsTest = CodeUtils.predictCounts(truth, test)
+          val precision = CodeUtils.precision(countsTest)
+          val recall = CodeUtils.recall(countsTest)
+          val accuracy = CodeUtils.accuracy(countsTest)
+          ((precision,recall,accuracy), countsTest)
+        }
+
       }
   }
 

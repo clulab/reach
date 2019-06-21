@@ -115,11 +115,6 @@ object SVMCrossValidation extends App {
       testingLabels += label
     }
 
-
-
-    // filtering out pairs for which the prediction was 0
-    // check with Prof. Morrison if this kind of filtering is correct
-    // leave it commented for now but uncomment the filtering code if he recommends you to.
     val predictedLabels = unTrainedSVMInstance.predict(testingRows)
 
     giantTruthLabel ++= testingLabels
