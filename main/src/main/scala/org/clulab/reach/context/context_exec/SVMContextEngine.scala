@@ -107,6 +107,11 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
               aggRow}).toSeq
           }
 
+        // adding the aggregated rows to a list so that I can pass it to the Cross Validator.
+        // Please note that this call to the cross validator is to the class CrossValBySentDist.
+        // This is being done to measure the micro-averaged precision as a function of the sentence distance.
+        val aggRowListToPassForCrossVal = collection.mutable.ListBuffer[AggregatedContextInstance]()
+
         val predictions:Map[EventID, Seq[(ContextID, Boolean)]] = {
           val map = collection.mutable.HashMap[EventID, Seq[(ContextID, Boolean)]]()
           for((k,a) <- aggregatedFeatures) {
@@ -120,6 +125,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 // ContextFeatureUtils.writeRowToFile(aggregatedFeature, k.toString, ctxId._2)
                 // Please note that this function writes aggregated rows for each (eventID, contextID) pair. Therefore, you may have a large number of files written to your directory.
 
+                aggRowListToPassForCrossVal += aggregatedFeature
                 val prediction = {
                   predArrayIntForm(0) match {
                     case 1 => true
@@ -138,6 +144,9 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           }
           map.toMap
         }
+
+        val crossValInstance = new CrossValBySentDist(aggRowListToPassForCrossVal)
+        crossValInstance.performCrossVal()
 
 
         // Loop over all the mentions to generate the context dictionary
