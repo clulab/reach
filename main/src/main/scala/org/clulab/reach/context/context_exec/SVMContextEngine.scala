@@ -145,6 +145,8 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           map.toMap
         }
 
+        val crossValInstance = new CrossValBySentDist(aggRowListToPassForCrossVal)
+        crossValInstance.performCrossVal()
 
 
 
@@ -166,9 +168,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
               // Assign the context map to the mention
               evt.context = if(contextMap != Map.empty) Some(contextMap) else None
 
-              // calling cross validation before returning event map
-              val crossValInstance = new CrossValBySentDist(aggRowListToPassForCrossVal)
-              crossValInstance.performCrossVal()
+
 
               // Return the modified event
               evt
