@@ -89,13 +89,10 @@ object SVMCrossValidation extends App {
     for(idTup <- intersectingLabels) {
       val row = idMap(idTup)
       val label = generateLabelMap(labelFile)(idTup)
-      println("Checking to see if test row has ctxID: " + row.CtxID)
-      println("Checking to see if test row has evtID: " + row.EvtID)
       trainingRows += row
       trainingLabels += label
     }
-    //val balancedTrainingData = Balancer.balanceByPaperAgg(trainingRows, 1)
-    //val (trainingRVFDataset, _) = unTrainedSVMInstance.dataConverter(balancedTrainingData,Some(trainingLabels.toArray))
+
     val (trainingRVFDataset, _) = unTrainedSVMInstance.dataConverter(trainingRows,Some(trainingLabels.toArray))
 
     unTrainedSVMInstance.fit(trainingRVFDataset)
