@@ -119,10 +119,14 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             val x = a.map {
               case (ctxId, aggregatedFeature) =>
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
+                val sentWind = sentenceWindow match {
+                  case Some(x) => x
+                  case None => -1
+                }
 
                 // It may be that we may need the aggregated instances for further analyses, like testing or cross-validation.
                 // Should such a need arise, you can write the aggregated instances to file by uncommenting the following line
-                // ContextFeatureUtils.writeRowToFile(aggregatedFeature, k.toString, ctxId._2)
+                 ContextFeatureUtils.writeRowToFile(aggregatedFeature, k.toString, ctxId._2, sentWind)
                 // Please note that this function writes aggregated rows for each (eventID, contextID) pair. Therefore, you may have a large number of files written to your directory.
 
                 aggRowListToPassForCrossVal += aggregatedFeature
@@ -145,8 +149,8 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           map.toMap
         }
 
-        val crossValInstance = new CrossValBySentDist(aggRowListToPassForCrossVal)
-        crossValInstance.performCrossVal()
+       /* val crossValInstance = new CrossValBySentDist(aggRowListToPassForCrossVal)
+        crossValInstance.performCrossVal()*/
 
 
 
