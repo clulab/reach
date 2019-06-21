@@ -60,9 +60,8 @@ object ContextFeatureUtils {
 
 
   def writeRowToFile(row:AggregatedContextInstance, evtID: String, ctxID: String, sentenceWindow:Int):Unit = {
-    val typeOfPaper = config.getString("svmContext.paperType")
-    val dirForType = if(typeOfPaper.length != 0) config.getString("papersDir").concat(s"/${typeOfPaper}") else config.getString("papersDir")
-    val fileListUnfiltered = new File(dirForType)
+    val typeOfPaper = config.getString("polarityContext.typeOfPaper")
+    val fileListUnfiltered = new File(typeOfPaper)
     val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
     val currentPMCID = s"PMC${row.PMCID.split("_")(0)}"
     for(file <- fileList) {
