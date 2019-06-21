@@ -1,6 +1,6 @@
 package org.clulab.reach.context.context_utils
 
-import java.io.{File, FileOutputStream, ObjectOutputStream}
+import java.io.{File, FileInputStream, FileOutputStream, ObjectInputStream, ObjectOutputStream}
 
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.utils.{AggregatedContextInstance, ContextPairInstance}
@@ -57,5 +57,14 @@ object ContextFeatureUtils {
       }
     }
   }
+
+  def readAggRowFromFile(file: String):AggregatedContextInstance = {
+    val is = new ObjectInputStream(new FileInputStream(file))
+    val c = is.readObject().asInstanceOf[AggregatedContextInstance]
+    is.close()
+    c
+  }
+
+
 
 }

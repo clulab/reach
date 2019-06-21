@@ -180,4 +180,43 @@ object CodeUtils {
   }
 
 
+  def generateLabelMap(fileName: String): Map[(String,String,String), Int] = {
+    val map = collection.mutable.HashMap[(String,String,String), Int]()
+    val source = Source.fromFile(fileName)
+    val lines = source.getLines()
+    val content = lines.drop(1)
+    for(c <- content) {
+      val array = c.split(",")
+      val pmcid = array(0)
+      val evtID = array(1)
+      val ctxID = array(2)
+      val label = Integer.parseInt(array(3))
+      val tup = (pmcid,evtID,ctxID)
+      map ++= Map(tup -> label)
+    }
+
+    map.toMap
+  }
+
+
+  def findAggrMetrics(seq:Seq[Double]): (Double,Double,Double) = {
+    val min = seq.foldLeft(Double.MaxValue)(Math.min(_,_))
+    val max = seq.foldLeft(Double.MinValue)(Math.max(_,_))
+    val sum = seq.foldLeft(0.0)(_+_)
+    val avg = sum.toDouble/seq.size.toDouble
+    (min,max,avg)
+  }
+
+
+  def writeMetricsToCSV(metricMap:Map[String,(Double,Double,Double)], filePath:String): Unit = {
+    val pw = new PrintWriter(filePath)
+    for((key,valueTup) <- metricMap) {
+      val string = s"${key},${valueTup._1.toString.take(5)},${valueTup._2.toString.take(5)},${valueTup._3.toString.take(5)}"
+      pw.write(string)
+      pw.write("\n")
+    }
+    pw.close()
+  }
+
+
 }

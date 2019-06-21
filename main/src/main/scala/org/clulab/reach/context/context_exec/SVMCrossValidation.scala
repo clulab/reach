@@ -6,6 +6,7 @@ import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
 import org.clulab.learning.LinearSVMClassifier
+import org.clulab.reach.context.context_utils.ContextFeatureUtils
 
 import scala.io.Source
 
@@ -26,7 +27,6 @@ object SVMCrossValidation extends App {
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val dupMap = collection.mutable.HashMap[AggregatedContextInstance, (String,String,String)]()
   val metricsMapPerPaper = collection.mutable.HashMap[String,(Double, Double, Double)]()
-  val collectCountsMap = collection.mutable.ListBuffer[Map[String,Int]]()
   for(d<-directories) {
     val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
     val rows = rowFiles.map(file => {
@@ -35,7 +35,7 @@ object SVMCrossValidation extends App {
       val ctxID = file.getName.split("_")(3)
       val ctxID2 = ctxID.slice(0,ctxID.length-4)
       val filePath = outPaperDirPath.concat(pmcid).concat(s"/${file.getName}")
-      val row = readAggRowFromFile(filePath)
+      val row = ContextFeatureUtils.readAggRowFromFile(filePath)
       val tuple = (pmcid,evtID,ctxID2)
       val mapEntry = Map(tuple -> row)
       idMap ++= mapEntry
@@ -83,12 +83,12 @@ object SVMCrossValidation extends App {
     })
 
 
-    val intersectingLabels = trainingLabelsIds.toSet.intersect(generateLabelMap(labelFile).keySet)
+    val intersectingLabels = trainingLabelsIds.toSet.intersect(CodeUtils.generateLabelMap(labelFile).keySet)
     val trainingRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val trainingLabels = collection.mutable.ListBuffer[Int]()
     for(idTup <- intersectingLabels) {
       val row = idMap(idTup)
-      val label = generateLabelMap(labelFile)(idTup)
+      val label = CodeUtils.generateLabelMap(labelFile)(idTup)
       trainingRows += row
       trainingLabels += label
     }
@@ -105,12 +105,12 @@ object SVMCrossValidation extends App {
       val evtCtxPerPaper = idMap.keySet.filter(_._1 == pmcidReformat)
       testingLabelsIDs ++= evtCtxPerPaper
     })
-    val intersectingTestingLabels = testingLabelsIDs.toSet.intersect(generateLabelMap(labelFile).keySet)
+    val intersectingTestingLabels = testingLabelsIDs.toSet.intersect(CodeUtils.generateLabelMap(labelFile).keySet)
     val testingRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val testingLabels = collection.mutable.ListBuffer[Int]()
     for(idTup <- intersectingTestingLabels) {
       val row = idMap(idTup)
-      val label = generateLabelMap(labelFile)(idTup)
+      val label = CodeUtils.generateLabelMap(labelFile)(idTup)
       testingRows += row
       testingLabels += label
     }
@@ -128,8 +128,7 @@ object SVMCrossValidation extends App {
 
     val testPaperPMCID = test(0).PMCID
     val testIDReformat = s"PMC${testPaperPMCID.split("_")(0)}"
-    val (metricsPerTestCase, countsPerTestCase) = findMetrics(testingLabels.toArray, predictedLabels)
-    collectCountsMap += countsPerTestCase
+    val (metricsPerTestCase, _) = findMetrics(testingLabels.toArray, predictedLabels)
     val metricsScorePerPaperID = Map(testIDReformat -> metricsPerTestCase)
     metricsMapPerPaper ++= metricsScorePerPaperID
 
@@ -148,21 +147,23 @@ object SVMCrossValidation extends App {
   for((paperID, metrics) <- metricsMapPerPaper) {
     println("Current Paper ID: " + paperID + " \t Precision: " + metrics._1.toString.take(7) + " \t Recall: " + metrics._2 + "\t Accuracy: " + metrics._3.toString.take(7))
   }
-  writeMetricsToCSV(metricsMapPerPaper.toMap)
+
+  val cvmetricsFilePath = config.getString("svmContext.cvmetricsFilePath")
+  CodeUtils.writeMetricsToCSV(metricsMapPerPaper.toMap, cvmetricsFilePath)
 
   val precisionOverAllPapers = collection.mutable.ListBuffer[Double]()
     metricsMapPerPaper foreach (x => precisionOverAllPapers += x._2._1)
-  val precAggrMetrics = findAggrMetrics(precisionOverAllPapers)
+  val precAggrMetrics = CodeUtils.findAggrMetrics(precisionOverAllPapers)
   println(s"Avg precision (arithmetic mean) over 14 papers: ${precAggrMetrics._3.toString.take(7)}")
 
   val recallOverAllPapers = collection.mutable.ListBuffer[Double]()
     metricsMapPerPaper foreach (x => recallOverAllPapers += x._2._2)
-  val recAggrMetrics = findAggrMetrics(recallOverAllPapers)
+  val recAggrMetrics = CodeUtils.findAggrMetrics(recallOverAllPapers)
   println(s"Avg recall (arithmetic mean) over 14 papers: ${recAggrMetrics._3.toString.take(7)}")
 
   val accuracyOverAllPapers = collection.mutable.ListBuffer[Double]()
     metricsMapPerPaper foreach (x => accuracyOverAllPapers += x._2._3)
-  val accuracyAggrMetrics = findAggrMetrics(accuracyOverAllPapers)
+  val accuracyAggrMetrics = CodeUtils.findAggrMetrics(accuracyOverAllPapers)
   println(s"Avg accuracy (arithmetic mean) over 14 papers: ${accuracyAggrMetrics._3.toString.take(7)}")
 
 
@@ -172,51 +173,5 @@ object SVMCrossValidation extends App {
     val recall = CodeUtils.recall(countsTest)
     val accuracy = CodeUtils.accuracy(countsTest)
     ((precision,recall,accuracy), countsTest)
-  }
-
-  def readAggRowFromFile(file: String):AggregatedContextInstance = {
-    val is = new ObjectInputStream(new FileInputStream(file))
-    val c = is.readObject().asInstanceOf[AggregatedContextInstance]
-    is.close()
-    c
-  }
-
-
-  def generateLabelMap(fileName: String): Map[(String,String,String), Int] = {
-    val map = collection.mutable.HashMap[(String,String,String), Int]()
-    val source = Source.fromFile(fileName)
-    val lines = source.getLines()
-    val content = lines.drop(1)
-    for(c <- content) {
-      val array = c.split(",")
-      val pmcid = array(0)
-      val evtID = array(1)
-      val ctxID = array(2)
-      val label = Integer.parseInt(array(3))
-      val tup = (pmcid,evtID,ctxID)
-      map ++= Map(tup -> label)
-    }
-
-    map.toMap
-  }
-
-
-  def findAggrMetrics(seq:Seq[Double]): (Double,Double,Double) = {
-    val min = seq.foldLeft(Double.MaxValue)(Math.min(_,_))
-    val max = seq.foldLeft(Double.MinValue)(Math.max(_,_))
-    val sum = seq.foldLeft(0.0)(_+_)
-    val avg = sum.toDouble/seq.size.toDouble
-    (min,max,avg)
-  }
-
-  def writeMetricsToCSV(metricMap:Map[String,(Double,Double,Double)]): Unit = {
-    val cvmetricsFilePath = config.getString("svmContext.cvmetricsFilePath")
-    val pw = new PrintWriter(cvmetricsFilePath)
-    for((key,valueTup) <- metricMap) {
-      val string = s"${key},${valueTup._1.toString.take(5)},${valueTup._2.toString.take(5)},${valueTup._3.toString.take(5)}"
-      pw.write(string)
-      pw.write("\n")
-    }
-    pw.close()
   }
 }
