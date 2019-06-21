@@ -135,9 +135,10 @@ class CrossValBySentDist(testAggrRows: Seq[AggregatedContextInstance]) {
 
         //val countsTest = CodeUtils.predictCounts(giantTruthLabel.toArray, giantPredictedLabel.toArray)
 
-        println(s"Micro-averaged Precision: ${metrics._1.toString.take(7)}")
-        println(s"Micro-averaged Recall: ${metrics._2}")
-        println(s"Micro-averaged Accuracy: ${metrics._3.toString.take(7)}")
+        println(s"Current test fold: " + testAggrRows(0).PMCID)
+        println(s"Per paper Precision: ${metrics._1.toString.take(7)}")
+        println(s"Per paper Recall: ${metrics._2}")
+        println(s"Per paper Accuracy: ${metrics._3.toString.take(7)}")
 
       }
   }
