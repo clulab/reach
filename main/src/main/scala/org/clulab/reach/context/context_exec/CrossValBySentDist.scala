@@ -56,8 +56,8 @@ class CrossValBySentDist(testAggrRows: Seq[AggregatedContextInstance]) {
           val trainingRows = trainingKeys.map(key => {
             groupedByPaperID(key)
           })
-          val testingRows = groupedByPaperID(testPMCID)
-          val perFold = (testingRows, trainingRows.flatten.toSeq)
+          //val testingRows = groupedByPaperID(testPMCID)
+          val perFold = (testAggrRows, trainingRows.flatten.toSeq)
           folds += perFold
 
         })
@@ -115,7 +115,7 @@ class CrossValBySentDist(testAggrRows: Seq[AggregatedContextInstance]) {
           // filtering out pairs for which the prediction was 0
           // check with Prof. Morrison if this kind of filtering is correct
           // leave it commented for now but uncomment the filtering code if he recommends you to.
-          val predictedLabels = unTrainedSVMInstance.predict(testingRows)
+          val predictedLabels = unTrainedSVMInstance.predict(testAggrRows)
 
           giantTruthLabel ++= testingLabels
           giantPredictedLabel ++= predictedLabels
