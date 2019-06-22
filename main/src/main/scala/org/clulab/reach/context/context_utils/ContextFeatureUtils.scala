@@ -67,7 +67,7 @@ object ContextFeatureUtils {
     val currentPMCID = s"PMC${row.PMCID.split("_")(0)}"
     for(file <- fileList) {
       val fileNamePMCID = file.getName.slice(0,file.getName.length-5)
-      val outPaperDirPath = dirForType.concat(s"/${fileNamePMCID}/").concat(s"sentenceWindows/${sentenceWindow}")
+      val outPaperDirPath = dirForType.concat(s"sentenceWindows/${sentenceWindow}")
       // creating output directory if it doesn't already exist
       val outputPaperDir = new File(outPaperDirPath)
       if(!outputPaperDir.exists()) {
