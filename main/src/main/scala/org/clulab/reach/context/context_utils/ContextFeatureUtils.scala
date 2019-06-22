@@ -68,7 +68,6 @@ object ContextFeatureUtils {
     for(file <- fileList) {
       val fileNamePMCID = file.getName.slice(0,file.getName.length-5)
       val outPaperDirPath = dirForType.concat(s"/sentenceWindows/${sentenceWindow}")
-      println(outPaperDirPath)
       // creating output directory if it doesn't already exist
       val outputPaperDir = new File(outPaperDirPath)
       if(!outputPaperDir.exists()) {
