@@ -61,13 +61,13 @@ object ContextFeatureUtils {
 
   def writeRowToFile(row:AggregatedContextInstance, evtID: String, ctxID: String, sentenceWindow:Int):Unit = {
     val typeOfPaper = config.getString("polarityContext.typeOfPaper")
-    println(typeOfPaper)
-    val fileListUnfiltered = new File(typeOfPaper)
+    val dirForType = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}")
+    val fileListUnfiltered = new File(dirForType)
     val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
     val currentPMCID = s"PMC${row.PMCID.split("_")(0)}"
     for(file <- fileList) {
       val fileNamePMCID = file.getName.slice(0,file.getName.length-5)
-      val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${fileNamePMCID}").concat(s"sentenceWindows/${sentenceWindow}")
+      val outPaperDirPath = dirForType.concat(s"/${fileNamePMCID}/").concat(s"sentenceWindows/${sentenceWindow}")
       // creating output directory if it doesn't already exist
       val outputPaperDir = new File(outPaperDirPath)
       if(!outputPaperDir.exists()) {
