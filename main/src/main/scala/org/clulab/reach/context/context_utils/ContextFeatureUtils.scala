@@ -75,7 +75,7 @@ object ContextFeatureUtils {
       }
 
       if(currentPMCID == fileNamePMCID) {
-        val pathForRow = outPaperDirPath.concat(s"/AggregatedRow_${currentPMCID}_${evtID}_${ctxID}_sentenceWindow${sentenceWindow}.txt")
+        val pathForRow = outPaperDirPath.concat(s"/AggregatedRow_${currentPMCID}_${evtID}_${ctxID}.txt")
         val sentenceFile = new File(pathForRow)
         if (!sentenceFile.exists()) {
           sentenceFile.createNewFile()
