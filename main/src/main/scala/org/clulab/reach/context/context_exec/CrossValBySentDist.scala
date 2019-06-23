@@ -8,7 +8,7 @@ import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
 import org.clulab.learning.LinearSVMClassifier
 import org.clulab.reach.context.context_utils.ContextFeatureUtils
 
-class CrossValBySentDist(testAggrRows: Seq[AggregatedContextInstance]) extends App {
+object CrossValBySentDist extends App {
 
   val config = ConfigFactory.load()
   val SVMClassifier = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
