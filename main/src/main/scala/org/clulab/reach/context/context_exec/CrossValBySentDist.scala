@@ -16,11 +16,11 @@ object CrossValBySentDist extends App {
   val labelFile = config.getString("svmContext.labelFile")
   val typeOfPaper = config.getString("polarityContext.typeOfPaper")
   val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper).concat("/sentenceWindows")
-  def performCrossVal(): Unit = {
+
     val allSentDirs = new File(dirForType).listFiles().filter(_.isDirectory)
     for(d<- allSentDirs) {
       println(d.getName)
     }
-  }
+
 
 }
