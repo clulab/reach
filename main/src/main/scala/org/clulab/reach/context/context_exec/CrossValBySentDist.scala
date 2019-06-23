@@ -16,11 +16,25 @@ object CrossValBySentDist extends App {
   val labelFile = config.getString("svmContext.labelFile")
   val typeOfPaper = config.getString("polarityContext.typeOfPaper")
   val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper).concat("/sentenceWindows")
-
-    val allSentDirs = new File(dirForType).listFiles().filter(_.isDirectory)
-    for(d<- allSentDirs) {
-      println(d.getName)
+  val allSentDirs = new File(dirForType).listFiles().filter(_.isDirectory)
+  val scorePerSentDist = collection.mutable.HashMap[Int,(Double,Double)]()
+  val allRowsBySentDist = collection.mutable.HashMap[Int, Seq[AggregatedContextInstance]]()
+  for(d<- allSentDirs) {
+    val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
+    val rowsForCurrentSent = collection.mutable.ListBuffer[AggregatedContextInstance]()
+    for(r<-rowFiles) {
+      val pathToRow = dirForType.concat(s"/${r.getName}")
+      val row = ContextFeatureUtils.readAggRowFromFile(pathToRow)
+      rowsForCurrentSent += row
     }
+    val intName = Integer.parseInt(d.getName)
+    val entry = Map(intName -> rowsForCurrentSent)
+    allRowsBySentDist ++= entry
+  }
+
+  for((sentDist,rows) <- allRowsBySentDist) {
+    println(s"Sentence distance ${sentDist} has a total of ${rows.size} aggregated rows")
+  }
 
 
 }
