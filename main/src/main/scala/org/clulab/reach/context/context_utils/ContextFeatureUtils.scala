@@ -96,5 +96,14 @@ object ContextFeatureUtils {
   }
 
 
+  def createAggRowSpecsFromFile(file: File):(String, String, String) = {
+    val pmcid = file.getName.split("_")(1)
+    val evtID = file.getName.split("_")(2)
+    val ctxID = file.getName.split("_")(3)
+    val ctxID2 = ctxID.slice(0,ctxID.length-4)
+    (pmcid, evtID, ctxID2)
+  }
+
+
 
 }

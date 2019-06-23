@@ -19,12 +19,15 @@ object CrossValBySentDist extends App {
   val allSentDirs = new File(dirForType).listFiles().filter(_.isDirectory)
   val scorePerSentDist = collection.mutable.HashMap[Int,(Double,Double)]()
   val allRowsBySentDist = collection.mutable.HashMap[Int, Seq[AggregatedContextInstance]]()
+  val keysForLabels = collection.mutable.HashMap[AggregatedContextInstance, (String, String, String)]()
   for(d<- allSentDirs) {
     val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
     val rowsForCurrentSent = collection.mutable.ListBuffer[AggregatedContextInstance]()
     for(r<-rowFiles) {
       val pathToRow = dirForType.concat(s"/${d.getName}").concat(s"/${r.getName}")
+      val rowSpecs = ContextFeatureUtils.createAggRowSpecsFromFile(r)
       val row = ContextFeatureUtils.readAggRowFromFile(pathToRow)
+      keysForLabels ++= Map(row -> rowSpecs)
       rowsForCurrentSent += row
     }
     val intName = Integer.parseInt(d.getName)
@@ -32,8 +35,19 @@ object CrossValBySentDist extends App {
     allRowsBySentDist ++= entry
   }
 
+
+  val foldsBySentDist = collection.mutable.HashMap[Int, Seq[(Seq[AggregatedContextInstance], Seq[AggregatedContextInstance])]]()
+
   for((sentDist,rows) <- allRowsBySentDist) {
     println(s"Sentence distance ${sentDist} has a total of ${rows.size} aggregated rows")
+    val foldsPerSentDist = collection.mutable.ArrayBuffer[(Seq[AggregatedContextInstance], Seq[AggregatedContextInstance])]()
+    for(r<-rows) {
+      val trainingRows = rows.filter(_.PMCID != r.PMCID)
+      val testingRows = rows.filter(_.PMCID == r.PMCID)
+      val tup = (testingRows, trainingRows)
+      foldsPerSentDist += tup
+    }
+    foldsBySentDist ++= Map(sentDist -> foldsPerSentDist)
   }
 
 

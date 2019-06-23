@@ -31,12 +31,9 @@ object SVMCrossValidation extends App {
     val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
     val rows = rowFiles.map(file => {
       val pmcid = file.getName.split("_")(1)
-      val evtID = file.getName.split("_")(2)
-      val ctxID = file.getName.split("_")(3)
-      val ctxID2 = ctxID.slice(0,ctxID.length-4)
       val filePath = outPaperDirPath.concat(pmcid).concat(s"/${file.getName}")
       val row = ContextFeatureUtils.readAggRowFromFile(filePath)
-      val tuple = (pmcid,evtID,ctxID2)
+      val tuple = ContextFeatureUtils.createAggRowSpecsFromFile(file)
       val mapEntry = Map(tuple -> row)
       idMap ++= mapEntry
 
