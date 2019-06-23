@@ -23,7 +23,7 @@ object CrossValBySentDist extends App {
     val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
     val rowsForCurrentSent = collection.mutable.ListBuffer[AggregatedContextInstance]()
     for(r<-rowFiles) {
-      val pathToRow = dirForType.concat(s"/${r.getName}")
+      val pathToRow = dirForType.concat(s"/${d.getName}").concat(s"/${r.getName}")
       val row = ContextFeatureUtils.readAggRowFromFile(pathToRow)
       rowsForCurrentSent += row
     }
