@@ -35,12 +35,13 @@ object Polarity extends App {
     val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${pmcid}")
     val pathForPolarity = outPaperDirPath.concat("/sentences.txt")
     val lines = Source.fromFile(pathForPolarity).getLines()
-    println("number of sentences: " + lines.size)
-    val indices = activSentences.map(s => lines.indexOf(s))
-    for(i<-indices)
-      println(i)
+    for(l<-lines) {
+      println(l)
+    }
   }
 
+
+  println(activSentences.size)
 
   for(text<-activSentences) {
     val doc = reachSystem.mkDoc(text, "", "")
