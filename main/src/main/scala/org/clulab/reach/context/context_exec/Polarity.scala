@@ -54,4 +54,10 @@ object Polarity extends App {
   val intersection = activeSentenceForIntersect.toSet.intersect(sentenceFileContentsForIntersect.toSet)
   println(s" The intersection has size: ${intersection.size}")
 
+
+  for(a<-activeSentenceForIntersect) {
+    if(sentenceFileContentsForIntersect.indexOf(a) == -1)
+      println(a)
+  }
+
 }
