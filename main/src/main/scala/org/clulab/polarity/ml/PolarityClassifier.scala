@@ -2,11 +2,13 @@ package org.clulab.polarity.ml
 
 import org.clulab.polarity.Polarity
 import org.clulab.reach.mentions.BioEventMention
+import com.typesafe.scalalogging.LazyLogging
+
 
 /**
   * Base trait for an ML-based polarity classifier
   */
-trait PolarityClassifier {
+trait PolarityClassifier extends LazyLogging{
 
   /**
     * Trains the classifier. This method is meant to have side effects by fitting the parameters

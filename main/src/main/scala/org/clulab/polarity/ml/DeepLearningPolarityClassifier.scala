@@ -2,6 +2,7 @@ package org.clulab.polarity.ml
 
 import java.nio.file.{Files, Paths}
 
+import com.typesafe.config.ConfigFactory
 import edu.cmu.dynet.Expression._
 import edu.cmu.dynet._
 import org.clulab.fatdynet.utils.CloseableModelSaver
@@ -16,12 +17,26 @@ import scala.util.Random
 
 
 
-class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") extends PolarityClassifier{
+class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
   Initialize.initialize()
 
-  val dictPath = "vocab.txt"
-  val w2vDictPath = "w2vvoc.txt"
+  val config = ConfigFactory.load()
+
+  val configPath = "polarity"
+
+  var savedModelPath = ""
+  var spreadsheetPath = ""
+  if(config.hasPath(configPath)) {
+    savedModelPath = config.getString(configPath+".savedModel")
+    spreadsheetPath = config.getString(configPath+".spreadsheetPath")
+  }
+  else{
+    logger.error("Config file doesn't have polarity engine configured. Returning the default engine")
+  }
+
+  //val dictPath = "vocab.txt"
+  //val w2vDictPath = "w2vvoc.txt"
 
   //val lines = Source.fromFile(dictPath).getLines().toList
   //val lines2 = Source.fromFile(w2vDictPath).getLines().toList
@@ -60,11 +75,11 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
   private var _isFitted = false
   
   if (Files.exists(Paths.get(savedModelPath))){
-    println("Loading saved model ...")
+    logger.info("Loading saved model ...")
     _isFitted=true
     val modelLoader = new ModelLoader(savedModelPath)
     modelLoader.populateModel(pc, "/allParams")
-    println("Loading model finished!")
+    logger.info("Loading model finished!")
   }
   
   
@@ -75,14 +90,13 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
     * @param trainingPath Training data
     * @param trainingRatio Ratio of training samples in the dataset
     */
-  override def fit(trainingPath:String = "SentencesInfo_all_label_final_ExactRecur.txt", trainRatio:Float=0.8.toFloat, saveFlag:Boolean=true): Unit = {
+  override def fit(trainingPath:String = spreadsheetPath, trainRatio:Float=0.8.toFloat, saveFlag:Boolean=true): Unit = {
     
     if (!_isFitted){
       val (sens_train, labels_train, sens_test, labels_test) = this.readFromSpreadsheet(trainingPath, trainRatio)
-
       val N_EPOCH = this.N_EPOCH
       for (epoch <- 1 to N_EPOCH) {
-        println(s"epoch $epoch")
+        logger.info(s"epoch $epoch")
         this.fitSingleEpoch(sens_train, labels_train)
         this.testSingleEpoch(sens_test, labels_test)
         sgd.learningRate=sgd.learningRate*0.3.toFloat
@@ -157,11 +171,11 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
     * @param modelPath file path to save the model to.
     */
   override def save(modelPath: String="SavedLSTM"): Unit = {
-    println("Saving model ...")
+    logger.info("Saving model ...")
     new CloseableModelSaver(modelPath).autoClose { modelSaver =>
       modelSaver.addModel(pc, "/allParams")
     }
-    println("Saving trained model finished!")
+    logger.info("Saving trained model finished!")
 
   }
 
@@ -244,7 +258,7 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
   }
 
   def charToIndex(w2v_voc:Map[String, Int], special_voc:Map[String, Int]):Map[Char,Int]={
-    println("Generating character embedding index ...")
+    logger.info("Generating character embedding index ...")
     val chars = new mutable.HashSet[Char]()
     for (keyWord <- w2v_voc.keys) {
       for(i <- keyWord.indices) {
@@ -258,7 +272,7 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
     }
 
     val c2i = chars.toList.sorted.zipWithIndex.toMap
-    println("Character index finished!")
+    logger.info("Character index finished!")
     c2i
   }
 
@@ -280,7 +294,7 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
 
     }
     var average_loss = total_loss/input_sens.length
-    println(s"training loss ${average_loss}")
+    logger.info(s"training loss ${average_loss}")
 
   }
 
@@ -309,9 +323,9 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
     }
     val average_loss = total_loss/input_sens.length
     val test_acc = correct_count.toFloat/labels.length
-    println(s"number of testing samples ${labels.length}")
-    println(s"testing loss ${average_loss}")
-    println(s"testing acc ${test_acc}")
+    logger.info(s"number of testing samples ${labels.length}")
+    logger.info(s"testing loss ${average_loss}")
+    logger.info(s"testing acc ${test_acc}")
   }
 
   def loadModelEval(trainingPath:String = "SentencesInfo_all_label_final_ExactRecur.txt", trainRatio:Float=0.8.toFloat):Unit={
@@ -321,7 +335,7 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
   }
 
   def readFromSpreadsheet(spreadsheet_path:String, train_ratio:Float): (Seq[(Seq[String], Int)], Seq[Int], Seq[(Seq[String], Int)], Seq[Int]) ={
-    println("Loading data from spreadsheet ...")
+    logger.info("Loading data from spreadsheet ...")
     var instances = Seq[(Seq[String],Int)]()
     var labels = Seq[Int]()
 
@@ -352,8 +366,8 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
     }
     bufferedSource.close
 
-    println(s"Num. all samples: ${instances.length}")
-    println(s"Num. all labels: ${labels.length}")
+    logger.info(s"Num. all samples: ${instances.length}")
+    logger.info(s"Num. all labels: ${labels.length}")
 
 
     val random_1 = new Random(1)
@@ -371,14 +385,14 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
     val labels_train = labels_shuffle.slice(0, n_training)
     val sens_test = sens_shuffled.slice(n_training, labels.length)
     val labels_test = labels_shuffle.slice(n_training, labels.length)
-    println("Loading data finished!")
+    logger.info("Loading data finished!")
 
     (sens_train, labels_train, sens_test, labels_test)
 
   }
 
   def mkVocabs(spreadSheetPath:String = "SentencesInfo_all_label_final_ExactRecur.txt"): (Map[String, Int], Map[Char, Int]) = {
-    println("Making vocabulary for deep learning model ...")
+    logger.info("Making vocabulary for deep learning model ...")
     val (trainSentences, _, _,_) = readFromSpreadsheet(spreadSheetPath, 0.8.toFloat)
 
     val chars = new mutable.HashSet[Char]()
@@ -396,7 +410,7 @@ class DeepLearningPolarityClassifier(val savedModelPath:String="SavedLSTM") exte
     val w2i = words.zipWithIndex.toMap
     val c2i = chars.toList.sorted.zipWithIndex.toMap
 
-    println(s"Vocabulary build finished! W2I size ${w2i.size},  C2I size ${c2i.size}")
+    logger.info(s"Vocabulary build finished! W2I size ${w2i.size},  C2I size ${c2i.size}")
 
     (w2i, c2i)
   }
