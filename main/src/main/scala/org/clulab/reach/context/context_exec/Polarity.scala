@@ -23,6 +23,12 @@ object Polarity extends App {
   val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
   val fileListUnfiltered = new File(dirForType)
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
+  val reachSystem = new ReachSystem()
+
+  /*val text = … // A sentence that comes from the json file
+  val reachSystem = new ReachSystem
+  val doc = reachSystem.mkDoc(text, “”, “”)
+  val newText = doc.sentences(0).getSentenceText*/
   println(fileList.size)
   for(file<- fileList) {
     val pmcid = file.getName.slice(0,file.getName.length-5)
@@ -33,6 +39,13 @@ object Polarity extends App {
     val indices = activSentences.map(s => lines.indexOf(s))
     for(i<-indices)
       println(i)
+  }
+
+
+  for(text<-activSentences) {
+    val doc = reachSystem.mkDoc(text, "", "")
+    val newText = doc.sentences(0).getSentenceText
+    println(newText)
   }
 
 }
