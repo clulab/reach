@@ -26,10 +26,6 @@ object Polarity extends App {
   val reachSystem = new ReachSystem()
   val sentenceFileContentsForIntersect = collection.mutable.ListBuffer[String]()
 
-  /*val text = … // A sentence that comes from the json file
-  val reachSystem = new ReachSystem
-  val doc = reachSystem.mkDoc(text, “”, “”)
-  val newText = doc.sentences(0).getSentenceText*/
   println(fileList.size)
   for(file<- fileList) {
     val pmcid = file.getName.slice(0,file.getName.length-5)
@@ -47,7 +43,6 @@ object Polarity extends App {
     val doc = reachSystem.mkDoc(text, "", "")
     val newText = doc.sentences(0).getSentenceText
     activeSentenceForIntersect += newText
-    println(newText)
   }
 
 
@@ -59,5 +54,23 @@ object Polarity extends App {
     if(sentenceFileContentsForIntersect.indexOf(a) == -1)
       println(a)
   }
+
+
+  val inhibSentenceForIntersect = collection.mutable.ListBuffer[String]()
+  for(text<-inhibSentences) {
+    val doc = reachSystem.mkDoc(text, "", "")
+    val newText = doc.sentences(0).getSentenceText
+    inhibSentenceForIntersect += newText
+  }
+
+  val inhibInterSection = inhibSentenceForIntersect.toSet.intersect(sentenceFileContentsForIntersect.toSet)
+  println(s"The size of inhibition intersection is: ${inhibInterSection.size}")
+
+
+  for(a<-inhibSentenceForIntersect) {
+    if(sentenceFileContentsForIntersect.indexOf(a) == -1)
+      println(a)
+  }
+
 
 }
