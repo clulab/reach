@@ -24,6 +24,7 @@ object Polarity extends App {
   val fileListUnfiltered = new File(dirForType)
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
   val reachSystem = new ReachSystem()
+  val sentenceFileContentsForIntersect = collection.mutable.ListBuffer[String]()
 
   /*val text = … // A sentence that comes from the json file
   val reachSystem = new ReachSystem
@@ -35,18 +36,22 @@ object Polarity extends App {
     val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${pmcid}")
     val pathForPolarity = outPaperDirPath.concat("/sentences.txt")
     val lines = Source.fromFile(pathForPolarity).getLines()
+    sentenceFileContentsForIntersect ++= lines
     for(l<-lines) {
       println(l)
     }
   }
 
-
-  println(activSentences.size)
-
+  val activeSentenceForIntersect = collection.mutable.ListBuffer[String]()
   for(text<-activSentences) {
     val doc = reachSystem.mkDoc(text, "", "")
     val newText = doc.sentences(0).getSentenceText
+    activeSentenceForIntersect += newText
     println(newText)
   }
+
+
+  val intersection = activeSentenceForIntersect.toSet.intersect(sentenceFileContentsForIntersect.toSet)
+  println(s" The intersection has size: ${intersection.size}")
 
 }
