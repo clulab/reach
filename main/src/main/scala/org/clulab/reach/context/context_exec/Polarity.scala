@@ -60,6 +60,9 @@ object Polarity extends App {
   val activationIndices = collection.mutable.HashMap[String, (String, Int)]()
   val inhibitionIndices = collection.mutable.HashMap[String, (String, Int)]()
 
+
+  println(activationIntersection.size)
+  println(inhibitionIntersection.size)
   for(i<-activationIntersection) {
     for((pmcid,sentences) <- sentencesByPaper) {
       if(sentences.contains(i)) {
