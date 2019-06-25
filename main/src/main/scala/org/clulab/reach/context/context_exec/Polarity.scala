@@ -98,12 +98,36 @@ object Polarity extends App {
   println(s"The inhibition indices map is of size: ${inhibitionIndices.size}")
 
 
-  for((paperID, eventsIDs) <- eventIDsByPaper) {
-    println(s"The paper ${paperID} has ${eventsIDs.size} event mentions")
+  val activationEventIDsInIndicesMap = collection.mutable.ListBuffer[String]()
+  val inhibitionEventIDsInIndicesMap = collection.mutable.ListBuffer[String]()
+
+  for((_, (_, index)) <- activationIndices) {
+    for(event <- eventFileContentsToIntersect) {
+      val sentIndOfEventID = Integer.parseInt(event.split("%")(0))
+      if(sentIndOfEventID == index) {
+        val redoneName = sentIndOfEventID.toString+event.split("%")(1)
+        activationEventIDsInIndicesMap += redoneName
+      }
+    }
   }
 
+  for((_, (_, index)) <- inhibitionIndices) {
+    for(event <- eventFileContentsToIntersect) {
+      val sentIndOfEventID = Integer.parseInt(event.split("%")(0))
+      if(sentIndOfEventID == index) {
+        val redoneName = sentIndOfEventID.toString+event.split("%")(1)
+        inhibitionEventIDsInIndicesMap += redoneName
+      }
+    }
+  }
 
-  def prepareEventIDs(lines: Iterator[String]): Array[String] = {
+  println(s"Events found in activation list are the following. They are totally ${activationEventIDsInIndicesMap.size} in number")
+  for(a <- activationEventIDsInIndicesMap) println(a)
+
+  println(s"Events found in inhibition list are the following. They are totally ${inhibitionEventIDsInIndicesMap.size} in number")
+  for(a <- inhibitionEventIDsInIndicesMap) println(a)
+
+  private def prepareEventIDs(lines: Iterator[String]): Array[String] = {
     val preparedEvents = collection.mutable.ArrayBuffer[String]()
     for(l <- lines) {
       val array = l.split(" ")
