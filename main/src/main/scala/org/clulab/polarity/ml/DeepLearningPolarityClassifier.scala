@@ -25,11 +25,24 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
   val configPath = "polarity"
 
-  var savedModelPath = ""
-  var spreadsheetPath = ""
+  var savedModelPath = "savedModel"
+  var spreadsheetPath = "SentencesInfo_all_label_final_ExactRecur.txt"
+  var VOC_SIZE = 3671
+  var WEM_DIMENSIONS = 100
+  var CEM_DIMENSIONS = 30
+  var NUM_LAYERS = 1
+  var HIDDEN_SIZE = 30
+  var N_EPOCH = 5
+
   if(config.hasPath(configPath)) {
     savedModelPath = config.getString(configPath+".savedModel")
     spreadsheetPath = config.getString(configPath+".spreadsheetPath")
+    VOC_SIZE = config.getInt(configPath+".VOC_SIZE")
+    WEM_DIMENSIONS = config.getInt(configPath+".VOC_SIZE")
+    CEM_DIMENSIONS = config.getInt(configPath+".VOC_SIZE")
+    NUM_LAYERS = config.getInt(configPath+".VOC_SIZE")
+    HIDDEN_SIZE = config.getInt(configPath+".VOC_SIZE")
+    N_EPOCH = config.getInt(configPath+".VOC_SIZE")
   }
   else{
     logger.error("Config file doesn't have polarity engine configured. Returning the default engine")
@@ -44,12 +57,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   val (w2i, c2i) = mkVocabs()
 
 
-  val VOC_SIZE = 3671
-  val WEM_DIMENSIONS = 100
-  val CEM_DIMENSIONS = 30
-  val NUM_LAYERS = 1
-  val HIDDEN_SIZE = 30
-  val N_EPOCH = 5
+
 
   var loss: Float = 0
   val pc = new ParameterCollection
