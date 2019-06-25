@@ -33,9 +33,12 @@ object Polarity extends App {
     val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${pmcid}")
     val pathForPolarity = outPaperDirPath.concat("/sentences.txt")
     val lines = Source.fromFile(pathForPolarity).getLines()
+    println(s"The paper ${pmcid} has ${lines.size} sentences, but if I convert it to sequence, it becomes ${lines.toSeq.size}")
     sentencesByPaper ++= Map(pmcid -> lines.toSeq)
     sentenceFileContentsToIntersect ++= lines
   }
+
+  println(s"Sentences mega list contains: ${sentenceFileContentsToIntersect.size} sentences")
 
   val activeSentenceForIntersect = collection.mutable.ListBuffer[String]()
   for(text<-activSentences) {
@@ -43,6 +46,8 @@ object Polarity extends App {
     val newText = doc.sentences(0).getSentenceText
     activeSentenceForIntersect += newText
   }
+
+  println(s"There are a total of ${activSentences.size + inhibSentences.size} sentences from the JSON files")
 
 
   val activationIntersection = activeSentenceForIntersect.toSet.intersect(sentenceFileContentsToIntersect.toSet)
