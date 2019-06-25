@@ -23,6 +23,7 @@ object Polarity extends App {
   val inhibSentences = Source.fromFile(inhibSentPath).getLines()
   val typeOfPaper = config.getString("polarityContext.typeOfPaper")
   val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
+  println(dirForType)
   val fileListUnfiltered = new File(dirForType)
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
   val reachSystem = new ReachSystem()
