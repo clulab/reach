@@ -63,12 +63,17 @@ object Polarity extends App {
   val activationEventIDsBySentIndex = collection.mutable.HashMap[Int, Seq[String]]()
   val inhibitionEventIDsBySentIndex = collection.mutable.HashMap[Int, Seq[String]]()
   val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
+  val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
+  lazy val tempoReachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
+    contextEngineType = contextEngineType,
+    contextParams = contextEngineParams)
   for(file<- fileList) {
+
     val nxmlDoc = nxmlReader.read(file)
     println("nxml loaded successfully")
-    val document = reachSystem.mkDoc(nxmlDoc)
+    val document = tempoReachSystem.mkDoc(nxmlDoc)
     println("mkDoc performed successfully")
-    val mentions = reachSystem.extractFrom(document)
+    val mentions = tempoReachSystem.extractFrom(document)
     println("mentions extracted successfully")
     val evtMentionsOnly = mentions.collect { case evt: EventMention => (evt.sentence, evt.tokenInterval) }
     for(a<-activationIndices) {
