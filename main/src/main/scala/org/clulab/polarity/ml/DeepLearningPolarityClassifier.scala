@@ -38,11 +38,11 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     savedModelPath = config.getString(configPath+".savedModel")
     spreadsheetPath = config.getString(configPath+".spreadsheetPath")
     VOC_SIZE = config.getInt(configPath+".VOC_SIZE")
-    WEM_DIMENSIONS = config.getInt(configPath+".VOC_SIZE")
-    CEM_DIMENSIONS = config.getInt(configPath+".VOC_SIZE")
-    NUM_LAYERS = config.getInt(configPath+".VOC_SIZE")
-    HIDDEN_SIZE = config.getInt(configPath+".VOC_SIZE")
-    N_EPOCH = config.getInt(configPath+".VOC_SIZE")
+    WEM_DIMENSIONS = config.getInt(configPath+".WEM_DIMENSIONS")
+    CEM_DIMENSIONS = config.getInt(configPath+".CEM_DIMENSIONS")
+    NUM_LAYERS = config.getInt(configPath+".NUM_LAYERS")
+    HIDDEN_SIZE = config.getInt(configPath+".HIDDEN_SIZE")
+    N_EPOCH = config.getInt(configPath+".N_EPOCH")
   }
   else{
     logger.error("Config file doesn't have polarity engine configured. Returning the default engine")
