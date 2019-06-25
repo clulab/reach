@@ -47,9 +47,6 @@ object Polarity extends App {
     activeSentenceForIntersect += newText
   }
 
-  println(s"There are a total of ${activSentences.size + inhibSentences.size} sentences from the JSON files")
-
-
   val activationIntersection = activeSentenceForIntersect.toSet.intersect(sentenceFileContentsToIntersect.toSet)
 
 
