@@ -67,7 +67,6 @@ object Polarity extends App {
   println(s"There are ${inhibitionIntersection.size} sentences in the inhibition intersection")
 
   for((paperID, sentences) <- sentencesByPaper) {
-    println(s"The paper ${paperID} has ${sentences.size} sentences and the first sentence has ${sentences(0).size} characters")
     for(a<-activationIntersection)
       {
         if(sentences.contains(a)) {
@@ -85,16 +84,7 @@ object Polarity extends App {
 
   }
 
-  var inc = 1
-  for((paperID, (sentence, index)) <- activationIndices) {
-    println(inc)
-    println(s"The sentence '${sentence}' was found at index ${index} in the paper ${paperID}")
-    inc += 1
-  }
+  println(s"The activation indices map is of size: ${activationIndices.size}")
+  println(s"The inhibition indices map is of size: ${inhibitionIndices.size}")
 
-  for((paperID, (sentence, index)) <- inhibitionIndices) {
-    println(inc)
-    println(s"The sentence '${sentence}' was found at index ${index} in the paper ${paperID}")
-    inc += 1
-  }
 }
