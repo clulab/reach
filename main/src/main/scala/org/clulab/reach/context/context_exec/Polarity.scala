@@ -34,12 +34,8 @@ object Polarity extends App {
     val pathForPolarity = outPaperDirPath.concat("/sentences.txt")
     val linesForBigList = Source.fromFile(pathForPolarity).getLines()
     val linesForMap = Source.fromFile(pathForPolarity).getLines()
-    val sentencesInSeqForBigList = collection.mutable.ListBuffer[String]()
-    val sentencesInSeqForMap = collection.mutable.ArrayBuffer[String]()
-    linesForBigList.map(l => sentencesInSeqForBigList += l)
-    linesForMap.map(l=>sentencesInSeqForMap += l)
-    sentencesByPaper ++= Map(pmcid -> sentencesInSeqForMap.toArray)
-    sentenceFileContentsToIntersect ++= sentencesInSeqForBigList
+    sentencesByPaper ++= Map(pmcid -> linesForMap.toArray)
+    sentenceFileContentsToIntersect ++= linesForBigList
   }
 
   println(s"Sentences mega list contains: ${sentenceFileContentsToIntersect.size} sentences")
