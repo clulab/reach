@@ -66,20 +66,26 @@ object Polarity extends App {
   println(s"There are ${activationIntersection.size} sentences in the activation intersection")
   println(s"There are ${inhibitionIntersection.size} sentences in the inhibition intersection")
 
-
-/*  println("printing activation sentences")
-  for(a<-activationIntersection) println(a)
-
-
-  println("printing inhibition sentences")
-  for(i<-inhibitionIntersection) println(i)*/
-
-
-  //println(sentencesByPaper("PMC4142739").indexOf("EGF increase may potentially be triggering autocrine effects on BJ cells as well as paracrine effects on keratinocytes , by modulating epidermal proliferation and differentiation [ XREF_BIBR ] , also emphasising the importance of the EGF effect in the wound closure of wound healing [ XREF_BIBR , XREF_BIBR ] ."))
-
- for((paperID, sentences) <- sentencesByPaper) {
-   println(s"The paper ${paperID} has been found to have ${sentences.size} sentences. But I think this is where the problem lies.")
- }
+  for(a<-activationIntersection) {
+    for((paperID, sentences) <- sentencesByPaper) {
+      if(sentences.contains(a))
+        activationIndices ++= Map(paperID -> (a, sentences.indexOf(a)))
+    }
+  }
 
 
+  for(a<-inhibitionIntersection) {
+    for((paperID, sentences) <- sentencesByPaper) {
+      if(sentences.contains(a))
+        inhibitionIndices ++= Map(paperID -> (a, sentences.indexOf(a)))
+    }
+  }
+
+  for((paperID,(sentence,index)) <- activationIndices) {
+    println(s"The sentence '${sentence}' was found at index ${index} in the paper ${paperID}")
+  }
+
+  for((paperID,(sentence,index)) <- inhibitionIndices) {
+    println(s"The sentence '${sentence}' was found at index ${index} in the paper ${paperID}")
+  }
 }
