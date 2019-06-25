@@ -4,7 +4,9 @@ import com.typesafe.config.ConfigFactory
 import scala.io.Source
 import scala.util.parsing.json.JSON
 import java.io.{File, PrintWriter}
+
 import ai.lum.nxmlreader.NxmlReader
+import org.clulab.odin.EventMention
 import org.clulab.reach.PaperReader.{contextEngineParams, ignoreSections, preproc, procAnnotator}
 import org.clulab.reach.ReachSystem
 import org.clulab.reach.context.ContextEngine
@@ -24,18 +26,14 @@ object Polarity extends App {
   val fileListUnfiltered = new File(dirForType)
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
   val reachSystem = new ReachSystem()
-  val sentenceFileContentsForIntersect = collection.mutable.ListBuffer[String]()
+  val sentenceFileContentsToIntersect = collection.mutable.ListBuffer[String]()
 
-  println(fileList.size)
   for(file<- fileList) {
     val pmcid = file.getName.slice(0,file.getName.length-5)
     val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${pmcid}")
     val pathForPolarity = outPaperDirPath.concat("/sentences.txt")
     val lines = Source.fromFile(pathForPolarity).getLines()
-    sentenceFileContentsForIntersect ++= lines
-    for(l<-lines) {
-      println(l)
-    }
+    sentenceFileContentsToIntersect ++= lines
   }
 
   val activeSentenceForIntersect = collection.mutable.ListBuffer[String]()
@@ -46,14 +44,7 @@ object Polarity extends App {
   }
 
 
-  val intersection = activeSentenceForIntersect.toSet.intersect(sentenceFileContentsForIntersect.toSet)
-  println(s" The intersection has size: ${intersection.size}")
-
-
-  for(a<-activeSentenceForIntersect) {
-    if(sentenceFileContentsForIntersect.indexOf(a) == -1)
-      println(a)
-  }
+  val activationIntersection = activeSentenceForIntersect.toSet.intersect(sentenceFileContentsToIntersect.toSet)
 
 
   val inhibSentenceForIntersect = collection.mutable.ListBuffer[String]()
@@ -63,14 +54,43 @@ object Polarity extends App {
     inhibSentenceForIntersect += newText
   }
 
-  val inhibInterSection = inhibSentenceForIntersect.toSet.intersect(sentenceFileContentsForIntersect.toSet)
-  println(s"The size of inhibition intersection is: ${inhibInterSection.size}")
+  val inhibitionIntersection = inhibSentenceForIntersect.toSet.intersect(sentenceFileContentsToIntersect.toSet)
 
 
-  for(a<-inhibSentenceForIntersect) {
-    if(sentenceFileContentsForIntersect.indexOf(a) == -1)
-      println(a)
+  val activationIndices = activationIntersection.map(s => sentenceFileContentsToIntersect.indexOf(s))
+  val inhibitionIndices = inhibitionIntersection.map(i => sentenceFileContentsToIntersect.indexOf(i))
+  val activationEventIDsBySentIndex = collection.mutable.HashMap[Int, Seq[String]]()
+  val inhibitionEventIDsBySentIndex = collection.mutable.HashMap[Int, Seq[String]]()
+  for(file<- fileList) {
+    val nxmlDoc = nxmlReader.read(file)
+    val document = reachSystem.mkDoc(nxmlDoc)
+    val mentions = reachSystem.extractFrom(document)
+    val evtMentionsOnly = mentions.collect { case evt: BioEventMention => evt }
+    for(a<-activationIndices) {
+      val eventsPerIndex = evtMentionsOnly.filter(x => x.sentence == a)
+      val eventIDsPerIndex = eventsPerIndex.map(x => extractEvtId(x))
+      activationEventIDsBySentIndex ++= Map(a -> eventIDsPerIndex)
+      println(eventIDsPerIndex.size)
+    }
+
+    for(a<-inhibitionIndices) {
+      val eventsPerIndex = evtMentionsOnly.filter(x => x.sentence == a)
+      val eventIDsPerIndex = eventsPerIndex.map(x => extractEvtId(x))
+      inhibitionEventIDsBySentIndex ++= Map(a -> eventIDsPerIndex)
+      println(eventIDsPerIndex.size)
+    }
+
   }
 
+  type Pair = (BioEventMention, BioTextBoundMention)
+  type EventID = String
+  type ContextID = (String, String)
+
+  def extractEvtId(evt:BioEventMention):EventID = {
+    val sentIndex = evt.sentence
+    val tokenIntervalStart = (evt.tokenInterval.start).toString()
+    val tokenIntervalEnd = (evt.tokenInterval.end).toString()
+    sentIndex+tokenIntervalStart+tokenIntervalEnd
+  }
 
 }
