@@ -29,6 +29,7 @@ object Polarity extends App {
   val sentenceFileContentsToIntersect = collection.mutable.ListBuffer[String]()
   val sentencesByPaper = collection.mutable.HashMap[String, Array[String]]()
   val eventIDsByPaper = collection.mutable.HashMap[String, Array[String]]()
+  val eventFileContentsToIntersect = collection.mutable.ListBuffer[String]()
   for(file<- fileList) {
     val pmcid = file.getName.slice(0,file.getName.length-5)
     val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${pmcid}")
@@ -39,13 +40,16 @@ object Polarity extends App {
     sentenceFileContentsToIntersect ++= linesForBigList
 
     val pathForEvents = outPaperDirPath.concat("/event_intervals.txt")
-    val eventLines = Source.fromFile(pathForEvents).getLines()
-    val refurbished = prepareEventIDs(eventLines)
+    val eventLinesForMap = Source.fromFile(pathForEvents).getLines()
+    val refurbished = prepareEventIDs(eventLinesForMap)
     eventIDsByPaper ++= Map(pmcid -> refurbished)
+    val eventLinesForBigList = Source.fromFile(pathForEvents).getLines()
+    val refurb = prepareEventIDs(eventLinesForBigList)
+    eventFileContentsToIntersect ++= refurb
   }
 
   println(s"Sentences mega list contains: ${sentenceFileContentsToIntersect.size} sentences")
-
+  println(s"Events mega list contains: ${eventFileContentsToIntersect.size} event mentions")
   val activeSentenceForIntersect = collection.mutable.ListBuffer[String]()
   for(text<-activSentences) {
     val doc = reachSystem.mkDoc(text, "", "")
@@ -108,7 +112,7 @@ object Polarity extends App {
         val str = array(s)
         val start = str.split("-")(0)
         val end = str.split("-")(1)
-        val stringToAdd = sentenceIndex+start+end
+        val stringToAdd = sentenceIndex+"%"+start+end
         preparedEvents += stringToAdd
       }
     }
