@@ -82,6 +82,7 @@ object Polarity extends App {
     }
   }
 
+  println(sentencesByPaper.size)
   println(activationIndices.size)
   println(inhibitionIndices.size)
   for((pmcid,(sentence, index)) <- activationIndices) {
