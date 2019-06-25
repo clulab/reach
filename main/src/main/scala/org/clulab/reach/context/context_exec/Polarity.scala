@@ -27,15 +27,15 @@ object Polarity extends App {
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
   val reachSystem = new ReachSystem()
   val sentenceFileContentsToIntersect = collection.mutable.ListBuffer[String]()
-  val sentencesByPaper = collection.mutable.HashMap[String, Seq[String]]()
+  val sentencesByPaper = collection.mutable.HashMap[String, Iterator[String]]()
   for(file<- fileList) {
     val pmcid = file.getName.slice(0,file.getName.length-5)
     val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${pmcid}")
     val pathForPolarity = outPaperDirPath.concat("/sentences.txt")
-    val lines = Source.fromFile(pathForPolarity).getLines()
-    println(s"The paper ${pmcid} has ${lines.size} sentences, but if I convert it to sequence, it becomes ${lines.toSeq.size}")
-    sentencesByPaper ++= Map(pmcid -> lines.toSeq)
-    sentenceFileContentsToIntersect ++= lines
+    val linesForBigList = Source.fromFile(pathForPolarity).getLines()
+    val linesForMap = Source.fromFile(pathForPolarity).getLines()
+    sentencesByPaper ++= Map(pmcid -> linesForMap)
+    sentenceFileContentsToIntersect ++= linesForBigList
   }
 
   println(s"Sentences mega list contains: ${sentenceFileContentsToIntersect.size} sentences")
