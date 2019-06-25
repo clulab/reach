@@ -25,15 +25,15 @@ object Polarity extends App {
   val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
   val fileListUnfiltered = new File(dirForType)
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
-  println(fileList.size)
   val reachSystem = new ReachSystem()
   val sentenceFileContentsToIntersect = collection.mutable.ListBuffer[String]()
-
+  val sentencesByPaper = collection.mutable.HashMap[String, Seq[String]]()
   for(file<- fileList) {
     val pmcid = file.getName.slice(0,file.getName.length-5)
     val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${pmcid}")
     val pathForPolarity = outPaperDirPath.concat("/sentences.txt")
     val lines = Source.fromFile(pathForPolarity).getLines()
+    sentencesByPaper ++= Map(pmcid -> lines.toSeq)
     sentenceFileContentsToIntersect ++= lines
   }
 
@@ -57,44 +57,39 @@ object Polarity extends App {
 
   val inhibitionIntersection = inhibSentenceForIntersect.toSet.intersect(sentenceFileContentsToIntersect.toSet)
 
+  val activationIndices = collection.mutable.HashMap[String, (String, Int)]()
+  val inhibitionIndices = collection.mutable.HashMap[String, (String, Int)]()
 
-  val activationIndices = activationIntersection.map(s => sentenceFileContentsToIntersect.indexOf(s))
-  val inhibitionIndices = inhibitionIntersection.map(i => sentenceFileContentsToIntersect.indexOf(i))
-  val activationEventIDsBySentIndex = collection.mutable.HashMap[Int, Seq[String]]()
-  val inhibitionEventIDsBySentIndex = collection.mutable.HashMap[Int, Seq[String]]()
-  val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
-  val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
-  lazy val tempoReachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
-    contextEngineType = contextEngineType,
-    contextParams = contextEngineParams)
-  for(file<- fileList) {
-
-    val nxmlDoc = nxmlReader.read(file)
-    println("nxml loaded successfully")
-    val document = tempoReachSystem.mkDoc(nxmlDoc)
-    println("mkDoc performed successfully")
-    val mentions = tempoReachSystem.extractFrom(document)
-    println("mentions extracted successfully")
-    val evtMentionsOnly = mentions.collect { case evt: EventMention => (evt.sentence, evt.tokenInterval) }
-    for(a<-activationIndices) {
-      val eventsPerIndex = evtMentionsOnly.filter(x => x._1 == a)
-      val eventIDsPerIndex = eventsPerIndex.map(x => extractEvtId(x))
-      activationEventIDsBySentIndex ++= Map(a -> eventIDsPerIndex)
-      println(eventIDsPerIndex.size)
+  for(i<-activationIntersection) {
+    for((pmcid,sentences) <- sentencesByPaper) {
+      if(sentences.contains(i)) {
+        val index = sentences.indexOf(i)
+        activationIndices ++= Map(pmcid -> (i, index))
+      }
     }
-
-    for(a<-inhibitionIndices) {
-      val eventsPerIndex = evtMentionsOnly.filter(x => x._1 == a)
-      val eventIDsPerIndex = eventsPerIndex.map(x => extractEvtId(x))
-      inhibitionEventIDsBySentIndex ++= Map(a -> eventIDsPerIndex)
-      println(eventIDsPerIndex.size)
-    }
-
   }
 
-  def extractEvtId(tuple: (Int, Interval)):String = {
-    tuple._1+tuple._2.start.toString+tuple._2.end.toString
+
+  for(i<-inhibitionIntersection) {
+    for((pmcid,sentences) <- sentencesByPaper) {
+      if(sentences.contains(i)) {
+        val index = sentences.indexOf(i)
+        inhibitionIndices ++= Map(pmcid -> (i, index))
+      }
+    }
   }
+
+
+  for((pmcid,(sentence, index)) <- activationIndices) {
+    println(s"The sentence ${sentence} was found in the paper ${pmcid} at index ${index}")
+  }
+
+
+  for((pmcid,(sentence, index)) <- inhibitionIndices) {
+    println(s"The sentence ${sentence} was found in the paper ${pmcid} at index ${index}")
+  }
+
+
 
 
 
