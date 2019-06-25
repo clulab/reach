@@ -27,15 +27,19 @@ object Polarity extends App {
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
   val reachSystem = new ReachSystem()
   val sentenceFileContentsToIntersect = collection.mutable.ListBuffer[String]()
-  val sentencesByPaper = collection.mutable.HashMap[String, Iterator[String]]()
+  val sentencesByPaper = collection.mutable.HashMap[String, Array[String]]()
   for(file<- fileList) {
     val pmcid = file.getName.slice(0,file.getName.length-5)
     val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${pmcid}")
     val pathForPolarity = outPaperDirPath.concat("/sentences.txt")
     val linesForBigList = Source.fromFile(pathForPolarity).getLines()
     val linesForMap = Source.fromFile(pathForPolarity).getLines()
-    sentencesByPaper ++= Map(pmcid -> linesForMap)
-    sentenceFileContentsToIntersect ++= linesForBigList
+    val sentencesInSeqForBigList = collection.mutable.ListBuffer[String]()
+    val sentencesInSeqForMap = collection.mutable.ArrayBuffer[String]()
+    linesForBigList.map(l => sentencesInSeqForBigList += l)
+    linesForMap.map(l=>sentencesInSeqForMap += l)
+    sentencesByPaper ++= Map(pmcid -> sentencesInSeqForMap.toArray)
+    sentenceFileContentsToIntersect ++= sentencesInSeqForBigList
   }
 
   println(s"Sentences mega list contains: ${sentenceFileContentsToIntersect.size} sentences")
@@ -67,6 +71,6 @@ object Polarity extends App {
   println(s"There are ${inhibitionIntersection.size} sentences in the inhibition intersection")
 
   for((paperID, sentences) <- sentencesByPaper) {
-    println(s"The paper ${paperID} has ${sentences.size} sentences")
+    println(s"The paper ${paperID} has ${sentences.size} sentences and the first sentence has ${sentences(0).size} characters")
   }
 }
