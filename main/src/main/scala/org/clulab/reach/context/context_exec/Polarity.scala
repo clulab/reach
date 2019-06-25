@@ -75,9 +75,9 @@ object Polarity extends App {
 
   //println(sentencesByPaper("PMC4142739").indexOf("EGF increase may potentially be triggering autocrine effects on BJ cells as well as paracrine effects on keratinocytes , by modulating epidermal proliferation and differentiation [ XREF_BIBR ] , also emphasising the importance of the EGF effect in the wound closure of wound healing [ XREF_BIBR , XREF_BIBR ] ."))
 
-  for(s<-sentencesByPaper("PMC4142739")) {
-    println(s)
-  }
+ for((paperID, sentences) <- sentencesByPaper) {
+   println(s"The paper ${paperID} has been found to have ${sentences.size} sentences. But I think this is where the problem lies.")
+ }
 
 
 }
