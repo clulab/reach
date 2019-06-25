@@ -79,7 +79,8 @@ object Polarity extends App {
     }
   }
 
-
+  println(activationIndices.size)
+  println(inhibitionIndices.size)
   for((pmcid,(sentence, index)) <- activationIndices) {
     println(s"The sentence ${sentence} was found in the paper ${pmcid} at index ${index}")
   }
