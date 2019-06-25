@@ -85,11 +85,16 @@ object Polarity extends App {
 
   }
 
+  var inc = 1
   for((paperID, (sentence, index)) <- activationIndices) {
+    println(inc)
     println(s"The sentence '${sentence}' was found at index ${index} in the paper ${paperID}")
+    inc += 1
   }
 
   for((paperID, (sentence, index)) <- inhibitionIndices) {
+    println(inc)
     println(s"The sentence '${sentence}' was found at index ${index} in the paper ${paperID}")
+    inc += 1
   }
 }
