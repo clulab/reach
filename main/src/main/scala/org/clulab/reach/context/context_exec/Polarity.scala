@@ -64,8 +64,11 @@ object Polarity extends App {
   val inhibitionEventIDsBySentIndex = collection.mutable.HashMap[Int, Seq[String]]()
   for(file<- fileList) {
     val nxmlDoc = nxmlReader.read(file)
+    println("nxml loaded successfully")
     val document = reachSystem.mkDoc(nxmlDoc)
+    println("mkDoc performed successfully")
     val mentions = reachSystem.extractFrom(document)
+    println("mentions extracted successfully")
     val evtMentionsOnly = mentions.collect { case evt: BioEventMention => evt }
     for(a<-activationIndices) {
       val eventsPerIndex = evtMentionsOnly.filter(x => x.sentence == a)
