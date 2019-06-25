@@ -63,38 +63,14 @@ object Polarity extends App {
 
   println(activationIntersection.size)
   println(inhibitionIntersection.size)
-  for(i<-activationIntersection) {
-    for((pmcid,sentences) <- sentencesByPaper) {
-      println(s"The current paper is: ${pmcid}")
-      println(s"the current sentence is: ${i}")
-      println(s"does the current sentence appear in the sentences of the current paper? ${sentences.contains(i)}")
-    }
+
+
+  for(a<-activationIntersection) {
+    println(sentenceFileContentsToIntersect.indexOf(a))
   }
 
-
-  for(i<-inhibitionIntersection) {
-    for((pmcid,sentences) <- sentencesByPaper) {
-      if(sentences.contains(i)) {
-        val index = sentences.indexOf(i)
-        inhibitionIndices ++= Map(pmcid -> (i, index))
-      }
-    }
+  for(a<-inhibitionIntersection) {
+    println(sentenceFileContentsToIntersect.indexOf(a))
   }
-
-  println(sentencesByPaper.size)
-  println(activationIndices.size)
-  println(inhibitionIndices.size)
-  for((pmcid,(sentence, index)) <- activationIndices) {
-    println(s"The sentence ${sentence} was found in the paper ${pmcid} at index ${index}")
-  }
-
-
-  for((pmcid,(sentence, index)) <- inhibitionIndices) {
-    println(s"The sentence ${sentence} was found in the paper ${pmcid} at index ${index}")
-  }
-
-
-
-
 
 }
