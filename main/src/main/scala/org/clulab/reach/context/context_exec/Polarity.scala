@@ -65,15 +65,19 @@ object Polarity extends App {
   println(inhibitionIntersection.size)
 
 
-  println("printing activation sentences")
+/*  println("printing activation sentences")
   for(a<-activationIntersection) println(a)
 
 
   println("printing inhibition sentences")
-  for(i<-inhibitionIntersection) println(i)
+  for(i<-inhibitionIntersection) println(i)*/
 
 
-  println(sentencesByPaper("PMC4142739").indexOf("EGF increase may potentially be triggering autocrine effects on BJ cells as well as paracrine effects on keratinocytes , by modulating epidermal proliferation and differentiation [ XREF_BIBR ] , also emphasising the importance of the EGF effect in the wound closure of wound healing [ XREF_BIBR , XREF_BIBR ] ."))
+  //println(sentencesByPaper("PMC4142739").indexOf("EGF increase may potentially be triggering autocrine effects on BJ cells as well as paracrine effects on keratinocytes , by modulating epidermal proliferation and differentiation [ XREF_BIBR ] , also emphasising the importance of the EGF effect in the wound closure of wound healing [ XREF_BIBR , XREF_BIBR ] ."))
+
+  for(s<-sentencesByPaper("PMC4142739")) {
+    println(s)
+  }
 
 
 }
