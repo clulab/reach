@@ -66,26 +66,7 @@ object Polarity extends App {
   println(s"There are ${activationIntersection.size} sentences in the activation intersection")
   println(s"There are ${inhibitionIntersection.size} sentences in the inhibition intersection")
 
-  for(a<-activationIntersection) {
-    for((paperID, sentences) <- sentencesByPaper) {
-      if(sentences.contains(a))
-        activationIndices ++= Map(paperID -> (a, sentences.indexOf(a)))
-    }
-  }
-
-
-  for(a<-inhibitionIntersection) {
-    for((paperID, sentences) <- sentencesByPaper) {
-      if(sentences.contains(a))
-        inhibitionIndices ++= Map(paperID -> (a, sentences.indexOf(a)))
-    }
-  }
-
-  for((paperID,(sentence,index)) <- activationIndices) {
-    println(s"The sentence '${sentence}' was found at index ${index} in the paper ${paperID}")
-  }
-
-  for((paperID,(sentence,index)) <- inhibitionIndices) {
-    println(s"The sentence '${sentence}' was found at index ${index} in the paper ${paperID}")
+  for((paperID, sentences) <- sentencesByPaper) {
+    println(s"The paper ${paperID} has ${sentences.size} sentences")
   }
 }
