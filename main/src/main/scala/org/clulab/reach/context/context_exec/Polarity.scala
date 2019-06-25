@@ -4,7 +4,7 @@ import com.typesafe.config.ConfigFactory
 import scala.io.Source
 import scala.util.parsing.json.JSON
 import java.io.{File, PrintWriter}
-
+import org.clulab.struct.Interval
 import ai.lum.nxmlreader.NxmlReader
 import org.clulab.odin.EventMention
 import org.clulab.reach.PaperReader.{contextEngineParams, ignoreSections, preproc, procAnnotator}
@@ -70,16 +70,16 @@ object Polarity extends App {
     println("mkDoc performed successfully")
     val mentions = reachSystem.extractFrom(document)
     println("mentions extracted successfully")
-    val evtMentionsOnly = mentions.collect { case evt: BioEventMention => evt }
+    val evtMentionsOnly = mentions.collect { case evt: EventMention => (evt.sentence, evt.tokenInterval) }
     for(a<-activationIndices) {
-      val eventsPerIndex = evtMentionsOnly.filter(x => x.sentence == a)
+      val eventsPerIndex = evtMentionsOnly.filter(x => x._1 == a)
       val eventIDsPerIndex = eventsPerIndex.map(x => extractEvtId(x))
       activationEventIDsBySentIndex ++= Map(a -> eventIDsPerIndex)
       println(eventIDsPerIndex.size)
     }
 
     for(a<-inhibitionIndices) {
-      val eventsPerIndex = evtMentionsOnly.filter(x => x.sentence == a)
+      val eventsPerIndex = evtMentionsOnly.filter(x => x._1 == a)
       val eventIDsPerIndex = eventsPerIndex.map(x => extractEvtId(x))
       inhibitionEventIDsBySentIndex ++= Map(a -> eventIDsPerIndex)
       println(eventIDsPerIndex.size)
@@ -87,15 +87,10 @@ object Polarity extends App {
 
   }
 
-  type Pair = (BioEventMention, BioTextBoundMention)
-  type EventID = String
-  type ContextID = (String, String)
-
-  def extractEvtId(evt:BioEventMention):EventID = {
-    val sentIndex = evt.sentence
-    val tokenIntervalStart = (evt.tokenInterval.start).toString()
-    val tokenIntervalEnd = (evt.tokenInterval.end).toString()
-    sentIndex+tokenIntervalStart+tokenIntervalEnd
+  def extractEvtId(tuple: (Int, Interval)):String = {
+    tuple._1+tuple._2.start.toString+tuple._2.end.toString
   }
+
+
 
 }
