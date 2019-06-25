@@ -62,6 +62,7 @@ object Polarity extends App {
   val inhibitionIndices = inhibitionIntersection.map(i => sentenceFileContentsToIntersect.indexOf(i))
   val activationEventIDsBySentIndex = collection.mutable.HashMap[Int, Seq[String]]()
   val inhibitionEventIDsBySentIndex = collection.mutable.HashMap[Int, Seq[String]]()
+  val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
   for(file<- fileList) {
     val nxmlDoc = nxmlReader.read(file)
     println("nxml loaded successfully")
