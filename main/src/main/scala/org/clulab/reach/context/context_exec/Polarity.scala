@@ -64,13 +64,11 @@ object Polarity extends App {
   println(activationIntersection.size)
   println(inhibitionIntersection.size)
 
-
-  for(a<-activationIntersection) {
-    println(sentenceFileContentsToIntersect.indexOf(a))
+  val unionOfPolarities = activationIntersection.union(inhibitionIntersection)
+  for(u <- unionOfPolarities) {
+    for((pmcid,sentences) <- sentencesByPaper) {
+      println("Current pmcid: " + pmcid)
+      if(sentences.indexOf(u) >=0) println(s"The sentence ${u} is found at ${sentences.indexOf(u)} in the paper ${pmcid}")
+    }
   }
-
-  for(a<-inhibitionIntersection) {
-    println(sentenceFileContentsToIntersect.indexOf(a))
-  }
-
 }
