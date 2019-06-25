@@ -68,5 +68,10 @@ object Polarity extends App {
 
   for((paperID, sentences) <- sentencesByPaper) {
     println(s"The paper ${paperID} has ${sentences.size} sentences and the first sentence has ${sentences(0).size} characters")
+    for(a<-activationIntersection)
+      println(sentences.indexOf(a))
+    for(i<-inhibitionIntersection)
+      println(sentences.indexOf(i))
+
   }
 }
