@@ -66,8 +66,8 @@ object Polarity extends App {
   val inhibitionIndices = collection.mutable.HashMap[String, (String, Int)]()
 
 
-  println(activationIntersection.size)
-  println(inhibitionIntersection.size)
+  println(s"There are ${activationIntersection.size} sentences in the activation intersection")
+  println(s"There are ${inhibitionIntersection.size} sentences in the inhibition intersection")
 
 
 /*  println("printing activation sentences")
