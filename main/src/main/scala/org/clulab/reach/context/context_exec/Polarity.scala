@@ -28,14 +28,20 @@ object Polarity extends App {
   val reachSystem = new ReachSystem()
   val sentenceFileContentsToIntersect = collection.mutable.ListBuffer[String]()
   val sentencesByPaper = collection.mutable.HashMap[String, Array[String]]()
+  val eventIDsByPaper = collection.mutable.HashMap[String, Array[String]]()
   for(file<- fileList) {
     val pmcid = file.getName.slice(0,file.getName.length-5)
     val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${pmcid}")
-    val pathForPolarity = outPaperDirPath.concat("/sentences.txt")
-    val linesForBigList = Source.fromFile(pathForPolarity).getLines()
-    val linesForMap = Source.fromFile(pathForPolarity).getLines()
+    val pathForSentences = outPaperDirPath.concat("/sentences.txt")
+    val linesForBigList = Source.fromFile(pathForSentences).getLines()
+    val linesForMap = Source.fromFile(pathForSentences).getLines()
     sentencesByPaper ++= Map(pmcid -> linesForMap.toArray)
     sentenceFileContentsToIntersect ++= linesForBigList
+
+    val pathForEvents = outPaperDirPath.concat("/event_intervals.txt")
+    val eventLines = Source.fromFile(pathForEvents).getLines()
+    val refurbished = prepareEventIDs(eventLines)
+    eventIDsByPaper ++= Map(pmcid -> refurbished)
   }
 
   println(s"Sentences mega list contains: ${sentenceFileContentsToIntersect.size} sentences")
@@ -86,5 +92,27 @@ object Polarity extends App {
 
   println(s"The activation indices map is of size: ${activationIndices.size}")
   println(s"The inhibition indices map is of size: ${inhibitionIndices.size}")
+
+
+  for((paperID, eventsIDs) <- eventIDsByPaper) {
+    println(s"The paper ${paperID} has ${eventsIDs.size} event mentions")
+  }
+
+
+  def prepareEventIDs(lines: Iterator[String]): Array[String] = {
+    val preparedEvents = collection.mutable.ArrayBuffer[String]()
+    for(l <- lines) {
+      val array = l.split(" ")
+      val sentenceIndex = array(0)
+      for(s <- 1 until array.size) {
+        val str = array(s)
+        val start = str.split("-")(0)
+        val end = str.split("-")(1)
+        val stringToAdd = sentenceIndex+start+end
+        preparedEvents += stringToAdd
+      }
+    }
+    preparedEvents.toArray
+  }
 
 }
