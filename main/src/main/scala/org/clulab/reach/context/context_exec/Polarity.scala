@@ -69,9 +69,27 @@ object Polarity extends App {
   for((paperID, sentences) <- sentencesByPaper) {
     println(s"The paper ${paperID} has ${sentences.size} sentences and the first sentence has ${sentences(0).size} characters")
     for(a<-activationIntersection)
-      println(sentences.indexOf(a))
+      {
+        if(sentences.contains(a)) {
+          val index = sentences.indexOf(a)
+          activationIndices ++= Map(paperID -> (a,index))
+        }
+      }
     for(i<-inhibitionIntersection)
-      println(sentences.indexOf(i))
+    {
+      if(sentences.contains(i)) {
+        val index = sentences.indexOf(i)
+        inhibitionIndices ++= Map(paperID -> (i,index))
+      }
+    }
 
+  }
+
+  for((paperID, (sentence, index)) <- activationIndices) {
+    println(s"The sentence '${sentence}' was found at index ${index} in the paper ${paperID}")
+  }
+
+  for((paperID, (sentence, index)) <- inhibitionIndices) {
+    println(s"The sentence '${sentence}' was found at index ${index} in the paper ${paperID}")
   }
 }
