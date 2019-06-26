@@ -98,7 +98,7 @@ object Polarity extends App {
   println(s"The inhibition indices map is of size: ${inhibitionIndices.size}")
 
 
-  val activationEventIDsInIndicesMap = collection.mutable.ListBuffer[String]()
+ /* val activationEventIDsInIndicesMap = collection.mutable.ListBuffer[String]()
   val inhibitionEventIDsInIndicesMap = collection.mutable.ListBuffer[String]()
 
   for((_, (_, index)) <- activationIndices) {
@@ -125,8 +125,22 @@ object Polarity extends App {
   for(a <- activationEventIDsInIndicesMap) println(a)
 
   println(s"Events found in inhibition list are the following. They are totally ${inhibitionEventIDsInIndicesMap.size} in number")
-  for(a <- inhibitionEventIDsInIndicesMap) println(a)
+  for(a <- inhibitionEventIDsInIndicesMap) println(a)*/
 
+  println("PRINTING ACTIVATION SENTENCES")
+  for((paperID, (sentence, index)) <- activationIndices) {
+    println(paperID)
+    println(sentence)
+    println(index)
+  }
+
+
+  println("PRINTING INHIBITION SENTENCES")
+  for((paperID, (sentence, index)) <- inhibitionIndices) {
+    println(paperID)
+    println(sentence)
+    println(index)
+  }
   private def prepareEventIDs(lines: Iterator[String]): Array[String] = {
     val preparedEvents = collection.mutable.ArrayBuffer[String]()
     for(l <- lines) {
@@ -136,7 +150,7 @@ object Polarity extends App {
         val str = array(s)
         val start = str.split("-")(0)
         val end = str.split("-")(1)
-        val stringToAdd = sentenceIndex+"%"+start+end
+        val stringToAdd = sentenceIndex+"%"+start+"%"+end
         preparedEvents += stringToAdd
       }
     }
