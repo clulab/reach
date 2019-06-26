@@ -92,6 +92,10 @@ object PolarityEngine extends LazyLogging {
     case "DeepLearning" =>
       val deepLearningClassifier = new DeepLearningPolarityClassifier()
       new MLPolarityEngine(deepLearningClassifier)
+    case "Hybrid" =>
+      val deepLearningClassifier = new DeepLearningPolarityClassifier()
+      val mlEngine = new MLPolarityEngine(deepLearningClassifier)
+      new HybridLinguisticDeepLearingPolarityEngine(mlEngine)
     case _ =>
       logger.error(s"Requesting an unknown polarity engine: $engineName. Returning the default engine")
       // Return the default engine

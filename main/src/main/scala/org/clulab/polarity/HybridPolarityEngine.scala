@@ -27,3 +27,9 @@ abstract class HybridPolarityEngine(mlEngine:MLPolarityEngine) extends PolarityE
     else
       LinguisticPolarityEngine.computePolarity(evt)
 }
+
+class HybridLinguisticDeepLearingPolarityEngine(mlEngine:MLPolarityEngine) extends HybridPolarityEngine(mlEngine:MLPolarityEngine) {
+  override def useMLPolarityEngine(evt:BioEventMention):Boolean={
+    false
+  }
+}
