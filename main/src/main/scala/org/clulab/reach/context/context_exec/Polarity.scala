@@ -43,8 +43,9 @@ object Polarity extends App {
     val document = reachSystem.mkDoc(nxmlDoc)
     val mentions = reachSystem.extractFrom(document)
     val evtMentionsOnly = mentions.collect { case evt: BioEventMention => evt }
-    println(evtMentionsOnly.size)
-    eventsByPaper ++= Map(pmcid -> evtMentionsOnly.toArray)
+    val eventMentionsHavingContext = evtMentionsOnly.filter(_.hasContext())
+    println(eventMentionsHavingContext.size)
+    eventsByPaper ++= Map(pmcid -> eventMentionsHavingContext.toArray)
   }
   println(s"Sentences mega list contains: ${sentenceFileContentsToIntersect.size} sentences")
   val activeSentenceForIntersect = collection.mutable.ListBuffer[String]()
