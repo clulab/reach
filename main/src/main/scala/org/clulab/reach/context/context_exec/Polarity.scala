@@ -1,21 +1,16 @@
 package org.clulab.reach.context.context_exec
-import com.typesafe.config.ConfigFactory
 
-import scala.io.Source
-import scala.util.parsing.json.JSON
-import java.io.{File, PrintWriter}
-import org.clulab.struct.Interval
+import java.io.File
+
 import ai.lum.nxmlreader.NxmlReader
-import org.clulab.odin.EventMention
+import com.typesafe.config.ConfigFactory
 import org.clulab.reach.PaperReader.{contextEngineParams, ignoreSections, preproc, procAnnotator}
 import org.clulab.reach.ReachSystem
-import org.clulab.reach.context.ContextEngine
 import org.clulab.reach.context.ContextEngineFactory.Engine
-import org.clulab.reach.context.context_exec.GenerateOutputFiles.{nxmlReader, reachSystem}
-import org.clulab.reach.context.context_utils.EventContextPairGenerator
-import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
+
+import scala.io.Source
+
 object Polarity extends App {
-  println("Hello world from polarity")
   val config = ConfigFactory.load()
   val activSentPath = config.getString("polarityContext.genericFileDir").concat("activation_sentences_in_json.txt")
   val inhibSentPath = config.getString("polarityContext.genericFileDir").concat("inhibition_sentences_in_json.txt")
@@ -25,11 +20,13 @@ object Polarity extends App {
   val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
   val fileListUnfiltered = new File(dirForType)
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
-  val reachSystem = new ReachSystem()
+  val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
+  val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
+  lazy val reachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
+    contextEngineType = contextEngineType,
+    contextParams = contextEngineParams)
   val sentenceFileContentsToIntersect = collection.mutable.ListBuffer[String]()
   val sentencesByPaper = collection.mutable.HashMap[String, Array[String]]()
-  val eventIDsByPaper = collection.mutable.HashMap[String, Array[String]]()
-  val eventFileContentsToIntersect = collection.mutable.ListBuffer[String]()
   for(file<- fileList) {
     val pmcid = file.getName.slice(0,file.getName.length-5)
     val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${pmcid}")
@@ -38,18 +35,8 @@ object Polarity extends App {
     val linesForMap = Source.fromFile(pathForSentences).getLines()
     sentencesByPaper ++= Map(pmcid -> linesForMap.toArray)
     sentenceFileContentsToIntersect ++= linesForBigList
-
-    val pathForEvents = outPaperDirPath.concat("/event_intervals.txt")
-    val eventLinesForMap = Source.fromFile(pathForEvents).getLines()
-    val refurbished = prepareEventIDs(eventLinesForMap)
-    eventIDsByPaper ++= Map(pmcid -> refurbished)
-    val eventLinesForBigList = Source.fromFile(pathForEvents).getLines()
-    val refurb = prepareEventIDs(eventLinesForBigList)
-    eventFileContentsToIntersect ++= refurb
   }
-
   println(s"Sentences mega list contains: ${sentenceFileContentsToIntersect.size} sentences")
-  println(s"Events mega list contains: ${eventFileContentsToIntersect.size} event mentions")
   val activeSentenceForIntersect = collection.mutable.ListBuffer[String]()
   for(text<-activSentences) {
     val doc = reachSystem.mkDoc(text, "", "")
@@ -78,12 +65,12 @@ object Polarity extends App {
 
   for((paperID, sentences) <- sentencesByPaper) {
     for(a<-activationIntersection)
-      {
-        if(sentences.contains(a)) {
-          val index = sentences.indexOf(a)
-          activationIndices ++= Map(paperID -> (a,index))
-        }
+    {
+      if(sentences.contains(a)) {
+        val index = sentences.indexOf(a)
+        activationIndices ++= Map(paperID -> (a,index))
       }
+    }
     for(i<-inhibitionIntersection)
     {
       if(sentences.contains(i)) {
@@ -93,68 +80,6 @@ object Polarity extends App {
     }
 
   }
-
   println(s"The activation indices map is of size: ${activationIndices.size}")
   println(s"The inhibition indices map is of size: ${inhibitionIndices.size}")
-
-
- /* val activationEventIDsInIndicesMap = collection.mutable.ListBuffer[String]()
-  val inhibitionEventIDsInIndicesMap = collection.mutable.ListBuffer[String]()
-
-  for((_, (_, index)) <- activationIndices) {
-    for(event <- eventFileContentsToIntersect) {
-      val sentIndOfEventID = Integer.parseInt(event.split("%")(0))
-      if(sentIndOfEventID == index) {
-        val redoneName = sentIndOfEventID.toString+event.split("%")(1)
-        activationEventIDsInIndicesMap += redoneName
-      }
-    }
-  }
-
-  for((_, (_, index)) <- inhibitionIndices) {
-    for(event <- eventFileContentsToIntersect) {
-      val sentIndOfEventID = Integer.parseInt(event.split("%")(0))
-      if(sentIndOfEventID == index) {
-        val redoneName = sentIndOfEventID.toString+event.split("%")(1)
-        inhibitionEventIDsInIndicesMap += redoneName
-      }
-    }
-  }
-
-  println(s"Events found in activation list are the following. They are totally ${activationEventIDsInIndicesMap.size} in number")
-  for(a <- activationEventIDsInIndicesMap) println(a)
-
-  println(s"Events found in inhibition list are the following. They are totally ${inhibitionEventIDsInIndicesMap.size} in number")
-  for(a <- inhibitionEventIDsInIndicesMap) println(a)*/
-
-  println("PRINTING ACTIVATION SENTENCES")
-  for((paperID, (sentence, index)) <- activationIndices) {
-    println(paperID)
-    println(sentence)
-    println(index)
-  }
-
-
-  println("PRINTING INHIBITION SENTENCES")
-  for((paperID, (sentence, index)) <- inhibitionIndices) {
-    println(paperID)
-    println(sentence)
-    println(index)
-  }
-  private def prepareEventIDs(lines: Iterator[String]): Array[String] = {
-    val preparedEvents = collection.mutable.ArrayBuffer[String]()
-    for(l <- lines) {
-      val array = l.split(" ")
-      val sentenceIndex = array(0)
-      for(s <- 1 until array.size) {
-        val str = array(s)
-        val start = str.split("-")(0)
-        val end = str.split("-")(1)
-        val stringToAdd = sentenceIndex+"%"+start+"%"+end
-        preparedEvents += stringToAdd
-      }
-    }
-    preparedEvents.toArray
-  }
-
 }
