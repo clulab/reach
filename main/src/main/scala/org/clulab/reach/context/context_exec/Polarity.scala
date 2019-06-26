@@ -30,6 +30,7 @@ object Polarity extends App {
   val sentenceFileContentsToIntersect = collection.mutable.ListBuffer[String]()
   val sentencesByPaper = collection.mutable.HashMap[String, Array[String]]()
   val eventsByPaper = collection.mutable.HashMap[String, Array[EventMention]]()
+  val allEvents = collection.mutable.ListBuffer[BioEventMention]()
   for(file<- fileList) {
     val pmcid = file.getName.slice(0,file.getName.length-5)
     val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${pmcid}")
@@ -46,6 +47,7 @@ object Polarity extends App {
     val eventMentionsHavingContext = evtMentionsOnly.filter(_.hasContext())
     println(eventMentionsHavingContext.size)
     eventsByPaper ++= Map(pmcid -> eventMentionsHavingContext.toArray)
+    allEvents ++= eventMentionsHavingContext
   }
   println(s"Sentences mega list contains: ${sentenceFileContentsToIntersect.size} sentences")
   val activeSentenceForIntersect = collection.mutable.ListBuffer[String]()
@@ -93,4 +95,38 @@ object Polarity extends App {
   }
   println(s"The activation indices map is of size: ${activationIndices.size}")
   println(s"The inhibition indices map is of size: ${inhibitionIndices.size}")
+
+  val activationPapers = List("PMC2958340", "PMC2910130", "PMC4236140", "PMC4142739", "PMC4446607", "PMC4092102")
+  val inhibitionPapers = List("PMC2587086", "PMC3138418", "PMC3666248", "PMC2636845", "PMC3635065", "PMC3640659", "PMC2686753", "PMC3119364")
+  val activationEvents = collection.mutable.ListBuffer[BioEventMention]()
+  val inhibitionEvents = collection.mutable.ListBuffer[BioEventMention]()
+  for(event <- allEvents) {
+    for((_,(_, index)) <- activationIndices) {
+      val eventDocId = event.document.id match {
+        case Some(x) => s"PMC${x.split("_")}"
+        case None => "unknown"
+      }
+      val bool = (activationPapers.contains(eventDocId)) && (index == event.sentence)
+      if(bool) activationEvents += event
+    }
+
+
+    for((_,(_, index)) <- inhibitionIndices) {
+      val eventDocId = event.document.id match {
+        case Some(x) => s"PMC${x.split("_")}"
+        case None => "unknown"
+      }
+      val bool = (inhibitionPapers.contains(eventDocId)) && (index == event.sentence)
+      if(bool) inhibitionEvents += event
+    }
+  }
+
+
+  for(act <- activationEvents) {
+    println(act.context)
+  }
+
+  for(act <- inhibitionEvents) {
+    println(act.context)
+  }
 }
