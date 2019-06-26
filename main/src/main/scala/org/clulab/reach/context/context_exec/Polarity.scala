@@ -91,7 +91,6 @@ object Polarity extends App {
         inhibitionIndices ++= Map(paperID -> (i,index))
       }
     }
-
   }
   println(s"The activation indices map is of size: ${activationIndices.size}")
   println(s"The inhibition indices map is of size: ${inhibitionIndices.size}")
@@ -101,22 +100,22 @@ object Polarity extends App {
   val activationEvents = collection.mutable.ListBuffer[BioEventMention]()
   val inhibitionEvents = collection.mutable.ListBuffer[BioEventMention]()
   for(event <- allEvents) {
-    for((_,(_, index)) <- activationIndices) {
+    for((pmcid,(_, index)) <- activationIndices) {
       val eventDocId = event.document.id match {
         case Some(x) => s"PMC${x.split("_")}"
         case None => "unknown"
       }
-      val bool = (activationPapers.contains(eventDocId)) && (index == event.sentence)
+      val bool = (eventDocId == pmcid) && (index == event.sentence)
       if(bool) activationEvents += event
     }
 
 
-    for((_,(_, index)) <- inhibitionIndices) {
+    for((pmcid,(_, index)) <- inhibitionIndices) {
       val eventDocId = event.document.id match {
         case Some(x) => s"PMC${x.split("_")}"
         case None => "unknown"
       }
-      val bool = (inhibitionPapers.contains(eventDocId)) && (index == event.sentence)
+      val bool = (eventDocId == pmcid) && (index == event.sentence)
       if(bool) inhibitionEvents += event
     }
   }
