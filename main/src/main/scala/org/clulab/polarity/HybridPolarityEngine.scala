@@ -30,6 +30,18 @@ abstract class HybridPolarityEngine(mlEngine:MLPolarityEngine) extends PolarityE
 
 class HybridLinguisticDeepLearingPolarityEngine(mlEngine:MLPolarityEngine) extends HybridPolarityEngine(mlEngine:MLPolarityEngine) {
   override def useMLPolarityEngine(evt:BioEventMention):Boolean={
-    false
+    val SEMANTIC_NEGATIVE_PATTERN = LinguisticPolarityEngine.SEMANTIC_NEGATIVE_PATTERN
+    val lemmas = evt.lemmas.get
+    var neg_count = 0
+    for (lemma <- lemmas){
+      if (SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined)
+        neg_count+=1
+    }
+    if (neg_count<=1){
+      false
+    }
+    else{
+      true
+    }
   }
 }
