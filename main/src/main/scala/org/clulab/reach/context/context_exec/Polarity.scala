@@ -4,9 +4,11 @@ import java.io.File
 
 import ai.lum.nxmlreader.NxmlReader
 import com.typesafe.config.ConfigFactory
+import org.clulab.odin.EventMention
 import org.clulab.reach.PaperReader.{contextEngineParams, ignoreSections, preproc, procAnnotator}
 import org.clulab.reach.ReachSystem
 import org.clulab.reach.context.ContextEngineFactory.Engine
+import org.clulab.reach.mentions.BioEventMention
 
 import scala.io.Source
 
@@ -27,6 +29,7 @@ object Polarity extends App {
     contextParams = contextEngineParams)
   val sentenceFileContentsToIntersect = collection.mutable.ListBuffer[String]()
   val sentencesByPaper = collection.mutable.HashMap[String, Array[String]]()
+  val eventsByPaper = collection.mutable.HashMap[String, Array[EventMention]]()
   for(file<- fileList) {
     val pmcid = file.getName.slice(0,file.getName.length-5)
     val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${pmcid}")
@@ -35,6 +38,13 @@ object Polarity extends App {
     val linesForMap = Source.fromFile(pathForSentences).getLines()
     sentencesByPaper ++= Map(pmcid -> linesForMap.toArray)
     sentenceFileContentsToIntersect ++= linesForBigList
+
+    val nxmlDoc = nxmlReader.read(file)
+    val document = reachSystem.mkDoc(nxmlDoc)
+    val mentions = reachSystem.extractFrom(document)
+    val evtMentionsOnly = mentions.collect { case evt: BioEventMention => evt }
+    println(evtMentionsOnly.size)
+    eventsByPaper ++= Map(pmcid -> evtMentionsOnly.toArray)
   }
   println(s"Sentences mega list contains: ${sentenceFileContentsToIntersect.size} sentences")
   val activeSentenceForIntersect = collection.mutable.ListBuffer[String]()
