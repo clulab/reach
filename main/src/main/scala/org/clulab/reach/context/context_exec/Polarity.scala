@@ -105,7 +105,7 @@ object Polarity extends App {
         case Some(x) => s"PMC${x.split("_")}"
         case None => "unknown"
       }
-      val bool = (eventDocId == pmcid) && (index == event.sentence)
+      val bool = (eventDocId == pmcid) && (activationPapers.contains(eventDocId)) && (index == event.sentence)
       if(bool) activationEvents += event
     }
 
@@ -115,7 +115,7 @@ object Polarity extends App {
         case Some(x) => s"PMC${x.split("_")}"
         case None => "unknown"
       }
-      val bool = (eventDocId == pmcid) && (index == event.sentence)
+      val bool = (eventDocId == pmcid) && (inhibitionPapers.contains(eventDocId)) && (index == event.sentence)
       if(bool) inhibitionEvents += event
     }
   }
