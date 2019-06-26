@@ -37,6 +37,8 @@ class HybridLinguisticDeepLearingPolarityEngine(mlEngine:MLPolarityEngine) exten
       if (SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined)
         neg_count+=1
     }
+    println(lemmas)
+    println(neg_count)
     if (neg_count<=1){
       false
     }
