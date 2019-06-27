@@ -102,20 +102,20 @@ object Polarity extends App {
   for(event <- allEvents) {
     for((pmcid,(_, index)) <- activationIndices) {
       val eventDocId = event.document.id match {
-        case Some(x) => s"PMC${x.split("_")}"
+        case Some(x) => s"PMC${x.split("_")(0)}"
         case None => "unknown"
       }
-      val bool = (eventDocId == pmcid) && (activationPapers.contains(eventDocId)) && (index == event.sentence)
+      val bool = (activationPapers.contains(eventDocId)) && (index == event.sentence)
       if(bool) activationEvents += event
     }
 
 
     for((pmcid,(_, index)) <- inhibitionIndices) {
       val eventDocId = event.document.id match {
-        case Some(x) => s"PMC${x.split("_")}"
+        case Some(x) => s"PMC${x.split("_")(0)}"
         case None => "unknown"
       }
-      val bool = (eventDocId == pmcid) && (inhibitionPapers.contains(eventDocId)) && (index == event.sentence)
+      val bool = (inhibitionPapers.contains(eventDocId)) && (index == event.sentence)
       if(bool) inhibitionEvents += event
     }
   }
