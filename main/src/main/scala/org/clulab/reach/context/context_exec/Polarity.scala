@@ -121,11 +121,29 @@ object Polarity extends App {
   }
 
 
+  val contextsInActivation = collection.mutable.ListBuffer[String]()
+  val contextsInInhibition = collection.mutable.ListBuffer[String]()
+
   for(act <- activationEvents) {
-    println(act.context)
+    val map = act.context match {
+      case Some(m) => m
+      case None => Map.empty
+    }
+    for((_, contextLabels) <- map) {
+      contextsInActivation ++= contextLabels
+    }
   }
 
   for(act <- inhibitionEvents) {
-    println(act.context)
+    val map = act.context match {
+      case Some(m) => m
+      case None => Map.empty
+    }
+    for((_, contextLabels) <- map) {
+      contextsInInhibition ++= contextLabels
+    }
   }
+
+  val intersectingContextLabels = contextsInActivation.toSet.intersect(contextsInInhibition.toSet)
+  println(intersectingContextLabels.size)
 }
