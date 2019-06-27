@@ -46,12 +46,11 @@ object Polarity extends App {
     val mentions = reachSystem.extractFrom(document)
     val evtMentionsOnly = mentions.collect { case evt: BioEventMention => evt }
     val eventMentionsHavingContext = evtMentionsOnly.filter(_.hasContext()).toSet
-    println(eventMentionsHavingContext.size)
     eventsByPaper ++= Map(pmcid -> eventMentionsHavingContext.toArray)
     allEvents ++= eventMentionsHavingContext
   }
-  println(s"Sentences mega list contains: ${sentenceFileContentsToIntersect.size} sentences")
-  println(s"Events mega list contains: ${allEvents.size} event mentions")
+
+  println(s"There are ${allEvents.toSet.size} unique event mentions over all the ${eventsByPaper.size} papers")
   for((paperID, events) <- eventsByPaper) {
     println(s"The paper ${paperID} has ${events.size} event mentions")
   }
@@ -78,9 +77,6 @@ object Polarity extends App {
   val inhibitionIndices = collection.mutable.HashMap[String, (String, Int)]()
 
 
-  println(s"There are ${activationIntersection.size} sentences in the activation intersection")
-  println(s"There are ${inhibitionIntersection.size} sentences in the inhibition intersection")
-
   for((paperID, sentences) <- sentencesByPaper) {
     for(a<-activationIntersection)
     {
@@ -97,14 +93,12 @@ object Polarity extends App {
       }
     }
   }
-  println(s"The activation indices map is of size: ${activationIndices.size}")
-  println(s"The inhibition indices map is of size: ${inhibitionIndices.size}")
 
   val activationPapers = List("PMC2958340", "PMC2910130", "PMC4236140", "PMC4142739", "PMC4446607", "PMC4092102")
   val inhibitionPapers = List("PMC2587086", "PMC3138418", "PMC3666248", "PMC2636845", "PMC3635065", "PMC3640659", "PMC2686753", "PMC3119364")
   val activationEvents = collection.mutable.ListBuffer[BioEventMention]()
   val inhibitionEvents = collection.mutable.ListBuffer[BioEventMention]()
-  for(event <- allEvents) {
+  for(event <- allEvents.toSet) {
     for((pmcid,(_, index)) <- activationIndices) {
       val eventDocId = event.document.id match {
         case Some(x) => s"PMC${x.split("_")(0)}"
@@ -149,15 +143,59 @@ object Polarity extends App {
     }
   }
 
+  val contextLabelsSuperList = collection.mutable.ListBuffer[String]()
+  contextLabelsSuperList ++= contextsInActivation
+  contextLabelsSuperList ++= contextsInInhibition
+
   val intersectingContextLabels = contextsInActivation.toSet.intersect(contextsInInhibition.toSet)
-  println(s"There are a total of ${contextsInActivation.size} context labels in activation")
-  println(s"There are a total of ${contextsInInhibition.size} context labels in inhibition")
+  println(s"There are a total of unique ${contextsInActivation.size} context labels in activation")
+  println(s"There are a total of unique ${contextsInInhibition.size} context labels in inhibition")
   println(s"There are ${intersectingContextLabels.size} context labels in common with the activation set and inhibition set for a sentence window of ${sentenceWindow}")
   intersectingContextLabels.map(println)
 
   val activationNoIntersection = contextsInActivation -- intersectingContextLabels
-  println(s"There are ${activationNoIntersection.size} context labels in the activation set, but not in the intersection set")
+  println(s"There are unique ${activationNoIntersection.size} context labels in the activation set, but not in the intersection set")
   val inhibitionNoIntersection = contextsInInhibition -- intersectingContextLabels
-  println(s"There are ${inhibitionNoIntersection.size} context labels in the inhibition set, but not in the intersection set")
+  println(s"There are unique ${inhibitionNoIntersection.size} context labels in the inhibition set, but not in the intersection set")
 
+
+
+  val freqOfCtxLabelsActivationRaw = countFrequencyOfString(contextsInActivation)
+  val freqOfCtxLabelsInhibitionRaw = countFrequencyOfString(contextsInInhibition)
+  val freqOfCtxLabelsPolAgnosticRaw = countFrequencyOfString(contextLabelsSuperList)
+
+
+  println("PRINTING FREQUENCY OF CTX LABELS IN ACTIVATION")
+  for((name,freq) <- freqOfCtxLabelsActivationRaw) {
+    println(s"The context label ${name} appears ${freq} times in the activation set")
+  }
+
+
+  println("PRINTING FREQUENCY OF CTX LABELS IN INHIBITION")
+  for((name,freq) <- freqOfCtxLabelsInhibitionRaw) {
+    println(s"The context label ${name} appears ${freq} times in the inhibition set")
+  }
+
+
+  println("PRINTING FREQUENCY OF CTX LABELS OVER ALL ")
+  for((name,freq) <- freqOfCtxLabelsPolAgnosticRaw) {
+    println(s"The context label ${name} appears ${freq} times over all")
+  }
+
+
+
+  private def countFrequencyOfString(seq: Seq[String]): Map[String, Int] = {
+    val map = collection.mutable.HashMap[String, Int]()
+    for(s <- seq) {
+      if(map.contains(s)) {
+        var freq = map(s)
+        freq += 1
+        map ++= Map(s -> freq)
+      }
+      else {
+        map ++= Map(s -> 1)
+      }
+    }
+    map.toMap
+  }
 }
