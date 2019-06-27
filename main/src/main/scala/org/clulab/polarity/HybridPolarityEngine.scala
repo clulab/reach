@@ -41,8 +41,8 @@ class HybridLinguisticDeepLearingPolarityEngine(mlEngine:MLPolarityEngine) exten
       false
     }
     else{
-      println(lemmas)
-      println(neg_count)
+      //println(lemmas)
+      //println(neg_count)
       true
     }
   }
