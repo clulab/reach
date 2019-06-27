@@ -52,6 +52,9 @@ object Polarity extends App {
   }
   println(s"Sentences mega list contains: ${sentenceFileContentsToIntersect.size} sentences")
   println(s"Events mega list contains: ${allEvents.size} event mentions")
+  for((paperID, events) <- eventsByPaper) {
+    println(s"The paper ${paperID} has ${events.size} event mentions")
+  }
   val activeSentenceForIntersect = collection.mutable.ListBuffer[String]()
   for(text<-activSentences) {
     val doc = reachSystem.mkDoc(text, "", "")
@@ -153,8 +156,8 @@ object Polarity extends App {
   intersectingContextLabels.map(println)
 
   val activationNoIntersection = contextsInActivation -- intersectingContextLabels
-  println(s"There are ${activationNoIntersection.size} context labels in the activation set, but not in the interection set")
+  println(s"There are ${activationNoIntersection.size} context labels in the activation set, but not in the intersection set")
   val inhibitionNoIntersection = contextsInInhibition -- intersectingContextLabels
-  println(s"There are ${inhibitionNoIntersection.size} context labels in the inhibition set, but not in the interection set")
+  println(s"There are ${inhibitionNoIntersection.size} context labels in the inhibition set, but not in the intersection set")
 
 }
