@@ -19,6 +19,7 @@ object Polarity extends App {
   val activSentences = Source.fromFile(activSentPath).getLines()
   val inhibSentences = Source.fromFile(inhibSentPath).getLines()
   val typeOfPaper = config.getString("polarityContext.typeOfPaper")
+  val sentenceWindow = config.getString("contextEngine.bound")
   val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
   val fileListUnfiltered = new File(dirForType)
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
@@ -145,5 +146,14 @@ object Polarity extends App {
   }
 
   val intersectingContextLabels = contextsInActivation.toSet.intersect(contextsInInhibition.toSet)
-  println(intersectingContextLabels.size)
+  println(s"There are a total of ${contextsInActivation} context labels in activation")
+  println(s"There are a total of ${contextsInInhibition} context labels in inhibition")
+  println(s"There are ${intersectingContextLabels.size} context labels in common with the activation set and inhibition set for a sentence window of ${sentenceWindow}")
+  intersectingContextLabels.map(println)
+
+  val activationNoIntersection = contextsInActivation -- intersectingContextLabels
+  println(s"There are ${activationNoIntersection.size} context labels in the activation set, but not in the interection set")
+  val inhibitionNoIntersection = contextsInInhibition -- intersectingContextLabels
+  println(s"There are ${inhibitionNoIntersection.size} context labels in the inhibition set, but not in the interection set")
+
 }
