@@ -52,7 +52,7 @@ object Polarity extends App {
 
   println(s"There are ${allEvents.toSet.size} unique event mentions over all the ${eventsByPaper.size} papers")
   for((paperID, events) <- eventsByPaper) {
-    println(s"The paper ${paperID} has ${events.size} event mentions")
+    println(s"The paper ${paperID} has ${events.size} unique event mentions")
   }
   val activeSentenceForIntersect = collection.mutable.ListBuffer[String]()
   for(text<-activSentences) {
@@ -98,23 +98,23 @@ object Polarity extends App {
   val inhibitionPapers = List("PMC2587086", "PMC3138418", "PMC3666248", "PMC2636845", "PMC3635065", "PMC3640659", "PMC2686753", "PMC3119364")
   val activationEvents = collection.mutable.ListBuffer[BioEventMention]()
   val inhibitionEvents = collection.mutable.ListBuffer[BioEventMention]()
-  for(event <- allEvents.toSet) {
-    for((pmcid,(_, index)) <- activationIndices) {
+  for(event <- allEvents) {
+    for((_,(_, index)) <- activationIndices) {
       val eventDocId = event.document.id match {
         case Some(x) => s"PMC${x.split("_")(0)}"
         case None => "unknown"
       }
-      val bool = (activationPapers.contains(eventDocId)) && (index == event.sentence)
+      val bool = (activationPapers.contains(eventDocId)) && (index == event.sentence) && (!(activationEvents.contains(event)))
       if(bool) activationEvents += event
     }
 
 
-    for((pmcid,(_, index)) <- inhibitionIndices) {
+    for((_,(_, index)) <- inhibitionIndices) {
       val eventDocId = event.document.id match {
         case Some(x) => s"PMC${x.split("_")(0)}"
         case None => "unknown"
       }
-      val bool = (inhibitionPapers.contains(eventDocId)) && (index == event.sentence)
+      val bool = (inhibitionPapers.contains(eventDocId)) && (index == event.sentence) && (!(activationEvents.contains(event)))
       if(bool) inhibitionEvents += event
     }
   }
