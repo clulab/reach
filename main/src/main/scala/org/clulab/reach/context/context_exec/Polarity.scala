@@ -165,19 +165,19 @@ object Polarity extends App {
   val freqOfCtxLabelsPolAgnosticRaw = countFrequencyOfString(contextLabelsSuperList)
 
 
-  println("PRINTING FREQUENCY OF CTX LABELS IN ACTIVATION")
+  println("\n \n PRINTING FREQUENCY OF CTX LABELS IN ACTIVATION")
   for((name,freq) <- freqOfCtxLabelsActivationRaw) {
     println(s"The context label ${name} appears ${freq} times in the activation set")
   }
 
 
-  println("PRINTING FREQUENCY OF CTX LABELS IN INHIBITION")
+  println("\n \n PRINTING FREQUENCY OF CTX LABELS IN INHIBITION")
   for((name,freq) <- freqOfCtxLabelsInhibitionRaw) {
     println(s"The context label ${name} appears ${freq} times in the inhibition set")
   }
 
 
-  println("PRINTING FREQUENCY OF CTX LABELS OVER ALL ")
+  println("\n \n PRINTING FREQUENCY OF CTX LABELS OVER ALL ")
   for((name,freq) <- freqOfCtxLabelsPolAgnosticRaw) {
     println(s"The context label ${name} appears ${freq} times over all")
   }
