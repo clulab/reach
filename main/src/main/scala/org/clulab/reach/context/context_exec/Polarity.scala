@@ -146,8 +146,8 @@ object Polarity extends App {
   }
 
   val intersectingContextLabels = contextsInActivation.toSet.intersect(contextsInInhibition.toSet)
-  println(s"There are a total of ${contextsInActivation} context labels in activation")
-  println(s"There are a total of ${contextsInInhibition} context labels in inhibition")
+  println(s"There are a total of ${contextsInActivation.size} context labels in activation")
+  println(s"There are a total of ${contextsInInhibition.size} context labels in inhibition")
   println(s"There are ${intersectingContextLabels.size} context labels in common with the activation set and inhibition set for a sentence window of ${sentenceWindow}")
   intersectingContextLabels.map(println)
 
