@@ -4,7 +4,8 @@ import java.io.{File, FileInputStream, FileOutputStream, ObjectInputStream, Obje
 
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.utils.{AggregatedContextInstance, ContextPairInstance}
-import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
+import org.clulab.reach.context.ContextEngine
+import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 
 object ContextFeatureUtils {
   type Pair = (BioEventMention, BioTextBoundMention)
@@ -59,7 +60,7 @@ object ContextFeatureUtils {
   }
 
 
-  def writeRowToFile(row:AggregatedContextInstance, evtID: String, ctxID: String, sentenceWindow:Int):Unit = {
+  def writeRowToFile(row: AggregatedContextInstance, evtID: String, ctxID: String, sentenceWindow: Int, whereToWrite: String):Unit = {
     val typeOfPaper = config.getString("polarityContext.typeOfPaper")
     val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
     val fileListUnfiltered = new File(dirForType)
@@ -67,7 +68,8 @@ object ContextFeatureUtils {
     val currentPMCID = s"PMC${row.PMCID.split("_")(0)}"
     for(file <- fileList) {
       val fileNamePMCID = file.getName.slice(0,file.getName.length-5)
-      val outPaperDirPath = dirForType.concat(s"/sentenceWindows/${sentenceWindow}")
+      //val outPaperDirPath = dirForType.concat(s"/sentenceWindows/${sentenceWindow}")
+      val outPaperDirPath = whereToWrite.concat(s"/sentenceWindows/${sentenceWindow}")
       // creating output directory if it doesn't already exist
       val outputPaperDir = new File(outPaperDirPath)
       if(!outputPaperDir.exists()) {
@@ -102,6 +104,55 @@ object ContextFeatureUtils {
     val ctxID = file.getName.split("_")(3)
     val ctxID2 = ctxID.slice(0,ctxID.length-4)
     (pmcid, evtID, ctxID2)
+  }
+
+  def writeRowsToFile(mentions: Seq[BioMention]):Unit = {
+    val aggrRows = constructAggregatedInstance(mentions)
+    val whereToWrite = config.getString("policy4Params.mentionsOutputFile")
+    val sentenceWindow = config.getString("contextEngine.params.bound")
+    for(((evtID, ctxID), row) <- aggrRows) {
+      writeRowToFile(row,evtID,ctxID,sentenceWindow.toInt,whereToWrite)
+    }
+  }
+
+  private def constructAggregatedInstance(mentions: Seq[BioMention]):Seq[((String, String),AggregatedContextInstance)] = {
+    val ctxMentions = mentions filter ContextEngine.isContextMention map (_.asInstanceOf[BioTextBoundMention])
+    val pairGenerator = new EventContextPairGenerator(mentions, ctxMentions)
+    val pairs = pairGenerator.yieldContextEventPairs()
+    val lookUpTable = ContextFeatureUtils.getFeatValMapPerInput(pairs, ctxMentions)
+    val contextPairInput:Seq[ContextPairInstance] = ContextFeatureUtils.getCtxPairInstances(lookUpTable)
+
+    def extractEvtId(evt:BioEventMention):EventID = {
+      val sentIndex = evt.sentence
+      val tokenIntervalStart = (evt.tokenInterval.start).toString()
+      val tokenIntervalEnd = (evt.tokenInterval.end).toString()
+      sentIndex+tokenIntervalStart+tokenIntervalEnd
+    }
+    val aggrRowsToReturn = collection.mutable.ListBuffer[((String, String),AggregatedContextInstance)]()
+    val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedContextInstance)]] =
+      (pairs zip contextPairInput).groupBy{
+        case (pair, _) => extractEvtId(pair._1) // Group by their EventMention
+      }.mapValues{
+        v =>
+          v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s =>  {
+            val seqOfInputRowsToPass = s map (_._2)
+            val featureAggregatorInstance = new ContextFeatureAggregator(seqOfInputRowsToPass, lookUpTable)
+            val aggRow = featureAggregatorInstance.aggregateContextFeatures()
+            aggRow}).toSeq
+      }
+
+    for((k,a) <- aggregatedFeatures) {
+      for((ctxID, aggregatedFeature) <- a) {
+        val entry = ((k.toString, ctxID._2), aggregatedFeature)
+        aggrRowsToReturn += entry
+      }
+    }
+
+
+    aggrRowsToReturn
+
+
+
   }
 
 
