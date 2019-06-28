@@ -24,7 +24,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   val config = ConfigFactory.load()
 
   val configPath = "polarity"
-
+  var maskOption = "tag_name"
   var savedModelPath = "savedModel"
   var spreadsheetPath = "SentencesInfo_all_label_final_ExactRecur.txt"
   var VOC_SIZE = 3671
@@ -32,16 +32,19 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   var CEM_DIMENSIONS = 30
   var NUM_LAYERS = 1
   var HIDDEN_SIZE = 30
+  var MLP_HIDDEN_SIZE = 10
   var N_EPOCH = 5
 
   if(config.hasPath(configPath)) {
-    savedModelPath = config.getString(configPath+".savedModel")
+    maskOption = config.getString(configPath+".maskOption")
+    savedModelPath = config.getString(configPath+".savedModel")+"_"+maskOption
     spreadsheetPath = config.getString(configPath+".spreadsheetPath")
     VOC_SIZE = config.getInt(configPath+".VOC_SIZE")
     WEM_DIMENSIONS = config.getInt(configPath+".WEM_DIMENSIONS")
     CEM_DIMENSIONS = config.getInt(configPath+".CEM_DIMENSIONS")
     NUM_LAYERS = config.getInt(configPath+".NUM_LAYERS")
     HIDDEN_SIZE = config.getInt(configPath+".HIDDEN_SIZE")
+    MLP_HIDDEN_SIZE = config.getInt(configPath+".MLP_HIDDEN_SIZE")
     N_EPOCH = config.getInt(configPath+".N_EPOCH")
   }
   else{
@@ -65,7 +68,9 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   val c2v_cemb:LookupParameter = pc.addLookupParameters(c2i.size, /*1579375,*/ Dim(Seq(CEM_DIMENSIONS)))
 
   val p_W = pc.addParameters(Dim(1, 2*HIDDEN_SIZE+1))
+  //val p_V = pc.addParameters(Dim(1, MLP_HIDDEN_SIZE))
   val p_b = pc.addParameters(Dim(1))
+  //val p_bv = pc.addParameters(Dim(1))
 
 
   val builderFwd = new LstmBuilder(NUM_LAYERS, WEM_DIMENSIONS+CEM_DIMENSIONS*2, HIDDEN_SIZE, pc)
@@ -76,6 +81,9 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
   //val sgd = new SimpleSGDTrainer(pc)
   val sgd = new AdamTrainer(pc)
+  if (maskOption=="tag") {
+    sgd.clipThreshold = 4.0.toFloat
+  }
 
   val missing_vec = new FloatVector(WEM_DIMENSIONS)
   val missing_charVec = new FloatVector(CEM_DIMENSIONS*2)
@@ -83,11 +91,14 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   private var _isFitted = false
   
   if (Files.exists(Paths.get(savedModelPath))){
-    logger.info("Loading saved model ...")
+    logger.info(s"Loading saved model $savedModelPath ...")
     _isFitted=true
     val modelLoader = new ModelLoader(savedModelPath)
     modelLoader.populateModel(pc, "/allParams")
     logger.info("Loading model finished!")
+  }
+  else{
+    logger.info("Could not find specified model. ")
   }
   
   
@@ -101,13 +112,18 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   override def fit(trainingPath:String = spreadsheetPath, trainRatio:Float=0.8.toFloat, saveFlag:Boolean=true): Unit = {
     
     if (!_isFitted){
-      val (sens_train, labels_train, sens_test, labels_test) = this.readFromSpreadsheet(trainingPath, trainRatio)
+      val (sens_train, labels_train, sens_test, labels_test) = this.readFromSpreadsheet(trainingPath, trainRatio, maskOption)
       val N_EPOCH = this.N_EPOCH
       for (epoch <- 1 to N_EPOCH) {
         logger.info(s"epoch $epoch")
         this.fitSingleEpoch(sens_train, labels_train)
         this.testSingleEpoch(sens_test, labels_test)
-        sgd.learningRate=sgd.learningRate*0.3.toFloat
+        if (maskOption=="tag") {
+          sgd.learningRate=sgd.learningRate*0.9.toFloat
+        }
+        else{
+          sgd.learningRate=sgd.learningRate*0.3.toFloat
+        }
       }
       if (saveFlag) {save()}
       _isFitted=true
@@ -154,7 +170,10 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   }
 
   override def predict(event: BioEventMention): Polarity = {
-    val lemmas = event.lemmas.get
+    //var lemmas = event.lemmas.get.toArray
+    var lemmas = event.sentenceObj.lemmas.get
+    val start = event.start
+    val end = event.end
     val rule = event.label
     var rulePolarity = 0
     if (rule.startsWith("Neg")){
@@ -162,9 +181,40 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     }else{
       rulePolarity=1
     }
+    val ctrlr_start = event.arguments("controller").head.start
+    val ctrlr_end = event.arguments("controller").head.end
+    val ctrld_start = event.arguments("controlled").head.start
+    val ctrld_end = event.arguments("controlled").head.end
+
+
     ComputationGraph.renew()
 
-    val y_pred = runInstance(lemmas, rulePolarity)
+    if (maskOption=="tag_name"){
+      for (index <- ctrlr_start until ctrlr_end){
+        lemmas(index) = "controller_"+lemmas(index)
+      }
+      for (index <- ctrld_start until ctrld_end){
+        lemmas(index) = "controlled_"+lemmas(index)
+      }
+    }
+    else if (maskOption=="tag"){
+      for (index <- ctrlr_start until ctrlr_end){
+        if (lemmas(index).endsWith("kd")){
+          lemmas(index) = "__controller__-kd"
+        }
+        else{lemmas(index) = "__controller__"}
+      }
+      for (index <- ctrld_start until ctrld_end){
+        if (lemmas(index).endsWith("kd")) {
+          lemmas(index) = "__controlled__-kd"
+        }
+        else{lemmas(index) = "__controlled__"}
+      }
+    }
+    println(lemmas.slice(start, end))
+    scala.io.StdIn.readLine()
+    val y_pred = runInstance(lemmas.slice(start, end), rulePolarity)
+
     if (y_pred.value().toFloat>0.5){
       PositivePolarity
     }
@@ -178,7 +228,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     *
     * @param modelPath file path to save the model to.
     */
-  override def save(modelPath: String="SavedLSTM"): Unit = {
+  override def save(modelPath: String=savedModelPath): Unit = {
     logger.info("Saving model ...")
     new CloseableModelSaver(modelPath).autoClose { modelSaver =>
       modelSaver.addModel(pc, "/allParams")
@@ -189,7 +239,9 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
   def runInstance(words:Seq[String], rulePolarityNum:Int):Expression= {
     val W = Expression.parameter(p_W)
-    val b = Expression.parameter(p_b)
+    //val V = Expression.parameter(p_V)
+    val bw = Expression.parameter(p_b)
+    //val bv = Expression.parameter(p_bv)
 
     val rulePolarity = Expression.input(rulePolarityNum)
 
@@ -208,7 +260,9 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     val feedForwardInput = concatenate(selected, rulePolarity)
 
     // Run the FF network for classification
-    Expression.logistic(W * feedForwardInput + b)
+    //Expression.logistic(V * Expression.tanh(W * feedForwardInput + bw)+bv)
+    Expression.logistic(W * feedForwardInput + bw)
+
   }
 
   def transduce(embeddings:Iterable[Expression], builder:RnnBuilder): Iterable[Expression] = {
@@ -337,18 +391,19 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   }
 
   def loadModelEval(trainingPath:String = "SentencesInfo_all_label_final_ExactRecur.txt", trainRatio:Float=0.8.toFloat):Unit={
-    val (sens_train, labels_train, sens_test, labels_test) = this.readFromSpreadsheet(trainingPath, trainRatio)
+    val (sens_train, labels_train, sens_test, labels_test) = this.readFromSpreadsheet(trainingPath, trainRatio, maskOption)
 
     this.testSingleEpoch(sens_test, labels_test)
   }
 
-  def readFromSpreadsheet(spreadsheet_path:String, train_ratio:Float): (Seq[(Seq[String], Int)], Seq[Int], Seq[(Seq[String], Int)], Seq[Int]) ={
+  def readFromSpreadsheet(spreadsheet_path:String, train_ratio:Float, mask_option:String="tag_name"): (Seq[(Seq[String], Int)], Seq[Int], Seq[(Seq[String], Int)], Seq[Int]) ={
     logger.info("Loading data from spreadsheet ...")
     var instances = Seq[(Seq[String],Int)]()
     var labels = Seq[Int]()
 
     val bufferedSource = Source.fromFile(spreadsheet_path)
     for (line <- bufferedSource.getLines.drop(1)) {
+
       val cols = line.split("\t").map(_.trim)
       // do whatever you want with the columns here
       val sentence = cols(0)
@@ -362,8 +417,47 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         rulePolarity=0
       }
 
+      if (mask_option=="tag_name") {
+        val ctrlr_start = cols(14).toInt
+        val ctrlr_end = cols(15).toInt
+        val ctrld_start = cols(16).toInt
+        val ctrld_end = cols(17).toInt
 
-      instances = instances :+ (sentence.split(' ').slice(start, end).toSeq, rulePolarity)
+        var sentence_mod = sentence.split(" ")
+        for (index <- ctrlr_start until ctrlr_end){
+          sentence_mod(index) = "controller_"+sentence_mod(index)
+        }
+        for (index <- ctrld_start until ctrld_end){
+          sentence_mod(index) = "controlled_"+sentence_mod(index)
+        }
+        instances = instances :+ (sentence_mod.slice(start, end).toSeq, rulePolarity)
+      }
+      else if (mask_option=="tag"){
+        val ctrlr_start = cols(14).toInt
+        val ctrlr_end = cols(15).toInt
+        val ctrld_start = cols(16).toInt
+        val ctrld_end = cols(17).toInt
+
+        var sentence_mod = sentence.split(" ")
+        for (index <- ctrlr_start until ctrlr_end){
+          if (sentence_mod(index).toLowerCase().endsWith("kd")){
+            sentence_mod(index) = "__controller__-kd"
+          }
+          else{sentence_mod(index) = "__controller__"}
+        }
+        for (index <- ctrld_start until ctrld_end){
+          if (sentence_mod(index).toLowerCase().endsWith("kd")) {
+            sentence_mod(index) = "__controlled__-kd"
+          }
+          else{sentence_mod(index) = "__controlled__"}
+        }
+        //println(sentence_mod.slice(start, end).toSeq)
+        //scala.io.StdIn.readLine()
+        instances = instances :+ (sentence_mod.slice(start, end).toSeq, rulePolarity)
+      }
+      else if (mask_option=="name"){
+        instances = instances :+ (sentence.split(" ").slice(start, end).toSeq, rulePolarity)
+      }
       if (cols(6).startsWith("Pos")) {
         val label = 1
         labels = labels :+label
@@ -401,7 +495,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
   def mkVocabs(spreadSheetPath:String = "SentencesInfo_all_label_final_ExactRecur.txt"): (Map[String, Int], Map[Char, Int]) = {
     logger.info("Making vocabulary for deep learning model ...")
-    val (trainSentences, _, _,_) = readFromSpreadsheet(spreadSheetPath, 0.8.toFloat)
+    val (trainSentences, _, _,_) = readFromSpreadsheet(spreadSheetPath, 0.8.toFloat, maskOption)
 
     val chars = new mutable.HashSet[Char]()
     val words = new mutable.HashSet[String]()
