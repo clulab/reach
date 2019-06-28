@@ -50,10 +50,6 @@ object Polarity extends App {
     allEvents ++= eventMentionsHavingContext
   }
 
-  for(e<-allEvents) {
-    println(e.label)
-  }
-
   println(s"There are ${allEvents.toSet.size} unique event mentions over all the ${eventsByPaper.size} papers")
   for((paperID, events) <- eventsByPaper) {
     println(s"The paper ${paperID} has ${events.size} unique event mentions")
@@ -108,7 +104,7 @@ object Polarity extends App {
         case Some(x) => s"PMC${x.split("_")(0)}"
         case None => "unknown"
       }
-      val bool = (activationPapers.contains(eventDocId)) && (index == event.sentence) && (!(activationEvents.contains(event)))
+      val bool = (event.label.contains("Positive")) && (index == event.sentence) && (!(activationEvents.contains(event)))
       if(bool) activationEvents += event
     }
 
@@ -118,7 +114,7 @@ object Polarity extends App {
         case Some(x) => s"PMC${x.split("_")(0)}"
         case None => "unknown"
       }
-      val bool = (inhibitionPapers.contains(eventDocId)) && (index == event.sentence) && (!(activationEvents.contains(event)))
+      val bool = (event.label.contains("Negative")) && (index == event.sentence) && (!(activationEvents.contains(event)))
       if(bool) inhibitionEvents += event
     }
   }
