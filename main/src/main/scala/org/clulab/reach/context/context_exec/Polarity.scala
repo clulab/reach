@@ -148,16 +148,15 @@ object Polarity extends App {
   contextLabelsSuperList ++= contextsInInhibition
 
   val intersectingContextLabels = contextsInActivation.toSet.intersect(contextsInInhibition.toSet)
-  println(s"There are a total of ${contextsInActivation.toSet.size} unique context labels in activation, including the intersection set")
-  println(s"There are a total of ${contextsInInhibition.toSet.size} unique context labels in inhibition, including the intersection set")
   println(s"There are ${intersectingContextLabels.size} context labels in common with the activation set and inhibition set for a sentence window of ${sentenceWindow}")
   intersectingContextLabels.map(println)
 
   val activationNoIntersection = contextsInActivation -- intersectingContextLabels
   println(s"There are ${activationNoIntersection.toSet.size} unique context labels in the activation set, but not in the intersection set.")
+  println(s"In total, the activation set has ${(activationNoIntersection.toSet.union(intersectingContextLabels)).size} context mentions")
   val inhibitionNoIntersection = contextsInInhibition -- intersectingContextLabels
-  println(s"There are ${inhibitionNoIntersection.toSet.size} context labels in the inhibition set, but not in the intersection set.")
-
+  println(s"There are ${inhibitionNoIntersection.toSet.size} unique context labels in the inhibition set, but not in the intersection set.")
+  println(s"In total, the inhibition set has ${(inhibitionNoIntersection.toSet.union(intersectingContextLabels)).size} context mentions")
 
 
   val freqOfCtxLabelsActivationRaw = countFrequencyOfString(contextsInActivation)
