@@ -30,7 +30,7 @@ object Polarity extends App {
     contextParams = contextEngineParams)
   val sentenceFileContentsToIntersect = collection.mutable.ListBuffer[String]()
   val sentencesByPaper = collection.mutable.HashMap[String, Array[String]]()
-  val eventsByPaper = collection.mutable.HashMap[String, Array[EventMention]]()
+  val eventsByPaper = collection.mutable.HashMap[String, Array[BioEventMention]]()
   val allEvents = collection.mutable.ListBuffer[BioEventMention]()
   for(file<- fileList) {
     val pmcid = file.getName.slice(0,file.getName.length-5)
@@ -151,12 +151,12 @@ object Polarity extends App {
   println(s"There are ${intersectingContextLabels.size} context labels in common with the activation set and inhibition set for a sentence window of ${sentenceWindow}")
   intersectingContextLabels.map(println)
 
-  val activationNoIntersection = contextsInActivation -- intersectingContextLabels
-  println(s"There are ${activationNoIntersection.toSet.size} unique context labels in the activation set, but not in the intersection set.")
-  println(s"In total, the activation set has ${(activationNoIntersection.toSet.union(intersectingContextLabels)).size} context mentions")
-  val inhibitionNoIntersection = contextsInInhibition -- intersectingContextLabels
-  println(s"There are ${inhibitionNoIntersection.toSet.size} unique context labels in the inhibition set, but not in the intersection set.")
-  println(s"In total, the inhibition set has ${(inhibitionNoIntersection.toSet.union(intersectingContextLabels)).size} context mentions")
+  val activationNoIntersection = contextsInActivation.toSet -- intersectingContextLabels
+  println(s"There are ${activationNoIntersection.size} unique context labels in the activation set, but not in the intersection set.")
+  println(s"In total, the activation set has ${(activationNoIntersection.union(intersectingContextLabels)).size} context mentions")
+  val inhibitionNoIntersection = contextsInInhibition.toSet -- intersectingContextLabels
+  println(s"There are ${inhibitionNoIntersection.size} unique context labels in the inhibition set, but not in the intersection set.")
+  println(s"In total, the inhibition set has ${(inhibitionNoIntersection.union(intersectingContextLabels)).size} context mentions")
 
 
   val freqOfCtxLabelsActivationRaw = countFrequencyOfString(contextsInActivation)
@@ -175,13 +175,38 @@ object Polarity extends App {
     println(s"The context label ${name} appears ${freq} times in the inhibition set")
   }
 
-
-  println("\n \n PRINTING FREQUENCY OF CTX LABELS OVER ALL ")
+ /* println("\n \n PRINTING FREQUENCY OF CTX LABELS OVER ALL ")
   for((name,freq) <- freqOfCtxLabelsPolAgnosticRaw) {
     println(s"The context label ${name} appears ${freq} times over all")
+  }*/
+
+ val contextMentionsByPaper = collection.mutable.HashMap[String, Seq[String]]()
+  for((paperID, eventMentions) <- eventsByPaper) {
+    val contextLabelsPerEvent = collection.mutable.ListBuffer[String]()
+    for(act <- eventMentions) {
+      val map = act.context match {
+        case Some(m) => m
+        case None => Map.empty
+      }
+      for((_, contextLabels) <- map) {
+        contextLabelsPerEvent ++= contextLabels
+      }
+    }
+    contextMentionsByPaper ++= Map(paperID -> contextLabelsPerEvent)
   }
 
+  val perLabelPerPaperFreq = collection.mutable.ListBuffer[(String,Int)]()
+  val freqOfCtxLabelPerPaper = collection.mutable.HashMap[String, Seq[(String, Int)]]()
+  for((paperID, ctxMentions) <- contextMentionsByPaper) {
+    val freq = countFrequencyOfString(ctxMentions).toSeq
+    perLabelPerPaperFreq ++= freq
+    freqOfCtxLabelPerPaper ++= Map(paperID -> freq)
+  }
 
+  val freqOfCtxLabelsOverAll = addAllFreq(perLabelPerPaperFreq)
+  for((name, numero) <- freqOfCtxLabelsOverAll) {
+    println(s"The ctx label ${name} appears ${numero} times counting over all ${freqOfCtxLabelPerPaper.size} papers")
+  }
 
   private def countFrequencyOfString(seq: Seq[String]): Map[String, Int] = {
     val map = collection.mutable.HashMap[String, Int]()
@@ -196,5 +221,17 @@ object Polarity extends App {
       }
     }
     map.toMap
+  }
+
+  private def addAllFreq(tups: Seq[(String, Int)]):Seq[(String, Int)] = {
+    val groupedByCtxLabel = tups.groupBy(x => x._1)
+    val toReturn = collection.mutable.ListBuffer[(String, Int)]()
+    for((name, list) <- groupedByCtxLabel) {
+      val nums = list.map(_._2)
+      val sumPerPaper = nums.foldLeft(0)(_ + _)
+      val entry = (name, sumPerPaper)
+      toReturn += entry
+    }
+    toReturn
   }
 }
