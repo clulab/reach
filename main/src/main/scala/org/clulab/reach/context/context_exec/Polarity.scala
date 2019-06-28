@@ -198,7 +198,7 @@ object Polarity extends App {
   val perLabelPerPaperFreq = collection.mutable.ListBuffer[(String,Int)]()
   val freqOfCtxLabelPerPaper = collection.mutable.HashMap[String, Seq[(String, Int)]]()
   for((paperID, ctxMentions) <- contextMentionsByPaper) {
-    val freq = countFrequencyOfString(ctxMentions).toSeq
+    val freq = countFrequencyOfString(ctxMentions.toSet).toSeq
     perLabelPerPaperFreq ++= freq
     freqOfCtxLabelPerPaper ++= Map(paperID -> freq)
   }
@@ -208,7 +208,7 @@ object Polarity extends App {
     println(s"The ctx label ${name} appears ${numero} times counting over all ${freqOfCtxLabelPerPaper.size} papers")
   }
 
-  private def countFrequencyOfString(seq: Seq[String]): Map[String, Int] = {
+  private def countFrequencyOfString(seq: Set[String]): Map[String, Int] = {
     val map = collection.mutable.HashMap[String, Int]()
     for(s <- seq) {
       if(map.contains(s)) {
