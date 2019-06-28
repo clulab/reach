@@ -50,6 +50,10 @@ object Polarity extends App {
     allEvents ++= eventMentionsHavingContext
   }
 
+  for(e<-allEvents) {
+    println(e.label)
+  }
+
   println(s"There are ${allEvents.toSet.size} unique event mentions over all the ${eventsByPaper.size} papers")
   for((paperID, events) <- eventsByPaper) {
     println(s"The paper ${paperID} has ${events.size} unique event mentions")
