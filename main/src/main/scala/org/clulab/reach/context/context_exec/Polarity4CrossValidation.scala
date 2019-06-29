@@ -18,7 +18,7 @@ object Polarity4CrossValidation extends App {
   val sentenceWindow = config.getString("contextEngine.params.bound").toInt
   val allRowsBySentDist = collection.mutable.HashMap[Int, Seq[AggregatedContextInstance]]()
   val keysForLabels = collection.mutable.HashMap[AggregatedContextInstance, (String, String, String)]()
-  val filterForFasterRun = List("14")
+  val filterForFasterRun = List("15")
   val smallNumOfDirs = allSentDirs.filter(x => filterForFasterRun.contains(x.getName))
   for(d<- smallNumOfDirs) {
     val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
