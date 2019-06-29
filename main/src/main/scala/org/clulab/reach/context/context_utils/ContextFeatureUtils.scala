@@ -107,19 +107,29 @@ object ContextFeatureUtils {
   }
 
   def writeRowsToFile(mentions: Seq[BioMention]):Unit = {
-    val aggrRows = constructAggregatedInstance(mentions)
-    val whereToWrite = config.getString("policy4Params.mentionsOutputFile")
     val sentenceWindow = config.getString("contextEngine.params.bound")
+    val aggrRows = constructAggregatedInstance(mentions, Some(sentenceWindow.toInt))
+    val whereToWrite = config.getString("policy4Params.mentionsOutputFile")
+
     for(((evtID, ctxID), row) <- aggrRows) {
       writeRowToFile(row,evtID,ctxID,sentenceWindow.toInt,whereToWrite)
     }
   }
 
-  private def constructAggregatedInstance(mentions: Seq[BioMention]):Seq[((String, String),AggregatedContextInstance)] = {
+  private def constructAggregatedInstance(mentions: Seq[BioMention], sentenceWindow:Option[Int]):Seq[((String, String),AggregatedContextInstance)] = {
     val ctxMentions = mentions filter ContextEngine.isContextMention map (_.asInstanceOf[BioTextBoundMention])
     val pairGenerator = new EventContextPairGenerator(mentions, ctxMentions)
     val pairs = pairGenerator.yieldContextEventPairs()
-    val lookUpTable = ContextFeatureUtils.getFeatValMapPerInput(pairs, ctxMentions)
+    val filteredPairs = sentenceWindow match {
+      case Some(bound) =>
+        pairs.filter {
+          case (evt, ctx) =>
+            Math.abs(evt.sentence - ctx.sentence) <= bound
+        }
+      case None =>
+        pairs
+    }
+    val lookUpTable = ContextFeatureUtils.getFeatValMapPerInput(filteredPairs, ctxMentions)
     val contextPairInput:Seq[ContextPairInstance] = ContextFeatureUtils.getCtxPairInstances(lookUpTable)
 
     def extractEvtId(evt:BioEventMention):EventID = {
