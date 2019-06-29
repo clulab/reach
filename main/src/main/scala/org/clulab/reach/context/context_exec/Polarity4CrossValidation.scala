@@ -33,6 +33,9 @@ object Polarity4CrossValidation extends App {
     allRowsBySentDist ++= entry
   }
 
+  println(allRowsBySentDist.size)
+
+/*
 
   // we only need the testing rows for the Policy4 cross validation, because we only need to check for the sentence distance min value
   // there is no need to train our model
@@ -107,6 +110,7 @@ object Polarity4CrossValidation extends App {
   }
 
 
+*/
 
 
 
