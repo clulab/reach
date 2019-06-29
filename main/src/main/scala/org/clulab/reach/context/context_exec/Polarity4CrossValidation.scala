@@ -37,7 +37,7 @@ object Polarity4CrossValidation extends App {
   // we only need the testing rows for the Policy4 cross validation, because we only need to check for the sentence distance min value
   // there is no need to train our model
   val foldsBySentDist = collection.mutable.HashMap[Int, Seq[AggregatedContextInstance]]()
-
+  val predictedArraysPerSentDist = collection.mutable.HashMap[Int, (Array[Int], Array[Int])]()
   for((sentDist,rows) <- allRowsBySentDist) {
     println(s"Sentence distance ${sentDist} has a total of ${rows.size} aggregated rows")
     val foldsPerSentDist = collection.mutable.ArrayBuffer[AggregatedContextInstance]()
@@ -48,9 +48,8 @@ object Polarity4CrossValidation extends App {
     foldsBySentDist ++= Map(sentDist -> foldsPerSentDist)
   }
 
-  val perSentDistMicroArray = collection.mutable.HashMap[Int, (Array[Int], Array[Int])]()
 
-  for((sentDist, test) <- foldsBySentDist) {
+  for((sent, test) <- foldsBySentDist) {
     val giantTruthArrayPerSentDist = collection.mutable.ListBuffer[Int]()
     val giantPredictedArrayPerSentDist = collection.mutable.ListBuffer[Int]()
     val testingLabelsIDs = test.map(t => {
@@ -74,7 +73,7 @@ object Polarity4CrossValidation extends App {
 
     giantTruthArrayPerSentDist ++= testingLabels
     giantPredictedArrayPerSentDist ++= predictedLabels
-    perSentDistMicroArray ++= Map(sentDist -> (giantTruthArrayPerSentDist.toArray, giantPredictedArrayPerSentDist.toArray))
+    predictedArraysPerSentDist ++= Map(sent -> (giantTruthArrayPerSentDist.toArray, giantPredictedArrayPerSentDist.toArray))
   }
 
 
@@ -88,6 +87,27 @@ object Polarity4CrossValidation extends App {
     })
     toReturn
   }
+
+
+  val scorePerSentDist = collection.mutable.HashMap[Int,Double]()
+
+  for((sent, (truth, predicted)) <- predictedArraysPerSentDist) {
+    val precision = findPrecision(truth, predicted)
+    scorePerSentDist ++= Map(sent -> precision)
+  }
+
+  def findPrecision(truth:Array[Int], test:Array[Int]):Double = {
+    val countsTest = CodeUtils.predictCounts(truth, test)
+    val precision = CodeUtils.precision(countsTest)
+    precision
+  }
+
+  for((sent, precision) <- scorePerSentDist) {
+    println(s"The sentence distance ${sent} has micro-averaged precision ${precision}")
+  }
+
+
+
 
 
 
