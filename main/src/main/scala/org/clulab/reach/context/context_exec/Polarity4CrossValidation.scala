@@ -53,13 +53,34 @@ object Polarity4CrossValidation extends App {
 
   for((sent, testRowsByPaper) <- foldsBySentDist) {
 
+    val giantTruthArrayPerSentDist = collection.mutable.ListBuffer[Int]()
+    val giantPredictedArrayPerSentDist = collection.mutable.ListBuffer[Int]()
     for(test <- testRowsByPaper) {
 
+      val testingLabelsIDs = test.map(t => {
+        keysForLabels(t)
+      })
 
 
+      val intersectingTestingLabels = testingLabelsIDs.toSet.intersect(CodeUtils.generateLabelMap(labelFile).keySet)
+      val testingRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
+      val testingLabels = collection.mutable.ListBuffer[Int]()
+      for(tup<-intersectingTestingLabels) {
+        for(key <- keysForLabels.keySet) {
+          if(keysForLabels(key) == tup)
+          {
+            testingRows += key
+            val label = CodeUtils.generateLabelMap(labelFile)(tup)
+            testingLabels += label
+          }
+        }
+      }
+
+      val predictedLabels = predict(testingRows.toArray,sentenceWindow)
+      giantTruthArrayPerSentDist ++= testingLabels
+      giantPredictedArrayPerSentDist ++= predictedLabels
     }
-
-
+    predictedArraysPerSentDist ++= Map(sent -> (giantTruthArrayPerSentDist.toArray, giantPredictedArrayPerSentDist.toArray))
   }
 
   private def predict(test: Array[AggregatedContextInstance], swindow: Int): Array[Int] = {
@@ -89,61 +110,4 @@ object Polarity4CrossValidation extends App {
   for((sent, precision) <- scorePerSentDist) {
     println(s"The sentence distance ${sent} has micro-averaged precision ${precision}")
   }
-/*
-
-  // we only need the testing rows for the Policy4 cross validation, because we only need to check for the sentence distance min value
-  // there is no need to train our model
-  val foldsBySentDist = collection.mutable.HashMap[Int, Seq[AggregatedContextInstance]]()
-  val predictedArraysPerSentDist = collection.mutable.HashMap[Int, (Array[Int], Array[Int])]()
-  for((sentDist,rows) <- allRowsBySentDist) {
-    println(s"Sentence distance ${sentDist} has a total of ${rows.size} aggregated rows")
-    val foldsPerSentDist = collection.mutable.ArrayBuffer[AggregatedContextInstance]()
-    for(r<-rows) {
-      val testingRows = rows.filter(_.PMCID == r.PMCID)
-      foldsPerSentDist ++= testingRows
-    }
-    foldsBySentDist ++= Map(sentDist -> foldsPerSentDist)
-  }
-
-
-  for((sent, test) <- foldsBySentDist) {
-    val giantTruthArrayPerSentDist = collection.mutable.ListBuffer[Int]()
-    val giantPredictedArrayPerSentDist = collection.mutable.ListBuffer[Int]()
-    val testingLabelsIDs = test.map(t => {
-      keysForLabels(t)
-    })
-    val intersectingTestingLabels = testingLabelsIDs.toSet.intersect(CodeUtils.generateLabelMap(labelFile).keySet)
-    val testingRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
-    val testingLabels = collection.mutable.ListBuffer[Int]()
-    for(tup<-intersectingTestingLabels) {
-      for(key <- keysForLabels.keySet) {
-        if(keysForLabels(key) == tup)
-        {
-          testingRows += key
-          val label = CodeUtils.generateLabelMap(labelFile)(tup)
-          testingLabels += label
-        }
-      }
-    }
-
-    val predictedLabels = predict(testingRows.toArray, sentenceWindow)
-
-    giantTruthArrayPerSentDist ++= testingLabels
-    giantPredictedArrayPerSentDist ++= predictedLabels
-    predictedArraysPerSentDist ++= Map(sent -> (giantTruthArrayPerSentDist.toArray, giantPredictedArrayPerSentDist.toArray))
-  }
-
-
-  //sentenceDistance_min
-
-
-
-
-*/
-
-
-
-
-
-
 }
