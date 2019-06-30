@@ -8,6 +8,7 @@ import org.clulab.odin.EventMention
 import org.clulab.reach.PaperReader.{contextEngineParams, ignoreSections, preproc, procAnnotator}
 import org.clulab.reach.ReachSystem
 import org.clulab.reach.context.ContextEngineFactory.Engine
+import org.clulab.reach.context.context_utils.PolarityUtils
 import org.clulab.reach.mentions.BioEventMention
 
 import scala.io.Source
@@ -158,28 +159,6 @@ object Polarity extends App {
   println(s"There are ${inhibitionNoIntersection.size} unique context labels in the inhibition set, but not in the intersection set.")
   println(s"In total, the inhibition set has ${(inhibitionNoIntersection.union(intersectingContextLabels)).size} context mentions")
 
-
-  val freqOfCtxLabelsActivationRaw = countFrequencyOfString(contextsInActivation)
-  val freqOfCtxLabelsInhibitionRaw = countFrequencyOfString(contextsInInhibition)
-  val freqOfCtxLabelsPolAgnosticRaw = countFrequencyOfString(contextLabelsSuperList)
-
-
-  println("\n \n PRINTING FREQUENCY OF CTX LABELS IN ACTIVATION")
-  for((name,freq) <- freqOfCtxLabelsActivationRaw) {
-    println(s"The context label ${name} appears ${freq} times in the activation set")
-  }
-
-
-  println("\n \n PRINTING FREQUENCY OF CTX LABELS IN INHIBITION")
-  for((name,freq) <- freqOfCtxLabelsInhibitionRaw) {
-    println(s"The context label ${name} appears ${freq} times in the inhibition set")
-  }
-
- /* println("\n \n PRINTING FREQUENCY OF CTX LABELS OVER ALL ")
-  for((name,freq) <- freqOfCtxLabelsPolAgnosticRaw) {
-    println(s"The context label ${name} appears ${freq} times over all")
-  }*/
-
  val contextMentionsByPaper = collection.mutable.HashMap[String, Seq[String]]()
   for((paperID, eventMentions) <- eventsByPaper) {
     val contextLabelsPerEvent = collection.mutable.ListBuffer[String]()
@@ -195,43 +174,50 @@ object Polarity extends App {
     contextMentionsByPaper ++= Map(paperID -> contextLabelsPerEvent)
   }
 
-  val perLabelPerPaperFreq = collection.mutable.ListBuffer[(String,Int)]()
-  val freqOfCtxLabelPerPaper = collection.mutable.HashMap[String, Seq[(String, Int)]]()
-  for((paperID, ctxMentions) <- contextMentionsByPaper) {
-    val freq = countFrequencyOfString(ctxMentions.toSet.toSeq).toSeq
-    perLabelPerPaperFreq ++= freq
-    freqOfCtxLabelPerPaper ++= Map(paperID -> freq)
+  val freqOfActivationLabelInBigList = collection.mutable.HashMap[String, Int]()
+  val freqOfActivationLabelOverPapers = collection.mutable.HashMap[String, (Int, Seq[String])]()
+  val freqOfInhibitionLabelInBigList = collection.mutable.HashMap[String, Int]()
+  val freqOfInhibitionLabelOverPapers = collection.mutable.HashMap[String, (Int, Seq[String])]()
+
+  for(act <- activationNoIntersection) {
+    val freqInBigListOfCtxLabels = PolarityUtils.countOccurrencesOfStringinList(act, contextLabelsSuperList.toList)
+    val freqOverPapers = PolarityUtils.countOccurrencesOfStringInPaper(act, contextMentionsByPaper.toMap)
+    freqOfActivationLabelInBigList ++= Map(act -> freqInBigListOfCtxLabels)
+    freqOfActivationLabelOverPapers ++= Map(act -> freqOverPapers)
+
   }
 
-  val freqOfCtxLabelsOverAll = addAllFreq(perLabelPerPaperFreq)
-  for((name, numero) <- freqOfCtxLabelsOverAll) {
-    println(s"The ctx label ${name} appears ${numero} times counting over all ${freqOfCtxLabelPerPaper.size} papers")
+  for(inh <- inhibitionNoIntersection) {
+    val freqInBigList = PolarityUtils.countOccurrencesOfStringinList(inh, contextLabelsSuperList.toList)
+    val freqOverPapers = PolarityUtils.countOccurrencesOfStringInPaper(inh, contextMentionsByPaper.toMap)
+    freqOfInhibitionLabelInBigList ++= Map(inh -> freqInBigList)
+    freqOfInhibitionLabelOverPapers ++= Map(inh -> freqOverPapers)
   }
 
-  private def countFrequencyOfString(seq: Seq[String]): Map[String, Int] = {
-    val map = collection.mutable.HashMap[String, Int]()
-    for(s <- seq) {
-      if(map.contains(s)) {
-        var freq = map(s)
-        freq += 1
-        map ++= Map(s -> freq)
-      }
-      else {
-        map ++= Map(s -> 1)
-      }
-    }
-    map.toMap
+
+
+  println(s"PRINTING FREQUENCY OF ACTIVATION LABELS NOT IN INTERSECTION")
+  println(s"There are ${activationNoIntersection.size} unique types of context in the activation set, that are not in the intersection")
+  for((ctxLabel, freq) <- freqOfActivationLabelInBigList) {
+    println(s"The context label ${ctxLabel} appears ${freq} times in the activation set (not including intersection)")
   }
 
-  private def addAllFreq(tups: Seq[(String, Int)]):Seq[(String, Int)] = {
-    val groupedByCtxLabel = tups.groupBy(x => x._1)
-    val toReturn = collection.mutable.ListBuffer[(String, Int)]()
-    for((name, list) <- groupedByCtxLabel) {
-      val nums = list.map(_._2)
-      val sumPerPaper = nums.foldLeft(0)(_ + _)
-      val entry = (name, sumPerPaper)
-      toReturn += entry
-    }
-    toReturn
+  for((ctxLabel, freq) <- freqOfActivationLabelOverPapers) {
+    println(s"The context label ${ctxLabel} appears atleast once in ${freq} out of ${contextMentionsByPaper.size} papers")
   }
+
+
+  println("*****************************************")
+
+  println(s"PRINTING FREQUENCY OF INHIBITION LABELS NOT IN INTERSECTION")
+  println(s"There are ${inhibitionNoIntersection.size} unique types of context in the activation set, that are not in the intersection")
+  for((ctxLabel, freq) <- freqOfInhibitionLabelInBigList) {
+    println(s"The context label ${ctxLabel} appears ${freq} times in the activation set (not including intersection)")
+  }
+
+  for((ctxLabel, freq) <- freqOfInhibitionLabelOverPapers) {
+    println(s"The context label ${ctxLabel} appears at least once in ${freq} out of ${contextMentionsByPaper.size} papers")
+  }
+
+
 }
