@@ -171,7 +171,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
   override def predict(event: BioEventMention): Polarity = {
     //var lemmas = event.lemmas.get.toArray
-    var lemmas = event.sentenceObj.lemmas.get
+    var lemmas = event.sentenceObj.lemmas.get.clone()
     val start = event.start
     val end = event.end
     val rule = event.label
@@ -364,6 +364,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
     var total_loss = 0.toFloat
     var correct_count = 0
+    var predLabels = Seq[Int]()
     for ((instance, label) <- input_sens zip labels) {
       ComputationGraph.renew()
 
@@ -376,18 +377,23 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       total_loss+=loss
 
       if (y_pred.value().toFloat>0.5){
+        predLabels = predLabels:+1
         if (label==1) {correct_count+=1}
       }
       else{
+        predLabels = predLabels:+0
         if (label==0) {correct_count+=1}
       }
 
     }
     val average_loss = total_loss/input_sens.length
     val test_acc = correct_count.toFloat/labels.length
+    val (precision, recall, f1)  = getPrecisionRecallF1(predLabels, labels)
+
     logger.info(s"number of testing samples ${labels.length}")
     logger.info(s"testing loss ${average_loss}")
     logger.info(s"testing acc ${test_acc}")
+    logger.info(s"precision:${precision}\trecall:${recall}\tf1:${f1}")
   }
 
   def loadModelEval(trainingPath:String = "SentencesInfo_all_label_final_ExactRecur.txt", trainRatio:Float=0.8.toFloat):Unit={
@@ -515,6 +521,21 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     logger.info(s"Vocabulary build finished! W2I size ${w2i.size},  C2I size ${c2i.size}")
 
     (w2i, c2i)
+  }
+
+  def getPrecisionRecallF1(predLabels:Seq[Int], trueLabels:Seq[Int]):(Float, Float, Float) = {
+    // this computes the precision, recall and f1 for the positive class.
+    val predLabelsSet  = predLabels.zipWithIndex.filter(_._1 == 1).map(_._2).toSet
+    val trueLabelsSet = trueLabels.zipWithIndex.filter(_._1 == 1).map(_._2).toSet
+
+    val truePositives = predLabelsSet.intersect(trueLabelsSet).size
+
+    val precision = truePositives.toFloat/predLabelsSet.size.toFloat
+    val recall = truePositives.toFloat/trueLabelsSet.size.toFloat
+    val f1 = 2*precision*recall/(precision+recall)
+
+    (precision, recall, f1)
+
   }
 }
 

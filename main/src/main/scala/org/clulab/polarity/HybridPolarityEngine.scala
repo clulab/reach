@@ -1,4 +1,5 @@
 package org.clulab.polarity
+import com.typesafe.config.ConfigFactory
 import org.clulab.polarity.ml.MLPolarityEngine
 import org.clulab.reach.mentions.BioEventMention
 
@@ -28,16 +29,28 @@ abstract class HybridPolarityEngine(mlEngine:MLPolarityEngine) extends PolarityE
       LinguisticPolarityEngine.computePolarity(evt)
 }
 
-class HybridLinguisticDeepLearingPolarityEngine(mlEngine:MLPolarityEngine) extends HybridPolarityEngine(mlEngine:MLPolarityEngine) {
+class HybridLinguisticDeepLearningPolarityEngine(mlEngine:MLPolarityEngine) extends HybridPolarityEngine(mlEngine:MLPolarityEngine) {
   override def useMLPolarityEngine(evt:BioEventMention):Boolean={
     val SEMANTIC_NEGATIVE_PATTERN = LinguisticPolarityEngine.SEMANTIC_NEGATIVE_PATTERN
     val lemmas = evt.lemmas.get
-    var neg_count = 0
+
+    val config = ConfigFactory.load()
+    val configPath = "polarity"
+    var negCountThreshold = 1
+    if(config.hasPath(configPath)) {
+      negCountThreshold = config.getInt(configPath + ".negCountThreshold")
+      logger.info(s"Negation count threshold is set to ${negCountThreshold}")
+    }
+    else{
+      logger.error(s"Did not find configuration for negation count threshold, use default value: 1")
+    }
+
+    var negCount = 0
     for (lemma <- lemmas){
       if (SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined)
-        neg_count+=1
+        negCount+=1
     }
-    if (neg_count<=1){
+    if (negCount<=negCountThreshold){
       false
     }
     else{
