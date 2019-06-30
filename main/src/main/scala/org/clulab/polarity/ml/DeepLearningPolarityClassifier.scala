@@ -147,23 +147,25 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   override def predict(events: Seq[BioEventMention]): Seq[Polarity] = {
     var predictions = Seq[Polarity]()
     for (event<-events) {
-      val lemmas = event.lemmas.get
-      val rule = event.label
-      var rulePolarity = 0
-      if (rule.startsWith("Neg")){
-        rulePolarity=0
-      }else{
-        rulePolarity=1
-      }
-      ComputationGraph.renew()
-      
-      val y_pred = runInstance(lemmas, rulePolarity)
-      if (y_pred.value().toFloat>0.5){
-        predictions = predictions:+PositivePolarity
-      }
-      else{
-        predictions = predictions:+NegativePolarity
-      }
+      predictions = predictions:+predict(event)
+
+//      val lemmas = event.lemmas.get
+//      val rule = event.label
+//      var rulePolarity = 0
+//      if (rule.startsWith("Neg")){
+//        rulePolarity=0
+//      }else{
+//        rulePolarity=1
+//      }
+//      ComputationGraph.renew()
+//
+//      val y_pred = runInstance(lemmas, rulePolarity)
+//      if (y_pred.value().toFloat>0.5){
+//        predictions = predictions:+PositivePolarity
+//      }
+//      else{
+//        predictions = predictions:+NegativePolarity
+//      }
       
     }
     predictions
@@ -181,10 +183,27 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     }else{
       rulePolarity=1
     }
-    val ctrlr_start = event.arguments("controller").head.start
-    val ctrlr_end = event.arguments("controller").head.end
-    val ctrld_start = event.arguments("controlled").head.start
-    val ctrld_end = event.arguments("controlled").head.end
+    var controller = event.arguments("controller").head
+    while (controller.arguments.contains("controller") || controller.arguments.contains("controlled")) {
+      if (controller.arguments.contains("controller")){
+        controller = controller.arguments("controller").head
+      }else{
+        controller = controller.arguments("controlled").head
+      }
+    }
+    val ctrlr_start = controller.start
+    val ctrlr_end = controller.end
+
+    var controlled = event.arguments("controlled").head
+    while (controlled.arguments.contains("controller") || controlled.arguments.contains("controlled")) {
+      if (controlled.arguments.contains("controlled")){
+        controlled = controlled.arguments("controlled").head
+      }else{
+        controlled = controlled.arguments("controller").head
+      }
+    }
+    val ctrld_start = controlled.start
+    val ctrld_end = controlled.end
 
 
     ComputationGraph.renew()

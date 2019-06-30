@@ -39,11 +39,9 @@ class HybridLinguisticDeepLearningPolarityEngine(mlEngine:MLPolarityEngine) exte
     var negCountThreshold = 1
     if(config.hasPath(configPath)) {
       negCountThreshold = config.getInt(configPath + ".negCountThreshold")
-      logger.info(s"Negation count threshold is set to ${negCountThreshold}")
+      //logger.info(s"Negation count threshold is set to ${negCountThreshold}")
     }
-    else{
-      logger.error(s"Did not find configuration for negation count threshold, use default value: 1")
-    }
+
 
     var negCount = 0
     for (lemma <- lemmas){
