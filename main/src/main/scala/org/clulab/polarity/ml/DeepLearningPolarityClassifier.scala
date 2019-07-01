@@ -230,8 +230,8 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         else{lemmas(index) = "__controlled__"}
       }
     }
-    //println(lemmas.slice(start, end))
-    //scala.io.StdIn.readLine()
+    println(lemmas.slice(start, end))
+    scala.io.StdIn.readLine()
     val y_pred = runInstance(lemmas.slice(start, end), rulePolarity)
 
     if (y_pred.value().toFloat>0.5){
@@ -455,6 +455,8 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         for (index <- ctrld_start until ctrld_end){
           sentence_mod(index) = "controlled_"+sentence_mod(index)
         }
+        //println(sentence_mod.slice(start, end).toSeq)
+        //scala.io.StdIn.readLine()
         instances = instances :+ (sentence_mod.slice(start, end).toSeq, rulePolarity)
       }
       else if (mask_option=="tag"){
