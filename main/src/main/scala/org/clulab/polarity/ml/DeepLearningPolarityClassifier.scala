@@ -230,8 +230,8 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         else{lemmas(index) = "__controlled__"}
       }
     }
-    println(lemmas.slice(start, end).toList)
-    scala.io.StdIn.readLine()
+//    println(lemmas.slice(start, end).toList)
+//    scala.io.StdIn.readLine()
     val y_pred = runInstance(lemmas.slice(start, end), rulePolarity)
 
     if (y_pred.value().toFloat>0.5){
