@@ -68,8 +68,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             pairs
         }
 
-
-        logger.info(s"For the current paper, we are using a total of ${filteredPairs.size} event-context pairs")
         // The filteredPairs, as the name suggests, contains the subset of the context-event pairs, filtered based on the sentence distance window.
         // A filteredPair is an instance of Pair as defined on line 15. Once we have the seq(filteredPair), we are ready to calculate the feature values.
 
