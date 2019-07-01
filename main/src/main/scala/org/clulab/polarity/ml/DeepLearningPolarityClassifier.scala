@@ -235,7 +235,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
     println("==========================================")
     println(lemmas.slice(start, end).toList)
-    println(y_pred)
+    println(y_pred.value())
     //    scala.io.StdIn.readLine()
 
     if (y_pred.value().toFloat>0.5){
