@@ -231,7 +231,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       }
     }
 
-    val y_pred = runInstance(lemmas.slice(start, end), rulePolarity)
+    val y_pred = runInstance(lemmas, rulePolarity)
 
     //println("==========================================")
     //println(lemmas.slice(start, end).toList)
@@ -461,7 +461,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         }
         //println(sentence_mod.slice(start, end).toSeq)
         //scala.io.StdIn.readLine()
-        instances = instances :+ (sentence_mod.slice(start, end).toSeq, rulePolarity)
+        instances = instances :+ (sentence_mod.toSeq, rulePolarity)
       }
       else if (mask_option=="tag"){
         val ctrlr_start = cols(14).toInt
@@ -484,7 +484,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         }
         //println(sentence_mod.slice(start, end).toSeq)
         //scala.io.StdIn.readLine()
-        instances = instances :+ (sentence_mod.slice(start, end).toSeq, rulePolarity)
+        instances = instances :+ (sentence_mod.toSeq, rulePolarity)
       }
       else if (mask_option=="name"){
         instances = instances :+ (sentence.split(" ").slice(start, end).toSeq, rulePolarity)
