@@ -184,24 +184,24 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       rulePolarity=1
     }
     var controller = event.arguments("controller").head
-    while (controller.arguments.contains("controller") || controller.arguments.contains("controlled")) {
-      if (controller.arguments.contains("controller")){
-        controller = controller.arguments("controller").head
-      }else{
-        controller = controller.arguments("controlled").head
-      }
-    }
+//    while (controller.arguments.contains("controller") || controller.arguments.contains("controlled")) {
+//      if (controller.arguments.contains("controller")){
+//        controller = controller.arguments("controller").head
+//      }else{
+//        controller = controller.arguments("controlled").head
+//      }
+//    }
     val ctrlr_start = controller.start
     val ctrlr_end = controller.end
 
     var controlled = event.arguments("controlled").head
-    while (controlled.arguments.contains("controller") || controlled.arguments.contains("controlled")) {
-      if (controlled.arguments.contains("controlled")){
-        controlled = controlled.arguments("controlled").head
-      }else{
-        controlled = controlled.arguments("controller").head
-      }
-    }
+//    while (controlled.arguments.contains("controller") || controlled.arguments.contains("controlled")) {
+//      if (controlled.arguments.contains("controlled")){
+//        controlled = controlled.arguments("controlled").head
+//      }else{
+//        controlled = controlled.arguments("controller").head
+//      }
+//    }
     val ctrld_start = controlled.start
     val ctrld_end = controlled.end
 
