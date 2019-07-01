@@ -52,8 +52,9 @@ object CrossValBySentDist extends App {
     foldsBySentDist ++= Map(sentDist -> foldsPerSentDist)
   }
 
+  val predsArrayPerSentDist = collection.mutable.HashMap[Int, (Array[Int], Array[Int])]()
 
-  val scorePerSentDist = collection.mutable.HashMap[Int,(Double, Double)]()
+  val scorePerSentDist = collection.mutable.HashMap[Int, Double]()
   for((sentDist, folds) <- foldsBySentDist) {
     val giantTruthArrayPerSentDist = collection.mutable.ListBuffer[Int]()
     val giantPredictedArrayPerSentDist = collection.mutable.ListBuffer[Int]()
@@ -110,11 +111,14 @@ object CrossValBySentDist extends App {
       giantPredictedArrayPerSentDist ++= predictedLabels
     }
 
-    val (metrics, _) = findMetrics(giantTruthArrayPerSentDist.toArray, giantPredictedArrayPerSentDist.toArray)
-    val microPrecisionPerSentDist = metrics._1.toString.take(8).toDouble
-    val meanPrecisionPerSentDist = CodeUtils.findAggrMetrics(precisionPerFold)
-    val tup = (microPrecisionPerSentDist, meanPrecisionPerSentDist._3)
-    scorePerSentDist ++= Map(sentDist -> tup)
+    predsArrayPerSentDist ++= Map(sentDist -> (giantTruthArrayPerSentDist.toArray, giantPredictedArrayPerSentDist.toArray))
+  }
+
+  //scorePerSentDist
+
+  for((sent,(truth,predicted)) <- predsArrayPerSentDist) {
+    val precision = findMetrics(truth,predicted)._1._1
+    scorePerSentDist ++= Map(sent -> precision)
   }
 
 
@@ -126,9 +130,8 @@ object CrossValBySentDist extends App {
     ((precision,recall,accuracy), countsTest)
   }
 
-
   for((sentDist, score) <- scorePerSentDist) {
-    println(s"The sent dist ${sentDist} has the score ${score}")
+    println(s"The sent dist ${sentDist} has the micro-averaged precision score of ${score}")
   }
 
 }

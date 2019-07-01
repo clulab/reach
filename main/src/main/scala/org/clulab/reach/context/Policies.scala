@@ -38,7 +38,7 @@ class BoundedPaddingContext(
       // Assign the context map to the mention
       m.context = if(contextMap != Map.empty) Some(contextMap) else None
     }
-    ContextFeatureUtils.writeRowsToFile(mentions)
+    //ContextFeatureUtils.writeRowsToFile(mentions)
     mentions
   }
 
