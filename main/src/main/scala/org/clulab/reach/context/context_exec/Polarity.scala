@@ -10,7 +10,8 @@ import org.clulab.reach.ReachSystem
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.context.context_utils.PolarityUtils
 import org.clulab.reach.mentions.BioEventMention
-
+import scala.collection.immutable.ListMap
+import scala.collection.mutable
 import scala.io.Source
 
 object Polarity extends App {
@@ -194,28 +195,30 @@ object Polarity extends App {
     freqOfInhibitionLabelOverPapers ++= Map(inh -> freqOverPapers)
   }
 
-
+  val sortedfreqOfActivationLabelInBigList = ListMap(freqOfActivationLabelInBigList.toSeq.sortWith(_._2 > _._2):_*)
+  val sortedfreqOfActivationLabelOverPapers = ListMap(freqOfActivationLabelOverPapers.toSeq.sortWith(_._2._1 > _._2._1):_*)
 
   println(s"PRINTING FREQUENCY OF ACTIVATION LABELS NOT IN INTERSECTION")
-  println(s"There are ${activationNoIntersection.size} unique types of context in the activation set, that are not in the intersection")
-  for((ctxLabel, freq) <- freqOfActivationLabelInBigList) {
+  println(s"There are ${activationNoIntersection.size} unique types of context in the activation set that are not in the intersection")
+  for((ctxLabel, freq) <- sortedfreqOfActivationLabelInBigList) {
     println(s"The context label ${ctxLabel} appears ${freq} times in the activation set (not including intersection)")
   }
-
-  for((ctxLabel, freq) <- freqOfActivationLabelOverPapers) {
+  println("\n")
+  for((ctxLabel, freq) <- sortedfreqOfActivationLabelOverPapers) {
     println(s"The context label ${ctxLabel} appears atleast once in ${freq} out of ${contextMentionsByPaper.size} papers")
   }
 
-
   println("*****************************************")
+  val sortedfreqOfInhibitionLabelInBigList = ListMap(freqOfInhibitionLabelInBigList.toSeq.sortWith(_._2 > _._2):_*)
+  val sortedfreqOfInhibitionLabelOverPapers = ListMap(freqOfInhibitionLabelOverPapers.toSeq.sortWith(_._2._1 > _._2._1):_*)
 
   println(s"PRINTING FREQUENCY OF INHIBITION LABELS NOT IN INTERSECTION")
-  println(s"There are ${inhibitionNoIntersection.size} unique types of context in the activation set, that are not in the intersection")
-  for((ctxLabel, freq) <- freqOfInhibitionLabelInBigList) {
-    println(s"The context label ${ctxLabel} appears ${freq} times in the activation set (not including intersection)")
+  println(s"There are ${inhibitionNoIntersection.size} unique types of context in the inhibition set that are not in the intersection")
+  for((ctxLabel, freq) <- sortedfreqOfInhibitionLabelInBigList) {
+    println(s"The context label ${ctxLabel} appears ${freq} times in the inhibition set (not including intersection)")
   }
-
-  for((ctxLabel, freq) <- freqOfInhibitionLabelOverPapers) {
+  println("\n")
+  for((ctxLabel, freq) <- sortedfreqOfInhibitionLabelOverPapers) {
     println(s"The context label ${ctxLabel} appears at least once in ${freq} out of ${contextMentionsByPaper.size} papers")
   }
 
