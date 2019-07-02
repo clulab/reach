@@ -58,9 +58,11 @@ object CrossValBySentDist extends App {
 
     for(tup <- intersectingAnnotations) {
       val row = idMap(tup)
-      val label = CodeUtils.generateLabelMap(labelFile)(tup)
+      if(trainedSVMInstance.predict(Seq(row)) == 1)
+     { val label = CodeUtils.generateLabelMap(labelFile)(tup)
       commonRows += row
       commonLabels += label
+     }
     }
     perSentTruth ++= commonLabels
     val preds = trainedSVMInstance.predict(commonRows)
