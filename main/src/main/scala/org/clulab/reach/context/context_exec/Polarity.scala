@@ -96,8 +96,6 @@ object Polarity extends App {
     }
   }
 
-  val activationPapers = List("PMC2958340", "PMC2910130", "PMC4236140", "PMC4142739", "PMC4446607", "PMC4092102")
-  val inhibitionPapers = List("PMC2587086", "PMC3138418", "PMC3666248", "PMC2636845", "PMC3635065", "PMC3640659", "PMC2686753", "PMC3119364")
   val activationEvents = collection.mutable.ListBuffer[BioEventMention]()
   val inhibitionEvents = collection.mutable.ListBuffer[BioEventMention]()
   for(event <- allEvents) {
@@ -185,6 +183,19 @@ object Polarity extends App {
     val freqOverPapers = PolarityUtils.countOccurrencesOfStringInPaper(act, contextMentionsByPaper.toMap)
     freqOfActivationLabelInBigList ++= Map(act -> freqInBigListOfCtxLabels)
     freqOfActivationLabelOverPapers ++= Map(act -> freqOverPapers)
+
+  }
+
+  for(act <- activationNoIntersection) {
+    println(s"Truth value for whether activation context label (not in intersection) exists anywhere in the inhibition label list: ${contextsInInhibition.contains(act)}")
+    println(s"The activation label ${act} appears ${PolarityUtils.countOccurrencesOfStringinList(act, contextsInInhibition.toList)} times in the inhibition label list")
+
+  }
+
+
+  for(act <- inhibitionNoIntersection) {
+    println(s"Truth value for whether inhibition context label (not in intersection) exists anywhere in the activation label list: ${contextsInActivation.contains(act)}")
+    println(s"The activation label ${act} appears ${PolarityUtils.countOccurrencesOfStringinList(act, contextsInActivation.toList)} times in the activation label list")
 
   }
 
