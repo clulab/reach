@@ -58,16 +58,19 @@ object CrossValBySentDist extends App {
 
     for(tup <- intersectingAnnotations) {
       val row = idMap(tup)
-      if(trainedSVMInstance.predict(Seq(row)) == 1)
-     { val label = CodeUtils.generateLabelMap(labelFile)(tup)
+      val label = CodeUtils.generateLabelMap(labelFile)(tup)
       commonRows += row
       commonLabels += label
-     }
     }
     perSentTruth ++= commonLabels
     val preds = trainedSVMInstance.predict(commonRows)
     perSentPred ++= preds
-    preds.map(println)
+    for(row <- commonRows) {
+      val id = keysForLabels(row)
+      val index = commonRows.indexOf(row)
+      val partPred = preds(index)
+      print(s"The ID tup ${id} has the prediction ${partPred}")
+    }
     val counts =  CodeUtils.predictCounts(perSentTruth.toArray, perSentPred.toArray)
     val prec = CodeUtils.precision(counts)
     giantScoreBoard ++= Map(sentist -> prec)
