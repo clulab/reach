@@ -180,17 +180,19 @@ object Polarity extends App {
   val freqOfInhibitionLabelInBigList = collection.mutable.HashMap[String, Int]()
   val freqOfInhibitionLabelOverPapers = collection.mutable.HashMap[String, (Int, Seq[String])]()
 
+  val activationPapersWithMentions = contextMentionsByPaper.filter(x => activationPapers.contains(x._1))
   for(act <- activationNoIntersection) {
-    val freqInBigListOfCtxLabels = PolarityUtils.countOccurrencesOfStringinList(act, contextLabelsSuperList.toList)
-    val freqOverPapers = PolarityUtils.countOccurrencesOfStringInPaper(act, contextMentionsByPaper.toMap)
+    val freqInBigListOfCtxLabels = PolarityUtils.countOccurrencesOfStringinList(act, contextsInActivation.toList)
+    val freqOverPapers = PolarityUtils.countOccurrencesOfStringInPaper(act, activationPapersWithMentions.toMap)
     freqOfActivationLabelInBigList ++= Map(act -> freqInBigListOfCtxLabels)
     freqOfActivationLabelOverPapers ++= Map(act -> freqOverPapers)
 
   }
 
+  val inhibitionPapersWithMentions = contextMentionsByPaper.filter(x => inhibitionPapers.contains(x._1))
   for(inh <- inhibitionNoIntersection) {
-    val freqInBigList = PolarityUtils.countOccurrencesOfStringinList(inh, contextLabelsSuperList.toList)
-    val freqOverPapers = PolarityUtils.countOccurrencesOfStringInPaper(inh, contextMentionsByPaper.toMap)
+    val freqInBigList = PolarityUtils.countOccurrencesOfStringinList(inh, contextsInInhibition.toList)
+    val freqOverPapers = PolarityUtils.countOccurrencesOfStringInPaper(inh, inhibitionPapersWithMentions.toMap)
     freqOfInhibitionLabelInBigList ++= Map(inh -> freqInBigList)
     freqOfInhibitionLabelOverPapers ++= Map(inh -> freqOverPapers)
   }
