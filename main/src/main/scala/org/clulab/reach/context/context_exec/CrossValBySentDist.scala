@@ -11,16 +11,25 @@ import org.clulab.reach.context.context_utils.ContextFeatureUtils
 object CrossValBySentDist extends App {
 
   val config = ConfigFactory.load()
-  val SVMClassifier = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
-  val unTrainedSVMInstance = new LinearSVMContextClassifier(Some(SVMClassifier))
+  val svmWrapper = new LinearSVMContextClassifier()
+  val configPath = config.getString("contextEngine.params.trainedSvmPath")
+  val trainedSVMInstance = svmWrapper.loadFrom(configPath)
+  val classifierToUse = trainedSVMInstance.classifier match {
+    case Some(x) => x
+    case None => {
+      null
+    }
+  }
+
+  if(classifierToUse == null) throw new NullPointerException("No classifier found on which I can predict. Please make sure the SVMContextEngine class receives a valid Linear SVM classifier.")
   val labelFile = config.getString("svmContext.labelFile")
   val typeOfPaper = config.getString("polarityContext.typeOfPaper")
   val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper).concat("/sentenceWindows")
   val allSentDirs = new File(dirForType).listFiles().filter(_.isDirectory)
-
+  val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val allRowsBySentDist = collection.mutable.HashMap[Int, Seq[AggregatedContextInstance]]()
   val keysForLabels = collection.mutable.HashMap[AggregatedContextInstance, (String, String, String)]()
-  val filterForFasterRun = List("0","1","2","3")
+  val filterForFasterRun = List("0")
   val smallNumOfDirs = allSentDirs.filter(x => filterForFasterRun.contains(x.getName))
   for(d<- smallNumOfDirs) {
     val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
@@ -29,6 +38,7 @@ object CrossValBySentDist extends App {
       val pathToRow = dirForType.concat(s"/${d.getName}").concat(s"/${r.getName}")
       val rowSpecs = ContextFeatureUtils.createAggRowSpecsFromFile(r)
       val row = ContextFeatureUtils.readAggRowFromFile(pathToRow)
+      idMap ++= Map(rowSpecs -> row)
       keysForLabels ++= Map(row -> rowSpecs)
       rowsForCurrentSent += row
     }
@@ -37,101 +47,33 @@ object CrossValBySentDist extends App {
     allRowsBySentDist ++= entry
   }
 
+  val giantScoreBoard = collection.mutable.HashMap[Int, Double]()
+  for((sentist, rows) <- allRowsBySentDist) {
+    val perSentPred = collection.mutable.ListBuffer[Int]()
+    val perSentTruth = collection.mutable.ListBuffer[Int]()
+    val labelIDsForInterSection = rows.map(keysForLabels(_))
+    val intersectingAnnotations = labelIDsForInterSection.toSet.intersect(CodeUtils.generateLabelMap(labelFile).keySet)
+    val commonRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
+    val commonLabels = collection.mutable.ListBuffer[Int]()
 
-  val foldsBySentDist = collection.mutable.HashMap[Int, Seq[(Seq[AggregatedContextInstance], Seq[AggregatedContextInstance])]]()
-
-  for((sentDist,rows) <- allRowsBySentDist) {
-    println(s"Sentence distance ${sentDist} has a total of ${rows.size} aggregated rows")
-    val foldsPerSentDist = collection.mutable.ArrayBuffer[(Seq[AggregatedContextInstance], Seq[AggregatedContextInstance])]()
-    for(r<-rows) {
-      val trainingRows = rows.filter(_.PMCID != r.PMCID)
-      val testingRows = rows.filter(_.PMCID == r.PMCID)
-      val tup = (testingRows, trainingRows)
-      foldsPerSentDist += tup
+    for(tup <- intersectingAnnotations) {
+      val row = idMap(tup)
+      val label = CodeUtils.generateLabelMap(labelFile)(tup)
+      commonRows += row
+      commonLabels += label
     }
-    foldsBySentDist ++= Map(sentDist -> foldsPerSentDist)
+    perSentTruth ++= commonLabels
+    val preds = trainedSVMInstance.predict(commonRows)
+    perSentPred ++= preds
+    val counts =  CodeUtils.predictCounts(perSentTruth.toArray, perSentPred.toArray)
+    val prec = CodeUtils.precision(counts)
+    giantScoreBoard ++= Map(sentist -> prec)
   }
 
-  val predsArrayPerSentDist = collection.mutable.HashMap[Int, (Array[Int], Array[Int])]()
-
-  val scorePerSentDist = collection.mutable.HashMap[Int, Double]()
-  for((sentDist, folds) <- foldsBySentDist) {
-    val giantTruthArrayPerSentDist = collection.mutable.ListBuffer[Int]()
-    val giantPredictedArrayPerSentDist = collection.mutable.ListBuffer[Int]()
-    val precisionPerFold = collection.mutable.ListBuffer[Double]()
-    for((test, train) <- folds) {
-      val trainingIdsToIntersect = train.map(t => {
-        keysForLabels(t)
-      })
-
-      val intersectTrainLabels = trainingIdsToIntersect.toSet.intersect(CodeUtils.generateLabelMap(labelFile).keySet)
-      val trainingRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
-      val trainingLabels = collection.mutable.ListBuffer[Int]()
-      for(tup<-intersectTrainLabels) {
-        for(key <- keysForLabels.keySet) {
-          if(keysForLabels(key) == tup)
-            {
-              trainingRows += key
-              val label = CodeUtils.generateLabelMap(labelFile)(tup)
-              trainingLabels += label
-            }
-        }
-      }
-
-      val (trainingRVFDataset, _) = unTrainedSVMInstance.dataConverter(trainingRows,Some(trainingLabels.toArray))
-
-      unTrainedSVMInstance.fit(trainingRVFDataset)
-
-
-      val testingLabelsIDs = test.map(t => {
-        keysForLabels(t)
-      })
-
-
-      val intersectingTestingLabels = testingLabelsIDs.toSet.intersect(CodeUtils.generateLabelMap(labelFile).keySet)
-      val testingRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
-      val testingLabels = collection.mutable.ListBuffer[Int]()
-      for(tup<-intersectingTestingLabels) {
-        for(key <- keysForLabels.keySet) {
-          if(keysForLabels(key) == tup)
-          {
-            testingRows += key
-            val label = CodeUtils.generateLabelMap(labelFile)(tup)
-            testingLabels += label
-          }
-        }
-      }
-      val predictedLabels = unTrainedSVMInstance.predict(testingRows)
-
-      val metricPerFold = findMetrics(testingLabels.toArray, predictedLabels.toArray)
-      precisionPerFold += metricPerFold._1._1
-
-
-      giantTruthArrayPerSentDist ++= testingLabels
-      giantPredictedArrayPerSentDist ++= predictedLabels
-    }
-
-    predsArrayPerSentDist ++= Map(sentDist -> (giantTruthArrayPerSentDist.toArray, giantPredictedArrayPerSentDist.toArray))
-  }
-
-  //scorePerSentDist
-
-  for((sent,(truth,predicted)) <- predsArrayPerSentDist) {
-    val precision = findMetrics(truth,predicted)._1._1
-    scorePerSentDist ++= Map(sent -> precision)
+  for((sent, prec) <- giantScoreBoard) {
+    println(s"The sentence distance ${sent} has micro-averaged precision of ${prec}")
   }
 
 
-  def findMetrics(truth:Array[Int], test:Array[Int]):((Double,Double,Double),Map[String,Int]) = {
-    val countsTest = CodeUtils.predictCounts(truth, test)
-    val precision = CodeUtils.precision(countsTest)
-    val recall = CodeUtils.recall(countsTest)
-    val accuracy = CodeUtils.accuracy(countsTest)
-    ((precision,recall,accuracy), countsTest)
-  }
-
-  for((sentDist, score) <- scorePerSentDist) {
-    println(s"The sent dist ${sentDist} has the micro-averaged precision score of ${score}")
-  }
 
 }
