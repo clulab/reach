@@ -62,9 +62,23 @@ object CrossValBySentDist extends App {
       commonRows += row
       commonLabels += label
     }
-    perSentTruth ++= commonLabels
+
     val preds = trainedSVMInstance.predict(commonRows)
-    perSentPred ++= preds
+    val nonZeroIndexList = collection.mutable.ListBuffer[Int]()
+    val nonZeroPreds = preds.filter(x => {
+      if(x!=0) {
+        val ind = preds.indexOf(x)
+        nonZeroIndexList += ind
+      }
+      x != 0
+    })
+    val commonLabelsNonZero = collection.mutable.ListBuffer[Int]()
+    for(index <- nonZeroIndexList) {
+      val labelNonZero = commonLabels(index)
+      commonLabelsNonZero += labelNonZero
+    }
+    perSentTruth ++= commonLabelsNonZero
+    perSentPred ++= nonZeroPreds
     for(row <- commonRows) {
       val id = keysForLabels(row)
       val index = commonRows.indexOf(row)
