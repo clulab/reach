@@ -19,7 +19,7 @@ class EventContextPairGenerator(mentions:Seq[BioMention], ctxMentions:Seq[BioTex
   // A cross product is then generated for the context-event pairs. The resultant seq(pairs) will be of size m*n
   def yieldContextEventPairs():Seq[Pair] = {
 
-    for(evt <- evtMentions.toSet; ctx <- ctxMentions.toSet) yield (evt, ctx)
+    for(evt <- evtMentions; ctx <- ctxMentions) yield (evt, ctx)
 
   }
 
