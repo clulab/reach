@@ -199,11 +199,11 @@ object Polarity extends App {
   println(s"PRINTING FREQUENCY OF ACTIVATION LABELS NOT IN INTERSECTION")
   println(s"There are ${activationNoIntersection.size} unique types of context in the activation set that are not in the intersection")
   for((ctxLabel, freq) <- sortedfreqOfActivationLabelInBigList) {
-    println(s"The context label ${ctxLabel} appears ${freq} times in the activation list (not including intersection)")
+    println(s"The activation context label ${ctxLabel} appears ${freq} times in the list of all context mentions (not including intersection)")
   }
   println("\n")
   for((ctxLabel, freq) <- sortedfreqOfActivationLabelOverPapers) {
-    println(s"The context label ${ctxLabel} appears in ${freq} out of ${contextMentionsByPaper.size} papers")
+    println(s"The activation context label ${ctxLabel} appears in ${freq} out of ${contextMentionsByPaper.size} papers")
   }
 
   println("*****************************************")
@@ -213,11 +213,11 @@ object Polarity extends App {
   println(s"PRINTING FREQUENCY OF INHIBITION LABELS NOT IN INTERSECTION")
   println(s"There are ${inhibitionNoIntersection.size} unique types of context in the inhibition set that are not in the intersection")
   for((ctxLabel, freq) <- sortedfreqOfInhibitionLabelInBigList) {
-    println(s"The context label ${ctxLabel} appears ${freq} times in the inhibition list (not including intersection)")
+    println(s"The inhibition context label ${ctxLabel} appears ${freq} times in the list of all context mentions (not including intersection)")
   }
   println("\n")
   for((ctxLabel, freq) <- sortedfreqOfInhibitionLabelOverPapers) {
-    println(s"The context label ${ctxLabel} appears in ${freq} out of ${contextMentionsByPaper.size} papers")
+    println(s"The inhibition context label ${ctxLabel} appears in ${freq} out of ${contextMentionsByPaper.size} papers")
   }
 
 
