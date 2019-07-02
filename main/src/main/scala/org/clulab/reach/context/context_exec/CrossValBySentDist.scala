@@ -69,7 +69,7 @@ object CrossValBySentDist extends App {
       val id = keysForLabels(row)
       val index = commonRows.indexOf(row)
       val partPred = preds(index)
-      print(s"The ID tup ${id} has the prediction ${partPred}")
+      print(s"\n The ID tup ${id} has the prediction ${partPred}")
     }
     val counts =  CodeUtils.predictCounts(perSentTruth.toArray, perSentPred.toArray)
     val prec = CodeUtils.precision(counts)
