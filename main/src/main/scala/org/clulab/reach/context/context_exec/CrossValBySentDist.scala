@@ -65,6 +65,7 @@ object CrossValBySentDist extends App {
     perSentTruth ++= commonLabels
     val preds = trainedSVMInstance.predict(commonRows)
     perSentPred ++= preds
+    preds.map(println)
     val counts =  CodeUtils.predictCounts(perSentTruth.toArray, perSentPred.toArray)
     val prec = CodeUtils.precision(counts)
     giantScoreBoard ++= Map(sentist -> prec)
