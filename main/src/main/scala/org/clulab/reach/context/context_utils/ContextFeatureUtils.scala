@@ -130,7 +130,7 @@ object ContextFeatureUtils {
       case None =>
         pairs
     }
-    val lookUpTable = ContextFeatureUtils.getFeatValMapPerInput(filteredPairs, ctxMentions)
+    val lookUpTable = ContextFeatureUtils.getFeatValMapPerInput(filteredPairs.toSet, ctxMentions)
     val contextPairInput:Seq[ContextPairInstance] = ContextFeatureUtils.getCtxPairInstances(lookUpTable)
 
     def extractEvtId(evt:BioEventMention):EventID = {
