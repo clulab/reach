@@ -30,8 +30,10 @@ object PolarityUtils {
   }
 
   def countOccurrencesOfStringinList(string: String, list: List[String]):Int = {
+    println(s"Current search string: ${string}")
     var freq = 0
     list.map(l => {
+      println(s"Current string in list of all context mentions: ${l}")
       if(l == string) freq += 1
     })
     freq
