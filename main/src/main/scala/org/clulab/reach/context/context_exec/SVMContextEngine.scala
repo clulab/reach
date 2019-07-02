@@ -79,7 +79,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
         // the line below internally calls the feature extractor on each pair and constructs the map as described.
         // For more information on feature extraction, please refer to the ContextFeatureExtractor class.
-        val lookUpTable = ContextFeatureUtils.getFeatValMapPerInput(filteredPairs, ctxMentions)
+        val lookUpTable = ContextFeatureUtils.getFeatValMapPerInput(filteredPairs.toSet, ctxMentions)
 
         // In order to associate the correct ContextPairInstance to its values, we use the map from above to extract the keyset
         // With this set, we can simply look up the lookUpTable and extract the correct values.
