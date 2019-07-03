@@ -53,7 +53,6 @@ object CrossValBySentDist extends App {
     val perSentTruth = collection.mutable.ListBuffer[Int]()
     val nonZeroRows = rows.filter(x => trainedSVMInstance.predict(Seq(x))(0) != 0)
     val labelIDsForInterSection = nonZeroRows.map(keysForLabels(_))
-    //val labelIDsForInterSection = rows.map(keysForLabels(_))
     val intersectingAnnotations = labelIDsForInterSection.toSet.intersect(CodeUtils.generateLabelMap(labelFile).keySet)
     val commonRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val commonLabels = collection.mutable.ListBuffer[Int]()
