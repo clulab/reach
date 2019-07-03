@@ -38,9 +38,11 @@ object CrossValBySentDist extends App {
       val pathToRow = dirForType.concat(s"/${d.getName}").concat(s"/${r.getName}")
       val rowSpecs = ContextFeatureUtils.createAggRowSpecsFromFile(r)
       val row = ContextFeatureUtils.readAggRowFromFile(pathToRow)
-      idMap ++= Map(rowSpecs -> row)
+      val pred = trainedSVMInstance.predict(Seq(row))
+      if(pred(0) != 0)
+      {idMap ++= Map(rowSpecs -> row)
       keysForLabels ++= Map(row -> rowSpecs)
-      rowsForCurrentSent += row
+      rowsForCurrentSent += row}
     }
     val intName = Integer.parseInt(d.getName)
     val nonZeroRows = rowsForCurrentSent.filter(s => trainedSVMInstance.predict(Seq(s))(0)!=0)
