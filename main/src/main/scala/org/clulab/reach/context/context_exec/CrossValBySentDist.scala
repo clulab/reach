@@ -51,7 +51,9 @@ object CrossValBySentDist extends App {
   for((sentist, rows) <- allRowsBySentDist) {
     val perSentPred = collection.mutable.ListBuffer[Int]()
     val perSentTruth = collection.mutable.ListBuffer[Int]()
-    val labelIDsForInterSection = rows.map(keysForLabels(_))
+    val nonZeroRows = rows.filter(x => trainedSVMInstance.predict(Seq(x)) != 0)
+    val labelIDsForInterSection = nonZeroRows.map(keysForLabels(_))
+    //val labelIDsForInterSection = rows.map(keysForLabels(_))
     val intersectingAnnotations = labelIDsForInterSection.toSet.intersect(CodeUtils.generateLabelMap(labelFile).keySet)
     val commonRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val commonLabels = collection.mutable.ListBuffer[Int]()
@@ -64,19 +66,6 @@ object CrossValBySentDist extends App {
     }
 
     val preds = trainedSVMInstance.predict(commonRows)
-    val nonZeroIndexList = collection.mutable.ListBuffer[Int]()
-    val nonZeroPreds = preds.filter(x => {
-      if(x!=0) {
-        val ind = preds.indexOf(x)
-        nonZeroIndexList += ind
-      }
-      x != 0
-    })
-    val commonLabelsNonZero = collection.mutable.ListBuffer[Int]()
-    for(index <- nonZeroIndexList) {
-      val labelNonZero = commonLabels(index)
-      commonLabelsNonZero += labelNonZero
-    }
     perSentTruth ++= commonLabels
     perSentPred ++= preds
     for(row <- commonRows) {
@@ -91,7 +80,7 @@ object CrossValBySentDist extends App {
   }
 
   for((sent, prec) <- giantScoreBoard) {
-    println(s"The sentence distance ${sent} has micro-averaged precision of ${prec}")
+    println(s"\n The sentence distance ${sent} has micro-averaged precision of ${prec}")
   }
 
 
