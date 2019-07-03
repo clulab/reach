@@ -43,7 +43,8 @@ object CrossValBySentDist extends App {
       rowsForCurrentSent += row
     }
     val intName = Integer.parseInt(d.getName)
-    val entry = Map(intName -> rowsForCurrentSent)
+    val nonZeroRows = rowsForCurrentSent.filter(s => trainedSVMInstance.predict(Seq(s))(0)!=0)
+    val entry = Map(intName -> nonZeroRows)
     allRowsBySentDist ++= entry
   }
 
