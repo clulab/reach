@@ -77,8 +77,8 @@ object CrossValBySentDist extends App {
       val labelNonZero = commonLabels(index)
       commonLabelsNonZero += labelNonZero
     }
-    perSentTruth ++= commonLabelsNonZero
-    perSentPred ++= nonZeroPreds
+    perSentTruth ++= commonLabels
+    perSentPred ++= preds
     for(row <- commonRows) {
       val id = keysForLabels(row)
       val index = commonRows.indexOf(row)
