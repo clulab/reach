@@ -29,7 +29,7 @@ object CrossValBySentDist extends App {
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val allRowsBySentDist = collection.mutable.HashMap[Int, Seq[AggregatedContextInstance]]()
   val keysForLabels = collection.mutable.HashMap[AggregatedContextInstance, (String, String, String)]()
-  val filterForFasterRun = List("4", "5", "6", "7")
+  val filterForFasterRun = List("0","1","2","3")
   val smallNumOfDirs = allSentDirs.filter(x => filterForFasterRun.contains(x.getName))
   for(d<- smallNumOfDirs) {
     val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
@@ -45,8 +45,7 @@ object CrossValBySentDist extends App {
       rowsForCurrentSent += row}
     }
     val intName = Integer.parseInt(d.getName)
-    val nonZeroRows = rowsForCurrentSent.filter(s => trainedSVMInstance.predict(Seq(s))(0)!=0)
-    val entry = Map(intName -> nonZeroRows)
+    val entry = Map(intName -> rowsForCurrentSent)
     allRowsBySentDist ++= entry
   }
 
@@ -54,11 +53,11 @@ object CrossValBySentDist extends App {
   for((sentist, rows) <- allRowsBySentDist) {
     val perSentPred = collection.mutable.ListBuffer[Int]()
     val perSentTruth = collection.mutable.ListBuffer[Int]()
-    val nonZeroRows = rows.filter(x => {
+    /*val nonZeroRows = rows.filter(x => {
       val predPerRow = trainedSVMInstance.predict(Seq(x))
       predPerRow(0) != 0
-    })
-    val labelIDsForInterSection = nonZeroRows.map(keysForLabels(_))
+    })*/
+    val labelIDsForInterSection = rows.map(keysForLabels(_))
     val intersectingAnnotations = labelIDsForInterSection.toSet.intersect(CodeUtils.generateLabelMap(labelFile).keySet)
     val commonRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val commonLabels = collection.mutable.ListBuffer[Int]()
