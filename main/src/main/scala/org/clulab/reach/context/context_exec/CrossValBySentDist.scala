@@ -43,9 +43,7 @@ object CrossValBySentDist extends App {
       rowsForCurrentSent += row
     }
     val intName = Integer.parseInt(d.getName)
-    val tryNoneZeroFilterHere = rowsForCurrentSent.filter(x => trainedSVMInstance.predict(Seq(x))!=0)
-    //val entry = Map(intName -> rowsForCurrentSent)
-    val entry = Map(intName -> tryNoneZeroFilterHere)
+    val entry = Map(intName -> rowsForCurrentSent)
     allRowsBySentDist ++= entry
   }
 
@@ -53,9 +51,9 @@ object CrossValBySentDist extends App {
   for((sentist, rows) <- allRowsBySentDist) {
     val perSentPred = collection.mutable.ListBuffer[Int]()
     val perSentTruth = collection.mutable.ListBuffer[Int]()
-    //val nonZeroRows = rows.filter(x => trainedSVMInstance.predict(Seq(x)) != 0)
-
-    val labelIDsForInterSection = rows.map(keysForLabels(_))
+    val nonZeroRows = rows.filter(x => trainedSVMInstance.predict(Seq(x))(0) != 0)
+    val labelIDsForInterSection = nonZeroRows.map(keysForLabels(_))
+    //val labelIDsForInterSection = rows.map(keysForLabels(_))
     val intersectingAnnotations = labelIDsForInterSection.toSet.intersect(CodeUtils.generateLabelMap(labelFile).keySet)
     val commonRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val commonLabels = collection.mutable.ListBuffer[Int]()
