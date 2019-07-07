@@ -23,8 +23,9 @@ object Polarity extends App {
   val typeOfPaper = config.getString("polarityContext.typeOfPaper")
   val sentenceWindow = config.getString("contextEngine.params.bound")
   val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
+  val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml")
   val fileListUnfiltered = new File(dirForType)
-  val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
+  val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml") && (fullPapers.contains(x.getName)))
   val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
   val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
   lazy val reachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
@@ -64,7 +65,8 @@ object Polarity extends App {
   }
 
   val activationIntersection = activeSentenceForIntersect.toSet.intersect(sentenceFileContentsToIntersect.toSet)
-
+  println(s"Size of activation sentences as read from file: ${activeSentenceForIntersect.size}")
+  println(s"Size of activation sentences intersected with all sentences: ${activationIntersection.size}")
 
   val inhibSentenceForIntersect = collection.mutable.ListBuffer[String]()
   for(text<-inhibSentences) {
@@ -74,7 +76,8 @@ object Polarity extends App {
   }
 
   val inhibitionIntersection = inhibSentenceForIntersect.toSet.intersect(sentenceFileContentsToIntersect.toSet)
-
+  println(s"Size of inhibition sentences as read from file: ${inhibSentenceForIntersect.size}")
+  println(s"Size of inhibition sentences intersected with all sentences: ${inhibitionIntersection.size}")
   val activationIndices = collection.mutable.HashMap[String, (String, Int)]()
   val inhibitionIndices = collection.mutable.HashMap[String, (String, Int)]()
 
@@ -99,6 +102,7 @@ object Polarity extends App {
   val activationEvents = collection.mutable.ListBuffer[BioEventMention]()
   val inhibitionEvents = collection.mutable.ListBuffer[BioEventMention]()
   for(event <- allEvents) {
+    println(event.label)
     for((_,(_, index)) <- activationIndices) {
       val eventDocId = event.document.id match {
         case Some(x) => s"PMC${x.split("_")(0)}"
@@ -114,7 +118,7 @@ object Polarity extends App {
         case Some(x) => s"PMC${x.split("_")(0)}"
         case None => "unknown"
       }
-      val bool = (event.label.contains("Negative")) && (index == event.sentence) && (!(activationEvents.contains(event)))
+      val bool = (event.label.contains("Negative")) && (index == event.sentence) && (!(inhibitionEvents.contains(event)))
       if(bool) inhibitionEvents += event
     }
   }
