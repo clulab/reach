@@ -37,12 +37,14 @@ object Polarity extends App {
     contextParams = contextEngineParams)
 
   val tokenizedActivationSentences = activSentences.map(line => {
+    println(s"Line from activation JSON before tokenization: ${line}")
     val doc = reachSystem.mkDoc(line, "", "")
     val newText = doc.sentences(0).getSentenceText
     newText
   })
 
   val tokenizedInhibitionSentences = inhibSentences.map(line => {
+    println(s"Line from inhibition JSON before tokenization: ${line}")
     val doc = reachSystem.mkDoc(line, "", "")
     val newText = doc.sentences(0).getSentenceText
     newText
