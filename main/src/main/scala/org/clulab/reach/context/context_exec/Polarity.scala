@@ -20,12 +20,18 @@ object Polarity extends App {
   val activSentPath = config.getString("polarityContext.genericFileDir").concat("activation_sentences_in_json.txt")
   val inhibSentPath = config.getString("polarityContext.genericFileDir").concat("inhibition_sentences_in_json.txt")
   //val activSentences = Source.fromFile(activSentPath).getLines()
+  val sentencesMappedToPaperID = collection.mutable.HashMap[String, String]()
   val activeSentences = collection.mutable.ListBuffer[String]()
-  for(l <- Source.fromFile(activSentPath).getLines()) activeSentences += l
+  for(l <- Source.fromFile(activSentPath).getLines()) {
+    val currentSent = l.split("%")(1)
+    activeSentences += currentSent
+    val paperID = l.split("%")(0)
+    sentencesMappedToPaperID ++= Map(currentSent -> paperID)
+  }
 
   //val inhibSentences = Source.fromFile(inhibSentPath).getLines()
   val inhibSentences = collection.mutable.ListBuffer[String]()
-  for(l <- Source.fromFile(inhibSentPath).getLines()) inhibSentences += l
+  for(l <- Source.fromFile(inhibSentPath).getLines()) inhibSentences += l.split("%")(1)
   println(activeSentences.size + ": number of text evidences from activation JSON")
   println(inhibSentences.size + ": number of text evidences from inhibition JSON")
   val typeOfPaper = config.getString("polarityContext.typeOfPaper")
@@ -45,6 +51,7 @@ object Polarity extends App {
 
   val eventMentionsFromActivationJSONFile = collection.mutable.ListBuffer[BioEventMention]()
   activeSentences.map(line => {
+    println(line)
     val mentions = reachSystem.extractFrom(line, "", "")
     val eventMentions = mentions.collect{ case bio: BioEventMention => bio}
     eventMentionsFromActivationJSONFile ++= eventMentions
