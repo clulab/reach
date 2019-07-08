@@ -113,10 +113,10 @@ object Polarity extends App {
   val validEventsInPartSentences = allEvents.filter(x => collectIndicesOfValidSentences.contains(x.sentence))
   for(event <- validEventsInPartSentences) {
     println(event.label)
-    if((event.label.contains("Positive"))) activationEvents += event
+    if((event.label.contains("Positive")) && (!(activationEvents.contains(event)))) activationEvents += event
 
 
-    else if((event.label.contains("Negative"))) inhibitionEvents += event
+    else if((event.label.contains("Negative")) && (!(inhibitionEvents.contains(event)))) inhibitionEvents += event
   }
 
 
@@ -124,7 +124,7 @@ object Polarity extends App {
   val contextsInInhibition = collection.mutable.ListBuffer[String]()
 
 
-  for(act <- activationEvents.toSet) {
+  for(act <- activationEvents) {
     val map = act.context match {
       case Some(m) => m
       case None => Map.empty
@@ -134,7 +134,7 @@ object Polarity extends App {
     }
   }
 
-  for(inh<-inhibitionEvents.toSet) {
+  for(inh<-inhibitionEvents) {
     val map = inh.context match {
       case Some(m) => m
       case None => Map.empty
