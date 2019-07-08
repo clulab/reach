@@ -50,7 +50,27 @@ object Polarity extends App {
     newText
   })
 
-  val sentencesByPaper = collection.mutable.HashMap[String, Seq[String]]()
+  val eventMentionsFromActivation = collection.mutable.ListBuffer[BioEventMention]()
+  activSentences.map(line => {
+    val mentions = reachSystem.extractFrom(line, "", "")
+    val eventMentions = mentions.collect{ case bio: BioEventMention => bio}
+    eventMentionsFromActivation ++= eventMentions
+  })
+
+  val eventMentionsFromInhibition = collection.mutable.ListBuffer[BioEventMention]()
+  inhibSentences.map(line => {
+    val mentions = reachSystem.extractFrom(line, "", "")
+    val eventMentions = mentions.collect{ case bio: BioEventMention => bio}
+    eventMentionsFromInhibition ++= eventMentions
+  })
+
+  val activeEventsWithContext = eventMentionsFromActivation.filter(_.hasContext()).toSet
+  val inhibEventsWithContext = eventMentionsFromInhibition.filter(_.hasContext()).toSet
+
+  println(activeEventsWithContext.size + " : number of events in activation")
+  println(inhibEventsWithContext.size + " : Number of events in inhibition")
+
+  /*val sentencesByPaper = collection.mutable.HashMap[String, Seq[String]]()
   for(file<-fileList) {
     val nxmlDoc = nxmlReader.read(file)
     val document = reachSystem.mkDoc(nxmlDoc)
@@ -80,7 +100,7 @@ object Polarity extends App {
       if(sentences.contains(tAct))
         activationSentenceIndices ++= Map(paper -> (tAct, sentences.indexOf(tAct)))
     }
-  }
+  }*/
 
 
 }
