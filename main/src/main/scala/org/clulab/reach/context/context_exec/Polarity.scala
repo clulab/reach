@@ -19,11 +19,12 @@ object Polarity extends App {
   val config = ConfigFactory.load()
   val activSentPath = config.getString("polarityContext.genericFileDir").concat("activation_sentences_in_json.txt")
   val inhibSentPath = config.getString("polarityContext.genericFileDir").concat("inhibition_sentences_in_json.txt")
-  val activSentences = Source.fromFile(activSentPath).getLines()
-
+  //val activSentences = Source.fromFile(activSentPath).getLines()
+  val activeSentences = collection.mutable.ListBuffer[String]()
+  for(l <- Source.fromFile(activSentPath).getLines()) activeSentences += l
 
   val inhibSentences = Source.fromFile(inhibSentPath).getLines()
-  println(activSentences.size + ": number of text evidences from activation JSON")
+  println(activeSentences.size + ": number of text evidences from activation JSON")
   println(inhibSentences.size + ": number of text evidences from inhibition JSON")
   val typeOfPaper = config.getString("polarityContext.typeOfPaper")
   val sentenceWindow = config.getString("contextEngine.params.bound")
@@ -40,7 +41,7 @@ object Polarity extends App {
     contextEngineType = contextEngineType,
     contextParams = contextEngineParams)
 
-  val tokenizedActivationSentences = activSentences.map(line => {
+  val tokenizedActivationSentences = activeSentences.map(line => {
     println(s"Line from activation JSON before tokenization: ${line}")
     val doc = reachSystem.mkDoc(line, "", "")
     val newText = doc.sentences(0).getSentenceText
@@ -55,7 +56,7 @@ object Polarity extends App {
   })
 
   val eventMentionsFromActivation = collection.mutable.ListBuffer[BioEventMention]()
-  activSentences.map(line => {
+  activeSentences.map(line => {
     val mentions = reachSystem.extractFrom(line, "", "")
     val eventMentions = mentions.collect{ case bio: BioEventMention => bio}
     eventMentionsFromActivation ++= eventMentions
