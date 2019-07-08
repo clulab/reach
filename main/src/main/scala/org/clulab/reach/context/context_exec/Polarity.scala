@@ -23,7 +23,7 @@ object Polarity extends App {
   val typeOfPaper = config.getString("polarityContext.typeOfPaper")
   val sentenceWindow = config.getString("contextEngine.params.bound")
   val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
-  val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml")
+  val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml", "PMC1590014.nxml", "PMC1849968.nxml", "PMC2424011.nxml", "PMC2847694.nxml")
   val fileListUnfiltered = new File(dirForType)
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml") && (fullPapers.contains(x.getName)))
   val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
@@ -31,7 +31,117 @@ object Polarity extends App {
   lazy val reachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
     contextEngineType = contextEngineType,
     contextParams = contextEngineParams)
-  val sentenceFileContentsToIntersect = collection.mutable.ListBuffer[String]()
+
+  val sentencesByPaper = collection.mutable.HashMap[String, Array[String]]()
+  val eventsByPaper = collection.mutable.HashMap[String, Array[BioEventMention]]()
+  val allEvents = collection.mutable.ListBuffer[BioEventMention]()
+  for(file<- fileList) {
+    val pmcid = file.getName.slice(0,file.getName.length-5)
+    val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${pmcid}")
+    val pathForSentences = outPaperDirPath.concat("/sentences.txt")
+    val linesForMap = Source.fromFile(pathForSentences).getLines()
+    sentencesByPaper ++= Map(pmcid -> linesForMap.toArray)
+    val nxmlDoc = nxmlReader.read(file)
+    val document = reachSystem.mkDoc(nxmlDoc)
+    val mentions = reachSystem.extractFrom(document)
+    val evtMentionsOnly = mentions.collect { case evt: BioEventMention => evt }
+    val eventMentionsHavingContext = evtMentionsOnly.filter(_.hasContext()).toSet
+    eventsByPaper ++= Map(pmcid -> eventMentionsHavingContext.toArray)
+    allEvents ++= eventMentionsHavingContext
+  }
+
+  println(s"There are ${allEvents.toSet.size} unique event mentions over all the ${eventsByPaper.size} papers")
+  for((paperID, events) <- eventsByPaper) {
+    println(s"The paper ${paperID} has ${events.size} unique event mentions")
+  }
+
+  val activationEvents = collection.mutable.ListBuffer[BioEventMention]()
+  val inhibitionEvents = collection.mutable.ListBuffer[BioEventMention]()
+  val activationIndices = collection.mutable.HashMap[String, (String, Int)]()
+  val inhibitionIndices = collection.mutable.HashMap[String, (String, Int)]()
+  for((paperID, sentences) <- sentencesByPaper) {
+    for(a<-activSentences)
+    {
+      val refurbishedActiveSent = reachSystem.mkDoc(a, "", "")
+      if(sentences.contains(refurbishedActiveSent)) {
+        val index = sentences.indexOf(a)
+        activationIndices ++= Map(paperID -> (a,index))
+      }
+    }
+    for(i<-inhibSentences)
+    {
+      val refurbishedInhibSent = reachSystem.mkDoc(i, "", "")
+      if(sentences.contains(refurbishedInhibSent)) {
+        val index = sentences.indexOf(i)
+        inhibitionIndices ++= Map(paperID -> (i,index))
+      }
+    }
+  }
+
+  for(event <- allEvents) {
+    println(event.label)
+    for((_,(_, index)) <- activationIndices) {
+      val bool = (event.label.contains("Positive")) && (index == event.sentence) && (!(activationEvents.contains(event)))
+      if(bool) activationEvents += event
+    }
+
+
+    for((_,(_, index)) <- inhibitionIndices) {
+      val bool = (event.label.contains("Negative")) && (index == event.sentence) && (!(inhibitionEvents.contains(event)))
+      if(bool) inhibitionEvents += event
+    }
+  }
+
+  val contextsInActivation = collection.mutable.ListBuffer[String]()
+  val contextsInInhibition = collection.mutable.ListBuffer[String]()
+
+  for(act <- activationEvents) {
+    val map = act.context match {
+      case Some(m) => m
+      case None => Map.empty
+    }
+    for((_, contextLabels) <- map) {
+      contextsInActivation ++= contextLabels
+    }
+  }
+
+  for(act <- inhibitionEvents) {
+    val map = act.context match {
+      case Some(m) => m
+      case None => Map.empty
+    }
+    for((_, contextLabels) <- map) {
+      contextsInInhibition ++= contextLabels
+    }
+  }
+
+  val intersectingContextLabels = contextsInActivation.toSet.intersect(contextsInInhibition.toSet)
+  println(s"There are ${intersectingContextLabels.size} context labels in common with the activation set and inhibition set for a sentence window of ${sentenceWindow}")
+  intersectingContextLabels.map(println)
+
+  val activationNoIntersection = contextsInActivation.toSet -- intersectingContextLabels
+  println(s"There are ${activationNoIntersection.size} unique context labels in the activation set, but not in the intersection set.")
+  println(s"In total, the activation set has ${(activationNoIntersection.union(intersectingContextLabels)).size} context mentions")
+  val inhibitionNoIntersection = contextsInInhibition.toSet -- intersectingContextLabels
+  println(s"There are ${inhibitionNoIntersection.size} unique context labels in the inhibition set, but not in the intersection set.")
+  println(s"In total, the inhibition set has ${(inhibitionNoIntersection.union(intersectingContextLabels)).size} context mentions")
+
+
+  val contextMentionsByPaper = collection.mutable.HashMap[String, Seq[String]]()
+  for((paperID, eventMentions) <- eventsByPaper) {
+    val contextLabelsPerEvent = collection.mutable.ListBuffer[String]()
+    for(act <- eventMentions) {
+      val map = act.context match {
+        case Some(m) => m
+        case None => Map.empty
+      }
+      for((_, contextLabels) <- map) {
+        contextLabelsPerEvent ++= contextLabels
+      }
+    }
+    contextMentionsByPaper ++= Map(paperID -> contextLabelsPerEvent)
+  }
+  /*val sentenceFileContentsToIntersect = collection.mutable.ListBuffer[String]()
   val sentencesByPaper = collection.mutable.HashMap[String, Array[String]]()
   val eventsByPaper = collection.mutable.HashMap[String, Array[BioEventMention]]()
   val allEvents = collection.mutable.ListBuffer[BioEventMention]()
@@ -223,6 +333,6 @@ object Polarity extends App {
   for((ctxLabel, freq) <- sortedfreqOfInhibitionLabelOverPapers) {
     println(s"The inhibition context label ${ctxLabel} appears in ${freq} out of ${contextMentionsByPaper.size} papers")
   }
-
+*/
 
 }
