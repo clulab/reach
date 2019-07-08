@@ -43,29 +43,29 @@ object Polarity extends App {
     contextEngineType = contextEngineType,
     contextParams = contextEngineParams)
 
-  val eventMentionsFromActivation = collection.mutable.ListBuffer[BioEventMention]()
+  val eventMentionsFromActivationJSONFile = collection.mutable.ListBuffer[BioEventMention]()
   activeSentences.map(line => {
     val mentions = reachSystem.extractFrom(line, "", "")
     val eventMentions = mentions.collect{ case bio: BioEventMention => bio}
-    eventMentionsFromActivation ++= eventMentions
+    eventMentionsFromActivationJSONFile ++= eventMentions
   })
 
-  val eventMentionsFromInhibition = collection.mutable.ListBuffer[BioEventMention]()
+  val eventMentionsFromInhibitionJSONFile = collection.mutable.ListBuffer[BioEventMention]()
   inhibSentences.map(line => {
     val mentions = reachSystem.extractFrom(line, "", "")
     val eventMentions = mentions.collect{ case bio: BioEventMention => bio}
-    eventMentionsFromInhibition ++= eventMentions
+    eventMentionsFromInhibitionJSONFile ++= eventMentions
   })
 
-  val activeEventsWithContext = eventMentionsFromActivation.filter(_.hasContext()).toSet
-  val inhibEventsWithContext = eventMentionsFromInhibition.filter(_.hasContext()).toSet
+  val activeEventsWithContext = eventMentionsFromActivationJSONFile.filter(_.hasContext()).toSet
+  val inhibEventsWithContext = eventMentionsFromInhibitionJSONFile.filter(_.hasContext()).toSet
 
   println(activeEventsWithContext.size + " : number of unique events that have context labels in activation")
   println(inhibEventsWithContext.size + " : Number of unique events that have context labels in inhibition")
 
   val activeContextLabels = collection.mutable.ListBuffer[String]()
   val inhibContextLabels = collection.mutable.ListBuffer[String]()
-
+  val contextLabelsByPaper = collection.mutable.HashMap[String, Seq[String]]()
   for(act <- activeEventsWithContext) {
     val map = act.context match {
       case Some(m) => m
@@ -73,8 +73,12 @@ object Polarity extends App {
     }
 
     for((_, contextLabels) <- map) {
-      activeContextLabels ++= contextLabels
+      if(act.label.contains("Positive"))
+        activeContextLabels ++= contextLabels
+      else if(act.label.contains("Negative"))
+        inhibContextLabels ++= contextLabels
     }
+
   }
 
   for(act <- inhibEventsWithContext) {
@@ -84,7 +88,10 @@ object Polarity extends App {
     }
 
     for((_, contextLabels) <- map) {
-      inhibContextLabels ++= contextLabels
+      if(act.label.contains("Positive"))
+        activeContextLabels ++= contextLabels
+      else if(act.label.contains("Negative"))
+        inhibContextLabels ++= contextLabels
     }
   }
 
@@ -100,5 +107,15 @@ object Polarity extends App {
   val intersection = activeContextLabels.toSet.intersect(inhibContextLabels.toSet)
   val activationLabelsNotInIntersection = activeContextLabels.toSet -- intersection
   val inhibitionLabelsNotInIntersection = inhibContextLabels.toSet -- intersection
+  println(intersection.size)
+
+  private def reFormatDocId(id: Option[String]): String = {
+    val toReturn = id match {
+      case Some(x) => s"PMC${x.split("_")(0)}"
+      case None => "unknown"
+    }
+    toReturn
+  }
+
 
 }
