@@ -68,7 +68,8 @@ object Polarity extends App {
   })
 
   val eventMentionsFromInhibitionJSONFile = collection.mutable.ListBuffer[BioEventMention]()
-  inhibSentences.map(line => {
+  val uniqueInhibSent = inhibSentences.toSet
+  uniqueInhibSent.map(line => {
     val docId = sentencesMappedToPaperID(line)
     val mentions = reachSystem.extractFrom(line, docId, "")
     val eventMentions = mentions.collect{ case bio: BioEventMention => bio}
