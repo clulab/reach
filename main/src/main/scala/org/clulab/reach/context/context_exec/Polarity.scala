@@ -115,9 +115,19 @@ object Polarity extends App {
     }
   }
 
+
   val intersectingContextLabels = contextsInActivation.toSet.intersect(contextsInInhibition.toSet)
   println(s"There are ${intersectingContextLabels.size} context labels in common with the activation set and inhibition set for a sentence window of ${sentenceWindow}")
   intersectingContextLabels.map(println)
+
+  println(s"PRINTING NUMBER OF CONTEXT LABELS IN ACTIVATION (NOT TYPECAST INTO SET) **********")
+  println(contextsInActivation.size)
+
+
+  println(s"PRINTING NUMBER OF CONTEXT LABELS IN INHIBITION (NOT TYPECAST INTO SET)**********")
+  println(contextsInInhibition.size)
+
+
 
   val activationNoIntersection = contextsInActivation.toSet -- intersectingContextLabels
   println(s"There are ${activationNoIntersection.size} unique context labels in the activation set, but not in the intersection set.")
