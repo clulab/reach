@@ -81,7 +81,34 @@ object Polarity extends App {
   println(activeEventsWithContext.size + " : number of events that have context labels in activation")
   println(inhibEventsWithContext.size + " : Number of events that have context labels in inhibition")
 
- for(event <- eventMentionsFromInhibition) {
-   println(event.context)
- }
+  val activeContextLabels = collection.mutable.ListBuffer[String]()
+  val inhibContextLabels = collection.mutable.ListBuffer[String]()
+
+  for(act <- activeEventsWithContext) {
+    val map = act.context match {
+      case Some(m) => m
+      case None => Map.empty
+    }
+
+    for((_, contextLabels) <- map) {
+      activeContextLabels ++= contextLabels
+    }
+  }
+
+  for(act <- inhibEventsWithContext) {
+    val map = act.context match {
+      case Some(m) => m
+      case None => Map.empty
+    }
+
+    for((_, contextLabels) <- map) {
+      inhibContextLabels ++= contextLabels
+    }
+  }
+
+  println("PRINTING CONTEXT LABELS IN ACTIVATION")
+  activeContextLabels.map(println)
+  println("PRINTING CONTEXT LABELS IN INHIBITION")
+  inhibContextLabels.map(println)
+
 }
