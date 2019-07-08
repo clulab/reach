@@ -158,6 +158,10 @@ object Polarity extends App {
     println(s"The activation context label ${ctxLabel} appears ${freq} times in the list of all context mentions (not including intersection)")
   }
 
+  for((ctxLabel, freq) <- sortedfreqOfActivationLabelOverPapers) {
+    println(s"The activation context label ${ctxLabel} appears in ${freq} out of ${contextLabelsByPaper.size} papers")
+  }
+
   println("*****************************************")
   val sortedfreqOfInhibitionLabelInBigList = ListMap(freqOfInhibitionLabelInBigList.toSeq.sortWith(_._2 > _._2):_*)
   val sortedfreqOfInhibitionLabelOverPapers = ListMap(freqOfInhibitionLabelOverPapers.toSeq.sortWith(_._2._1 > _._2._1):_*)
@@ -167,5 +171,9 @@ object Polarity extends App {
   for((ctxLabel, freq) <- sortedfreqOfInhibitionLabelInBigList) {
     println(s"The inhibition context label ${ctxLabel} appears ${freq} times in the list of all context mentions (not including intersection)")
   }
+  for((ctxLabel, freq) <- sortedfreqOfInhibitionLabelOverPapers) {
+    println(s"The inhibition context label ${ctxLabel} appears in ${freq} out of ${contextLabelsByPaper.size} papers")
+  }
+
 
 }
