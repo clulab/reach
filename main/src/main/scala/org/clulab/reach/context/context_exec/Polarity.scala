@@ -67,6 +67,7 @@ object Polarity extends App {
       val refurbishedActiveSent = reachSystem.mkDoc(a, "", "")
       if(sentences.contains(refurbishedActiveSent)) {
         val index = sentences.indexOf(a)
+        println(s"The sentence ${refurbishedActiveSent} was found at index ${index}")
         activationIndices ++= Map(paperID -> (a,index))
       }
     }
@@ -75,6 +76,7 @@ object Polarity extends App {
       val refurbishedInhibSent = reachSystem.mkDoc(i, "", "")
       if(sentences.contains(refurbishedInhibSent)) {
         val index = sentences.indexOf(i)
+        println(s"The sentence ${refurbishedInhibSent} was found at index ${index}")
         inhibitionIndices ++= Map(paperID -> (i,index))
       }
     }
