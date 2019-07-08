@@ -112,7 +112,13 @@ object Polarity extends App {
   bigListOfContextMentions ++= activeContextLabels
   bigListOfContextMentions ++= inhibContextLabels
 
-  bigListOfContextMentions.map(println)
+
+  println("Printing non-unique labels from activation")
+  activeContextLabels.map(println)
+
+  println("Printing non-unique labels from inhibition")
+  inhibContextLabels.map(println)
+
   val intersection = activeContextLabels.toSet.intersect(inhibContextLabels.toSet)
   val activationLabelsNotInIntersection = activeContextLabels.toSet -- intersection
   val inhibitionLabelsNotInIntersection = inhibContextLabels.toSet -- intersection
