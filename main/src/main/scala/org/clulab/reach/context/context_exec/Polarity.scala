@@ -25,8 +25,8 @@ object Polarity extends App {
   val sentenceWindow = config.getString("contextEngine.params.bound")
   val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
   //val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml")
-  //val fullPapers = List("PMC2958340.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml",  "PMC2686753.nxml","PMC1590014.nxml", "PMC1849968.nxml", "PMC2424011.nxml", "PMC2847694.nxml")
-  val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml", "PMC1590014.nxml")
+  val fullPapers = List("PMC2958340.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml",  "PMC2686753.nxml","PMC1590014.nxml", "PMC1849968.nxml", "PMC2424011.nxml", "PMC2847694.nxml")
+  //val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml", "PMC1590014.nxml")
 
   val fileListUnfiltered = new File(dirForType)
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml") && (fullPapers.contains(x.getName)))
@@ -67,8 +67,8 @@ object Polarity extends App {
   val activeEventsWithContext = eventMentionsFromActivation.filter(_.hasContext()).toSet
   val inhibEventsWithContext = eventMentionsFromInhibition.filter(_.hasContext()).toSet
 
-  println(activeEventsWithContext.size + " : number of events in activation")
-  println(inhibEventsWithContext.size + " : Number of events in inhibition")
+  println(activeEventsWithContext.size + " : number of events that have context labels in activation")
+  println(inhibEventsWithContext.size + " : Number of events that have context labels in inhibition")
 
   /*val sentencesByPaper = collection.mutable.HashMap[String, Seq[String]]()
   for(file<-fileList) {
