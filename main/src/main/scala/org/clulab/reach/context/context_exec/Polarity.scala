@@ -67,32 +67,42 @@ object Polarity extends App {
   val inhibContextLabels = collection.mutable.ListBuffer[String]()
   val contextLabelsByPaper = collection.mutable.HashMap[String, Seq[String]]()
   for(act <- activeEventsWithContext) {
+    val allContextLabelsInThisEvent = collection.mutable.ListBuffer[String]()
+    val pmcidOfCurrentEvent = reFormatDocId(act.document.id)
     val map = act.context match {
       case Some(m) => m
       case None => Map.empty
     }
 
     for((_, contextLabels) <- map) {
+      allContextLabelsInThisEvent ++= contextLabels
       if(act.label.contains("Positive"))
         activeContextLabels ++= contextLabels
       else if(act.label.contains("Negative"))
         inhibContextLabels ++= contextLabels
     }
+
+    contextLabelsByPaper ++= Map(pmcidOfCurrentEvent -> allContextLabelsInThisEvent)
 
   }
 
   for(act <- inhibEventsWithContext) {
+    val allContextLabelsInThisEvent = collection.mutable.ListBuffer[String]()
+    val pmcidOfCurrentEvent = reFormatDocId(act.document.id)
     val map = act.context match {
       case Some(m) => m
       case None => Map.empty
     }
 
     for((_, contextLabels) <- map) {
+      allContextLabelsInThisEvent ++= contextLabels
       if(act.label.contains("Positive"))
         activeContextLabels ++= contextLabels
       else if(act.label.contains("Negative"))
         inhibContextLabels ++= contextLabels
     }
+
+    contextLabelsByPaper ++= Map(pmcidOfCurrentEvent -> allContextLabelsInThisEvent)
   }
 
 
@@ -102,6 +112,7 @@ object Polarity extends App {
   bigListOfContextMentions ++= activeContextLabels
   bigListOfContextMentions ++= inhibContextLabels
 
+  bigListOfContextMentions.map(println)
   val intersection = activeContextLabels.toSet.intersect(inhibContextLabels.toSet)
   val activationLabelsNotInIntersection = activeContextLabels.toSet -- intersection
   val inhibitionLabelsNotInIntersection = inhibContextLabels.toSet -- intersection
@@ -121,5 +132,40 @@ object Polarity extends App {
     toReturn
   }
 
+  val freqOfActivationLabelInBigList = collection.mutable.HashMap[String, Int]()
+  val freqOfActivationLabelOverPapers = collection.mutable.HashMap[String, (Int, Seq[String])]()
+  val freqOfInhibitionLabelInBigList = collection.mutable.HashMap[String, Int]()
+  val freqOfInhibitionLabelOverPapers = collection.mutable.HashMap[String, (Int, Seq[String])]()
+
+  for(activ <- activationLabelsNotInIntersection) {
+    val freqInBigListOfCtxLabels = PolarityUtils.countOccurrencesOfStringinList(activ, bigListOfContextMentions.toList)
+    val freqOverPapers = PolarityUtils.countOccurrencesOfStringInPaper(activ, contextLabelsByPaper.toMap)
+    freqOfActivationLabelInBigList ++= Map(activ -> freqInBigListOfCtxLabels)
+    freqOfActivationLabelOverPapers ++= Map(activ -> freqOverPapers)
+  }
+
+  for(inhib <- inhibitionLabelsNotInIntersection) {
+    val freqInBigListOfCtxLabels = PolarityUtils.countOccurrencesOfStringinList(inhib, bigListOfContextMentions.toList)
+    val freqOverPapers = PolarityUtils.countOccurrencesOfStringInPaper(inhib, contextLabelsByPaper.toMap)
+    freqOfInhibitionLabelInBigList ++= Map(inhib -> freqInBigListOfCtxLabels)
+    freqOfInhibitionLabelOverPapers ++= Map(inhib -> freqOverPapers)
+  }
+
+  val sortedfreqOfActivationLabelInBigList = ListMap(freqOfActivationLabelInBigList.toSeq.sortWith(_._2 > _._2):_*)
+  val sortedfreqOfActivationLabelOverPapers = ListMap(freqOfActivationLabelOverPapers.toSeq.sortWith(_._2._1 > _._2._1):_*)
+  println(s"PRINTING FREQUENCY OF ACTIVATION LABELS NOT IN INTERSECTION")
+  for((ctxLabel, freq) <- sortedfreqOfActivationLabelInBigList) {
+    println(s"The activation context label ${ctxLabel} appears ${freq} times in the list of all context mentions (not including intersection)")
+  }
+
+  println("*****************************************")
+  val sortedfreqOfInhibitionLabelInBigList = ListMap(freqOfInhibitionLabelInBigList.toSeq.sortWith(_._2 > _._2):_*)
+  val sortedfreqOfInhibitionLabelOverPapers = ListMap(freqOfInhibitionLabelOverPapers.toSeq.sortWith(_._2._1 > _._2._1):_*)
+
+  println(s"PRINTING FREQUENCY OF INHIBITION LABELS NOT IN INTERSECTION")
+  println(s"There are ${inhibitionLabelsNotInIntersection.size} unique types of context in the inhibition set that are not in the intersection")
+  for((ctxLabel, freq) <- sortedfreqOfInhibitionLabelInBigList) {
+    println(s"The inhibition context label ${ctxLabel} appears ${freq} times in the list of all context mentions (not including intersection)")
+  }
 
 }
