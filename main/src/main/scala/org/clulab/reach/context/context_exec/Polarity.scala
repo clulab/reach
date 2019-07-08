@@ -86,7 +86,9 @@ object Polarity extends App {
       case Some(m) => m
       case None => Map.empty
     }
-
+    println(s"Checking nature of event label from activation list")
+    println(act.sentenceObj.words.mkString(" "))
+    println(act.label)
     for((_, contextLabels) <- map) {
       allContextLabelsInThisEvent ++= contextLabels
       if(act.label.contains("Positive"))
@@ -106,8 +108,11 @@ object Polarity extends App {
       case Some(m) => m
       case None => Map.empty
     }
-
+    println(s"Checking nature of event label from inhibition list")
+    println(act.sentenceObj.words.mkString(" "))
+    println(act.label)
     for((_, contextLabels) <- map) {
+
       allContextLabelsInThisEvent ++= contextLabels
       if(act.label.contains("Positive"))
         activeContextLabels ++= contextLabels
