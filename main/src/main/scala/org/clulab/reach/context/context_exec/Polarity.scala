@@ -60,7 +60,7 @@ object Polarity extends App {
       val currentSent = s.words.mkString(" ")
       val doc = reachSystem.mkDoc(currentSent, "", "")
       val newText = doc.sentences(0).getSentenceText
-      collectSent += newText
+      collectSent += currentSent
     }
     val docIdRedone = document.id match {
       case Some(x) => s"PMC${x.split("_")(0)}"
