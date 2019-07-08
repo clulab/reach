@@ -43,20 +43,6 @@ object Polarity extends App {
     contextEngineType = contextEngineType,
     contextParams = contextEngineParams)
 
-  val tokenizedActivationSentences = activeSentences.map(line => {
-    println(s"Line from activation JSON before tokenization: ${line}")
-    val doc = reachSystem.mkDoc(line, "", "")
-    val newText = doc.sentences(0).getSentenceText
-    newText
-  })
-
-  val tokenizedInhibitionSentences = inhibSentences.map(line => {
-    println(s"Line from inhibition JSON before tokenization: ${line}")
-    val doc = reachSystem.mkDoc(line, "", "")
-    val newText = doc.sentences(0).getSentenceText
-    newText
-  })
-
   val eventMentionsFromActivation = collection.mutable.ListBuffer[BioEventMention]()
   activeSentences.map(line => {
     val mentions = reachSystem.extractFrom(line, "", "")
@@ -71,15 +57,11 @@ object Polarity extends App {
     eventMentionsFromInhibition ++= eventMentions
   })
 
-  println(eventMentionsFromActivation.size + " : Number of events in activation, including those not having context mentions")
-  println(eventMentionsFromInhibition.size + " : Number of events in inhibition, including those not having context mentions")
-
-
   val activeEventsWithContext = eventMentionsFromActivation.filter(_.hasContext()).toSet
   val inhibEventsWithContext = eventMentionsFromInhibition.filter(_.hasContext()).toSet
 
-  println(activeEventsWithContext.size + " : number of events that have context labels in activation")
-  println(inhibEventsWithContext.size + " : Number of events that have context labels in inhibition")
+  println(activeEventsWithContext.size + " : number of unique events that have context labels in activation")
+  println(inhibEventsWithContext.size + " : Number of unique events that have context labels in inhibition")
 
   val activeContextLabels = collection.mutable.ListBuffer[String]()
   val inhibContextLabels = collection.mutable.ListBuffer[String]()
@@ -110,5 +92,13 @@ object Polarity extends App {
   activeContextLabels.map(println)
   println("PRINTING CONTEXT LABELS IN INHIBITION")
   inhibContextLabels.map(println)
+
+  val bigListOfContextMentions = collection.mutable.ListBuffer[String]()
+  bigListOfContextMentions ++= activeContextLabels
+  bigListOfContextMentions ++= inhibContextLabels
+
+  val intersection = activeContextLabels.toSet.intersect(inhibContextLabels.toSet)
+  val activationLabelsNotInIntersection = activeContextLabels.toSet -- intersection
+  val inhibitionLabelsNotInIntersection = inhibContextLabels.toSet -- intersection
 
 }
