@@ -95,10 +95,8 @@ object Polarity extends App {
     }
   }
 
-  println("PRINTING CONTEXT LABELS IN ACTIVATION")
-  activeContextLabels.map(println)
-  println("PRINTING CONTEXT LABELS IN INHIBITION")
-  inhibContextLabels.map(println)
+
+
 
   val bigListOfContextMentions = collection.mutable.ListBuffer[String]()
   bigListOfContextMentions ++= activeContextLabels
@@ -108,6 +106,12 @@ object Polarity extends App {
   val activationLabelsNotInIntersection = activeContextLabels.toSet -- intersection
   val inhibitionLabelsNotInIntersection = inhibContextLabels.toSet -- intersection
   println(intersection.size)
+
+  println(s"Printing unique activation labels that are not in the intersection")
+  activationLabelsNotInIntersection.map(println)
+
+  println(s"Printing unique inhibition labels that are not in the intersection")
+  inhibitionLabelsNotInIntersection.map(println)
 
   private def reFormatDocId(id: Option[String]): String = {
     val toReturn = id match {
