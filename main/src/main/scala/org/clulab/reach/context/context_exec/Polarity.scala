@@ -17,25 +17,68 @@ import scala.io.Source
 
 object Polarity extends App {
   val config = ConfigFactory.load()
-/*  val activSentPath = config.getString("polarityContext.genericFileDir").concat("activation_sentences_in_json.txt")
+  val activSentPath = config.getString("polarityContext.genericFileDir").concat("activation_sentences_in_json.txt")
   val inhibSentPath = config.getString("polarityContext.genericFileDir").concat("inhibition_sentences_in_json.txt")
   val activSentences = Source.fromFile(activSentPath).getLines()
-  val inhibSentences = Source.fromFile(inhibSentPath).getLines()*/
+  val inhibSentences = Source.fromFile(inhibSentPath).getLines()
   val typeOfPaper = config.getString("polarityContext.typeOfPaper")
   val sentenceWindow = config.getString("contextEngine.params.bound")
   val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
   //val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml")
-  //val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml", "PMC1590014.nxml", "PMC1849968.nxml", "PMC2424011.nxml", "PMC2847694.nxml")
-  val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml", "PMC1590014.nxml")
+  val fullPapers = List("PMC2958340.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml",  "PMC2686753.nxml","PMC1590014.nxml", "PMC1849968.nxml", "PMC2424011.nxml", "PMC2847694.nxml")
+  //val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml", "PMC1590014.nxml")
 
   val fileListUnfiltered = new File(dirForType)
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml") && (fullPapers.contains(x.getName)))
-  println(fileList.size == fullPapers.size)
   val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
   val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
   lazy val reachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
     contextEngineType = contextEngineType,
     contextParams = contextEngineParams)
+
+  val tokenizedActivationSentences = activSentences.map(line => {
+    val doc = reachSystem.mkDoc(line, "", "")
+    val newText = doc.sentences(0).getSentenceText
+    newText
+  })
+
+  val tokenizedInhibitionSentences = inhibSentences.map(line => {
+    val doc = reachSystem.mkDoc(line, "", "")
+    val newText = doc.sentences(0).getSentenceText
+    newText
+  })
+
+  val sentencesByPaper = collection.mutable.HashMap[String, Seq[String]]()
+  for(file<-fileList) {
+    val nxmlDoc = nxmlReader.read(file)
+    val document = reachSystem.mkDoc(nxmlDoc)
+    val collectSent = collection.mutable.ListBuffer[String]()
+    for (s <- document.sentences) {
+
+      val currentSent = s.words.mkString(" ")
+      val doc = reachSystem.mkDoc(currentSent, "", "")
+      val newText = doc.sentences(0).getSentenceText
+      collectSent += newText
+    }
+    val docIdRedone = document.id match {
+      case Some(x) => s"PMC${x.split("_")(0)}"
+      case None => "unknown"
+    }
+
+    sentencesByPaper ++= Map(docIdRedone -> collectSent)
+  }
+
+
+  val activationSentenceIndices = collection.mutable.HashMap[String, (String, Int)]()
+  for(tAct <- tokenizedActivationSentences) {
+    for((paper, sentences) <- sentencesByPaper) {
+      println(tAct)
+      println(paper)
+      println(sentences.contains(tAct))
+      if(sentences.contains(tAct))
+        activationSentenceIndices ++= Map(paper -> (tAct, sentences.indexOf(tAct)))
+    }
+  }
 
 
 }
