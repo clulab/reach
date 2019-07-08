@@ -59,6 +59,10 @@ object Polarity extends App {
     val docId = sentencesMappedToPaperID(line)
     val mentions = reachSystem.extractFrom(line, docId, "")
     val eventMentions = mentions.collect{ case bio: BioEventMention => bio}
+    println("xxxxxxxxxxxxxx PRINTING CURRENT SENTENCE FROM ACTIVATION JSON xxxxxxxxxx")
+    println(line)
+    eventMentions.map(x => println(x.sentenceObj.words.mkString(" ")))
+    println("xxxxxxxxxxxxxx DONE PRINTING CURRENT SENTENCE FROM ACTIVATION JSON xxxxxxxx")
     eventMentionsFromActivationJSONFile ++= eventMentions
   })
 
@@ -67,6 +71,10 @@ object Polarity extends App {
     val docId = sentencesMappedToPaperID(line)
     val mentions = reachSystem.extractFrom(line, docId, "")
     val eventMentions = mentions.collect{ case bio: BioEventMention => bio}
+    println("xxxxxxxxxxxxxx PRINTING CURRENT SENTENCE FROM INHIBITION JSON xxxxxxxxxxxxxx")
+    println(line)
+    eventMentions.map(x => println(x.sentenceObj.words.mkString(" ")))
+    println("xxxxxxxxxxxxxx DONE PRINTING CURRENT SENTENCE FROM INHIBITION JSON xxxxxxxxxxxxxx")
     eventMentionsFromInhibitionJSONFile ++= eventMentions
   })
 
@@ -86,7 +94,13 @@ object Polarity extends App {
       case Some(m) => m
       case None => Map.empty
     }
+
+
+    println("Printing current event")
+    println(act.sentenceObj.words.mkString(" "))
+    println("Printing context labels associated with the current event")
     for((_, contextLabels) <- map) {
+      println(contextLabels.mkString(","))
       allContextLabelsInThisEvent ++= contextLabels
       if(act.label.contains("Positive"))
         activeContextLabels ++= contextLabels
@@ -105,8 +119,11 @@ object Polarity extends App {
       case Some(m) => m
       case None => Map.empty
     }
+    println("Printing current event")
+    println(act.sentenceObj.words.mkString(" "))
+    println("Printing context labels associated with the current event")
     for((_, contextLabels) <- map) {
-
+      println(contextLabels.mkString(","))
       allContextLabelsInThisEvent ++= contextLabels
       if(act.label.contains("Positive"))
         activeContextLabels ++= contextLabels
