@@ -81,37 +81,7 @@ object Polarity extends App {
   println(activeEventsWithContext.size + " : number of events that have context labels in activation")
   println(inhibEventsWithContext.size + " : Number of events that have context labels in inhibition")
 
-  /*val sentencesByPaper = collection.mutable.HashMap[String, Seq[String]]()
-  for(file<-fileList) {
-    val nxmlDoc = nxmlReader.read(file)
-    val document = reachSystem.mkDoc(nxmlDoc)
-    val collectSent = collection.mutable.ListBuffer[String]()
-    for (s <- document.sentences) {
-
-      val currentSent = s.words.mkString(" ")
-      val doc = reachSystem.mkDoc(currentSent, "", "")
-      val newText = doc.sentences(0).getSentenceText
-      collectSent += currentSent
-    }
-    val docIdRedone = document.id match {
-      case Some(x) => s"PMC${x.split("_")(0)}"
-      case None => "unknown"
-    }
-
-    sentencesByPaper ++= Map(docIdRedone -> collectSent)
-  }
-
-
-  val activationSentenceIndices = collection.mutable.HashMap[String, (String, Int)]()
-  for(tAct <- tokenizedActivationSentences) {
-    for((paper, sentences) <- sentencesByPaper) {
-      println(tAct)
-      println(paper)
-      println(sentences.contains(tAct))
-      if(sentences.contains(tAct))
-        activationSentenceIndices ++= Map(paper -> (tAct, sentences.indexOf(tAct)))
-    }
-  }*/
-
-
+ for(event <- eventMentionsFromInhibition) {
+   println(event.context)
+ }
 }
