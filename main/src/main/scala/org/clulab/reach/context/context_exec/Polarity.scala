@@ -64,6 +64,10 @@ object Polarity extends App {
     eventMentionsFromInhibition ++= eventMentions
   })
 
+  println(eventMentionsFromActivation.size + " : Number of events in activation, including those not having context mentions")
+  println(eventMentionsFromInhibition.size + " : Number of events in inhibition, including those not having context mentions")
+
+
   val activeEventsWithContext = eventMentionsFromActivation.filter(_.hasContext()).toSet
   val inhibEventsWithContext = eventMentionsFromInhibition.filter(_.hasContext()).toSet
 
