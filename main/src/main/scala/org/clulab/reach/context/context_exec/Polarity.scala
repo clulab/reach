@@ -91,9 +91,10 @@ object Polarity extends App {
     println(act.label)
     for((_, contextLabels) <- map) {
       allContextLabelsInThisEvent ++= contextLabels
+      contextLabels.map(println)
       if(act.label.contains("Positive"))
         activeContextLabels ++= contextLabels
-      else if(act.label.contains("Negative"))
+      if(act.label.contains("Negative"))
         inhibContextLabels ++= contextLabels
     }
 
@@ -116,7 +117,7 @@ object Polarity extends App {
       allContextLabelsInThisEvent ++= contextLabels
       if(act.label.contains("Positive"))
         activeContextLabels ++= contextLabels
-      else if(act.label.contains("Negative"))
+      if(act.label.contains("Negative"))
         inhibContextLabels ++= contextLabels
     }
 
@@ -140,7 +141,7 @@ object Polarity extends App {
   val intersection = activeContextLabels.toSet.intersect(inhibContextLabels.toSet)
   val activationLabelsNotInIntersection = activeContextLabels.toSet -- intersection
   val inhibitionLabelsNotInIntersection = inhibContextLabels.toSet -- intersection
-  println(intersection.size)
+  intersection.map(println)
 
   println(s"Printing unique activation labels that are not in the intersection")
   activationLabelsNotInIntersection.map(println)
