@@ -23,7 +23,9 @@ object Polarity extends App {
   val typeOfPaper = config.getString("polarityContext.typeOfPaper")
   val sentenceWindow = config.getString("contextEngine.params.bound")
   val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
-  val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml", "PMC1590014.nxml", "PMC1849968.nxml", "PMC2424011.nxml", "PMC2847694.nxml")
+  val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml")
+  //val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml", "PMC1590014.nxml", "PMC1849968.nxml", "PMC2424011.nxml", "PMC2847694.nxml")
+
   val fileListUnfiltered = new File(dirForType)
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml") && (fullPapers.contains(x.getName)))
   val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
