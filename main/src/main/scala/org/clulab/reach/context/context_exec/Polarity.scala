@@ -25,7 +25,8 @@ object Polarity extends App {
   val sentenceWindow = config.getString("contextEngine.params.bound")
   val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
   //val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml")
-  val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml", "PMC1590014.nxml", "PMC1849968.nxml", "PMC2424011.nxml", "PMC2847694.nxml")
+  //val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml", "PMC1590014.nxml", "PMC1849968.nxml", "PMC2424011.nxml", "PMC2847694.nxml")
+  val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml", "PMC1590014.nxml")
 
   val fileListUnfiltered = new File(dirForType)
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml") && (fullPapers.contains(x.getName)))
@@ -64,34 +65,35 @@ object Polarity extends App {
   for(text<-activSentences) {
     val doc = reachSystem.mkDoc(text, "", "")
     val newText = doc.sentences(0).getSentenceText
-    println(s"Refurbished activation sentence: ${newText}")
     activeSentenceForIntersect += newText
   }
 
   val activationIntersection = activeSentenceForIntersect.toSet.intersect(sentenceFileContentsToIntersect.toSet)
-  println(s"Size of activation sentences as read from file: ${activeSentenceForIntersect.size}")
-  println(s"Size of activation sentences intersected with all sentences: ${activationIntersection.size}")
+  println(s"Size of activation sentences as read from JSON file: ${activeSentenceForIntersect.size}")
+  println(s"Size of activation sentences intersected with all sentences from sentences.txt of each paper: ${activationIntersection.size}")
 
   val inhibSentenceForIntersect = collection.mutable.ListBuffer[String]()
   for(text<-inhibSentences) {
     val doc = reachSystem.mkDoc(text, "", "")
     val newText = doc.sentences(0).getSentenceText
-    println(s"Refurbished inhibition sentence: ${newText}")
     inhibSentenceForIntersect += newText
   }
 
   val inhibitionIntersection = inhibSentenceForIntersect.toSet.intersect(sentenceFileContentsToIntersect.toSet)
-  println(s"Size of inhibition sentences as read from file: ${inhibSentenceForIntersect.size}")
-  println(s"Size of inhibition sentences intersected with all sentences: ${inhibitionIntersection.size}")
+  println(s"Size of inhibition sentences as read from JSON file: ${inhibSentenceForIntersect.size}")
+  println(s"Size of inhibition sentences intersected with all sentences from sentences.txt of each paper: ${inhibitionIntersection.size}")
   val activationIndices = collection.mutable.HashMap[String, (String, Int)]()
   val inhibitionIndices = collection.mutable.HashMap[String, (String, Int)]()
 
 
+  val collectIndicesOfValidSentences = collection.mutable.ListBuffer[Int]()
   for((paperID, sentences) <- sentencesByPaper) {
     for(a<-activationIntersection)
     {
       if(sentences.contains(a)) {
         val index = sentences.indexOf(a)
+        println(s"The sentence ${a} appears in the paper ${paperID} at index ${index}")
+        collectIndicesOfValidSentences += index
         activationIndices ++= Map(paperID -> (a,index))
       }
     }
@@ -99,6 +101,8 @@ object Polarity extends App {
     {
       if(sentences.contains(i)) {
         val index = sentences.indexOf(i)
+        println(s"The sentence ${i} appears in the paper ${paperID} at index ${index}")
+        collectIndicesOfValidSentences += index
         inhibitionIndices ++= Map(paperID -> (i,index))
       }
     }
@@ -106,23 +110,13 @@ object Polarity extends App {
 
   val activationEvents = collection.mutable.ListBuffer[BioEventMention]()
   val inhibitionEvents = collection.mutable.ListBuffer[BioEventMention]()
-  for(event <- allEvents) {
+  val validEventsInPartSentences = allEvents.filter(x => collectIndicesOfValidSentences.contains(x.sentence))
+  for(event <- validEventsInPartSentences) {
     println(event.label)
-    for((_,(_, index)) <- activationIndices) {
-      println(s"Sentence index of event: ${event.sentence}, Current index of activation sentence: ${index}")
-      val bool = (event.label.contains("Positive")) && (index == event.sentence) && (!(activationEvents.contains(event)))
-      println(s"Checking conditions for adding event to list: event.label.contains('Positive'): ${event.label.contains("Positive")}, (index == event.sentence): ${(index == event.sentence)}, !(activationEvents.contains(event)): ${!(activationEvents.contains(event))}")
-      if(bool) activationEvents += event
-    }
+    if((event.label.contains("Positive"))) activationEvents += event
 
 
-    for((_,(_, index)) <- inhibitionIndices) {
-      println(s"Sentence index of event: ${event.sentence}, Current index of inhibition sentence: ${index}")
-
-      val bool = (event.label.contains("Negative")) && (index == event.sentence) && (!(inhibitionEvents.contains(event)))
-      println(s"Checking conditions for adding event to list: event.label.contains('Negative'): ${event.label.contains("Negative")}, (index == event.sentence): ${(index == event.sentence)}, !(inhibitionEvents.contains(event)): ${!(inhibitionEvents.contains(event))}")
-      if(bool) inhibitionEvents += event
-    }
+    else if((event.label.contains("Negative"))) inhibitionEvents += event
   }
 
 
@@ -130,7 +124,7 @@ object Polarity extends App {
   val contextsInInhibition = collection.mutable.ListBuffer[String]()
 
 
-  for(act <- activationEvents) {
+  for(act <- activationEvents.toSet) {
     val map = act.context match {
       case Some(m) => m
       case None => Map.empty
@@ -140,7 +134,7 @@ object Polarity extends App {
     }
   }
 
-  for(inh<-inhibitionEvents) {
+  for(inh<-inhibitionEvents.toSet) {
     val map = inh.context match {
       case Some(m) => m
       case None => Map.empty
@@ -152,23 +146,23 @@ object Polarity extends App {
   }
 
   val contextLabelsSuperList = collection.mutable.ListBuffer[String]()
-  contextLabelsSuperList ++= contextsInActivation
-  contextLabelsSuperList ++= contextsInInhibition
 
   val intersectingContextLabels = contextsInActivation.toSet.intersect(contextsInInhibition.toSet)
   println(s"There are ${intersectingContextLabels.size} context labels in common with the activation set and inhibition set for a sentence window of ${sentenceWindow}")
   intersectingContextLabels.map(println)
 
-  val activationNoIntersection = contextsInActivation.toSet -- intersectingContextLabels
+  val activationNoIntersection = contextsInActivation.filter(x => (!(intersectingContextLabels.contains(x)))).toSet
   println(s"There are ${activationNoIntersection.size} unique context labels in the activation set, but not in the intersection set.")
   println(s"In total, the activation set has ${(activationNoIntersection.union(intersectingContextLabels)).size} context mentions")
-  val inhibitionNoIntersection = contextsInInhibition.toSet -- intersectingContextLabels
+  val inhibitionNoIntersection = contextsInInhibition.filter(x => (!(intersectingContextLabels.contains(x)))).toSet
   println(s"There are ${inhibitionNoIntersection.size} unique context labels in the inhibition set, but not in the intersection set.")
   println(s"In total, the inhibition set has ${(inhibitionNoIntersection.union(intersectingContextLabels)).size} context mentions")
 
 
 
 
+  contextLabelsSuperList ++= activationNoIntersection
+  contextLabelsSuperList ++= inhibitionNoIntersection
 
 
  val contextMentionsByPaper = collection.mutable.HashMap[String, Seq[String]]()
