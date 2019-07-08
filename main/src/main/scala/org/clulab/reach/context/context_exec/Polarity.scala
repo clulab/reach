@@ -114,10 +114,16 @@ object Polarity extends App {
   println(s"Checking size of events filtered by sentence index: ${validEventsInPartSentences.size}")
   for(event <- validEventsInPartSentences) {
     println(event.label)
-    if((event.label.contains("Positive")) && (!(activationEvents.contains(event)))) activationEvents += event
+    if((event.label.contains("Positive")) && (!(activationEvents.contains(event)))) {
+      println(s"Adding ${event} to activation list of events")
+      activationEvents += event
+    }
 
 
-    else if((event.label.contains("Negative")) && (!(inhibitionEvents.contains(event)))) inhibitionEvents += event
+    else if((event.label.contains("Negative")) && (!(inhibitionEvents.contains(event)))) {
+      println(s"Adding to inhibition list of events")
+      inhibitionEvents += event
+    }
   }
 
   println(s"After adding the events to the events list, the activation list has ${activationEvents.size} events and the inhibition list has ${inhibitionEvents.size} events")
