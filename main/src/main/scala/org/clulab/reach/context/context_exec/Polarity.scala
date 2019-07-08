@@ -144,7 +144,7 @@ object Polarity extends App {
 
   private def reFormatDocId(id: Option[String]): String = {
     val toReturn = id match {
-      case Some(x) => s"PMC${x.split("_")(0)}"
+      case Some(x) => x
       case None => "unknown"
     }
     toReturn
