@@ -5,10 +5,10 @@ import org.clulab.reach.mentions._
 import org.clulab.struct.Interval
 
 
-object NegationHandler {
+object TriggerHandler {
 
-  def detectNegations(mentions: Seq[Mention], state:State): Seq[Mention] = {
-    // do something very smart to handle negated events
+  def detectTrigger(mentions: Seq[Mention], state:State): Seq[Mention] = {
+    // do something very smart to handle triggers
     // and then return the mentions
 
     // Iterate over the BioEventMentions
@@ -31,8 +31,8 @@ object NegationHandler {
             (ix, label) <- out
             if label == "neg"
           }
-            event.modifications += Negation(new BioTextBoundMention(
-              Seq("Negation_trigger"),
+            event.modifications += KDtrigger(new BioTextBoundMention(
+              Seq("KDtrigger_trigger"),
               Interval(ix),
               sentence = event.sentence,
               document = event.document,
@@ -56,17 +56,19 @@ object NegationHandler {
 
           // Get the evidence for the existing negations to avoid duplicates
           val evidence:Set[Int] = event.modifications flatMap {
-                  case mod:Negation => mod.evidence.tokenInterval
+                  case mod:KDtrigger => mod.evidence.tokenInterval
                   case _ => Nil
               }
 
-          // Check for single-token negative verbs
+          // Check for single-token triggers
+
+          // knockdown triggers
           for{
             (ix, lemma) <- (pairsL ++ pairsR)
-            if (Seq("fail", "not") contains lemma) && !(evidence contains ix)
+            if (Seq("sirna", "silencing", "si-", "sh-", "shrna") contains lemma) && !(evidence contains ix)
           }{
-              event.modifications += Negation(new BioTextBoundMention(
-                Seq("Negation_trigger"),
+              event.modifications += KDtrigger(new BioTextBoundMention(
+                Seq("KDtrigger_trigger"),
                 Interval(ix),
                 sentence = event.sentence,
                 document = event.document,
@@ -75,6 +77,52 @@ object NegationHandler {
               ))
             }
 
+          // knockout triggers
+          for{
+            (ix, lemma) <- (pairsL ++ pairsR)
+            if (Seq("knockout", "ko", "-/-") contains lemma) && !(evidence contains ix)
+          }{
+            event.modifications += KOtrigger(new BioTextBoundMention(
+              Seq("KOtrigger_trigger"),
+              Interval(ix),
+              sentence = event.sentence,
+              document = event.document,
+              keep = event.keep,
+              foundBy = event.foundBy
+            ))
+          }
+
+          // dominant negative triggers
+          // not sure about 'dominant-negative' -> a trigram?
+          for{
+            (ix, lemma) <- (pairsL ++ pairsR)
+            if (Seq("dn-", "dominant-negative") contains lemma) && !(evidence contains ix)
+          }{
+            event.modifications += DNtrigger(new BioTextBoundMention(
+              Seq("DNtrigger_trigger"),
+              Interval(ix),
+              sentence = event.sentence,
+              document = event.document,
+              keep = event.keep,
+              foundBy = event.foundBy
+            ))
+          }
+
+          // overexpression triggers
+          for{
+            (ix, lemma) <- (pairsL ++ pairsR)
+            if (Seq("overexpress", "overexpression", "oe") contains lemma) && !(evidence contains ix)
+          }{
+            event.modifications += OEtrigger(new BioTextBoundMention(
+              Seq("OEtrigger_trigger"),
+              Interval(ix),
+              sentence = event.sentence,
+              document = event.document,
+              keep = event.keep,
+              foundBy = event.foundBy
+            ))
+          }
+
           def flattenTuples(left:(Int, String), right:(Int, String)) = {
             (
               (left._1, right._1),
@@ -82,7 +130,10 @@ object NegationHandler {
             )
           }
 
-          val verbs = Seq(("play", "no"), ("play", "little"), ("is", "not"), ("be", "insufficient"))
+          // bigram triggers
+
+          // dominant negative bigrams
+          val dnVerbs = Seq(("dominant", "negative"))
           // Introduce bigrams for two-token verbs in both sides of the trigger
           for(side <- Seq(pairsL, pairsR)){
             val bigrams = (side zip side.slice(1, side.length)) map (x =>
@@ -91,11 +142,36 @@ object NegationHandler {
 
             for{
               (interval, bigram) <- bigrams
-              if (verbs contains bigram) && (evidence intersect (interval._1 to interval._2+1).toSet).isEmpty
+              if (dnVerbs contains bigram) && (evidence intersect (interval._1 to interval._2+1).toSet).isEmpty
             }
               {
-                event.modifications += Negation(new BioTextBoundMention(
-                Seq("Negation_trigger"),
+                event.modifications += DNtrigger(new BioTextBoundMention(
+                Seq("DNtrigger_trigger"),
+                Interval(interval._1, interval._2 + 1),
+                sentence = event.sentence,
+                document = event.document,
+                keep = event.keep,
+                foundBy = event.foundBy
+              ))}
+
+          }
+
+          // chemical inhibition bigrams
+          // 'chemical inhibition of' trigram?
+          val chemVerbs = Seq(("chemical", "inhibition", "of"), ("inhibitor", "of"))
+          // Introduce bigrams for two-token verbs in both sides of the trigger
+          for(side <- Seq(pairsL, pairsR)){
+            val bigrams = (side zip side.slice(1, side.length)) map (x =>
+              flattenTuples(x._1, x._2)
+              )
+
+            for{
+              (interval, bigram) <- bigrams
+              if (chemVerbs contains bigram) && (evidence intersect (interval._1 to interval._2+1).toSet).isEmpty
+            }
+            {
+              event.modifications += CHEMtrigger(new BioTextBoundMention(
+                Seq("CHEMtrigger_trigger"),
                 Interval(interval._1, interval._2 + 1),
                 sentence = event.sentence,
                 document = event.document,
@@ -112,7 +188,7 @@ object NegationHandler {
   }
 
   // Alter Negation modifications in-place
-  def handleNegations(ms: Seq[BioMention]): Unit = {
+  def handleTriggers(ms: Seq[BioMention]): Unit = {
     ms foreach { m =>
       val (negMods, other) = m.modifications.partition(_.isInstanceOf[Negation])
       val negationModifications = negMods.map(_.asInstanceOf[Negation])
