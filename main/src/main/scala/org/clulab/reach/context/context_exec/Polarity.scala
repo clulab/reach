@@ -56,8 +56,8 @@ object Polarity extends App {
 
   val eventMentionsFromActivationJSONFile = collection.mutable.ListBuffer[BioEventMention]()
   activeSentences.map(line => {
-    println(line)
-    val mentions = reachSystem.extractFrom(line, "", "")
+    val docId = sentencesMappedToPaperID(line)
+    val mentions = reachSystem.extractFrom(line, docId, "")
     val eventMentions = mentions.collect{ case bio: BioEventMention => bio}
     eventMentionsFromActivationJSONFile ++= eventMentions
   })
