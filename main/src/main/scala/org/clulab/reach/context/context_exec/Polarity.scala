@@ -92,7 +92,7 @@ object Polarity extends App {
     {
       if(sentences.contains(a)) {
         val index = sentences.indexOf(a)
-        println(s"The sentence ${a} appears in the paper ${paperID} at index ${index}")
+
         collectIndicesOfValidSentences += index
         activationIndices ++= Map(paperID -> (a,index))
       }
@@ -101,7 +101,7 @@ object Polarity extends App {
     {
       if(sentences.contains(i)) {
         val index = sentences.indexOf(i)
-        println(s"The sentence ${i} appears in the paper ${paperID} at index ${index}")
+
         collectIndicesOfValidSentences += index
         inhibitionIndices ++= Map(paperID -> (i,index))
       }
@@ -111,6 +111,7 @@ object Polarity extends App {
   val activationEvents = collection.mutable.ListBuffer[BioEventMention]()
   val inhibitionEvents = collection.mutable.ListBuffer[BioEventMention]()
   val validEventsInPartSentences = allEvents.filter(x => collectIndicesOfValidSentences.contains(x.sentence))
+  println(s"Checking size of events filtered by sentence index: ${validEventsInPartSentences.size}")
   for(event <- validEventsInPartSentences) {
     println(event.label)
     if((event.label.contains("Positive")) && (!(activationEvents.contains(event)))) activationEvents += event
@@ -119,6 +120,7 @@ object Polarity extends App {
     else if((event.label.contains("Negative")) && (!(inhibitionEvents.contains(event)))) inhibitionEvents += event
   }
 
+  println(s"After adding the events to the events list, the activation list has ${activationEvents.size} events and the inhibition list has ${inhibitionEvents.size} events")
 
   val contextsInActivation = collection.mutable.ListBuffer[String]()
   val contextsInInhibition = collection.mutable.ListBuffer[String]()
@@ -161,8 +163,8 @@ object Polarity extends App {
 
 
 
-  contextLabelsSuperList ++= activationNoIntersection
-  contextLabelsSuperList ++= inhibitionNoIntersection
+  contextLabelsSuperList ++= contextsInActivation
+  contextLabelsSuperList ++= contextsInInhibition
 
 
  val contextMentionsByPaper = collection.mutable.HashMap[String, Seq[String]]()
