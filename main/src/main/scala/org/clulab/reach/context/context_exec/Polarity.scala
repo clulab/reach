@@ -1,6 +1,6 @@
 package org.clulab.reach.context.context_exec
 
-import java.io.File
+import java.io.{File, PrintWriter}
 
 import ai.lum.nxmlreader.NxmlReader
 import com.typesafe.config.ConfigFactory
@@ -10,6 +10,7 @@ import org.clulab.reach.ReachSystem
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.context.context_utils.PolarityUtils
 import org.clulab.reach.mentions.BioEventMention
+
 import scala.collection.immutable.ListMap
 import scala.collection.mutable
 import scala.io.Source
@@ -165,6 +166,11 @@ object Polarity extends App {
   println(s"There are ${inhibitionNoIntersection.size} unique context labels in the inhibition set, but not in the intersection set.")
   println(s"In total, the inhibition set has ${(inhibitionNoIntersection.union(intersectingContextLabels)).size} context mentions")
 
+
+
+
+
+
  val contextMentionsByPaper = collection.mutable.HashMap[String, Seq[String]]()
   for((paperID, eventMentions) <- eventsByPaper) {
     val contextLabelsPerEvent = collection.mutable.ListBuffer[String]()
@@ -203,13 +209,37 @@ object Polarity extends App {
   val sortedfreqOfActivationLabelInBigList = ListMap(freqOfActivationLabelInBigList.toSeq.sortWith(_._2 > _._2):_*)
   val sortedfreqOfActivationLabelOverPapers = ListMap(freqOfActivationLabelOverPapers.toSeq.sortWith(_._2._1 > _._2._1):_*)
 
+  // writing labels to file.
+  val labelsWrittenToFile = config.getString("polarityContext.labelsWrittenToFile")
+  val contextLabelFile = new File(labelsWrittenToFile)
+  if (!contextLabelFile.exists()) {
+    contextLabelFile.createNewFile()
+  }
+  val pw = new PrintWriter(contextLabelFile)
+  pw.write("WRITING CONTEXT LABELS IN ACTIVATION")
+  pw.write(s"There are a total of ${contextsInActivation.toSet.size} unique context labels in the activation set")
+  for(c <- contextsInActivation) {
+    pw.write(c)
+  }
+  pw.write(s"There are a total of ${contextsInInhibition.toSet.size} unique context labels in the inhibition set")
+  for(c <- contextsInInhibition) {
+    pw.write(c)
+  }
+
+
   println(s"PRINTING FREQUENCY OF ACTIVATION LABELS NOT IN INTERSECTION")
   println(s"There are ${activationNoIntersection.size} unique types of context in the activation set that are not in the intersection")
+  pw.write(s"There are ${activationNoIntersection.size} unique types of context in the activation set that are not in the intersection")
+
   for((ctxLabel, freq) <- sortedfreqOfActivationLabelInBigList) {
+    pw.write(s"The activation context label ${ctxLabel} appears ${freq} times in the list of all context mentions (not including intersection)")
+
     println(s"The activation context label ${ctxLabel} appears ${freq} times in the list of all context mentions (not including intersection)")
   }
-  println("\n")
+  pw.write("\n")
   for((ctxLabel, freq) <- sortedfreqOfActivationLabelOverPapers) {
+   pw.write(s"The activation context label ${ctxLabel} appears in ${freq} out of ${contextMentionsByPaper.size} papers")
+
     println(s"The activation context label ${ctxLabel} appears in ${freq} out of ${contextMentionsByPaper.size} papers")
   }
 
@@ -217,14 +247,18 @@ object Polarity extends App {
   val sortedfreqOfInhibitionLabelInBigList = ListMap(freqOfInhibitionLabelInBigList.toSeq.sortWith(_._2 > _._2):_*)
   val sortedfreqOfInhibitionLabelOverPapers = ListMap(freqOfInhibitionLabelOverPapers.toSeq.sortWith(_._2._1 > _._2._1):_*)
 
-  println(s"PRINTING FREQUENCY OF INHIBITION LABELS NOT IN INTERSECTION")
-  println(s"There are ${inhibitionNoIntersection.size} unique types of context in the inhibition set that are not in the intersection")
+ pw.write(s"PRINTING FREQUENCY OF INHIBITION LABELS NOT IN INTERSECTION")
+  pw.write(s"There are ${inhibitionNoIntersection.size} unique types of context in the inhibition set that are not in the intersection")
   for((ctxLabel, freq) <- sortedfreqOfInhibitionLabelInBigList) {
-    println(s"The inhibition context label ${ctxLabel} appears ${freq} times in the list of all context mentions (not including intersection)")
+    pw.write(s"The inhibition context label ${ctxLabel} appears ${freq} times in the list of all context mentions (not including intersection)")
   }
-  println("\n")
+  pw.write("\n")
   for((ctxLabel, freq) <- sortedfreqOfInhibitionLabelOverPapers) {
-    println(s"The inhibition context label ${ctxLabel} appears in ${freq} out of ${contextMentionsByPaper.size} papers")
+    pw.write(s"The inhibition context label ${ctxLabel} appears in ${freq} out of ${contextMentionsByPaper.size} papers")
   }
+
+
+
+
 
 }
