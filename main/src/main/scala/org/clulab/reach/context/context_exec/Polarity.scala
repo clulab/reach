@@ -17,10 +17,10 @@ import scala.io.Source
 
 object Polarity extends App {
   val config = ConfigFactory.load()
-  val activSentPath = config.getString("polarityContext.genericFileDir").concat("activation_sentences_in_json.txt")
+/*  val activSentPath = config.getString("polarityContext.genericFileDir").concat("activation_sentences_in_json.txt")
   val inhibSentPath = config.getString("polarityContext.genericFileDir").concat("inhibition_sentences_in_json.txt")
   val activSentences = Source.fromFile(activSentPath).getLines()
-  val inhibSentences = Source.fromFile(inhibSentPath).getLines()
+  val inhibSentences = Source.fromFile(inhibSentPath).getLines()*/
   val typeOfPaper = config.getString("polarityContext.typeOfPaper")
   val sentenceWindow = config.getString("contextEngine.params.bound")
   val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
@@ -30,6 +30,7 @@ object Polarity extends App {
 
   val fileListUnfiltered = new File(dirForType)
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml") && (fullPapers.contains(x.getName)))
+  println(fileList.size == fullPapers.size)
   val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
   val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
   lazy val reachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
