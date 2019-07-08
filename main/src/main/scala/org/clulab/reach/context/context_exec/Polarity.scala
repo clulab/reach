@@ -88,7 +88,6 @@ object Polarity extends App {
     }
     for((_, contextLabels) <- map) {
       allContextLabelsInThisEvent ++= contextLabels
-      contextLabels.map(println)
       if(act.label.contains("Positive"))
         activeContextLabels ++= contextLabels
       if(act.label.contains("Negative"))
