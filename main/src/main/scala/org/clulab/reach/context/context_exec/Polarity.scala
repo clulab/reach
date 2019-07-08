@@ -23,8 +23,8 @@ object Polarity extends App {
   val typeOfPaper = config.getString("polarityContext.typeOfPaper")
   val sentenceWindow = config.getString("contextEngine.params.bound")
   val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
-  val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml")
-  //val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml", "PMC1590014.nxml", "PMC1849968.nxml", "PMC2424011.nxml", "PMC2847694.nxml")
+  //val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml")
+  val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml", "PMC1590014.nxml", "PMC1849968.nxml", "PMC2424011.nxml", "PMC2847694.nxml")
 
   val fileListUnfiltered = new File(dirForType)
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml") && (fullPapers.contains(x.getName)))
@@ -63,6 +63,7 @@ object Polarity extends App {
   for(text<-activSentences) {
     val doc = reachSystem.mkDoc(text, "", "")
     val newText = doc.sentences(0).getSentenceText
+    println(s"Refurbished activation sentence: ${newText}")
     activeSentenceForIntersect += newText
   }
 
@@ -74,6 +75,7 @@ object Polarity extends App {
   for(text<-inhibSentences) {
     val doc = reachSystem.mkDoc(text, "", "")
     val newText = doc.sentences(0).getSentenceText
+    println(s"Refurbished inhibition sentence: ${newText}")
     inhibSentenceForIntersect += newText
   }
 
@@ -106,15 +108,18 @@ object Polarity extends App {
   for(event <- allEvents) {
     println(event.label)
     for((_,(_, index)) <- activationIndices) {
-
+      println(s"Sentence index of event: ${event.sentence}, Current index of activation sentence: ${index}")
       val bool = (event.label.contains("Positive")) && (index == event.sentence) && (!(activationEvents.contains(event)))
+      println(s"Checking conditions for adding event to list: event.label.contains('Positive'): ${event.label.contains("Positive")}, (index == event.sentence): ${(index == event.sentence)}, !(activationEvents.contains(event)): ${!(activationEvents.contains(event))}")
       if(bool) activationEvents += event
     }
 
 
     for((_,(_, index)) <- inhibitionIndices) {
+      println(s"Sentence index of event: ${event.sentence}, Current index of inhibition sentence: ${index}")
 
       val bool = (event.label.contains("Negative")) && (index == event.sentence) && (!(inhibitionEvents.contains(event)))
+      println(s"Checking conditions for adding event to list: event.label.contains('Negative'): ${event.label.contains("Negative")}, (index == event.sentence): ${(index == event.sentence)}, !(inhibitionEvents.contains(event)): ${!(inhibitionEvents.contains(event))}")
       if(bool) inhibitionEvents += event
     }
   }
@@ -122,6 +127,7 @@ object Polarity extends App {
 
   val contextsInActivation = collection.mutable.ListBuffer[String]()
   val contextsInInhibition = collection.mutable.ListBuffer[String]()
+
 
   for(act <- activationEvents) {
     val map = act.context match {
@@ -133,11 +139,12 @@ object Polarity extends App {
     }
   }
 
-  for(act <- inhibitionEvents) {
-    val map = act.context match {
+  for(inh<-inhibitionEvents) {
+    val map = inh.context match {
       case Some(m) => m
       case None => Map.empty
     }
+
     for((_, contextLabels) <- map) {
       contextsInInhibition ++= contextLabels
     }
