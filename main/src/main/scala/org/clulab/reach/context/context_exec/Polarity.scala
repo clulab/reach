@@ -97,6 +97,7 @@ object Polarity extends App {
       case None => Map.empty
     }
 
+    println("sssssssssssssssssss")
     println("Printing polarity label of event")
     println(act.label)
     println("Printing current event")
@@ -104,6 +105,7 @@ object Polarity extends App {
     println("Printing context labels associated with the current event")
     for((_, contextLabels) <- map) {
       println(contextLabels.mkString(","))
+      println("sssssssssssssssssss")
       allContextLabelsInThisEvent ++= contextLabels
       if(act.label.contains("Positive"))
         activeContextLabels ++= contextLabels
