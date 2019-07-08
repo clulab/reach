@@ -141,7 +141,10 @@ object Polarity extends App {
   val intersection = activeContextLabels.toSet.intersect(inhibContextLabels.toSet)
   val activationLabelsNotInIntersection = activeContextLabels.toSet -- intersection
   val inhibitionLabelsNotInIntersection = inhibContextLabels.toSet -- intersection
+
+  println(s"***********Printing intersecting context labels")
   intersection.map(println)
+  println(s"***********Done Printing intersecting context labels")
 
   println(s"Printing unique activation labels that are not in the intersection")
   activationLabelsNotInIntersection.map(println)
