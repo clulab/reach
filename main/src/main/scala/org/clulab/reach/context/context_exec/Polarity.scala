@@ -20,7 +20,11 @@ object Polarity extends App {
   val activSentPath = config.getString("polarityContext.genericFileDir").concat("activation_sentences_in_json.txt")
   val inhibSentPath = config.getString("polarityContext.genericFileDir").concat("inhibition_sentences_in_json.txt")
   val activSentences = Source.fromFile(activSentPath).getLines()
+
+
   val inhibSentences = Source.fromFile(inhibSentPath).getLines()
+  println(activSentences.size + ": number of text evidences from activation JSON")
+  println(inhibSentences.size + ": number of text evidences from inhibition JSON")
   val typeOfPaper = config.getString("polarityContext.typeOfPaper")
   val sentenceWindow = config.getString("contextEngine.params.bound")
   val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
