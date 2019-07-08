@@ -97,7 +97,8 @@ object Polarity extends App {
       case None => Map.empty
     }
 
-
+    println("Printing polarity label of event")
+    println(act.label)
     println("Printing current event")
     println(act.sentenceObj.words.mkString(" "))
     println("Printing context labels associated with the current event")
@@ -121,6 +122,8 @@ object Polarity extends App {
       case Some(m) => m
       case None => Map.empty
     }
+    println("Printing polarity label of event")
+    println(act.label)
     println("Printing current event")
     println(act.sentenceObj.words.mkString(" "))
     println("Printing context labels associated with the current event")
