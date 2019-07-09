@@ -24,10 +24,8 @@ object Polarity extends App {
   val activeSentences = collection.mutable.ListBuffer[String]()
   for(l <- Source.fromFile(activSentPath).getLines()) {
     val currentSent = l.split("%")(1)
-    println(currentSent + " -------- current sentence in activation file")
     activeSentences += currentSent
     val paperID = l.split("%")(0)
-    println(paperID + " -------- paper ID of current sentence in activation file")
     sentencesMappedToPaperID ++= Map(currentSent -> paperID)
   }
 
@@ -37,10 +35,8 @@ object Polarity extends App {
   val inhibSentences = collection.mutable.ListBuffer[String]()
   for(l <- Source.fromFile(inhibSentPath).getLines()) {
     val currentSent = l.split("%")(1)
-    println(currentSent + " -------- current sentence in inhibition file")
     inhibSentences += currentSent
     val paperID = l.split("%")(0)
-    println(paperID + " -------- paper ID of current sentence in activation file")
     sentencesMappedToPaperID ++= Map(currentSent -> paperID)
   }
   println(s"After adding all events from inhibition events: ${sentencesMappedToPaperID.size}")
@@ -90,7 +86,9 @@ object Polarity extends App {
   val contextLabelsByPaper = collection.mutable.HashMap[String, Seq[String]]()
   for(act <- activeEventsWithContext) {
     val allContextLabelsInThisEvent = collection.mutable.ListBuffer[String]()
+
     val pmcidOfCurrentEvent = reFormatDocId(act.document.id)
+    println(pmcidOfCurrentEvent + " : doc ID of current activation context label")
     val map = act.context match {
       case Some(m) => m
       case None => Map.empty
@@ -112,6 +110,7 @@ object Polarity extends App {
   for(act <- inhibEventsWithContext) {
     val allContextLabelsInThisEvent = collection.mutable.ListBuffer[String]()
     val pmcidOfCurrentEvent = reFormatDocId(act.document.id)
+    println(pmcidOfCurrentEvent + " : doc ID of current inhibition context label")
     val map = act.context match {
       case Some(m) => m
       case None => Map.empty
@@ -129,6 +128,9 @@ object Polarity extends App {
   }
 
 
+
+  println("testing the papers that are added to labels by paper map")
+  contextLabelsByPaper.keySet.map(println)
 
 
   val bigListOfContextMentions = collection.mutable.ListBuffer[String]()
