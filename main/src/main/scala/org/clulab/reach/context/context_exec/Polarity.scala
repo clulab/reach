@@ -85,7 +85,7 @@ object Polarity extends App {
   val activeContextLabels = collection.mutable.ListBuffer[String]()
   val inhibContextLabels = collection.mutable.ListBuffer[String]()
   val contextLabelsByPaper = collection.mutable.HashMap[String, Seq[String]]()
-  val contextLabelsByEvent = collection.mutable.HashMap[String, Seq[String]]()
+  val contextLabelsByEvent = collection.mutable.HashMap[String, (String, Seq[String])]()
   for(act <- activeEventsWithContext) {
     val allContextLabelsInThisEvent = collection.mutable.ListBuffer[String]()
 
@@ -105,7 +105,7 @@ object Polarity extends App {
     }
     val eventID = reformatEventID(act)
     contextLabelsByPaper ++= Map(pmcidOfCurrentEvent -> allContextLabelsInThisEvent)
-    contextLabelsByEvent ++= Map(eventID -> allContextLabelsInThisEvent)
+    contextLabelsByEvent ++= Map(eventID -> (pmcidOfCurrentEvent, allContextLabelsInThisEvent))
   }
 
   for(act <- inhibEventsWithContext) {
@@ -125,7 +125,7 @@ object Polarity extends App {
     }
     val eventID = reformatEventID(act)
     contextLabelsByPaper ++= Map(pmcidOfCurrentEvent -> allContextLabelsInThisEvent)
-    contextLabelsByEvent ++= Map(eventID -> allContextLabelsInThisEvent)
+    contextLabelsByEvent ++= Map(eventID -> (pmcidOfCurrentEvent, allContextLabelsInThisEvent))
   }
 
 
@@ -133,8 +133,8 @@ object Polarity extends App {
   println("testing the papers that are added to labels by paper map")
   contextLabelsByPaper.keySet.map(println)
 
-  for((eventID, contextLabels) <- contextLabelsByEvent) {
-    println(s"The event ${eventID} has the following ${contextLabels} context labels")
+  for((eventID, (paperID, contextLabels)) <- contextLabelsByEvent) {
+    println(s"The event ${eventID} has the following ${contextLabels} context labels in the paper ${paperID}")
   }
 
 
