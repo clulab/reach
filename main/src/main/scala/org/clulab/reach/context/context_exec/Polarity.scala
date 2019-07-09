@@ -29,6 +29,8 @@ object Polarity extends App {
     sentencesMappedToPaperID ++= Map(currentSent -> paperID)
   }
 
+  println(s"After adding all events from activation events: ${sentencesMappedToPaperID.size}")
+
   //val inhibSentences = Source.fromFile(inhibSentPath).getLines()
   val inhibSentences = collection.mutable.ListBuffer[String]()
   for(l <- Source.fromFile(inhibSentPath).getLines()) {
@@ -37,6 +39,7 @@ object Polarity extends App {
     val paperID = l.split("%")(0)
     sentencesMappedToPaperID ++= Map(currentSent -> paperID)
   }
+  println(s"After adding all events from inhibition events: ${sentencesMappedToPaperID.size}")
   println(activeSentences.size + ": number of text evidences from activation JSON")
   println(inhibSentences.size + ": number of text evidences from inhibition JSON")
   val typeOfPaper = config.getString("polarityContext.typeOfPaper")
