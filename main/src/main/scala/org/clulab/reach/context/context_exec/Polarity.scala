@@ -43,7 +43,7 @@ object Polarity extends App {
   println(activeSentences.size + ": number of text evidences from activation JSON")
   println(inhibSentences.size + ": number of text evidences from inhibition JSON")
   val typeOfPaper = config.getString("polarityContext.typeOfPaper")
-  val sentenceWindow = config.getString("contextEngine.params.bound")
+  //val sentenceWindow = config.getString("contextEngine.params.bound")
   val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
   //val fullPapers = List("PMC2958340.nxml", "PMC2686753.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml")
   val fullPapers = List("PMC4497359.nxml","PMC4463612.nxml","PMC4461195.nxml","PMC4460026.nxml","PMC4449203.nxml","PMC2958340.nxml", "PMC4092102.nxml", "PMC4142739.nxml", "PMC4236140.nxml", "PMC4446607.nxml",  "PMC2686753.nxml","PMC1590014.nxml", "PMC1849968.nxml", "PMC2424011.nxml", "PMC2847694.nxml", "PMC3104995.nxml", "PMC3411611.nxml", "PMC3423535.nxml", "PMC3469438.nxml", "PMC3608085.nxml")
