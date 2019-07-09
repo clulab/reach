@@ -74,7 +74,8 @@ object Polarity extends App {
     val eventMentions = mentions.collect{ case bio: BioEventMention => bio}
     eventMentionsFromInhibitionJSONFile ++= eventMentions
   })
-
+  println(s"Before filtering out non-context events, I had a total of ${eventMentionsFromActivationJSONFile.size} activation events")
+  println(s"Before filtering out non-context events, I had a total of ${eventMentionsFromInhibitionJSONFile.size} inhibition events")
   val activeEventsWithContext = eventMentionsFromActivationJSONFile.filter(_.hasContext()).toSet
   val inhibEventsWithContext = eventMentionsFromInhibitionJSONFile.filter(_.hasContext()).toSet
 
@@ -84,11 +85,11 @@ object Polarity extends App {
   val activeContextLabels = collection.mutable.ListBuffer[String]()
   val inhibContextLabels = collection.mutable.ListBuffer[String]()
   val contextLabelsByPaper = collection.mutable.HashMap[String, Seq[String]]()
+  val contextLabelsByEvent = collection.mutable.HashMap[String, Seq[String]]()
   for(act <- activeEventsWithContext) {
     val allContextLabelsInThisEvent = collection.mutable.ListBuffer[String]()
 
     val pmcidOfCurrentEvent = reFormatDocId(act.document.id)
-    println(pmcidOfCurrentEvent + " : doc ID of current activation context label")
     val map = act.context match {
       case Some(m) => m
       case None => Map.empty
@@ -102,15 +103,14 @@ object Polarity extends App {
       if(act.label.contains("Negative"))
         inhibContextLabels ++= contextLabels
     }
-
+    val eventID = reformatEventID(act)
     contextLabelsByPaper ++= Map(pmcidOfCurrentEvent -> allContextLabelsInThisEvent)
-
+    contextLabelsByEvent ++= Map(eventID -> allContextLabelsInThisEvent)
   }
 
   for(act <- inhibEventsWithContext) {
     val allContextLabelsInThisEvent = collection.mutable.ListBuffer[String]()
     val pmcidOfCurrentEvent = reFormatDocId(act.document.id)
-    println(pmcidOfCurrentEvent + " : doc ID of current inhibition context label")
     val map = act.context match {
       case Some(m) => m
       case None => Map.empty
@@ -123,8 +123,9 @@ object Polarity extends App {
       if(act.label.contains("Negative"))
         inhibContextLabels ++= contextLabels
     }
-
+    val eventID = reformatEventID(act)
     contextLabelsByPaper ++= Map(pmcidOfCurrentEvent -> allContextLabelsInThisEvent)
+    contextLabelsByEvent ++= Map(eventID -> allContextLabelsInThisEvent)
   }
 
 
@@ -136,11 +137,14 @@ object Polarity extends App {
     if(contextLabels.contains(testLabel)) println(s"The label ${testLabel} was found in the paper ${paperID}")
   }
 
+  for((eventID, contextLabels) <- contextLabelsByEvent) {
+    println(s"The event ${eventID} has the following ${contextLabels} context labels")
+  }
+
 
   val bigListOfContextMentions = collection.mutable.ListBuffer[String]()
   bigListOfContextMentions ++= activeContextLabels
   bigListOfContextMentions ++= inhibContextLabels
-
 
   println("Printing non-unique labels from activation")
   activeContextLabels.map(println)
@@ -168,6 +172,14 @@ object Polarity extends App {
       case None => "unknown"
     }
     toReturn
+  }
+
+
+  private def reformatEventID(event: BioEventMention): String = {
+    val sentIndex=event.sentence.toString
+    val start = event.tokenInterval.start.toString
+    val end = event.tokenInterval.end.toString
+    sentIndex.concat(start).concat(end)
   }
 
   val freqOfActivationLabelInBigList = collection.mutable.HashMap[String, Int]()
