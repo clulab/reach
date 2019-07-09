@@ -131,6 +131,10 @@ object Polarity extends App {
 
   println("testing the papers that are added to labels by paper map")
   contextLabelsByPaper.keySet.map(println)
+  val testLabel = "tissuelist:TS-0283"
+  for((paperID, contextLabels) <- contextLabelsByPaper) {
+    if(contextLabels.contains(testLabel)) println(s"The label ${testLabel} was found in the paper ${paperID}")
+  }
 
 
   val bigListOfContextMentions = collection.mutable.ListBuffer[String]()
