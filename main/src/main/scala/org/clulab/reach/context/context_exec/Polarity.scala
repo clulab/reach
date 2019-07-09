@@ -24,8 +24,10 @@ object Polarity extends App {
   val activeSentences = collection.mutable.ListBuffer[String]()
   for(l <- Source.fromFile(activSentPath).getLines()) {
     val currentSent = l.split("%")(1)
+    println(currentSent + " -------- current sentence in activation file")
     activeSentences += currentSent
     val paperID = l.split("%")(0)
+    println(paperID + " -------- paper ID of current sentence in activation file")
     sentencesMappedToPaperID ++= Map(currentSent -> paperID)
   }
 
@@ -35,8 +37,10 @@ object Polarity extends App {
   val inhibSentences = collection.mutable.ListBuffer[String]()
   for(l <- Source.fromFile(inhibSentPath).getLines()) {
     val currentSent = l.split("%")(1)
+    println(currentSent + " -------- current sentence in inhibition file")
     inhibSentences += currentSent
     val paperID = l.split("%")(0)
+    println(paperID + " -------- paper ID of current sentence in activation file")
     sentencesMappedToPaperID ++= Map(currentSent -> paperID)
   }
   println(s"After adding all events from inhibition events: ${sentencesMappedToPaperID.size}")
@@ -63,10 +67,6 @@ object Polarity extends App {
     val docId = sentencesMappedToPaperID(line)
     val mentions = reachSystem.extractFrom(line, docId, "")
     val eventMentions = mentions.collect{ case bio: BioEventMention => bio}
-    println("xxxxxxxxxxxxxx PRINTING CURRENT SENTENCE FROM ACTIVATION JSON xxxxxxxxxx")
-    println(line)
-    eventMentions.map(x => println(x.sentenceObj.words.mkString(" ")))
-    println("xxxxxxxxxxxxxx DONE PRINTING CURRENT SENTENCE FROM ACTIVATION JSON xxxxxxxx")
     eventMentionsFromActivationJSONFile ++= eventMentions
   })
 
@@ -76,10 +76,6 @@ object Polarity extends App {
     val docId = sentencesMappedToPaperID(line)
     val mentions = reachSystem.extractFrom(line, docId, "")
     val eventMentions = mentions.collect{ case bio: BioEventMention => bio}
-    println("xxxxxxxxxxxxxx PRINTING CURRENT SENTENCE FROM INHIBITION JSON xxxxxxxxxxxxxx")
-    println(line)
-    eventMentions.map(x => println(x.sentenceObj.words.mkString(" ")))
-    println("xxxxxxxxxxxxxx DONE PRINTING CURRENT SENTENCE FROM INHIBITION JSON xxxxxxxxxxxxxx")
     eventMentionsFromInhibitionJSONFile ++= eventMentions
   })
 
@@ -100,15 +96,8 @@ object Polarity extends App {
       case None => Map.empty
     }
 
-    println("sssssssssssssssssss")
-    println("Printing polarity label of event")
-    println(act.label)
-    println("Printing current event")
-    println(act.sentenceObj.words.mkString(" "))
-    println("Printing context labels associated with the current event")
+
     for((_, contextLabels) <- map) {
-      println(contextLabels.mkString(","))
-      println("sssssssssssssssssss")
       allContextLabelsInThisEvent ++= contextLabels
       if(act.label.contains("Positive"))
         activeContextLabels ++= contextLabels
@@ -127,13 +116,8 @@ object Polarity extends App {
       case Some(m) => m
       case None => Map.empty
     }
-    println("Printing polarity label of event")
-    println(act.label)
-    println("Printing current event")
-    println(act.sentenceObj.words.mkString(" "))
-    println("Printing context labels associated with the current event")
+
     for((_, contextLabels) <- map) {
-      println(contextLabels.mkString(","))
       allContextLabelsInThisEvent ++= contextLabels
       if(act.label.contains("Positive"))
         activeContextLabels ++= contextLabels
