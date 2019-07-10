@@ -114,7 +114,13 @@ object Polarity extends App {
       contextLabelsByPaper ++= Map(pmcidOfCurrentEvent -> newContextsForPaper)
     }
     else contextLabelsByPaper ++= Map(pmcidOfCurrentEvent -> allContextLabelsInThisEvent)
-    contextLabelsByEvent ++= Map(eventID -> (pmcidOfCurrentEvent, allContextLabelsInThisEvent))
+    if(contextLabelsByEvent.contains(eventID)) {
+      val existingLabels = contextLabelsByEvent(eventID)
+      val addedLabels = existingLabels._2 ++ allContextLabelsInThisEvent
+      val entry = (existingLabels._1, addedLabels)
+      contextLabelsByEvent ++= Map(eventID -> entry)
+    }
+    else contextLabelsByEvent ++= Map(eventID -> (pmcidOfCurrentEvent, allContextLabelsInThisEvent))
   }
 
   for(act <- inhibEventsWithContext) {
@@ -139,7 +145,13 @@ object Polarity extends App {
       contextLabelsByPaper ++= Map(pmcidOfCurrentEvent -> newContextsForPaper)
     }
     else contextLabelsByPaper ++= Map(pmcidOfCurrentEvent -> allContextLabelsInThisEvent)
-    contextLabelsByEvent ++= Map(eventID -> (pmcidOfCurrentEvent, allContextLabelsInThisEvent))
+    if(contextLabelsByEvent.contains(eventID)) {
+      val existingLabels = contextLabelsByEvent(eventID)
+      val addedLabels = existingLabels._2 ++ allContextLabelsInThisEvent
+      val entry = (existingLabels._1, addedLabels)
+      contextLabelsByEvent ++= Map(eventID -> entry)
+    }
+    else contextLabelsByEvent ++= Map(eventID -> (pmcidOfCurrentEvent, allContextLabelsInThisEvent))
   }
 
 
