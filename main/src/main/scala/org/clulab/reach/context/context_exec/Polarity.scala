@@ -226,6 +226,7 @@ object Polarity extends App {
   val sortedfreqOfActivationLabelInBigList = ListMap(freqOfActivationLabelInBigList.toSeq.sortWith(_._2 > _._2):_*)
   val sortedfreqOfActivationLabelOverPapers = ListMap(freqOfActivationLabelOverPapers.toSeq.sortWith(_._2._1 > _._2._1):_*)
   println(s"PRINTING FREQUENCY OF ACTIVATION LABELS NOT IN INTERSECTION")
+  println(s"There are ${activationLabelsNotInIntersection.size} unique types of context in the activation set that are not in the intersection")
   for((ctxLabel, freq) <- sortedfreqOfActivationLabelInBigList) {
     println(s"The activation context label ${ctxLabel} appears ${freq} times in the list of all context mentions (not including intersection)")
   }
@@ -246,6 +247,20 @@ object Polarity extends App {
   for((ctxLabel, freq) <- sortedfreqOfInhibitionLabelOverPapers) {
     println(s"The inhibition context label ${ctxLabel} appears in ${freq} out of ${contextLabelsByPaper.size} papers")
   }
+
+
+
+
+  println(" ----------------------- Checking the missing labels that appear in events by label but not list of context labels -----------")
+  val missingLabels = collection.mutable.ListBuffer[String]()
+ for((_,(_,contextLabels)) <- contextLabelsByEvent) {
+   for(c <- contextLabels) {
+     if((!(activeContextLabels.contains(c))) && !(inhibContextLabels.contains(c))) missingLabels += c
+   }
+ }
+  missingLabels.map(println)
+
+
 
 
 }
