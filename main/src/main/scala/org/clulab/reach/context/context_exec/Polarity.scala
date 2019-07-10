@@ -122,7 +122,10 @@ object Polarity extends App {
       val entry = (existingLabels._1, addedLabels)
       contextLabelsByEvent ++= Map(eventID -> entry)
     }
-    else contextLabelsByEvent ++= Map(eventID -> (pmcidOfCurrentEvent, allContextLabelsInThisEvent))
+    else {
+      if(act.label.contains("Positive") || act.label.contains("Negative"))
+        contextLabelsByEvent ++= Map(eventID -> (pmcidOfCurrentEvent, allContextLabelsInThisEvent))
+    }
   }
 
   for(act <- inhibEventsWithContext) {
@@ -155,7 +158,10 @@ object Polarity extends App {
       val entry = (existingLabels._1, addedLabels)
       contextLabelsByEvent ++= Map(eventID -> entry)
     }
-    else contextLabelsByEvent ++= Map(eventID -> (pmcidOfCurrentEvent, allContextLabelsInThisEvent))
+    else {
+      if(act.label.contains("Positive") || act.label.contains("Negative"))
+        contextLabelsByEvent ++= Map(eventID -> (pmcidOfCurrentEvent, allContextLabelsInThisEvent))
+    }
   }
 
 
