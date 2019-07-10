@@ -99,8 +99,10 @@ object Polarity extends App {
       case None => Map.empty
     }
 
-
+    println(s"Polarity of current event: ${act.label}")
+    println("Printing context labels related with the event")
     for((_, contextLabels) <- map) {
+      contextLabels.map(println)
       allContextLabelsInThisEvent ++= contextLabels
       if(act.label.contains("Positive"))
         activeContextLabels ++= contextLabels
@@ -130,8 +132,10 @@ object Polarity extends App {
       case Some(m) => m
       case None => Map.empty
     }
-
+    println(s"Polarity of current event: ${act.label}")
+    println("Printing context labels related with the event")
     for((_, contextLabels) <- map) {
+      contextLabels.map(println)
       allContextLabelsInThisEvent ++= contextLabels
       if(act.label.contains("Positive"))
         activeContextLabels ++= contextLabels
@@ -253,12 +257,14 @@ object Polarity extends App {
 
   println(" ----------------------- Checking the missing labels that appear in events by label but not list of context labels -----------")
   val missingLabels = collection.mutable.ListBuffer[String]()
- for((_,(_,contextLabels)) <- contextLabelsByEvent) {
+ for((eventID,(paperID,contextLabels)) <- contextLabelsByEvent) {
    for(c <- contextLabels) {
-     if((!(activeContextLabels.contains(c))) && !(inhibContextLabels.contains(c))) missingLabels += c
+     if((!(activeContextLabels.contains(c))) && !(inhibContextLabels.contains(c)))  {
+       println(s"The context label ${c} is missing. It was detected with event ${eventID} in paper ${paperID}")
+     }
    }
  }
-  missingLabels.map(println)
+
 
 
 
