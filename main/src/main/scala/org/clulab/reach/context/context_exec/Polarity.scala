@@ -232,13 +232,15 @@ object Polarity extends App {
     freqOfInhibitionLabelInBigList ++= Map(inhib -> freqInBigListOfCtxLabels)
     freqOfInhibitionLabelOverPapers ++= Map(inhib -> freqOverPapers)
   }
-
+  val freqOfLabelsOverListPolAgnost = collection.mutable.HashMap[String, Int]()
+  freqOfLabelsOverListPolAgnost ++= freqOfInhibitionLabelInBigList
+  freqOfLabelsOverListPolAgnost ++= freqOfActivationLabelInBigList
   val sortedfreqOfActivationLabelInBigList = ListMap(freqOfActivationLabelInBigList.toSeq.sortWith(_._2 > _._2):_*)
   val sortedfreqOfActivationLabelOverPapers = ListMap(freqOfActivationLabelOverPapers.toSeq.sortWith(_._2._1 > _._2._1):_*)
   println(s"PRINTING FREQUENCY OF ACTIVATION LABELS NOT IN INTERSECTION")
   println(s"There are ${activationLabelsNotInIntersection.size} unique types of context in the activation set that are not in the intersection")
   for((ctxLabel, freq) <- sortedfreqOfActivationLabelInBigList) {
-    println(s"The activation context label ${ctxLabel} appears ${freq} times in the list of all ${sortedfreqOfActivationLabelInBigList.size} context mentions (not including intersection)")
+    println(s"The activation context label ${ctxLabel} appears ${freq} times in the list of all ${freqOfLabelsOverListPolAgnost.size} context mentions (not including intersection)")
   }
 
   for((ctxLabel, freq) <- sortedfreqOfActivationLabelOverPapers) {
@@ -252,7 +254,7 @@ object Polarity extends App {
   println(s"PRINTING FREQUENCY OF INHIBITION LABELS NOT IN INTERSECTION")
   println(s"There are ${inhibitionLabelsNotInIntersection.size} unique types of context in the inhibition set that are not in the intersection")
   for((ctxLabel, freq) <- sortedfreqOfInhibitionLabelInBigList) {
-    println(s"The inhibition context label ${ctxLabel} appears ${freq} times in the list of all ${sortedfreqOfInhibitionLabelInBigList.size} context mentions (not including intersection)")
+    println(s"The inhibition context label ${ctxLabel} appears ${freq} times in the list of all ${freqOfLabelsOverListPolAgnost.size} context mentions (not including intersection)")
   }
   for((ctxLabel, freq) <- sortedfreqOfInhibitionLabelOverPapers) {
     println(s"The inhibition context label ${ctxLabel} appears in ${freq} out of ${contextLabelsByPaper.size} papers")
