@@ -252,7 +252,7 @@ object Polarity extends App {
   println(s"PRINTING FREQUENCY OF INHIBITION LABELS NOT IN INTERSECTION")
   println(s"There are ${inhibitionLabelsNotInIntersection.size} unique types of context in the inhibition set that are not in the intersection")
   for((ctxLabel, freq) <- sortedfreqOfInhibitionLabelInBigList) {
-    println(s"The inhibition context label ${ctxLabel} appears ${freq} times in the list of all ${sortedfreqOfInhibitionLabelInBigList} context mentions (not including intersection)")
+    println(s"The inhibition context label ${ctxLabel} appears ${freq} times in the list of all ${sortedfreqOfInhibitionLabelInBigList.size} context mentions (not including intersection)")
   }
   for((ctxLabel, freq) <- sortedfreqOfInhibitionLabelOverPapers) {
     println(s"The inhibition context label ${ctxLabel} appears in ${freq} out of ${contextLabelsByPaper.size} papers")
