@@ -136,7 +136,7 @@ object Polarity extends App {
       case None => Map.empty
     }
     println(s"Polarity of current event: ${act.label}")
-    println("Printing context labels related with the event")
+    println("Printing context labels related with the event. I'm making sure to add only those events which have a binary polarity into the list.")
     for((_, contextLabels) <- map) {
       contextLabels.map(println)
       allContextLabelsInThisEvent ++= contextLabels
