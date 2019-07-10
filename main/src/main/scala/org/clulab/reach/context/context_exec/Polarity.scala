@@ -238,7 +238,7 @@ object Polarity extends App {
   println(s"PRINTING FREQUENCY OF ACTIVATION LABELS NOT IN INTERSECTION")
   println(s"There are ${activationLabelsNotInIntersection.size} unique types of context in the activation set that are not in the intersection")
   for((ctxLabel, freq) <- sortedfreqOfActivationLabelInBigList) {
-    println(s"The activation context label ${ctxLabel} appears ${freq} times in the list of all context mentions (not including intersection)")
+    println(s"The activation context label ${ctxLabel} appears ${freq} times in the list of all ${sortedfreqOfActivationLabelInBigList.size} context mentions (not including intersection)")
   }
 
   for((ctxLabel, freq) <- sortedfreqOfActivationLabelOverPapers) {
@@ -252,7 +252,7 @@ object Polarity extends App {
   println(s"PRINTING FREQUENCY OF INHIBITION LABELS NOT IN INTERSECTION")
   println(s"There are ${inhibitionLabelsNotInIntersection.size} unique types of context in the inhibition set that are not in the intersection")
   for((ctxLabel, freq) <- sortedfreqOfInhibitionLabelInBigList) {
-    println(s"The inhibition context label ${ctxLabel} appears ${freq} times in the list of all context mentions (not including intersection)")
+    println(s"The inhibition context label ${ctxLabel} appears ${freq} times in the list of all ${sortedfreqOfInhibitionLabelInBigList} context mentions (not including intersection)")
   }
   for((ctxLabel, freq) <- sortedfreqOfInhibitionLabelOverPapers) {
     println(s"The inhibition context label ${ctxLabel} appears in ${freq} out of ${contextLabelsByPaper.size} papers")
@@ -262,7 +262,6 @@ object Polarity extends App {
 
 
   println(" ----------------------- Checking the missing labels that appear in events by label but not list of context labels -----------")
-  val missingLabels = collection.mutable.ListBuffer[String]()
  for((eventID,(paperID,contextLabels)) <- contextLabelsByEvent) {
    for(c <- contextLabels) {
      if((!(activeContextLabels.contains(c))) && !(inhibContextLabels.contains(c)))  {
