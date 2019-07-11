@@ -19,7 +19,8 @@ object GenerateOutputFiles extends App {
     // These files are required to run the annotator web app that was designed by Zechy.
     val config = ConfigFactory.load()
     val typeOfPaper = config.getString("polarityContext.typeOfPaper")
-    val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
+    //val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
+    val dirForType = config.getString("polarityContext.temporaryRun")
     val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
     val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
     lazy val reachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
