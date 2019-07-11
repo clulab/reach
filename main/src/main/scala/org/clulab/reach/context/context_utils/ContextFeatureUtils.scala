@@ -19,6 +19,7 @@ object ContextFeatureUtils {
   def getFeatValMapPerInput(filteredPairs: Set[Pair], ctxMentions: Seq[BioTextBoundMention]):Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])] = {
     println(s"The current paper uses ${filteredPairs.size} event-context pairs")
     val tempo = filteredPairs.map{p =>
+      println(s"We have the following pair: Event ID := ${p._1}, Context ID := ${p._2}")
       val featureExtractor = new ContextFeatureExtractor(p, ctxMentions)
       featureExtractor.extractFeaturesToCalcByBestFeatSet()
     }
