@@ -468,7 +468,7 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
     ev += mention.text
     f("evidence") = ev
     // TODO: we do not compare against the model; assume everything is new
-    f("verbose-text") = display.cleanVerbose(mention.sentenceObj.getSentenceText)
+    f("verbose_text") = display.cleanVerbose(mention.sentenceObj.getSentenceText)
     f("model_relation") = "extension"
   }
 
