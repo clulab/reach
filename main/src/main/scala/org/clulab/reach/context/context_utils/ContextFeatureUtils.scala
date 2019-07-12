@@ -24,7 +24,7 @@ object ContextFeatureUtils {
     if(!outputPaperDir.exists()) {
       outputPaperDir.mkdirs()
     }
-    val labelFilePath = labelFileDir.concat("contextLabelsWrittenToFile.txt")
+    val labelFilePath = labelFileDir.concat("/contextLabelsWrittenToFile.txt")
     val labelFile = new File(labelFilePath)
     if (!labelFile.exists()) {
       labelFile.createNewFile()
