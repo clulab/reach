@@ -36,6 +36,23 @@ object ContextFeatureUtils {
       featureExtractor.extractFeaturesToCalcByBestFeatSet()
     }
     val flattenedMap = tempo.flatMap(t=>t).toMap
+    val featValPath = labelFileDir.concat("/InputRowFeatureValueToFile.txt")
+    val featValFile = new File(featValPath)
+    if (!featValFile.exists()) {
+      featValFile.createNewFile()
+    }
+    val printWrite = new PrintWriter(featValFile)
+    for((_, (specs, ctxDep, evtDep)) <- flattenedMap) {
+      for((name, value) <- specs) {
+        printWrite.write(s"The feature ${name} has value ${value} \n")
+      }
+      for((name, value) <- ctxDep) {
+        printWrite.write(s"The feature ${name} has value ${value} \n")
+      }
+      for((name, value) <- evtDep) {
+        printWrite.write(s"The feature ${name} has value ${value} \n")
+      }
+    }
     flattenedMap
   }
 
@@ -44,7 +61,7 @@ object ContextFeatureUtils {
     ctxPairFeatValMap.keySet.toSeq
   }
 
-  def writeRowToFile(row:AggregatedContextInstance, evtID: String, ctxID: String):Unit = {
+  def writeAggRowToFile(row:AggregatedContextInstance, evtID: String, ctxID: String):Unit = {
     val typeOfPaper = config.getString("svmContext.paperType")
     val dirForType = if(typeOfPaper.length != 0) config.getString("papersDir").concat(s"/${typeOfPaper}") else config.getString("papersDir")
     val fileListUnfiltered = new File(dirForType)
@@ -74,7 +91,7 @@ object ContextFeatureUtils {
   }
 
 
-  def writeRowToFile(row: AggregatedContextInstance, evtID: String, ctxID: String, sentenceWindow: Int, whereToWrite: String):Unit = {
+  def writeAggRowToFile(row: AggregatedContextInstance, evtID: String, ctxID: String, sentenceWindow: Int, whereToWrite: String):Unit = {
     val typeOfPaper = config.getString("polarityContext.typeOfPaper")
     val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
     val fileListUnfiltered = new File(dirForType)
@@ -120,13 +137,13 @@ object ContextFeatureUtils {
     (pmcid, evtID, ctxID2)
   }
 
-  def writeRowsToFile(mentions: Seq[BioMention]):Unit = {
+  def writeAggrRowsToFile(mentions: Seq[BioMention]):Unit = {
     val sentenceWindow = config.getString("contextEngine.params.bound")
     val aggrRows = constructAggregatedInstance(mentions, Some(sentenceWindow.toInt))
     val whereToWrite = config.getString("policy4Params.mentionsOutputFile")
 
     for(((evtID, ctxID), row) <- aggrRows) {
-      writeRowToFile(row,evtID,ctxID,sentenceWindow.toInt,whereToWrite)
+      writeAggRowToFile(row,evtID,ctxID,sentenceWindow.toInt,whereToWrite)
     }
   }
 
