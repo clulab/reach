@@ -1,6 +1,6 @@
 package org.clulab.reach.context.context_utils
 
-import java.io.{File, FileInputStream, FileOutputStream, ObjectInputStream, ObjectOutputStream}
+import java.io.{File, FileInputStream, FileOutputStream, ObjectInputStream, ObjectOutputStream, PrintWriter}
 
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.utils.{AggregatedContextInstance, ContextPairInstance}
@@ -18,8 +18,20 @@ object ContextFeatureUtils {
   // :output :- map of ContextPairInstance -> (feature_name -> feature_value)
   def getFeatValMapPerInput(filteredPairs: Set[Pair], ctxMentions: Seq[BioTextBoundMention]):Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])] = {
     println(s"The current paper uses ${filteredPairs.size} event-context pairs")
+
+    val labelFileDir = config.getString("polarityContext.attemptDir")
+    val outputPaperDir = new File(labelFileDir)
+    if(!outputPaperDir.exists()) {
+      outputPaperDir.mkdirs()
+    }
+    val labelFilePath = labelFileDir.concat("contextLabelsWrittenToFile.txt")
+    val labelFile = new File(labelFilePath)
+    if (!labelFile.exists()) {
+      labelFile.createNewFile()
+    }
+    val pw = new PrintWriter(labelFile)
     val tempo = filteredPairs.map{p =>
-      println(s"We have the following pair: Event ID := ${extractEvtId(p._1)}, Context ID := ${p._2.nsId()}")
+      pw.write(s"We have the following pair: Paper ID: ${p._1.document.id}, Event ID := ${extractEvtId(p._1)}, Context ID := ${p._2.nsId()}")
       val featureExtractor = new ContextFeatureExtractor(p, ctxMentions)
       featureExtractor.extractFeaturesToCalcByBestFeatSet()
     }
