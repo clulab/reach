@@ -90,6 +90,17 @@ object ContextFeatureUtils {
     }
   }
 
+  def writeAggRowToFile(row:AggregatedContextInstance, evtID: String, ctxString:String, whereToWrite:String):Unit = {
+    val file = new File(whereToWrite)
+    if (!file.exists()) {
+      file.createNewFile()
+    }
+    val pw = new PrintWriter(file)
+    val zipped = row.featureGroupNames zip row.featureGroups
+    for((name,value) <- zipped) {
+      pw.write(s"The aggregated feature ${name} has value ${value}")
+    }
+  }
 
   def writeAggRowToFile(row: AggregatedContextInstance, evtID: String, ctxID: String, sentenceWindow: Int, whereToWrite: String):Unit = {
     val typeOfPaper = config.getString("polarityContext.typeOfPaper")
