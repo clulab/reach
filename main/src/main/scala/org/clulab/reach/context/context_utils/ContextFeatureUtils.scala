@@ -18,7 +18,6 @@ object ContextFeatureUtils {
   // :output :- map of ContextPairInstance -> (feature_name -> feature_value)
   def getFeatValMapPerInput(filteredPairs: Set[Pair], ctxMentions: Seq[BioTextBoundMention]):Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])] = {
     println(s"The current paper uses ${filteredPairs.size} event-context pairs")
-
     val labelFileDir = config.getString("polarityContext.attemptDir")
     val outputPaperDir = new File(labelFileDir)
     if(!outputPaperDir.exists()) {
@@ -36,6 +35,8 @@ object ContextFeatureUtils {
       featureExtractor.extractFeaturesToCalcByBestFeatSet()
     }
     val flattenedMap = tempo.flatMap(t=>t).toMap
+    println(s"The number of pairs we are operating on is: ${filteredPairs.size} \n")
+    println(s"The number of input rows we have is ${flattenedMap.size}")
     val featValPath = labelFileDir.concat("/InputRowFeatureValueToFile.txt")
     val featValFile = new File(featValPath)
     if (!featValFile.exists()) {
