@@ -130,7 +130,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 // Should such a need arise, you can write the aggregated instances to file by uncommenting the following line
                  ContextFeatureUtils.writeAggRowToFile(aggregatedFeature, k.toString, ctxId._2, whereTowWrite)
                 // Please note that this function writes aggregated rows for each (eventID, contextID) pair. Therefore, you may have a large number of files written to your directory.
-
+                println(s"The current aggregated row has ${aggregatedFeature.featureGroups.size} features")
                 aggRowListToPassForCrossVal += aggregatedFeature
                 val prediction = {
                   predArrayIntForm(0) match {
