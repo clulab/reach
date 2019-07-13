@@ -98,7 +98,7 @@ object ContextFeatureUtils {
     val pw = new PrintWriter(file)
     val zipped = row.featureGroupNames zip row.featureGroups
     for((name,value) <- zipped) {
-      pw.write(s"The aggregated feature ${name} has value ${value}")
+      pw.write(s"The aggregated feature ${name} has value ${value} \n")
     }
   }
 
