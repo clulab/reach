@@ -28,7 +28,9 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     // and this was found to be the union of non-dependency features and context-dependency features.
     // We will only calculate the values of this subset of features
     val featSeq = bestFeatureDict("NonDep_Context")
+    println(s"The best feature set has ${featSeq.size} features")
     val allFeatures = bestFeatureDict("All_features")
+    println(s"There are totally ${allFeatures.size} features")
     // val file
     val contextFrequencyMap = calculateContextFreq(contextMentions)
     val PMCID = datum._1.document.id match {
