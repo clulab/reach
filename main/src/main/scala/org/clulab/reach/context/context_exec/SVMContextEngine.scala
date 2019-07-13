@@ -123,7 +123,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                   case Some(x) => x
                   case None => -1
                 }*/
-                val whereTowWrite = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsToFile")
+                val whereTowWrite = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsToFile.txt")
 
 
                 // It may be that we may need the aggregated instances for further analyses, like testing or cross-validation.
