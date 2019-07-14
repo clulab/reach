@@ -7,7 +7,6 @@ import org.clulab.context.utils.AggregatedContextInstance
 import org.clulab.struct.Counter
 import org.clulab.learning._
 case class LinearSVMContextClassifier(classifier: Option[LinearSVMClassifier[Int,String]] = None, pathToClassifier:Option[String] = None) extends ContextClassifier {
-  val config = ConfigFactory.load()
   override def fit(xTrain: Seq[AggregatedContextInstance]): Unit = ()
 
 
