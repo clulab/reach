@@ -2,6 +2,9 @@ package org.clulab.context.utils
 
 import java.io._
 import java.util.zip._
+
+import org.clulab.learning.{RVFDataset, RVFDatum}
+
 import scala.collection.mutable
 import scala.io.Source
 
@@ -111,6 +114,12 @@ object CodeUtils {
     val is = new ObjectInputStream(new FileInputStream(fileName))
     val headers = is.readObject().asInstanceOf[Array[String]]
     headers
+  }
+
+  def readRVFDatasetFromFile(fileName: String): Array[RVFDatum[Int, String]] = {
+    val is = new ObjectInputStream(new FileInputStream(fileName))
+    val dataset = is.readObject.asInstanceOf[Array[RVFDatum[Int, String]]]
+    dataset
   }
 
   def writeAllFeaturesToFile(allFeatures:Seq[String], fileName:String):Seq[String] = {
