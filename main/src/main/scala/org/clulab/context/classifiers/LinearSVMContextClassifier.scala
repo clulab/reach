@@ -96,7 +96,7 @@ case class LinearSVMContextClassifier(classifier: Option[LinearSVMClassifier[Int
   // Here I made the changes to reflect my comments above.
   def mkRVFDataSet(labels: Array[Int], dataSet:Array[Array[(String, Double)]]):(RVFDataset[Int, String], Array[RVFDatum[Int, String]]) = {
     val config = ConfigFactory.load()
-    val rvfDatumPath = config.getString(("polarityContext.attemptDir")).concat("/RVFDatum.txt")
+    val rvfDatumPath = config.getString(("polarityContext.attemptDir")).concat("/RVFDatasetToFile.txt")
     val os = new ObjectOutputStream(new FileOutputStream(rvfDatumPath))
     val dataSetToReturn = new RVFDataset[Int, String]()
     val datumCollect = collection.mutable.ListBuffer[RVFDatum[Int, String]]()
@@ -105,9 +105,9 @@ case class LinearSVMContextClassifier(classifier: Option[LinearSVMClassifier[Int
       val currentDatum = mkRVFDatum(l,d)
       dataSetToReturn += currentDatum
       datumCollect += currentDatum
-      os.writeObject(currentDatum)
+
     }
-    os.close
+    os.writeObject(dataSetToReturn)
     (dataSetToReturn, datumCollect.toArray)
   }
 
