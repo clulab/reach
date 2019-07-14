@@ -107,7 +107,7 @@ case class LinearSVMContextClassifier(classifier: Option[LinearSVMClassifier[Int
       datumCollect += currentDatum
 
     }
-    os.writeObject(datumCollect.toArray)
+    os.writeObject(dataSetToReturn)
     (dataSetToReturn, datumCollect.toArray)
   }
 
