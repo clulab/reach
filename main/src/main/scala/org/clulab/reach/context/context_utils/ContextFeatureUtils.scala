@@ -44,9 +44,6 @@ object ContextFeatureUtils {
     }
     val printWrite = new PrintWriter(featValFile)
     for((_, (specs, ctxDep, evtDep)) <- flattenedMap) {
-      println(s"The specific feature set of the current input row has size ${specs.size}")
-      println(s"The context dependency feature set of the current input row has size ${ctxDep.size}")
-      println(s"The event dependency feature set of the current input row has size ${evtDep.size}")
       for((name, value) <- specs) {
         printWrite.write(s"The feature ${name} has value ${value} \n")
       }

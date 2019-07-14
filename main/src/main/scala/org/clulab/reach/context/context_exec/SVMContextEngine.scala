@@ -102,6 +102,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             v =>
               v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s =>  {
                 val seqOfInputRowsToPass = s map (_._2)
+                println(s"The number of input rows that make the current aggregated row: ${seqOfInputRowsToPass.size}")
                 val featureAggregatorInstance = new ContextFeatureAggregator(seqOfInputRowsToPass, lookUpTable)
                 val aggRow = featureAggregatorInstance.aggregateContextFeatures()
               aggRow}).toSeq
