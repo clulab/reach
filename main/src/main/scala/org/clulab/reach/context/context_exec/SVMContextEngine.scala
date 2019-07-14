@@ -7,6 +7,7 @@ import org.clulab.context.utils.{AggregatedContextInstance, ContextPairInstance}
 import org.clulab.reach.context.ContextEngine
 import org.clulab.reach.context.context_utils.{ContextFeatureAggregator, ContextFeatureUtils, EventContextPairGenerator}
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
+import java.io.{File, PrintWriter}
 
 import scala.collection.immutable
 
@@ -94,7 +95,12 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         // We will then have an instance of AggregatedContextInstance, that has 3 times the number of features of the original ContextPairInstance,
         // since each feature has been aggregated to min, max and avg values.
         // The SVM model will then predict on this aggregated instance.
-
+        val countInputRowsPath = config.getString(("polarityContext.attemptDir")).concat("/CountInputRowsPerAgg.txt")
+        val countInputRowsfile = new File(countInputRowsPath)
+        if (!countInputRowsfile.exists()) {
+          countInputRowsfile.createNewFile()
+        }
+        val printWriter = new PrintWriter(countInputRowsfile)
         val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedContextInstance)]] =
           (pairs zip contextPairInput).groupBy{
             case (pair, _) => extractEvtId(pair._1) // Group by their EventMention
@@ -102,7 +108,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             v =>
               v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s =>  {
                 val seqOfInputRowsToPass = s map (_._2)
-                println(s"The number of input rows that make the current aggregated row: ${seqOfInputRowsToPass.size}")
+                printWriter.write(s"The number of input rows that make the current aggregated row: ${seqOfInputRowsToPass.size}")
                 val featureAggregatorInstance = new ContextFeatureAggregator(seqOfInputRowsToPass, lookUpTable)
                 val aggRow = featureAggregatorInstance.aggregateContextFeatures()
               aggRow}).toSeq
