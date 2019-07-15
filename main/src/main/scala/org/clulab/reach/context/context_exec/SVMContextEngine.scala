@@ -117,7 +117,9 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         // adding the aggregated rows to a list so that I can pass it to the Cross Validator.
         // Please note that this call to the cross validator is to the class CrossValBySentDist.
         // This is being done to measure the micro-averaged precision as a function of the sentence distance.
-        val aggRowListToPassForCrossVal = collection.mutable.ListBuffer[AggregatedContextInstance]()
+        val aggRowsForFileIO = collection.mutable.ListBuffer[((String,String), AggregatedContextInstance)]()
+        val whereToWriteFeatureValue = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsFeatValsToFile.txt")
+        val whereToWriteRow = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsToFile.txt")
 
         val predictions:Map[EventID, Seq[(ContextID, Boolean)]] = {
           val map = collection.mutable.HashMap[EventID, Seq[(ContextID, Boolean)]]()
@@ -130,15 +132,15 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                   case Some(x) => x
                   case None => -1
                 }*/
-                val whereToWriteFeatureValue = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsFeatValsToFile.txt")
-                val whereToWriteRow = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsToFile.txt")
+
 
                 // It may be that we may need the aggregated instances for further analyses, like testing or cross-validation.
                 // Should such a need arise, you can write the aggregated instances to file by uncommenting the following line
-                 ContextFeatureUtils.writeAggRowToFile(aggregatedFeature, k.toString, ctxId._2, whereToWriteFeatureValue, whereToWriteRow)
+                // ContextFeatureUtils.writeAggRowToFile(aggregatedFeature, k.toString, ctxId._2, whereToWriteFeatureValue, whereToWriteRow)
                 // Please note that this function writes aggregated rows for each (eventID, contextID) pair. Therefore, you may have a large number of files written to your directory.
                 println(s"The current aggregated row has ${aggregatedFeature.featureGroups.size} features")
-                aggRowListToPassForCrossVal += aggregatedFeature
+                val tupToAddForFileIO = ((k.toString, ctxId._2), aggregatedFeature)
+                aggRowsForFileIO += tupToAddForFileIO
                 val prediction = {
                   predArrayIntForm(0) match {
                     case 1 => true
@@ -158,7 +160,9 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           map.toMap
         }
 
-       /* val crossValInstance = new CrossValBySentDist(aggRowListToPassForCrossVal)
+        ContextFeatureUtils.writeAggrRowsToFile(aggRowsForFileIO.toArray, whereToWriteFeatureValue, whereToWriteRow)
+
+       /* val crossValInstance = new CrossValBySentDist(aggRowsForFileIO)
         crossValInstance.performCrossVal()*/
 
 

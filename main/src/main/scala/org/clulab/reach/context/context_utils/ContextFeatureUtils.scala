@@ -111,6 +111,26 @@ object ContextFeatureUtils {
     os.close()
   }
 
+  def writeAggrRowsToFile(rows:Array[((String, String),AggregatedContextInstance)], pathToFeatVal:String, pathToArrOfRows:String):Unit = {
+    val rowsOnly = rows.map(_._2)
+    val arrOfRowsFile = new File(pathToArrOfRows)
+    if(!(arrOfRowsFile.exists()))
+      arrOfRowsFile.createNewFile()
+    val os = new ObjectOutputStream(new FileOutputStream(pathToArrOfRows))
+    os.writeObject(rowsOnly)
+    val featValFile = new File(pathToFeatVal)
+    if(!(featValFile.exists()))
+      featValFile.createNewFile()
+    val printWriter = new PrintWriter(pathToFeatVal)
+    for(((eventID, ctxID), row) <- rows) {
+      val zip = row.featureGroupNames zip row.featureGroups
+      for((featName, featVal) <- zip) {
+        printWriter.write(s"The eventID ${eventID} and contextID ${ctxID} have feature ${featName} value of ${featVal}\n")
+      }
+    }
+    os.close()
+  }
+
   def writeAggRowToFile(row: AggregatedContextInstance, evtID: String, ctxID: String, sentenceWindow: Int, whereToWrite: String):Unit = {
     val typeOfPaper = config.getString("polarityContext.typeOfPaper")
     val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
