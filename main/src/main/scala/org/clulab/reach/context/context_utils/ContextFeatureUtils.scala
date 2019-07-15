@@ -91,8 +91,8 @@ object ContextFeatureUtils {
     }
   }
 
-  def writeAggRowToFile(row:AggregatedContextInstance, evtID: String, ctxString:String, whereToWrite:String):Unit = {
-    val file = new File(whereToWrite)
+  def writeAggRowToFile(row:AggregatedContextInstance, evtID: String, ctxString:String, whereToWriteFeatVal:String, whereToWriteRow:String):Unit = {
+    val file = new File(whereToWriteFeatVal)
     if (!file.exists()) {
       file.createNewFile()
     }
@@ -101,6 +101,14 @@ object ContextFeatureUtils {
     for((name,value) <- zipped) {
       pw.write(s"The aggregated feature ${name} has value ${value} \n")
     }
+
+    val file2 = new File(whereToWriteRow)
+    val os = new ObjectOutputStream(new FileOutputStream(whereToWriteRow))
+    if (!file2.exists()) {
+      file2.createNewFile()
+    }
+    os.writeObject(row)
+    os.close()
   }
 
   def writeAggRowToFile(row: AggregatedContextInstance, evtID: String, ctxID: String, sentenceWindow: Int, whereToWrite: String):Unit = {

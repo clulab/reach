@@ -130,12 +130,12 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                   case Some(x) => x
                   case None => -1
                 }*/
-                val whereTowWrite = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsToFile.txt")
-
+                val whereToWriteFeatureValue = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsFeatValsToFile.txt")
+                val whereToWriteRow = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsToFile.txt")
 
                 // It may be that we may need the aggregated instances for further analyses, like testing or cross-validation.
                 // Should such a need arise, you can write the aggregated instances to file by uncommenting the following line
-                 ContextFeatureUtils.writeAggRowToFile(aggregatedFeature, k.toString, ctxId._2, whereTowWrite)
+                 ContextFeatureUtils.writeAggRowToFile(aggregatedFeature, k.toString, ctxId._2, whereToWriteFeatureValue, whereToWriteRow)
                 // Please note that this function writes aggregated rows for each (eventID, contextID) pair. Therefore, you may have a large number of files written to your directory.
                 println(s"The current aggregated row has ${aggregatedFeature.featureGroups.size} features")
                 aggRowListToPassForCrossVal += aggregatedFeature
