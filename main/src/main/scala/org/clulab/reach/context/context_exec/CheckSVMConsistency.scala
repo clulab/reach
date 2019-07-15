@@ -19,15 +19,20 @@ object CheckSVMConsistency extends App{
     }
   }
   //RVFDatasetToFile.txt
-  val inputRowsPath = config.getString(("polarityContext.attemptDir"))
-  val inputRowsFile = new File(inputRowsPath)
-  val attemptByDataset = collection.mutable.HashMap[Int, RVFDataset[Int, String]]()
-  val dirsInPath = inputRowsFile.listFiles.filter(_.isDirectory)
+  val aggrRowsPath = config.getString(("polarityContext.attemptDir"))
+  val aggrRowsFile = new File(aggrRowsPath)
+
+  /*val dirsInPath = inputRowsFile.listFiles.filter(_.isDirectory)
+
   for(d <- dirsInPath) {
     val rvfFileName = inputRowsPath.concat(d.getName.concat("/AggregRowsToFile.txt"))
-    val ArrayOfAggrRows = ContextFeatureUtils.readAggRowsFromFile(rvfFileName)
+    val arrayOfAggrRows = ContextFeatureUtils.readAggRowsFromFile(rvfFileName)
+    for(((eventID, ctxID),row) <- arrayOfAggrRows) {
+      val prediction = trainedSVMInstance.predict(Seq(row))
+
+    }
     //trainedSVMInstance.predict(rvfDataset)
-  }
+  }*/
 
 
 

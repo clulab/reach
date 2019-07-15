@@ -112,12 +112,12 @@ object ContextFeatureUtils {
   }
 
   def writeAggrRowsToFile(rows:Array[((String, String),AggregatedContextInstance)], pathToFeatVal:String, pathToArrOfRows:String):Unit = {
-    val rowsOnly = rows.map(_._2)
+
     val arrOfRowsFile = new File(pathToArrOfRows)
     if(!(arrOfRowsFile.exists()))
       arrOfRowsFile.createNewFile()
     val os = new ObjectOutputStream(new FileOutputStream(pathToArrOfRows))
-    os.writeObject(rowsOnly)
+    os.writeObject(rows)
     val featValFile = new File(pathToFeatVal)
     if(!(featValFile.exists()))
       featValFile.createNewFile()
@@ -168,9 +168,9 @@ object ContextFeatureUtils {
     c
   }
 
-  def readAggRowsFromFile(file: String): Array[AggregatedContextInstance] = {
+  def readAggRowsFromFile(file: String): Array[((String, String),AggregatedContextInstance)] = {
     val is = new ObjectInputStream(new FileInputStream(file))
-    val c = is.readObject().asInstanceOf[Array[AggregatedContextInstance]]
+    val c = is.readObject().asInstanceOf[Array[((String, String),AggregatedContextInstance)]]
     is.close()
     c
   }
