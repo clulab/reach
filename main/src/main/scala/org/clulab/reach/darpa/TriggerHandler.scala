@@ -15,30 +15,30 @@ object TriggerHandler {
     mentions foreach {
         case event:BioEventMention =>
 
-          val dependencies = event.sentenceObj.dependencies
-
-          /////////////////////////////////////////////////
-          // Check the outgoing edges from the trigger looking
-          // for a neg label
-          val outgoing = dependencies match {
-            case Some(deps) => deps.outgoingEdges
-            case None => Array.empty
-          }
-
-          for{
-            tok <- event.tokenInterval
-            out <- outgoing.lift(tok)
-            (ix, label) <- out
-            if label == "neg"
-          }
-            event.modifications += KDtrigger(new BioTextBoundMention(
-              Seq("KDtrigger_trigger"),
-              Interval(ix),
-              sentence = event.sentence,
-              document = event.document,
-              keep = event.keep,
-              foundBy = event.foundBy
-            ))
+//          val dependencies = event.sentenceObj.dependencies
+//
+//          /////////////////////////////////////////////////
+//          // Check the outgoing edges from the trigger looking
+//          // for a neg label
+//          val outgoing = dependencies match {
+//            case Some(deps) => deps.outgoingEdges
+//            case None => Array.empty
+//          }
+//
+//          for{
+//            tok <- event.tokenInterval
+//            out <- outgoing.lift(tok)
+//            (ix, label) <- out
+//            if label == "neg"
+//          }
+//            event.modifications += KDtrigger(new BioTextBoundMention(
+//              Seq("KDtrigger_trigger"),
+//              Interval(ix),
+//              sentence = event.sentence,
+//              document = event.document,
+//              keep = event.keep,
+//              foundBy = event.foundBy
+//            ))
           ///////////////////////////////////////////////////
 
           ///////////////////////////////////////////////////
