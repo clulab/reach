@@ -116,9 +116,9 @@ object CodeUtils {
     headers
   }
 
-  def readRVFDatasetFromFile(fileName: String): Array[RVFDatum[Int, String]] = {
+  def readRVFDatasetFromFile(fileName: String): RVFDataset[Int, String] = {
     val is = new ObjectInputStream(new FileInputStream(fileName))
-    val dataset = is.readObject.asInstanceOf[Array[RVFDatum[Int, String]]]
+    val dataset = is.readObject.asInstanceOf[RVFDataset[Int, String]]
     dataset
   }
 

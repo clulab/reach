@@ -25,6 +25,7 @@ object CheckSVMConsistency extends App{
   for(d <- dirsInPath) {
     val rvfFileName = inputRowsPath.concat(d.getName.concat("/RVFDatasetToFile.txt"))
     val rvfDataset = CodeUtils.readRVFDatasetFromFile(rvfFileName)
+    //trainedSVMInstance.predict(rvfDataset)
   }
 
 
