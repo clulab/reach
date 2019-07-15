@@ -168,6 +168,13 @@ object ContextFeatureUtils {
     c
   }
 
+  def readAggRowsFromFile(file: String): Array[AggregatedContextInstance] = {
+    val is = new ObjectInputStream(new FileInputStream(file))
+    val c = is.readObject().asInstanceOf[Array[AggregatedContextInstance]]
+    is.close()
+    c
+  }
+
 
   def createAggRowSpecsFromFile(file: File):(String, String, String) = {
     val pmcid = file.getName.split("_")(1)
