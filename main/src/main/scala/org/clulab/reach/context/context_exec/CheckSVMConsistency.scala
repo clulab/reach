@@ -23,11 +23,12 @@ object CheckSVMConsistency extends App{
   val aggrRowsPredsFile = new File(aggrRowsPath)
   if(!aggrRowsPredsFile.exists())
     aggrRowsPredsFile.createNewFile()
+  val printWriter = new PrintWriter(aggrRowsPredsFile)
   val whereAggrPath = config.getString("polarityContext.attemptDir").concat("/AggregRowsToFile.txt")
   val arrayOfAggrRows = ContextFeatureUtils.readAggRowsFromFile(whereAggrPath)
   for(((eventID, ctxID), row) <- arrayOfAggrRows) {
     val prediction = trainedSVMInstance.predict(Seq(row))
-    println(s"The pair ${eventID}, ${ctxID} has the prediction ${prediction(0)}")
+    printWriter.write(s"The pair ${eventID}, ${ctxID} has the prediction ${prediction(0)} \n")
   }
 
   /*val dirsInPath = inputRowsFile.listFiles.filter(_.isDirectory)
