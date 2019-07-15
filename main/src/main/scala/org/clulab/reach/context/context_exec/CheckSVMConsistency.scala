@@ -19,8 +19,16 @@ object CheckSVMConsistency extends App{
     }
   }
   //RVFDatasetToFile.txt
-  val aggrRowsPath = config.getString(("polarityContext.attemptDir"))
-  val aggrRowsFile = new File(aggrRowsPath)
+  val aggrRowsPath = config.getString(("polarityContext.attemptDir")).concat("/AggrRowPredictions.txt")
+  val aggrRowsPredsFile = new File(aggrRowsPath)
+  if(!aggrRowsPredsFile.exists())
+    aggrRowsPredsFile.createNewFile()
+  val whereAggrPath = config.getString("polarityContext.attemptDir").concat("/AggregRowsToFile.txt")
+  val arrayOfAggrRows = ContextFeatureUtils.readAggRowsFromFile(whereAggrPath)
+  for(((eventID, ctxID), row) <- arrayOfAggrRows) {
+    val prediction = trainedSVMInstance.predict(Seq(row))
+    println(s"The pair ${eventID}, ${ctxID} has the prediction ${prediction(0)}")
+  }
 
   /*val dirsInPath = inputRowsFile.listFiles.filter(_.isDirectory)
 
