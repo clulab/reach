@@ -122,7 +122,12 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
 
     val dependencyPath = constructDependencyPath(datum)
     val dependencyDistance = dependencyPath match {
-      case Some(path) => path.size.toDouble
+      case Some(path) => {
+        println(s"Current dependency path has size: ${path.size}")
+        println(s"Current path:")
+        println(path)
+        path.size.toDouble
+      }
       case None => 0.0
     }
 
@@ -224,8 +229,7 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     val selectedPath = (first.reverse ++ numOfJumps ++ second).map(FeatureProcessing.clusterDependency)
 
     val bigrams = (selectedPath zip selectedPath.drop(1)).map{ case (a, b) => s"${a}_${b}" }
-    println(s"In the feature extractor function, The following bigram was calculated for dependency distance when context and event were in different sentences: ")
-    println(bigrams)
+
     Some(bigrams)
   }
 
@@ -258,9 +262,6 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
               s.zip(shifted).map{ case (a, b) => s"${a}_${b}" }
             }
           }
-          println(s"In the feature extractor function, The following bigram was calculated for dependency distance when context and event were in the same sentence: ")
-          println(bigrams)
-
 
           Some(bigrams)
         case Failure(e) =>
