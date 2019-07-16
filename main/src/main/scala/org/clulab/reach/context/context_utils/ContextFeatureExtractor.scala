@@ -213,8 +213,10 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
 
       paths.sortBy(p => p.size).head
     }
-    val evtShortestPath = pathToRoot(datum._1.tokenInterval.start, datum._1.sentence, datum._1.document)
-    val ctxShortestPath = pathToRoot(datum._2.tokenInterval.start, datum._2.sentence, datum._2.document)
+    val evtShortestPath = datum._1.tokenInterval.map(ix => pathToRoot(ix, datum._1.sentence, datum._1.document)).sortBy(_.size).head
+    val ctxShortestPath = datum._2.tokenInterval.map(ix => pathToRoot(ix, datum._2.sentence, datum._2.document)).sortBy(_.size).head
+    //val evtShortestPath = pathToRoot(datum._1.tokenInterval.start, datum._1.sentence, datum._1.document)
+    //val ctxShortestPath = pathToRoot(datum._2.tokenInterval.start, datum._2.sentence, datum._2.document)
     val numOfJumps = Seq.fill(Math.abs(datum._1.sentence - datum._2.sentence))("sentenceJump")
 
     val first = if(datum._1.sentence < datum._2.sentence) evtShortestPath else ctxShortestPath
@@ -222,7 +224,8 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     val selectedPath = (first.reverse ++ numOfJumps ++ second).map(FeatureProcessing.clusterDependency)
 
     val bigrams = (selectedPath zip selectedPath.drop(1)).map{ case (a, b) => s"${a}_${b}" }
-
+    println(s"In the feature extractor function, The following bigram was calculated for dependency distance when context and event were in different sentences: ")
+    println(bigrams)
     Some(bigrams)
   }
 
@@ -255,6 +258,8 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
               s.zip(shifted).map{ case (a, b) => s"${a}_${b}" }
             }
           }
+          println(s"In the feature extractor function, The following bigram was calculated for dependency distance when context and event were in the same sentence: ")
+          println(bigrams)
 
 
           Some(bigrams)
