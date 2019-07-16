@@ -122,12 +122,7 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
 
     val dependencyPath = constructDependencyPath(datum)
     val dependencyDistance = dependencyPath match {
-      case Some(path) => {
-        println(s"Current dependency path has size: ${path.size}")
-        println(s"Current path:")
-        println(path)
-        path.size.toDouble
-      }
+      case Some(path) => path.size.toDouble
       case None => 0.0
     }
 
