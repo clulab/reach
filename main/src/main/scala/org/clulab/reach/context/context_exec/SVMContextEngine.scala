@@ -86,7 +86,11 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         // With this set, we can simply look up the lookUpTable and extract the correct values.
         val contextPairInput:Seq[ContextPairInstance] = ContextFeatureUtils.getCtxPairInstances(lookUpTable)
 
-
+        val zipped = pairs zip contextPairInput
+        for(((eventID,ctxID),input) <- zipped) {
+          println(s"The current pair is with event ID: ${eventID} and context ID: ${ctxID}")
+          println(s"The current input row has event ID: ${input.EvtID} and context ID: ${input.CtxID}")
+        }
         // It is now time to introduce the FeatureAggregator. The basic idea behind the FeatureAggregator is that,
         // for any given (eventID, contextID) pair, it is possible that reach detected many sentences that match the pair.
         // Multiple sentences for the same pair means multiple feature values for the same feature name.
