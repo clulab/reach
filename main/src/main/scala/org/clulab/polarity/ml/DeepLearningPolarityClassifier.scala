@@ -233,11 +233,11 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
     val y_pred = runInstance(lemmas.slice(start, end), rulePolarity)
 
-    println("==========================================")
-    println(lemmas.toList)
-    println(lemmas.slice(start, end).toList)
-    println(y_pred.value().toFloat())
-    scala.io.StdIn.readLine()
+//    println("==========================================")
+//    println(lemmas.toList)
+//    println(lemmas.slice(start, end).toList)
+//    println(y_pred.value().toFloat())
+//    scala.io.StdIn.readLine()
 
     if (y_pred.value().toFloat>0.5){
       PositivePolarity
@@ -525,7 +525,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
   }
 
-  def mkVocabs(spreadSheetPath:String = "SentencesInfo_all_label_final_ExactRecur_ExpandBound.txt"): (Map[String, Int], Map[Char, Int]) = {
+  def mkVocabs(spreadSheetPath:String): (Map[String, Int], Map[Char, Int]) = {
     logger.info("Making vocabulary for deep learning model ...")
     val (trainSentences, _, _,_) = readFromSpreadsheet(spreadSheetPath, 0.8.toFloat, maskOption)
 
