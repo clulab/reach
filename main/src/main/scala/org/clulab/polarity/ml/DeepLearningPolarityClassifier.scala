@@ -566,8 +566,8 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   }
 
   def getExpandBound(event:BioEventMention, controller_start:Int, controlled_start:Int):(Int, Int) = {
-    val event_start = event.tokenInterval.start
-    val event_end = event.tokenInterval.end
+    val event_start = event.start
+    val event_end = event.end
 
     var controller_nmod = controller_start
     var controlled_nmod = controlled_start
