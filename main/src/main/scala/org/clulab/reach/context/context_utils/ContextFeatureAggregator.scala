@@ -12,7 +12,7 @@ class ContextFeatureAggregator(instances:Seq[ContextPairInstance], featValLookUp
 
     val label = None
 
-    val inputRows = instances
+    //val inputRows = instances
     val featNameToVals = collection.mutable.Map[String,mutable.ListBuffer[Double]]()
     // we are using the same set of features over all the ContextPairInstance instances, hence using the first ContextPairInstance in the sequence to get the names of the features is a safe step.
     val specfeatureNamesToUse = instances(0).specificFeatureNames
@@ -22,12 +22,13 @@ class ContextFeatureAggregator(instances:Seq[ContextPairInstance], featValLookUp
     // we read through the ContextPairInstance values and add them to a name -> list of features map.
     // So for a given feature name as key, we will have a list of double as values, where each double is the value to the feature in a given ContextPairInstance.
 
-    for(in <- inputRows) {
+    for(in <- instances) {
       val (specificVals, evtVals, ctxVals) = featValLookUp(in)
       for((spec,value)<-specificVals) {
         if(featNameToVals.contains(spec)) {
           val currentList = featNameToVals(spec)
           currentList += value
+          featNameToVals(spec) = currentList
         }
         else {
           val toAddVal = collection.mutable.ListBuffer[Double]()
@@ -40,6 +41,7 @@ class ContextFeatureAggregator(instances:Seq[ContextPairInstance], featValLookUp
         if(featNameToVals.contains(spec)) {
           val currentList = featNameToVals(spec)
           currentList += value
+          featNameToVals(spec) = currentList
         }
         else {
           val toAddVal = collection.mutable.ListBuffer[Double]()
@@ -52,6 +54,7 @@ class ContextFeatureAggregator(instances:Seq[ContextPairInstance], featValLookUp
         if(featNameToVals.contains(spec)) {
           val currentList = featNameToVals(spec)
           currentList += value
+          featNameToVals(spec) = currentList
         }
         else {
           val toAddVal = collection.mutable.ListBuffer[Double]()
