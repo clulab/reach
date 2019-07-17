@@ -86,11 +86,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         // With this set, we can simply look up the lookUpTable and extract the correct values.
         val contextPairInput:Seq[ContextPairInstance] = ContextFeatureUtils.getCtxPairInstances(lookUpTable)
 
-        val zipped = pairs zip contextPairInput
-        for(((eventID,ctxID),input) <- zipped) {
-          println(s"The current pair is with event ID: ${extractEvtId(eventID)} and context ID: ${ctxID.nsId()}")
-          println(s"The current input row has event ID: ${input.EvtID.mkString("")} and context ID: ${input.CtxID.mkString("")}")
-        }
         // It is now time to introduce the FeatureAggregator. The basic idea behind the FeatureAggregator is that,
         // for any given (eventID, contextID) pair, it is possible that reach detected many sentences that match the pair.
         // Multiple sentences for the same pair means multiple feature values for the same feature name.
@@ -112,6 +107,9 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             v =>
               v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s =>  {
                 val seqOfInputRowsToPass = s map (_._2)
+                seqOfInputRowsToPass.map(x => {
+                  println(s"The current input row's event ID is ${x.EvtID} and context ID is ${x.CtxID}")
+                })
                 printWriter.write(s"The number of input rows that make the current aggregated row: ${seqOfInputRowsToPass.size} \n")
                 val featureAggregatorInstance = new ContextFeatureAggregator(seqOfInputRowsToPass, lookUpTable)
                 val aggRow = featureAggregatorInstance.aggregateContextFeatures()
@@ -136,13 +134,18 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                   case Some(x) => x
                   case None => -1
                 }*/
-
-
+                val indexMin = aggregatedFeature.featureGroupNames.indexOf("dependencyDistance_min")
+                val indexMax = aggregatedFeature.featureGroupNames.indexOf("dependencyDistance_max")
+                val indexAvg = aggregatedFeature.featureGroupNames.indexOf("dependencyDistance_avg")
+                val valueMin = aggregatedFeature.featureGroups(indexMin)
+                val valueMax = aggregatedFeature.featureGroups(indexMax)
+                val valueAvg = aggregatedFeature.featureGroups(indexAvg)
+                println(s"For the pair (${k.toString},${ctxId._2}), the aggregated row has the following feature values")
+                println(s"dependencyDistance_min: ${valueMin}, dependencyDistance_max: ${valueMax}, dependencyDistance_avg: ${valueAvg}")
                 // It may be that we may need the aggregated instances for further analyses, like testing or cross-validation.
                 // Should such a need arise, you can write the aggregated instances to file by uncommenting the following line
                 // ContextFeatureUtils.writeAggRowToFile(aggregatedFeature, k.toString, ctxId._2, whereToWriteFeatureValue, whereToWriteRow)
                 // Please note that this function writes aggregated rows for each (eventID, contextID) pair. Therefore, you may have a large number of files written to your directory.
-                println(s"The current aggregated row has ${aggregatedFeature.featureGroups.size} features")
                 val tupToAddForFileIO = ((k.toString, ctxId._2), aggregatedFeature)
                 aggRowsForFileIO += tupToAddForFileIO
                 val prediction = {
