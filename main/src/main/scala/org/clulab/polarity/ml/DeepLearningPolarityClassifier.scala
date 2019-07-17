@@ -26,7 +26,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   val configPath = "polarity"
   var maskOption = "tag_name"
   var savedModelPath = "savedModel"
-  var spreadsheetPath = "SentencesInfo_all_label_final_ExactRecur.txt"
+  var spreadsheetPath = "SentencesInfo_all_label_final_ExactRecur_ExpandBound.txt"
   var VOC_SIZE = 3671
   var WEM_DIMENSIONS = 100
   var CEM_DIMENSIONS = 30
@@ -57,9 +57,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   //val lines = Source.fromFile(dictPath).getLines().toList
   //val lines2 = Source.fromFile(w2vDictPath).getLines().toList
 
-  val (w2i, c2i) = mkVocabs()
-
-
+  val (w2i, c2i) = mkVocabs(spreadsheetPath)
 
 
   var loss: Float = 0
@@ -174,8 +172,8 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   override def predict(event: BioEventMention): Polarity = {
     //var lemmas = event.lemmas.get.toArray
     var lemmas = event.sentenceObj.lemmas.get.clone()
-    val start = event.start
-    val end = event.end
+    var start = event.start
+    var end = event.end
     val rule = event.label
     var rulePolarity = 0
     if (rule.startsWith("Neg")){
@@ -183,6 +181,8 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     }else{
       rulePolarity=1
     }
+
+
     var controller = event.arguments("controller").head
 //    while (controller.arguments.contains("controller") || controller.arguments.contains("controlled")) {
 //      if (controller.arguments.contains("controller")){
@@ -205,6 +205,8 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     val ctrld_start = controlled.start
     val ctrld_end = controlled.end
 
+
+    (start, end) = getExpandBound(event, ctrlr_start, ctrld_start)
 
     ComputationGraph.renew()
 
@@ -419,7 +421,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     logger.info(s"precision:${precision}\trecall:${recall}\tf1:${f1}")
   }
 
-  def loadModelEval(trainingPath:String = "SentencesInfo_all_label_final_ExactRecur.txt", trainRatio:Float=0.8.toFloat):Unit={
+  def loadModelEval(trainingPath:String = spreadsheetPath, trainRatio:Float=0.8.toFloat):Unit={
     val (sens_train, labels_train, sens_test, labels_test) = this.readFromSpreadsheet(trainingPath, trainRatio, maskOption)
 
     this.testSingleEpoch(sens_test, labels_test)
@@ -482,8 +484,8 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
           }
           else{sentence_mod(index) = "__controlled__"}
         }
-        //println(sentence_mod.slice(start, end).toSeq)
-        //scala.io.StdIn.readLine()
+//        println(sentence_mod.slice(start, end).toSeq)
+//        scala.io.StdIn.readLine()
         instances = instances :+ (sentence_mod.slice(start, end).toSeq, rulePolarity)
       }
       else if (mask_option=="name"){
@@ -524,7 +526,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
   }
 
-  def mkVocabs(spreadSheetPath:String = "SentencesInfo_all_label_final_ExactRecur.txt"): (Map[String, Int], Map[Char, Int]) = {
+  def mkVocabs(spreadSheetPath:String = "SentencesInfo_all_label_final_ExactRecur_ExpandBound.txt"): (Map[String, Int], Map[Char, Int]) = {
     logger.info("Making vocabulary for deep learning model ...")
     val (trainSentences, _, _,_) = readFromSpreadsheet(spreadSheetPath, 0.8.toFloat, maskOption)
 
@@ -561,6 +563,34 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
     (precision, recall, f1)
 
+  }
+
+  def getExpandBound(event:BioEventMention, controller_start:Int, controlled_start:Int):(Int, Int) = {
+    val event_start = event.tokenInterval.start
+    val event_end = event.tokenInterval.end
+
+    var controller_nmod = controller_start
+    var controlled_nmod = controlled_start
+    if (event.paths.nonEmpty){
+      for (path_list<-event.paths("controller").values){
+        for (path <- path_list){
+          if (path._3=="nmod_of"){
+            controller_nmod = path._1
+          }
+        }
+      }
+
+      for (path_list<-event.paths("controlled").values){
+        for (path <- path_list){
+          if (path._3=="nmod_of"){
+            controlled_nmod = path._1
+          }
+        }
+      }
+    }
+    val event_start_new = List(event_start, controller_nmod, controlled_nmod).min
+    val event_end_new = List(event_end, controller_nmod, controlled_nmod).max
+    (event_start_new, event_end_new)
   }
 }
 
