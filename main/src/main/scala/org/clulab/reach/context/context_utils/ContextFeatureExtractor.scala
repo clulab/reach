@@ -113,9 +113,6 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     val doc = event.document
     val result = collection.mutable.Map[String,Double]()
 
-    println(s"Current pair: event ID: ${extractEvtId(datum._1)} and context ID: ${datum._2.nsId()}")
-
-
     // ****************INTEGER VALUE FEATURES BEGIN****************
     val sentenceDistance = Math.abs(datum._1.sentence - datum._2.sentence)
     val sentDistEntry = Map("sentenceDistance" -> sentenceDistance.toDouble)
@@ -124,8 +121,8 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     val dependencyPath = constructDependencyPath(datum)
     val dependencyDistance = dependencyPath match {
       case Some(path) => {
-        /*println(s"Size of dependency path: ${path.size}")
-        println(path)*/
+        println(s"Size of dependency path: ${path.size}")
+        println(path)
         path.size.toDouble}
       case None => 0.0
     }
