@@ -64,12 +64,11 @@ class ContextFeatureAggregator(instances:Seq[ContextPairInstance], featValLookUp
       }
     }
     val aggregatedSpecVals = aggregateInputRowFeatValues(specfeatureNamesToUse, featNameToVals.toMap)
-    for((featureName, values) <- aggregatedSpecVals) {
-      println(s"The feature ${featureName} has min,max,avg values of ${values}")
-    }
     val aggregatedctxDepVals = aggregateInputRowFeatValues(ctxFeatureNamesToUse.toSeq, featNameToVals.toMap)
     val aggregatedevtDepVals = aggregateInputRowFeatValues(evtFeatureNamesToUse.toSeq, featNameToVals.toMap)
-
+    println(s"The number of specific features are: ${specfeatureNamesToUse.size}")
+    println(s"The number of context dependency features are: ${ctxFeatureNamesToUse.size}")
+    println(s"The number of event dependency features are: ${evtFeatureNamesToUse.size}")
     val specFeatVal = featureValuePairing(aggregatedSpecVals)
     val ctxFeatVal = featureValuePairing(aggregatedctxDepVals)
     val evtFeatVal = featureValuePairing(aggregatedevtDepVals)
