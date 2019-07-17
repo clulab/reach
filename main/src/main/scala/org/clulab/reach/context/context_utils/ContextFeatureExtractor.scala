@@ -112,7 +112,7 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     val context = datum._2
     val doc = event.document
     val result = collection.mutable.Map[String,Double]()
-
+    println(s"Event id: ${extractEvtId(datum._1)}, context id: ${datum._2.nsId()}")
     // ****************INTEGER VALUE FEATURES BEGIN****************
     val sentenceDistance = Math.abs(datum._1.sentence - datum._2.sentence)
     val sentDistEntry = Map("sentenceDistance" -> sentenceDistance.toDouble)
