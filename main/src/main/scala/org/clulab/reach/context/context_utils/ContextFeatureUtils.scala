@@ -37,23 +37,6 @@ object ContextFeatureUtils {
     val flattenedMap = tempo.flatMap(t=>t).toMap
     println(s"The number of pairs we are operating on is: ${filteredPairs.size} \n")
     println(s"The number of input rows we have is ${flattenedMap.size}")
-    val featValPath = labelFileDir.concat("/InputRowFeatureValueToFile.txt")
-    val featValFile = new File(featValPath)
-    if (!featValFile.exists()) {
-      featValFile.createNewFile()
-    }
-    val printWrite = new PrintWriter(featValFile)
-    for((_, (specs, ctxDep, evtDep)) <- flattenedMap) {
-      for((name, value) <- specs) {
-        printWrite.write(s"The feature ${name} has value ${value} \n")
-      }
-      for((name, value) <- ctxDep) {
-        printWrite.write(s"The feature ${name} has value ${value} \n")
-      }
-      for((name, value) <- evtDep) {
-        printWrite.write(s"The feature ${name} has value ${value} \n")
-      }
-    }
     flattenedMap
   }
 
