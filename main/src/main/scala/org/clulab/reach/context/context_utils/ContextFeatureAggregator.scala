@@ -64,6 +64,9 @@ class ContextFeatureAggregator(instances:Seq[ContextPairInstance], featValLookUp
       }
     }
     val aggregatedSpecVals = aggregateInputRowFeatValues(specfeatureNamesToUse, featNameToVals.toMap)
+    for((featureName, values) <- aggregatedSpecVals) {
+      println(s"The feature ${featureName} has min,max,avg values of ${values}")
+    }
     val aggregatedctxDepVals = aggregateInputRowFeatValues(ctxFeatureNamesToUse.toSeq, featNameToVals.toMap)
     val aggregatedevtDepVals = aggregateInputRowFeatValues(evtFeatureNamesToUse.toSeq, featNameToVals.toMap)
 
@@ -82,11 +85,11 @@ class ContextFeatureAggregator(instances:Seq[ContextPairInstance], featValLookUp
     newAggRow
   }
 
-  private def aggregateInputRowFeatValues(features:Seq[String], lookUpTable: Map[String,mutable.ListBuffer[Double]]):Map[String,(Double,Double, Double, Int)] = {
+  private def aggregateInputRowFeatValues(features:Seq[String], valuesPerGivenFeature: Map[String,mutable.ListBuffer[Double]]):Map[String,(Double,Double, Double, Int)] = {
     val resultingMap = collection.mutable.Map[String,(Double,Double, Double, Int)]()
     for(r <- features) {
-      if(lookUpTable.contains(r)) {
-        val valueList = lookUpTable(r)
+      if(valuesPerGivenFeature.contains(r)) {
+        val valueList = valuesPerGivenFeature(r)
         val min = valueList.foldLeft(Double.MaxValue)(Math.min(_,_))
         val max = valueList.foldLeft(Double.MinValue)(Math.max(_,_))
         val sum = valueList.foldLeft(0.0)(_ + _)

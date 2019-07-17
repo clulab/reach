@@ -88,7 +88,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
         val zipped = pairs zip contextPairInput
         for(((eventID,ctxID),input) <- zipped) {
-          println(s"The current pair is with event ID: ${eventID} and context ID: ${ctxID}")
+          println(s"The current pair is with event ID: ${eventID.toString} and context ID: ${ctxID.toString}")
           println(s"The current input row has event ID: ${input.EvtID.mkString("")} and context ID: ${input.CtxID.mkString("")}")
         }
         // It is now time to introduce the FeatureAggregator. The basic idea behind the FeatureAggregator is that,
