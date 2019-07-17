@@ -172,8 +172,6 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   override def predict(event: BioEventMention): Polarity = {
     //var lemmas = event.lemmas.get.toArray
     var lemmas = event.sentenceObj.lemmas.get.clone()
-    var start = event.start
-    var end = event.end
     val rule = event.label
     var rulePolarity = 0
     if (rule.startsWith("Neg")){
@@ -206,7 +204,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     val ctrld_end = controlled.end
 
 
-    (start, end) = getExpandBound(event, ctrlr_start, ctrld_start)
+    val (start, end) = getExpandBound(event, ctrlr_start, ctrld_start)
 
     ComputationGraph.renew()
 
