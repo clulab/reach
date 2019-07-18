@@ -113,16 +113,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           }
           groupingsReadyToAggr ++= miniList
         }
-        /*for((eventID, contextID) <- pairs) {
-          val contextInstancesSubSet = contextPairInput.filter(x => extractEvtId(eventID) == x.EvtID)
-          val contextFiltByCtxID = contextInstancesSubSet.filter(x => x.CtxID == ContextEngine.getContextKey(contextID))
-          println(s"In the order rectifier part")
-          contextFiltByCtxID.map(s => println(s"Input row has event ID: ${s.EvtID} and context ID: ${s.CtxID}"))
-          groupingsReadyToAggr ++= contextFiltByCtxID
-          val featureAggregatorInstance = new ContextFeatureAggregator(contextFiltByCtxID, lookUpTable)
-          val aggRow = featureAggregatorInstance.aggregateContextFeatures()
-
-        }*/
 
         val aggregatedFeatures = groupingsReadyToAggr.groupBy{
           case (pair, _) => extractEvtId(pair._1)
@@ -137,18 +127,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
               val aggRow = featureAggregatorInstance.aggregateContextFeatures()
               aggRow}).toSeq
         }
-//        val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedContextInstance)]] =
-//          (pairs zip contextPairInput).groupBy{
-//            case (pair, _) => extractEvtId(pair._1) // Group by their EventMention
-//          }.mapValues{
-//            v =>
-//              v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s =>  {
-//                val seqOfInputRowsToPass = s map (_._2)
-//                printWriter.write(s"The number of input rows that make the current aggregated row: ${seqOfInputRowsToPass.size} \n")
-//                val featureAggregatorInstance = new ContextFeatureAggregator(seqOfInputRowsToPass, lookUpTable)
-//                val aggRow = featureAggregatorInstance.aggregateContextFeatures()
-//              aggRow}).toSeq
-//          }
+
 
         // adding the aggregated rows to a list so that I can pass it to the Cross Validator.
         // Please note that this call to the cross validator is to the class CrossValBySentDist.
