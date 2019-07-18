@@ -131,9 +131,10 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         // Please note that this call to the cross validator is to the class CrossValBySentDist.
         // This is being done to measure the micro-averaged precision as a function of the sentence distance.
         val aggRowsForFileIO = collection.mutable.ListBuffer[((String,String), AggregatedContextInstance)]()
-        val whereToWriteFeatureValue = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsFeatValsToFile.txt")
-        val whereToWriteRow = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsToFile.txt")
-
+        //val whereToWriteFeatureValue = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsFeatValsToFile.txt")
+        //val whereToWriteRow = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsToFile.txt")
+        val typeOfPaper = config.getString("polarityContext.typeOfPaper")
+        val dirForTypeBySentWind = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper).concat("/sentenceWindows")
         val predictions:Map[EventID, Seq[(ContextID, Boolean)]] = {
           val map = collection.mutable.HashMap[EventID, Seq[(ContextID, Boolean)]]()
           for((k,a) <- aggregatedFeatures) {
@@ -141,20 +142,14 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             val x = a.map {
               case (ctxId, aggregatedFeature) =>
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
-               /* val sentWind = sentenceWindow match {
+                val sentWind = sentenceWindow match {
                   case Some(x) => x
                   case None => -1
-                }*/
-                val indexMin = aggregatedFeature.featureGroupNames.indexOf("dependencyDistance_min")
-                val indexMax = aggregatedFeature.featureGroupNames.indexOf("dependencyDistance_max")
-                val indexAvg = aggregatedFeature.featureGroupNames.indexOf("dependencyDistance_avg")
-                val valueMin = aggregatedFeature.featureGroups(indexMin)
-                val valueMax = aggregatedFeature.featureGroups(indexMax)
-                val valueAvg = aggregatedFeature.featureGroups(indexAvg)
+                }
 
                 // It may be that we may need the aggregated instances for further analyses, like testing or cross-validation.
                 // Should such a need arise, you can write the aggregated instances to file by uncommenting the following line
-                // ContextFeatureUtils.writeAggRowToFile(aggregatedFeature, k.toString, ctxId._2, whereToWriteFeatureValue, whereToWriteRow)
+                 ContextFeatureUtils.writeAggRowToFile(aggregatedFeature, k.toString, ctxId._2,sentWind, dirForTypeBySentWind)
                 // Please note that this function writes aggregated rows for each (eventID, contextID) pair. Therefore, you may have a large number of files written to your directory.
                 val tupToAddForFileIO = ((k.toString, ctxId._2), aggregatedFeature)
                 aggRowsForFileIO += tupToAddForFileIO
@@ -177,6 +172,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           map.toMap
         }
 
+        // uncomment this line in case you need to write rows independent of sentence distance
         //ContextFeatureUtils.writeAggrRowsToFile(aggRowsForFileIO.toArray, whereToWriteFeatureValue, whereToWriteRow)
 
        /* val crossValInstance = new CrossValBySentDist(aggRowsForFileIO)
