@@ -105,6 +105,8 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           val eventToString = extractEvtId(eventID)
           val contextInstancesSubSet = contextPairInput.filter(x => eventToString == x.EvtID)
           val contextFiltByCtxID = contextInstancesSubSet.filter(x => x.CtxID == contextID.nsId())
+          println(s"In the order rectifier part")
+          contextFiltByCtxID.map(s => println(s"Input row has event ID: ${s.EvtID} and context ID: ${s.CtxID}"))
           contextPairInputRectified ++= contextFiltByCtxID
         }
         val zip = pairs zip contextPairInputRectified
@@ -113,7 +115,9 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         }.mapValues{
           v =>
             v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s => {
-            val seqOfInputRowsToPass = s map (_._2)
+              val seqOfInputRowsToPass = s map (_._2)
+              println(s"In the aggregator part")
+              seqOfInputRowsToPass.map(s => println(s"Input row has event ID: ${s.EvtID} and context ID: ${s.CtxID}"))
               printWriter.write(s"The number of input rows that make the current aggregated row: ${seqOfInputRowsToPass.size} \n")
               val featureAggregatorInstance = new ContextFeatureAggregator(seqOfInputRowsToPass, lookUpTable)
               val aggRow = featureAggregatorInstance.aggregateContextFeatures()
