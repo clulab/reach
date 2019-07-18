@@ -151,8 +151,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 val valueMin = aggregatedFeature.featureGroups(indexMin)
                 val valueMax = aggregatedFeature.featureGroups(indexMax)
                 val valueAvg = aggregatedFeature.featureGroups(indexAvg)
-                println(s"For the pair (${k.toString},${ctxId._2}), the aggregated row has the following feature values")
-                println(s"dependencyDistance_min: ${valueMin}, dependencyDistance_max: ${valueMax}, dependencyDistance_avg: ${valueAvg}")
+
                 // It may be that we may need the aggregated instances for further analyses, like testing or cross-validation.
                 // Should such a need arise, you can write the aggregated instances to file by uncommenting the following line
                 // ContextFeatureUtils.writeAggRowToFile(aggregatedFeature, k.toString, ctxId._2, whereToWriteFeatureValue, whereToWriteRow)
@@ -178,7 +177,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           map.toMap
         }
 
-        ContextFeatureUtils.writeAggrRowsToFile(aggRowsForFileIO.toArray, whereToWriteFeatureValue, whereToWriteRow)
+        //ContextFeatureUtils.writeAggrRowsToFile(aggRowsForFileIO.toArray, whereToWriteFeatureValue, whereToWriteRow)
 
        /* val crossValInstance = new CrossValBySentDist(aggRowsForFileIO)
         crossValInstance.performCrossVal()*/
