@@ -104,7 +104,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         for((eventID, contextID) <- pairs) {
           val miniList = collection.mutable.ListBuffer[(Pair, ContextPairInstance)]()
           val contextInstancesSubSet = contextPairInput.filter(x => extractEvtId(eventID) == x.EvtID)
-          val contextFiltByCtxID = contextInstancesSubSet.filter(x => x.CtxID == ContextEngine.getContextKey(contextID))
+          val contextFiltByCtxID = contextInstancesSubSet.filter(x => x.CtxID == contextID.nsId())
           for(i <- 0 to contextFiltByCtxID.size) {
             val currentPair = (eventID,contextID)
             val tupRow = contextFiltByCtxID(i)
