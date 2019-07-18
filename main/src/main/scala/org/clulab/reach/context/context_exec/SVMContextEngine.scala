@@ -100,6 +100,16 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           countInputRowsfile.createNewFile()
         }
         val printWriter = new PrintWriter(countInputRowsfile)
+        val contextPairInputRectified = collection.mutable.ListBuffer[ContextPairInstance]()
+        for((eventID, contextID) <- pairs) {
+          val eventToString = extractEvtId(eventID)
+          val contextInstancesSubSet = contextPairInput.filter(x => eventToString == x.EvtID)
+          println(s"Each of the input rows should have the event ID: ${extractEvtId(eventID)} and context ID: ${contextID.nsId()}")
+          val contextFiltByCtxID = contextInstancesSubSet.filter(x => x.CtxID == contextID.nsId())
+          contextFiltByCtxID.map(x => {
+            println(s"The current input row (after rectification has event ID: ${x.EvtID} and context ID: ${x.CtxID}")
+          })
+        }
         val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedContextInstance)]] =
           (pairs zip contextPairInput).groupBy{
             case (pair, _) => extractEvtId(pair._1) // Group by their EventMention
@@ -107,9 +117,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             v =>
               v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s =>  {
                 val seqOfInputRowsToPass = s map (_._2)
-                seqOfInputRowsToPass.map(x => {
-                  println(s"The current input row's event ID is ${x.EvtID} and context ID is ${x.CtxID}")
-                })
                 printWriter.write(s"The number of input rows that make the current aggregated row: ${seqOfInputRowsToPass.size} \n")
                 val featureAggregatorInstance = new ContextFeatureAggregator(seqOfInputRowsToPass, lookUpTable)
                 val aggRow = featureAggregatorInstance.aggregateContextFeatures()
