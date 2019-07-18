@@ -104,13 +104,22 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         for((eventID, contextID) <- pairs) {
           val eventToString = extractEvtId(eventID)
           val contextInstancesSubSet = contextPairInput.filter(x => eventToString == x.EvtID)
-          println(s"Each of the input rows should have the event ID: ${extractEvtId(eventID)} and context ID: ${contextID.nsId()}")
           val contextFiltByCtxID = contextInstancesSubSet.filter(x => x.CtxID == contextID.nsId())
-          contextFiltByCtxID.map(x => {
-            println(s"The current input row (after rectification has event ID: ${x.EvtID} and context ID: ${x.CtxID}")
-          })
+          contextPairInputRectified ++= contextFiltByCtxID
         }
-        val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedContextInstance)]] =
+        val zip = pairs zip contextPairInputRectified
+        val aggregatedFeatures = zip.groupBy{
+          case (pair, _) => extractEvtId(pair._1)
+        }.mapValues{
+          v =>
+            v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s => {
+            val seqOfInputRowsToPass = s map (_._2)
+              printWriter.write(s"The number of input rows that make the current aggregated row: ${seqOfInputRowsToPass.size} \n")
+              val featureAggregatorInstance = new ContextFeatureAggregator(seqOfInputRowsToPass, lookUpTable)
+              val aggRow = featureAggregatorInstance.aggregateContextFeatures()
+              aggRow}).toSeq
+        }
+        /*val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedContextInstance)]] =
           (pairs zip contextPairInput).groupBy{
             case (pair, _) => extractEvtId(pair._1) // Group by their EventMention
           }.mapValues{
@@ -121,7 +130,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 val featureAggregatorInstance = new ContextFeatureAggregator(seqOfInputRowsToPass, lookUpTable)
                 val aggRow = featureAggregatorInstance.aggregateContextFeatures()
               aggRow}).toSeq
-          }
+          }*/
 
         // adding the aggregated rows to a list so that I can pass it to the Cross Validator.
         // Please note that this call to the cross validator is to the class CrossValBySentDist.
