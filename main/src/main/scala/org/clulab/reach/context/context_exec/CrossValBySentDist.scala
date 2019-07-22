@@ -29,7 +29,7 @@ object CrossValBySentDist extends App {
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val allRowsBySentDist = collection.mutable.HashMap[Int, Seq[AggregatedContextInstance]]()
   val keysForLabels = collection.mutable.HashMap[AggregatedContextInstance, (String, String, String)]()
-  val filterForFasterRun = List("0", "1", "2","3", "4", "5", "6")
+  val filterForFasterRun = List("0", "1", "2","3", "4", "5", "6", "7")
   val smallNumOfDirs = allSentDirs.filter(x => filterForFasterRun.contains(x.getName))
   for(d<- smallNumOfDirs) {
     val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
