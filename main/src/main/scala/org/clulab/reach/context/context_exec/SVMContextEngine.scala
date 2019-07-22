@@ -134,7 +134,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         //val whereToWriteFeatureValue = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsFeatValsToFile.txt")
         //val whereToWriteRow = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsToFile.txt")
         val typeOfPaper = config.getString("polarityContext.typeOfPaper")
-        val dirForTypeBySentWind = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper).concat("/sentenceWindows")
+        val dirForTypeBySentWind = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
         val predictions:Map[EventID, Seq[(ContextID, Boolean)]] = {
           val map = collection.mutable.HashMap[EventID, Seq[(ContextID, Boolean)]]()
           for((k,a) <- aggregatedFeatures) {
