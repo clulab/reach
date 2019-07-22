@@ -149,6 +149,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
                 // It may be that we may need the aggregated instances for further analyses, like testing or cross-validation.
                 // Should such a need arise, you can write the aggregated instances to file by uncommenting the following line
+                // there are multiple signatures to this function, please refer to the definition of ContextFeatureUtils for more details
                  ContextFeatureUtils.writeAggRowToFile(aggregatedFeature, k.toString, ctxId._2,sentWind, dirForTypeBySentWind)
                 // Please note that this function writes aggregated rows for each (eventID, contextID) pair. Therefore, you may have a large number of files written to your directory.
                 val tupToAddForFileIO = ((k.toString, ctxId._2), aggregatedFeature)
