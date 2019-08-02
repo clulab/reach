@@ -65,6 +65,11 @@ object Polarity2 extends App{
 
   }
 
+  for((paperID, contextLabels) <- paperByContextLabelsMap) {
+    val str = contextLabels.mkString(",")
+    println(s"The paper ${paperID} has the context labels ${str}")
+  }
+
 
 
   def checkAddingCondition(sentence: String):Boolean = {
