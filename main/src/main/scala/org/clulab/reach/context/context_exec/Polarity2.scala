@@ -18,6 +18,7 @@ object Polarity2 extends App{
     contextParams = contextEngineParams)
   val fileListUnfiltered = new File(papersDir)
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
+  val egfDiffEvents = collection.mutable.ListBuffer[BioEventMention]()
   for(file <- fileList) {
     val nxmlDoc = nxmlReader.read(file)
     val document = reachSystem.mkDoc(nxmlDoc)
@@ -27,6 +28,37 @@ object Polarity2 extends App{
       val sentenceID = ev.sentence
       val sentenceContents = ev.document.sentences(sentenceID).words.mkString(" ")
       println(sentenceContents)
+      if (checkAddingCondition(sentenceContents))
+        egfDiffEvents += ev
     }
   }
+
+  val egfDiffEventsWithContext = egfDiffEvents.filter(_.hasContext())
+  println(egfDiffEventsWithContext.size)
+
+  val activationContextLabels = collection.mutable.ListBuffer[String]()
+  for(e <- egfDiffEventsWithContext) {
+
+    val contextLabels = e.context match {
+      case Some(x) => x
+      case None => Map.empty
+    }
+  }
+
+
+  def checkAddingCondition(sentence: String):Boolean = {
+    checkEGFcase(sentence) && checkDifferentCase(sentence)
+  }
+
+  def checkEGFcase(sentence:String):Boolean = {
+    sentence.contains("EGF") || sentence.contains("egf") || sentence.contains("Epidermal Growth Factor") || sentence.contains("Epidermal growth factor") || sentence.contains("epidermal growth factor")
+  }
+
+  def checkDifferentCase(sentence:String):Boolean = {
+    sentence.contains("differentiation") || sentence.contains("Differentiation") || sentence.contains("cell differentiation") || sentence.contains("Cell differentiation") || sentence.contains("cell-differentiation")
+  }
+
+
+
+
 }
