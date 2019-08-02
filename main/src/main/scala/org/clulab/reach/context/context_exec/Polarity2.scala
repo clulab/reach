@@ -27,9 +27,12 @@ object Polarity2 extends App{
     for(ev <- evtMentionsOnly) {
       val sentenceID = ev.sentence
       val sentenceContents = ev.document.sentences(sentenceID).words.mkString(" ")
-      println(sentenceContents)
-      if (checkAddingCondition(sentenceContents))
-        egfDiffEvents += ev
+      val tokenInterval = ev.tokenInterval
+      val subsentence = ev.document.sentences(sentenceID).words.slice(tokenInterval.start,tokenInterval.end+1).mkString(" ")
+      if (checkAddingCondition(subsentence))
+        {egfDiffEvents += ev
+        println(sentenceContents)
+        println(subsentence)}
     }
   }
 
@@ -37,13 +40,31 @@ object Polarity2 extends App{
   println(egfDiffEventsWithContext.size)
 
   val activationContextLabels = collection.mutable.ListBuffer[String]()
+  val inhibitionContextLabels = collection.mutable.ListBuffer[String]()
+  val paperByContextLabelsMap = collection.mutable.HashMap[String, Array[String]]()
   for(e <- egfDiffEventsWithContext) {
 
     val contextLabels = e.context match {
       case Some(x) => x
       case None => Map.empty
     }
+
+    val contextLabelsInTheCurrentEvent = collection.mutable.ListBuffer[String]()
+      contextLabels.map(x => {
+        contextLabelsInTheCurrentEvent ++= x._2})
+
+    if(e.label.contains("Positive")) activationContextLabels ++= contextLabelsInTheCurrentEvent
+    else if(e.label.contains("Negative")) inhibitionContextLabels ++= contextLabelsInTheCurrentEvent
+    val docID = e.document.id match {
+      case Some(s) => s"PMC${s.split("_")(0)}"
+      case None => "Unknown"
+    }
+
+    val entry = Map(docID -> contextLabelsInTheCurrentEvent.toArray)
+    paperByContextLabelsMap ++= entry
+
   }
+
 
 
   def checkAddingCondition(sentence: String):Boolean = {
