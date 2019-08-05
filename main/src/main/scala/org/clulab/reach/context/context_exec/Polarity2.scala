@@ -1,5 +1,6 @@
 package org.clulab.reach.context.context_exec
-import java.io.{File, PrintWriter}
+import java.io.{File, FileOutputStream, ObjectOutputStream, PrintWriter}
+
 import ai.lum.nxmlreader.NxmlReader
 import com.typesafe.config.ConfigFactory
 import org.clulab.odin.EventMention
@@ -40,8 +41,8 @@ object Polarity2 extends App{
   val activationContextLabels = collection.mutable.ListBuffer[String]()
   val inhibitionContextLabels = collection.mutable.ListBuffer[String]()
   val paperByContextLabelsMap = collection.mutable.HashMap[String, Array[String]]()
+  val eventsByPaperIDMap = collection.mutable.HashMap[String, collection.mutable.ListBuffer[BioEventMention]]()
   for(e <- egfDiffEventsWithContext) {
-
     val contextLabels = e.context match {
       case Some(x) => x
       case None => Map.empty
@@ -60,9 +61,34 @@ object Polarity2 extends App{
 
     val entry = Map(docID -> contextLabelsInTheCurrentEvent.toArray)
     paperByContextLabelsMap ++= entry
+    if(eventsByPaperIDMap.contains(docID)) {
+      var existingEvents = eventsByPaperIDMap(docID)
+      existingEvents += e
+    }
+    else {
+      val eventsInThisPaper = collection.mutable.ListBuffer[BioEventMention]()
+      eventsInThisPaper += e
+      eventsByPaperIDMap ++= Map(docID -> eventsInThisPaper)
+    }
 
   }
 
+  for((paperID,eventsPerPaper) <- eventsByPaperIDMap) {
+    val perPaperDir = dirForOutput.concat(paperID)
+    val outputPaperDir = new File(perPaperDir)
+    if(!outputPaperDir.exists()) {
+      outputPaperDir.mkdirs()
+    }
+    val eventsPath = perPaperDir.concat("/ArrayOfEvtsByPaper.txt")
+    val eventsFile = new File(eventsPath)
+    if (!eventsFile.exists()) {
+      eventsFile.createNewFile()
+    }
+
+    val outputStream = new ObjectOutputStream(new FileOutputStream(eventsPath))
+    outputStream.writeObject(eventsPerPaper.toArray)
+    outputStream.close()
+  }
   for((paperID, contextLabels) <- paperByContextLabelsMap) {
     val perPaperDir = dirForOutput.concat(paperID)
     val outputPaperDir = new File(perPaperDir)
@@ -84,6 +110,23 @@ object Polarity2 extends App{
     println(s"The paper ${paperID} has the context labels ${str}")
   }
 
+  val pathForActivationLabels = dirForOutput.concat("activationContextLabels.txt")
+  val activationLabelsFile = new File(pathForActivationLabels)
+  val pathForInhibitionLabels = dirForOutput.concat("inhibitionContextLabels.txt")
+  val inhibitionLabelsFile = new File(pathForInhibitionLabels)
+  if (!activationLabelsFile.exists()) {
+    activationLabelsFile.createNewFile()
+  }
+  if (!inhibitionLabelsFile.exists()) {
+    inhibitionLabelsFile.createNewFile()
+  }
+
+  val actOs = new ObjectOutputStream(new FileOutputStream(pathForActivationLabels))
+  val inhOs = new ObjectOutputStream(new FileOutputStream(pathForInhibitionLabels))
+  val actLabelsAsArray = activationContextLabels.toArray
+  val inhLabelsAsArray = inhibitionContextLabels.toArray
+  actOs.writeObject(actLabelsAsArray)
+  inhOs.writeObject(inhLabelsAsArray)
 
 
   def checkAddingCondition(sentence: String):Boolean = {
