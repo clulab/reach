@@ -62,6 +62,76 @@ object PerformPolarityAnalysis extends App {
   println(s"There are ${uniqueInhibitionLabelsNoIntersection.size} unique inhibition labels that do not include the intersection. They are: ")
   println(uniqueInhibitionLabelsNoIntersection.mkString(","))
 
+  val frequencyOfContextLabel = collection.mutable.HashMap[String, Int]()
+  val noOfPapersThatUseContextLabel = collection.mutable.HashMap[String,(Int, Array[String])]()
+
+  // CODE TO COUNT NO. OF OCCURRENCES OF A CONTEXT LABEL OVER ALL PAPERS
+  println("EXECUTING CODE TO COUNT NO. OF OCCURRENCES OF A CONTEXT LABEL OVER ALL PAPERS")
+  for(act <- uniqueActivationLabelsNoIntersection) {
+    var freqPerLabel = 0
+    for(nu <- activationLabels) {
+      if(act == nu)
+        freqPerLabel += 1
+    }
+    val mapEntry = Map(act -> freqPerLabel)
+    frequencyOfContextLabel ++= mapEntry
+  }
+
+
+  for(inh <- uniqueInhibitionLabelsNoIntersection) {
+    var freqPerLabel = 0
+    for(nu <- inhibitionLabels) {
+      if(inh == nu)
+        freqPerLabel += 1
+    }
+
+    val mapEntry = Map(inh -> freqPerLabel)
+    frequencyOfContextLabel ++= mapEntry
+  }
+
+
+
+  // CODE TO COUNT NO. OF PAPERS IN WHICH EACH CONTEXT LABEL APPEARS
+  println("EXECUTING CODE TO COUNT NO. OF PAPERS IN WHICH EACH CONTEXT LABEL APPEARS")
+  for(act <- uniqueActivationLabelsNoIntersection) {
+    var paperCount = 0
+    val paperList = collection.mutable.ListBuffer[String]()
+    for((paperID, listOfContextLabels) <- contextMentionsByPaper) {
+      if(listOfContextLabels.contains(act)) {
+        paperCount += 1
+        paperList += paperID
+      }
+    }
+
+    val entry = (paperCount, paperList.toArray)
+    val map = Map(act -> entry)
+    noOfPapersThatUseContextLabel ++= map
+  }
+
+
+  for(inh <- uniqueInhibitionLabelsNoIntersection) {
+    var paperCount = 0
+    val paperList = collection.mutable.ListBuffer[String]()
+    for((paperID, listOfContextLabels) <- contextMentionsByPaper) {
+      if(listOfContextLabels.contains(inh)) {
+        paperCount += 1
+        paperList += paperID
+      }
+    }
+    val entry = (paperCount, paperList.toArray)
+    val map = Map(inh -> entry)
+    noOfPapersThatUseContextLabel ++= map
+  }
+
+
+  for((contextLabel, totalFrequency) <- frequencyOfContextLabel) {
+    println(s"The context label ${contextLabel} appears totally ${totalFrequency} times")
+    val paperFrequency = noOfPapersThatUseContextLabel(contextLabel)
+    println(s"Total number of papers: ${contextMentionsByPaper.size}")
+    println(s"The total number of occurrences is distributed over ${paperFrequency._1} papers: ${paperFrequency._2.mkString(",")}")
+  }
+
+
 
 
 }
