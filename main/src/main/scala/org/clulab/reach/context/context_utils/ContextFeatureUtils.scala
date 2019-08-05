@@ -18,12 +18,7 @@ object ContextFeatureUtils {
   // :output :- map of ContextPairInstance -> (feature_name -> feature_value)
   def getFeatValMapPerInput(filteredPairs: Set[Pair], ctxMentions: Seq[BioTextBoundMention]):Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])] = {
     println(s"The current paper uses ${filteredPairs.size} event-context pairs")
-    val labelFileDir = config.getString("polarityContext.attemptDir")
-    val outputPaperDir = new File(labelFileDir)
-    if(!outputPaperDir.exists()) {
-      outputPaperDir.mkdirs()
-    }
-    val labelFilePath = labelFileDir.concat("/contextLabelsWrittenToFile.txt")
+    val labelFilePath = config.getString("polarityContext.labelsWrittenToFile")
     val labelFile = new File(labelFilePath)
     if (!labelFile.exists()) {
       labelFile.createNewFile()
