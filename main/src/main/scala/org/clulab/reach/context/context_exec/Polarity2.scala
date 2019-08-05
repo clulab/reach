@@ -100,12 +100,9 @@ object Polarity2 extends App{
     if (!contextFile.exists()) {
       contextFile.createNewFile()
     }
-    val printWriter = new PrintWriter(contextFile)
-    for(c <- contextLabels) {
-      printWriter.write(c)
-      printWriter.write("\n")
-    }
-    printWriter.close()
+    val outputStream = new ObjectOutputStream(new FileOutputStream(contextFilePath))
+    outputStream.writeObject(contextLabels)
+    outputStream.close()
     val str = contextLabels.mkString(",")
     println(s"The paper ${paperID} has the context labels ${str}")
   }
