@@ -1,6 +1,6 @@
 package org.clulab.reach.context.context_exec
 
-import java.io.{FileInputStream, ObjectInputStream}
+import java.io.{FileInputStream, ObjectInputStream, File}
 
 import com.typesafe.config.ConfigFactory
 
@@ -19,6 +19,12 @@ object PerformPolarityAnalysis extends App {
 
   println("\n ********** Non-unique inhibition labels *************")
   println(inhibitionLabels.mkString(","))
+
+  val fileInstance = new File(operatingDir)
+  val allPaperDirs = fileInstance.listFiles().filter(_.isDirectory)
+  for(paperDir <- allPaperDirs) {
+    println(paperDir.getName)
+  }
 
 
 }
