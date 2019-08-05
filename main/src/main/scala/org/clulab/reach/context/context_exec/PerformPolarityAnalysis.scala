@@ -1,8 +1,9 @@
 package org.clulab.reach.context.context_exec
 
-import java.io.{FileInputStream, ObjectInputStream, File}
+import java.io.{File, FileInputStream, ObjectInputStream}
 
 import com.typesafe.config.ConfigFactory
+import org.clulab.reach.mentions.BioEventMention
 
 object PerformPolarityAnalysis extends App {
 
@@ -14,6 +15,8 @@ object PerformPolarityAnalysis extends App {
   val inhibitionInputStream = new ObjectInputStream(new FileInputStream(inhibitionLabelsFilePath))
   val activationLabels = activationInputStream.readObject().asInstanceOf[Array[String]]
   val inhibitionLabels = inhibitionInputStream.readObject().asInstanceOf[Array[String]]
+  val eventMentionsByPaper = collection.mutable.HashMap[String, Array[BioEventMention]]()
+  val contextMentionsByPaper = collection.mutable.HashMap[String, Array[String]]()
   println("********** Non-unique activation labels *************")
   println(activationLabels.mkString(","))
 
@@ -23,7 +26,12 @@ object PerformPolarityAnalysis extends App {
   val fileInstance = new File(operatingDir)
   val allPaperDirs = fileInstance.listFiles().filter(_.isDirectory)
   for(paperDir <- allPaperDirs) {
-    println(paperDir.getName)
+    val paperID = paperDir.getName
+    val eventsInputStreamForThisPaper = new ObjectInputStream(new FileInputStream(paperID))
+    val eventsForThisPaper = eventsInputStreamForThisPaper.readObject().asInstanceOf[Array[BioEventMention]]
+    val eventsEntry = Map(paperID -> eventsForThisPaper)
+    eventMentionsByPaper ++= eventsEntry
+    eventsInputStreamForThisPaper.close()
   }
 
 
