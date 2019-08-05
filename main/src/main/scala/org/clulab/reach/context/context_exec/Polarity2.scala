@@ -18,7 +18,7 @@ object Polarity2 extends App{
   val fileListUnfiltered = new File(papersDir)
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
   val egfDiffEvents = collection.mutable.ListBuffer[BioEventMention]()
-  val dirForOutput = config.getString("contextLabelsOutputDir")
+  val dirForOutput = config.getString("polarityContext.contextLabelsOutputDir")
   for(file <- fileList) {
     val nxmlDoc = nxmlReader.read(file)
     val document = reachSystem.mkDoc(nxmlDoc)
