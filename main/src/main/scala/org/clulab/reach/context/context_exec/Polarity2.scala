@@ -1,6 +1,5 @@
 package org.clulab.reach.context.context_exec
-import java.io.File
-
+import java.io.{File, PrintWriter}
 import ai.lum.nxmlreader.NxmlReader
 import com.typesafe.config.ConfigFactory
 import org.clulab.odin.EventMention
@@ -19,6 +18,7 @@ object Polarity2 extends App{
   val fileListUnfiltered = new File(papersDir)
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
   val egfDiffEvents = collection.mutable.ListBuffer[BioEventMention]()
+  val dirForOutput = config.getString("contextLabelsOutputDir")
   for(file <- fileList) {
     val nxmlDoc = nxmlReader.read(file)
     val document = reachSystem.mkDoc(nxmlDoc)
@@ -26,12 +26,10 @@ object Polarity2 extends App{
     val evtMentionsOnly = mentions.collect { case evt: BioEventMention => evt }
     for(ev <- evtMentionsOnly) {
       val sentenceID = ev.sentence
-      val sentenceContents = ev.document.sentences(sentenceID).words.mkString(" ")
       val tokenInterval = ev.tokenInterval
       val subsentence = ev.document.sentences(sentenceID).words.slice(tokenInterval.start,tokenInterval.end+1).mkString(" ")
       if (checkAddingCondition(subsentence))
         {egfDiffEvents += ev
-        println(sentenceContents)
         println(subsentence)}
     }
   }
@@ -66,6 +64,22 @@ object Polarity2 extends App{
   }
 
   for((paperID, contextLabels) <- paperByContextLabelsMap) {
+    val perPaperDir = dirForOutput.concat(paperID)
+    val outputPaperDir = new File(perPaperDir)
+    if(!outputPaperDir.exists()) {
+      outputPaperDir.mkdirs()
+    }
+    val contextFilePath = perPaperDir.concat("/contextLabelsPerPaper.txt")
+    val contextFile = new File(contextFilePath)
+    if (!contextFile.exists()) {
+      contextFile.createNewFile()
+    }
+    val printWriter = new PrintWriter(contextFile)
+    for(c <- contextLabels) {
+      printWriter.write(c)
+      printWriter.write("\n")
+    }
+    printWriter.close()
     val str = contextLabels.mkString(",")
     println(s"The paper ${paperID} has the context labels ${str}")
   }
