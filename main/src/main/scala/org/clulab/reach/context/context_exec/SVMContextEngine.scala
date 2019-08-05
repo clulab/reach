@@ -94,12 +94,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         // We will then have an instance of AggregatedContextInstance, that has 3 times the number of features of the original ContextPairInstance,
         // since each feature has been aggregated to min, max and avg values.
         // The SVM model will then predict on this aggregated instance.
-        val countInputRowsPath = config.getString(("polarityContext.attemptDir")).concat("/CountInputRowsPerAgg.txt")
-        val countInputRowsfile = new File(countInputRowsPath)
-        if (!countInputRowsfile.exists()) {
-          countInputRowsfile.createNewFile()
-        }
-        val printWriter = new PrintWriter(countInputRowsfile)
         val groupingsReadyToAggr = collection.mutable.ListBuffer[(Pair, ContextPairInstance)]()
         for((eventID, contextID) <- pairs) {
           val miniList = collection.mutable.ListBuffer[(Pair, ContextPairInstance)]()
@@ -120,7 +114,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           v =>
             v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s => {
               val seqOfInputRowsToPass = s map (_._2)
-              printWriter.write(s"The number of input rows that make the current aggregated row: ${seqOfInputRowsToPass.size} \n")
               val featureAggregatorInstance = new ContextFeatureAggregator(seqOfInputRowsToPass, lookUpTable)
               val aggRow = featureAggregatorInstance.aggregateContextFeatures()
               aggRow}).toSeq
