@@ -51,6 +51,11 @@ object PerformPolarityAnalysis extends App {
     contextMentionsByPaper ++= contextsEntry
   }
 
+
+  for((paperID, contextMentions) <- contextMentionsByPaper) {
+    println(s"The paper ${paperID} has the following labels: ${contextMentions.mkString(",")}")
+  }
+
   val uniqueActivationLabelsIncudesIntersection = activationLabels.toSet
   val uniqueInhibitionLabelsIncludesIntersection = inhibitionLabels.toSet
   val commonLabels = uniqueActivationLabelsIncudesIntersection.intersect(uniqueInhibitionLabelsIncludesIntersection)
