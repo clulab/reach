@@ -59,12 +59,12 @@ object PerformPolarityAnalysis extends App {
   val uniqueActivationLabelsNoIntersection = uniqueActivationLabelsIncudesIntersection -- commonLabels
   val uniqueInhibitionLabelsNoIntersection = uniqueInhibitionLabelsIncludesIntersection -- commonLabels
 
-  println("**************** PRINTING UNIQUE ACTIVATION LABELS NOT IN THE INTERSECTION ****************")
+  println("\n \n **************** PRINTING UNIQUE ACTIVATION LABELS NOT IN THE INTERSECTION ****************")
   println(s"There are ${uniqueActivationLabelsNoIntersection.size} unique activation labels that do not include the intersection. They are: ")
   println(uniqueActivationLabelsNoIntersection.mkString(","))
 
 
-  println("**************** PRINTING UNIQUE INHIBITION LABELS NOT IN THE INTERSECTION ****************")
+  println("\n \n **************** PRINTING UNIQUE INHIBITION LABELS NOT IN THE INTERSECTION ****************")
   println(s"There are ${uniqueInhibitionLabelsNoIntersection.size} unique inhibition labels that do not include the intersection. They are: ")
   println(uniqueInhibitionLabelsNoIntersection.mkString(","))
 
