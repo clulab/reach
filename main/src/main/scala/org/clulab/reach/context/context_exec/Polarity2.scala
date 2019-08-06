@@ -100,7 +100,7 @@ object Polarity2 extends App{
 
     val printWriter = new PrintWriter(eventsFile)
     val listOfEventIds = eventsPerPaper.map(ex => extractEvtId(ex))
-    val str = listOfEventIds.mkString(",")
+    val str = " ".concat(listOfEventIds.mkString(","))
     printWriter.write(str)
 
 //    val outputStream = new ObjectOutputStream(new FileOutputStream(eventsPath))
@@ -123,7 +123,7 @@ object Polarity2 extends App{
 //    outputStream.writeObject(contextLabels)
 //    outputStream.close()
     val printwriter = new PrintWriter(contextFile)
-    val str = contextLabels.mkString(",")
+    val str = " ".concat(contextLabels.mkString(","))
     printwriter.write(str)
     println(s"The paper ${paperID} has the context labels ${str}")
     printwriter.close()
@@ -143,8 +143,8 @@ object Polarity2 extends App{
   val actPrintWriter = new PrintWriter(activationLabelsFile)
   val inhPrintWriter = new PrintWriter(inhibitionLabelsFile)
 
-  val actString = activationContextLabels.mkString(",")
-  val inhString = inhibitionContextLabels.mkString(",")
+  val actString = " ".concat(activationContextLabels.mkString(","))
+  val inhString = " ".concat(inhibitionContextLabels.mkString(","))
 
   actPrintWriter.write(actString)
   inhPrintWriter.write(inhString)
