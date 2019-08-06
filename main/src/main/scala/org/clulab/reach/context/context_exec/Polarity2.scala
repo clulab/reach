@@ -137,8 +137,8 @@ object Polarity2 extends App{
   val inhString = inhibitionContextLabels.mkString(",")
   println(s"Printing act string: ${actString}")
   println(s"Printing inh string: ${inhString}")
-  actPrintWriter.write(actString)
-  inhPrintWriter.write(inhString)
+  actPrintWriter.append(actString)
+  inhPrintWriter.append(inhString)
 
   actPrintWriter.close()
   inhPrintWriter.close()
