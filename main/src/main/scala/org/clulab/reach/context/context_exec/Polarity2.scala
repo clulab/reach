@@ -40,8 +40,8 @@ object Polarity2 extends App{
 
   val activationContextLabels = collection.mutable.ListBuffer[String]()
   val inhibitionContextLabels = collection.mutable.ListBuffer[String]()
-  val paperByContextLabelsMap = collection.mutable.LinkedHashMap[String, Array[String]]()
-  val eventsByPaperIDMap = collection.mutable.LinkedHashMap[String, collection.mutable.ListBuffer[BioEventMention]]()
+  val paperByContextLabelsMap = collection.mutable.ListBuffer[(String, Array[String])]()
+  val eventsByPaperID = collection.mutable.ListBuffer[(String, collection.mutable.ListBuffer[BioEventMention])]()
   for(e <- egfDiffEventsWithContext) {
     val contextLabels = e.context match {
       case Some(x) => x
@@ -59,21 +59,24 @@ object Polarity2 extends App{
       case None => "Unknown"
     }
 
-    val entry = Map(docID -> contextLabelsInTheCurrentEvent.toArray)
-    paperByContextLabelsMap ++= entry
-    if(eventsByPaperIDMap.contains(docID)) {
-      var existingEvents = eventsByPaperIDMap(docID)
-      existingEvents += e
+    val entry = (docID,contextLabelsInTheCurrentEvent.toArray)
+    paperByContextLabelsMap += entry
+    val releventEntries = eventsByPaperID.filter(_._1 == docID)
+    if (releventEntries.size > 0) {
+      val currentEventList = releventEntries(0)._2
+      currentEventList += e
     }
     else {
-      val eventsInThisPaper = collection.mutable.ListBuffer[BioEventMention]()
-      eventsInThisPaper += e
-      eventsByPaperIDMap ++= Map(docID -> eventsInThisPaper)
+      val listBuf = collection.mutable.ListBuffer[BioEventMention]()
+      listBuf += e
+      val entry = (docID, listBuf)
+      eventsByPaperID += entry
     }
+
 
   }
 
-  for((paperID,eventsPerPaper) <- eventsByPaperIDMap) {
+  for((paperID,eventsPerPaper) <- eventsByPaperID) {
     val perPaperDir = dirForOutput.concat(paperID)
     val outputPaperDir = new File(perPaperDir)
     if(!outputPaperDir.exists()) {
