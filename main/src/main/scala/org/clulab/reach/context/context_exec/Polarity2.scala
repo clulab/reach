@@ -76,22 +76,22 @@ object Polarity2 extends App{
 
   }
 
-  for((paperID,eventsPerPaper) <- eventsByPaperID) {
-    val perPaperDir = dirForOutput.concat(paperID)
-    val outputPaperDir = new File(perPaperDir)
-    if(!outputPaperDir.exists()) {
-      outputPaperDir.mkdirs()
-    }
-    val eventsPath = perPaperDir.concat("/ArrayOfEvtsByPaper.txt")
-    val eventsFile = new File(eventsPath)
-    if (!eventsFile.exists()) {
-      eventsFile.createNewFile()
-    }
-
-    val outputStream = new ObjectOutputStream(new FileOutputStream(eventsPath))
-    outputStream.writeObject(eventsPerPaper.toArray)
-    outputStream.close()
-  }
+//  for((paperID,eventsPerPaper) <- eventsByPaperID) {
+//    val perPaperDir = dirForOutput.concat(paperID)
+//    val outputPaperDir = new File(perPaperDir)
+//    if(!outputPaperDir.exists()) {
+//      outputPaperDir.mkdirs()
+//    }
+//    val eventsPath = perPaperDir.concat("/ArrayOfEvtsByPaper.txt")
+//    val eventsFile = new File(eventsPath)
+//    if (!eventsFile.exists()) {
+//      eventsFile.createNewFile()
+//    }
+//
+//    val outputStream = new ObjectOutputStream(new FileOutputStream(eventsPath))
+//    outputStream.writeObject(eventsPerPaper.toArray)
+//    outputStream.close()
+//  }
   for((paperID, contextLabels) <- paperByContextLabelsMap) {
     val perPaperDir = dirForOutput.concat(paperID)
     val outputPaperDir = new File(perPaperDir)
