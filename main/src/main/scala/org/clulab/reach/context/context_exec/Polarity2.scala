@@ -133,8 +133,8 @@ object Polarity2 extends App{
   val actPrintWriter = new PrintWriter(activationLabelsFile)
   val inhPrintWriter = new PrintWriter(inhibitionLabelsFile)
 
-  val actString = activationContextLabels.mkString(",")
-  val inhString = inhibitionContextLabels.mkString(",")
+  val actString = activationContextLabels.mkString("\n")
+  val inhString = inhibitionContextLabels.mkString("\n")
   println(s"Printing act string: ${actString}")
   println(s"Printing inh string: ${inhString}")
   actPrintWriter.append(actString)
