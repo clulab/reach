@@ -72,7 +72,6 @@ object PerformPolarityAnalysis extends App {
   val noOfPapersThatUseContextLabel = collection.mutable.HashMap[String,(Int, Array[String])]()
 
   // CODE TO COUNT NO. OF OCCURRENCES OF A CONTEXT LABEL OVER ALL PAPERS
-  println("EXECUTING CODE TO COUNT NO. OF OCCURRENCES OF A CONTEXT LABEL OVER ALL PAPERS")
   for(act <- uniqueActivationLabelsNoIntersection) {
     var freqPerLabel = 0
     for(nu <- activationLabels) {
@@ -98,7 +97,7 @@ object PerformPolarityAnalysis extends App {
 
 
   // CODE TO COUNT NO. OF PAPERS IN WHICH EACH CONTEXT LABEL APPEARS
-  println("EXECUTING CODE TO COUNT NO. OF PAPERS IN WHICH EACH CONTEXT LABEL APPEARS")
+
   for(act <- uniqueActivationLabelsNoIntersection) {
     var paperCount = 0
     val paperList = collection.mutable.ListBuffer[String]()
