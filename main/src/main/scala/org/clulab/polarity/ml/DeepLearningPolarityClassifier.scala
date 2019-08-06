@@ -146,32 +146,15 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     var predictions = Seq[Polarity]()
     for (event<-events) {
       predictions = predictions:+predict(event)
-
-//      val lemmas = event.lemmas.get
-//      val rule = event.label
-//      var rulePolarity = 0
-//      if (rule.startsWith("Neg")){
-//        rulePolarity=0
-//      }else{
-//        rulePolarity=1
-//      }
-//      ComputationGraph.renew()
-//
-//      val y_pred = runInstance(lemmas, rulePolarity)
-//      if (y_pred.value().toFloat>0.5){
-//        predictions = predictions:+PositivePolarity
-//      }
-//      else{
-//        predictions = predictions:+NegativePolarity
-//      }
-      
     }
     predictions
   }
 
   override def predict(event: BioEventMention): Polarity = {
+    println("==========================================")
+
     //var lemmas = event.lemmas.get.toArray
-    var lemmas = event.sentenceObj.lemmas.get.clone()
+    var lemmas = event.sentenceObj.words.clone()
     val rule = event.label
     var rulePolarity = 0
     if (rule.startsWith("Neg")){
@@ -233,11 +216,10 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
     val y_pred = runInstance(lemmas.slice(start, end), rulePolarity)
 
-//    println("==========================================")
-//    println(lemmas.toList)
-//    println(lemmas.slice(start, end).toList)
-//    println(y_pred.value().toFloat())
-//    scala.io.StdIn.readLine()
+    println(lemmas.toList)
+    println(lemmas.slice(start, end).toList)
+    println(y_pred.value().toFloat())
+    scala.io.StdIn.readLine()
 
     if (y_pred.value().toFloat>0.5){
       PositivePolarity
@@ -568,27 +550,20 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     val event_start = event.start
     val event_end = event.end
 
-    var controller_nmod = controller_start
-    var controlled_nmod = controlled_start
-    if (event.paths.nonEmpty){
-      for (path_list<-event.paths("controller").values){
-        for (path <- path_list){
-          if (path._3=="nmod_of"){
-            controller_nmod = path._1
-          }
-        }
-      }
+    var event_start_new = event_start
+    var event_end_new = event_end
 
-      for (path_list<-event.paths("controlled").values){
-        for (path <- path_list){
-          if (path._3=="nmod_of"){
-            controlled_nmod = path._1
-          }
-        }
+    val dependencyTreeObj = event.document.sentences(0).dependencies.get.allEdges
+
+    println(dependencyTreeObj)
+
+    for (edge <- dependencyTreeObj){
+      val potentialBound = Seq(edge._1, edge._2)
+      if (potentialBound.contains(controller_start)|| potentialBound.contains(controlled_start)){
+        event_start_new = math.min(potentialBound.min, event_start_new)
+        event_end_new = math.max(potentialBound.max, event_end_new)
       }
     }
-    val event_start_new = List(event_start, controller_nmod, controlled_nmod).min
-    val event_end_new = List(event_end, controller_nmod, controlled_nmod).max
     (event_start_new, event_end_new)
   }
 }
