@@ -24,11 +24,11 @@ object PerformPolarityAnalysis extends App {
   val contextMentionsByPaper = collection.mutable.HashMap[String, Array[String]]()
   println("********** Non-unique activation labels *************")
   println(s"There are a total ${activationLabels.size} non-unique activation context labels")
-  println(activationLabels.mkString(","))
+  activationLabels.map(println)
 
   println("\n ********** Non-unique inhibition labels *************")
   println(s"There are a total ${inhibitionLabels.size} non-unique inhibition context labels")
-  println(inhibitionLabels.mkString(","))
+  inhibitionLabels.map(println)
 
   val fileInstance = new File(operatingDir)
   val allPaperDirs = fileInstance.listFiles().filter(_.isDirectory)
