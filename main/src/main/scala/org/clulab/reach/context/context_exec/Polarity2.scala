@@ -10,7 +10,7 @@ import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
 object Polarity2 extends App{
   val config = ConfigFactory.load()
-  val papersDir = config.getString("papersDir")
+  val papersDir = config.getString("polarityContext.temporaryRun")
   val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
   val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
   lazy val reachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
