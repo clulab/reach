@@ -11,17 +11,11 @@ object PerformPolarityAnalysis extends App {
   val operatingDir = config.getString("polarityContext.contextLabelsOutputDir")
   val activationLabelsFilePath = operatingDir.concat("activationContextLabels.txt")
   val inhibitionLabelsFilePath = operatingDir.concat("inhibitionContextLabels.txt")
-//  val activationInputStream = new ObjectInputStream(new FileInputStream(activationLabelsFilePath))
-//  val inhibitionInputStream = new ObjectInputStream(new FileInputStream(inhibitionLabelsFilePath))
-//  val activationLabels = activationInputStream.readObject().asInstanceOf[Array[String]]
-//  val inhibitionLabels = inhibitionInputStream.readObject().asInstanceOf[Array[String]]
 
-  var activationLine = ""
-  for(x <- scala.io.Source.fromFile(activationLabelsFilePath).getLines())
-    activationLine = x
-  var inhibitionLine = ""
-  for(x <- scala.io.Source.fromFile(inhibitionLabelsFilePath).getLines())
-    inhibitionLine = x
+  val activationLine = scala.io.Source.fromFile(activationLabelsFilePath).getLines().toSeq(0)
+
+  val inhibitionLine = scala.io.Source.fromFile(inhibitionLabelsFilePath).getLines().toSeq(0)
+
   val activationLabels = activationLine.split(",")
   val inhibitionLabels = inhibitionLine.split(",")
   val eventIDsByPaper = collection.mutable.HashMap[String, Array[String]]()
@@ -39,26 +33,17 @@ object PerformPolarityAnalysis extends App {
   for(paperDir <- allPaperDirs) {
     val paperID = paperDir.getName
     val eventsFilePath = paperID.concat("/ArrayOfEvtsByPaper.txt")
-    var eventIDLines = ""
-    for(ex <- scala.io.Source.fromFile(eventsFilePath).getLines()) {
-      eventIDLines = ex
-    }
+    val eventIDLines = scala.io.Source.fromFile(eventsFilePath).getLines().toSeq(0)
+
 
     val eventsEntry = eventIDLines.split(",")
 
-//    val eventsInputStreamForThisPaper = new ObjectInputStream(new FileInputStream(eventsFilePath))
-//    val eventsForThisPaper = eventsInputStreamForThisPaper.readObject().asInstanceOf[Array[BioEventMention]]
-//    val eventsEntry = Map(paperID -> eventsForThisPaper)
     eventIDsByPaper ++= Map(paperID -> eventsEntry)
 
     val contextFilePath = paperID.concat("/contextLabelsPerPaper.txt")
-//    val contextInputStreamForThisPaper = new ObjectInputStream(new FileInputStream(contextFilePath))
-//    val contextsForThisPaper = contextInputStreamForThisPaper.readObject().asInstanceOf[Array[String]]
-//    val contextsEntry = Map(paperID -> contextsForThisPaper)
-    var ctxLines = ""
-    for(ct <- scala.io.Source.fromFile(contextFilePath).getLines()) {
-      ctxLines = ct
-    }
+
+    val ctxLines = scala.io.Source.fromFile(contextFilePath).getLines().toSeq(0)
+
     val contextsForThisPaper = ctxLines.split(",")
     val contextsEntry = Map(paperID -> contextsForThisPaper)
     contextMentionsByPaper ++= contextsEntry
