@@ -553,17 +553,17 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     var event_start_new = event_start
     var event_end_new = event_end
 
-    val dependencyTreeObj = event.document.sentences(0).dependencies.get.allEdges
-
-    println(dependencyTreeObj)
-
-    for (edge <- dependencyTreeObj){
-      val potentialBound = Seq(edge._1, edge._2)
-      if (potentialBound.contains(controller_start)|| potentialBound.contains(controlled_start)){
-        event_start_new = math.min(potentialBound.min, event_start_new)
-        event_end_new = math.max(potentialBound.max, event_end_new)
-      }
-    }
+//    val dependencyTreeObj = event.document.sentences(0).dependencies.get.allEdges
+//
+//    println(dependencyTreeObj)
+//
+//    for (edge <- dependencyTreeObj){
+//      val potentialBound = Seq(edge._1, edge._2)
+//      if (potentialBound.contains(controller_start)|| potentialBound.contains(controlled_start)){
+//        event_start_new = math.min(potentialBound.min, event_start_new)
+//        event_end_new = math.max(potentialBound.max, event_end_new)
+//      }
+//    }
     (event_start_new, event_end_new)
   }
 }
