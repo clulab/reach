@@ -77,7 +77,6 @@ object Polarity2 extends App{
 
   for((paperID,eventsPerPaper) <- eventsByPaperIDMap) {
     val perPaperDir = dirForOutput.concat(paperID)
-    println(perPaperDir)
     val outputPaperDir = new File(perPaperDir)
     if(!outputPaperDir.exists()) {
       outputPaperDir.mkdirs()
@@ -111,7 +110,6 @@ object Polarity2 extends App{
     val printwriter = new PrintWriter(contextFile)
     val str = contextLabels.mkString(",")
     printwriter.write(str)
-    println(s"The paper ${paperID} has the context labels ${str}")
     printwriter.close()
   }
 
@@ -131,7 +129,8 @@ object Polarity2 extends App{
 
   val actString = activationContextLabels.mkString(",")
   val inhString = inhibitionContextLabels.mkString(",")
-
+  println(s"Printing act string: ${actString}")
+  println(s"Printing inh string: ${inhString}")
   actPrintWriter.write(actString)
   inhPrintWriter.write(inhString)
 
