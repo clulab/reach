@@ -54,7 +54,7 @@ object PerformPolarityAnalysis extends App {
   val uniqueActivationLabelsIncudesIntersection = activationLabels.toSet
   val uniqueInhibitionLabelsIncludesIntersection = inhibitionLabels.toSet
   val commonLabels = uniqueActivationLabelsIncudesIntersection.intersect(uniqueInhibitionLabelsIncludesIntersection)
-  println(s"********* There are ${commonLabels.size} common context labels that appear in both activation and inhibition set. They are printed below. *********")
+  println(s"\n \n ********* There are ${commonLabels.size} common context labels that appear in both activation and inhibition set. They are printed below. *********")
   println(commonLabels.mkString(","))
   val uniqueActivationLabelsNoIntersection = uniqueActivationLabelsIncudesIntersection -- commonLabels
   val uniqueInhibitionLabelsNoIntersection = uniqueInhibitionLabelsIncludesIntersection -- commonLabels
