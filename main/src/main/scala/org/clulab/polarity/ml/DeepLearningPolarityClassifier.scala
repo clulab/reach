@@ -151,7 +151,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   }
 
   override def predict(event: BioEventMention): Polarity = {
-    //println("==========================================")
+    println("==========================================")
 
     //var lemmas = event.lemmas.get.toArray
     //var lemmas = event.sentenceObj.words.clone()
@@ -217,10 +217,10 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
     val y_pred = runInstance(lemmas.slice(start, end), rulePolarity)
 
-//    println(lemmas.toList)
-//    println(lemmas.slice(start, end).toList)
-//    println(y_pred.value().toFloat())
-//    scala.io.StdIn.readLine()
+    println(lemmas.toList)
+    println(lemmas.slice(start, end).toList)
+    println(y_pred.value().toFloat())
+    //scala.io.StdIn.readLine()
 
     if (y_pred.value().toFloat>0.5){
       PositivePolarity
@@ -554,17 +554,17 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     var event_start_new = event_start
     var event_end_new = event_end
 
-//    val dependencyTreeObj = event.document.sentences(0).dependencies.get.allEdges
-//
-//    println(dependencyTreeObj)
-//
-//    for (edge <- dependencyTreeObj){
-//      val potentialBound = Seq(edge._1, edge._2)
-//      if (potentialBound.contains(controller_start)|| potentialBound.contains(controlled_start)){
-//        event_start_new = math.min(potentialBound.min, event_start_new)
-//        event_end_new = math.max(potentialBound.max, event_end_new)
-//      }
-//    }
+    val dependencyTreeObj = event.document.sentences(0).dependencies.get.allEdges
+
+    println(dependencyTreeObj)
+
+    for (edge <- dependencyTreeObj){
+      val potentialBound = Seq(edge._1, edge._2)
+      if (potentialBound.contains(controller_start)|| potentialBound.contains(controlled_start)){
+        event_start_new = math.min(potentialBound.min, event_start_new)
+        event_end_new = math.max(potentialBound.max, event_end_new)
+      }
+    }
     (event_start_new, event_end_new)
   }
 }
