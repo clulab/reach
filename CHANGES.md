@@ -1,5 +1,6 @@
 #Changes
 =======
++ **1.5.1** - Added verbose text to the index card format.
 + **1.5.1** - Implements variables for grammar rules.
 + **1.5.0** - We now use Universal Dependency syntax for all grammar rules rather than Stanford dependencies.
 + **1.4.1** - Switched default processor to BioNLPProcessor rather than the server. The client/server config remains available.

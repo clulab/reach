@@ -14,7 +14,7 @@ import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
 import IndexCardOutput._
 import com.typesafe.scalalogging.LazyLogging
-import org.clulab.reach.FriesEntry
+import org.clulab.reach.{FriesEntry, display}
 import org.clulab.reach.export.{JsonOutputter, OutputDegrader}
 
 
@@ -468,6 +468,7 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
     ev += mention.text
     f("evidence") = ev
     // TODO: we do not compare against the model; assume everything is new
+    f("verbose_text") = display.cleanVerbose(mention.sentenceObj.getSentenceText)
     f("model_relation") = "extension"
   }
 

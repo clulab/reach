@@ -69,11 +69,10 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
     // HACK we are only going to display textboundmentions as entities
     // but coref uses relationmentions for entities
     // see https://github.com/clulab/reach/blob/master/main/src/main/resources/org/clulab/reach/biogrammar/coref/alias_template.yml
-    val entities = ieSystem.extractEntitiesFrom(doc).collect { case m: BioTextBoundMention => m }
-    val events = ieSystem.extractEventsFrom(doc, entities)
 
-    val mentions = entities ++ events
-
+    val mentions = ieSystem.extractFrom(doc)
+    val entities = mentions.filter(_ matches "Entity")
+    val events = mentions.filter(_ matches("Event"))
     println(s"Done extracting the mentions ... ")
     println(s"They are : ${mentions.map(m => m.text).mkString(",\t")}")
 
