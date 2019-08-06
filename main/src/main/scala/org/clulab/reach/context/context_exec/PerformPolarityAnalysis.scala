@@ -34,7 +34,7 @@ object PerformPolarityAnalysis extends App {
   val allPaperDirs = fileInstance.listFiles().filter(_.isDirectory)
   for(paperDir <- allPaperDirs) {
     val paperID = paperDir.getName
-    val eventsFilePathPerPaper = paperID.concat("/ArrayOfEvtsByPaper.txt")
+    val eventsFilePathPerPaper = operatingDir.concat(paperID.concat("/ArrayOfEvtsByPaper.txt"))
     val eventIDLines = scala.io.Source.fromFile(eventsFilePathPerPaper).getLines().toSeq(0)
 
 
@@ -42,7 +42,7 @@ object PerformPolarityAnalysis extends App {
 
     eventIDsByPaper ++= Map(paperID -> eventsEntry)
 
-    val contextFilePathPerPaper = paperID.concat("/contextLabelsPerPaper.txt")
+    val contextFilePathPerPaper = operatingDir.concat(paperID.concat("/contextLabelsPerPaper.txt"))
 
     val ctxLines = scala.io.Source.fromFile(contextFilePathPerPaper).getLines().toSeq(0)
 
