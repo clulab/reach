@@ -61,17 +61,6 @@ object Polarity2 extends App{
 
     val entry = Map(docID -> contextLabelsInTheCurrentEvent.toArray)
     paperByContextLabelsMap ++= entry
-//    val releventEntries = eventsByPaperID.filter(_._1 == docID)
-//    if (releventEntries.size > 0) {
-//      val currentEventList = releventEntries(0)._2
-//      currentEventList += e
-//    }
-//    else {
-//      val listBuf = collection.mutable.ListBuffer[BioEventMention]()
-//      listBuf += e
-//      val entry = (docID, listBuf)
-//      eventsByPaperID += entry
-//    }
 
     if(eventsByPaperIDMap.contains(docID)) {
       val currentList = eventsByPaperIDMap(docID)
@@ -88,6 +77,7 @@ object Polarity2 extends App{
 
   for((paperID,eventsPerPaper) <- eventsByPaperIDMap) {
     val perPaperDir = dirForOutput.concat(paperID)
+    println(perPaperDir)
     val outputPaperDir = new File(perPaperDir)
     if(!outputPaperDir.exists()) {
       outputPaperDir.mkdirs()
@@ -103,9 +93,7 @@ object Polarity2 extends App{
     val str = "".concat(listOfEventIds.mkString(","))
     printWriter.write(str)
 
-//    val outputStream = new ObjectOutputStream(new FileOutputStream(eventsPath))
-//    outputStream.writeObject(eventsPerPaper.toArray)
-//    outputStream.close()
+
     printWriter.close()
   }
   for((paperID, contextLabels) <- paperByContextLabelsMap) {
@@ -119,9 +107,7 @@ object Polarity2 extends App{
     if (!contextFile.exists()) {
       contextFile.createNewFile()
     }
-//    val outputStream = new ObjectOutputStream(new FileOutputStream(contextFilePath))
-//    outputStream.writeObject(contextLabels)
-//    outputStream.close()
+
     val printwriter = new PrintWriter(contextFile)
     val str = "".concat(contextLabels.mkString(","))
     printwriter.write(str)
@@ -151,14 +137,6 @@ object Polarity2 extends App{
 
   actPrintWriter.close()
   inhPrintWriter.close()
-
-//  val actOs = new ObjectOutputStream(new FileOutputStream(pathForActivationLabels))
-//  val inhOs = new ObjectOutputStream(new FileOutputStream(pathForInhibitionLabels))
-//  val actLabelsAsArray = activationContextLabels.toArray
-//  val inhLabelsAsArray = inhibitionContextLabels.toArray
-//  actOs.writeObject(actLabelsAsArray)
-//  inhOs.writeObject(inhLabelsAsArray)
-
 
   def checkAddingCondition(sentence: String):Boolean = {
     checkEGFcase(sentence) && checkDifferentCase(sentence)
