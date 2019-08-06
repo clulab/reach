@@ -7,7 +7,7 @@ import org.clulab.odin.EventMention
 import org.clulab.reach.PaperReader.{contextEngineParams, ignoreSections, preproc, procAnnotator}
 import org.clulab.reach.ReachSystem
 import org.clulab.reach.context.ContextEngineFactory.Engine
-import org.clulab.reach.mentions.BioEventMention
+import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
 object Polarity2 extends App{
   val config = ConfigFactory.load()
   val papersDir = config.getString("papersDir")
@@ -40,8 +40,8 @@ object Polarity2 extends App{
 
   val activationContextLabels = collection.mutable.ListBuffer[String]()
   val inhibitionContextLabels = collection.mutable.ListBuffer[String]()
-  val paperByContextLabelsMap = collection.mutable.ListBuffer[(String, Array[String])]()
-  val eventsByPaperID = collection.mutable.ListBuffer[(String, collection.mutable.ListBuffer[BioEventMention])]()
+  val paperByContextLabelsMap = collection.mutable.HashMap[String, Array[String]]()
+  val eventsByPaperIDMap = collection.mutable.HashMap[String, collection.mutable.ListBuffer[BioEventMention]]()
   for(e <- egfDiffEventsWithContext) {
     val contextLabels = e.context match {
       case Some(x) => x
@@ -59,39 +59,55 @@ object Polarity2 extends App{
       case None => "Unknown"
     }
 
-    val entry = (docID,contextLabelsInTheCurrentEvent.toArray)
-    paperByContextLabelsMap += entry
-    val releventEntries = eventsByPaperID.filter(_._1 == docID)
-    if (releventEntries.size > 0) {
-      val currentEventList = releventEntries(0)._2
-      currentEventList += e
+    val entry = Map(docID -> contextLabelsInTheCurrentEvent.toArray)
+    paperByContextLabelsMap ++= entry
+//    val releventEntries = eventsByPaperID.filter(_._1 == docID)
+//    if (releventEntries.size > 0) {
+//      val currentEventList = releventEntries(0)._2
+//      currentEventList += e
+//    }
+//    else {
+//      val listBuf = collection.mutable.ListBuffer[BioEventMention]()
+//      listBuf += e
+//      val entry = (docID, listBuf)
+//      eventsByPaperID += entry
+//    }
+
+    if(eventsByPaperIDMap.contains(docID)) {
+      val currentList = eventsByPaperIDMap(docID)
+      currentList += e
     }
     else {
-      val listBuf = collection.mutable.ListBuffer[BioEventMention]()
-      listBuf += e
-      val entry = (docID, listBuf)
-      eventsByPaperID += entry
+      val newList = collection.mutable.ListBuffer[BioEventMention]()
+      newList += e
+      eventsByPaperIDMap ++= Map(docID -> newList)
     }
 
 
   }
 
-//  for((paperID,eventsPerPaper) <- eventsByPaperID) {
-//    val perPaperDir = dirForOutput.concat(paperID)
-//    val outputPaperDir = new File(perPaperDir)
-//    if(!outputPaperDir.exists()) {
-//      outputPaperDir.mkdirs()
-//    }
-//    val eventsPath = perPaperDir.concat("/ArrayOfEvtsByPaper.txt")
-//    val eventsFile = new File(eventsPath)
-//    if (!eventsFile.exists()) {
-//      eventsFile.createNewFile()
-//    }
-//
+  for((paperID,eventsPerPaper) <- eventsByPaperIDMap) {
+    val perPaperDir = dirForOutput.concat(paperID)
+    val outputPaperDir = new File(perPaperDir)
+    if(!outputPaperDir.exists()) {
+      outputPaperDir.mkdirs()
+    }
+    val eventsPath = perPaperDir.concat("/ArrayOfEvtsByPaper.txt")
+    val eventsFile = new File(eventsPath)
+    if (!eventsFile.exists()) {
+      eventsFile.createNewFile()
+    }
+
+    val printWriter = new PrintWriter(eventsFile)
+    val listOfEventIds = eventsPerPaper.map(ex => extractEvtId(ex))
+    val str = listOfEventIds.mkString(",")
+    printWriter.write(str)
+
 //    val outputStream = new ObjectOutputStream(new FileOutputStream(eventsPath))
 //    outputStream.writeObject(eventsPerPaper.toArray)
 //    outputStream.close()
-//  }
+    printWriter.close()
+  }
   for((paperID, contextLabels) <- paperByContextLabelsMap) {
     val perPaperDir = dirForOutput.concat(paperID)
     val outputPaperDir = new File(perPaperDir)
@@ -103,11 +119,14 @@ object Polarity2 extends App{
     if (!contextFile.exists()) {
       contextFile.createNewFile()
     }
-    val outputStream = new ObjectOutputStream(new FileOutputStream(contextFilePath))
-    outputStream.writeObject(contextLabels)
-    outputStream.close()
+//    val outputStream = new ObjectOutputStream(new FileOutputStream(contextFilePath))
+//    outputStream.writeObject(contextLabels)
+//    outputStream.close()
+    val printwriter = new PrintWriter(contextFile)
     val str = contextLabels.mkString(",")
+    printwriter.write(str)
     println(s"The paper ${paperID} has the context labels ${str}")
+    printwriter.close()
   }
 
   val pathForActivationLabels = dirForOutput.concat("activationContextLabels.txt")
@@ -121,12 +140,24 @@ object Polarity2 extends App{
     inhibitionLabelsFile.createNewFile()
   }
 
-  val actOs = new ObjectOutputStream(new FileOutputStream(pathForActivationLabels))
-  val inhOs = new ObjectOutputStream(new FileOutputStream(pathForInhibitionLabels))
-  val actLabelsAsArray = activationContextLabels.toArray
-  val inhLabelsAsArray = inhibitionContextLabels.toArray
-  actOs.writeObject(actLabelsAsArray)
-  inhOs.writeObject(inhLabelsAsArray)
+  val actPrintWriter = new PrintWriter(activationLabelsFile)
+  val inhPrintWriter = new PrintWriter(inhibitionLabelsFile)
+
+  val actString = activationContextLabels.mkString(",")
+  val inhString = inhibitionContextLabels.mkString(",")
+
+  actPrintWriter.write(actString)
+  inhPrintWriter.write(inhString)
+
+  actPrintWriter.close()
+  inhPrintWriter.close()
+
+//  val actOs = new ObjectOutputStream(new FileOutputStream(pathForActivationLabels))
+//  val inhOs = new ObjectOutputStream(new FileOutputStream(pathForInhibitionLabels))
+//  val actLabelsAsArray = activationContextLabels.toArray
+//  val inhLabelsAsArray = inhibitionContextLabels.toArray
+//  actOs.writeObject(actLabelsAsArray)
+//  inhOs.writeObject(inhLabelsAsArray)
 
 
   def checkAddingCondition(sentence: String):Boolean = {
@@ -141,7 +172,15 @@ object Polarity2 extends App{
     sentence.contains("differentiation") || sentence.contains("Differentiation") || sentence.contains("cell differentiation") || sentence.contains("Cell differentiation") || sentence.contains("cell-differentiation")
   }
 
-
+  type Pair = (BioEventMention, BioTextBoundMention)
+  type EventID = String
+  type ContextID = (String, String)
+  def extractEvtId(evt:BioEventMention):EventID = {
+    val sentIndex = evt.sentence
+    val tokenIntervalStart = (evt.tokenInterval.start).toString()
+    val tokenIntervalEnd = (evt.tokenInterval.end).toString()
+    sentIndex+tokenIntervalStart+tokenIntervalEnd
+  }
 
 
 }
