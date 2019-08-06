@@ -36,7 +36,7 @@ object Polarity2 extends App{
   }
 
   val egfDiffEventsWithContext = egfDiffEvents.filter(_.hasContext())
-  println(egfDiffEventsWithContext.size)
+  println(s"Number of events with associated context: ${egfDiffEventsWithContext.size}")
 
   val activationContextLabels = collection.mutable.ListBuffer[String]()
   val inhibitionContextLabels = collection.mutable.ListBuffer[String]()
