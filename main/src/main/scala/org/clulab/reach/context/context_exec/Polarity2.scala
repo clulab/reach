@@ -20,6 +20,7 @@ object Polarity2 extends App{
   val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
   val egfDiffEvents = collection.mutable.ListBuffer[BioEventMention]()
   val dirForOutput = config.getString("polarityContext.contextLabelsOutputDir")
+  var papersDone = 0
   for(file <- fileList) {
     val nxmlDoc = nxmlReader.read(file)
     val document = reachSystem.mkDoc(nxmlDoc)
@@ -33,6 +34,8 @@ object Polarity2 extends App{
         {egfDiffEvents += ev
         println(subsentence)}
     }
+    papersDone += 1
+    println(s"Papers done: ${papersDone}")
   }
 
   val egfDiffEventsWithContext = egfDiffEvents.filter(_.hasContext())
@@ -51,7 +54,7 @@ object Polarity2 extends App{
     val contextLabelsInTheCurrentEvent = collection.mutable.ListBuffer[String]()
       contextLabels.map(x => {
         contextLabelsInTheCurrentEvent ++= x._2})
-
+    println(s"The label of the current event is: ${e.label}")
     if(e.label.contains("Positive")) activationContextLabels ++= contextLabelsInTheCurrentEvent
     else if(e.label.contains("Negative")) inhibitionContextLabels ++= contextLabelsInTheCurrentEvent
     val docID = e.document.id match {
@@ -74,6 +77,9 @@ object Polarity2 extends App{
 
 
   }
+
+  println(s"The activation label list has ${activationContextLabels.size} elements")
+  println(s"The inhibition label list has ${inhibitionContextLabels.size} elements")
 
   for((paperID,eventsPerPaper) <- eventsByPaperIDMap) {
     val perPaperDir = dirForOutput.concat(paperID)
