@@ -41,7 +41,7 @@ object Polarity2 extends App{
   val activationContextLabels = collection.mutable.ListBuffer[String]()
   val inhibitionContextLabels = collection.mutable.ListBuffer[String]()
   val paperByContextLabelsMap = collection.mutable.HashMap[String, Array[String]]()
-  val eventsByPaperIDMap = collection.mutable.HashMap[String, collection.mutable.ListBuffer[BioEventMention]]()
+  val eventsByPaperIDMap = collection.mutable.LinkedHashMap[String, collection.mutable.ListBuffer[BioEventMention]]()
   for(e <- egfDiffEventsWithContext) {
     val contextLabels = e.context match {
       case Some(x) => x
