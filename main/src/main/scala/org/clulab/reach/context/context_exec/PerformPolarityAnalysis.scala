@@ -56,6 +56,7 @@ object PerformPolarityAnalysis extends App {
 
 
   println("\n ****** Printing non-unique activation labels *********")
+
   println(activationLabelsNonUnique.mkString(","))
 
   println("\n ******* Printing non-unique inhibition labels ********")
@@ -65,6 +66,9 @@ object PerformPolarityAnalysis extends App {
   commonLabels.map(println)
 
 
+
+
+  println(s"\n ************ There are totally ${exclusivelyActivation.size} unique activation labels, and they are:  ************ ")
   for(excAct <- exclusivelyActivation) {
     val noOfOccurrences = frequencyOfAllNonUniqueLabels(excAct)
     println(s"The unique activation label ${excAct} appears totally ${noOfOccurrences} times")
@@ -73,6 +77,8 @@ object PerformPolarityAnalysis extends App {
   }
 
 
+
+  println(s"\n ************ There are totally ${exclusivelyInhibition.size} unique inhibition labels, and they are:  ************ ")
   for(excInh <- exclusivelyInhibition) {
     val noOfOccurrences = frequencyOfAllNonUniqueLabels(excInh)
     println(s"The unique inhibition label ${excInh} appears totally ${noOfOccurrences} times")
