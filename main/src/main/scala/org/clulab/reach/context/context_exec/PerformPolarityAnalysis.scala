@@ -21,7 +21,8 @@ object PerformPolarityAnalysis extends App {
     val contextsFiles = pDir.listFiles().filter(x => x.getName().contains("ContextsForEvent"))
     for(contextsFile <- contextsFiles) {
       val contextFileName = contextsFile.getName()
-      val polarity = contextFileName.split("_")(2)
+      val polarity1 = contextFileName.split("_")(2)
+      val polarity = polarity1.slice(0, polarity1.length - 4)
       val paperID = pDir.getName()
       val fileContents = Source.fromFile(contextsFile).getLines().toSeq
       val labelsTemp = fileContents(0).split(",")
