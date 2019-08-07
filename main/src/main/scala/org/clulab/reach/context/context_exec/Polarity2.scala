@@ -30,7 +30,7 @@ object Polarity2 extends App{
       val sentenceID = ev.sentence
       val tokenInterval = ev.tokenInterval
       val subsentence = ev.document.sentences(sentenceID).words.slice(tokenInterval.start,tokenInterval.end+1).mkString(" ")
-      if (checkAddingCondition(subsentence))
+      if (checkAddingCondition(subsentence, ev))
         {egfDiffEvents += ev
         println(subsentence)}
     }
@@ -143,7 +143,7 @@ object Polarity2 extends App{
   actPrintWriter.close()
   inhPrintWriter.close()
 
-  def checkAddingCondition(sentence: String):Boolean = {
+  def checkAddingCondition(sentence: String, event:BioEventMention):Boolean = {
     checkEGFcase(sentence) && checkDifferentCase(sentence)
   }
 
@@ -153,6 +153,10 @@ object Polarity2 extends App{
 
   def checkDifferentCase(sentence:String):Boolean = {
     sentence.contains("differentiation") || sentence.contains("Differentiation") || sentence.contains("cell differentiation") || sentence.contains("Cell differentiation") || sentence.contains("cell-differentiation")
+  }
+
+  def checkValidPolarity(evt:BioEventMention):Boolean = {
+    evt.label.contains("Positive") || evt.label.contains("Negative")
   }
 
   type Pair = (BioEventMention, BioTextBoundMention)
