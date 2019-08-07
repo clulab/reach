@@ -144,7 +144,7 @@ object Polarity2 extends App{
   inhPrintWriter.close()
 
   def checkAddingCondition(sentence: String, event:BioEventMention):Boolean = {
-    checkEGFcase(sentence) && checkDifferentCase(sentence)
+    checkEGFcase(sentence) && checkDifferentCase(sentence) && checkValidPolarity(event)
   }
 
   def checkEGFcase(sentence:String):Boolean = {
