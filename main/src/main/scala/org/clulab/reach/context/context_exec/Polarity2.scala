@@ -41,107 +41,146 @@ object Polarity2 extends App{
   val egfDiffEventsWithContext = egfDiffEvents.filter(_.hasContext())
   println(s"Number of events with associated context: ${egfDiffEventsWithContext.size}")
 
-  val activationContextLabels = collection.mutable.ListBuffer[String]()
-  val inhibitionContextLabels = collection.mutable.ListBuffer[String]()
-  val paperByContextLabelsMap = collection.mutable.HashMap[String, Array[String]]()
-  val eventsByPaperIDMap = collection.mutable.HashMap[String, collection.mutable.ListBuffer[BioEventMention]]()
   for(e <- egfDiffEventsWithContext) {
-    val contextLabels = e.context match {
+    val docID = e.document.id match {
+      case Some(x) => s"PMC${x.split("_")(0)}"
+      case None => "unknown"
+    }
+
+    val path = dirForOutput.concat(docID)
+    val paperIDDir = new File(path)
+    if(!paperIDDir.exists()) {
+      paperIDDir.mkdirs()
+          }
+
+    var polarity = "unknown"
+    if(e.label.contains("Positive")) polarity = "activation"
+    else if(e.label.contains("Negative")) polarity = "inhibition"
+    val eventFileName = path.concat(s"/ContextsForEvent_${extractEvtId(e)}_${polarity}.txt")
+    val eventFile = new File(eventFileName)
+        if (!eventFile.exists()) {
+          eventFile.createNewFile()
+        }
+    val contextLabels = collection.mutable.ListBuffer[String]()
+    val map = e.context match {
       case Some(x) => x
       case None => Map.empty
     }
 
-    val contextLabelsInTheCurrentEvent = collection.mutable.ListBuffer[String]()
-      contextLabels.map(x => {
-        contextLabelsInTheCurrentEvent ++= x._2})
-    println(s"The label of the current event is: ${e.label}")
-    if(e.label.contains("Positive")) activationContextLabels ++= contextLabelsInTheCurrentEvent
-    else if(e.label.contains("Negative")) inhibitionContextLabels ++= contextLabelsInTheCurrentEvent
-    val docID = e.document.id match {
-      case Some(s) => s"PMC${s.split("_")(0)}"
-      case None => "Unknown"
+    for((_, labelSeq) <- map) {
+      contextLabels ++= labelSeq
     }
 
-    val entry = Map(docID -> contextLabelsInTheCurrentEvent.toArray)
-    paperByContextLabelsMap ++= entry
-
-    if(eventsByPaperIDMap.contains(docID)) {
-      val currentList = eventsByPaperIDMap(docID)
-      currentList += e
-    }
-    else {
-      val newList = collection.mutable.ListBuffer[BioEventMention]()
-      newList += e
-      eventsByPaperIDMap ++= Map(docID -> newList)
-    }
-
+    val stringToWrite = contextLabels.mkString(",")
+    val printWriterPerEvent = new PrintWriter(eventFile)
+    printWriterPerEvent.write(stringToWrite)
+    printWriterPerEvent.close()
 
   }
 
-  println(s"The activation label list has ${activationContextLabels.size} elements")
-  println(s"The inhibition label list has ${inhibitionContextLabels.size} elements")
 
-  for((paperID,eventsPerPaper) <- eventsByPaperIDMap) {
-    val perPaperDir = dirForOutput.concat(paperID)
-    val outputPaperDir = new File(perPaperDir)
-    if(!outputPaperDir.exists()) {
-      outputPaperDir.mkdirs()
-    }
-    val eventsPath = perPaperDir.concat("/ArrayOfEvtsByPaper.txt")
-    val eventsFile = new File(eventsPath)
-    if (!eventsFile.exists()) {
-      eventsFile.createNewFile()
-    }
-
-    val printWriter = new PrintWriter(eventsFile)
-    val listOfEventIds = eventsPerPaper.map(ex => extractEvtId(ex))
-    val str = listOfEventIds.mkString(",")
-    printWriter.write(str)
-
-
-    printWriter.close()
-  }
-  for((paperID, contextLabels) <- paperByContextLabelsMap) {
-    val perPaperDir = dirForOutput.concat(paperID)
-    val outputPaperDir = new File(perPaperDir)
-    if(!outputPaperDir.exists()) {
-      outputPaperDir.mkdirs()
-    }
-    val contextFilePath = perPaperDir.concat("/contextLabelsPerPaper.txt")
-    val contextFile = new File(contextFilePath)
-    if (!contextFile.exists()) {
-      contextFile.createNewFile()
-    }
-
-    val printwriter = new PrintWriter(contextFile)
-    val str = contextLabels.mkString(",")
-    printwriter.write(str)
-    printwriter.close()
-  }
-
-  val pathForActivationLabels = dirForOutput.concat("activationContextLabels.txt")
-  val activationLabelsFile = new File(pathForActivationLabels)
-  val pathForInhibitionLabels = dirForOutput.concat("inhibitionContextLabels.txt")
-  val inhibitionLabelsFile = new File(pathForInhibitionLabels)
-  if (!activationLabelsFile.exists()) {
-    activationLabelsFile.createNewFile()
-  }
-  if (!inhibitionLabelsFile.exists()) {
-    inhibitionLabelsFile.createNewFile()
-  }
-
-  val actPrintWriter = new PrintWriter(activationLabelsFile)
-  val inhPrintWriter = new PrintWriter(inhibitionLabelsFile)
-
-  val actString = activationContextLabels.mkString("\n")
-  val inhString = inhibitionContextLabels.mkString("\n")
-  println(s"Printing act string: ${actString}")
-  println(s"Printing inh string: ${inhString}")
-  actPrintWriter.append(actString)
-  inhPrintWriter.append(inhString)
-
-  actPrintWriter.close()
-  inhPrintWriter.close()
+//
+//  val activationContextLabels = collection.mutable.ListBuffer[String]()
+//  val inhibitionContextLabels = collection.mutable.ListBuffer[String]()
+//  val paperByContextLabelsMap = collection.mutable.HashMap[String, Array[String]]()
+//  val eventsByPaperIDMap = collection.mutable.HashMap[String, collection.mutable.ListBuffer[BioEventMention]]()
+//  for(e <- egfDiffEventsWithContext) {
+//    val contextLabels = e.context match {
+//      case Some(x) => x
+//      case None => Map.empty
+//    }
+//
+//    val contextLabelsInTheCurrentEvent = collection.mutable.ListBuffer[String]()
+//      contextLabels.map(x => {
+//        contextLabelsInTheCurrentEvent ++= x._2})
+//    println(s"The label of the current event is: ${e.label}")
+//    if(e.label.contains("Positive")) activationContextLabels ++= contextLabelsInTheCurrentEvent
+//    else if(e.label.contains("Negative")) inhibitionContextLabels ++= contextLabelsInTheCurrentEvent
+//    val docID = e.document.id match {
+//      case Some(s) => s"PMC${s.split("_")(0)}"
+//      case None => "Unknown"
+//    }
+//
+//    val entry = Map(docID -> contextLabelsInTheCurrentEvent.toArray)
+//    paperByContextLabelsMap ++= entry
+//
+//    if(eventsByPaperIDMap.contains(docID)) {
+//      val currentList = eventsByPaperIDMap(docID)
+//      currentList += e
+//    }
+//    else {
+//      val newList = collection.mutable.ListBuffer[BioEventMention]()
+//      newList += e
+//      eventsByPaperIDMap ++= Map(docID -> newList)
+//    }
+//
+//
+//  }
+//
+//  println(s"The activation label list has ${activationContextLabels.size} elements")
+//  println(s"The inhibition label list has ${inhibitionContextLabels.size} elements")
+//
+//  for((paperID,eventsPerPaper) <- eventsByPaperIDMap) {
+//    val perPaperDir = dirForOutput.concat(paperID)
+//    val outputPaperDir = new File(perPaperDir)
+//    if(!outputPaperDir.exists()) {
+//      outputPaperDir.mkdirs()
+//    }
+//    val eventsPath = perPaperDir.concat("/ArrayOfEvtsByPaper.txt")
+//    val eventsFile = new File(eventsPath)
+//    if (!eventsFile.exists()) {
+//      eventsFile.createNewFile()
+//    }
+//
+//    val printWriter = new PrintWriter(eventsFile)
+//    val listOfEventIds = eventsPerPaper.map(ex => extractEvtId(ex))
+//    val str = listOfEventIds.mkString(",")
+//    printWriter.write(str)
+//
+//
+//    printWriter.close()
+//  }
+//  for((paperID, contextLabels) <- paperByContextLabelsMap) {
+//    val perPaperDir = dirForOutput.concat(paperID)
+//    val outputPaperDir = new File(perPaperDir)
+//    if(!outputPaperDir.exists()) {
+//      outputPaperDir.mkdirs()
+//    }
+//    val contextFilePath = perPaperDir.concat("/contextLabelsPerPaper.txt")
+//    val contextFile = new File(contextFilePath)
+//    if (!contextFile.exists()) {
+//      contextFile.createNewFile()
+//    }
+//
+//    val printwriter = new PrintWriter(contextFile)
+//    val str = contextLabels.mkString(",")
+//    printwriter.write(str)
+//    printwriter.close()
+//  }
+//
+//  val pathForActivationLabels = dirForOutput.concat("activationContextLabels.txt")
+//  val activationLabelsFile = new File(pathForActivationLabels)
+//  val pathForInhibitionLabels = dirForOutput.concat("inhibitionContextLabels.txt")
+//  val inhibitionLabelsFile = new File(pathForInhibitionLabels)
+//  if (!activationLabelsFile.exists()) {
+//    activationLabelsFile.createNewFile()
+//  }
+//  if (!inhibitionLabelsFile.exists()) {
+//    inhibitionLabelsFile.createNewFile()
+//  }
+//
+//  val actPrintWriter = new PrintWriter(activationLabelsFile)
+//  val inhPrintWriter = new PrintWriter(inhibitionLabelsFile)
+//
+//  val actString = activationContextLabels.mkString("\n")
+//  val inhString = inhibitionContextLabels.mkString("\n")
+//  println(s"Printing act string: ${actString}")
+//  println(s"Printing inh string: ${inhString}")
+//  actPrintWriter.append(actString)
+//  inhPrintWriter.append(inhString)
+//
+//  actPrintWriter.close()
+//  inhPrintWriter.close()
 
   def checkAddingCondition(sentence: String, event:BioEventMention):Boolean = {
     checkEGFcase(sentence) && checkDifferentCase(sentence) && checkValidPolarity(event)
