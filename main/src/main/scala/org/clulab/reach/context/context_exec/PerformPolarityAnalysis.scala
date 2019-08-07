@@ -2,146 +2,118 @@ package org.clulab.reach.context.context_exec
 
 import java.io.{File, FileInputStream, ObjectInputStream}
 
+import scala.io
 import com.typesafe.config.ConfigFactory
 import org.clulab.reach.mentions.BioEventMention
+
+import scala.io.Source
 
 object PerformPolarityAnalysis extends App {
 
   val config = ConfigFactory.load()
-  val operatingDir = config.getString("polarityContext.contextLabelsOutputDir")
-  val activationLabelsFilePath = operatingDir.concat("activationContextLabels.txt")
-  val inhibitionLabelsFilePath = operatingDir.concat("inhibitionContextLabels.txt")
-  val eventsFilePath = operatingDir.concat("ArrayOfEvtsByPaper.txt")
-  val contextFilePath = operatingDir.concat("contextLabelsPerPaper.txt")
-
-  val activationLine = scala.io.Source.fromFile(activationLabelsFilePath).getLines().toSeq(0)
-
-  val inhibitionLine = scala.io.Source.fromFile(inhibitionLabelsFilePath).getLines().toSeq(0)
-
-  val activationLabels = activationLine.split(",")
-  val inhibitionLabels = inhibitionLine.split(",")
-  val eventIDsByPaper = collection.mutable.HashMap[String, Array[String]]()
-  val contextMentionsByPaper = collection.mutable.HashMap[String, Array[String]]()
-  println("********** Non-unique activation labels *************")
-  println(s"There are a total ${activationLabels.size} non-unique activation context labels")
-  activationLabels.map(println)
-
-  println("\n ********** Non-unique inhibition labels *************")
-  println(s"There are a total ${inhibitionLabels.size} non-unique inhibition context labels")
-  inhibitionLabels.map(println)
-
-  val fileInstance = new File(operatingDir)
-  val allPaperDirs = fileInstance.listFiles().filter(_.isDirectory)
-  for(paperDir <- allPaperDirs) {
-    val paperID = paperDir.getName
-    val eventsFilePathPerPaper = operatingDir.concat(paperID.concat("/ArrayOfEvtsByPaper.txt"))
-    val eventIDLines = scala.io.Source.fromFile(eventsFilePathPerPaper).getLines().toSeq(0)
-
-
-    val eventsEntry = eventIDLines.split(",")
-
-    eventIDsByPaper ++= Map(paperID -> eventsEntry)
-
-    val contextFilePathPerPaper = operatingDir.concat(paperID.concat("/contextLabelsPerPaper.txt"))
-
-    val ctxLines = scala.io.Source.fromFile(contextFilePathPerPaper).getLines().toSeq(0)
-
-    val contextsForThisPaper = ctxLines.split(",")
-    val contextsEntry = Map(paperID -> contextsForThisPaper)
-    contextMentionsByPaper ++= contextsEntry
-  }
-
-
-  for((paperID, contextMentions) <- contextMentionsByPaper) {
-    println(s"The paper ${paperID} has the following labels: ${contextMentions.mkString(",")}")
-  }
-
-  val uniqueActivationLabelsIncudesIntersection = activationLabels.toSet
-  val uniqueInhibitionLabelsIncludesIntersection = inhibitionLabels.toSet
-  val commonLabels = uniqueActivationLabelsIncudesIntersection.intersect(uniqueInhibitionLabelsIncludesIntersection)
-  println(s"\n \n ********* There are ${commonLabels.size} common context labels that appear in both activation and inhibition set. They are printed below. *********")
-  println(commonLabels.mkString(","))
-  val uniqueActivationLabelsNoIntersection = uniqueActivationLabelsIncudesIntersection -- commonLabels
-  val uniqueInhibitionLabelsNoIntersection = uniqueInhibitionLabelsIncludesIntersection -- commonLabels
-
-  println("\n \n **************** PRINTING UNIQUE ACTIVATION LABELS NOT IN THE INTERSECTION ****************")
-  println(s"There are ${uniqueActivationLabelsNoIntersection.size} unique activation labels that do not include the intersection. They are: ")
-  println(uniqueActivationLabelsNoIntersection.mkString(","))
-
-
-  println("\n \n **************** PRINTING UNIQUE INHIBITION LABELS NOT IN THE INTERSECTION ****************")
-  println(s"There are ${uniqueInhibitionLabelsNoIntersection.size} unique inhibition labels that do not include the intersection. They are: ")
-  println(uniqueInhibitionLabelsNoIntersection.mkString(","))
-
-  val frequencyOfContextLabel = collection.mutable.HashMap[String, Int]()
-  val noOfPapersThatUseContextLabel = collection.mutable.HashMap[String,(Int, Array[String])]()
-
-  // CODE TO COUNT NO. OF OCCURRENCES OF A CONTEXT LABEL OVER ALL PAPERS
-  for(act <- uniqueActivationLabelsNoIntersection) {
-    var freqPerLabel = 0
-    for(nu <- activationLabels) {
-      if(act == nu)
-        freqPerLabel += 1
+  val operatingDirPath = config.getString("polarityContext.contextLabelsOutputDir")
+  val operatingDirFile = new File(operatingDirPath)
+  val paperDirs = operatingDirFile.listFiles().filter(_.isDirectory)
+  val contextsPerPaperMap = collection.mutable.HashMap[String, collection.mutable.ListBuffer[String]]()
+  val activationLabelsNonUnique = collection.mutable.ListBuffer[String]()
+  val inhibitionLabelsNonUnique = collection.mutable.ListBuffer[String]()
+  for(pDir <- paperDirs) {
+    val contextsFiles = pDir.listFiles().filter(x => x.getName().contains("ContextsForEvent"))
+    for(contextsFile <- contextsFiles) {
+      val contextFileName = contextsFile.getName()
+      val polarity = contextFileName.split("_")(2)
+      val paperID = pDir.getName()
+      val fileContents = Source.fromFile(contextsFile).getLines().toSeq
+      val labelsTemp = fileContents(0).split(",")
+      val labels = collection.mutable.ListBuffer[String]()
+      labelsTemp.map(x => labels += x)
+      if(contextsPerPaperMap.contains(paperID)) {
+        val currentList = contextsPerPaperMap(paperID)
+        currentList ++= labels
+      }
+      else {
+        val entry = Map(paperID -> labels)
+        contextsPerPaperMap ++= entry
+      }
+      if(polarity == "activation") activationLabelsNonUnique ++= labels
+      else inhibitionLabelsNonUnique ++= labels
     }
-    val mapEntry = Map(act -> freqPerLabel)
-    frequencyOfContextLabel ++= mapEntry
+  }
+  val allNonUniqueLabels = collection.mutable.ListBuffer[String]()
+  allNonUniqueLabels ++= activationLabelsNonUnique
+  allNonUniqueLabels ++= inhibitionLabelsNonUnique
+  val frequencyOfAllNonUniqueLabels = countLabelFrequencyInList(allNonUniqueLabels.toArray)
+  val parentPapersCountAllNonUniqueLabels = countPapersUsingLabelsInList(allNonUniqueLabels.toArray, contextsPerPaperMap.toMap)
+  val uniqueActivationIntersectIncluded = activationLabelsNonUnique.toSet
+  val uniqueInhibitionIntersectIncluded = inhibitionLabelsNonUnique.toSet
+  val commonLabels = uniqueActivationIntersectIncluded.intersect(uniqueInhibitionIntersectIncluded)
+  val exclusivelyActivation = uniqueActivationIntersectIncluded -- commonLabels
+  val exclusivelyInhibition = uniqueInhibitionIntersectIncluded -- commonLabels
+
+
+  println("\n ****** Printing non-unique activation labels *********")
+  println(activationLabelsNonUnique.mkString(","))
+
+  println("\n ******* Printing non-unique inhibition labels ********")
+  println(inhibitionLabelsNonUnique.mkString(","))
+
+  println("\n ****** PRINTING COMMON LABELS ******")
+  commonLabels.map(println)
+
+
+  for(excAct <- exclusivelyActivation) {
+    val noOfOccurrences = frequencyOfAllNonUniqueLabels(excAct)
+    println(s"The unique activation label ${excAct} appears totally ${noOfOccurrences} times")
+    val papersUsingThisLabel = parentPapersCountAllNonUniqueLabels(excAct)
+    println(s"${papersUsingThisLabel._1} papers use this label, and they are: ${papersUsingThisLabel._2.mkString(",")}")
   }
 
 
-  for(inh <- uniqueInhibitionLabelsNoIntersection) {
-    var freqPerLabel = 0
-    for(nu <- inhibitionLabels) {
-      if(inh == nu)
-        freqPerLabel += 1
-    }
-
-    val mapEntry = Map(inh -> freqPerLabel)
-    frequencyOfContextLabel ++= mapEntry
+  for(excInh <- exclusivelyInhibition) {
+    val noOfOccurrences = frequencyOfAllNonUniqueLabels(excInh)
+    println(s"The unique inhibition label ${excInh} appears totally ${noOfOccurrences} times")
+    val papersUsingThisLabel = parentPapersCountAllNonUniqueLabels(excInh)
+    println(s"${papersUsingThisLabel._1} papers use this label, and they are: ${papersUsingThisLabel._2.mkString(",")}")
   }
 
 
 
-  // CODE TO COUNT NO. OF PAPERS IN WHICH EACH CONTEXT LABEL APPEARS
+  def countLabelFrequencyInList(listOfLabels:Array[String]):Map[String, Int] = {
+    val toReturn = collection.mutable.HashMap[String,Int]()
+    for(l <- listOfLabels) {
+      if(toReturn.contains(l)) {
+        var existingCount = toReturn(l)
+        existingCount += 1
+        toReturn(l) = existingCount
+      }
 
-  for(act <- uniqueActivationLabelsNoIntersection) {
-    var paperCount = 0
-    val paperList = collection.mutable.ListBuffer[String]()
-    for((paperID, listOfContextLabels) <- contextMentionsByPaper) {
-      if(listOfContextLabels.contains(act)) {
-        paperCount += 1
-        paperList += paperID
+      else {
+        val entry = Map(l -> 1)
+        toReturn ++= entry
       }
     }
-
-    val entry = (paperCount, paperList.toArray)
-    val map = Map(act -> entry)
-    noOfPapersThatUseContextLabel ++= map
+    toReturn.toMap
   }
 
 
-  for(inh <- uniqueInhibitionLabelsNoIntersection) {
-    var paperCount = 0
-    val paperList = collection.mutable.ListBuffer[String]()
-    for((paperID, listOfContextLabels) <- contextMentionsByPaper) {
-      if(listOfContextLabels.contains(inh)) {
-        paperCount += 1
-        paperList += paperID
+
+  def countPapersUsingLabelsInList(listOfLabels: Array[String], mapOfLabelsInPaper:Map[String,collection.mutable.ListBuffer[String]]):Map[String,(Int, Array[String])] = {
+    val mapToReturn = collection.mutable.HashMap[String,(Int, Array[String])]()
+    for(l <- listOfLabels) {
+      val paperlist = collection.mutable.ListBuffer[String]()
+      var papercount = 0
+      for((paperID,listOfLabelsInPaper) <- mapOfLabelsInPaper) {
+        if(listOfLabelsInPaper.contains(l)) {
+          papercount +=1
+          paperlist += paperID
+        }
       }
+
+      val tup = (papercount, paperlist.toArray)
+      val entry = Map(l -> tup)
+      mapToReturn ++= entry
     }
-    val entry = (paperCount, paperList.toArray)
-    val map = Map(inh -> entry)
-    noOfPapersThatUseContextLabel ++= map
+    mapToReturn.toMap
   }
-
-
-  for((contextLabel, totalFrequency) <- frequencyOfContextLabel) {
-    println(s"The context label ${contextLabel} appears totally ${totalFrequency} times")
-    val paperFrequency = noOfPapersThatUseContextLabel(contextLabel)
-    println(s"Total number of papers: ${contextMentionsByPaper.size}")
-    println(s"The total number of occurrences is distributed over ${paperFrequency._1} papers: ${paperFrequency._2.mkString(",")}")
-  }
-
-
-
 
 }
