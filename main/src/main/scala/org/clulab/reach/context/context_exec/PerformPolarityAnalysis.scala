@@ -35,6 +35,9 @@ object PerformPolarityAnalysis extends App {
         val entry = Map(paperID -> labels)
         contextsPerPaperMap ++= entry
       }
+
+      println(s"The name of the labels file is: ${contextFileName}")
+      println(s"The polarity is: ${polarity}")
       if(polarity == "activation") activationLabelsNonUnique ++= labels
       else inhibitionLabelsNonUnique ++= labels
     }
