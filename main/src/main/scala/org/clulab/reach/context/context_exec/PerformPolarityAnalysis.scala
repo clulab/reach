@@ -71,7 +71,7 @@ object PerformPolarityAnalysis extends App {
     val noOfOccurrences = frequencyOfAllNonUniqueLabels(excAct)
     println(s"The unique activation label ${excAct} appears totally ${noOfOccurrences} times")
     val papersUsingThisLabel = parentPapersCountAllNonUniqueLabels(excAct)
-    println(s"${papersUsingThisLabel._1} papers use this label, and they are: ${papersUsingThisLabel._2.mkString(",")}")
+    println(s"${papersUsingThisLabel._1} paper(s) out of a total ${contextsPerPaperMap.size} use this label, and they are: ${papersUsingThisLabel._2.mkString(",")}")
   }
 
 
@@ -81,7 +81,7 @@ object PerformPolarityAnalysis extends App {
     val noOfOccurrences = frequencyOfAllNonUniqueLabels(excInh)
     println(s"The unique inhibition label ${excInh} appears totally ${noOfOccurrences} times")
     val papersUsingThisLabel = parentPapersCountAllNonUniqueLabels(excInh)
-    println(s"${papersUsingThisLabel._1} papers use this label, and they are: ${papersUsingThisLabel._2.mkString(",")}")
+    println(s"${papersUsingThisLabel._1} paper(s) out of a total ${contextsPerPaperMap.size} use this label, and they are: ${papersUsingThisLabel._2.mkString(",")}")
   }
 
 
