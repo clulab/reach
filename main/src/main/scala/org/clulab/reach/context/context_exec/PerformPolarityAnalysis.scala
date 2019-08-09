@@ -53,14 +53,9 @@ object PerformPolarityAnalysis extends App {
   val exclusivelyInhibition = uniqueInhibitionIntersectIncluded -- commonLabels
 
 
-  println("\n ****** Printing non-unique activation labels *********")
-
-  println(activationLabelsNonUnique.mkString(","))
-
-  println("\n ******* Printing non-unique inhibition labels ********")
-  println(inhibitionLabelsNonUnique.mkString(","))
 
   println("\n ****** PRINTING COMMON LABELS ******")
+  println(s"There are ${commonLabels.size} common labels")
   commonLabels.map(println)
 
 
