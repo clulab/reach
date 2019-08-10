@@ -25,6 +25,7 @@ object ContextFeatureUtils {
     }
     val pw = new PrintWriter(labelFile)
     val tempo = filteredPairs.map{p =>
+      println(pw.write(s"Paper ID: ${p._1.document.id}, Event ID := ${extractEvtId(p._1)}, Context ID := ${p._2.nsId()} \n"))
       pw.write(s"Paper ID: ${p._1.document.id}, Event ID := ${extractEvtId(p._1)}, Context ID := ${p._2.nsId()} \n")
       val featureExtractor = new ContextFeatureExtractor(p, ctxMentions)
       featureExtractor.extractFeaturesToCalcByBestFeatSet()
