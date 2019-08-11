@@ -78,15 +78,6 @@ object Polarity extends App {
         println(s"Skipping ${file.getName}")
       }
     }
-
-//    val endTime = new Date()
-//    val endNS = System.nanoTime
-//    val duration = durationToS(startNS, endNS)
-//    val elapsed = durationToS(statsKeeper.startNS, endNS)
-//    val avg = statsKeeper.update(duration)
-//    println(s"$endTime: Finished $paperId successfully (${duration} seconds)")
-//    println(s"$endTime: PapersDone: ${avg(0)}, ElapsedTime: ${elapsed}, Average: ${avg(1)}")
-
   }
 
 
