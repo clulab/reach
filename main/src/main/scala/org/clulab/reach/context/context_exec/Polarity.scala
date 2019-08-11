@@ -56,26 +56,36 @@ object Polarity extends App {
     val startNS = System.nanoTime
 
     println(s"$startTime: Starting $paperId")
-    val nxmlDoc = nxmlReader.read(file)
-    val document = reachSystem.mkDoc(nxmlDoc)
-    val mentions = reachSystem.extractFrom(document)
-    val evtMentionsOnly = mentions.collect { case evt: BioEventMention => evt }
-    for(ev <- evtMentionsOnly) {
-      val sentenceID = ev.sentence
-      val tokenInterval = ev.tokenInterval
-      val subsentence = ev.document.sentences(sentenceID).words.slice(tokenInterval.start,tokenInterval.end+1).mkString(" ")
-      if (checkAddingCondition(subsentence, ev))
-      {egfDiffEvents += ev
-        println(subsentence)}
+    try{
+      val nxmlDoc = nxmlReader.read(file)
+      val document = reachSystem.mkDoc(nxmlDoc)
+      val mentions = reachSystem.extractFrom(document)
+      val evtMentionsOnly = mentions.collect { case evt: BioEventMention => evt }
+      for(ev <- evtMentionsOnly) {
+        val sentenceID = ev.sentence
+        val tokenInterval = ev.tokenInterval
+        val subsentence = ev.document.sentences(sentenceID).words.slice(tokenInterval.start,tokenInterval.end+1).mkString(" ")
+        if (checkAddingCondition(subsentence, ev))
+        {egfDiffEvents += ev
+          println(subsentence)}
+      }
+
     }
 
-    val endTime = new Date()
-    val endNS = System.nanoTime
-    val duration = durationToS(startNS, endNS)
-    val elapsed = durationToS(statsKeeper.startNS, endNS)
-    val avg = statsKeeper.update(duration)
-    println(s"$endTime: Finished $paperId successfully (${duration} seconds)")
-    println(s"$endTime: PapersDone: ${avg(0)}, ElapsedTime: ${elapsed}, Average: ${avg(1)}")
+    catch {
+      case runtimeException: RuntimeException => {
+        println(runtimeException)
+        println(s"Skipping ${file.getName}")
+      }
+    }
+
+//    val endTime = new Date()
+//    val endNS = System.nanoTime
+//    val duration = durationToS(startNS, endNS)
+//    val elapsed = durationToS(statsKeeper.startNS, endNS)
+//    val avg = statsKeeper.update(duration)
+//    println(s"$endTime: Finished $paperId successfully (${duration} seconds)")
+//    println(s"$endTime: PapersDone: ${avg(0)}, ElapsedTime: ${elapsed}, Average: ${avg(1)}")
 
   }
 
