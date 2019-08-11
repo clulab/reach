@@ -23,7 +23,7 @@ object Polarity extends App {
   val papersDir = config.getString("polarityContext.temporaryRunParallelProcess")
   val dirForOutput = config.getString("polarityContext.contextLabelsOutputDir")
   val threadLimit: Int = config.getInt("threadLimit")
-  def now = new Date()
+
 
   val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
   val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
@@ -52,7 +52,7 @@ object Polarity extends App {
 
   def processPaper(file:File):Unit = {
     val paperId = FilenameUtils.removeExtension(file.getName)
-    val startTime = now
+    val startTime = new Date()
     val startNS = System.nanoTime
 
     println(s"$startTime: Starting $paperId")
@@ -69,7 +69,7 @@ object Polarity extends App {
         println(subsentence)}
     }
 
-    val endTime = now
+    val endTime = new Date()
     val endNS = System.nanoTime
     val duration = durationToS(startNS, endNS)
     val elapsed = durationToS(statsKeeper.startNS, endNS)
