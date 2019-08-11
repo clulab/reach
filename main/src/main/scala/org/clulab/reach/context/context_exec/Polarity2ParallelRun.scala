@@ -42,7 +42,8 @@ object Polarity2ParallelRun extends App {
 
     catch {
       case runtimeException: RuntimeException => {
-        println(s"Getting a RuntimeException due to missing roots in the semantic graph, therefore skipping the file: ${file.getName}")
+        println(runtimeException)
+        println(s"Skipping ${file.getName}")
       }
     }
 

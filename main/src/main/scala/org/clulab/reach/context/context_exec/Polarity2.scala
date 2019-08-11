@@ -22,20 +22,29 @@ object Polarity2 extends App{
   val dirForOutput = config.getString("polarityContext.contextLabelsOutputDir")
   var papersDone = 0
   for(file <- fileList) {
-    val nxmlDoc = nxmlReader.read(file)
-    val document = reachSystem.mkDoc(nxmlDoc)
-    val mentions = reachSystem.extractFrom(document)
-    val evtMentionsOnly = mentions.collect { case evt: BioEventMention => evt }
-    for(ev <- evtMentionsOnly) {
-      val sentenceID = ev.sentence
-      val tokenInterval = ev.tokenInterval
-      val subsentence = ev.document.sentences(sentenceID).words.slice(tokenInterval.start,tokenInterval.end+1).mkString(" ")
-      if (checkAddingCondition(subsentence, ev))
+    try{
+      val nxmlDoc = nxmlReader.read(file)
+      val document = reachSystem.mkDoc(nxmlDoc)
+      val mentions = reachSystem.extractFrom(document)
+      val evtMentionsOnly = mentions.collect { case evt: BioEventMention => evt }
+      for(ev <- evtMentionsOnly) {
+        val sentenceID = ev.sentence
+        val tokenInterval = ev.tokenInterval
+        val subsentence = ev.document.sentences(sentenceID).words.slice(tokenInterval.start,tokenInterval.end+1).mkString(" ")
+        if (checkAddingCondition(subsentence, ev))
         {egfDiffEvents += ev
-        println(subsentence)}
+          println(subsentence)}
+      }
+      papersDone += 1
+      println(s"Papers done: ${papersDone}")
     }
-    papersDone += 1
-    println(s"Papers done: ${papersDone}")
+
+    catch {
+      case runtimeException: RuntimeException => {
+        println(runtimeException)
+        println(s"Skipping ${file.getName}")
+      }
+    }
   }
 
   val egfDiffEventsWithContext = egfDiffEvents.filter(_.hasContext())
