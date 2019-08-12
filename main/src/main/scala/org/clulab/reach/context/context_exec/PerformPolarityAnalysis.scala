@@ -65,21 +65,21 @@ object PerformPolarityAnalysis extends App {
 
 
   println(s"\n ************ There are ${exclusivelyActivation.size} unique activation labels (not including intersection), and they are:  ************ ")
-  for((excAct, _) <- activationParentPaperCountMap) {
+  for((excAct, (paperCount, paperList)) <- activationParentPaperCountMap) {
     val noOfOccurrences = frequencyOfAllNonUniqueLabels(excAct)
-    println(s"The unique activation label ${excAct} appears totally ${noOfOccurrences} times")
-    val papersUsingThisLabel = sortedParentPaperMap(excAct)
-    println(s"${papersUsingThisLabel._1} paper(s) out of a total ${contextsPerPaperMap.size} use this label, and they are: ${papersUsingThisLabel._2.mkString(",")}")
+    println(s"The unique activation label ${excAct} appears totally ${noOfOccurrences} times in ${paperCount} of ${contextsPerPaperMap.size} papers, which are: ${paperList.mkString(",")}")
+//    val papersUsingThisLabel = sortedParentPaperMap(excAct)
+//    println(s"${papersUsingThisLabel._1} paper(s) out of a total ${contextsPerPaperMap.size} use this label, and they are: ${papersUsingThisLabel._2.mkString(",")}")
   }
 
 
 
   println(s"\n ************ There are ${exclusivelyInhibition.size} unique inhibition labels (not including intersection), and they are:  ************ ")
-  for((excInh, _) <- inhibitionParentPaperCountMap) {
+  for((excInh, (paperCount, paperList)) <- inhibitionParentPaperCountMap) {
     val noOfOccurrences = frequencyOfAllNonUniqueLabels(excInh)
-    println(s"The unique inhibition label ${excInh} appears totally ${noOfOccurrences} times")
-    val papersUsingThisLabel = sortedParentPaperMap(excInh)
-    println(s"${papersUsingThisLabel._1} paper(s) out of a total ${contextsPerPaperMap.size} use this label, and they are: ${papersUsingThisLabel._2.mkString(",")}")
+    println(s"The unique inhibition label ${excInh} appears totally ${noOfOccurrences} times in ${paperCount} of ${contextsPerPaperMap.size} papers, which are: ${paperList.mkString(",")}")
+//    val papersUsingThisLabel = sortedParentPaperMap(excInh)
+//    println(s"${papersUsingThisLabel._1} paper(s) out of a total ${contextsPerPaperMap.size} use this label, and they are: ${papersUsingThisLabel._2.mkString(",")}")
   }
 
 
