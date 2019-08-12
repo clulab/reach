@@ -52,6 +52,8 @@ object PerformPolarityAnalysis extends App {
   val commonLabels = uniqueActivationIntersectIncluded.intersect(uniqueInhibitionIntersectIncluded)
   val exclusivelyActivation = uniqueActivationIntersectIncluded -- commonLabels
   val exclusivelyInhibition = uniqueInhibitionIntersectIncluded -- commonLabels
+  val activationParentPaperCountMap = sortedParentPaperMap.filterKeys(exclusivelyActivation.contains(_))
+  val inhibitionParentPaperCountMap = sortedParentPaperMap.filterKeys(exclusivelyInhibition.contains(_))
 
 
 
@@ -63,7 +65,7 @@ object PerformPolarityAnalysis extends App {
 
 
   println(s"\n ************ There are ${exclusivelyActivation.size} unique activation labels (not including intersection), and they are:  ************ ")
-  for(excAct <- exclusivelyActivation) {
+  for((excAct, _) <- activationParentPaperCountMap) {
     val noOfOccurrences = frequencyOfAllNonUniqueLabels(excAct)
     println(s"The unique activation label ${excAct} appears totally ${noOfOccurrences} times")
     val papersUsingThisLabel = sortedParentPaperMap(excAct)
@@ -73,7 +75,7 @@ object PerformPolarityAnalysis extends App {
 
 
   println(s"\n ************ There are ${exclusivelyInhibition.size} unique inhibition labels (not including intersection), and they are:  ************ ")
-  for(excInh <- exclusivelyInhibition) {
+  for((excInh, _) <- inhibitionParentPaperCountMap) {
     val noOfOccurrences = frequencyOfAllNonUniqueLabels(excInh)
     println(s"The unique inhibition label ${excInh} appears totally ${noOfOccurrences} times")
     val papersUsingThisLabel = sortedParentPaperMap(excInh)
