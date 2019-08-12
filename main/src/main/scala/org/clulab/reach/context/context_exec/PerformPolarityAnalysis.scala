@@ -46,7 +46,16 @@ object PerformPolarityAnalysis extends App {
   allNonUniqueLabels ++= inhibitionLabelsNonUnique
   val frequencyOfAllNonUniqueLabels = countLabelFrequencyInList(allNonUniqueLabels.toArray)
   val parentPapersCountAllNonUniqueLabels = countPapersUsingLabelsInList(allNonUniqueLabels.toArray, contextsPerPaperMap.toMap)
-  val sortedParentPaperMap = ListMap(parentPapersCountAllNonUniqueLabels.toSeq.sortWith(_._2._1 > _._2._1):_*)
+  val composeAllLabelsResult = collection.mutable.HashMap[String,(Int, Int, Array[String])]()
+  for(a <- allNonUniqueLabels) {
+    val frequency = frequencyOfAllNonUniqueLabels(a)
+    val paperMetrics = parentPapersCountAllNonUniqueLabels(a)
+    val tup = (frequency, paperMetrics._1, paperMetrics._2)
+    val entry = Map(a -> tup)
+    composeAllLabelsResult ++= entry
+  }
+  val sortedParentPaperMapPart1 = ListMap(composeAllLabelsResult.toSeq.sortWith(_._2._2 > _._2._2):_*)
+  val sortedParentPaperMap = ListMap(sortedParentPaperMapPart1.toSeq.sortWith(_._2._1 > _._2._1):_*)
   val uniqueActivationIntersectIncluded = activationLabelsNonUnique.toSet
   val uniqueInhibitionIntersectIncluded = inhibitionLabelsNonUnique.toSet
   val commonLabels = uniqueActivationIntersectIncluded.intersect(uniqueInhibitionIntersectIncluded)
@@ -66,17 +75,17 @@ object PerformPolarityAnalysis extends App {
 
 //  println(s"\n ************ There are ${exclusivelyActivation.size} unique activation labels (not including intersection), and they are:  ************ ")
  println(s"Total number of papers: ${contextsPerPaperMap.size}")
-  for((excAct, (paperCount, paperList)) <- activationParentPaperCountMap) {
-    val noOfOccurrences = frequencyOfAllNonUniqueLabels(excAct)
-    println(s"The unique activation label ${excAct} appears totally ${noOfOccurrences} times in ${paperCount} papers, which are: ${paperList.mkString(",")}")
+  for((excAct, (frequency, paperCount, paperList)) <- activationParentPaperCountMap) {
+    //val noOfOccurrences = frequencyOfAllNonUniqueLabels(excAct)
+    println(s"The unique activation label ${excAct} appears totally ${frequency} times in ${paperCount} papers, which are: ${paperList.mkString(",")}")
   }
 
 
 
 //  println(s"\n ************ There are ${exclusivelyInhibition.size} unique inhibition labels (not including intersection), and they are:  ************ ")
-  for((excInh, (paperCount, paperList)) <- inhibitionParentPaperCountMap) {
-    val noOfOccurrences = frequencyOfAllNonUniqueLabels(excInh)
-    println(s"The unique inhibition label ${excInh} appears totally ${noOfOccurrences} times in ${paperCount} papers, which are: ${paperList.mkString(",")}")
+  for((excInh, (frequency, paperCount, paperList)) <- inhibitionParentPaperCountMap) {
+    //val noOfOccurrences = frequencyOfAllNonUniqueLabels(excInh)
+    println(s"The unique inhibition label ${excInh} appears totally ${frequency} times in ${paperCount} papers, which are: ${paperList.mkString(",")}")
   }
 
 
