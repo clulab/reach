@@ -1,7 +1,7 @@
 package org.clulab.reach.context.context_exec
 
 import java.io.{File, FileInputStream, ObjectInputStream}
-
+import scala.collection.immutable.ListMap
 import scala.io
 import com.typesafe.config.ConfigFactory
 import org.clulab.reach.mentions.BioEventMention
@@ -116,7 +116,9 @@ object PerformPolarityAnalysis extends App {
       val entry = Map(l -> tup)
       mapToReturn ++= entry
     }
-    mapToReturn.toMap
+
+    val sortedMap = ListMap(mapToReturn.toSeq.sortWith(_._2._1 > _._2._1):_*)
+    sortedMap
   }
 
 }
