@@ -46,6 +46,7 @@ object PerformPolarityAnalysis extends App {
   allNonUniqueLabels ++= inhibitionLabelsNonUnique
   val frequencyOfAllNonUniqueLabels = countLabelFrequencyInList(allNonUniqueLabels.toArray)
   val parentPapersCountAllNonUniqueLabels = countPapersUsingLabelsInList(allNonUniqueLabels.toArray, contextsPerPaperMap.toMap)
+  val sortedParentPaperMap = ListMap(parentPapersCountAllNonUniqueLabels.toSeq.sortWith(_._2._1 > _._2._1):_*)
   val uniqueActivationIntersectIncluded = activationLabelsNonUnique.toSet
   val uniqueInhibitionIntersectIncluded = inhibitionLabelsNonUnique.toSet
   val commonLabels = uniqueActivationIntersectIncluded.intersect(uniqueInhibitionIntersectIncluded)
@@ -65,7 +66,7 @@ object PerformPolarityAnalysis extends App {
   for(excAct <- exclusivelyActivation) {
     val noOfOccurrences = frequencyOfAllNonUniqueLabels(excAct)
     println(s"The unique activation label ${excAct} appears totally ${noOfOccurrences} times")
-    val papersUsingThisLabel = parentPapersCountAllNonUniqueLabels(excAct)
+    val papersUsingThisLabel = sortedParentPaperMap(excAct)
     println(s"${papersUsingThisLabel._1} paper(s) out of a total ${contextsPerPaperMap.size} use this label, and they are: ${papersUsingThisLabel._2.mkString(",")}")
   }
 
@@ -75,7 +76,7 @@ object PerformPolarityAnalysis extends App {
   for(excInh <- exclusivelyInhibition) {
     val noOfOccurrences = frequencyOfAllNonUniqueLabels(excInh)
     println(s"The unique inhibition label ${excInh} appears totally ${noOfOccurrences} times")
-    val papersUsingThisLabel = parentPapersCountAllNonUniqueLabels(excInh)
+    val papersUsingThisLabel = sortedParentPaperMap(excInh)
     println(s"${papersUsingThisLabel._1} paper(s) out of a total ${contextsPerPaperMap.size} use this label, and they are: ${papersUsingThisLabel._2.mkString(",")}")
   }
 
@@ -117,8 +118,10 @@ object PerformPolarityAnalysis extends App {
       mapToReturn ++= entry
     }
 
-    val sortedMap = ListMap(mapToReturn.toSeq.sortWith(_._2._1 > _._2._1):_*)
-    sortedMap
+    mapToReturn.toMap
+
+//    val sortedMap = ListMap(mapToReturn.toSeq.sortWith(_._2._1 > _._2._1):_*)
+//    sortedMap
   }
 
 }
