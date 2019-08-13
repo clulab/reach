@@ -18,14 +18,24 @@ object ContextFeatureUtils {
   // :output :- map of ContextPairInstance -> (feature_name -> feature_value)
   def getFeatValMapPerInput(filteredPairs: Set[Pair], ctxMentions: Seq[BioTextBoundMention]):Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])] = {
     println(s"The current paper uses ${filteredPairs.size} event-context pairs")
-    val labelFilePath = config.getString("polarityContext.labelsWrittenToFile")
-    val labelFile = new File(labelFilePath)
-    if (!labelFile.exists()) {
-      labelFile.createNewFile()
-    }
-    val pw = new PrintWriter(labelFile)
+    val labelFilePath = config.getString("polarityContext.labelsWrittenToFileDir")
     val tempo = filteredPairs.map{p =>
-      pw.write(s"Paper ID: ${p._1.document.id}, Event ID := ${extractEvtId(p._1)}, Context ID := ${p._2.nsId()} \n")
+      val currentPaperID = p._1.document.id match {
+        case Some(x) => s"PMC${x.split("_")(0)}"
+        case None => "unknown_paper_id"
+      }
+      val paperDirPath = labelFilePath.concat(s"${currentPaperID}")
+      val paperDir = new File(paperDirPath)
+      if(!paperDir.exists()) {
+        paperDir.mkdirs()
+      }
+      val contextLabelsFilePath = paperDirPath.concat("/ContextLabels.txt")
+      val contextLabelsFile = new File(contextLabelsFilePath)
+      if(!contextLabelsFile.exists()) {
+        contextLabelsFile.createNewFile()
+      }
+      val pw = new PrintWriter(contextLabelsFile)
+      pw.append(s"Paper ID: ${p._1.document.id}, Event ID := ${extractEvtId(p._1)}, Context ID := ${p._2.nsId()} \n")
       val featureExtractor = new ContextFeatureExtractor(p, ctxMentions)
       featureExtractor.extractFeaturesToCalcByBestFeatSet()
     }
@@ -88,6 +98,23 @@ object ContextFeatureUtils {
     os.writeObject(row)
     os.close()
   }
+
+  def writeAggRowToFile(row:AggregatedContextInstance, evtID: String, ctxString:String, parentDir:String):Unit = {
+    val pmcid = s"PMC${row.PMCID.split("_")(0)}"
+    val whichDirToWriteRow = parentDir.concat(s"${pmcid}")
+    val paperDir = new File(whichDirToWriteRow)
+    if(!paperDir.exists())
+      paperDir.mkdirs()
+    val whereToWriteRow = whichDirToWriteRow.concat(s"/AggregatedRow_${pmcid}_${evtID}_${ctxString}.txt")
+    val file2 = new File(whereToWriteRow)
+    val os = new ObjectOutputStream(new FileOutputStream(whereToWriteRow))
+    if (!file2.exists()) {
+      file2.createNewFile()
+    }
+    os.writeObject(row)
+    os.close()
+  }
+
 
   def writeAggrRowsToFile(rows:Array[((String, String),AggregatedContextInstance)], pathToFeatVal:String, pathToArrOfRows:String):Unit = {
 

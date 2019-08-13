@@ -18,8 +18,7 @@ object GenerateOutputFiles extends App {
     // This class runs the papers through reach, and writes to file mention_intervals.txt, event_intervals.txt and sentences.txt.
     // These files are required to run the annotator web app that was designed by Zechy.
     val config = ConfigFactory.load()
-    val typeOfPaper = config.getString("polarityContext.typeOfPaper")
-    val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper)
+    val dirForType = config.getString("papersDir")
     //val dirForType = config.getString("polarityContext.temporaryRun")
     val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
     val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
@@ -34,7 +33,7 @@ object GenerateOutputFiles extends App {
     val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
     for(file <- fileList) {
         val pmcid = file.getName.slice(0,file.getName.length-5)
-        val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${pmcid}")
+        val outPaperDirPath = config.getString("svmContext.outputDirForAnnotations").concat(s"/${pmcid}")
         // creating output directory if it doesn't already exist
         val outputPaperDir = new File(outPaperDirPath)
         if(!outputPaperDir.exists()) {

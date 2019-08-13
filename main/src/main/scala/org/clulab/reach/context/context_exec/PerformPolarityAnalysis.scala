@@ -11,7 +11,7 @@ import scala.io.Source
 object PerformPolarityAnalysis extends App {
 
   val config = ConfigFactory.load()
-  val operatingDirPath = config.getString("polarityContext.contextLabelsOutputDir")
+  val operatingDirPath = config.getString("polarityContext.outputForPolarityAnalysisDir")
   val operatingDirFile = new File(operatingDirPath)
   val paperDirs = operatingDirFile.listFiles().filter(_.isDirectory)
   val contextsPerPaperMap = collection.mutable.HashMap[String, collection.mutable.ListBuffer[String]]()
