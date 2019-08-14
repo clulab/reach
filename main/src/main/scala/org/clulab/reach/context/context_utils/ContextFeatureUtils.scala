@@ -19,28 +19,23 @@ object ContextFeatureUtils {
   def getFeatValMapPerInput(filteredPairs: Set[Pair], ctxMentions: Seq[BioTextBoundMention]):Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])] = {
     println(s"The current paper uses ${filteredPairs.size} event-context pairs")
     val labelFilePath = config.getString("svmContext.outputDirForAnnotations")
+    val allContextPairsFilePath = labelFilePath.concat("/AllContextPairs.txt")
+    val allPairsFile = new File(allContextPairsFilePath)
+    if(!allPairsFile.exists())
+      allPairsFile.createNewFile()
+    val pw = new PrintWriter(allPairsFile)
     val tempo = filteredPairs.map{p =>
       val currentPaperID = p._1.document.id match {
         case Some(x) => s"PMC${x.split("_")(0)}"
         case None => "unknown_paper_id"
       }
-      val paperDirPath = labelFilePath.concat(s"${currentPaperID}")
-      val paperDir = new File(paperDirPath)
-      if(!paperDir.exists()) {
-        paperDir.mkdirs()
-      }
-      val contextLabelsFilePath = paperDirPath.concat("/ContextLabels.txt")
-      val contextLabelsFile = new File(contextLabelsFilePath)
-      if(!contextLabelsFile.exists()) {
-        contextLabelsFile.createNewFile()
-      }
-      val pw = new PrintWriter(contextLabelsFilePath)
       println(s"Paper ID: ${currentPaperID}, Event ID := ${extractEvtId(p._1)}, Context ID := ${p._2.nsId()} \n")
       pw.append(s"Paper ID: ${currentPaperID}, Event ID := ${extractEvtId(p._1)}, Context ID := ${p._2.nsId()} \n")
-      pw.close()
+
       val featureExtractor = new ContextFeatureExtractor(p, ctxMentions)
       featureExtractor.extractFeaturesToCalcByBestFeatSet()
     }
+    pw.close()
     val flattenedMap = tempo.flatMap(t=>t).toMap
     println(s"The number of pairs we are operating on is: ${filteredPairs.size} \n")
     println(s"The number of input rows we have is ${flattenedMap.size}")
