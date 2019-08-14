@@ -143,6 +143,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     * @return Predictions of Polarity subclasses
     */
   override def predict(events: Seq[BioEventMention]): Seq[Polarity] = {
+    println("++++++++++++++++++++++++++++++++++++++++++")
     var predictions = Seq[Polarity]()
     for (event<-events) {
       predictions = predictions:+predict(event)
