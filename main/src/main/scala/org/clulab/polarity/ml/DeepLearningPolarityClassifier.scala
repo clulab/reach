@@ -154,6 +154,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   override def predict(event: BioEventMention): Polarity = {
     println("==========================================")
     println(s"Original text:${event.text}")
+    println(s"Unexpanded text:${event.sentenceObj.words.slice(event.start, event.end)}")
 
     //var lemmas = event.lemmas.get.toArray
     var lemmas = event.sentenceObj.words.clone()
