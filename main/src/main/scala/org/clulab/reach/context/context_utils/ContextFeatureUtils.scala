@@ -39,6 +39,7 @@ object ContextFeatureUtils {
       pw.write(s"Paper ID: ${currentPaperID}, Event ID := ${extractEvtId(p._1)}, Context ID := ${p._2.nsId()} \n")
       val featureExtractor = new ContextFeatureExtractor(p, ctxMentions)
       featureExtractor.extractFeaturesToCalcByBestFeatSet()
+      pw.close()
     }
     val flattenedMap = tempo.flatMap(t=>t).toMap
     println(s"The number of pairs we are operating on is: ${filteredPairs.size} \n")
