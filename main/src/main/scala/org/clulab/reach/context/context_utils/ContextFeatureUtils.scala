@@ -34,7 +34,7 @@ object ContextFeatureUtils {
       if(!contextLabelsFile.exists()) {
         contextLabelsFile.createNewFile()
       }
-      val pw = new PrintWriter(contextLabelsFile)
+      val pw = new PrintWriter(contextLabelsFilePath)
       pw.write(s"Paper ID: ${p._1.document.id}, Event ID := ${extractEvtId(p._1)}, Context ID := ${p._2.nsId()} \n")
       val featureExtractor = new ContextFeatureExtractor(p, ctxMentions)
       featureExtractor.extractFeaturesToCalcByBestFeatSet()
