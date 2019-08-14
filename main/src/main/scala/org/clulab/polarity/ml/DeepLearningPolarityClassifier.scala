@@ -217,6 +217,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
     val y_pred = runInstance(lemmas.slice(start, end), rulePolarity)
 
+    println(event.sentenceObj.words.toList)
     println(lemmas.toList)
     println(lemmas.slice(start, end).toList)
     println(y_pred.value().toFloat())
