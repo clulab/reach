@@ -18,7 +18,7 @@ object ContextFeatureUtils {
   // :output :- map of ContextPairInstance -> (feature_name -> feature_value)
   def getFeatValMapPerInput(filteredPairs: Set[Pair], ctxMentions: Seq[BioTextBoundMention]):Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])] = {
     println(s"The current paper uses ${filteredPairs.size} event-context pairs")
-    val labelFilePath = config.getString("polarityContext.labelsWrittenToFileDir")
+    val labelFilePath = config.getString("svmContext.outputDirForAnnotations")
     val tempo = filteredPairs.map{p =>
       val currentPaperID = p._1.document.id match {
         case Some(x) => s"PMC${x.split("_")(0)}"
