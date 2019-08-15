@@ -27,6 +27,10 @@ object PerformCrossValOldDataset extends App {
   val keysForLabels = collection.mutable.HashMap[AggregatedContextInstance, (String, String, String)]()
   val allRowsByPaperID = collection.mutable.HashMap[String, Seq[AggregatedContextInstance]]()
   for(paperDir <- allPapersDirs) {
+    // In this code we won't face the double counting of two rows from a given paper, because each paper appears only once over all.
+    // While analyzing the performance over sentence windows, we encountered the same paper over different values of sentence window. That's why we had the risk of adding the same row twice.
+    // But we now see that each paper appears only once, and we read the rows from that paper. So we won't add the same row twice.
+    // The only time we will see the same paper appear twice will be in the hold-one-out cross-validation phase, which is expected behavior.
     val rowFiles = paperDir.listFiles().filter(_.getName.contains("Aggregated"))
     val rowsForCurrentSent = collection.mutable.ListBuffer[AggregatedContextInstance]()
     for(r <- rowFiles) {
@@ -43,6 +47,9 @@ object PerformCrossValOldDataset extends App {
     allRowsByPaperID ++= entry
   }
 
-  println(allRowsByPaperID.size)
+  println(s"We have a total of ${allRowsByPaperID.size} papers, and the micro-averaged precision will be calculated by treating each paper as a test case in the cross validation loop")
+  val giantScoreBoard = collection.mutable.HashMap[String, Double]()
+  for((paperID, rowsPerPaper) <- allRowsByPaperID) {
 
+  }
 }
