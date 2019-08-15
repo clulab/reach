@@ -4,6 +4,8 @@ import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.AggregatedContextInstance
 import java.io.File
+
+import org.clulab.reach.context.context_utils.ContextFeatureUtils
 object PerformCrossValOldDataset extends App {
   val config = ConfigFactory.load()
   val svmWrapper = new LinearSVMContextClassifier()
@@ -27,6 +29,20 @@ object PerformCrossValOldDataset extends App {
   for(paperDir <- allPapersDirs) {
     val rowFiles = paperDir.listFiles().filter(_.getName.contains("Aggregated"))
     val rowsForCurrentSent = collection.mutable.ListBuffer[AggregatedContextInstance]()
+    for(r <- rowFiles) {
+      // REMEMBER TO FILTER OUT THE NEGATIVE PREDICTIONS LATER ON
+      val pathToRow = parentDirForRows.concat(s"${paperDir.getName}").concat(s"/${r.getName}")
+      val rowSpecs = ContextFeatureUtils.createAggRowSpecsFromFile(r)
+      val row = ContextFeatureUtils.readAggRowFromFile(pathToRow)
+      idMap ++= Map(rowSpecs -> row)
+      keysForLabels ++= Map(row -> rowSpecs)
+      rowsForCurrentSent += row
+    }
+    val nameOfCurrentDirectory = paperDir.getName
+    val entry = Map(nameOfCurrentDirectory -> rowsForCurrentSent)
+    allRowsByPaperID ++= entry
   }
+
+  println(allRowsByPaperID.size)
 
 }
