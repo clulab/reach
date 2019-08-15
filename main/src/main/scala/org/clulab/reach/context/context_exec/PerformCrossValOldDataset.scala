@@ -7,7 +7,7 @@ import java.io.File
 object PerformCrossValOldDataset extends App {
   val config = ConfigFactory.load()
   val svmWrapper = new LinearSVMContextClassifier()
-  val configPath = config.getString("contextEngine.params.trainedSvmPath")
+  val configPath = config.getString("contextEngine.params.untrainedSVMPath")
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
   val classifierToUse = trainedSVMInstance.classifier match {
     case Some(x) => x
