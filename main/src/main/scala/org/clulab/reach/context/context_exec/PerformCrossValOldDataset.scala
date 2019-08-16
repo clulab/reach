@@ -37,6 +37,7 @@ object PerformCrossValOldDataset extends App {
     // But we now see that each paper appears only once, and we read the rows from that paper. So we won't add the same row twice.
     // The only time we will see the same paper appear twice will be in the hold-one-out cross-validation phase, which is expected behavior.
     val rowFiles = paperDir.listFiles().filter(_.getName.contains("Aggregated"))
+    println(s"The current paper ${paperDir.getName} has ${rowFiles.size} rows")
     val rowsForCurrentSent = collection.mutable.ListBuffer[AggregatedContextInstance]()
     for(r <- rowFiles) {
       // REMEMBER TO FILTER OUT THE NEGATIVE PREDICTIONS LATER ON
@@ -56,9 +57,10 @@ object PerformCrossValOldDataset extends App {
   val giantScoreBoard = collection.mutable.HashMap[String, Double]()
   // in the cross validation, each paper will be considered as test case once. So when a given paper is a test case, all other papers and their corresponding labels must be the training case.
   for((paperID, rowsPerPaper) <- allRowsByPaperID) {
-    val trainingCaseRows = allRowsByPaperID.filter(_._1 != paperID)
-    val trainingLabels = labelMapFromOldDataset.filter(_._1._1 != paperID)
-    println(trainingCaseRows.size)
-    println(trainingLabels.size)
+    val trainingCaseRowsUnFiltered = allRowsByPaperID.filter(_._1 != paperID)
+    println(trainingCaseRowsUnFiltered.size)
+    val trainingRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
+    val label = collection.mutable.ListBuffer[Int]()
+
   }
 }
