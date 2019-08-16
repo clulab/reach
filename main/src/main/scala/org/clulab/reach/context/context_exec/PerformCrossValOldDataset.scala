@@ -59,14 +59,24 @@ object PerformCrossValOldDataset extends App {
   for((paperID, rowsPerPaper) <- allRowsByPaperID) {
     val trainingCaseRowsUnFiltered = allRowsByPaperID.filter(_._1 != paperID)
     println(trainingCaseRowsUnFiltered.size)
+    val trainRowsNeedsProcessing = collection.mutable.ListBuffer[AggregatedContextInstance]()
+    for((_,tRows) <- trainingCaseRowsUnFiltered) trainRowsNeedsProcessing ++= tRows
     val trainingRowsWithCorrectLabels = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val trainingLabels = collection.mutable.ListBuffer[Int]()
-    for((_, tRows) <- trainingCaseRowsUnFiltered) {
-      for(t <- tRows) {
-        val specForCurrentRow = keysForLabels(t)
-        val possibleMatchesInLabelFile = labelMapFromOldDataset.filter(x => {x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3})
-        println(possibleMatchesInLabelFile.size)
+    for(t <- trainRowsNeedsProcessing) {
+      val specForCurrentRow = keysForLabels(t)
+      val evtIDInt = Integer.parseInt(specForCurrentRow._2)
+      val possibleMatchesInLabelFile = labelMapFromOldDataset.filter(x => {x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3})
+      for((id,lab) <- possibleMatchesInLabelFile) {
+        val intId = Integer.parseInt(id._2)
+        if(Math.abs(intId - evtIDInt) <= 1) {
+          trainingRowsWithCorrectLabels += t
+          trainingLabels += lab
+        }
       }
     }
+    println(trainingRowsWithCorrectLabels.size)
+    println(trainingLabels.size)
+
   }
 }
