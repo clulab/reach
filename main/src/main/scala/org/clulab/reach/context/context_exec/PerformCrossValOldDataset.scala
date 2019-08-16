@@ -59,8 +59,14 @@ object PerformCrossValOldDataset extends App {
   for((paperID, rowsPerPaper) <- allRowsByPaperID) {
     val trainingCaseRowsUnFiltered = allRowsByPaperID.filter(_._1 != paperID)
     println(trainingCaseRowsUnFiltered.size)
-    val trainingRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
-    val label = collection.mutable.ListBuffer[Int]()
-
+    val trainingRowsWithCorrectLabels = collection.mutable.ListBuffer[AggregatedContextInstance]()
+    val trainingLabels = collection.mutable.ListBuffer[Int]()
+    for((_, tRows) <- trainingCaseRowsUnFiltered) {
+      for(t <- tRows) {
+        val specForCurrentRow = keysForLabels(t)
+        val possibleMatchesInLabelFile = labelMapFromOldDataset.filter(x => {x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3})
+        println(possibleMatchesInLabelFile.size)
+      }
+    }
   }
 }
