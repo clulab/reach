@@ -67,16 +67,23 @@ object PerformCrossValOldDataset extends App {
       val specForCurrentRow = keysForLabels(t)
       val evtIDInt = Integer.parseInt(specForCurrentRow._2)
       val possibleMatchesInLabelFile = labelMapFromOldDataset.filter(x => {x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3})
+      var numOfValidEventsDetectedperRow = 0
       for((id,lab) <- possibleMatchesInLabelFile) {
         val intId = Integer.parseInt(id._2)
         if(Math.abs(intId - evtIDInt) <= 1) {
           trainingRowsWithCorrectLabels += t
           trainingLabels += lab
+          numOfValidEventsDetectedperRow += 1
         }
       }
+      println(numOfValidEventsDetectedperRow + " := number of events that matched for the current row")
     }
     println(trainingRowsWithCorrectLabels.size)
     println(trainingLabels.size)
+
+    val (trainingRVFDataset, _) = unTrainedSVMInstance.dataConverter(trainingRowsWithCorrectLabels,Some(trainingLabels.toArray))
+
+    unTrainedSVMInstance.fit(trainingRVFDataset)
 
   }
 }
