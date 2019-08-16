@@ -1,4 +1,4 @@
-PMCID,EvtID,CtxID,label
+PMCID,evtID,ctxID,label
 PMC2063868,005,cellosaurus:CVCL_0224,0
 PMC2063868,005,cellosaurus:CVCL_D880,0
 PMC2063868,005,cellosaurus:CVCL_S979,1
