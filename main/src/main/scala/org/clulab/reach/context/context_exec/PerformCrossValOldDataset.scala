@@ -55,8 +55,12 @@ object PerformCrossValOldDataset extends App {
 
   println(s"We have a total of ${allRowsByPaperID.size} papers, and the micro-averaged precision will be calculated by treating each paper as a test case in the cross validation loop")
   val giantScoreBoard = collection.mutable.HashMap[String, Double]()
+  val giantPredictedLabels = collection.mutable.ListBuffer[Int]()
+  val giantTruthLabels = collection.mutable.ListBuffer[Int]()
   // in the cross validation, each paper will be considered as test case once. So when a given paper is a test case, all other papers and their corresponding labels must be the training case.
-  for((paperID, rowsPerPaper) <- allRowsByPaperID) {
+  for((paperID, testRowsPerPaper) <- allRowsByPaperID) {
+    val truthLabelsForThisPaper = collection.mutable.ListBuffer[Int]()
+    val predictedLabelsForThisPaper = collection.mutable.ListBuffer[Int]()
     val trainingCaseRowsUnFiltered = allRowsByPaperID.filter(_._1 != paperID)
     println(trainingCaseRowsUnFiltered.size)
     val trainRowsNeedsProcessing = collection.mutable.ListBuffer[AggregatedContextInstance]()
@@ -85,5 +89,33 @@ object PerformCrossValOldDataset extends App {
 
     unTrainedSVMInstance.fit(trainingRVFDataset)
 
+
+    for(testRow <- testRowsPerPaper) {
+      val pred = unTrainedSVMInstance.predict(Seq(testRow))
+      // we are only interested in True Positive and False Positive cases because we want to compare the performance of the SVM on the old data vs new data.
+      // Since in the new data th TN and FN were ignored, we do so here too. That's why we admit the predictions into the list only if the prediction is 1.
+      if(pred(0)!=0) {
+        val specForCurrTestRow = keysForLabels(testRow)
+        val eventIDToInt = Integer.parseInt(specForCurrTestRow._2)
+        val possibleLabels = labelMapFromOldDataset.filter(x => {x._1._1 == specForCurrTestRow._1 && x._1._3 == specForCurrTestRow._3})
+        for((id,truthLab) <- possibleLabels) {
+          val intId = Integer.parseInt(id._2)
+          if(Math.abs(eventIDToInt - intId) <= 1) {
+              truthLabelsForThisPaper += truthLab
+              predictedLabelsForThisPaper += pred(0)
+          }
+        }
+      }
+
+    }
+
+    giantPredictedLabels ++= predictedLabelsForThisPaper
+    giantTruthLabels ++= truthLabelsForThisPaper
+
+
   }
+
+  println(giantPredictedLabels.size)
+  println(giantTruthLabels.size)
+
 }
