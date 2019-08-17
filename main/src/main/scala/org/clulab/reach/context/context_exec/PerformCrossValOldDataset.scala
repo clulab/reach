@@ -127,7 +127,7 @@ object PerformCrossValOldDataset extends App {
 
   val microAveragedCountsMap = CodeUtils.predictCounts(giantTruthLabels.toArray, giantPredictedLabels.toArray)
   val microAveragedPrecisionScore = CodeUtils.precision(microAveragedCountsMap)
-  var totalPrecision = 0
+  var totalPrecision = 0.0
   for((paperID, perPaperPrecision) <- precisionScoreBoardPerPaper) {
     totalPrecision += perPaperPrecision
     val recallForThisPaper = recallScoreBoardPerPaper(paperID)
