@@ -54,7 +54,8 @@ object PerformCrossValOldDataset extends App {
   }
 
   println(s"We have a total of ${allRowsByPaperID.size} papers, and the micro-averaged precision will be calculated by treating each paper as a test case in the cross validation loop")
-  val giantScoreBoard = collection.mutable.HashMap[String, Double]()
+  val precisionScoreBoardPerPaper = collection.mutable.HashMap[String, Double]()
+  val recallScoreBoardPerPaper = collection.mutable.HashMap[String, Double]()
   val giantPredictedLabels = collection.mutable.ListBuffer[Int]()
   val giantTruthLabels = collection.mutable.ListBuffer[Int]()
   // in the cross validation, each paper will be considered as test case once. So when a given paper is a test case, all other papers and their corresponding labels must be the training case.
@@ -109,6 +110,12 @@ object PerformCrossValOldDataset extends App {
 
     }
 
+
+    val predictCountsMap = CodeUtils.predictCounts(truthLabelsForThisPaper.toArray, predictedLabelsForThisPaper.toArray)
+    val precisionPerPaper = CodeUtils.precision(predictCountsMap)
+    val recallPerPaper = CodeUtils.recall(predictCountsMap)
+    recallScoreBoardPerPaper ++= Map(paperID -> recallPerPaper)
+    precisionScoreBoardPerPaper ++= Map(paperID -> precisionPerPaper)
     giantPredictedLabels ++= predictedLabelsForThisPaper
     giantTruthLabels ++= truthLabelsForThisPaper
 
@@ -117,5 +124,21 @@ object PerformCrossValOldDataset extends App {
 
   println(giantPredictedLabels.size)
   println(giantTruthLabels.size)
+
+  val microAveragedCountsMap = CodeUtils.predictCounts(giantTruthLabels.toArray, giantPredictedLabels.toArray)
+  val microAveragedPrecisionScore = CodeUtils.precision(microAveragedCountsMap)
+  var totalPrecision = 0
+  for((paperID, perPaperPrecision) <- precisionScoreBoardPerPaper) {
+    totalPrecision += perPaperPrecision
+    val recallForThisPaper = recallScoreBoardPerPaper(paperID)
+    println(s"The paper ${paperID} has the precision score ${perPaperPrecision} and recall of ${recallForThisPaper}")
+  }
+
+
+  val arithmeticMeanPrecision = totalPrecision/(precisionScoreBoardPerPaper.size)
+
+
+  println(s"The micro-averaged precision score is ${microAveragedPrecisionScore}")
+  println(s"Arithmetic mean precision is ${arithmeticMeanPrecision}")
 
 }
