@@ -63,17 +63,19 @@ object PerformCrossValOldDataset extends App {
     val truthLabelsForThisPaper = collection.mutable.ListBuffer[Int]()
     val predictedLabelsForThisPaper = collection.mutable.ListBuffer[Int]()
     val trainingCaseRowsUnFiltered = allRowsByPaperID.filter(_._1 != paperID)
-    println(trainingCaseRowsUnFiltered.size)
+    println(s"Current test case: ${paperID}")
     val trainRowsNeedsProcessing = collection.mutable.ListBuffer[AggregatedContextInstance]()
     for((_,tRows) <- trainingCaseRowsUnFiltered) trainRowsNeedsProcessing ++= tRows
     val trainingRowsWithCorrectLabels = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val trainingLabels = collection.mutable.ListBuffer[Int]()
     for(t <- trainRowsNeedsProcessing) {
       val specForCurrentRow = keysForLabels(t)
+      println(s"Current training row has the specs ${specForCurrentRow}")
       val evtIDInt = Integer.parseInt(specForCurrentRow._2)
       val possibleMatchesInLabelFile = labelMapFromOldDataset.filter(x => {x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3})
       var numOfValidEventsDetectedperRow = 0
       for((id,lab) <- possibleMatchesInLabelFile) {
+        println(s"Current row spec of possible match from label file: ${id}")
         val intId = Integer.parseInt(id._2)
         if(Math.abs(intId - evtIDInt) <= 1) {
           trainingRowsWithCorrectLabels += t
@@ -81,7 +83,7 @@ object PerformCrossValOldDataset extends App {
           numOfValidEventsDetectedperRow += 1
         }
       }
-      println(numOfValidEventsDetectedperRow + " := number of events that matched for the current row")
+      //println(numOfValidEventsDetectedperRow + " := number of events that matched for the current row")
     }
     println(trainingRowsWithCorrectLabels.size)
     println(trainingRowsWithCorrectLabels.toSet.size)
