@@ -76,7 +76,7 @@ object PerformCrossValOldDataset extends App {
       var numOfValidEventsDetectedperRow = 0
       for((id,lab) <- possibleMatchesInLabelFile) {
         val intId = Integer.parseInt(id._2)
-        if(Math.abs(intId - evtIDInt) <= 1) {
+        if(Math.abs(intId - evtIDInt) <= 1 && !trainingRowsWithCorrectLabels.contains(t)) {
           println(s"Current row spec of possible match from label file: ${id}")
           trainingRowsWithCorrectLabels += t
           trainingLabels += lab
@@ -96,7 +96,7 @@ object PerformCrossValOldDataset extends App {
 
     for(testRow <- testRowsPerPaper) {
       val pred = unTrainedSVMInstance.predict(Seq(testRow))
-      println(s"Predicted value: ${pred(0)}")
+
 
       //if(pred(0)!=0) {
         val specForCurrTestRow = keysForLabels(testRow)
@@ -105,6 +105,7 @@ object PerformCrossValOldDataset extends App {
         for((id,truthLab) <- possibleLabels) {
           val intId = Integer.parseInt(id._2)
           if(Math.abs(eventIDToInt - intId) <= 1) {
+              println(s"Predicted value: ${pred(0)}")
               println(s"Actual value: ${truthLab}")
               truthLabelsForThisPaper += truthLab
               predictedLabelsForThisPaper += pred(0)

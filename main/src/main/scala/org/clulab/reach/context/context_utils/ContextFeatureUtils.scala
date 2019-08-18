@@ -179,6 +179,8 @@ object ContextFeatureUtils {
 
 
   def createAggRowSpecsFromFile(file: File):(String, String, String) = {
+    println("In aggr row specs from file function")
+    println(s"Current file name is ${file.getName}")
     val pmcid = file.getName.split("_")(1)
     val evtID = file.getName.split("_")(2)
     val ctxID = file.getName.split("_")(3)
