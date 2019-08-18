@@ -93,9 +93,8 @@ object PerformCrossValOldDataset extends App {
 
     for(testRow <- testRowsPerPaper) {
       val pred = unTrainedSVMInstance.predict(Seq(testRow))
-      // we are only interested in True Positive and False Positive cases because we want to compare the performance of the SVM on the old data vs new data.
-      // Since in the new data th TN and FN were ignored, we do so here too. That's why we admit the predictions into the list only if the prediction is 1.
-      if(pred(0)!=0) {
+
+      //if(pred(0)!=0) {
         val specForCurrTestRow = keysForLabels(testRow)
         val eventIDToInt = Integer.parseInt(specForCurrTestRow._2)
         val possibleLabels = labelMapFromOldDataset.filter(x => {x._1._1 == specForCurrTestRow._1 && x._1._3 == specForCurrTestRow._3})
@@ -106,7 +105,7 @@ object PerformCrossValOldDataset extends App {
               predictedLabelsForThisPaper += pred(0)
           }
         }
-      }
+      //}
 
     }
 
