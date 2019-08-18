@@ -84,6 +84,7 @@ object PerformCrossValOldDataset extends App {
       println(numOfValidEventsDetectedperRow + " := number of events that matched for the current row")
     }
     println(trainingRowsWithCorrectLabels.size)
+    println(trainingRowsWithCorrectLabels.toSet.size)
     println(trainingLabels.size)
 
     val (trainingRVFDataset, _) = unTrainedSVMInstance.dataConverter(trainingRowsWithCorrectLabels,Some(trainingLabels.toArray))
