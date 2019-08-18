@@ -185,7 +185,11 @@ object ContextFeatureUtils {
     val pmcid = strOnly.split("_")(1)
     val evtID = strOnly.split("_")(2)
     val ctxID = strOnly.split("_")(3)
-    val ctxID2 = ctxID.slice(0,ctxID.length)
+    var rem = ""
+    if(strOnly.split("_").size > 4) {
+      rem = strOnly.split("_")(4)
+    }
+    val ctxID2 = ctxID.concat(rem)
     val toReturn = (pmcid, evtID, ctxID2)
     println(toReturn)
     toReturn
