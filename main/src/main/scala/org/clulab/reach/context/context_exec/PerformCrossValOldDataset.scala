@@ -58,6 +58,7 @@ object PerformCrossValOldDataset extends App {
   val recallScoreBoardPerPaper = collection.mutable.HashMap[String, Double]()
   val giantPredictedLabels = collection.mutable.ListBuffer[Int]()
   val giantTruthLabels = collection.mutable.ListBuffer[Int]()
+  val quickerFixer = 2
   // in the cross validation, each paper will be considered as test case once. So when a given paper is a test case, all other papers and their corresponding labels must be the training case.
   for((paperID, testRowsPerPaper) <- allRowsByPaperID) {
     val truthLabelsForThisPaper = collection.mutable.ListBuffer[Int]()
@@ -76,7 +77,7 @@ object PerformCrossValOldDataset extends App {
       var numOfValidEventsDetectedperRow = 0
       for((id,lab) <- possibleMatchesInLabelFile) {
         val intId = Integer.parseInt(id._2)
-        if(Math.abs(intId - evtIDInt) <= 1 && !trainingRowsWithCorrectLabels.contains(t)) {
+        if(Math.abs(intId - evtIDInt) <= quickerFixer && !trainingRowsWithCorrectLabels.contains(t)) {
           println(s"Current row spec of possible match from label file: ${id}")
           trainingRowsWithCorrectLabels += t
           trainingLabels += lab
@@ -104,7 +105,7 @@ object PerformCrossValOldDataset extends App {
         val possibleLabels = labelMapFromOldDataset.filter(x => {x._1._1 == specForCurrTestRow._1 && x._1._3 == specForCurrTestRow._3})
         for((id,truthLab) <- possibleLabels) {
           val intId = Integer.parseInt(id._2)
-          if(Math.abs(eventIDToInt - intId) <= 1) {
+          if(Math.abs(eventIDToInt - intId) <= quickerFixer) {
               println(s"Predicted value: ${pred(0)}")
               println(s"Actual value: ${truthLab}")
               truthLabelsForThisPaper += truthLab
