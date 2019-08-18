@@ -75,9 +75,9 @@ object PerformCrossValOldDataset extends App {
       val possibleMatchesInLabelFile = labelMapFromOldDataset.filter(x => {x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3})
       var numOfValidEventsDetectedperRow = 0
       for((id,lab) <- possibleMatchesInLabelFile) {
-        println(s"Current row spec of possible match from label file: ${id}")
         val intId = Integer.parseInt(id._2)
         if(Math.abs(intId - evtIDInt) <= 1) {
+          println(s"Current row spec of possible match from label file: ${id}")
           trainingRowsWithCorrectLabels += t
           trainingLabels += lab
           numOfValidEventsDetectedperRow += 1
@@ -96,6 +96,7 @@ object PerformCrossValOldDataset extends App {
 
     for(testRow <- testRowsPerPaper) {
       val pred = unTrainedSVMInstance.predict(Seq(testRow))
+      println(s"Predicted value: ${pred(0)}")
 
       //if(pred(0)!=0) {
         val specForCurrTestRow = keysForLabels(testRow)
@@ -104,6 +105,7 @@ object PerformCrossValOldDataset extends App {
         for((id,truthLab) <- possibleLabels) {
           val intId = Integer.parseInt(id._2)
           if(Math.abs(eventIDToInt - intId) <= 1) {
+              println(s"Actual value: ${truthLab}")
               truthLabelsForThisPaper += truthLab
               predictedLabelsForThisPaper += pred(0)
           }
@@ -114,6 +116,7 @@ object PerformCrossValOldDataset extends App {
 
 
     val predictCountsMap = CodeUtils.predictCounts(truthLabelsForThisPaper.toArray, predictedLabelsForThisPaper.toArray)
+    println(predictCountsMap)
     val precisionPerPaper = CodeUtils.precision(predictCountsMap)
     val recallPerPaper = CodeUtils.recall(predictCountsMap)
     recallScoreBoardPerPaper ++= Map(paperID -> recallPerPaper)
