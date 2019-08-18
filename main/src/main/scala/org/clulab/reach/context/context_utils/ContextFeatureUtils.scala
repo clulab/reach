@@ -1,7 +1,7 @@
 package org.clulab.reach.context.context_utils
 
 import java.io.{File, FileInputStream, FileOutputStream, ObjectInputStream, ObjectOutputStream, PrintWriter}
-
+import org.apache.commons.io.{FilenameUtils}
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.utils.{AggregatedContextInstance, ContextPairInstance}
 import org.clulab.reach.context.ContextEngine
@@ -179,13 +179,16 @@ object ContextFeatureUtils {
 
 
   def createAggRowSpecsFromFile(file: File):(String, String, String) = {
+    val strOnly = FilenameUtils.removeExtension(file.getName)
     println("In aggr row specs from file function")
     println(s"Current file name is ${file.getName}")
-    val pmcid = file.getName.split("_")(1)
-    val evtID = file.getName.split("_")(2)
-    val ctxID = file.getName.split("_")(3)
-    val ctxID2 = ctxID.slice(0,ctxID.length-4)
-    (pmcid, evtID, ctxID2)
+    val pmcid = strOnly.split("_")(1)
+    val evtID = strOnly.split("_")(2)
+    val ctxID = strOnly.split("_")(3)
+    val ctxID2 = ctxID.slice(0,ctxID.length)
+    val toReturn = (pmcid, evtID, ctxID2)
+    println(toReturn)
+    toReturn
   }
 
   def writeAggrRowsToFile(mentions: Seq[BioMention]):Unit = {
