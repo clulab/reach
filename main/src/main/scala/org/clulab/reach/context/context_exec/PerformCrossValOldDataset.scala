@@ -58,7 +58,7 @@ object PerformCrossValOldDataset extends App {
   val recallScoreBoardPerPaper = collection.mutable.HashMap[String, Double]()
   val giantPredictedLabels = collection.mutable.ListBuffer[Int]()
   val giantTruthLabels = collection.mutable.ListBuffer[Int]()
-  val quickerFixer = 5
+  val quickerFixer = 2
   // in the cross validation, each paper will be considered as test case once. So when a given paper is a test case, all other papers and their corresponding labels must be the training case.
   for((paperID, testRowsPerPaper) <- allRowsByPaperID) {
     val truthLabelsForThisPaper = collection.mutable.ListBuffer[Int]()
@@ -134,11 +134,11 @@ object PerformCrossValOldDataset extends App {
 
   val microAveragedCountsMap = CodeUtils.predictCounts(giantTruthLabels.toArray, giantPredictedLabels.toArray)
   val microAveragedPrecisionScore = CodeUtils.precision(microAveragedCountsMap)
+  val microAveragedF1Score = CodeUtils.f1(microAveragedCountsMap)
   var totalPrecision = 0.0
   for((paperID, perPaperPrecision) <- precisionScoreBoardPerPaper) {
     totalPrecision += perPaperPrecision
-    val recallForThisPaper = recallScoreBoardPerPaper(paperID)
-    println(s"The paper ${paperID} has the precision score ${perPaperPrecision} and recall of ${recallForThisPaper}")
+    println(s"The paper ${paperID} has the precision score ${perPaperPrecision}")
   }
 
 
@@ -146,6 +146,7 @@ object PerformCrossValOldDataset extends App {
 
 
   println(s"The micro-averaged precision score is ${microAveragedPrecisionScore}")
+  println(s"The micro-averaged f1 score is ${microAveragedF1Score}")
   println(s"Arithmetic mean precision is ${arithmeticMeanPrecision}")
 
 }
