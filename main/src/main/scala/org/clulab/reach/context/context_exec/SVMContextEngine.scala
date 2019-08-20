@@ -138,8 +138,8 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 //                  case None => -1
 //                }
 
-                val parentDirToWriteAllRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
-
+                //val parentDirToWriteAllRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
+                val parentDirToWriteAllRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaperNewAnnotations")
                 // It may be that we may need the aggregated instances for further analyses, like testing or cross-validation.
                 // Should such a need arise, you can write the aggregated instances to file by uncommenting the following line
                 // there are multiple signatures to this function, please refer to the definition of ContextFeatureUtils for more details
