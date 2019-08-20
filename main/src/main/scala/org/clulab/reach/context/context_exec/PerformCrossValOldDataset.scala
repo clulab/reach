@@ -49,7 +49,7 @@ object PerformCrossValOldDataset extends App {
       rowsForCurrentSent += row
     }
     val nameOfCurrentDirectory = paperDir.getName
-    val entry = Map(nameOfCurrentDirectory -> rowsForCurrentSent)
+    val entry = Map(nameOfCurrentDirectory -> rowsForCurrentSent.toSet.toSeq)
     allRowsByPaperID ++= entry
   }
 
@@ -64,20 +64,20 @@ object PerformCrossValOldDataset extends App {
     val truthLabelsForThisPaper = collection.mutable.ListBuffer[Int]()
     val predictedLabelsForThisPaper = collection.mutable.ListBuffer[Int]()
     val trainingCaseRowsUnFiltered = allRowsByPaperID.filter(_._1 != paperID)
-    println(s"Current test case: ${paperID}")
     val trainRowsNeedsProcessing = collection.mutable.ListBuffer[AggregatedContextInstance]()
     for((_,tRows) <- trainingCaseRowsUnFiltered) trainRowsNeedsProcessing ++= tRows
     val trainingRowsWithCorrectLabels = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val trainingLabels = collection.mutable.ListBuffer[Int]()
     for(t <- trainRowsNeedsProcessing) {
       val specForCurrentRow = keysForLabels(t)
-      println(s"Current training row has the specs ${specForCurrentRow}")
       val evtIDInt = Integer.parseInt(specForCurrentRow._2)
+      // getting the possible events that have the same paper ID and context ID
       val possibleMatchesInLabelFile = labelMapFromOldDataset.filter(x => {x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3})
       var numOfValidEventsDetectedperRow = 0
       for((id,lab) <- possibleMatchesInLabelFile) {
         val intId = Integer.parseInt(id._2)
         if(Math.abs(intId - evtIDInt) <= quickerFixer && !trainingRowsWithCorrectLabels.contains(t)) {
+          println(s"Current training row has the specs ${specForCurrentRow}")
           println(s"Current row spec of possible match from label file: ${id}")
           trainingRowsWithCorrectLabels += t
           trainingLabels += lab
@@ -99,7 +99,7 @@ object PerformCrossValOldDataset extends App {
       val pred = unTrainedSVMInstance.predict(Seq(testRow))
 
 
-      //if(pred(0)!=0) {
+      if(pred(0)!=0) {
         val specForCurrTestRow = keysForLabels(testRow)
         val eventIDToInt = Integer.parseInt(specForCurrTestRow._2)
         val possibleLabels = labelMapFromOldDataset.filter(x => {x._1._1 == specForCurrTestRow._1 && x._1._3 == specForCurrTestRow._3})
@@ -110,9 +110,11 @@ object PerformCrossValOldDataset extends App {
               println(s"Actual value: ${truthLab}")
               truthLabelsForThisPaper += truthLab
               predictedLabelsForThisPaper += pred(0)
+              giantPredictedLabels += pred(0)
+              giantTruthLabels += truthLab
           }
         }
-      //}
+      }
 
     }
 
@@ -123,8 +125,8 @@ object PerformCrossValOldDataset extends App {
     val recallPerPaper = CodeUtils.recall(predictCountsMap)
     recallScoreBoardPerPaper ++= Map(paperID -> recallPerPaper)
     precisionScoreBoardPerPaper ++= Map(paperID -> precisionPerPaper)
-    giantPredictedLabels ++= predictedLabelsForThisPaper
-    giantTruthLabels ++= truthLabelsForThisPaper
+    //giantPredictedLabels ++= predictedLabelsForThisPaper
+    //giantTruthLabels ++= truthLabelsForThisPaper
 
 
   }
