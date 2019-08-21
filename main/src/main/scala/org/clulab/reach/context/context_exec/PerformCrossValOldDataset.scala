@@ -3,7 +3,7 @@ package org.clulab.reach.context.context_exec
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
-import java.io.File
+import java.io.{File, PrintWriter}
 
 import org.clulab.reach.context.context_utils.ContextFeatureUtils
 object PerformCrossValOldDataset extends App {
@@ -27,13 +27,18 @@ object PerformCrossValOldDataset extends App {
   val labelFile = config.getString("svmContext.labelFileOldDataset")
   val labelMapFromOldDataset = CodeUtils.generateLabelMap(labelFile)
   val parentDirForRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
+  val predictionFilePath = parentDirForRows.concat("/predictionsOldDataset.txt")
+  val predsFile = new File(predictionFilePath)
+  if(!predsFile.exists())
+    predsFile.createNewFile()
+  val printWriter = new PrintWriter(predsFile)
   val allPapersDirs = new File(parentDirForRows).listFiles().filter(x => x.isDirectory && x.getName != "newAnnotations")
   // creating a subset of small number of papers for debugging. Use dirsToUseForDebug on line 37 for debugging
   val smallSetOfPapers = List("PMC2156142", "PMC2195994", "PMC2743561", "PMC2064697")
   val dirsToUseForDebug = allPapersDirs.filter(x => smallSetOfPapers.contains(x.getName))
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val keysForLabels = collection.mutable.HashMap[AggregatedContextInstance, (String, String, String)]()
-  val allRowsByPaperID = collection.mutable.HashMap[String, Seq[AggregatedContextInstance]]()
+  val allRowsByPaperID = collection.mutable.ListBuffer[(String, Seq[AggregatedContextInstance])]()
   for(paperDir <- dirsToUseForDebug) {
     // In this code we won't face the double counting of two rows from a given paper, because each paper appears only once over all.
     // While analyzing the performance over sentence windows, we encountered the same paper over different values of sentence window. That's why we had the risk of adding the same row twice.
@@ -54,9 +59,10 @@ object PerformCrossValOldDataset extends App {
       }
     }
     val nameOfCurrentDirectory = paperDir.getName
-    val entry = Map(nameOfCurrentDirectory -> rowsForCurrentSent)
+    val entry = (nameOfCurrentDirectory,rowsForCurrentSent)
+    //val entry = Map(nameOfCurrentDirectory -> rowsForCurrentSent)
     println(s"The current paper ${nameOfCurrentDirectory} has ${rowsForCurrentSent.size} rows")
-    allRowsByPaperID ++= entry
+    allRowsByPaperID += entry
   }
 
   val precisionScoreBoardPerPaper = collection.mutable.HashMap[String, Double]()
@@ -100,7 +106,7 @@ object PerformCrossValOldDataset extends App {
 
     for(testRow <- testRowsPerPaper) {
       val pred = unTrainedSVMInstance.predict(Seq(testRow))
-
+      printWriter.write(s"${pred(0)}\n")
 
       if(pred(0)!=0) {
         val specForCurrTestRow = keysForLabels(testRow)
