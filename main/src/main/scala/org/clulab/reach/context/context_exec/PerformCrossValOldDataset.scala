@@ -27,7 +27,7 @@ object PerformCrossValOldDataset extends App {
   val labelFile = config.getString("svmContext.labelFileOldDataset")
   val labelMapFromOldDataset = CodeUtils.generateLabelMap(labelFile)
   val parentDirForRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
-  val allPapersDirs = new File(parentDirForRows).listFiles().filter(_.isDirectory)
+  val allPapersDirs = new File(parentDirForRows).listFiles().filter(x => x.isDirectory && x.getName != "newAnnotations")
   // creating a subset of small number of papers for debugging. Use dirsToUseForDebug on line 37 for debugging
   val smallSetOfPapers = List("PMC2156142", "PMC2195994", "PMC2743561")
   val dirsToUseForDebug = allPapersDirs.filter(x => smallSetOfPapers.contains(x.getName))
