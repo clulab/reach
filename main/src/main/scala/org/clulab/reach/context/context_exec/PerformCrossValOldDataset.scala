@@ -79,8 +79,6 @@ object PerformCrossValOldDataset extends App {
       val evtIDInt = Integer.parseInt(specForCurrentRow._2)
       // getting the possible events that have the same paper ID and context ID
       val possibleMatchesInLabelFile = labelMapFromOldDataset.filter(x => {x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3})
-      println(s"The current training row has specs: ${specForCurrentRow}")
-      println(s"The number of candidate matches are (including non-matching events): ${possibleMatchesInLabelFile.size}")
       for((id,lab) <- possibleMatchesInLabelFile) {
         val intId = Integer.parseInt(id._2)
         if(Math.abs(intId - evtIDInt) <= quickerFixer && !trainingRowsWithCorrectLabels.contains(t)) {
