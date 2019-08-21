@@ -39,23 +39,25 @@ object PerformCrossValOldDataset extends App {
     // But we now see that each paper appears only once, and we read the rows from that paper. So we won't add the same row twice.
     // The only time we will see the same paper appear twice will be in the hold-one-out cross-validation phase, which is expected behavior.
     val rowFiles = paperDir.listFiles().filter(_.getName.contains("Aggregated"))
-    println(s"The current paper ${paperDir.getName} has ${rowFiles.size} rows")
     val rowsForCurrentSent = collection.mutable.ListBuffer[AggregatedContextInstance]()
     for(r <- rowFiles) {
       // REMEMBER TO FILTER OUT THE NEGATIVE PREDICTIONS LATER ON
       val pathToRow = parentDirForRows.concat(s"${paperDir.getName}").concat(s"/${r.getName}")
       val rowSpecs = ContextFeatureUtils.createAggRowSpecsFromFile(r)
       val row = ContextFeatureUtils.readAggRowFromFile(pathToRow)
-      idMap ++= Map(rowSpecs -> row)
-      keysForLabels ++= Map(row -> rowSpecs)
-      rowsForCurrentSent += row
+      if(!rowsForCurrentSent.contains(row))
+      {
+        idMap ++= Map(rowSpecs -> row)
+        keysForLabels ++= Map(row -> rowSpecs)
+        rowsForCurrentSent += row
+      }
     }
     val nameOfCurrentDirectory = paperDir.getName
-    val entry = Map(nameOfCurrentDirectory -> rowsForCurrentSent.toSet.toSeq)
+    val entry = Map(nameOfCurrentDirectory -> rowsForCurrentSent)
+    println(s"The current paper ${nameOfCurrentDirectory} has ${rowsForCurrentSent.size} rows")
     allRowsByPaperID ++= entry
   }
 
-  println(s"We have a total of ${allRowsByPaperID.size} papers, and the micro-averaged precision will be calculated by treating each paper as a test case in the cross validation loop")
   val precisionScoreBoardPerPaper = collection.mutable.HashMap[String, Double]()
   val recallScoreBoardPerPaper = collection.mutable.HashMap[String, Double]()
   val giantPredictedLabels = collection.mutable.ListBuffer[Int]()
@@ -77,7 +79,8 @@ object PerformCrossValOldDataset extends App {
       val evtIDInt = Integer.parseInt(specForCurrentRow._2)
       // getting the possible events that have the same paper ID and context ID
       val possibleMatchesInLabelFile = labelMapFromOldDataset.filter(x => {x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3})
-
+      println(s"The current training row has specs: ${specForCurrentRow}")
+      println(s"The number of candidate matches are (including non-matching events): ${possibleMatchesInLabelFile.size}")
       for((id,lab) <- possibleMatchesInLabelFile) {
         val intId = Integer.parseInt(id._2)
         if(Math.abs(intId - evtIDInt) <= quickerFixer && !trainingRowsWithCorrectLabels.contains(t)) {
@@ -86,11 +89,10 @@ object PerformCrossValOldDataset extends App {
 
         }
       }
-      //println(numOfValidEventsDetectedperRow + " := number of events that matched for the current row")
     }
     println(s"Current test case: ${paperID}")
-    println(s"Size of training rows: ${trainingRowsWithCorrectLabels.size}")
-    println(s"Size of training labels: ${trainingLabels.size}")
+    println(s"Size of training rows after filtering by appropriate event IDs: ${trainingRowsWithCorrectLabels.size}")
+    println(s"Size of training labels after filtering by appropriate event IDs: ${trainingLabels.size}")
 
     val (trainingRVFDataset, _) = unTrainedSVMInstance.dataConverter(trainingRowsWithCorrectLabels,Some(trainingLabels.toArray))
 
