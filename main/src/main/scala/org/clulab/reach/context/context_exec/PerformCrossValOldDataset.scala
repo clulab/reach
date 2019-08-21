@@ -152,7 +152,7 @@ object PerformCrossValOldDataset extends App {
 
   println(s"The micro-averaged precision score is ${microAveragedPrecisionScore}")
   println(s"The micro-averaged recall score is ${microAveragedRecallScore}")
-  println(s"The micro-averaged f1 score is ${microAveragedF1Score}")
+  //println(s"The micro-averaged f1 score is ${microAveragedF1Score}")
   println(s"Arithmetic mean precision is ${arithmeticMeanPrecision}")
 
 }
