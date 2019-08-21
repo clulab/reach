@@ -88,9 +88,9 @@ object PerformCrossValOldDataset extends App {
       }
       //println(numOfValidEventsDetectedperRow + " := number of events that matched for the current row")
     }
-    println(trainingRowsWithCorrectLabels.size)
-    println(trainingRowsWithCorrectLabels.toSet.size)
-    println(trainingLabels.size)
+    println(s"Current test case: ${paperID}")
+    println(s"Size of training rows: ${trainingRowsWithCorrectLabels.size}")
+    println(s"Size of training labels: ${trainingLabels.size}")
 
     val (trainingRVFDataset, _) = unTrainedSVMInstance.dataConverter(trainingRowsWithCorrectLabels,Some(trainingLabels.toArray))
 
@@ -133,8 +133,8 @@ object PerformCrossValOldDataset extends App {
 
   }
 
-  println(giantPredictedLabels.size)
-  println(giantTruthLabels.size)
+  println(s"Size of predicted labels list: ${giantPredictedLabels.size}")
+  println(s"Size of truth label list: ${giantTruthLabels.size}")
 
   val microAveragedCountsMap = CodeUtils.predictCounts(giantTruthLabels.toArray, giantPredictedLabels.toArray)
   val microAveragedPrecisionScore = CodeUtils.precision(microAveragedCountsMap)
