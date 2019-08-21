@@ -189,7 +189,6 @@ object ContextFeatureUtils {
     }
     val ctxID2 = ctxID.concat(rem)
     val toReturn = (pmcid, evtID, ctxID2)
-    println(toReturn)
     toReturn
   }
 
