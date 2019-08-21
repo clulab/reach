@@ -79,12 +79,11 @@ object PerformCrossValOldDataset extends App {
       for((id,lab) <- possibleMatchesInLabelFile) {
         val intId = Integer.parseInt(id._2)
         if(Math.abs(intId - evtIDInt) <= quickerFixer && !trainingRowsWithCorrectLabels.contains(t)) {
-          println(s"Current training row has the specs ${specForCurrentRow}")
-          println(s"Current row spec of possible match from label file: ${id}")
           trainingRowsWithCorrectLabels += t
           trainingLabels += lab
           numOfValidEventsDetectedperRow += 1
         }
+        println(s"Number of events that matched the label of the row: ${numOfValidEventsDetectedperRow}")
       }
       //println(numOfValidEventsDetectedperRow + " := number of events that matched for the current row")
     }
@@ -122,6 +121,7 @@ object PerformCrossValOldDataset extends App {
 
 
     val predictCountsMap = CodeUtils.predictCounts(truthLabelsForThisPaper.toArray, predictedLabelsForThisPaper.toArray)
+    println(s"Current test case: ${paperID}")
     println(predictCountsMap)
     val precisionPerPaper = CodeUtils.precision(predictCountsMap)
     val recallPerPaper = CodeUtils.recall(predictCountsMap)
