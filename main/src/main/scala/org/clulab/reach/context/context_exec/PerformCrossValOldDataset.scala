@@ -68,6 +68,8 @@ object PerformCrossValOldDataset extends App {
     val trainingCaseRowsUnFiltered = allRowsByPaperID.filter(_._1 != paperID)
     val trainRowsNeedsProcessing = collection.mutable.ListBuffer[AggregatedContextInstance]()
     for((_,tRows) <- trainingCaseRowsUnFiltered) trainRowsNeedsProcessing ++= tRows
+    println(s"When ${paperID} is the test case,")
+    println(s"Without checking for matching annotations, we have a total of ${trainRowsNeedsProcessing.size} rows for training")
     val trainingRowsWithCorrectLabels = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val trainingLabels = collection.mutable.ListBuffer[Int]()
     for(t <- trainRowsNeedsProcessing) {
