@@ -108,7 +108,7 @@ object PerformCrossValOldDataset extends App {
       val pred = unTrainedSVMInstance.predict(Seq(testRow))
       printWriter.write(s"${pred(0)}\n")
 
-      if(pred(0)!=0) {
+      if(pred(0)==1) {
         val specForCurrTestRow = keysForLabels(testRow)
         val eventIDToInt = Integer.parseInt(specForCurrTestRow._2)
         val possibleLabels = labelMapFromOldDataset.filter(x => {x._1._1 == specForCurrTestRow._1 && x._1._3 == specForCurrTestRow._3})
