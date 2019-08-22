@@ -41,7 +41,7 @@ object PerformCrossValOldDataset extends App {
   val allRowsByPaperID = collection.mutable.ListBuffer[(String, Seq[AggregatedContextInstance])]()
   val findingNoOfTrueOccurrences = labelMapFromOldDataset.filter(_._2 == 1)
   println(findingNoOfTrueOccurrences.size + " : No. of true labels in the whole dataset")
-  for(paperDir <- dirsToUseForDebug) {
+  for(paperDir <- allPapersDirs) {
     // In this code we won't face the double counting of two rows from a given paper, because each paper appears only once over all.
     // While analyzing the performance over sentence windows, we encountered the same paper over different values of sentence window. That's why we had the risk of adding the same row twice.
     // But we now see that each paper appears only once, and we read the rows from that paper. So we won't add the same row twice.
@@ -162,7 +162,7 @@ object PerformCrossValOldDataset extends App {
 
   println(s"The micro-averaged precision score is ${microAveragedPrecisionScore}")
   println(s"The micro-averaged recall score is ${microAveragedRecallScore}")
-  //println(s"The micro-averaged f1 score is ${microAveragedF1Score}")
+  println(s"The micro-averaged f1 score is ${microAveragedF1Score}")
   println(s"Arithmetic mean precision is ${arithmeticMeanPrecision}")
 
 }
