@@ -15,6 +15,62 @@ object TriggerHandler {
     mentions foreach {
         case event:BioEventMention =>
 
+
+          val dependencies = event.sentenceObj.dependencies //all deps for the sentence
+          val eventTokInterval = event.tokenInterval //token interval for the event
+          //find the indices of words in the sentence that are in the event span
+          for (wordIdx <- event.sentenceObj.words.indices if (wordIdx >= eventTokInterval.start & wordIdx < eventTokInterval.end)) {
+
+//            println("word: " + event.sentenceObj.words(wordIdx) + " index: " + wordIdx)
+//            println("all outgoing: " + event.sentenceObj.dependencies.get.outgoingEdges(wordIdx).mkString(" "))
+
+            //based on the word index for the words inside the event span, get all outgoing deps for this word
+            val allOutgoingFromWord = event.sentenceObj.dependencies.get.outgoingEdges(wordIdx)
+            //for each outgoing relation
+            for (outgoing <- allOutgoingFromWord) {
+//              println("current word: " + event.sentenceObj.words(wordIdx) + " " +outgoing + " word at the end of node " + event.sentenceObj.words(outgoing._1))
+              //if the node at the end of the outgoing edge is one of the KD triggers
+              if (Seq("sirna", "silencing", "si-", "sh-", "shrna") contains event.sentenceObj.words(outgoing._1).toLowerCase) {
+
+                //add the KD modification
+                event.modifications += KDtrigger(new BioTextBoundMention(
+                  Seq("KDtrigger_trigger"),
+                  Interval(outgoing._1), //index of the relevant newly-discovered node?
+                  sentence = event.sentence,
+                  document = event.document,
+                  keep = event.keep,
+                  foundBy = event.foundBy
+                ))
+
+
+              }
+            }
+          }
+
+          /////////////////////////////////////////////////
+          // Check the outgoing edges from the trigger looking
+          // for a neg label
+//          val outgoing = dependencies match {
+//            case Some(deps) => deps.outgoingEdges
+//            case None => Array.empty
+//          }
+//
+//          for{
+//            tok <- event.tokenInterval
+//            out <- outgoing.lift(tok)
+//            (ix, label) <- out
+//            if label == "neg"
+//          }
+//            event.modifications += KDtrigger(new BioTextBoundMention(
+//              Seq("KDtrigger_trigger"),
+//              Interval(ix),
+//              sentence = event.sentence,
+//              document = event.document,
+//              keep = event.keep,
+//              foundBy = event.foundBy
+//            ))
+
+
 //          val dependencies = event.sentenceObj.dependencies
 //
 //          /////////////////////////////////////////////////
