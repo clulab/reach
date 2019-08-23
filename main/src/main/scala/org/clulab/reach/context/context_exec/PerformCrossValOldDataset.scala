@@ -35,7 +35,7 @@ object PerformCrossValOldDataset extends App {
   val allPapersDirs = new File(parentDirForRows).listFiles().filter(x => x.isDirectory && x.getName != "newAnnotations")
   // creating a subset of small number of papers for debugging. Use dirsToUseForDebug on line 37 for debugging
   //val smallSetOfPapers = List("PMC2156142", "PMC2195994", "PMC2743561", "PMC2064697", "PMC2193052", "PMC2196001")
-  val smallSetOfPapers = List("PMC2156142", "PMC2195994", "PMC2743561", "PMC2064697", "PMC2193052", "PMC2196001")
+  val smallSetOfPapers = List("PMC2156142", "PMC2195994", "PMC2743561", "PMC2064697", "PMC2193052")
   val dirsToUseForDebug = allPapersDirs.filter(x => smallSetOfPapers.contains(x.getName))
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val keysForLabels = collection.mutable.HashMap[AggregatedContextInstance, (String, String, String)]()
@@ -53,7 +53,6 @@ object PerformCrossValOldDataset extends App {
       // REMEMBER TO FILTER OUT THE NEGATIVE PREDICTIONS LATER ON
       val pathToRow = parentDirForRows.concat(s"${paperDir.getName}").concat(s"/${r.getName}")
       val rowSpecs = ContextFeatureUtils.createAggRowSpecsFromFile(r)
-      println(rowSpecs)
       val row = ContextFeatureUtils.readAggRowFromFile(pathToRow)
       if(!rowsForCurrentSent.contains(row))
       {
@@ -108,19 +107,19 @@ object PerformCrossValOldDataset extends App {
     unTrainedSVMInstance.fit(trainingRVFDataset)
 
 
+    println("Testing on new paper")
     for(testRow <- testRowsPerPaper) {
       val pred = unTrainedSVMInstance.predict(Seq(testRow))
       printWriter.write(s"${pred(0)}\n")
 
       //if(pred(0)==1) {
         val specForCurrTestRow = keysForLabels(testRow)
+        println(specForCurrTestRow)
         val eventIDToInt = Integer.parseInt(specForCurrTestRow._2)
         val possibleLabels = labelMapFromOldDataset.filter(x => {x._1._1 == specForCurrTestRow._1 && x._1._3 == specForCurrTestRow._3})
         for((id,truthLab) <- possibleLabels) {
           val intId = Integer.parseInt(id._2)
           if(Math.abs(eventIDToInt - intId) <= quickerFixer) {
-              println(s"Predicted value: ${pred(0)}")
-              println(s"Actual value: ${truthLab}")
               truthLabelsForThisPaper += truthLab
               predictedLabelsForThisPaper += pred(0)
               giantPredictedLabels += pred(0)
