@@ -107,14 +107,13 @@ object PerformCrossValOldDataset extends App {
     unTrainedSVMInstance.fit(trainingRVFDataset)
 
 
-    println("Testing on new paper")
     for(testRow <- testRowsPerPaper) {
       val pred = unTrainedSVMInstance.predict(Seq(testRow))
-      printWriter.write(s"${pred(0)}\n")
+
 
       //if(pred(0)==1) {
         val specForCurrTestRow = keysForLabels(testRow)
-        println(specForCurrTestRow)
+        printWriter.write(s"The Pair ${specForCurrTestRow} has the prediction ${pred(0)}\n")
         val eventIDToInt = Integer.parseInt(specForCurrTestRow._2)
         val possibleLabels = labelMapFromOldDataset.filter(x => {x._1._1 == specForCurrTestRow._1 && x._1._3 == specForCurrTestRow._3})
         for((id,truthLab) <- possibleLabels) {
