@@ -27,7 +27,7 @@ object PerformCrossValOldDataset extends App {
   val labelFile = config.getString("svmContext.labelFileOldDataset")
   val labelMapFromOldDataset = CodeUtils.generateLabelMap(labelFile)
   val parentDirForRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
-  val predictionFilePath = parentDirForRows.concat("/predictionsOldDataset_2.txt")
+  val predictionFilePath = parentDirForRows.concat("/predictionsOldDataset_1.txt")
   val predsFile = new File(predictionFilePath)
   if(!predsFile.exists())
     predsFile.createNewFile()
