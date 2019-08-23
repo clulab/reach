@@ -53,6 +53,7 @@ object PerformCrossValOldDataset extends App {
       // REMEMBER TO FILTER OUT THE NEGATIVE PREDICTIONS LATER ON
       val pathToRow = parentDirForRows.concat(s"${paperDir.getName}").concat(s"/${r.getName}")
       val rowSpecs = ContextFeatureUtils.createAggRowSpecsFromFile(r)
+      println(rowSpecs)
       val row = ContextFeatureUtils.readAggRowFromFile(pathToRow)
       if(!rowsForCurrentSent.contains(row))
       {
