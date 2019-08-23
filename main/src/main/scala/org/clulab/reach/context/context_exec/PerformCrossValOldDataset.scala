@@ -161,6 +161,7 @@ object PerformCrossValOldDataset extends App {
   val arithmeticMeanPrecision = totalPrecision/(precisionScoreBoardPerPaper.size)
 
 
+  println(s"We have a total of ${allRowsByPaperID.size} papers")
   println(s"The micro-averaged precision score is ${microAveragedPrecisionScore}")
   println(s"The micro-averaged recall score is ${microAveragedRecallScore}")
   println(s"The micro-averaged f1 score is ${microAveragedF1Score}")
