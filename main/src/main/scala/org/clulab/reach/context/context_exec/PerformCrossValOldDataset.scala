@@ -35,7 +35,7 @@ object PerformCrossValOldDataset extends App {
   val allPapersDirs = new File(parentDirForRows).listFiles().filter(x => x.isDirectory && x.getName != "newAnnotations")
   // creating a subset of small number of papers for debugging. Use dirsToUseForDebug on line 37 for debugging
   //val smallSetOfPapers = List("PMC2156142", "PMC2195994", "PMC2743561", "PMC2064697", "PMC2193052", "PMC2196001")
-  val smallSetOfPapers = List("PMC2156142", "PMC2195994", "PMC2743561", "PMC2064697", "PMC2193052")
+  val smallSetOfPapers = List("PMC2156142", "PMC2195994", "PMC2743561", "PMC2064697", "PMC2193052", "PMC2196001")
   val dirsToUseForDebug = allPapersDirs.filter(x => smallSetOfPapers.contains(x.getName))
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val keysForLabels = collection.mutable.HashMap[AggregatedContextInstance, (String, String, String)]()
@@ -88,10 +88,12 @@ object PerformCrossValOldDataset extends App {
       val specForCurrentRow = keysForLabels(t)
       val evtIDInt = Integer.parseInt(specForCurrentRow._2)
       // getting the possible events that have the same paper ID and context ID
-      val possibleMatchesInLabelFile = labelMapFromOldDataset.filter(x => {x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3})
-      for((id,lab) <- possibleMatchesInLabelFile) {
-        val intId = Integer.parseInt(id._2)
-        if(Math.abs(intId - evtIDInt) <= quickerFixer && !trainingRowsWithCorrectLabels.contains(t)) {
+      val possibleMatchesInLabelFile = labelMapFromOldDataset.filter(x => {
+        val int1 = Integer.parseInt(x._1._2)
+        val sep = Math.abs(evtIDInt - int1)
+        x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3 && sep <= quickerFixer})
+      for((_,lab) <- possibleMatchesInLabelFile) {
+        if(!trainingRowsWithCorrectLabels.contains(t)) {
           trainingRowsWithCorrectLabels += t
           trainingLabels += lab
 
@@ -115,7 +117,10 @@ object PerformCrossValOldDataset extends App {
         val specForCurrTestRow = keysForLabels(testRow)
         printWriter.write(s"The Pair ${specForCurrTestRow} has the prediction ${pred(0)}\n")
         val eventIDToInt = Integer.parseInt(specForCurrTestRow._2)
-        val possibleLabels = labelMapFromOldDataset.filter(x => {x._1._1 == specForCurrTestRow._1 && x._1._3 == specForCurrTestRow._3})
+        val possibleLabels = labelMapFromOldDataset.filter(x => {
+          val int1 = Integer.parseInt(x._1._2)
+          val sep = Math.abs(eventIDToInt - int1)
+          x._1._1 == specForCurrTestRow._1 && x._1._3 == specForCurrTestRow._3 && sep <= quickerFixer})
         for((id,truthLab) <- possibleLabels) {
           val intId = Integer.parseInt(id._2)
           if(Math.abs(eventIDToInt - intId) <= quickerFixer) {
