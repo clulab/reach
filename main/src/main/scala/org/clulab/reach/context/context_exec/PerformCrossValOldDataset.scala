@@ -101,7 +101,7 @@ object PerformCrossValOldDataset extends App {
         val int1 = Integer.parseInt(x._1._2)
         val sep = Math.abs(evtIDInt - int1)
         x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3 && sep <= quickerFixer})
-      println(s"${possibleMatchesInLabelFile} rows match from the labels file")
+      println(s"${possibleMatchesInLabelFile.size} rows match from the labels file")
       var count = 0
       for((_,lab) <- possibleMatchesInLabelFile) {
         if(!trainingRowsWithCorrectLabels.contains(t)) {
