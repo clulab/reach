@@ -35,7 +35,7 @@ object PerformCrossValOldDataset extends App {
   val allPapersDirs = new File(parentDirForRows).listFiles().filter(x => x.isDirectory && x.getName != "newAnnotations")
   // creating a subset of small number of papers for debugging. Use dirsToUseForDebug on line 37 for debugging
   //val smallSetOfPapers = List("PMC2156142", "PMC2195994", "PMC2743561", "PMC2064697", "PMC2193052", "PMC2196001")
-  val smallSetOfPapers = List("PMC2156142", "PMC2195994", "PMC2743561", "PMC2064697", "PMC2193052", "PMC2196001")
+  val smallSetOfPapers = List("PMC2156142", "PMC2195994", "PMC2743561", "PMC2064697", "PMC2193052")
   val dirsToUseForDebug = allPapersDirs.filter(x => smallSetOfPapers.contains(x.getName))
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val keysForLabels = collection.mutable.HashMap[AggregatedContextInstance, (String, String, String)]()
@@ -95,25 +95,19 @@ object PerformCrossValOldDataset extends App {
     for(t <- trainingCaseRowsUnFiltered) {
       val specForCurrentRow = keysForLabels(t)
       val evtID = specForCurrentRow._2.slice(0,3)
-      println(s"Adding rows from ${specForCurrentRow._1} for training")
       // getting the possible events that have the same paper ID and context ID
       val possibleMatchesInLabelFile = labelMapFromOldDataset.filter(x => {
         val int1 = x._1._2.slice(0,3)
         val sep = evtID == int1
         x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3 && sep})
-      println(s"${possibleMatchesInLabelFile.size} rows match from the labels file, and those are:")
-      println(possibleMatchesInLabelFile)
-      var count = 0
       for((_,lab) <- possibleMatchesInLabelFile) {
         if(!trainingRowsWithCorrectLabels.contains(t)) {
           trainingRowsWithCorrectLabels += t
           trainingLabels += lab
-          count += 1
 
         }
       }
 
-      println(s"${count} rows have been added to training set")
     }
     println(s"Current test case: ${paperID}")
     println(s"Size of training rows after filtering by appropriate event IDs: ${trainingRowsWithCorrectLabels.size}")
