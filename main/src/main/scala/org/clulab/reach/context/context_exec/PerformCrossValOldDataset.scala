@@ -77,14 +77,22 @@ object PerformCrossValOldDataset extends App {
   for((paperID, testRowsPerPaper) <- allRowsByPaperID) {
     val truthLabelsForThisPaper = collection.mutable.ListBuffer[Int]()
     val predictedLabelsForThisPaper = collection.mutable.ListBuffer[Int]()
-    val trainingCaseRowsUnFiltered = allRowsByPaperID.filter(_._1 != paperID)
-    val trainRowsNeedsProcessing = collection.mutable.ListBuffer[AggregatedContextInstance]()
-    for((_,tRows) <- trainingCaseRowsUnFiltered) trainRowsNeedsProcessing ++= tRows
+    //val trainingCaseRowsUnFiltered = allRowsByPaperID.filter(_._1 != paperID)
+    val trainingCaseRowsUnFiltered = collection.mutable.ListBuffer[AggregatedContextInstance]()
+    print(paperID + " : current test case")
+    for((pap,rows) <- allRowsByPaperID) {
+
+      if(pap != paperID)
+        { print(pap + " : added to training set")
+          trainingCaseRowsUnFiltered ++= rows}
+    }
+    //val trainRowsNeedsProcessing = collection.mutable.ListBuffer[AggregatedContextInstance]()
+    //for(tRows <- trainingCaseRowsUnFiltered) trainRowsNeedsProcessing += tRows
     println(s"When ${paperID} is the test case,")
-    println(s"Without checking for matching annotations, we have a total of ${trainRowsNeedsProcessing.size} rows for training")
+    println(s"Without checking for matching annotations, we have a total of ${trainingCaseRowsUnFiltered.size} rows for training")
     val trainingRowsWithCorrectLabels = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val trainingLabels = collection.mutable.ListBuffer[Int]()
-    for(t <- trainRowsNeedsProcessing) {
+    for(t <- trainingCaseRowsUnFiltered) {
       val specForCurrentRow = keysForLabels(t)
       val evtIDInt = Integer.parseInt(specForCurrentRow._2)
       // getting the possible events that have the same paper ID and context ID
