@@ -95,18 +95,24 @@ object PerformCrossValOldDataset extends App {
     for(t <- trainingCaseRowsUnFiltered) {
       val specForCurrentRow = keysForLabels(t)
       val evtIDInt = Integer.parseInt(specForCurrentRow._2)
+      println(s"Adding rows from ${specForCurrentRow._1} for training")
       // getting the possible events that have the same paper ID and context ID
       val possibleMatchesInLabelFile = labelMapFromOldDataset.filter(x => {
         val int1 = Integer.parseInt(x._1._2)
         val sep = Math.abs(evtIDInt - int1)
         x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3 && sep <= quickerFixer})
+      println(s"${possibleMatchesInLabelFile} rows match from the labels file")
+      var count = 0
       for((_,lab) <- possibleMatchesInLabelFile) {
         if(!trainingRowsWithCorrectLabels.contains(t)) {
           trainingRowsWithCorrectLabels += t
           trainingLabels += lab
+          count += 1
 
         }
       }
+
+      println(s"${count} rows have been added to training set")
     }
     println(s"Current test case: ${paperID}")
     println(s"Size of training rows after filtering by appropriate event IDs: ${trainingRowsWithCorrectLabels.size}")
