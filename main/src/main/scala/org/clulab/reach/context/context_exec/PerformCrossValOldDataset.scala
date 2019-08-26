@@ -79,11 +79,11 @@ object PerformCrossValOldDataset extends App {
     val predictedLabelsForThisPaper = collection.mutable.ListBuffer[Int]()
     //val trainingCaseRowsUnFiltered = allRowsByPaperID.filter(_._1 != paperID)
     val trainingCaseRowsUnFiltered = collection.mutable.ListBuffer[AggregatedContextInstance]()
-    print(paperID + " : current test case")
+    println(paperID + " : current test case")
     for((pap,rows) <- allRowsByPaperID) {
 
       if(pap != paperID)
-        { print(pap + " : added to training set")
+        { println(pap + " : added to training set")
           trainingCaseRowsUnFiltered ++= rows}
     }
     //val trainRowsNeedsProcessing = collection.mutable.ListBuffer[AggregatedContextInstance]()
