@@ -10,7 +10,6 @@ import org.clulab.reach.context.context_utils.ContextFeatureUtils
 object Polarity4CrossValidation extends App {
   val config = ConfigFactory.load()
   val labelFile = config.getString("svmContext.labelFile")
-  val typeOfPaper = config.getString("polarityContext.typeOfPaper")
   val dirForType = config.getString("policy4Params.mentionsOutputFile").concat("sentenceWindows")
 
   //val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper).concat("/policy4/sentenceWindows")
