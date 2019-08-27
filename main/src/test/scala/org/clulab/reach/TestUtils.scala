@@ -187,14 +187,6 @@ object TestUtils {
                             controlledArgs: Seq[String],
                             mentions: Seq[Mention]): Boolean = {
 
-    println("=============")
-    for (mention <- mentions){
-      println(s"class:${mention.getClass}")
-      println(s"text:${mention.text}")
-      scala.io.StdIn.readLine()
-    }
-
-
     for (m <- mentions) {
       if (!m.isInstanceOf[TextBoundMention]) {
         if (m.labels contains label) {
