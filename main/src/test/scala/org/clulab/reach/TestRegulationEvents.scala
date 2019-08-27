@@ -111,12 +111,6 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   sent13 should "contain 1 downregulation and NO upregulation events" in {
     val mentions = getBioMentions(sent13)
 
-    for (mention <- mentions){
-      println("=============")
-      println(s"class:${mention.getClass}")
-      scala.io.StdIn.readLine()
-    }
-
     hasNegativeRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
     hasPositiveRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (false)
   }
