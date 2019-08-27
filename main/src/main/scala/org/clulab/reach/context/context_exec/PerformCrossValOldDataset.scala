@@ -97,12 +97,12 @@ object PerformCrossValOldDataset extends App {
     val trainingLabels = collection.mutable.ListBuffer[Int]()
     for(t <- trainingCaseRowsUnFiltered) {
       val specForCurrentRow = keysForLabels(t)
-      val evtID = specForCurrentRow._2.slice(0,3)
+      val evtID = Integer.parseInt(specForCurrentRow._2)
       // getting the possible events that have the same paper ID and context ID
       val possibleMatchesInLabelFile = labelMapFromOldDataset.filter(x => {
-        val int1 = x._1._2.slice(0,3)
-        val sep = evtID == int1
-        x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3 && sep})
+        val int1 = Integer.parseInt(x._1._2)
+        val sep = Math.abs(evtID - int1)
+        x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3 && sep <= quickerFixer})
       for((_,lab) <- possibleMatchesInLabelFile) {
         if(!trainingRowsWithCorrectLabels.contains(t)) {
           trainingRowsWithCorrectLabels += t
@@ -128,11 +128,11 @@ object PerformCrossValOldDataset extends App {
       //if(pred(0)==1) {
         val specForCurrTestRow = keysForLabels(testRow)
         printWriter.write(s"The Pair ${specForCurrTestRow} has the prediction ${pred(0)}\n")
-        val eventID = specForCurrTestRow._2.slice(0,3)
+        val eventID = Integer.parseInt(specForCurrTestRow._2)
         val possibleLabels = labelMapFromOldDataset.filter(x => {
-          val int1 = x._1._2.slice(0,3)
-          val sep = int1 == eventID
-          x._1._1 == specForCurrTestRow._1 && x._1._3 == specForCurrTestRow._3 && sep})
+          val int1 = Integer.parseInt(x._1._2)
+          val sep = Math.abs(int1 - eventID)
+          x._1._1 == specForCurrTestRow._1 && x._1._3 == specForCurrTestRow._3 && sep <= quickerFixer})
         for((_,truthLab) <- possibleLabels) {
           //if(Math.abs(eventIDToInt - intId) <= quickerFixer) {
               truthLabelsForThisPaper += truthLab
