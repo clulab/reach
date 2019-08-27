@@ -191,7 +191,7 @@ object TestUtils {
     for (mention <- mentions){
       if (mention.isInstanceOf[BioEventMention]){
         println("-----------")
-        var sent_words = mention.sentenceObj.words.clone().toSeq
+        var sent_words = mention.sentenceObj.words.clone()
         println(s"\tsentence:${sent_words.mkString(" ")}")
         println(s"\tevent text:${mention.text}")
         println(s"\tclass:${mention.getClass}")
