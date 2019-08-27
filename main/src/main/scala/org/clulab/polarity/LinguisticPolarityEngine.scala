@@ -30,6 +30,7 @@ object LinguisticPolarityEngine extends PolarityEngine with LazyLogging{
 
     if(evt matches "ComplexEvent"){
       println("!!!!!!!!!!")
+      println(evt.text)
       scala.io.StdIn.readLine()
 
       val trigger = evt.trigger
