@@ -220,9 +220,9 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
     val y_pred = runInstance(lemmas.slice(start, end), rulePolarity)
 
-    println(event.sentenceObj.words.toList)
-    println(lemmas.toList)
-    println(lemmas.slice(start, end).toList)
+    println(s"sentence text${event.sentenceObj.words.toList.toString}")
+    println(s"masked sentence${lemmas.toList.toString}")
+    println(s"masked event${lemmas.slice(start, end).toList.toString}")
     println(y_pred.value().toFloat())
     scala.io.StdIn.readLine()
 
