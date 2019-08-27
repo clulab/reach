@@ -93,16 +93,19 @@ class RegulationTests extends FlatSpec with Matchers{
     }
 
 
-    // test for controller
-//    index+":\t"+sentence should "contain the right controller" in {
+    // test for controller AND controlled
+//    index+":\t"+sentence should "contain the right controller AND controlled" in {
 //      var mentions = getBioMentions(sentence).filter(_ matches "Event")
 //      var reg = mentions.find(_.label == regulationPolarity)
 //      reg.get.arguments("controller").head.text.contains(controller) should be(true)
+//      reg.get.arguments("controlled").head.text.contains(controlled) should be(true)
 //      println(index)
 //      println("IDEAL CONTROLLER:\t"+controller)
 //      println("REAL CONTROLLER:\t"+reg.get.arguments("controller").head.text)
+//      println("IDEAL CONTROLLED:\t"+controlled)
+//      println("REAL CONTROLLED:\t"+reg.get.arguments("controlled").head.text)
 //      println(reg.get.arguments("controller").head.text.contains(controller))
-//    }
+    }
 
 
     // test for controlled

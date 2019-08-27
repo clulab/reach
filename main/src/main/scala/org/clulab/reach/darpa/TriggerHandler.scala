@@ -41,8 +41,54 @@ object TriggerHandler {
                   keep = event.keep,
                   foundBy = event.foundBy
                 ))
+              }
+              else if (Seq("knockout", "ko", "-/-") contains event.sentenceObj.words(outgoing._1).toLowerCase) {
 
+                //add the KO modification
+                event.modifications += KOtrigger(new BioTextBoundMention(
+                  Seq("KOtrigger_trigger"),
+                  Interval(outgoing._1), //index of the relevant newly-discovered node?
+                  sentence = event.sentence,
+                  document = event.document,
+                  keep = event.keep,
+                  foundBy = event.foundBy
+                ))
+              }
+              else if (Seq("dn-", "dominant-negative", ("dominant", "negative")) contains event.sentenceObj.words(outgoing._1).toLowerCase) {
 
+                //add the DN modification
+                event.modifications += DNtrigger(new BioTextBoundMention(
+                  Seq("DNtrigger_trigger"),
+                  Interval(outgoing._1), //index of the relevant newly-discovered node?
+                  sentence = event.sentence,
+                  document = event.document,
+                  keep = event.keep,
+                  foundBy = event.foundBy
+                ))
+              }
+              else if (Seq("overexpress", "overexpression", "oe") contains event.sentenceObj.words(outgoing._1).toLowerCase) {
+
+                //add the OE modification
+                event.modifications += OEtrigger(new BioTextBoundMention(
+                  Seq("OEtrigger_trigger"),
+                  Interval(outgoing._1), //index of the relevant newly-discovered node?
+                  sentence = event.sentence,
+                  document = event.document,
+                  keep = event.keep,
+                  foundBy = event.foundBy
+                ))
+              }
+              else if (Seq(("chemical", "inhibition", "of"), ("inhibitor", "of")) contains event.sentenceObj.words(outgoing._1).toLowerCase) {
+
+                //add the CHEM modification
+                event.modifications += CHEMtrigger(new BioTextBoundMention(
+                  Seq("CHEMtrigger_trigger"),
+                  Interval(outgoing._1), //index of the relevant newly-discovered node?
+                  sentence = event.sentence,
+                  document = event.document,
+                  keep = event.keep,
+                  foundBy = event.foundBy
+                ))
               }
             }
           }
