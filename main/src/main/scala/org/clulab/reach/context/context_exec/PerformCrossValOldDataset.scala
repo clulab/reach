@@ -5,6 +5,7 @@ import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
 import java.io.{File, PrintWriter}
 
+import org.clulab.learning.LinearSVMClassifier
 import org.clulab.reach.context.context_utils.ContextFeatureUtils
 object PerformCrossValOldDataset extends App {
   val config = ConfigFactory.load()
@@ -75,6 +76,8 @@ object PerformCrossValOldDataset extends App {
   val quickerFixer = 2
   // in the cross validation, each paper will be considered as test case once. So when a given paper is a test case, all other papers and their corresponding labels must be the training case.
   for((paperID, testRowsPerPaper) <- allRowsByPaperID) {
+    val svmDeclaration = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
+    val svmInstance = new LinearSVMContextClassifier(Some(svmDeclaration))
     val truthLabelsForThisPaper = collection.mutable.ListBuffer[Int]()
     val predictedLabelsForThisPaper = collection.mutable.ListBuffer[Int]()
     //val trainingCaseRowsUnFiltered = allRowsByPaperID.filter(_._1 != paperID)
@@ -115,11 +118,11 @@ object PerformCrossValOldDataset extends App {
 
     val (trainingRVFDataset, _) = unTrainedSVMInstance.dataConverter(trainingRowsWithCorrectLabels,Some(trainingLabels.toArray))
 
-    unTrainedSVMInstance.fit(trainingRVFDataset)
+    svmInstance.fit(trainingRVFDataset)
 
 
     for(testRow <- testRowsPerPaper) {
-      val pred = unTrainedSVMInstance.predict(Seq(testRow))
+      val pred = svmInstance.predict(Seq(testRow))
 
 
       //if(pred(0)==1) {
