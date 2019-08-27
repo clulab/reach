@@ -152,9 +152,9 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   }
 
   override def predict(event: BioEventMention): Polarity = {
-    println("==========================================")
-    println(s"Original text:${event.text}")
-    println(s"Unexpanded text:${event.sentenceObj.words.slice(event.start, event.end).toList.toString}")
+//    println("==========================================")
+//    println(s"Original text:${event.text}")
+//    println(s"Unexpanded text:${event.sentenceObj.words.slice(event.start, event.end).toList.toString}")
 
     //var lemmas = event.lemmas.get.toArray
     var lemmas = event.sentenceObj.words.clone()
@@ -220,11 +220,11 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
     val y_pred = runInstance(lemmas.slice(start, end), rulePolarity)
 
-    println(s"sentence text${event.sentenceObj.words.toList.toString}")
-    println(s"masked sentence${lemmas.toList.toString}")
-    println(s"masked event${lemmas.slice(start, end).toList.toString}")
-    println(y_pred.value().toFloat())
-    scala.io.StdIn.readLine()
+//    println(s"sentence text${event.sentenceObj.words.toList.toString}")
+//    println(s"masked sentence${lemmas.toList.toString}")
+//    println(s"masked event${lemmas.slice(start, end).toList.toString}")
+//    println(y_pred.value().toFloat())
+//    scala.io.StdIn.readLine()
 
     if (y_pred.value().toFloat>0.5){
       PositivePolarity
