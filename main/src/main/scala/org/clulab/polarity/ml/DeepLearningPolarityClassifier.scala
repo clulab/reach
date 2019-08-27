@@ -7,7 +7,7 @@ import edu.cmu.dynet.Expression._
 import edu.cmu.dynet._
 import org.clulab.fatdynet.utils.CloseableModelSaver
 import org.clulab.fatdynet.utils.Closer.AutoCloser
-import org.clulab.polarity.{NegativePolarity, Polarity, PositivePolarity}
+import org.clulab.polarity.{NegativePolarity, NeutralPolarity, Polarity, PositivePolarity}
 import org.clulab.reach.mentions.BioEventMention
 
 import scala.collection.mutable
@@ -152,86 +152,94 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   }
 
   override def predict(event: BioEventMention): Polarity = {
-//    println("==========================================")
-//    println(s"Original text:${event.text}")
-//    println(s"Unexpanded text:${event.sentenceObj.words.slice(event.start, event.end).toList.toString}")
+    if (event matches "ComplexEvent") {
 
-    //var lemmas = event.lemmas.get.toArray
-    var lemmas = event.sentenceObj.words.clone()
-    //var lemmas = event.sentenceObj.lemmas.get.clone()
-    val rule = event.label
-    var rulePolarity = 0
-    if (rule.startsWith("Neg")){
-      rulePolarity=0
-    }else{
-      rulePolarity=1
-    }
+      println("==========================================")
+      println(s"Original text:${event.text}")
+      println(s"Unexpanded text:${event.sentenceObj.words.slice(event.start, event.end).toList.toString}")
 
-
-    var controller = event.arguments("controller").head
-//    while (controller.arguments.contains("controller") || controller.arguments.contains("controlled")) {
-//      if (controller.arguments.contains("controller")){
-//        controller = controller.arguments("controller").head
-//      }else{
-//        controller = controller.arguments("controlled").head
-//      }
-//    }
-    val ctrlr_start = controller.start
-    val ctrlr_end = controller.end
-
-    var controlled = event.arguments("controlled").head
-//    while (controlled.arguments.contains("controller") || controlled.arguments.contains("controlled")) {
-//      if (controlled.arguments.contains("controlled")){
-//        controlled = controlled.arguments("controlled").head
-//      }else{
-//        controlled = controlled.arguments("controller").head
-//      }
-//    }
-    val ctrld_start = controlled.start
-    val ctrld_end = controlled.end
-
-
-    val (start, end) = getExpandBound(event, ctrlr_start, ctrld_start)
-
-    ComputationGraph.renew()
-
-    if (maskOption=="tag_name"){
-      for (index <- ctrlr_start until ctrlr_end){
-        lemmas(index) = "controller_"+lemmas(index)
+      //var lemmas = event.lemmas.get.toArray
+      var lemmas = event.sentenceObj.words.clone()
+      //var lemmas = event.sentenceObj.lemmas.get.clone()
+      val rule = event.label
+      var rulePolarity = 0
+      if (rule.startsWith("Neg")) {
+        rulePolarity = 0
+      } else {
+        rulePolarity = 1
       }
-      for (index <- ctrld_start until ctrld_end){
-        lemmas(index) = "controlled_"+lemmas(index)
-      }
-    }
-    else if (maskOption=="tag"){
-      for (index <- ctrlr_start until ctrlr_end){
-        if (lemmas(index).endsWith("kd")){
-          lemmas(index) = "__controller__-kd"
+
+
+      var controller = event.arguments("controller").head
+      //    while (controller.arguments.contains("controller") || controller.arguments.contains("controlled")) {
+      //      if (controller.arguments.contains("controller")){
+      //        controller = controller.arguments("controller").head
+      //      }else{
+      //        controller = controller.arguments("controlled").head
+      //      }
+      //    }
+      val ctrlr_start = controller.start
+      val ctrlr_end = controller.end
+
+      var controlled = event.arguments("controlled").head
+      //    while (controlled.arguments.contains("controller") || controlled.arguments.contains("controlled")) {
+      //      if (controlled.arguments.contains("controlled")){
+      //        controlled = controlled.arguments("controlled").head
+      //      }else{
+      //        controlled = controlled.arguments("controller").head
+      //      }
+      //    }
+      val ctrld_start = controlled.start
+      val ctrld_end = controlled.end
+
+
+      val (start, end) = getExpandBound(event, ctrlr_start, ctrld_start)
+
+      ComputationGraph.renew()
+
+      if (maskOption == "tag_name") {
+        for (index <- ctrlr_start until ctrlr_end) {
+          lemmas(index) = "controller_" + lemmas(index)
         }
-        else{lemmas(index) = "__controller__"}
-      }
-      for (index <- ctrld_start until ctrld_end){
-        if (lemmas(index).endsWith("kd")) {
-          lemmas(index) = "__controlled__-kd"
+        for (index <- ctrld_start until ctrld_end) {
+          lemmas(index) = "controlled_" + lemmas(index)
         }
-        else{lemmas(index) = "__controlled__"}
+      }
+      else if (maskOption == "tag") {
+        for (index <- ctrlr_start until ctrlr_end) {
+          if (lemmas(index).endsWith("kd")) {
+            lemmas(index) = "__controller__-kd"
+          }
+          else {
+            lemmas(index) = "__controller__"
+          }
+        }
+        for (index <- ctrld_start until ctrld_end) {
+          if (lemmas(index).endsWith("kd")) {
+            lemmas(index) = "__controlled__-kd"
+          }
+          else {
+            lemmas(index) = "__controlled__"
+          }
+        }
+      }
+
+      val y_pred = runInstance(lemmas.slice(start, end), rulePolarity)
+
+      println(s"sentence text${event.sentenceObj.words.toList.toString}")
+      println(s"masked sentence${lemmas.toList.toString}")
+      println(s"masked event${lemmas.slice(start, end).toList.toString}")
+      println(y_pred.value().toFloat())
+      scala.io.StdIn.readLine()
+
+      if (y_pred.value().toFloat > 0.5) {
+        PositivePolarity
+      }
+      else {
+        NegativePolarity
       }
     }
-
-    val y_pred = runInstance(lemmas.slice(start, end), rulePolarity)
-
-//    println(s"sentence text${event.sentenceObj.words.toList.toString}")
-//    println(s"masked sentence${lemmas.toList.toString}")
-//    println(s"masked event${lemmas.slice(start, end).toList.toString}")
-//    println(y_pred.value().toFloat())
-//    scala.io.StdIn.readLine()
-
-    if (y_pred.value().toFloat>0.5){
-      PositivePolarity
-    }
-    else{
-      NegativePolarity
-    }
+    else {NeutralPolarity}
   }
 
   /**
