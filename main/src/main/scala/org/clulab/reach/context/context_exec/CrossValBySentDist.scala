@@ -24,12 +24,12 @@ object CrossValBySentDist extends App {
   if(classifierToUse == null) throw new NullPointerException("No classifier found on which I can predict. Please make sure the SVMContextEngine class receives a valid Linear SVM classifier.")
   val labelFile = config.getString("svmContext.labelFile")
   val typeOfPaper = config.getString("polarityContext.typeOfPaper")
-  val dirForType = config.getString("polarityContext.paperTypeResourceDir").concat(typeOfPaper).concat("/sentenceWindows")
+  val dirForType = config.getString("policy4Params.mentionsOutputFile").concat("/sentenceWindows")
   val allSentDirs = new File(dirForType).listFiles().filter(_.isDirectory)
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val allRowsBySentDist = collection.mutable.HashMap[Int, Seq[AggregatedContextInstance]]()
   val keysForLabels = collection.mutable.HashMap[AggregatedContextInstance, (String, String, String)]()
-  val filterForFasterRun = List("0", "1", "2","3", "4", "5", "6", "7", "8")
+  val filterForFasterRun = List("0")
   val smallNumOfDirs = allSentDirs.filter(x => filterForFasterRun.contains(x.getName))
   // when you come around to re-run this code, change it so that no row is appearing twice by converting the list of rows to a set of rows
   for(d<- smallNumOfDirs) {
