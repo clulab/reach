@@ -242,6 +242,14 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     else {NeutralPolarity}
   }
 
+  def predictManual(event:String, rulePolarity:Int): Unit= {
+    val words  = event.split(" ")
+    val y_pred = runInstance(words, rulePolarity)
+    val y_pred_float = y_pred.value().toFloat().toString
+
+    println(s"Output:${y_pred_float},  text: ${event}")
+  }
+
   /**
     * Saves the model parameter's to a file
     *

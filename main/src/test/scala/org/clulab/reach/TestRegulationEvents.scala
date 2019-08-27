@@ -14,6 +14,8 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   sent1 should "have an up-regulated phosphorylation" in {
     val doc = testReach.mkDoc(sent1, "testdoc")
     val mentions = testReach extractFrom doc
+
+
     assert(hasPositiveRegulationByEntity("MAPK", "Phosphorylation", Seq("ASPP2", "MAPK"), mentions))
   }
 
@@ -108,6 +110,13 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   val sent13 = "The inhibition of ASPP1 increases the phosphorylation of ASPP2."
   sent13 should "contain 1 downregulation and NO upregulation events" in {
     val mentions = getBioMentions(sent13)
+
+    for (mention <- mentions){
+      println("=============")
+      println(s"class:${mention.getClass}")
+      scala.io.StdIn.readLine()
+    }
+
     hasNegativeRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
     hasPositiveRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (false)
   }
