@@ -29,9 +29,6 @@ object LinguisticPolarityEngine extends PolarityEngine with LazyLogging{
   override def computePolarity(evt: BioEventMention): Polarity = {
 
     if(evt matches "ComplexEvent"){
-      println("!!!!!!!!!!")
-      println(evt.text)
-      scala.io.StdIn.readLine()
 
       val trigger = evt.trigger
       //val arguments = ce.arguments
