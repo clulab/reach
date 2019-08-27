@@ -23,7 +23,6 @@ object CrossValBySentDist extends App {
 
   if(classifierToUse == null) throw new NullPointerException("No classifier found on which I can predict. Please make sure the SVMContextEngine class receives a valid Linear SVM classifier.")
   val labelFile = config.getString("svmContext.labelFile")
-  val typeOfPaper = config.getString("polarityContext.typeOfPaper")
   val dirForType = config.getString("policy4Params.mentionsOutputFile").concat("/sentenceWindows")
   val allSentDirs = new File(dirForType).listFiles().filter(_.isDirectory)
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
