@@ -9,17 +9,7 @@ import org.clulab.learning.LinearSVMClassifier
 import org.clulab.reach.context.context_utils.ContextFeatureUtils
 object PerformCrossValOldDataset extends App {
   val config = ConfigFactory.load()
-  val svmWrapper = new LinearSVMContextClassifier()
-  val configPath = config.getString("svmContext.untrainedSVMPath")
-  val unTrainedSVMInstance = svmWrapper.loadFrom(configPath)
-  val classifierToUse = unTrainedSVMInstance.classifier match {
-    case Some(x) => x
-    case None => {
-      null
-    }
-  }
 
-  if(classifierToUse == null) throw new NullPointerException("No classifier found on which I can predict. Please make sure the SVMContextEngine class receives a valid Linear SVM classifier.")
 
   // The difference between the old papers parsed in the old reach vs the new Reach involves an extra token in the event. i.e. for a given paper and context label, the old Reach captured the event 0045, but the new Reach may capture it as 0046.
   // This is the same event, it only includes one extra token. But if we do an exact string match the way we did in the CrossValBySentDist code, we will get an empty set.
@@ -35,8 +25,8 @@ object PerformCrossValOldDataset extends App {
   val printWriter = new PrintWriter(predsFile)
   val allPapersDirs = new File(parentDirForRows).listFiles().filter(x => x.isDirectory && x.getName != "newAnnotations")
   // creating a subset of small number of papers for debugging. Use dirsToUseForDebug on line 37 for debugging
-  //val smallSetOfPapers = List("PMC2156142", "PMC2195994", "PMC2743561", "PMC2064697", "PMC2193052", "PMC2196001", "PMC3058384")
-  val smallSetOfPapers = List("PMC2156142", "PMC2195994")
+  val smallSetOfPapers = List("PMC2156142", "PMC2195994", "PMC2743561", "PMC2064697", "PMC2193052", "PMC2196001", "PMC3058384")
+  //val smallSetOfPapers = List("PMC2156142", "PMC2195994")
   val dirsToUseForDebug = allPapersDirs.filter(x => smallSetOfPapers.contains(x.getName))
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val keysForLabels = collection.mutable.HashMap[AggregatedContextInstance, (String, String, String)]()
@@ -116,7 +106,7 @@ object PerformCrossValOldDataset extends App {
     println(s"Size of training rows after filtering by appropriate event IDs: ${trainingRowsWithCorrectLabels.size}")
     println(s"Size of training labels after filtering by appropriate event IDs: ${trainingLabels.size}")
 
-    val (trainingRVFDataset, _) = unTrainedSVMInstance.dataConverter(trainingRowsWithCorrectLabels,Some(trainingLabels.toArray))
+    val (trainingRVFDataset, _) = svmInstance.dataConverter(trainingRowsWithCorrectLabels,Some(trainingLabels.toArray))
 
     svmInstance.fit(trainingRVFDataset)
 
