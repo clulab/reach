@@ -196,21 +196,23 @@ object TestUtils {
         println(s"\tevent text:${mention.text}")
         println(s"\tclass:${mention.getClass}")
         println(s"\tunmasked event:${sent_words.slice(mention.start, mention.end).mkString(" ")}")
+        scala.io.StdIn.readLine()
 
-        val controller = mention.arguments("controller").head
-        val controlled = mention.arguments("controlled").head
+        val controller = mention.arguments.get("controller")
+        val controlled = mention.arguments.get("controlled")
 
-
-        for (index <- controller.start until controller.end){
-          sent_words(index) = "__controller__"
+        if (controller.isDefined && controlled.isDefined) {
+          for (index <- controller.get.head.start until controller.get.head.end) {
+            sent_words(index) = "__controller__"
+          }
+          for (index <- controlled.get.head.start until controlled.get.head.end) {
+            sent_words(index) = "__controlled__"
+          }
+          println(s"\tmasked event:${sent_words.slice(mention.start, mention.end).mkString(" ")}")
         }
-        for (index <- controlled.start until controlled.end){
-          sent_words(index) = "__controlled__"
-        }
-        println(s"\tmasked event:${sent_words.slice(mention.start, mention.end).mkString(" ")}")
       }
     }
-    scala.io.StdIn.readLine()
+
 
 
     for (m <- mentions) {
