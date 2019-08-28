@@ -188,6 +188,7 @@ object TestUtils {
                             mentions: Seq[Mention]): Boolean = {
 
     println("==========")
+    println(s"total number of mentions:${mentions.length}")
     for (mention <- mentions){
       if (mention.isInstanceOf[BioEventMention]){
         println("-----------")
@@ -209,7 +210,7 @@ object TestUtils {
             sent_words(index) = "__controlled__"
           }
           println(s"\tmasked event:${sent_words.slice(mention.start, mention.end).mkString(" ")}")
-        }
+        }else {println{s"No controller or controlled"}}
       }
     }
 
