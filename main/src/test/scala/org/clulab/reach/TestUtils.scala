@@ -187,28 +187,29 @@ object TestUtils {
                             controlledArgs: Seq[String],
                             mentions: Seq[Mention]): Boolean = {
 
-//    println("==========")
-//    for (mention <- mentions){
-//      if (mention.isInstanceOf[BioEventMention]){
-//        println("-----------")
-//        var sent_words = mention.sentenceObj.words.clone()
-//        println(s"\tsentence:${sent_words.mkString(" ")}")
-//        println(s"\tevent text:${mention.text}")
-//        println(s"\tclass:${mention.getClass}")
-//
-//        val controller = mention.arguments("controller").head
-//        val controlled = mention.arguments("controlled").head
-//
-//        for (index <- controller.start until controller.end){
-//          sent_words(index) = "__controller__"
-//        }
-//        for (index <- controlled.start until controlled.end){
-//          sent_words(index) = "__controlled__"
-//        }
-//        println(s"\tmasked event:${sent_words.slice(mention.start, mention.end).mkString(" ")}")
-//      }
-//    }
-//    scala.io.StdIn.readLine()
+    println("==========")
+    for (mention <- mentions){
+      if (mention.isInstanceOf[BioEventMention]){
+        println("-----------")
+        var sent_words = mention.sentenceObj.words.clone()
+        println(s"\tsentence:${sent_words.mkString(" ")}")
+        println(s"\tevent text:${mention.text}")
+        println(s"\tclass:${mention.getClass}")
+
+        val controller = mention.arguments("controller").head
+        val controlled = mention.arguments("controlled").head
+        println(s"\tunmasked event:${sent_words.slice(mention.start, mention.end).mkString(" ")}")
+
+        for (index <- controller.start until controller.end){
+          sent_words(index) = "__controller__"
+        }
+        for (index <- controlled.start until controlled.end){
+          sent_words(index) = "__controlled__"
+        }
+        println(s"\tmasked event:${sent_words.slice(mention.start, mention.end).mkString(" ")}")
+      }
+    }
+    scala.io.StdIn.readLine()
 
 
     for (m <- mentions) {
