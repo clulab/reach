@@ -61,8 +61,8 @@ object PerformPolarityAnalysis extends App {
   val commonLabels = uniqueActivationIntersectIncluded.intersect(uniqueInhibitionIntersectIncluded)
   val exclusivelyActivation = uniqueActivationIntersectIncluded -- commonLabels
   val exclusivelyInhibition = uniqueInhibitionIntersectIncluded -- commonLabels
-  val activationParentPaperCountMap = sortedParentPaperMap.filterKeys(exclusivelyActivation.contains(_))
-  val inhibitionParentPaperCountMap = sortedParentPaperMap.filterKeys(exclusivelyInhibition.contains(_))
+  val activationParentPaperCountMap = sortedParentPaperMapPart1.filterKeys(exclusivelyActivation.contains(_))
+  val inhibitionParentPaperCountMap = sortedParentPaperMapPart1.filterKeys(exclusivelyInhibition.contains(_))
 //
 //
 //
