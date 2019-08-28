@@ -55,7 +55,6 @@ object PerformPolarityAnalysis extends App {
     composeAllLabelsResult ++= entry
   }
   val sortedParentPaperMapPart1 = ListMap(composeAllLabelsResult.toSeq.sortWith(_._2._2 > _._2._2):_*)
-  val sortedParentPaperMap = ListMap(sortedParentPaperMapPart1.toSeq.sortWith(_._2._1 > _._2._1):_*)
   val uniqueActivationIntersectIncluded = activationLabelsNonUnique.toSet
   val uniqueInhibitionIntersectIncluded = inhibitionLabelsNonUnique.toSet
   val commonLabels = uniqueActivationIntersectIncluded.intersect(uniqueInhibitionIntersectIncluded)
@@ -63,6 +62,7 @@ object PerformPolarityAnalysis extends App {
   val exclusivelyInhibition = uniqueInhibitionIntersectIncluded -- commonLabels
   val activationParentPaperCountMap = sortedParentPaperMapPart1.filterKeys(exclusivelyActivation.contains(_))
   val inhibitionParentPaperCountMap = sortedParentPaperMapPart1.filterKeys(exclusivelyInhibition.contains(_))
+  val intersectionParentPaperCountMap = sortedParentPaperMapPart1.filterKeys(commonLabels.contains(_))
 //
 //
 //
@@ -77,7 +77,7 @@ object PerformPolarityAnalysis extends App {
  println(s"Total number of papers: ${contextsPerPaperMap.size}")
   for((excAct, (frequency, paperCount, paperList)) <- activationParentPaperCountMap) {
     //val noOfOccurrences = frequencyOfAllNonUniqueLabels(excAct)
-    println(s"activation,${excAct},${frequency},${paperCount},papers:${paperList.mkString(",")}")
+    println(s"activation,${excAct},${frequency},${paperCount},papers:${paperList.mkString("*")}")
   }
 
 
@@ -85,7 +85,12 @@ object PerformPolarityAnalysis extends App {
 //  println(s"\n ************ There are ${exclusivelyInhibition.size} unique inhibition labels (not including intersection), and they are:  ************ ")
   for((excInh, (frequency, paperCount, paperList)) <- inhibitionParentPaperCountMap) {
     //val noOfOccurrences = frequencyOfAllNonUniqueLabels(excInh)
-    println(s"inhibition,${excInh},${frequency},${paperCount},papers:${paperList.mkString(",")}")
+    println(s"inhibition,${excInh},${frequency},${paperCount},papers:${paperList.mkString("*")}")
+  }
+
+
+  for((intersectingLabel, (frequency, paperCount, paperList)) <- intersectionParentPaperCountMap) {
+    println(s"intersection,${intersectingLabel},${frequency},${paperCount},papers:${paperList.mkString("*")}")
   }
 
 
