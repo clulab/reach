@@ -195,10 +195,11 @@ object TestUtils {
         println(s"\tsentence:${sent_words.mkString(" ")}")
         println(s"\tevent text:${mention.text}")
         println(s"\tclass:${mention.getClass}")
+        println(s"\tunmasked event:${sent_words.slice(mention.start, mention.end).mkString(" ")}")
 
         val controller = mention.arguments("controller").head
         val controlled = mention.arguments("controlled").head
-        println(s"\tunmasked event:${sent_words.slice(mention.start, mention.end).mkString(" ")}")
+
 
         for (index <- controller.start until controller.end){
           sent_words(index) = "__controller__"
