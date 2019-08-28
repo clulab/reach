@@ -188,7 +188,13 @@ object TestUtils {
                             mentions: Seq[Mention]): Boolean = {
 
     println("==========")
-    println(s"total number of mentions:${mentions.length}")
+    var bioEventCount = 0
+    for (mention <- mentions){
+      if (mention.isInstanceOf[BioEventMention]) {
+        bioEventCount+=1
+      }
+    }
+    println(s"total number of mentions:${bioEventCount}")
     for (mention <- mentions){
       if (mention.isInstanceOf[BioEventMention]){
         println("-----------")
