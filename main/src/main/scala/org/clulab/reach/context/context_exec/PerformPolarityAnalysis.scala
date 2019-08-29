@@ -87,7 +87,7 @@ object PerformPolarityAnalysis extends App {
   if(!outputFile.exists())
     outputFile.createNewFile()
   val printWriter = new PrintWriter(outputFile)
-  println(s"Total number of papers: ${contextsPerPaperMap.size}")
+  println(s"Total number of papers: \t${contextsPerPaperMap.size}")
   printWriter.append(s"Total number of papers: ${contextsPerPaperMap.size}")
   for((excAct, (frequency, paperCount, paperList)) <- activationParentPaperCountMap) {
     println(s"activation,${excAct},${frequency},${paperCount},papers:${paperList.mkString("*")}")
