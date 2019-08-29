@@ -108,6 +108,7 @@ object PerformPolarityAnalysis extends App {
     printWriter.append(s"intersection,${intersectingLabel},${frequency},${paperCount},papers:${paperList.mkString("*")}\n")
   }
 
+  println(s"There are ${commonLabels.size} common labels")
 
   val labelDistributionPerPaper = countLabelsPerPaper(contextsPerPaperMap, exclusivelyActivation, exclusivelyInhibition, commonLabels)
 
