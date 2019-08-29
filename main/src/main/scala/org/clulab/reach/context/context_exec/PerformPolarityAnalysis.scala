@@ -108,8 +108,9 @@ object PerformPolarityAnalysis extends App {
     printWriter.append(s"intersection,${intersectingLabel},${frequency},${paperCount},papers:${paperList.mkString("*")}\n")
   }
 
-  println(s"There are ${commonLabels.size} common labels")
-
+  println(s"There are ${commonLabels.size} common labels, but ${intersectionParentPaperCountMap.size} common labels are detected in the map ${intersectionParentPaperCountMap.size}")
+  println(s"There are ${exclusivelyActivation.size} unique activation labels, but ${activationParentPaperCountMap.size} labels are detected in the map")
+  println(s"There are ${exclusivelyInhibition.size} unique inhibition labels, but ${inhibitionParentPaperCountMap.size} labels are detected in the map")
   val labelDistributionPerPaper = countLabelsPerPaper(contextsPerPaperMap, exclusivelyActivation, exclusivelyInhibition, commonLabels)
 
   for((paperID, labelTup) <- labelDistributionPerPaper) {
