@@ -171,7 +171,7 @@ object PerformPolarityAnalysis extends App {
       val activationLabelsPerPaper = collection.mutable.ListBuffer[String]()
       val inhibitionLabelsPerPaper = collection.mutable.ListBuffer[String]()
       val intersectionLabelsPerPaper = collection.mutable.ListBuffer[String]()
-      for(l<-labelList) {
+      for(l<-labelList.toSet) {
         if(uniquelyActivation.contains(l)) {
           uniqueActivationCount += 1
           activationLabelsPerPaper += l
