@@ -124,7 +124,7 @@ object PerformPolarityAnalysis extends App {
     val inhibList = labelTup._5.mkString("*")
     val intersectCount = labelTup._6
     val intersectList = labelTup._7.mkString("*")
-    println(s"${paperID},${totalCount},${activCount},${activList},${inhibCount},${inhibList},${intersectCount},${intersectList}")
+    println(s"${paperID},${totalCount},${activCount},${inhibCount},${intersectCount},${activList},${inhibList},${intersectList}")
   }
   def countLabelFrequencyInList(listOfLabels:Array[String]):Map[String, Int] = {
     val toReturn = collection.mutable.HashMap[String,Int]()
