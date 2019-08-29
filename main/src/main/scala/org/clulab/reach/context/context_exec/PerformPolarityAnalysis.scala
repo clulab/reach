@@ -109,7 +109,11 @@ object PerformPolarityAnalysis extends App {
   }
 
 
+  val labelDistributionPerPaper = countLabelsPerPaper(contextsPerPaperMap, exclusivelyActivation, exclusivelyInhibition, commonLabels)
 
+  for((paperID, labelTup) <- labelDistributionPerPaper) {
+    println(s"For the paper ${paperID}, context labels are distributed as: ${labelTup}")
+  }
   def countLabelFrequencyInList(listOfLabels:Array[String]):Map[String, Int] = {
     val toReturn = collection.mutable.HashMap[String,Int]()
     for(l <- listOfLabels) {
@@ -147,6 +151,39 @@ object PerformPolarityAnalysis extends App {
     }
 
     mapToReturn.toMap
+  }
+
+  def countLabelsPerPaper(labelsPerPaperMap: collection.mutable.HashMap[String, collection.mutable.ListBuffer[String]], uniquelyActivation:Set[String], uniquelyInhibition:Set[String], intersection:Set[String]):Map[String, (Int, Int, Array[String], Int, Array[String], Int, Array[String])] = {
+    val perPaperLabelSpecs = collection.mutable.HashMap[String, (Int, Int, Array[String], Int, Array[String], Int, Array[String])]()
+    for((paperID, labelList) <- labelsPerPaperMap) {
+      var uniqueActivationCount = 0
+      var uniqueInhibitionCount = 0
+      var intersectionCount = 0
+      val activationLabelsPerPaper = collection.mutable.ListBuffer[String]()
+      val inhibitionLabelsPerPaper = collection.mutable.ListBuffer[String]()
+      val intersectionLabelsPerPaper = collection.mutable.ListBuffer[String]()
+      for(l<-labelList) {
+        if(uniquelyActivation.contains(l)) {
+          uniqueActivationCount += 1
+          activationLabelsPerPaper += l
+        }
+
+        else if(uniquelyInhibition.contains(l)) {
+          uniqueInhibitionCount += 1
+          inhibitionLabelsPerPaper += l
+        }
+
+        else if(intersection.contains(l)){
+          intersectionCount += 1
+          intersectionLabelsPerPaper += l
+        }
+      }
+      val frequencyOfPaperOverAllLabels = uniqueActivationCount + uniqueInhibitionCount + intersectionCount
+      val tupleEntry = (frequencyOfPaperOverAllLabels, uniqueActivationCount, activationLabelsPerPaper.toArray, uniqueInhibitionCount, inhibitionLabelsPerPaper.toArray, intersectionCount, intersectionLabelsPerPaper.toArray)
+      val mapEntry = Map(paperID -> tupleEntry)
+      perPaperLabelSpecs ++= mapEntry
+    }
+    perPaperLabelSpecs.toMap
   }
 
 }
