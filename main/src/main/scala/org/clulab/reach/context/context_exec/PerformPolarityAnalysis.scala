@@ -189,9 +189,6 @@ object PerformPolarityAnalysis extends App {
         }
       }
       val frequencyOfPaperOverAllLabels = uniqueActivationCount + uniqueInhibitionCount + intersectionCount
-      println(s"total count when I add labels: ${frequencyOfPaperOverAllLabels}")
-      println(s"Total number of labels as read from file: ${labelList.size}")
-      println(s"If the label list for each paper were a set, then it would have ${labelList.toSet.size} labels")
       val tupleEntry = (frequencyOfPaperOverAllLabels, uniqueActivationCount, activationLabelsPerPaper.toArray, uniqueInhibitionCount, inhibitionLabelsPerPaper.toArray, intersectionCount, intersectionLabelsPerPaper.toArray)
       val mapEntry = Map(paperID -> tupleEntry)
       perPaperLabelSpecs ++= mapEntry
