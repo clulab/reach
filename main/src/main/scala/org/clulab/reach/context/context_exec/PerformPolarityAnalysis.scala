@@ -87,23 +87,23 @@ object PerformPolarityAnalysis extends App {
   if(!outputFile.exists())
     outputFile.createNewFile()
   val printWriter = new PrintWriter(outputFile)
-  println(s"Total number of papers: \t${contextsPerPaperMap.size}")
-  printWriter.append(s"Total number of papers: ${contextsPerPaperMap.size}")
+  println(s"Total number of papers:${contextsPerPaperMap.size}")
+  printWriter.append(s"Total number of papers: ${contextsPerPaperMap.size}\n")
   for((excAct, (frequency, paperCount, paperList)) <- activationParentPaperCountMap) {
     println(s"activation,${excAct},${frequency},${paperCount},papers:${paperList.mkString("*")}")
-    printWriter.append(s"activation,${excAct},${frequency},${paperCount},papers:${paperList.mkString("*")}")
+    printWriter.append(s"activation,${excAct},${frequency},${paperCount},papers:${paperList.mkString("*")}\n")
   }
 
 
 
   //println(s"\n ************ There are ${exclusivelyInhibition.size} unique inhibition labels (not including intersection), and they are:  ************ ")
   for((excInh, (frequency, paperCount, paperList)) <- inhibitionParentPaperCountMap) {
-    println(s"inhibition,${excInh},${frequency},${paperCount},papers:${paperList.mkString("*")}")
+    println(s"inhibition,${excInh},${frequency},${paperCount},papers:${paperList.mkString("*")}\n")
   }
 
 
   for((intersectingLabel, (frequency, paperCount, paperList)) <- intersectionParentPaperCountMap) {
-    println(s"intersection,${intersectingLabel},${frequency},${paperCount},papers:${paperList.mkString("*")}")
+    println(s"intersection,${intersectingLabel},${frequency},${paperCount},papers:${paperList.mkString("*")}\n")
 
   }
 
@@ -146,9 +146,6 @@ object PerformPolarityAnalysis extends App {
     }
 
     mapToReturn.toMap
-
-//    val sortedMap = ListMap(mapToReturn.toSeq.sortWith(_._2._1 > _._2._1):_*)
-//    sortedMap
   }
 
 }
