@@ -73,6 +73,13 @@ object PerformPolarityAnalysis extends App {
 //
 
 
+  println(s"PRINTING ALL NON-UNIQUE ACTIVATION LABELS")
+  println(s"${activationLabelsNonUnique.mkString(",")}")
+
+
+  println(s"PRINTING ALL NON-UNIQUE INHIBITION LABELS")
+  println(s"${inhibitionLabelsNonUnique.mkString(",")}")
+
 //  println(s"\n ************ There are ${exclusivelyActivation.size} unique activation labels (not including intersection), and they are:  ************ ")
  println(s"Total number of papers: ${contextsPerPaperMap.size}")
   for((excAct, (frequency, paperCount, paperList)) <- activationParentPaperCountMap) {
