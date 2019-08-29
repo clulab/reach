@@ -112,8 +112,11 @@ object PerformPolarityAnalysis extends App {
   println(s"There are ${exclusivelyActivation.size} unique activation labels, but ${activationParentPaperCountMap.size} labels are detected in the map")
   println(s"There are ${exclusivelyInhibition.size} unique inhibition labels, but ${inhibitionParentPaperCountMap.size} labels are detected in the map")
   val labelDistributionPerPaper = countLabelsPerPaper(contextsPerPaperMap, exclusivelyActivation, exclusivelyInhibition, commonLabels)
+  //val sortedParentPaperMapPart1 = ListMap(composeAllLabelsResult.toSeq.sortWith(_._2._2 > _._2._2):_*)
 
-  for((paperID, labelTup) <- labelDistributionPerPaper) {
+  val sortedLabelDistributionPerPaper = ListMap(labelDistributionPerPaper.toSeq.sortWith(_._2._1 > _._2._1):_*)
+
+  for((paperID, labelTup) <- sortedLabelDistributionPerPaper) {
     val totalCount = labelTup._1
     val activCount = labelTup._2
     //val activList = labelTup._3.mkString(",")
