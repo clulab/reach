@@ -119,12 +119,12 @@ object PerformPolarityAnalysis extends App {
   for((paperID, labelTup) <- sortedLabelDistributionPerPaper) {
     val totalCount = labelTup._1
     val activCount = labelTup._2
-    //val activList = labelTup._3.mkString(",")
+    val activList = labelTup._3.mkString("*")
     val inhibCount = labelTup._4
-    //val inhibList = labelTup._5.mkString(",")
+    val inhibList = labelTup._5.mkString("*")
     val intersectCount = labelTup._6
-    //val intersectList = labelTup._7.mkString(",")
-    println(s"The paper ${paperID} appears totally ${totalCount} times, with ${activCount} activation labels, ${inhibCount} inhibition labels and ${intersectCount} intersection labels")
+    val intersectList = labelTup._7.mkString("*")
+    println(s"${paperID},${totalCount},${activCount},${activList},${inhibCount},${inhibList},${intersectCount},${intersectList}")
   }
   def countLabelFrequencyInList(listOfLabels:Array[String]):Map[String, Int] = {
     val toReturn = collection.mutable.HashMap[String,Int]()
