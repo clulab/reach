@@ -1,6 +1,7 @@
 package org.clulab.reach.context.context_exec
 
-import java.io.{File, FileInputStream, ObjectInputStream}
+import java.io.{File, FileInputStream, ObjectInputStream, PrintWriter}
+
 import scala.collection.immutable.ListMap
 import scala.io
 import com.typesafe.config.ConfigFactory
@@ -81,9 +82,16 @@ object PerformPolarityAnalysis extends App {
 //  println(s"${inhibitionLabelsNonUnique.mkString("*inhibition*")}")
 
   //println(s"\n ************ There are ${exclusivelyActivation.size} unique activation labels (not including intersection), and they are:  ************ ")
+  val outputFilePath = config.getString("polarityContext.outputForPolarityAnalysisFile")
+  val outputFile = new File(outputFilePath)
+  if(!outputFile.exists())
+    outputFile.createNewFile()
+  val printWriter = new PrintWriter(outputFile)
   println(s"Total number of papers: ${contextsPerPaperMap.size}")
+  printWriter.append(s"Total number of papers: ${contextsPerPaperMap.size}")
   for((excAct, (frequency, paperCount, paperList)) <- activationParentPaperCountMap) {
     println(s"activation,${excAct},${frequency},${paperCount},papers:${paperList.mkString("*")}")
+    printWriter.append(s"activation,${excAct},${frequency},${paperCount},papers:${paperList.mkString("*")}")
   }
 
 
