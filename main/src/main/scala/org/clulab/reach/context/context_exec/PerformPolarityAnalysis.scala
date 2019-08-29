@@ -80,7 +80,7 @@ object PerformPolarityAnalysis extends App {
 //  println(s"PRINTING ALL NON-UNIQUE INHIBITION LABELS")
 //  println(s"${inhibitionLabelsNonUnique.mkString("*inhibition*")}")
 
-  println(s"\n ************ There are ${exclusivelyActivation.size} unique activation labels (not including intersection), and they are:  ************ ")
+  //println(s"\n ************ There are ${exclusivelyActivation.size} unique activation labels (not including intersection), and they are:  ************ ")
   println(s"Total number of papers: ${contextsPerPaperMap.size}")
   for((excAct, (frequency, paperCount, paperList)) <- activationParentPaperCountMap) {
     println(s"activation,${excAct},${frequency},${paperCount},papers:${paperList.mkString("*")}")
@@ -88,7 +88,7 @@ object PerformPolarityAnalysis extends App {
 
 
 
-  println(s"\n ************ There are ${exclusivelyInhibition.size} unique inhibition labels (not including intersection), and they are:  ************ ")
+  //println(s"\n ************ There are ${exclusivelyInhibition.size} unique inhibition labels (not including intersection), and they are:  ************ ")
   for((excInh, (frequency, paperCount, paperList)) <- inhibitionParentPaperCountMap) {
     println(s"inhibition,${excInh},${frequency},${paperCount},papers:${paperList.mkString("*")}")
   }
