@@ -113,9 +113,9 @@ object PerformPolarityAnalysis extends App {
   println(s"There are ${exclusivelyInhibition.size} unique inhibition labels, but ${inhibitionParentPaperCountMap.size} labels are detected in the map")
   val labelDistributionPerPaper = countLabelsPerPaper(contextsPerPaperMap, exclusivelyActivation, exclusivelyInhibition, commonLabels)
 
-  for((paperID, labelTup) <- labelDistributionPerPaper) {
-    println(s"For the paper ${paperID}, context labels are distributed as: ${labelTup}")
-  }
+//  for((paperID, labelTup) <- labelDistributionPerPaper) {
+//    println(s"For the paper ${paperID}, context labels are distributed as: ${labelTup}")
+//  }
   def countLabelFrequencyInList(listOfLabels:Array[String]):Map[String, Int] = {
     val toReturn = collection.mutable.HashMap[String,Int]()
     for(l <- listOfLabels) {
