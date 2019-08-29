@@ -97,7 +97,9 @@ object PerformPolarityAnalysis extends App {
 
 
   for((intersectingLabel, (frequency, paperCount, paperList)) <- intersectionParentPaperCountMap) {
-    println(s"intersection,${intersectingLabel},${frequency},${paperCount},papers:${paperList.mkString("*")}")
+    //println(s"intersection,${intersectingLabel},${frequency},${paperCount},papers:${paperList.mkString("*")}")
+    println(s"intersection,${intersectingLabel},${frequency},${paperCount}")
+
   }
 
 
