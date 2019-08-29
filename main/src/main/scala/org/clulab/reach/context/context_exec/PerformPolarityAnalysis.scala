@@ -82,18 +82,18 @@ object PerformPolarityAnalysis extends App {
 
 //  println(s"\n ************ There are ${exclusivelyActivation.size} unique activation labels (not including intersection), and they are:  ************ ")
  println(s"Total number of papers: ${contextsPerPaperMap.size}")
-  for((excAct, (frequency, paperCount, paperList)) <- activationParentPaperCountMap) {
-    //val noOfOccurrences = frequencyOfAllNonUniqueLabels(excAct)
-    println(s"activation,${excAct},${frequency},${paperCount},papers:${paperList.mkString("*")}")
-  }
-
-
-
-//  println(s"\n ************ There are ${exclusivelyInhibition.size} unique inhibition labels (not including intersection), and they are:  ************ ")
-  for((excInh, (frequency, paperCount, paperList)) <- inhibitionParentPaperCountMap) {
-    //val noOfOccurrences = frequencyOfAllNonUniqueLabels(excInh)
-    println(s"inhibition,${excInh},${frequency},${paperCount},papers:${paperList.mkString("*")}")
-  }
+//  for((excAct, (frequency, paperCount, paperList)) <- activationParentPaperCountMap) {
+//    //val noOfOccurrences = frequencyOfAllNonUniqueLabels(excAct)
+//    println(s"activation,${excAct},${frequency},${paperCount},papers:${paperList.mkString("*")}")
+//  }
+//
+//
+//
+////  println(s"\n ************ There are ${exclusivelyInhibition.size} unique inhibition labels (not including intersection), and they are:  ************ ")
+//  for((excInh, (frequency, paperCount, paperList)) <- inhibitionParentPaperCountMap) {
+//    //val noOfOccurrences = frequencyOfAllNonUniqueLabels(excInh)
+//    println(s"inhibition,${excInh},${frequency},${paperCount},papers:${paperList.mkString("*")}")
+//  }
 
 
   for((intersectingLabel, (frequency, paperCount, paperList)) <- intersectionParentPaperCountMap) {
