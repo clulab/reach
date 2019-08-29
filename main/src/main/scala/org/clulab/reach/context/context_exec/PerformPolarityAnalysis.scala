@@ -108,14 +108,21 @@ object PerformPolarityAnalysis extends App {
     printWriter.append(s"intersection,${intersectingLabel},${frequency},${paperCount},papers:${paperList.mkString("*")}\n")
   }
 
-  println(s"There are ${commonLabels.size} common labels, but ${intersectionParentPaperCountMap.size} common labels are detected in the map ${intersectionParentPaperCountMap.size}")
+  println(s"There are ${commonLabels.size} common labels, but ${intersectionParentPaperCountMap.size} common labels are detected in the map")
   println(s"There are ${exclusivelyActivation.size} unique activation labels, but ${activationParentPaperCountMap.size} labels are detected in the map")
   println(s"There are ${exclusivelyInhibition.size} unique inhibition labels, but ${inhibitionParentPaperCountMap.size} labels are detected in the map")
   val labelDistributionPerPaper = countLabelsPerPaper(contextsPerPaperMap, exclusivelyActivation, exclusivelyInhibition, commonLabels)
 
-//  for((paperID, labelTup) <- labelDistributionPerPaper) {
-//    println(s"For the paper ${paperID}, context labels are distributed as: ${labelTup}")
-//  }
+  for((paperID, labelTup) <- labelDistributionPerPaper) {
+    val totalCount = labelTup._1
+    val activCount = labelTup._2
+    //val activList = labelTup._3.mkString(",")
+    val inhibCount = labelTup._4
+    //val inhibList = labelTup._5.mkString(",")
+    val intersectCount = labelTup._6
+    //val intersectList = labelTup._7.mkString(",")
+    println(s"The paper ${paperID} appears totally ${totalCount} times, with ${activCount} activation labels, ${inhibCount} inhibition labels and ${intersectCount} intersection labels")
+  }
   def countLabelFrequencyInList(listOfLabels:Array[String]):Map[String, Int] = {
     val toReturn = collection.mutable.HashMap[String,Int]()
     for(l <- listOfLabels) {
@@ -181,6 +188,8 @@ object PerformPolarityAnalysis extends App {
         }
       }
       val frequencyOfPaperOverAllLabels = uniqueActivationCount + uniqueInhibitionCount + intersectionCount
+      println(s"total count when I add labels: ${frequencyOfPaperOverAllLabels}")
+      println(s"Total number of labels as read from file: ${labelList.size}")
       val tupleEntry = (frequencyOfPaperOverAllLabels, uniqueActivationCount, activationLabelsPerPaper.toArray, uniqueInhibitionCount, inhibitionLabelsPerPaper.toArray, intersectionCount, intersectionLabelsPerPaper.toArray)
       val mapEntry = Map(paperID -> tupleEntry)
       perPaperLabelSpecs ++= mapEntry
