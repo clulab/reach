@@ -26,8 +26,10 @@ object Polarity4CrossValidation extends App {
       val pathToRow = dirForType.concat(s"/${d.getName}").concat(s"/${r.getName}")
       val rowSpecs = ContextFeatureUtils.createAggRowSpecsFromFile(r)
       val row = ContextFeatureUtils.readAggRowFromFile(pathToRow)
-      keysForLabels ++= Map(row -> rowSpecs)
-      rowsForCurrentSent += row
+      if(!rowsForCurrentSent.contains(row))
+        {keysForLabels ++= Map(row -> rowSpecs)
+          rowsForCurrentSent += row}
+
     }
     val intName = Integer.parseInt(d.getName)
     val entry = Map(intName -> rowsForCurrentSent)
