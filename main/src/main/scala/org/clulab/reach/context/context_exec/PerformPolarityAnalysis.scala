@@ -141,25 +141,37 @@ object PerformPolarityAnalysis extends App {
 
   // ********** CODE FOR COUNTING HOW MANY TIMES EACH LABEL PAIR APPEARS ******
 
+
     val acrossPolarityPairs = collection.mutable.ListBuffer[(String,String,String,String)]()
     val pairListFromActInh = constructAllPairsTwoSets(exclusivelyActivation,"activation",exclusivelyInhibition, "inhibition")
     val pairListFromActInter = constructAllPairsTwoSets(exclusivelyActivation, "activation", commonLabels, "intersection")
     val pairListFromInhInter = constructAllPairsTwoSets(exclusivelyInhibition, "inhibition", commonLabels, "intersection")
-    acrossPolarityPairs ++= pairListFromActInh
-    acrossPolarityPairs ++= pairListFromActInter
-    acrossPolarityPairs ++= pairListFromInhInter
+  acrossPolarityPairs ++= pairListFromActInh
+  acrossPolarityPairs ++= pairListFromActInter
+  acrossPolarityPairs ++= pairListFromInhInter
 
 
-    val samePolarityPairs = collection.mutable.ListBuffer[(String,String,String,String)]()
+
+
     val pairListFromActAct = constructAllPairsTwoSets(exclusivelyActivation,"activation",exclusivelyActivation,"activation")
     val pairListFromInhInh = constructAllPairsTwoSets(exclusivelyInhibition, "inhibition", exclusivelyInhibition, "inhibition")
     val pairListFromInterInter = constructAllPairsTwoSets(commonLabels, "intersection", commonLabels, "intersection")
-  samePolarityPairs ++= pairListFromActAct
-  samePolarityPairs ++= pairListFromInhInh
-  samePolarityPairs ++= pairListFromInterInter
+
+
+  // counting co-occurrence of labels of the same polarity
+  val coOccurrenceActAct = countCoOccurrenceOfAllPairs(pairListFromActAct, contextsPerPaperMap)
+  val sortedcoOccurrenceActAct = ListMap(coOccurrenceActAct.toSeq.sortWith(_._2._1 > _._2._1):_*)
+  val coOccurrenceInhInh = countCoOccurrenceOfAllPairs(pairListFromInhInh, contextsPerPaperMap)
+  val sortedcoOccurrenceInhInh = ListMap(coOccurrenceInhInh.toSeq.sortWith(_._2._1 > _._2._1):_*)
+  val coOccurrenceInterInter = countCoOccurrenceOfAllPairs(pairListFromInterInter, contextsPerPaperMap)
+  val sortedcoOccurrenceInterInter  = ListMap(coOccurrenceInterInter.toSeq.sortWith(_._2._1 > _._2._1):_*)
+
+  val coOccurrenceAcrossPolarity = countCoOccurrenceOfAllPairs(acrossPolarityPairs.toArray, contextsPerPaperMap)
+  val sortedcoOccurrenceAcrossPolarity  = ListMap(coOccurrenceAcrossPolarity.toSeq.sortWith(_._2._1 > _._2._1):_*)
 
 
   //countCoOccurrenceOfAllPairs(arrayofpairs, contextsPerPaperMap)
+
 
 
 
