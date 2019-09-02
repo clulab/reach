@@ -21,10 +21,11 @@ object ManualCheckModel extends App{
     "Cells expressing __controlled__ __controlled__ __controlled__ __controlled__ in response to __controller__ inhibition",
     " __controller__ reduced __controlled__",
     "__controller__ inhibits __controlled__",
-    "__controller increases __controlled__ __controlled__ __controlled__ __controlled__"
+    "__controller increases __controlled__ __controlled__ __controlled__ __controlled__",
+    "inhibition of __controller__ increases the  __controlled__  __controlled__ __controlled__"
   )
 
-  val polarityRule = List(1, 0, 1, 1, 0, 0, 0, 1)
+  val polarityRule = List(1, 0, 1, 1, 0, 0, 0, 1, 1)
 
   val lstmClassifier = new DeepLearningPolarityClassifier()
   for (index <- eventsList.indices){
