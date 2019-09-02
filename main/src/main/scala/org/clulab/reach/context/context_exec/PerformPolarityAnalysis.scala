@@ -61,25 +61,7 @@ object PerformPolarityAnalysis extends App {
   val commonLabels = uniqueActivationIntersectIncluded.intersect(uniqueInhibitionIntersectIncluded)
   val exclusivelyActivation = uniqueActivationIntersectIncluded -- commonLabels
   val exclusivelyInhibition = uniqueInhibitionIntersectIncluded -- commonLabels
-  val activationParentPaperCountMap = sortedParentPaperMapPart1.filterKeys(exclusivelyActivation.contains(_))
-  val inhibitionParentPaperCountMap = sortedParentPaperMapPart1.filterKeys(exclusivelyInhibition.contains(_))
-  val intersectionParentPaperCountMap = sortedParentPaperMapPart1.filterKeys(commonLabels.contains(_))
-//
-//
-//
-//  println("\n ****** PRINTING COMMON LABELS ******")
-//  println(s"There are ${commonLabels.size} common labels")
-//  commonLabels.map(println)
-//
-//
 
-
-//  println(s"PRINTING ALL NON-UNIQUE ACTIVATION LABELS")
-//  println(s"${activationLabelsNonUnique.mkString("*activation*")}")
-//
-//
-//  println(s"PRINTING ALL NON-UNIQUE INHIBITION LABELS")
-//  println(s"${inhibitionLabelsNonUnique.mkString("*inhibition*")}")
 
   //println(s"\n ************ There are ${exclusivelyActivation.size} unique activation labels (not including intersection), and they are:  ************ ")
   val outputFilePath = config.getString("polarityContext.outputForPolarityAnalysisFile")
@@ -89,6 +71,17 @@ object PerformPolarityAnalysis extends App {
   val printWriter = new PrintWriter(outputFile)
   println(s"Total number of papers:${contextsPerPaperMap.size}")
   printWriter.append(s"Total number of papers: ${contextsPerPaperMap.size}\n")
+
+
+
+
+  // CODE FOR COUNTING THE FREQUENCY OF EACH LABEL
+
+  val activationParentPaperCountMap = sortedParentPaperMapPart1.filterKeys(exclusivelyActivation.contains(_))
+  val inhibitionParentPaperCountMap = sortedParentPaperMapPart1.filterKeys(exclusivelyInhibition.contains(_))
+  val intersectionParentPaperCountMap = sortedParentPaperMapPart1.filterKeys(commonLabels.contains(_))
+
+  //
   for((excAct, (frequency, paperCount, paperList)) <- activationParentPaperCountMap) {
     println(s"activation,${excAct},${frequency},${paperCount},papers:${paperList.mkString("*")}")
     printWriter.append(s"activation,${excAct},${frequency},${paperCount},papers:${paperList.mkString("*")}\n")
@@ -111,10 +104,21 @@ object PerformPolarityAnalysis extends App {
   println(s"There are ${commonLabels.size} common labels, but ${intersectionParentPaperCountMap.size} common labels are detected in the map")
   println(s"There are ${exclusivelyActivation.size} unique activation labels, but ${activationParentPaperCountMap.size} labels are detected in the map")
   println(s"There are ${exclusivelyInhibition.size} unique inhibition labels, but ${inhibitionParentPaperCountMap.size} labels are detected in the map")
+ // **********
+
+
+
+  // ***********
+  // CODE FOR COUNTING THE NUMBER OF LABELS IN EACH PAPER ******
+
+
   val labelDistributionPerPaper = countLabelsPerPaper(contextsPerPaperMap, exclusivelyActivation, exclusivelyInhibition, commonLabels)
   //val sortedParentPaperMapPart1 = ListMap(composeAllLabelsResult.toSeq.sortWith(_._2._2 > _._2._2):_*)
 
   val sortedLabelDistributionPerPaper = ListMap(labelDistributionPerPaper.toSeq.sortWith(_._2._1 > _._2._1):_*)
+
+
+
 
   for((paperID, labelTup) <- sortedLabelDistributionPerPaper) {
     val totalCount = labelTup._1
@@ -126,6 +130,41 @@ object PerformPolarityAnalysis extends App {
     val intersectList = labelTup._7.mkString("*")
     println(s"${paperID},${totalCount},${activCount},${inhibCount},${intersectCount},${activList},${inhibList},${intersectList}")
   }
+  // ************
+
+
+
+
+
+
+
+
+  // ********** CODE FOR COUNTING HOW MANY TIMES EACH LABEL PAIR APPEARS ******
+
+    val acrossPolarityPairs = collection.mutable.ListBuffer[(String,String,String,String)]()
+    val pairListFromActInh = constructAllPairsTwoSets(exclusivelyActivation,"activation",exclusivelyInhibition, "inhibition")
+    val pairListFromActInter = constructAllPairsTwoSets(exclusivelyActivation, "activation", commonLabels, "intersection")
+    val pairListFromInhInter = constructAllPairsTwoSets(exclusivelyInhibition, "inhibition", commonLabels, "intersection")
+    acrossPolarityPairs ++= pairListFromActInh
+    acrossPolarityPairs ++= pairListFromActInter
+    acrossPolarityPairs ++= pairListFromInhInter
+
+
+    val samePolarityPairs = collection.mutable.ListBuffer[(String,String,String,String)]()
+    val pairListFromActAct = constructAllPairsTwoSets(exclusivelyActivation,"activation",exclusivelyActivation,"activation")
+    val pairListFromInhInh = constructAllPairsTwoSets(exclusivelyInhibition, "inhibition", exclusivelyInhibition, "inhibition")
+    val pairListFromInterInter = constructAllPairsTwoSets(commonLabels, "intersection", commonLabels, "intersection")
+  samePolarityPairs ++= pairListFromActAct
+  samePolarityPairs ++= pairListFromInhInh
+  samePolarityPairs ++= pairListFromInterInter
+
+
+  //countCoOccurrenceOfAllPairs(arrayofpairs, contextsPerPaperMap)
+
+
+
+  // ****************
+
   def countLabelFrequencyInList(listOfLabels:Array[String]):Map[String, Int] = {
     val toReturn = collection.mutable.HashMap[String,Int]()
     for(l <- listOfLabels) {
@@ -197,6 +236,37 @@ object PerformPolarityAnalysis extends App {
       perPaperLabelSpecs ++= mapEntry
     }
     perPaperLabelSpecs.toMap
+  }
+
+  def constructAllPairsTwoSets(set1: Set[String], type1: String, set2: Set[String], type2: String): Array[(String, String, String, String)] = {
+    val listOfPairs = collection.mutable.ListBuffer[(String, String, String, String)]()
+    for(s1 <- set1) {
+      for(s2 <- set2) {
+        val entry = (s1,type1,s2,type2)
+        listOfPairs += entry
+      }
+    }
+
+    listOfPairs.toArray
+  }
+
+
+  def countCoOccurrenceOfAllPairs(arrayOfPairs:Array[(String, String, String, String)], labelsPerPaperMap: collection.mutable.HashMap[String, collection.mutable.ListBuffer[String]]):Map[(String, String, String, String), (Int, Array[String])] = {
+    val coOccurrenceMap = collection.mutable.HashMap[(String, String, String, String), (Int, Array[String])]()
+    for(pair <- arrayOfPairs) {
+      var paperCount = 0
+      val listOfPapers = collection.mutable.ListBuffer[String]()
+      for((paperID, labelsInPaper) <- labelsPerPaperMap) {
+        if(labelsInPaper.contains(pair._1) && labelsInPaper.contains(pair._3) && (pair._1 != pair._3)) {
+          paperCount += 1
+          listOfPapers += paperID
+        }
+      }
+
+      val entry = Map(pair -> (paperCount, listOfPapers.toArray))
+      coOccurrenceMap ++= entry
+    }
+    coOccurrenceMap.toMap
   }
 
 }
