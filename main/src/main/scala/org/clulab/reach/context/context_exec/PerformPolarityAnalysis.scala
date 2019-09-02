@@ -70,7 +70,7 @@ object PerformPolarityAnalysis extends App {
     outputFile.createNewFile()
   val printWriter = new PrintWriter(outputFile)
   println(s"Total number of papers:${contextsPerPaperMap.size}")
-  printWriter.append(s"Total number of papers: ${contextsPerPaperMap.size}\n")
+  //printWriter.append(s"Total number of papers: ${contextsPerPaperMap.size}\n")
 
 
 
@@ -84,7 +84,7 @@ object PerformPolarityAnalysis extends App {
   //
   for((excAct, (frequency, paperCount, paperList)) <- activationParentPaperCountMap) {
     println(s"activation,${excAct},${frequency},${paperCount},papers:${paperList.mkString("*")}")
-    printWriter.append(s"activation,${excAct},${frequency},${paperCount},papers:${paperList.mkString("*")}\n")
+    //printWriter.append(s"activation,${excAct},${frequency},${paperCount},papers:${paperList.mkString("*")}\n")
   }
 
 
@@ -92,13 +92,13 @@ object PerformPolarityAnalysis extends App {
   //println(s"\n ************ There are ${exclusivelyInhibition.size} unique inhibition labels (not including intersection), and they are:  ************ ")
   for((excInh, (frequency, paperCount, paperList)) <- inhibitionParentPaperCountMap) {
     println(s"inhibition,${excInh},${frequency},${paperCount},papers:${paperList.mkString("*")}")
-    printWriter.append(s"inhibition,${excInh},${frequency},${paperCount},papers:${paperList.mkString("*")}\n")
+   // printWriter.append(s"inhibition,${excInh},${frequency},${paperCount},papers:${paperList.mkString("*")}\n")
   }
 
 
   for((intersectingLabel, (frequency, paperCount, paperList)) <- intersectionParentPaperCountMap) {
     println(s"intersection,${intersectingLabel},${frequency},${paperCount},papers:${paperList.mkString("*")}")
-    printWriter.append(s"intersection,${intersectingLabel},${frequency},${paperCount},papers:${paperList.mkString("*")}\n")
+    //printWriter.append(s"intersection,${intersectingLabel},${frequency},${paperCount},papers:${paperList.mkString("*")}\n")
   }
 
   println(s"There are ${commonLabels.size} common labels, but ${intersectionParentPaperCountMap.size} common labels are detected in the map")
@@ -172,7 +172,25 @@ object PerformPolarityAnalysis extends App {
 
   //countCoOccurrenceOfAllPairs(arrayofpairs, contextsPerPaperMap)
 
+   for((pair,paperFreq) <- sortedcoOccurrenceActAct) {
+     val listOfPapers = paperFreq._2.mkString("*")
+     println(s"${pair._1},${pair._2},${pair._3},${pair._4},${paperFreq._1},${listOfPapers}")
+   }
 
+  for((pair,paperFreq) <- sortedcoOccurrenceInhInh) {
+    val listOfPapers = paperFreq._2.mkString("*")
+    println(s"${pair._1},${pair._2},${pair._3},${pair._4},${paperFreq._1},${listOfPapers}")
+  }
+
+  for((pair,paperFreq) <- sortedcoOccurrenceInterInter) {
+    val listOfPapers = paperFreq._2.mkString("*")
+    println(s"${pair._1},${pair._2},${pair._3},${pair._4},${paperFreq._1},${listOfPapers}")
+  }
+
+  for((pair,paperFreq) <- sortedcoOccurrenceAcrossPolarity) {
+    val listOfPapers = paperFreq._2.mkString("*")
+    println(s"${pair._1},${pair._2},${pair._3},${pair._4},${paperFreq._1},${listOfPapers}")
+  }
 
 
   // ****************
