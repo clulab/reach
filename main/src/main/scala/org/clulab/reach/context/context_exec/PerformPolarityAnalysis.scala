@@ -293,8 +293,11 @@ object PerformPolarityAnalysis extends App {
         }
       }
 
-      val entry = Map(pair -> (paperCount, listOfPapers.toArray))
-      coOccurrenceMap ++= entry
+      if(paperCount > 0) {
+        val entry = Map(pair -> (paperCount, listOfPapers.toArray))
+        coOccurrenceMap ++= entry
+      }
+
     }
     coOccurrenceMap.toMap
   }
