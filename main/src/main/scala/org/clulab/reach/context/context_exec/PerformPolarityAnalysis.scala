@@ -172,15 +172,15 @@ object PerformPolarityAnalysis extends App {
 
   //countCoOccurrenceOfAllPairs(arrayofpairs, contextsPerPaperMap)
 
-   for((pair,paperFreq) <- sortedcoOccurrenceActAct) {
-     val listOfPapers = paperFreq._2.mkString("*")
-     println(s"${pair._1},${pair._2},${pair._3},${pair._4},${paperFreq._1},${listOfPapers}")
-   }
+//   for((pair,paperFreq) <- sortedcoOccurrenceActAct) {
+//     val listOfPapers = paperFreq._2.mkString("*")
+//     println(s"${pair._1},${pair._2},${pair._3},${pair._4},${paperFreq._1},${listOfPapers}")
+//   }
 //
-//  for((pair,paperFreq) <- sortedcoOccurrenceInhInh) {
-//    val listOfPapers = paperFreq._2.mkString("*")
-//    println(s"${pair._1},${pair._2},${pair._3},${pair._4},${paperFreq._1},${listOfPapers}")
-//  }
+  for((pair,paperFreq) <- sortedcoOccurrenceInhInh) {
+    val listOfPapers = paperFreq._2.mkString("*")
+    println(s"${pair._1},${pair._2},${pair._3},${pair._4},${paperFreq._1},${listOfPapers}")
+  }
 //
 //  for((pair,paperFreq) <- sortedcoOccurrenceInterInter) {
 //    val listOfPapers = paperFreq._2.mkString("*")
