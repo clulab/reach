@@ -83,7 +83,7 @@ object PerformPolarityAnalysis extends App {
 
   //
   for((excAct, (frequency, paperCount, paperList)) <- activationParentPaperCountMap) {
-    println(s"activation,${excAct},${frequency},${paperCount},papers:${paperList.mkString("*")}")
+    //println(s"activation,${excAct},${frequency},${paperCount},papers:${paperList.mkString("*")}")
     //printWriter.append(s"activation,${excAct},${frequency},${paperCount},papers:${paperList.mkString("*")}\n")
   }
 
@@ -91,13 +91,13 @@ object PerformPolarityAnalysis extends App {
 
   //println(s"\n ************ There are ${exclusivelyInhibition.size} unique inhibition labels (not including intersection), and they are:  ************ ")
   for((excInh, (frequency, paperCount, paperList)) <- inhibitionParentPaperCountMap) {
-    println(s"inhibition,${excInh},${frequency},${paperCount},papers:${paperList.mkString("*")}")
+    //println(s"inhibition,${excInh},${frequency},${paperCount},papers:${paperList.mkString("*")}")
    // printWriter.append(s"inhibition,${excInh},${frequency},${paperCount},papers:${paperList.mkString("*")}\n")
   }
 
 
   for((intersectingLabel, (frequency, paperCount, paperList)) <- intersectionParentPaperCountMap) {
-    println(s"intersection,${intersectingLabel},${frequency},${paperCount},papers:${paperList.mkString("*")}")
+    //println(s"intersection,${intersectingLabel},${frequency},${paperCount},papers:${paperList.mkString("*")}")
     //printWriter.append(s"intersection,${intersectingLabel},${frequency},${paperCount},papers:${paperList.mkString("*")}\n")
   }
 
@@ -128,7 +128,7 @@ object PerformPolarityAnalysis extends App {
     val inhibList = labelTup._5.mkString("*")
     val intersectCount = labelTup._6
     val intersectList = labelTup._7.mkString("*")
-    println(s"${paperID},${totalCount},${activCount},${inhibCount},${intersectCount},${activList},${inhibList},${intersectList}")
+    //println(s"${paperID},${totalCount},${activCount},${inhibCount},${intersectCount},${activList},${inhibList},${intersectList}")
   }
   // ************
 
