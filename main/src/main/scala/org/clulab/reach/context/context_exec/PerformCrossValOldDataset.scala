@@ -115,7 +115,7 @@ object PerformCrossValOldDataset extends App {
       val pred = svmInstance.predict(Seq(testRow))
 
 
-      if(pred(0)==1) {
+      //if(pred(0)==1) {
         val specForCurrTestRow = keysForLabels(testRow)
         printWriter.write(s"The Pair ${specForCurrTestRow} has the prediction ${pred(0)}\n")
         val eventID = Integer.parseInt(specForCurrTestRow._2)
@@ -131,7 +131,7 @@ object PerformCrossValOldDataset extends App {
               giantTruthLabels += truthLab
          // }
         }
-      }
+      //}
 
     }
 
