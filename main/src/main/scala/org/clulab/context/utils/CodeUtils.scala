@@ -39,6 +39,11 @@ object CodeUtils {
     else 0.0
   }
 
+  def arithmeticMeanScore(scores:Seq[Double]):Double = {
+    val sum = scores.foldLeft(0)(_+_)
+    sum/scores.size
+  }
+
   def predictCounts(yTrue: Array[Int], yPred: Array[Int]): Map[String, Int] = {
     val indexValuePair = yTrue zip yPred
     var TP = 0; var FP = 0; var TN = 0; var FN = 0

@@ -54,7 +54,9 @@ object CrossValBySentDist extends App{
   val giantTruthListPerSentDist = collection.mutable.ListBuffer[Int]()
   val giantPredListPerSentDist = collection.mutable.ListBuffer[Int]()
   val perSentDistScoreBoard = collection.mutable.HashMap[Int, (Double, Double, Double)]()
-
+  val valsForMeanPrec = collection.mutable.ListBuffer[Double]()
+  val valsForMeanRec = collection.mutable.ListBuffer[Double]()
+  val valsForMeanF1 = collection.mutable.ListBuffer[Double]()
   for((sentDist, rowsInThisSentDist) <- allRowsBySentDist) {
     val predListPerSentDist = collection.mutable.ListBuffer[Int]()
     val truthListPerSentDist = collection.mutable.ListBuffer[Int]()
@@ -68,11 +70,42 @@ object CrossValBySentDist extends App{
       }
     }
 
+
+    giantTruthListPerSentDist ++= truthListPerSentDist
+    giantPredListPerSentDist ++= predListPerSentDist
+
     println(predListPerSentDist.size)
     println(truthListPerSentDist.size)
 
+
+    val perPaperCountsMap = CodeUtils.predictCounts(truthListPerSentDist.toArray, predListPerSentDist.toArray)
+    val perPaperPrecision = CodeUtils.precision(perPaperCountsMap)
+    val perPaperRecall = CodeUtils.recall(perPaperCountsMap)
+    val perPaperF1 = CodeUtils.f1(perPaperCountsMap)
+    valsForMeanPrec += perPaperPrecision
+    valsForMeanRec += perPaperRecall
+    valsForMeanF1 += perPaperF1
+
+    perSentDistScoreBoard ++= Map(sentDist -> (perPaperPrecision, perPaperRecall, perPaperF1))
   }
 
+  val microAveragedMap = CodeUtils.predictCounts(giantTruthListPerSentDist.toArray, giantPredListPerSentDist.toArray)
+  val microAveragedPrecision = CodeUtils.precision(microAveragedMap)
+  val microAveragedRecall = CodeUtils.recall(microAveragedMap)
+  val microAveragedF1 = CodeUtils.f1(microAveragedMap)
+  for((sentDist,(prec,rec,f1)) <- perSentDistScoreBoard) {
+    println(s"The sentence distance ${sentDist} has precision of ${prec}, recall of ${rec} and f1 score of ${f1}")
+  }
+
+
+  val arithmeticMeanPrec = CodeUtils.arithmeticMeanScore(valsForMeanPrec)
+  val arithmeticMeanRecl = CodeUtils.arithmeticMeanScore(valsForMeanRec)
+  val arithmeticMeanF1 = CodeUtils.arithmeticMeanScore(valsForMeanF1)
+
+
+  println(s"Arithmetic mean precision: ${arithmeticMeanPrec}")
+  println(s"Arithmetic mean recall: ${arithmeticMeanRecl}")
+  println(s"Arithmetic mean F1: ${arithmeticMeanF1}")
 
 
 }
