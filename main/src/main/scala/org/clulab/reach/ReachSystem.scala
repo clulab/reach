@@ -205,7 +205,7 @@ class ReachSystem(
     val validMentions = mentions.filterNot(_ matches "ModificationTrigger")
     // handle multiple Negation modifications
     NegationHandler.handleNegations(validMentions)
-    RegulationHandler.handleRegulations(validMentions)
+//    RegulationHandler.handleRegulations(validMentions)  # not used for Regulations (currently)
     HyphenHandle.handleHyphens(validMentions)
   }
 
