@@ -2,9 +2,8 @@ package org.clulab.reach.context.context_exec
 
 import java.io.File
 
-import com.typesafe.config.ConfigFactory
 import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
-import org.clulab.reach.context.context_exec.CrossValBySentDist.config
+import com.typesafe.config.ConfigFactory
 import org.clulab.reach.context.context_utils.ContextFeatureUtils
 
 object Polarity4CrossValidation extends App {
