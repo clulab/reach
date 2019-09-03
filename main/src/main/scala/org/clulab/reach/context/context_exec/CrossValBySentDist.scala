@@ -10,10 +10,10 @@ import org.clulab.reach.context.context_utils.ContextFeatureUtils
 object CrossValBySentDist extends App{
   val svmWrapper = new LinearSVMContextClassifier()
   val config = ConfigFactory.load()
-  val labelFile = config.getString("svmContext.labelFile")
-  val labelMap = CodeUtils.generateLabelMap(labelFile)
+
 
   val configPath = config.getString("contextEngine.params.trainedSvmPath")
+  println(configPath)
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
   val classifierToUse = trainedSVMInstance.classifier match {
     case Some(x) => x
@@ -23,6 +23,8 @@ object CrossValBySentDist extends App{
   }
 
   if(classifierToUse == null) throw new NullPointerException("No classifier found on which I can predict. Please make sure the SVMContextEngine class receives a valid Linear SVM classifier.")
+  val labelFile = config.getString("svmContext.labelFile")
+  val labelMap = CodeUtils.generateLabelMap(labelFile)
   val dirForType = config.getString("policy4Params.mentionsOutputFile").concat("sentenceWindows")
   val allSentDirs = new File(dirForType).listFiles().filter(_.isDirectory)
   val allRowsBySentDist = collection.mutable.HashMap[Int, Seq[AggregatedContextInstance]]()
