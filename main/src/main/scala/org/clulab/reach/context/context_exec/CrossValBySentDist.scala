@@ -11,7 +11,6 @@ object CrossValBySentDist extends App{
   val config = ConfigFactory.load()
   val labelFile = config.getString("svmContext.labelFile")
   val svmWrapper = new LinearSVMContextClassifier()
-  val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.trainedSvmPath")
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
   val classifierToUse = trainedSVMInstance.classifier match {
