@@ -150,28 +150,6 @@ object ContextFeatureUtils {
     os.writeObject(row)
     os.close()
 
-//    for(file <- fileList) {
-//      val fileNamePMCID = file.getName.slice(0,file.getName.length-5)
-//      //val outPaperDirPath = dirForType.concat(s"/sentenceWindows/${sentenceWindow}")
-//      val outPaperDirPath = whereToWrite.concat(s"/sentenceWindows/${sentenceWindow}")
-//      // creating output directory if it doesn't already exist
-//      val outputPaperDir = new File(outPaperDirPath)
-//      if(!outputPaperDir.exists()) {
-//        outputPaperDir.mkdirs()
-//      }
-//
-//      if(currentPMCID == fileNamePMCID) {
-//        val pathForRow = outPaperDirPath.concat(s"/AggregatedRow_${currentPMCID}_${evtID}_${ctxID}.txt")
-//        val sentenceFile = new File(pathForRow)
-//        if (!sentenceFile.exists()) {
-//          sentenceFile.createNewFile()
-//        }
-//        val os = new ObjectOutputStream(new FileOutputStream(pathForRow))
-//
-//        os.writeObject(row)
-//        os.close()
-//      }
-//    }
   }
 
   def readAggRowFromFile(file: String):AggregatedContextInstance = {

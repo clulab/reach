@@ -10,6 +10,7 @@ import org.clulab.reach.context.context_utils.ContextFeatureUtils
 object CrossValBySentDist extends App{
   val config = ConfigFactory.load()
   val labelFile = config.getString("svmContext.labelFile")
+  val labelMap = CodeUtils.generateLabelMap(labelFile)
   val svmWrapper = new LinearSVMContextClassifier()
   val configPath = config.getString("contextEngine.params.trainedSvmPath")
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
@@ -45,6 +46,28 @@ object CrossValBySentDist extends App{
     allRowsBySentDist ++= entry
   }
 
-  println(allRowsBySentDist.size)
+  val giantTruthListPerSentDist = collection.mutable.ListBuffer[Int]()
+  val giantPredListPerSentDist = collection.mutable.ListBuffer[Int]()
+  val perSentDistScoreBoard = collection.mutable.HashMap[Int, (Double, Double, Double)]()
+
+  for((sentDist, rowsInThisSentDist) <- allRowsBySentDist) {
+    val predListPerSentDist = collection.mutable.ListBuffer[Int]()
+    val truthListPerSentDist = collection.mutable.ListBuffer[Int]()
+    for(r <- rowsInThisSentDist) {
+      val rowSpecForCurrentRow = keysForLabels(r)
+      if(labelMap.contains(rowSpecForCurrentRow)) {
+        val truth = labelMap(rowSpecForCurrentRow)
+        val pred = svmWrapper.predict(Seq(r))(0)
+        predListPerSentDist += pred
+        truthListPerSentDist += truth
+      }
+    }
+
+    println(predListPerSentDist.size)
+    println(truthListPerSentDist)
+
+  }
+
+
 
 }
