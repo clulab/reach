@@ -64,7 +64,7 @@ object CrossValBySentDist extends App{
     }
 
     println(predListPerSentDist.size)
-    println(truthListPerSentDist)
+    println(truthListPerSentDist.size)
 
   }
 
