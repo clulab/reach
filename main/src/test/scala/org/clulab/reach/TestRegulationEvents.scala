@@ -343,39 +343,39 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent36)
     // this tests that we capture amods for elements in the paths; necessary to correctly model semantic negatives
 
-    println("==========")
-    var bioEventCount = 0
-    for (mention <- mentions){
-      if (mention.isInstanceOf[BioEventMention]) {
-        bioEventCount+=1
-      }
-    }
-    println(s"total number of mentions:${bioEventCount}")
-    for (mention <- mentions){
-      if (mention.isInstanceOf[BioEventMention]){
-        println("-----------")
-        var sent_words = mention.sentenceObj.words.clone()
-        println(s"\tsentence:${sent_words.mkString(" ")}")
-        println(s"\tevent text:${mention.text}")
-        println(s"\tclass:${mention.getClass}")
-        println(s"\tunmasked event:${sent_words.slice(mention.start, mention.end).mkString(" ")}")
-        scala.io.StdIn.readLine()
-
-        val controller = mention.arguments.get("controller")
-        val controlled = mention.arguments.get("controlled")
-
-        if (controller.isDefined && controlled.isDefined) {
-          for (index <- controller.get.head.start until controller.get.head.end) {
-            sent_words(index) = "__controller__"
-          }
-          for (index <- controlled.get.head.start until controlled.get.head.end) {
-            sent_words(index) = "__controlled__"
-          }
-          println(s"\tmasked event:${sent_words.slice(mention.start, mention.end).mkString(" ")}")
-        }else {println{s"No controller or controlled"}}
-      }
-    }
-    scala.io.StdIn.readLine()
+//    println("==========")
+//    var bioEventCount = 0
+//    for (mention <- mentions){
+//      if (mention.isInstanceOf[BioEventMention]) {
+//        bioEventCount+=1
+//      }
+//    }
+//    println(s"total number of mentions:${bioEventCount}")
+//    for (mention <- mentions){
+//      if (mention.isInstanceOf[BioEventMention]){
+//        println("-----------")
+//        var sent_words = mention.sentenceObj.words.clone()
+//        println(s"\tsentence:${sent_words.mkString(" ")}")
+//        println(s"\tevent text:${mention.text}")
+//        println(s"\tclass:${mention.getClass}")
+//        println(s"\tunmasked event:${sent_words.slice(mention.start, mention.end).mkString(" ")}")
+//        scala.io.StdIn.readLine()
+//
+//        val controller = mention.arguments.get("controller")
+//        val controlled = mention.arguments.get("controlled")
+//
+//        if (controller.isDefined && controlled.isDefined) {
+//          for (index <- controller.get.head.start until controller.get.head.end) {
+//            sent_words(index) = "__controller__"
+//          }
+//          for (index <- controlled.get.head.start until controlled.get.head.end) {
+//            sent_words(index) = "__controlled__"
+//          }
+//          println(s"\tmasked event:${sent_words.slice(mention.start, mention.end).mkString(" ")}")
+//        }else {println{s"No controller or controlled"}}
+//      }
+//    }
+//    scala.io.StdIn.readLine()
 
     mentions.filter(_.label == "Negative_regulation") should have size (2)
   }
