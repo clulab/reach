@@ -8,10 +8,11 @@ import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.reach.context.context_utils.ContextFeatureUtils
 
 object CrossValBySentDist extends App{
+  val svmWrapper = new LinearSVMContextClassifier()
   val config = ConfigFactory.load()
   val labelFile = config.getString("svmContext.labelFile")
   val labelMap = CodeUtils.generateLabelMap(labelFile)
-  val svmWrapper = new LinearSVMContextClassifier()
+
   val configPath = config.getString("contextEngine.params.trainedSvmPath")
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
   val classifierToUse = trainedSVMInstance.classifier match {
