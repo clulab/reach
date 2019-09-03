@@ -271,6 +271,41 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   val sent27 = "rapamycin blocked the serum-stimulated phosphorylation of ERK"
   sent27 should "contain one regulation controlled by rapamycin" in {
     val mentions = getBioMentions(sent27)
+
+    println("==========")
+    var bioEventCount = 0
+    for (mention <- mentions){
+      if (mention.isInstanceOf[BioEventMention]) {
+        bioEventCount+=1
+      }
+    }
+    println(s"total number of mentions:${bioEventCount}")
+    for (mention <- mentions){
+      if (mention.isInstanceOf[BioEventMention]){
+        println("-----------")
+        var sent_words = mention.sentenceObj.words.clone()
+        println(s"\tsentence:${sent_words.mkString(" ")}")
+        println(s"\tevent text:${mention.text}")
+        println(s"\tclass:${mention.getClass}")
+        println(s"\tunmasked event:${sent_words.slice(mention.start, mention.end).mkString(" ")}")
+        scala.io.StdIn.readLine()
+
+        val controller = mention.arguments.get("controller")
+        val controlled = mention.arguments.get("controlled")
+
+        if (controller.isDefined && controlled.isDefined) {
+          for (index <- controller.get.head.start until controller.get.head.end) {
+            sent_words(index) = "__controller__"
+          }
+          for (index <- controlled.get.head.start until controlled.get.head.end) {
+            sent_words(index) = "__controlled__"
+          }
+          println(s"\tmasked event:${sent_words.slice(mention.start, mention.end).mkString(" ")}")
+        }else {println{s"No controller or controlled"}}
+      }
+    }
+    scala.io.StdIn.readLine()
+
     hasNegativeRegulationByEntity("rapamycin", "Phosphorylation", List("ERK"), mentions) should be (true)
   }
 
