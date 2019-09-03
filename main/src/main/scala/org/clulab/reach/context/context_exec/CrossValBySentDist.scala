@@ -28,6 +28,7 @@ object CrossValBySentDist extends App{
   val filterForFasterRun = List("15")
   val smallNumOfDirs = allSentDirs.filter(x => filterForFasterRun.contains(x.getName))
   for(d<- smallNumOfDirs) {
+    println(s"Starting sentence distance ${d.getName}")
     val rowFiles = d.listFiles().filter(_.getName.contains("Aggregated"))
     val rowsForCurrentSent = collection.mutable.ListBuffer[AggregatedContextInstance]()
     for(r<-rowFiles) {
