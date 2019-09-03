@@ -28,7 +28,7 @@ object CrossValBySentDist extends App {
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val allRowsBySentDist = collection.mutable.HashMap[Int, Seq[AggregatedContextInstance]]()
   val keysForLabels = collection.mutable.HashMap[AggregatedContextInstance, (String, String, String)]()
-  val filterForFasterRun = List("0")
+  val filterForFasterRun = List("0","1","2")
   val smallNumOfDirs = allSentDirs.filter(x => filterForFasterRun.contains(x.getName))
   // when you come around to re-run this code, change it so that no row is appearing twice by converting the list of rows to a set of rows
   for(d<- smallNumOfDirs) {
