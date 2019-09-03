@@ -62,7 +62,7 @@ object CrossValBySentDist extends App{
       val rowSpecForCurrentRow = keysForLabels(r)
       if(labelMap.contains(rowSpecForCurrentRow)) {
         val truth = labelMap(rowSpecForCurrentRow)
-        val pred = svmWrapper.predict(Seq(r))(0)
+        val pred = trainedSVMInstance.predict(Seq(r))(0)
         predListPerSentDist += pred
         truthListPerSentDist += truth
       }
