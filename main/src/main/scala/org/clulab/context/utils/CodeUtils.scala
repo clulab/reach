@@ -40,7 +40,7 @@ object CodeUtils {
   }
 
   def arithmeticMeanScore(scores:Seq[Double]):Double = {
-    val sum = scores.foldLeft(0)(_+_)
+    val sum = scores.foldLeft(0.0)(_ + _)
     sum/scores.size
   }
 
