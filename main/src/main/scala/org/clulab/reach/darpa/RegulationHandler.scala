@@ -5,16 +5,15 @@ import org.clulab.reach.mentions._
 import org.clulab.struct.Interval
 
 
-object TriggerHandler {
+object RegulationHandler {
 
-  def detectTrigger(mentions: Seq[Mention], state:State): Seq[Mention] = {
+  def detectRegulations(mentions: Seq[Mention], state:State): Seq[Mention] = {
     // do something very smart to handle triggers
     // and then return the mentions
 
     // Iterate over the BioEventMentions
     mentions foreach {
         case event:BioEventMention =>
-
 
           val dependencies = event.sentenceObj.dependencies //all deps for the sentence
           val eventTokInterval = event.tokenInterval //token interval for the event
@@ -29,9 +28,9 @@ object TriggerHandler {
             //for each outgoing relation
             for (outgoing <- allOutgoingFromWord) {
 //              println("current word: " + event.sentenceObj.words(wordIdx) + " " +outgoing + " word at the end of node " + event.sentenceObj.words(outgoing._1))
-              //if the node at the end of the outgoing edge is one of the KD triggers
-              if (Seq("sirna", "silencing", "si-", "sh-", "shrna") contains event.sentenceObj.words(outgoing._1).toLowerCase) {
+              //if the node at the end of the outgoing edge is one of the triggers
 
+              if (Seq("sirna", "silencing", "si-", "sh-", "shrna") contains event.sentenceObj.words(outgoing._1).toLowerCase) {
                 //add the KD modification
                 event.modifications += KDtrigger(new BioTextBoundMention(
                   Seq("KDtrigger_trigger"),
@@ -42,8 +41,8 @@ object TriggerHandler {
                   foundBy = event.foundBy
                 ))
               }
-              else if (Seq("knockout", "ko", "-/-") contains event.sentenceObj.words(outgoing._1).toLowerCase) {
 
+              else if (Seq("knockout", "ko", "-/-") contains event.sentenceObj.words(outgoing._1).toLowerCase) {
                 //add the KO modification
                 event.modifications += KOtrigger(new BioTextBoundMention(
                   Seq("KOtrigger_trigger"),
@@ -55,7 +54,6 @@ object TriggerHandler {
                 ))
               }
               else if (Seq("dn-", "dominant-negative", ("dominant", "negative")) contains event.sentenceObj.words(outgoing._1).toLowerCase) {
-
                 //add the DN modification
                 event.modifications += DNtrigger(new BioTextBoundMention(
                   Seq("DNtrigger_trigger"),
@@ -66,8 +64,8 @@ object TriggerHandler {
                   foundBy = event.foundBy
                 ))
               }
-              else if (Seq("overexpress", "overexpression", "oe") contains event.sentenceObj.words(outgoing._1).toLowerCase) {
 
+              else if (Seq("overexpress", "overexpression", "oe") contains event.sentenceObj.words(outgoing._1).toLowerCase) {
                 //add the OE modification
                 event.modifications += OEtrigger(new BioTextBoundMention(
                   Seq("OEtrigger_trigger"),
@@ -78,8 +76,8 @@ object TriggerHandler {
                   foundBy = event.foundBy
                 ))
               }
-              else if (Seq(("chemical", "inhibition", "of"), ("inhibitor", "of")) contains event.sentenceObj.words(outgoing._1).toLowerCase) {
 
+              else if (Seq(("chemical", "inhibition", "of"), ("inhibitor", "of")) contains event.sentenceObj.words(outgoing._1).toLowerCase) {
                 //add the CHEM modification
                 event.modifications += CHEMtrigger(new BioTextBoundMention(
                   Seq("CHEMtrigger_trigger"),
@@ -93,54 +91,6 @@ object TriggerHandler {
             }
           }
 
-          /////////////////////////////////////////////////
-          // Check the outgoing edges from the trigger looking
-          // for a neg label
-//          val outgoing = dependencies match {
-//            case Some(deps) => deps.outgoingEdges
-//            case None => Array.empty
-//          }
-//
-//          for{
-//            tok <- event.tokenInterval
-//            out <- outgoing.lift(tok)
-//            (ix, label) <- out
-//            if label == "neg"
-//          }
-//            event.modifications += KDtrigger(new BioTextBoundMention(
-//              Seq("KDtrigger_trigger"),
-//              Interval(ix),
-//              sentence = event.sentence,
-//              document = event.document,
-//              keep = event.keep,
-//              foundBy = event.foundBy
-//            ))
-
-
-//          val dependencies = event.sentenceObj.dependencies
-//
-//          /////////////////////////////////////////////////
-//          // Check the outgoing edges from the trigger looking
-//          // for a neg label
-//          val outgoing = dependencies match {
-//            case Some(deps) => deps.outgoingEdges
-//            case None => Array.empty
-//          }
-//
-//          for{
-//            tok <- event.tokenInterval
-//            out <- outgoing.lift(tok)
-//            (ix, label) <- out
-//            if label == "neg"
-//          }
-//            event.modifications += KDtrigger(new BioTextBoundMention(
-//              Seq("KDtrigger_trigger"),
-//              Interval(ix),
-//              sentence = event.sentence,
-//              document = event.document,
-//              keep = event.keep,
-//              foundBy = event.foundBy
-//            ))
           ///////////////////////////////////////////////////
 
           ///////////////////////////////////////////////////
@@ -290,7 +240,7 @@ object TriggerHandler {
   }
 
   // Alter Negation modifications in-place
-  def handleTriggers(ms: Seq[BioMention]): Unit = {
+  def handleRegulations(ms: Seq[BioMention]): Unit = {
     ms foreach { m =>
       val (negMods, other) = m.modifications.partition(_.isInstanceOf[Negation])
       val negationModifications = negMods.map(_.asInstanceOf[Negation])

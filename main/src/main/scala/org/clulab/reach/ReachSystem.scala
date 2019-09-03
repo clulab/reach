@@ -10,7 +10,7 @@ import org.clulab.odin._
 import org.clulab.processors.{Document, ProcessorAnnotator}
 import org.clulab.reach.context._
 import org.clulab.reach.context.ContextEngineFactory.Engine._
-import org.clulab.reach.darpa.{DarpaActions, HyphenHandle, MentionFilter, NegationHandler, TriggerHandler}
+import org.clulab.reach.darpa.{DarpaActions, HyphenHandle, MentionFilter, NegationHandler, RegulationHandler}
 import org.clulab.reach.grounding._
 import org.clulab.reach.mentions._
 import RuleReader.{Rules, readResource}
@@ -205,7 +205,7 @@ class ReachSystem(
     val validMentions = mentions.filterNot(_ matches "ModificationTrigger")
     // handle multiple Negation modifications
     NegationHandler.handleNegations(validMentions)
-    TriggerHandler.handleTriggers(validMentions)
+    RegulationHandler.handleRegulations(validMentions)
     HyphenHandle.handleHyphens(validMentions)
   }
 

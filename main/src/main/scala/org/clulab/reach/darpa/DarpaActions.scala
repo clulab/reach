@@ -353,7 +353,7 @@ class DarpaActions extends Actions with LazyLogging {
     val r1 = siteSniffer(mentions, state)
     val r2 = keepIfValidArgs(r1, state)
     val r3 = NegationHandler.detectNegations(r2, state)
-    val r4 = TriggerHandler.detectTrigger(r3, state)
+    val r4 = RegulationHandler.detectRegulations(r3, state)
     val r5 = HypothesisHandler.detectHypotheses(r4, state)
     val r6 = splitSimpleEvents(r5, state)
     r6
