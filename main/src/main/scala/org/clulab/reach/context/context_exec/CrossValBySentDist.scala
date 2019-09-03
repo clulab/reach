@@ -22,6 +22,8 @@ object CrossValBySentDist extends App{
     }
   }
 
+  println(classifierToUse)
+
   if(classifierToUse == null) throw new NullPointerException("No classifier found on which I can predict. Please make sure the SVMContextEngine class receives a valid Linear SVM classifier.")
   val labelFile = config.getString("svmContext.labelFile")
   val labelMap = CodeUtils.generateLabelMap(labelFile)
