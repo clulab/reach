@@ -27,8 +27,25 @@ object ManualCheckModel extends App{
 
   val polarityRule = List(1, 0, 1, 1, 0, 0, 0, 1, 1)
 
+  val eventsList2 = List("__controller__ increases the __controlled__ __controlled__ __controlled__",
+    "inhibition of __controller__ increases the __controlled__ __controlled__ __controlled__",
+    "__controller__ blocked the serum-stimulated __controlled__ __controlled__ __controlled__",
+    "__controller__ __controller__ enhances EphrinB1 and __controlled__ __controlled__ __controlled__",
+    "__controller__ __controller__ enhances __controlled__ __controlled__ __controlled__ __controlled__ __controlled__",
+    "__controller__ reduced __controlled__",
+    "__controller__ reduced __controlled__ depletion",
+    "__controller__ inhibits __controlled__",
+    "__controller__ increases the inhibition of __controlled__",
+    "suppression of __controller__ increases the inhibition of __controlled__",
+    "__controller__ inhibits __controlled__",
+    "presence of __controller__ inhibits __controlled__"
+
+  )
+
+  val polarityRule2 = List(1,1,0, 1, 1,0,0,0, 1, 1,0,0)
+
   val lstmClassifier = new DeepLearningPolarityClassifier()
   for (index <- eventsList.indices){
-    lstmClassifier.predictManual(eventsList(index), polarityRule(index))
+    lstmClassifier.predictManual(eventsList2(index), polarityRule2(index))
   }
 }

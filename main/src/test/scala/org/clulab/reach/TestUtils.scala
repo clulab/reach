@@ -187,6 +187,35 @@ object TestUtils {
                             controlledArgs: Seq[String],
                             mentions: Seq[Mention]): Boolean = {
 
+    for (m <- mentions) {
+      if (!m.isInstanceOf[TextBoundMention]) {
+        if (m.labels contains label) {
+          // found the regulation label
+          val controller = m.arguments.get("controller")
+          val controlled = m.arguments.get("controlled")
+
+          if (controller.isDefined && controlled.isDefined && controlled.get.head.isInstanceOf[EventMention]) {
+            // some obvious sanity checks
+            val controlledEventArg = controlled.get.head
+            val controlledEvent = controlledEventArg.toCorefMention.antecedent.getOrElse(controlledEventArg).asInstanceOf[CorefMention]
+            if (controller.get.head.text == controllerEntity && // found the controller entity
+              controlledEvent.label == controlledLabel) {
+              val allText = s"${m.text} ${controlledEvent.arguments.values
+                .flatten
+                .map(a => a.toCorefMention.antecedent.getOrElse(a).asInstanceOf[CorefMention])
+                .map(_.text)
+                .mkString(" ")}".toLowerCase
+
+              if (controlledArgs.forall{arg => allText contains arg.toLowerCase}) {
+                //println(s"\t==> found event mention: ${m.text}")
+                return true
+              }
+            }
+          }
+        }
+      }
+    }
+
     println("==========")
     var bioEventCount = 0
     for (mention <- mentions){
@@ -220,36 +249,6 @@ object TestUtils {
       }
     }
 
-
-
-    for (m <- mentions) {
-      if (!m.isInstanceOf[TextBoundMention]) {
-        if (m.labels contains label) {
-          // found the regulation label
-          val controller = m.arguments.get("controller")
-          val controlled = m.arguments.get("controlled")
-
-          if (controller.isDefined && controlled.isDefined && controlled.get.head.isInstanceOf[EventMention]) {
-            // some obvious sanity checks
-            val controlledEventArg = controlled.get.head
-            val controlledEvent = controlledEventArg.toCorefMention.antecedent.getOrElse(controlledEventArg).asInstanceOf[CorefMention]
-            if (controller.get.head.text == controllerEntity && // found the controller entity
-              controlledEvent.label == controlledLabel) {
-              val allText = s"${m.text} ${controlledEvent.arguments.values
-                .flatten
-                .map(a => a.toCorefMention.antecedent.getOrElse(a).asInstanceOf[CorefMention])
-                .map(_.text)
-                .mkString(" ")}".toLowerCase
-
-              if (controlledArgs.forall{arg => allText contains arg.toLowerCase}) {
-                //println(s"\t==> found event mention: ${m.text}")
-                return true
-              }
-            }
-          }
-        }
-      }
-    }
     false
   }
 
