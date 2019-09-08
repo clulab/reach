@@ -25,15 +25,15 @@ object PerformCrossValOldDataset extends App {
   val printWriter = new PrintWriter(predsFile)
   val allPapersDirs = new File(parentDirForRows).listFiles().filter(x => x.isDirectory && x.getName != "newAnnotations")
   // creating a subset of small number of papers for debugging. Use dirsToUseForDebug on line 37 for debugging
-  val smallSetOfPapers = List("PMC2156142", "PMC2195994", "PMC2743561", "PMC2064697", "PMC2193052", "PMC2196001", "PMC3058384")
-  //val smallSetOfPapers = List("PMC2156142", "PMC2195994")
+  //val smallSetOfPapers = List("PMC2156142", "PMC2195994", "PMC2743561", "PMC2064697", "PMC2193052", "PMC2196001", "PMC3058384")
+  val smallSetOfPapers = List("PMC2156142", "PMC2195994")
   val dirsToUseForDebug = allPapersDirs.filter(x => smallSetOfPapers.contains(x.getName))
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val keysForLabels = collection.mutable.HashMap[AggregatedContextInstance, (String, String, String)]()
   val allRowsByPaperID = collection.mutable.ListBuffer[(String, Seq[AggregatedContextInstance])]()
   val findingNoOfTrueOccurrences = labelMapFromOldDataset.filter(_._2 == 1)
   println(findingNoOfTrueOccurrences.size + " : No. of true labels in the whole dataset")
-  for(paperDir <- allPapersDirs) {
+  for(paperDir <- dirsToUseForDebug) {
     // In this code we won't face the double counting of two rows from a given paper, because each paper appears only once over all.
     // While analyzing the performance over sentence windows, we encountered the same paper over different values of sentence window. That's why we had the risk of adding the same row twice.
     // But we now see that each paper appears only once, and we read the rows from that paper. So we won't add the same row twice.
@@ -61,9 +61,10 @@ object PerformCrossValOldDataset extends App {
 
   val precisionScoreBoardPerPaper = collection.mutable.HashMap[String, Double]()
   val recallScoreBoardPerPaper = collection.mutable.HashMap[String, Double]()
+  val f1ScoreBoardPerPaper = collection.mutable.HashMap[String, Double]()
   val giantPredictedLabels = collection.mutable.ListBuffer[Int]()
   val giantTruthLabels = collection.mutable.ListBuffer[Int]()
-  val quickerFixer = 2
+  val quickerFixer = 1
   // in the cross validation, each paper will be considered as test case once. So when a given paper is a test case, all other papers and their corresponding labels must be the training case.
   for((paperID, testRowsPerPaper) <- allRowsByPaperID) {
     val svmDeclaration = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
@@ -73,14 +74,16 @@ object PerformCrossValOldDataset extends App {
     //val trainingCaseRowsUnFiltered = allRowsByPaperID.filter(_._1 != paperID)
     val trainingCaseRowsUnFiltered = collection.mutable.ListBuffer[AggregatedContextInstance]()
     println(paperID + " : current test case")
-    for((pap,rows) <- allRowsByPaperID) {
-
-      if(pap != paperID)
-        { println(pap + " : added to training set")
-          trainingCaseRowsUnFiltered ++= rows}
+    val notCurrentPaper = allRowsByPaperID.filter(_._1!=paperID)
+    for((notThispaper,rowsNotInThisPaper) <- notCurrentPaper) {
+      for (r <- rowsNotInThisPaper) {
+        if(!trainingCaseRowsUnFiltered.contains(r))
+          {
+            trainingCaseRowsUnFiltered += r
+            println(notThispaper + " : added to training set")
+          }
+      }
     }
-    //val trainRowsNeedsProcessing = collection.mutable.ListBuffer[AggregatedContextInstance]()
-    //for(tRows <- trainingCaseRowsUnFiltered) trainRowsNeedsProcessing += tRows
     println(s"When ${paperID} is the test case,")
     println(s"Without checking for matching annotations, we have a total of ${trainingCaseRowsUnFiltered.size} rows for training")
     val trainingRowsWithCorrectLabels = collection.mutable.ListBuffer[AggregatedContextInstance]()
@@ -141,8 +144,10 @@ object PerformCrossValOldDataset extends App {
     println(predictCountsMap)
     val precisionPerPaper = CodeUtils.precision(predictCountsMap)
     val recallPerPaper = CodeUtils.recall(predictCountsMap)
+    val f1PerPaper = CodeUtils.f1(predictCountsMap)
     recallScoreBoardPerPaper ++= Map(paperID -> recallPerPaper)
     precisionScoreBoardPerPaper ++= Map(paperID -> precisionPerPaper)
+    f1ScoreBoardPerPaper ++= Map(paperID -> f1PerPaper)
     //giantPredictedLabels ++= predictedLabelsForThisPaper
     //giantTruthLabels ++= truthLabelsForThisPaper
 
@@ -156,14 +161,14 @@ object PerformCrossValOldDataset extends App {
   val microAveragedPrecisionScore = CodeUtils.precision(microAveragedCountsMap)
   val microAveragedRecallScore = CodeUtils.recall(microAveragedCountsMap)
   val microAveragedF1Score = CodeUtils.f1(microAveragedCountsMap)
-  var totalPrecision = 0.0
-  for((paperID, perPaperPrecision) <- precisionScoreBoardPerPaper) {
-    totalPrecision += perPaperPrecision
-    println(s"The paper ${paperID} has the precision score ${perPaperPrecision}")
-  }
 
 
-  val arithmeticMeanPrecision = totalPrecision/(precisionScoreBoardPerPaper.size)
+  val listOfAllPrecisions = precisionScoreBoardPerPaper.map{case (_,v) => v}
+  val listOfAllRecalls = precisionScoreBoardPerPaper.map{case (_,v) => v}
+  val listOfAllF1 = precisionScoreBoardPerPaper.map{case (_,v) => v}
+  val arithmeticMeanPrecision = CodeUtils.arithmeticMeanScore(listOfAllPrecisions.toSeq)
+  val arithmeticMeanRecall = CodeUtils.arithmeticMeanScore(listOfAllRecalls.toSeq)
+  val arithmeticMeanF1 = CodeUtils.arithmeticMeanScore(listOfAllF1.toSeq)
 
 
   println(s"We have a total of ${allRowsByPaperID.size} papers")
@@ -171,5 +176,7 @@ object PerformCrossValOldDataset extends App {
   println(s"The micro-averaged recall score is ${microAveragedRecallScore}")
   println(s"The micro-averaged f1 score is ${microAveragedF1Score}")
   println(s"Arithmetic mean precision is ${arithmeticMeanPrecision}")
+  println(s"Arithmetic mean recall is ${arithmeticMeanRecall}")
+  println(s"Arithmetic mean f1 is ${arithmeticMeanF1}")
 
 }
