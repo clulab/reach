@@ -25,8 +25,8 @@ object PerformCrossValOldDataset extends App {
   val printWriter = new PrintWriter(predsFile)
   val allPapersDirs = new File(parentDirForRows).listFiles().filter(x => x.isDirectory && x.getName != "newAnnotations")
   // creating a subset of small number of papers for debugging. Use dirsToUseForDebug on line 37 for debugging
-  //val smallSetOfPapers = List("PMC2156142", "PMC2195994", "PMC2743561", "PMC2064697", "PMC2193052", "PMC2196001", "PMC3058384")
-  val smallSetOfPapers = List("PMC2156142", "PMC2195994")
+  val smallSetOfPapers = List("PMC2156142", "PMC2195994", "PMC2743561", "PMC2064697", "PMC2193052", "PMC2196001", "PMC3058384")
+  //val smallSetOfPapers = List("PMC2156142", "PMC2195994")
   val dirsToUseForDebug = allPapersDirs.filter(x => smallSetOfPapers.contains(x.getName))
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val keysForLabels = collection.mutable.HashMap[AggregatedContextInstance, (String, String, String)]()
@@ -104,6 +104,8 @@ object PerformCrossValOldDataset extends App {
         }
       }
 
+      println(s"Out of ${trainingCaseRowsUnFiltered.size} total number of rows to train on, we found ${possibleMatchesInLabelFile.size} that had a corresponding annotation")
+
     }
     println(s"Current test case: ${paperID}")
     println(s"Size of training rows after filtering by appropriate event IDs: ${trainingRowsWithCorrectLabels.size}")
@@ -118,7 +120,7 @@ object PerformCrossValOldDataset extends App {
       val pred = svmInstance.predict(Seq(testRow))
 
 
-      //if(pred(0)==1) {
+
         val specForCurrTestRow = keysForLabels(testRow)
         printWriter.write(s"The Pair ${specForCurrTestRow} has the prediction ${pred(0)}\n")
         val eventID = Integer.parseInt(specForCurrTestRow._2)
@@ -127,15 +129,15 @@ object PerformCrossValOldDataset extends App {
           val sep = Math.abs(int1 - eventID)
           x._1._1 == specForCurrTestRow._1 && x._1._3 == specForCurrTestRow._3 && sep <= quickerFixer})
         for((_,truthLab) <- possibleLabels) {
-          //if(Math.abs(eventIDToInt - intId) <= quickerFixer) {
+
               truthLabelsForThisPaper += truthLab
               predictedLabelsForThisPaper += pred(0)
               giantPredictedLabels += pred(0)
               giantTruthLabels += truthLab
-         // }
-        }
-      //}
 
+        }
+
+      println(s"Out of ${testRowsPerPaper.size} total number of rows to test on, we found ${possibleLabels.size} that had a corresponding annotation")
     }
 
 
