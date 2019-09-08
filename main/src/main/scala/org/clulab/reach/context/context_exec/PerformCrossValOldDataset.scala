@@ -25,8 +25,8 @@ object PerformCrossValOldDataset extends App {
   val printWriter = new PrintWriter(predsFile)
   val allPapersDirs = new File(parentDirForRows).listFiles().filter(x => x.isDirectory && x.getName != "newAnnotations")
   // creating a subset of small number of papers for debugging. Use dirsToUseForDebug on line 37 for debugging
-  val smallSetOfPapers = List("PMC2156142", "PMC2195994", "PMC2743561", "PMC2064697", "PMC2193052", "PMC2196001", "PMC3058384")
-  //val smallSetOfPapers = List("PMC2156142", "PMC2195994")
+  //val smallSetOfPapers = List("PMC2156142", "PMC2195994", "PMC2743561", "PMC2064697", "PMC2193052", "PMC2196001", "PMC3058384")
+  val smallSetOfPapers = List("PMC2156142", "PMC2195994")
   val dirsToUseForDebug = allPapersDirs.filter(x => smallSetOfPapers.contains(x.getName))
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val keysForLabels = collection.mutable.HashMap[AggregatedContextInstance, (String, String, String)]()
@@ -75,14 +75,16 @@ object PerformCrossValOldDataset extends App {
     val trainingCaseRowsUnFiltered = collection.mutable.ListBuffer[AggregatedContextInstance]()
     println(paperID + " : current test case")
     val notCurrentPaper = allRowsByPaperID.filter(_._1!=paperID)
-    for((notThispaper,rowsNotInThisPaper) <- notCurrentPaper) {
-      for (r <- rowsNotInThisPaper) {
-        if(!trainingCaseRowsUnFiltered.contains(r))
+    for((notThispaperId,rowsNotInThisPaper) <- notCurrentPaper) {
+      if(notThispaperId != paperID) {
+        for (r <- rowsNotInThisPaper) {
+          if(!trainingCaseRowsUnFiltered.contains(r))
           {
             trainingCaseRowsUnFiltered += r
-            println(notThispaper + " : added to training set")
           }
+        }
       }
+
     }
     println(s"When ${paperID} is the test case,")
     println(s"Without checking for matching annotations, we have a total of ${trainingCaseRowsUnFiltered.size} rows for training")
