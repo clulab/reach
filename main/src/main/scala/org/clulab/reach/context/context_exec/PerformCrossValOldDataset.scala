@@ -106,8 +106,6 @@ object PerformCrossValOldDataset extends App {
         }
       }
 
-      println(s"Out of ${trainingCaseRowsUnFiltered.size} total number of rows to train on, we found ${possibleMatchesInLabelFile.size} that had a corresponding annotation")
-
     }
     println(s"Current test case: ${paperID}")
     println(s"Size of training rows after filtering by appropriate event IDs: ${trainingRowsWithCorrectLabels.size}")
@@ -134,12 +132,10 @@ object PerformCrossValOldDataset extends App {
 
               truthLabelsForThisPaper += truthLab
               predictedLabelsForThisPaper += pred(0)
-              giantPredictedLabels += pred(0)
-              giantTruthLabels += truthLab
+//              giantPredictedLabels += pred(0)
+//              giantTruthLabels += truthLab
 
         }
-
-      println(s"Out of ${testRowsPerPaper.size} total number of rows to test on, we found ${possibleLabels.size} that had a corresponding annotation")
     }
 
 
@@ -152,8 +148,8 @@ object PerformCrossValOldDataset extends App {
     recallScoreBoardPerPaper ++= Map(paperID -> recallPerPaper)
     precisionScoreBoardPerPaper ++= Map(paperID -> precisionPerPaper)
     f1ScoreBoardPerPaper ++= Map(paperID -> f1PerPaper)
-    //giantPredictedLabels ++= predictedLabelsForThisPaper
-    //giantTruthLabels ++= truthLabelsForThisPaper
+    giantPredictedLabels ++= predictedLabelsForThisPaper
+    giantTruthLabels ++= truthLabelsForThisPaper
 
 
   }
