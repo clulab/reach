@@ -40,8 +40,8 @@ object PerformCrossValOldDataset extends App {
     // The only time we will see the same paper appear twice will be in the hold-one-out cross-validation phase, which is expected behavior.
     val rowFiles = paperDir.listFiles().filter(x => x.getName.contains("Aggregated"))
     println(rowFiles.size + " : NO. of rows with noisy rows allowed")
-    val rowsFromOnlyCurrentPaper = rowFiles.filter(_.getName.contains(paperDir.getName))
-    println(rowsFromOnlyCurrentPaper)
+    val rowsFromOnlyCurrentPaper = rowFiles.filter(!_.getName.contains(paperDir.getName))
+    println(rowsFromOnlyCurrentPaper.size + ": no. of rows that don't belong in this paper")
     val rowsForCurrentSent = collection.mutable.ListBuffer[AggregatedContextInstance]()
     var containsOnlyThisPapersRows = true
     for(r <- rowFiles) {
