@@ -42,7 +42,7 @@ object PerformCrossValOldDataset extends App {
     val rowsForCurrentSent = collection.mutable.ListBuffer[AggregatedContextInstance]()
     var containsOnlyThisPapersRows = true
     for(r <- rowFiles) {
-      containsOnlyThisPapersRows = containsOnlyThisPapersRows && (r.getName == paperDir)
+      containsOnlyThisPapersRows = containsOnlyThisPapersRows && (r.getName == paperDir.getName)
       val pathToRow = parentDirForRows.concat(s"${paperDir.getName}").concat(s"/${r.getName}")
       val rowSpecs = ContextFeatureUtils.createAggRowSpecsFromFile(r)
       val row = ContextFeatureUtils.readAggRowFromFile(pathToRow)
