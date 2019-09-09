@@ -38,7 +38,7 @@ object PerformCrossValOldDataset extends App {
     // While analyzing the performance over sentence windows, we encountered the same paper over different values of sentence window. That's why we had the risk of adding the same row twice.
     // But we now see that each paper appears only once, and we read the rows from that paper. So we won't add the same row twice.
     // The only time we will see the same paper appear twice will be in the hold-one-out cross-validation phase, which is expected behavior.
-    val rowFiles = paperDir.listFiles().filter(_.getName.contains("Aggregated"))
+    val rowFiles = paperDir.listFiles().filter(x => x.getName.contains("Aggregated") && x.getName.contains(paperDir))
     val rowsForCurrentSent = collection.mutable.ListBuffer[AggregatedContextInstance]()
     var containsOnlyThisPapersRows = true
     for(r <- rowFiles) {
