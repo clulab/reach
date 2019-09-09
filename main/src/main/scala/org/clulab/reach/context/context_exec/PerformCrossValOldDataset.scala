@@ -137,8 +137,8 @@ object PerformCrossValOldDataset extends App {
 
               truthLabelsForThisPaper += truthLab
               predictedLabelsForThisPaper += pred(0)
-//              giantPredictedLabels += pred(0)
-//              giantTruthLabels += truthLab
+              giantPredictedLabels += pred(0)
+              giantTruthLabels += truthLab
 
         }
     }
@@ -153,8 +153,8 @@ object PerformCrossValOldDataset extends App {
     recallScoreBoardPerPaper ++= Map(paperID -> recallPerPaper)
     precisionScoreBoardPerPaper ++= Map(paperID -> precisionPerPaper)
     f1ScoreBoardPerPaper ++= Map(paperID -> f1PerPaper)
-    giantPredictedLabels ++= predictedLabelsForThisPaper
-    giantTruthLabels ++= truthLabelsForThisPaper
+//    giantPredictedLabels ++= predictedLabelsForThisPaper
+//    giantTruthLabels ++= truthLabelsForThisPaper
 
 
   }
