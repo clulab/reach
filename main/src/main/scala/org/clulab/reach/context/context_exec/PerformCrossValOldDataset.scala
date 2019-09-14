@@ -59,8 +59,7 @@ object PerformCrossValOldDataset extends App {
     val nameOfCurrentDirectory = paperDir.getName
     val entry = (nameOfCurrentDirectory,rowsForCurrentSent)
     //val entry = Map(nameOfCurrentDirectory -> rowsForCurrentSent)
-    println(s"The current paper ${nameOfCurrentDirectory} has ${rowsForCurrentSent.size} rows")
-    println(s"Do I have only those rows that are in this paper? : ${containsOnlyThisPapersRows}")
+
     allRowsByPaperID += entry
   }
 
