@@ -244,9 +244,10 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
 //      println(s"sentence text${event.sentenceObj.words.toList.toString}")
 //      println(s"masked sentence${lemmas.toList.toString}")
-//      println(s"masked event${lemmas.slice(start, end).toList.toString}")
-//      println(y_pred.value().toFloat())
-//      scala.io.StdIn.readLine()
+      println("-----------------------")
+      println(s"masked event${lemmas.slice(start, end).toList.toString}")
+      println(y_pred.value().toFloat())
+      scala.io.StdIn.readLine()
 
       if (y_pred.value().toFloat > 0.5) {
         PositivePolarity
