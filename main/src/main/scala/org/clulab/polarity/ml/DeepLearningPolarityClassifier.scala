@@ -171,6 +171,14 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
 
       var controller = event.arguments("controller").head
+      if (controller.getClass.getName=="CorefEventMention"){
+        val ctrlr_start = controller.arguments("theme").head.tokenInterval.start
+        val ctrlr_end = controller.arguments("theme").head.tokenInterval.end
+      }
+      else{
+        val ctrlr_start = controller.start
+        val ctrlr_end = controller.end
+      }
       //    while (controller.arguments.contains("controller") || controller.arguments.contains("controlled")) {
       //      if (controller.arguments.contains("controller")){
       //        controller = controller.arguments("controller").head
@@ -178,10 +186,17 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       //        controller = controller.arguments("controlled").head
       //      }
       //    }
-      val ctrlr_start = controller.start
-      val ctrlr_end = controller.end
+
 
       var controlled = event.arguments("controlled").head
+      if (controlled.getClass.getName=="CorefEventMention"){
+        val ctrld_start = controlled.arguments("theme").head.tokenInterval.start
+        val ctrld_end = controlled.arguments("theme").head.tokenInterval.end
+      }
+      else{
+        val ctrld_start = controlled.start
+        val ctrld_end = controlled.end
+      }
       //    while (controlled.arguments.contains("controller") || controlled.arguments.contains("controlled")) {
       //      if (controlled.arguments.contains("controlled")){
       //        controlled = controlled.arguments("controlled").head
@@ -189,8 +204,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       //        controlled = controlled.arguments("controller").head
       //      }
       //    }
-      val ctrld_start = controlled.start
-      val ctrld_end = controlled.end
+
 
 
       val (start, end) = getExpandBound(event, ctrlr_start, ctrld_start)
