@@ -173,7 +173,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       var controller = event.arguments("controller").head
       var ctrlr_start=0
       var ctrlr_end = 0
-      if (controller.getClass.getName=="CorefEventMention"){
+      if (controller.getClass.getName=="org.clulab.reach.mentions.BioEventMention"){
         ctrlr_start = controller.arguments("theme").head.tokenInterval.start
         ctrlr_end = controller.arguments("theme").head.tokenInterval.end
       }
@@ -193,7 +193,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       var controlled = event.arguments("controlled").head
       var ctrld_start = 0
       var ctrld_end = 0
-      if (controlled.getClass.getName=="CorefEventMention"){
+      if (controlled.getClass.getName=="org.clulab.reach.mentions.BioEventMention"){
         ctrld_start = controlled.arguments("theme").head.tokenInterval.start
         ctrld_end = controlled.arguments("theme").head.tokenInterval.end
       }
