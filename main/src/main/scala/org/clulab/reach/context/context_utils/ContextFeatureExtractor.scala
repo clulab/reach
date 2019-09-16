@@ -363,7 +363,6 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
           c.nsId().split(":")(0)
       }.toList.toSet
 
-      //println(s"$contextCategory || ${contextClasses.toSet}")
       val ret = !contextClasses.contains(contextCategory)
 
       ret
