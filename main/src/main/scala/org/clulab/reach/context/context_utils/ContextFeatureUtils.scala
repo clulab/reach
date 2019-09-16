@@ -17,22 +17,11 @@ object ContextFeatureUtils {
   // using the inputs, this function calls the feature extractor, and receives a seq(map). To simplify this data structure, we will flatten the output to a simple map.
   // :output :- map of ContextPairInstance -> (feature_name -> feature_value)
   def getFeatValMapPerInput(filteredPairs: Set[Pair], ctxMentions: Seq[BioTextBoundMention]):Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])] = {
-    val labelFilePath = config.getString("svmContext.outputDirForAnnotations")
-    val allContextPairsFilePath = labelFilePath.concat("/AllContextPairs.txt")
-    val allPairsFile = new File(allContextPairsFilePath)
-    if(!allPairsFile.exists())
-      allPairsFile.createNewFile()
-    val pw = new PrintWriter(allPairsFile)
-    val tempo = filteredPairs.map{p =>
-      val currentPaperID = p._1.document.id match {
-        case Some(x) => s"PMC${x.split("_")(0)}"
-        case None => "unknown_paper_id"
-      }
 
+    val tempo = filteredPairs.map{p =>
       val featureExtractor = new ContextFeatureExtractor(p, ctxMentions)
       featureExtractor.extractFeaturesToCalcByBestFeatSet()
     }
-    pw.close()
     val flattenedMap = tempo.flatMap(t=>t).toMap
     flattenedMap
   }
@@ -42,34 +31,7 @@ object ContextFeatureUtils {
     ctxPairFeatValMap.keySet.toSeq
   }
 
-  def writeAggRowToFile(row:AggregatedContextInstance, evtID: String, ctxID: String):Unit = {
-    val typeOfPaper = config.getString("svmContext.paperType")
-    val dirForType = if(typeOfPaper.length != 0) config.getString("papersDir").concat(s"/${typeOfPaper}") else config.getString("papersDir")
-    val fileListUnfiltered = new File(dirForType)
-    val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
-    val currentPMCID = s"PMC${row.PMCID.split("_")(0)}"
-    for(file <- fileList) {
-      val fileNamePMCID = file.getName.slice(0,file.getName.length-5)
-      val outPaperDirPath = config.getString("svmContext.contextOutputDir").concat(s"${typeOfPaper}/${fileNamePMCID}")
-      // creating output directory if it doesn't already exist
-      val outputPaperDir = new File(outPaperDirPath)
-      if(!outputPaperDir.exists()) {
-        outputPaperDir.mkdirs()
-      }
 
-      if(currentPMCID == fileNamePMCID) {
-        val pathForRow = outPaperDirPath.concat(s"/AggregatedRow_${currentPMCID}_${evtID}_${ctxID}.txt")
-        val sentenceFile = new File(pathForRow)
-        if (!sentenceFile.exists()) {
-          sentenceFile.createNewFile()
-        }
-        val os = new ObjectOutputStream(new FileOutputStream(pathForRow))
-
-        os.writeObject(row)
-        os.close()
-      }
-    }
-  }
 
   def writeAggRowToFile(row:AggregatedContextInstance, evtID: String, ctxString:String, whereToWriteFeatVal:String, whereToWriteRow:String):Unit = {
     val file = new File(whereToWriteFeatVal)
