@@ -214,7 +214,7 @@ object CrossValOldDatasetUsingEventsFile extends App {
           val sentenceIndex = array(0)
           val tokenIntervalStart = array(1).split("-")(0)
           val tokenIntervalEnd = array(1).split("-")(1)
-          val eventID = sentenceIndex+"*"+tokenIntervalStart+"="+tokenIntervalEnd
+          val eventID = "in"+sentenceIndex+"from"+tokenIntervalStart+"to"+tokenIntervalEnd
           //val eventID = sentenceIndex.concat(tokenIntervalStart.concat(tokenIntervalEnd))
           val contextIDs = array(2).split(",")
           for(cnt <- contextIDs) {
