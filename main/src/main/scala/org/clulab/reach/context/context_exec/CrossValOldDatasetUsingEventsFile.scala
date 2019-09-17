@@ -99,7 +99,6 @@ object CrossValOldDatasetUsingEventsFile extends App {
       for(c <- lines) {
         val array = c.split("\t")
         if(array.size > 2) {
-          println(array.mkString("*"))
           val sentenceIndex = array(0)
           val tokenIntervalStart = array(1).split("-")(0)
           val tokenIntervalEnd = array(1).split("-")(1)
@@ -107,6 +106,7 @@ object CrossValOldDatasetUsingEventsFile extends App {
           val contextIDs = array(2).split(",")
           for(cnt <- contextIDs) {
             val tupleEntry = (pmcid,eventID,cnt)
+            println(tupleEntry)
             labelMapFromEventFile ++= Map(tupleEntry -> 1)
           }
         }
