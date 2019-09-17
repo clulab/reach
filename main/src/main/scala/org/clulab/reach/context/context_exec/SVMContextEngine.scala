@@ -222,7 +222,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
     val sentIndex = evt.sentence
     val tokenIntervalStart = (evt.tokenInterval.start).toString()
     val tokenIntervalEnd = (evt.tokenInterval.end).toString()
-    sentIndex+"*"+tokenIntervalStart+"="+tokenIntervalEnd
+    sentIndex+""+tokenIntervalStart+""+tokenIntervalEnd
   }
 
 
