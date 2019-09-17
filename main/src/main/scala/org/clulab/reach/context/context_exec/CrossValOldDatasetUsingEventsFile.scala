@@ -142,6 +142,28 @@ object CrossValOldDatasetUsingEventsFile extends App {
   println(s"Size of predicted labels list: ${giantPredictedLabels.size}")
   println(s"Size of truth label list: ${giantTruthLabels.size}")
 
+  val microAveragedCountsMap = CodeUtils.predictCounts(giantTruthLabels.toArray, giantPredictedLabels.toArray)
+  val microAveragedPrecisionScore = CodeUtils.precision(microAveragedCountsMap)
+  val microAveragedRecallScore = CodeUtils.recall(microAveragedCountsMap)
+  val microAveragedF1Score = CodeUtils.f1(microAveragedCountsMap)
+
+
+  val listOfAllPrecisions = precisionScoreBoardPerPaper.map{case (_,v) => v}
+  val listOfAllRecalls = precisionScoreBoardPerPaper.map{case (_,v) => v}
+  val listOfAllF1 = precisionScoreBoardPerPaper.map{case (_,v) => v}
+  val arithmeticMeanPrecision = CodeUtils.arithmeticMeanScore(listOfAllPrecisions.toSeq)
+  val arithmeticMeanRecall = CodeUtils.arithmeticMeanScore(listOfAllRecalls.toSeq)
+  val arithmeticMeanF1 = CodeUtils.arithmeticMeanScore(listOfAllF1.toSeq)
+
+
+  println(s"We have a total of ${allRowsByPaperID.size} papers")
+  println(s"The micro-averaged precision score is ${microAveragedPrecisionScore}")
+  println(s"The micro-averaged recall score is ${microAveragedRecallScore}")
+  println(s"The micro-averaged f1 score is ${microAveragedF1Score}")
+  println(s"Arithmetic mean precision is ${arithmeticMeanPrecision}")
+  println(s"Arithmetic mean recall is ${arithmeticMeanRecall}")
+  println(s"Arithmetic mean f1 is ${arithmeticMeanF1}")
+
 
 
   def makeLabelMapFromEventFileDir(pathToDir:String):Map[(String,String,String), Int] = {
