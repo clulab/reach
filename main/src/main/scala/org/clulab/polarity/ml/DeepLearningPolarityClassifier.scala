@@ -143,7 +143,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     * @return Predictions of Polarity subclasses
     */
   override def predict(events: Seq[BioEventMention]): Seq[Polarity] = {
-    println("++++++++++++++++++++++++++++++++++++++++++")
+    //println("++++++++++++++++++++++++++++++++++++++++++")
     var predictions = Seq[Polarity]()
     for (event<-events) {
       predictions = predictions:+predict(event)
@@ -244,11 +244,11 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
 //      println(s"sentence text${event.sentenceObj.words.toList.toString}")
 //      println(s"masked sentence${lemmas.toList.toString}")
-      println("-----------------------")
-      println(controlled.getClass.getName)
-      println(s"masked event${lemmas.slice(start, end).toList.toString}")
-      println(y_pred.value().toFloat())
-      scala.io.StdIn.readLine()
+//      println("-----------------------")
+//      println(controlled.getClass.getName)
+//      println(s"masked event${lemmas.slice(start, end).toList.toString}")
+//      println(y_pred.value().toFloat())
+//      scala.io.StdIn.readLine()
 
       if (y_pred.value().toFloat > 0.5) {
         PositivePolarity
@@ -518,6 +518,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         val label=0
         labels = labels :+label
       }
+
     }
     bufferedSource.close
 
@@ -542,7 +543,11 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     val labels_test = labels_shuffle.slice(n_training, labels.length)
     logger.info("Loading data finished!")
 
+
+
     (sens_train, labels_train, sens_test, labels_test)
+
+
 
   }
 
