@@ -17,6 +17,7 @@ object CrossValOldDatasetUsingEventsFile extends App {
   val labelsFromEventFiles = makeLabelMapFromEventFileDir(annotationsFileDir)
   val labelFile = config.getString("svmContext.labelFileOldDataset")
   val labelMapFromOldDataset = CodeUtils.generateLabelMap(labelFile)
+  println(labelMapFromOldDataset)
   val setOfEntriesWithAnnotations = labelsFromEventFiles.toSet
   //val setOfEntriesWithAnnotations = labelsFromEventFiles.toSet.union(labelMapFromOldDataset.toSet)
 
@@ -249,7 +250,7 @@ object CrossValOldDatasetUsingEventsFile extends App {
 
 
   def collapseEvtId(bigEvtID:String):(String,Int,Int,Int) = {
-    println(bigEvtID)
+
     val sentInd = (bigEvtID.split("from"))(0)
     val event1SentInd = Integer.parseInt(sentInd.slice(2,sentInd.length))
 
