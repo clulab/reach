@@ -102,7 +102,7 @@ object ContextFeatureUtils {
     val paperDir = new File(whichDirToWriteRow)
     if(!paperDir.exists())
       paperDir.mkdirs()
-    println(s"Event ID to be written to file: ${evtID}")
+
     val whereToWriteRow = whichDirToWriteRow.concat(s"/AggregatedRow_${pmcid}_${evtID}_${ctxString}.txt")
     val file2 = new File(whereToWriteRow)
     val os = new ObjectOutputStream(new FileOutputStream(whereToWriteRow))
