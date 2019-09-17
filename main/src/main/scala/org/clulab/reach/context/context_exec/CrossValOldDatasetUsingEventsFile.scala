@@ -8,10 +8,13 @@ import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
 import org.clulab.learning.LinearSVMClassifier
 import org.clulab.reach.context.context_utils.ContextFeatureUtils
 
+import scala.io.Source
+
 object CrossValOldDatasetUsingEventsFile extends App {
   val config = ConfigFactory.load()
   val parentDirForRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
   val annotationsFileDir = config.getString("polarityContext.eventsFilesDir")
+  val labelsFromEventFiles = makeLabelMapFromEventFileDir(annotationsFileDir)
   val labelFile = config.getString("svmContext.labelFileOldDataset")
   val labelMapFromOldDataset = CodeUtils.generateLabelMap(labelFile)
 //  val smallSetOfPapers = List("PMC2156142", "PMC2195994")
@@ -63,7 +66,44 @@ object CrossValOldDatasetUsingEventsFile extends App {
     val predictedLabelsForThisPaper = collection.mutable.ListBuffer[Int]()
     val trainingCaseRowsUnFiltered = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val notCurrentPaper = allRowsByPaperID.filter(_._1!=paperID)
-    print(notCurrentPaper.size)
+    for((notThispaperId,rowsNotInThisPaper) <- notCurrentPaper) {
+      if(notThispaperId != paperID) {
+        for (r <- rowsNotInThisPaper) {
+          if(!trainingCaseRowsUnFiltered.contains(r))
+          {
+            trainingCaseRowsUnFiltered += r
+          }
+        }
+      }
+
+    }
+    val trainingRowsWithCorrectLabels = collection.mutable.ListBuffer[AggregatedContextInstance]()
+    val trainingLabels = collection.mutable.ListBuffer[Int]()
+    for(t <- trainingCaseRowsUnFiltered) {
+      val specForCurrentRow = keysForLabels(t)
+      val evtID = Integer.parseInt(specForCurrentRow._2)
+    }
+  }
+
+
+
+  def makeLabelMapFromEventFileDir(pathToDir:String):Map[(String,String,String), Int] = {
+    val labelMapFromEventFile = collection.mutable.HashMap[(String,String,String), Int]()
+    val dirToRead = new File(pathToDir)
+    val listOfFiles = dirToRead.listFiles()
+    for(file <- listOfFiles) {
+      val pmcid = file.getName.split("_")(0)
+      val source = Source.fromFile(file)
+      val lines = source.getLines()
+      for(c <- lines) {
+        val array = c.split("\t")
+        println(array.mkString("*"))
+
+      }
+    }
+
+    labelMapFromEventFile.toMap
+
   }
 
 
