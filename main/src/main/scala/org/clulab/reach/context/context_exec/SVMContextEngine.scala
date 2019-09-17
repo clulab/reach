@@ -174,7 +174,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             // If is an event mention, it's subject to context
             case evt: BioEventMention =>
               // Get its ID
-              val evtId = extractEvtId(evt)
+              val evtId = ContextFeatureUtils.extractEvtId(evt)
               // fetch its predicted pairs
               val contexts = predictions.getOrElse(evtId, Seq.empty)
 
