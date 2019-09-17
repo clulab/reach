@@ -81,6 +81,10 @@ object CrossValOldDatasetUsingEventsFile extends App {
       }
 
     }
+
+
+    println(s"When ${paperID} is the test case,")
+    println(s"Without checking for matching annotations, we have a total of ${trainingCaseRowsUnFiltered.size} rows for training")
     val trainingRowsWithCorrectLabels = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val trainingLabels = collection.mutable.ListBuffer[Int]()
     for(t <- trainingCaseRowsUnFiltered) {
@@ -98,7 +102,9 @@ object CrossValOldDatasetUsingEventsFile extends App {
         }
       }
     }
-
+    println(s"Current test case: ${paperID}")
+    println(s"Size of training rows after filtering by appropriate event IDs: ${trainingRowsWithCorrectLabels.size}")
+    println(s"Size of training labels after filtering by appropriate event IDs: ${trainingLabels.size}")
     val (trainingRVFDataset, _) = svmInstance.dataConverter(trainingRowsWithCorrectLabels,Some(trainingLabels.toArray))
 
     svmInstance.fit(trainingRVFDataset)
