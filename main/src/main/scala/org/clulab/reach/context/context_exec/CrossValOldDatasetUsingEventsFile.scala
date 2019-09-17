@@ -101,6 +101,9 @@ object CrossValOldDatasetUsingEventsFile extends App {
           specForCurrentRow._1 == x._1 && eventsMatch && specForCurrentRow._3 == x._3
         })
 
+      val intersectingLabels = possibleMatches.intersect(labelMapFromOldDataset.keySet)
+      println(s"Size of labels matching with annotations: ${intersectingLabels.size}")
+
       val possibleMatchesInLabelFile = possibleMatches.map({x =>
         val reformattedEvtID = collapseEvtId(x._2)._1
         val searchSpecForLabel = (x._1,reformattedEvtID,x._3)
