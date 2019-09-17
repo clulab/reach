@@ -171,16 +171,18 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
 
       var controller = event.arguments("controller").head
-      var ctrlr_start=0
-      var ctrlr_end = 0
-      if (controller.getClass.getName=="org.clulab.reach.mentions.BioEventMention"){
-        ctrlr_start = controller.arguments("theme").head.tokenInterval.start
-        ctrlr_end = controller.arguments("theme").head.tokenInterval.end
-      }
-      else{
-        ctrlr_start = controller.start
-        ctrlr_end = controller.end
-      }
+      val ctrlr_start = controller.start
+      val ctrlr_end = controller.end
+//      var ctrlr_start=0
+//      var ctrlr_end = 0
+//      if (controller.getClass.getName=="org.clulab.reach.mentions.BioEventMention"){
+//        ctrlr_start = controller.arguments("theme").head.tokenInterval.start
+//        ctrlr_end = controller.arguments("theme").head.tokenInterval.end
+//      }
+//      else{
+//        ctrlr_start = controller.start
+//        ctrlr_end = controller.end
+//      }
       //    while (controller.arguments.contains("controller") || controller.arguments.contains("controlled")) {
       //      if (controller.arguments.contains("controller")){
       //        controller = controller.arguments("controller").head
@@ -191,16 +193,18 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
 
       var controlled = event.arguments("controlled").head
-      var ctrld_start = 0
-      var ctrld_end = 0
-      if (controlled.getClass.getName=="org.clulab.reach.mentions.BioEventMention"){
-        ctrld_start = controlled.arguments("theme").head.tokenInterval.start
-        ctrld_end = controlled.arguments("theme").head.tokenInterval.end
-      }
-      else{
-        ctrld_start = controlled.start
-        ctrld_end = controlled.end
-      }
+      val ctrld_start = controlled.start
+      val ctrld_end = controlled.end
+//      var ctrld_start = 0
+//      var ctrld_end = 0
+//      if (controlled.getClass.getName=="org.clulab.reach.mentions.BioEventMention"){
+//        ctrld_start = controlled.arguments("theme").head.tokenInterval.start
+//        ctrld_end = controlled.arguments("theme").head.tokenInterval.end
+//      }
+//      else{
+//        ctrld_start = controlled.start
+//        ctrld_end = controlled.end
+//      }
       //    while (controlled.arguments.contains("controller") || controlled.arguments.contains("controlled")) {
       //      if (controlled.arguments.contains("controlled")){
       //        controlled = controlled.arguments("controlled").head
