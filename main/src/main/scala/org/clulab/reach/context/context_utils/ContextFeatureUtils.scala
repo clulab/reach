@@ -188,7 +188,7 @@ object ContextFeatureUtils {
     val sentIndex = evt.sentence
     val tokenIntervalStart = (evt.tokenInterval.start).toString()
     val tokenIntervalEnd = (evt.tokenInterval.end).toString()
-    sentIndex+"*"+tokenIntervalStart+"="+tokenIntervalEnd
+    "in"+sentIndex+"from"+tokenIntervalStart+"to"+tokenIntervalEnd
   }
 
 
