@@ -17,8 +17,8 @@ object CrossValOldDatasetUsingEventsFile extends App {
   val labelsFromEventFiles = makeLabelMapFromEventFileDir(annotationsFileDir)
   val labelFile = config.getString("svmContext.labelFileOldDataset")
   val labelMapFromOldDataset = CodeUtils.generateLabelMap(labelFile)
-  //val setOfEntriesWithAnnotations = labelsFromEventFiles.toSet
-  val setOfEntriesWithAnnotations = labelsFromEventFiles.toSet.union(labelMapFromOldDataset.toSet)
+  val setOfEntriesWithAnnotations = labelsFromEventFiles.toSet
+  //val setOfEntriesWithAnnotations = labelsFromEventFiles.toSet.union(labelMapFromOldDataset.toSet)
 
   //  val smallSetOfPapers = List("PMC2156142", "PMC2195994")
 //  val dirsToUseForDebug = allPapersDirs.filter(x => smallSetOfPapers.contains(x.getName))
@@ -89,11 +89,26 @@ object CrossValOldDatasetUsingEventsFile extends App {
     val trainingLabels = collection.mutable.ListBuffer[Int]()
     for(t <- trainingCaseRowsUnFiltered) {
       val specForCurrentRow = keysForLabels(t)
-      val evtID = Integer.parseInt(specForCurrentRow._2)
-      val possibleMatchesInLabelFile = setOfEntriesWithAnnotations.filter(x => {
-        val int1 = Integer.parseInt(x._1._2)
-        val sep = Math.abs(evtID - int1)
-        x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3 && sep <= quickerFixer})
+      val evtID1 = specForCurrentRow._2
+//      val possibleMatchesInLabelFile = setOfEntriesWithAnnotations.filter(x => {
+//        val int1 = x._1._2
+//        val sep = Math.abs(evtID - int1)
+//        x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3 && sep <= quickerFixer})
+      val possibleMatches = setOfEntriesWithAnnotations.filter(x => {
+
+          val evtID2 = x._2
+          val eventsMatch = checksIfEventsAreSame(evtID1,evtID2)
+
+          specForCurrentRow._1 == x._1 && eventsMatch && specForCurrentRow._3 == x._3
+        })
+
+      val possibleMatchesInLabelFile = possibleMatches.map({x =>
+        val reformattedEvtID = collapseEvtId(x._2)._1
+        val searchSpecForLabel = (x._1,reformattedEvtID,x._3)
+        val labelFromDataframe = labelMapFromOldDataset(searchSpecForLabel)
+        (x,labelFromDataframe)
+      })
+
       for((_,lab) <- possibleMatchesInLabelFile) {
         if(!trainingRowsWithCorrectLabels.contains(t)) {
           trainingRowsWithCorrectLabels += t
@@ -116,12 +131,27 @@ object CrossValOldDatasetUsingEventsFile extends App {
 
 
       val specForCurrTestRow = keysForLabels(testRow)
-      val eventID = Integer.parseInt(specForCurrTestRow._2)
-      val possibleLabels = labelMapFromOldDataset.filter(x => {
-        val int1 = Integer.parseInt(x._1._2)
-        val sep = Math.abs(int1 - eventID)
-        x._1._1 == specForCurrTestRow._1 && x._1._3 == specForCurrTestRow._3 && sep <= quickerFixer})
-      for((_,truthLab) <- possibleLabels) {
+      val eventID1 = specForCurrTestRow._2
+//      val possibleLabels = labelMapFromOldDataset.filter(x => {
+//        val int1 = Integer.parseInt(x._1._2)
+//        val sep = Math.abs(int1 - eventID)
+//        x._1._1 == specForCurrTestRow._1 && x._1._3 == specForCurrTestRow._3 && sep <= quickerFixer})
+      val possibleMatches = setOfEntriesWithAnnotations.filter(x => {
+
+        val evtID2 = x._2
+        val eventsMatch = checksIfEventsAreSame(eventID1,evtID2)
+
+        specForCurrTestRow._1 == x._1 && eventsMatch && specForCurrTestRow._3 == x._3
+      })
+
+      val possibleMatchesInLabelFileForTest = possibleMatches.map({x =>
+        val reformattedEvtID = collapseEvtId(x._2)._1
+        val searchSpecForLabel = (x._1,reformattedEvtID,x._3)
+        val labelFromDataframe = labelMapFromOldDataset(searchSpecForLabel)
+        (x,labelFromDataframe)
+      })
+
+      for((_,truthLab) <- possibleMatchesInLabelFileForTest) {
 
         truthLabelsForThisPaper += truthLab
         predictedLabelsForThisPaper += pred(0)
@@ -174,8 +204,8 @@ object CrossValOldDatasetUsingEventsFile extends App {
 
 
 
-  def makeLabelMapFromEventFileDir(pathToDir:String):Map[(String,String,String), Int] = {
-    val labelMapFromEventFile = collection.mutable.HashMap[(String,String,String), Int]()
+  def makeLabelMapFromEventFileDir(pathToDir:String):Array[(String,String,String)] = {
+    val labelMapFromEventFile = collection.mutable.ListBuffer[(String,String,String)]()
     val dirToRead = new File(pathToDir)
     val listOfFiles = dirToRead.listFiles()
     for(file <- listOfFiles) {
@@ -188,17 +218,46 @@ object CrossValOldDatasetUsingEventsFile extends App {
           val sentenceIndex = array(0)
           val tokenIntervalStart = array(1).split("-")(0)
           val tokenIntervalEnd = array(1).split("-")(1)
-          val eventID = sentenceIndex.concat(tokenIntervalStart.concat(tokenIntervalEnd))
+          val eventID = sentenceIndex+"*"+tokenIntervalStart+"="+tokenIntervalEnd
+          //val eventID = sentenceIndex.concat(tokenIntervalStart.concat(tokenIntervalEnd))
           val contextIDs = array(2).split(",")
           for(cnt <- contextIDs) {
             val tupleEntry = (pmcid,eventID,cnt)
-            labelMapFromEventFile ++= Map(tupleEntry -> 1)
+            labelMapFromEventFile += tupleEntry
           }
         }
       }
     }
 
-    labelMapFromEventFile.toMap
+    labelMapFromEventFile.toArray
+  }
+
+  def checksIfEventsAreSame(eventID1: String, eventID2:String):Boolean = {
+//    val event1SentInd = Integer.parseInt(eventID1.split("*")(0))
+//    val event1StartToken = Integer.parseInt(eventID1.split("*")(1).split("=")(0))
+//    val event1EndToken = Integer.parseInt(eventID1.split("*")(1).split("=")(1))
+//    val event2SentInd = Integer.parseInt(eventID2.split("*")(0))
+//    val event2StartToken = Integer.parseInt(eventID2.split("*")(1).split("=")(0))
+//    val event2EndToken = Integer.parseInt(eventID2.split("*")(1).split("=")(1))
+
+    val (_,event1SentInd,event1StartToken,event1EndToken) = collapseEvtId(eventID1)
+    val (_,event2SentInd,event2StartToken,event2EndToken) = collapseEvtId(eventID2)
+    val areSentenceIndicesSame = event1SentInd == event2SentInd
+
+    val eventContainsAnother = (event1StartToken < event2StartToken && event1EndToken < event2EndToken) || (event1StartToken > event2StartToken && event1EndToken > event2EndToken)
+    val eventsMatchExactly = (event1StartToken == event2StartToken && event1EndToken == event2EndToken)
+    val eventsOverlapApprox = (event1StartToken <= Math.abs(event2StartToken - event2EndToken)) || (event1EndToken <= Math.abs(event2StartToken - event2EndToken)) || (event2StartToken <= Math.abs(event1StartToken - event1EndToken)) || (event2EndToken <= Math.abs(event1StartToken - event1EndToken))
+    val doEventsOverlapCorrectly = eventContainsAnother || eventsMatchExactly || eventsOverlapApprox
+    areSentenceIndicesSame && doEventsOverlapCorrectly
+  }
+
+
+  def collapseEvtId(bigEvtID:String):(String,Int,Int,Int) = {
+    val event1SentInd = Integer.parseInt(bigEvtID.split("*")(0))
+    val event1StartToken = Integer.parseInt(bigEvtID.split("*")(1).split("=")(0))
+    val event1EndToken = Integer.parseInt(bigEvtID.split("*")(1).split("=")(1))
+    val strForm = event1SentInd+""+event1StartToken+""+event1EndToken
+    (strForm,event1SentInd,event1StartToken,event1EndToken)
   }
 
 
