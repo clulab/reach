@@ -37,7 +37,7 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     }
     val label = None
     val sentencePos = datum._1.sentence
-    val evntId = extractEvtId(datum._1)
+    val evntId = ContextFeatureUtils.extractEvtId(datum._1)
     val ctxId = ContextEngine.getContextKey(datum._2)
 
     val hardCodedFeatureNames = collection.mutable.ListBuffer[String]()
