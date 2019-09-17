@@ -97,7 +97,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         val groupingsReadyToAggr = collection.mutable.ListBuffer[(Pair, ContextPairInstance)]()
         for((eventID, contextID) <- pairs) {
           val miniList = collection.mutable.ListBuffer[(Pair, ContextPairInstance)]()
-          val contextInstancesSubSet = contextPairInput.filter(x => ContextFeatureUtils.extractEvtId(eventID) == x.EvtID)
+          val contextInstancesSubSet = contextPairInput.filter(x => extractEvtId(eventID) == x.EvtID)
           val contextFiltByCtxID = contextInstancesSubSet.filter(x => x.CtxID == contextID.nsId())
           for(i <- 0 until contextFiltByCtxID.size) {
             val currentPair = (eventID,contextID)
@@ -109,7 +109,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         }
 
         val aggregatedFeatures = groupingsReadyToAggr.groupBy{
-          case (pair, _) => ContextFeatureUtils.extractEvtId(pair._1)
+          case (pair, _) => extractEvtId(pair._1)
         }.mapValues{
           v =>
             v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s => {
@@ -174,7 +174,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             // If is an event mention, it's subject to context
             case evt: BioEventMention =>
               // Get its ID
-              val evtId = ContextFeatureUtils.extractEvtId(evt)
+              val evtId = extractEvtId(evt)
               // fetch its predicted pairs
               val contexts = predictions.getOrElse(evtId, Seq.empty)
 
@@ -218,7 +218,12 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   override def update(mentions: Seq[BioMention]): Unit = ()
 
 
-
+  def extractEvtId(evt:BioEventMention):EventID = {
+    val sentIndex = evt.sentence
+    val tokenIntervalStart = (evt.tokenInterval.start).toString()
+    val tokenIntervalEnd = (evt.tokenInterval.end).toString()
+    sentIndex+"*"+tokenIntervalStart+"="+tokenIntervalEnd
+  }
 
 
 }
