@@ -1,0 +1,3801 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">BMC Neurosci</journal-id>
+      <journal-title>BMC Neuroscience</journal-title>
+      <issn pub-type="epub">1471-2202</issn>
+      <publisher>
+        <publisher-name>BioMed Central</publisher-name>
+        <publisher-loc>London</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">16159388</article-id>
+      <article-id pub-id-type="pmc">1249578</article-id>
+      <article-id pub-id-type="publisher-id">1471-2202-6-59</article-id>
+      <article-id pub-id-type="doi">10.1186/1471-2202-6-59</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Ethanol induces cell-cycle activity and reduces stem cell diversity to alter both regenerative capacity and differentiation potential of cerebral cortical neuroepithelial precursors</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib id="A1" contrib-type="author">
+          <name>
+            <surname>Santillano</surname>
+            <given-names>Daniel R</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>DRS0499@medicine.tamhsc.edu</email>
+        </contrib>
+        <contrib id="A2" contrib-type="author">
+          <name>
+            <surname>Kumar</surname>
+            <given-names>Leena S</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>LSKumar@medicine.tamhsc.edu</email>
+        </contrib>
+        <contrib id="A3" contrib-type="author">
+          <name>
+            <surname>Prock</surname>
+            <given-names>Terasa L</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>Prock@medicine.tamhsc.edu</email>
+        </contrib>
+        <contrib id="A4" contrib-type="author">
+          <name>
+            <surname>Camarillo</surname>
+            <given-names>Cynthia</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>CCamarillo@medicine.tamhsc.edu</email>
+        </contrib>
+        <contrib id="A5" contrib-type="author">
+          <name>
+            <surname>Tingling</surname>
+            <given-names>Joseph D</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>JDTingling@medicine.tamhsc.edu</email>
+        </contrib>
+        <contrib id="A6" corresp="yes" contrib-type="author">
+          <name>
+            <surname>Miranda</surname>
+            <given-names>Rajesh C</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <xref ref-type="aff" rid="I2">2</xref>
+          <email>rmiranda@tamu.edu</email>
+        </contrib>
+      </contrib-group>
+      <aff id="I1"><label>1</label>Department of Human Anatomy &amp; Medical Neurobiology, Texas A&amp;M University System Health Science Center, College of Medicine, College Station, TX, USA</aff>
+      <aff id="I2"><label>2</label>Centre for Environmental and Rural Health, Texas A&amp;M University, College Station, TX, USA</aff>
+      <pub-date pub-type="collection">
+        <year>2005</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>13</day>
+        <month>9</month>
+        <year>2005</year>
+      </pub-date>
+      <volume>6</volume>
+      <fpage>59</fpage>
+      <lpage>59</lpage>
+      <ext-link ext-link-type="uri" xlink:href="http://www.biomedcentral.com/1471-2202/6/59"/>
+      <history>
+        <date date-type="received">
+          <day>1</day>
+          <month>7</month>
+          <year>2005</year>
+        </date>
+        <date date-type="accepted">
+          <day>13</day>
+          <month>9</month>
+          <year>2005</year>
+        </date>
+      </history>
+      <copyright-statement>Copyright &#xA9; 2005 Santillano et al; licensee BioMed Central Ltd.</copyright-statement>
+      <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.0">
+        <p>This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/2.0"/>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</p>
+      </license>
+      <abstract>
+        <sec>
+          <title>Background</title>
+          <p>The fetal cortical neuroepithelium is a mosaic of distinct progenitor populations that elaborate diverse cellular fates. Ethanol induces apoptosis and interferes with the survival of differentiating neurons. However, we know little about ethanol's effects on neuronal progenitors. We therefore exposed neurosphere cultures from fetal rat cerebral cortex, to varying ethanol concentrations, to examine the impact of ethanol on stem cell fate.</p>
+        </sec>
+        <sec>
+          <title>Results</title>
+          <p>Ethanol promoted cell cycle progression, increased neurosphere number and increased diversity in neurosphere size, without inducing apoptosis. Unlike controls, dissociated cortical progenitors exposed to ethanol exhibited morphological evidence for asymmetric cell division, and cells derived from ethanol pre-treated neurospheres exhibited decreased proliferation capacity. Ethanol significantly reduced the numbers of cells expressing the stem cell markers CD117, CD133, Sca-1 and ABCG2, without decreasing nestin expression. Furthermore, ethanol-induced neurosphere proliferation was not accompanied by a commensurate increase in telomerase activity. Finally, cells derived from ethanol-pretreated neurospheres exhibited decreased differentiation in response to retinoic acid.</p>
+        </sec>
+        <sec>
+          <title>Conclusion</title>
+          <p>The reduction in stem cell number along with a transient ethanol-driven increase in cell proliferation, suggests that ethanol promotes stem to blast cell maturation, ultimately depleting the reserve proliferation capacity of neuroepithelial cells. However, the lack of a concomitant change in telomerase activity suggests that neuroepithelial maturation is accompanied by an increased potential for genomic instability. Finally, the cellular phenotype that emerges from ethanol pre-treated, stem cell depleted neurospheres is refractory to additional differentiation stimuli, suggesting that ethanol exposure ablates or delays subsequent neuronal differentiation.</p>
+        </sec>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>Background</title>
+      <p>Children exposed to alcohol during gestation can exhibit a spectrum of abnormalities that range from Alcohol Related Neurodevelopmental Disorders (ARND) to Fetal Alcohol Syndrome (FAS), based upon the severity of symptoms. These abnormalities can include facial anomalies, growth deficits, mental retardation, attention deficit/hyperactivity disorders, motor difficulties, learning and memory impairment and psychological disorders such as depression [<xref ref-type="bibr" rid="B1">1</xref>-<xref ref-type="bibr" rid="B9">9</xref>]. Ethanol is teratogenic and exerts pleiotrophic effects in the differentiating nervous system, including induction of cell-death mechanisms [<xref ref-type="bibr" rid="B10">10</xref>-<xref ref-type="bibr" rid="B13">13</xref>], disruption of trophic support [<xref ref-type="bibr" rid="B14">14</xref>-<xref ref-type="bibr" rid="B17">17</xref>] and deregulation of neurotransmitter networks like the GABA, glutamate and serotonergic systems [<xref ref-type="bibr" rid="B18">18</xref>-<xref ref-type="bibr" rid="B24">24</xref>].</p>
+      <p>During prenatal period of neurogenesis, the number of neuroepithelial cells expands rapidly to generate most of the neurons of the adult brain [<xref ref-type="bibr" rid="B25">25</xref>] requiring, as with other tissues [<xref ref-type="bibr" rid="B26">26</xref>], the conversion of un-committed stem cells to more fate-restricted neuroblasts, and ultimately neurons. Ethanol exposure during gestation may alter the number and types of neuronal stem and blast precursors available for normal development, potentially producing irreversible damage to the developing brain. For example, previous research using BrdU incorporation analyses has shown that ethanol suppresses cell-cycle in the ventricular zone while promoting proliferation in the more mature subventricular zone [<xref ref-type="bibr" rid="B27">27</xref>]. The opposing effect of ethanol on these two cell populations indicates that ethanol disrupts the normal balance of precursor populations and suggests that ethanol may not affect all immature precursors similarly. We know little about the molecular heterogeneity of cortical neuroepithelial cells, though emerging evidence suggests that the neuroepithelium is quite heterogeneous with respect to differentiation and gene expression states of its constituent cells [<xref ref-type="bibr" rid="B28">28</xref>-<xref ref-type="bibr" rid="B30">30</xref>]. Cell surface markers like CD133/prominin-1, Sca-1 (Ly6A/E), CD117/c-kit and ABCG2 (ATP-binding cassette, sub-family G (WHITE), member 2) have been used successfully to monitor stem cell heterogeneity in a variety of tissues [<xref ref-type="bibr" rid="B31">31</xref>-<xref ref-type="bibr" rid="B34">34</xref>], and we therefore used these markers to monitor neuronal stem cell heterogeneity following ethanol exposure. We hypothesized that if ethanol influenced the proliferation of neuroepithelial cells, it would also alter the numbers of stem cells within the cortical neuroepithelium.</p>
+      <p>Finally, mechanisms that maintain genomic stability are important during neurogenesis because the frequency of DNA synthesis errors and aberrant chromatin assembly are increased during periods of robust proliferation. These errors must be limited, so that neural stem cells do not accumulate and transmit genetic damage to daughter cells. The telomerase complex, a reverse transcriptase enzyme complex, maintains telomeres during DNA replication [<xref ref-type="bibr" rid="B35">35</xref>-<xref ref-type="bibr" rid="B37">37</xref>], thereby preventing genomic instability and cellular senescence. Telomerase is active in all germline tissues, transformed cells and most human cancers [<xref ref-type="bibr" rid="B38">38</xref>,<xref ref-type="bibr" rid="B39">39</xref>], but is particularly robust during neurogenesis where it has been shown to function as an anti-apoptotic factor in developing neurons [<xref ref-type="bibr" rid="B40">40</xref>,<xref ref-type="bibr" rid="B41">41</xref>]. The activation of telomerase during neurogenesis, and the anti-apoptotic role of telomerase in neurons, led us to hypothesize that telomerase is a molecular target for ethanol during neuroblast expansion.</p>
+      <p>To examine the effects of ethanol on cortical precursor growth and survival, neurosphere cultures were generated from gestational day 15 rat fetuses. Contrary to our initial hypothesis, prolonged ethanol exposure promoted cell-cycle activity without concomitant increases in telomerase activity, or significant apoptosis. However, despite directly increasing cell cycle activity, ethanol suppressed expression of several stem cell markers, and decreased the future proliferation and differentiation potential of exposed cortical-derived neurospheres. Collectively, these data indicate that stem cell diversity, stability, and maturation are likely to be important components of the prenatal brain damage caused by maternal ethanol consumption.</p>
+    </sec>
+    <sec>
+      <title>Results</title>
+      <p>Neuronal progenitor cells, including multi-potent stem, and more committed blast cells, can be isolated from the developing cortex, expanded <italic>in-vitro </italic>as neurosphere aggregates, and subsequently used to generate neurons and glia [<xref ref-type="bibr" rid="B42">42</xref>-<xref ref-type="bibr" rid="B44">44</xref>]. Acutely dissociated cortical progenitors were cultured as neurosphere aggregates in serum-free mitogenic media to model the period of neuroblast precursor expansion during neurogenesis in the rodent. Cultured neurospheres were immuno-positive for nestin (Figure <xref ref-type="fig" rid="F1">1A</xref>), consistent with the hypothesis that neurospheres were comprised of immature cells. In contrast, immunofluorescence for the neuronal nuclear antigen (NeuN) was expressed within the soma of a few progenitor cells at the periphery of the neurosphere, but did not co-localize to any nucleus (Figure <xref ref-type="fig" rid="F1">1B</xref>). The presence of nestin [<xref ref-type="bibr" rid="B45">45</xref>] indicates that neurospheres are immature and multi-potent, and the lack of nuclear labeling for NeuN (Figure <xref ref-type="fig" rid="F1">1B</xref>) indicates that these cells are not yet committed to neuronal differentiation. In contrast, differentiation, induced by removal of Epidermal Growth Factor and culturing neurosphere-derived cells on a laminin substrate, leads to clear nuclear expression of NeuN (Figure <xref ref-type="fig" rid="F1">1C</xref>) and suppression of nestin immunoreactivity (data not shown), suggesting that neurosphere-derived cells can be committed to a neuronal lineage. Additionally, our flow cytometric data (Figure <xref ref-type="fig" rid="F2">2</xref>) indicate that, on average, less than 4% of cells in neurosphere cultures are apoptotic, suggesting that a majority of cells are viable in this culture model.</p>
+      <sec>
+        <title>Ethanol exposure activates cell cycle activity in primary cortical neurosphere cultures and does not lead to apoptosis</title>
+        <p>Figure <xref ref-type="fig" rid="F2">2A</xref> (i-iii) illustrates the proportion of cells in cell cycle in response to ethanol treatment measured by flow cytometry. Exposure to ethanol for 4 days induced cell cycle activity at 120 mg/dl and 620 mg/dl, respectively. The proportion of cells in S-phase increased significantly (by 1.8&#x2013;1.9 fold) after exposure to both doses of ethanol, relative to controls (Figure <xref ref-type="fig" rid="F2">2Bi</xref>). Furthermore, the ethanol-stimulated increase in the S-phase fraction was mirrored by a significant increase (1.8 &#x2013; 2.5 fold) in the percentage of cells progressing to the G2 phase of the cell cycle (Figure <xref ref-type="fig" rid="F2">2Bii</xref>). The ratio of G2/S reflects the proportion of cells completing DNA synthesis and cellular division. At low ethanol concentrations (120 mg/dl), the G2/S ratio was similar to controls, but the ratio increased with higher ethanol concentrations (620 mg/dl) suggesting that the increase in DNA synthesis did result in progression to the G2 phase of the cell cycle (Figure <xref ref-type="fig" rid="F2">2Biii</xref>). Ethanol did not alter the number of cells with less than G0 DNA content (a marker of apoptosis, [<xref ref-type="bibr" rid="B46">46</xref>]), indicating that ethanol did not induce significant apoptosis in cortical-derived neurosphere cultures (Figure <xref ref-type="fig" rid="F2">2Biv</xref>).</p>
+        <p>Consistent with the above data, morphometric analyses indicate that ethanol significantly increased the density of neurospheres per field (Figure <xref ref-type="fig" rid="F3">3A&#x2013;D</xref>). Analysis of variance followed by post-hoc statistical analyses indicated that ethanol induced a dose-related increase in the density of neurospheres (p &lt; 0.001, Figure <xref ref-type="fig" rid="F3">3E</xref>). We observed a moderate but statistically significant correlation (Pearson product moment correlation (r) of 0.52 (p &lt; 0.001)) between ethanol dose and density of neurospheres in the culture dish. When we controlled for the effect of neurosphere size on the density of neurospheres (i.e., the fact that an increase in the number of large neurospheres would effectively decrease the density of neurospheres within a field), the partial correlation coefficient between ethanol dose and neurosphere number increased (r = 0.71, p &lt; 0.0001). While an overall analysis of variance indicated that ethanol did not statistically increase neurosphere size (Figure <xref ref-type="fig" rid="F3">3F</xref>), ethanol did lead to a ~2-fold increase in variation in neurosphere size at 120 mg/dl and a ~3-fold increase at 320 mg/dl within the culture dish, as indicated by an increase in the variance measure (i.e., Standard Deviation, Figure <xref ref-type="fig" rid="F3">3G</xref>). Therefore, ethanol-treated cultures exhibited a high degree of variability in neurosphere size compared to untreated cultures, and some of the neurospheres in ethanol treated cultures were extremely large (Figure <xref ref-type="fig" rid="F3">3C, D</xref> compared to 3A&amp;B). It is possible that the ethanol-associated increased size and growth rate of neurospheres may translate into decreased viability of stem and progenitor pools within the neurosphere. However, this scenario is unlikely to be true since the overall rate of cell death was unchanged by treatment condition (Figure <xref ref-type="fig" rid="F2">2</xref>). Hence, these data collectively support the hypothesis that ethanol induced cell cycle in neurosphere cultures. One interesting observation was that ethanol-exposed neurospheres loose their spherical shape and exhibit irregular edges, suggesting either a structural disorganization of the neurosphere, perhaps due to variable growth rates within different parts of an individual neurosphere, or alternatively, the merging together of smaller neurospheres.</p>
+        <p>Our observation that ethanol-treated neurospheres exhibited increased heterogeneity in size and assumed a disorganized shape over time suggested that ethanol may promote differential responses among cells within an individual neurosphere. We therefore dissociated neurospheres (Figure <xref ref-type="fig" rid="F4">4A</xref>), and cultured individual cells in mitogenic medium with or without ethanol (120 mg/dl) to determine if individual cortical precursors could regenerate neurospheres. Over a four-day treatment period, control (Figure <xref ref-type="fig" rid="F4">4D</xref>) and ethanol-treated neural progenitors (Figure <xref ref-type="fig" rid="F4">4B</xref>) proliferated symmetrically, to generate morphologically similar daughter cells (symmetrical division, Figure <xref ref-type="fig" rid="F4">4E</xref>), and ultimately to generate new neurospheres over a 72-hour period (Figure <xref ref-type="fig" rid="F4">4G</xref>). Under the mitogenic conditions used (see cell culture methods), we only observed symmetrical cell division in control cultures. However, in contrast to control cultures, ethanol-treated neurospheres also exhibited an asymmetric mode of division, where one daughter cell assumed a more differentiated morphology compared to its mitotic partner (Figure <xref ref-type="fig" rid="F4">4C</xref>). One of the asymmetrically dividing pair of cells tended to be non-motile, while the second daughter cell exhibited extensive somatic motility (Figure <xref ref-type="fig" rid="F4">4F, H</xref>) over a period of 72 hours. In a majority of cases, the more morphologically differentiated member of the asymmetrically dividing pair assumed a stellate morphology. Occasionally, one of the pair of asymmetrically dividing daughter cells transiently expressed elongated, radial-glia-like processes (e.g., Figure <xref ref-type="fig" rid="F4">4F</xref>), before assuming a stellate appearance, despite the continued presence of mitogenic medium.</p>
+        <p>The presence of asymmetric cell division events in ethanol-treated cultures suggested that ethanol forces progenitor cell maturation, potentially depleting the numbers of self-replicating progenitors in neurosphere cultures. Therefore, we next determined the extent to which ethanol altered the future proliferation capacity of neural progenitor cells. We treated neurospheres with ethanol for four days; then dissociated the neurospheres into single cells that were cultured in mitogenic medium for two days. Prior exposure to ethanol led to a statistically significant (p &lt; 0.0001, Figure <xref ref-type="fig" rid="F5">5</xref>) dose-related decline in the numbers of clonal colonies that were formed from dissociated cells, suggesting that a prior episode of ethanol ultimately depletes the proliferative capacity of cortical progenitors.</p>
+      </sec>
+      <sec>
+        <title>Ethanol suppresses cell-surface stem cell marker expression but not nestin mRNA expression in neurospheres</title>
+        <p>Neurosphere cultures consist of a heterogeneous mixture of immature neuronal stem cells and more differentiated daughter neuroblasts [<xref ref-type="bibr" rid="B47">47</xref>]. Based on our observations that ethanol promoted cell cycle activity, we hypothesized that ethanol would also lead to an aberrant expansion of the stem cell pool in neurosphere cultures. In the initial set of experiments, we utilized flow-cytometry to examine the expression of three stem cell markers, Sca-1 (Ly6A/E), CD117/c-kit and CD133/prominin-1. Figure <xref ref-type="fig" rid="F6">6</xref> shows that these stem cell antigens are expressed <italic>in vitro </italic>in control proliferating neurosphere cultures. However, contrary to our hypothesis, we observed a large and statistically significant decrease in the numbers of cells expressing Sca-1 (~23-fold), CD117/C-kit (~9-fold) and CD133/prominin-1 (~19-fold) on their cell surface, after treatment with ethanol at 120 mg/dl (p &lt; 0.05, N = 9 samples per stem cell antigen group). Increasing the dose of ethanol did not lead to a further reduction in stem cell antigen expression.</p>
+        <p>We wanted to examine the extent to which ethanol suppression of cell-surface stem cell marker expression was a generalized phenomenon that could be observed with other, more selective, stem-cell markers. Therefore, in our next experiment we examined the expression of the ATP-binding multidrug transporter ABCG2, an integral membrane protein that identifies stem cells in many tissues including the nervous system [<xref ref-type="bibr" rid="B48">48</xref>], and is considered a reliable marker for stem cells [<xref ref-type="bibr" rid="B49">49</xref>-<xref ref-type="bibr" rid="B52">52</xref>]. We examined the cellular expression of ABCG2 by flow cytometry in neurosphere cultures exposed to ethanol at the same dosages and time period. Figure <xref ref-type="fig" rid="F7">7A</xref> shows that ethanol significantly reduced the number of live cells that expressed ABCG2 immunofluorescence after 4 days (p &lt; 0.05). These data suggest that ethanol does indeed suppress the expression of a specific cell-surface stem cell marker in neurosphere cultures.</p>
+        <p>In contrast to the above cell-surface markers, nestin is an intermediate filament protein that is expressed by both stem and progenitor cells within neurospheres ([<xref ref-type="bibr" rid="B45">45</xref>] and Figure <xref ref-type="fig" rid="F1">1A</xref>), and levels decline in differentiated post-mitotic neurons [<xref ref-type="bibr" rid="B53">53</xref>]. We hypothesized that if ethanol suppressed the expression of cell-surface stem cell markers, it would similarly suppress the expression of mRNA for nestin. However, semi-quantitative RT-PCR analysis (Figure <xref ref-type="fig" rid="F7">7B</xref>) showed that there was no change in nestin mRNA expression (normalized to cyclophilin-A) following ethanol exposure. These data suggest that while ethanol may not decrease the overall size of the precursor pool (the combined stem and blast pool, indicated by constant nestin mRNA expression), it decreases the diversity of stem cells within this pool (indicated by decreased numbers of cells expressing Sca-1, c-kit, CD133 and ABCG2).</p>
+      </sec>
+      <sec>
+        <title>Ethanol reduces telomerase reverse transcriptase (TERT) mRNA levels in neurosphere cultures</title>
+        <p>Telomerase reverse transcriptase (TERT) has been shown by others to function as a neuroprotective factor in developing neurons. Therefore, we tested the hypothesis that ethanol targets TERT transcription in progenitor neuroblasts. Reverse transcription PCR (Figure <xref ref-type="fig" rid="F8">8A, B</xref>) shows that TERT mRNA levels were modestly but statistically significantly increased (p &lt; 0.05) at the low ethanol dosage (120 mg/ml). Conversely, high levels of ethanol (620 mg/dl) produced a statistically significant decrease in TERT mRNA levels. We hypothesized that the ethanol-induced changes in TERT mRNA levels would lead to changes in the activity of telomerase complex itself. However, quantitative measurements of telomerase activity indicate that low and high doses of ethanol do not affect the activity of the telomerase complex (Figure <xref ref-type="fig" rid="F8">8C</xref>). The cycle threshold values in the low and high ethanol-treated groups were identical, reflecting equal amounts of telomerase activity in each sample. The increase in TERT transcription following low doses of ethanol (120 mg/dl) was not followed by a measurable increase in telomerase activity, an unexpected observation in light of the marked induction of DNA synthesis and cell-cycle progression illustrated in Figure <xref ref-type="fig" rid="F2">2A, B</xref>. These results suggest that ethanol may uncouple telomerase activation from neuroepithelial cell proliferation.</p>
+      </sec>
+      <sec>
+        <title>Ethanol prevents subsequent differentiation of cells derived from neurosphere cultures</title>
+        <p>In the final set of experiments, we examined the effect of ethanol on the subsequent differentiation potential of cortical progenitor cells. We hypothesized that ethanol induction of cell proliferation, would alter the ability of cortical progenitors to differentiate into neurons. Rat neurosphere cultures we maintained in control medium or exposed to the low or moderate doses of ethanol (120 or 320 mg/dl) for 4 days. Following this period of ethanol exposure, we dissociated neurospheres and cultured the constituent cells at low density in the presence of 10 nM retinoic acid. Neurosphere-derived cells were cultured at low density so that individual cells would have a low probability of contacting another cell. This protocol was followed to reduce the impact of cell-cell interactions and target-derived trophic support mechanisms on neuronal differentiation. We selected retinoic acid as the differentiation stimulus, since previous work in our laboratory showed that retinoic acid is a strong trigger for cortical neuroepithelial differentiation [<xref ref-type="bibr" rid="B54">54</xref>]. Overall, ethanol pre-exposure led to a significant dose-related decline in the number of first-order (p &lt; 0.0001) and second-order (p &lt; 0.003) branches that were induced following retinoic acid exposure (Figure <xref ref-type="fig" rid="F9">9A</xref>). Na&#xEF;ve cells, and cells derived from neurospheres pre-exposed to the low dose of ethanol (120 mg/dl) exhibited a strong differentiation phenotype in response to retinoic acid (Figure <xref ref-type="fig" rid="F9">9B, C</xref>), including the expression of second-order neurite branching. However, cells derived from neurospheres pre-exposed to 320 mg/dl exhibited a marked reduction in neurite branching in response to retinoic acid (Figure <xref ref-type="fig" rid="F9">9D</xref>).</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>Discussion</title>
+      <p>Our data show that ethanol did not induce appreciable apoptosis in embryonic cortical-derived neurosphere cultures. These data are somewhat surprising because the activation of cell death mechanisms is intuitively consistent with ethanol's adverse effects on brain development. However, ethanol induction of cell death may be differentiation stage-specific. For example, previous research in our laboratory demonstrated that ethanol concentrations equal to those used in this study induced apoptosis in more differentiated postnatal cortical [<xref ref-type="bibr" rid="B10">10</xref>], and cerebellar explant cultures [<xref ref-type="bibr" rid="B11">11</xref>], perhaps because tumor-suppressor genes like p53, and down-stream pro-apoptotic genes like Bax are suppressed in proliferating cortical cells and only induced during differentiation [<xref ref-type="bibr" rid="B54">54</xref>]. Clearly, more research is needed to identify genes and mechanisms that confer apoptosis-resistance to precursors, but not differentiated neuronal cells.</p>
+      <sec>
+        <title>Ethanol promotes cell-cycle activity</title>
+        <p>Rather than killing cells, ethanol stimulated DNA synthesis and promoted cell-cycle progression in cerebral cortical precursors as indicated by the increase in the size variation and number of neurospheres, induction of S-phase, and increased progression through G2/M phases of the cell cycle. On the other hand, ethanol induced asymmetric division in progenitor cells and decreased the cell surface expression of a number of stem cell markers, i.e., c-kit/CD117, Sca-1 (Ly6A/E), CD133/prominin-1 and the ABCG2 transporter. In contrast to the induction of cell cycle, asymmetric cell division and loss of stem cell antigens are both indicative of neuroepithelial maturation. These apparently antagonistic data are best explained within the context of normal cerebral cortex development. Neurogenesis in the developing cerebral cortex, occurs within two distinct germinal zones, the earlier developing ventricular zone, and the later developing subventricular zone. Proliferation within the ventricular zone serves to replenish stem and blast pools (by symmetrical division) and to generate more mature, fate-restricted daughter progeny (by asymmetrical division, [<xref ref-type="bibr" rid="B55">55</xref>]). The ethanol-induced asymmetric division and loss of stem cell markers supports the notion that ethanol induces maturation of the stem cell pool. The daughter blast cells or 'proto-neurons' that exit the ventricular zone, migrate in turn to the subventricular zone where they may continue to proliferate and generate neurons, principally by symmetrical division [<xref ref-type="bibr" rid="B55">55</xref>]. The increased proliferation that we observed in ethanol-treated cultures may therefore reflect the expansion of a 'subventricular-zone-like phenotype'. Recent evidence suggests that the first blast cells that migrate out of the ventricular zone are in fact radial glia, and that these cells are also precursors for mature neurons (for review, see [<xref ref-type="bibr" rid="B56">56</xref>]). This view is consistent with our observations that asymmetric division occasionally resulted in the appearance of polarized cells with long (radial-like) processes that fit morphological criteria for radial glia. Further support for this 'two-zone' hypothesis of ethanol's action comes from our observations that ethanol treatment does ultimately deplete the regenerative capacity of cortical neuroepithelial precursors. Cells derived from ethanol-pretreated neurospheres exhibited a decreased ability to form new colonies, implying that the loss of stem cell markers does indeed mean that ethanol depletes stem cells from the pool of immature precursors.</p>
+        <p>Overall, this interpretation of these data in terms of stem cell maturation is also consistent with previously published work from other laboratories using alternate labeling indices, showing that ethanol decreases cell proliferation within the ventricular zone, while increasing cell proliferation within the more differentiated subventricular zone [<xref ref-type="bibr" rid="B27">27</xref>,<xref ref-type="bibr" rid="B57">57</xref>,<xref ref-type="bibr" rid="B58">58</xref>]. Increased cell proliferation is a requirement for differentiation in other tissues as well. For example, in the hematopoietic system, the differentiation of CD34+ stem cells into pro-erythroblasts is accompanied by a significant increase in cell cycle. This induction of cell cycle supports successive stages of blast maturation, till the formation of the orthochromatophilic erythroblast, the immediate blast precursor to the differentiated erythrocyte [<xref ref-type="bibr" rid="B26">26</xref>].</p>
+        <p>The consequences of enhanced proliferation on neural differentiation remain to be determined. The diversity of cellular subpopulations that contribute to the lamination of the cortical plate is likely to be disrupted, leading to an overabundance of some neuroblast populations at the expense of others. Such population imbalances may be one cause of phenomena like cellular heterotopias that have been observed in brains of children with FAS [<xref ref-type="bibr" rid="B59">59</xref>], and in animal models of FAS [<xref ref-type="bibr" rid="B60">60</xref>]. While <italic>in vitro </italic>models suggest that migration defects contribute to the formation of heterotopias [<xref ref-type="bibr" rid="B61">61</xref>], the role of aberrant ethanol-driven expansion of specific progenitor pools in heterotopia formation cannot be ruled out.</p>
+      </sec>
+      <sec>
+        <title>Ethanol limits cortical stem cell diversity in neurosphere cultures</title>
+        <p>Neurosphere cultures consist of a heterogeneous mixture of multi-potent neuronal stem cells and daughter neuroblasts [<xref ref-type="bibr" rid="B47">47</xref>]. CD133/prominin-1 identifies stem cell groups with multi-potent properties in the developing central nervous system of humans and rodents [<xref ref-type="bibr" rid="B62">62</xref>-<xref ref-type="bibr" rid="B66">66</xref>]. Sca-1 (Ly6A/E) identifies hematopoietic cells with the potential to form neurons, while CD117/C-kit [<xref ref-type="bibr" rid="B67">67</xref>-<xref ref-type="bibr" rid="B69">69</xref>] and the ABCG2 multi drug-resistance transporter [<xref ref-type="bibr" rid="B48">48</xref>] are expressed in stem cell precursors of the rodent central nervous system. We demonstrate that populations of cortical precursors do express these stem cell markers. Nestin mRNA was also expressed in cultured cortical precursors, but nestin mRNA levels did not change with ethanol exposure, indicating that despite maturational pressure, immature, possibly blast-type cells continue to persist in ethanol-treated cultures. However nestin mRNA expression is not informative about the extent to which ethanol affects the heterogeneity of stem cells in culture, because nestin expression is a common phenotype of stem and more differentiated blast cells. In contrast, ethanol significantly decreased the numbers of cells that expressed cell-surface Sca-1, c-kit, CD133 and ABCG2. The absence of an appreciable degree of apoptosis in ethanol-treated cultures, suggests that ethanol influences the diversity of the stem cell pool, rather than cell survival <italic>per se</italic>. In the context of the previously noted requirement for cell cycle induction as a component of stem cell to blast cell transformation [<xref ref-type="bibr" rid="B26">26</xref>], it is interesting to note that the suppression of the stem cell marker Sca-1 [<xref ref-type="bibr" rid="B70">70</xref>]) promotes myoblast proliferation. Consequently, our observations that ethanol induces cell cycle and decreases the expression of stem cell markers is mutually consistent with the hypothesis that ethanol drives stem cell to blast cell transformation in cortical neuroepithelial precursors.</p>
+        <p>The functions ascribed to the stem cell markers that we utilized in this study are particularly relevant to the issue of ethanol's impact on cell fate determination. For example, CD133 and c-kit are important components of lipid raft micro-domains [<xref ref-type="bibr" rid="B71">71</xref>,<xref ref-type="bibr" rid="B72">72</xref>], that sequester cell-signaling machinery. In bone marrow, Stem Cell Factor/c-kit interactions form a critical component of stromal-driven differentiation of several hematopoietic lineages [<xref ref-type="bibr" rid="B73">73</xref>]. Therefore, changes in the composition of lipid rafts are likely to result in significant alterations to signaling mechanisms that drive stem cell differentiation, and in the brain, lead to aberrant development. Sca-1 is also a signaling molecule, linked to the cell-surface by a phosphatidyl-inositol anchor, and is important for stimulating hematopoietic stem cell renewal [<xref ref-type="bibr" rid="B74">74</xref>]. Sca-1 expression is suppressed in hematopoietic stem cells, during the process of lymphocyte differentiation [<xref ref-type="bibr" rid="B75">75</xref>]. While Sca-1 may well exhibit different developmental-stage associated kinetics in the neuroepithelium, ethanol-dependent depletion of Sca-1 in the neuroepithelium may similarly drive precursor maturation and prevent the renewal of a stem cell pool. Interestingly, both Sca-1 [<xref ref-type="bibr" rid="B70">70</xref>] and CD117/c-kit [<xref ref-type="bibr" rid="B76">76</xref>,<xref ref-type="bibr" rid="B77">77</xref>] share the Src-like tyrosine kinase <italic>Fyn </italic>as a common signaling intermediary, suggesting that the two cell-surface molecules mediate common functions during development. <italic>Fyn </italic>in turn, mediates ethanol-sensitivity and dependence in the adult animal, and a <italic>Fyn </italic>polymorphism is predictive of alcohol dependence in human populations [<xref ref-type="bibr" rid="B78">78</xref>-<xref ref-type="bibr" rid="B80">80</xref>], further suggesting that ethanol's effects in the developing and adult brain are likely to be mediated by common mechanisms. Finally, ethanol suppression of the expression of multi-drug resistance transporters like ABCG2 is also likely to be clinically significant. Multi-drug resistance transporters are thought to protect stem cells from damage by non-selectively extruding a wide variety of cytotoxic compounds [<xref ref-type="bibr" rid="B52">52</xref>]. Ethanol exposure, by suppressing ABCG2 expression, may decrease the survivability of neural stem cells in the face of subsequent toxic insults, including perhaps, subsequent episodes of ethanol exposure.</p>
+      </sec>
+      <sec>
+        <title>Ethanol's effect on Telomerase activity and TERT transcription</title>
+        <p>Rapidly dividing tissues are susceptible to errors in DNA synthesis that can lead to DNA damage, chromosomal instability and cell death. The telomerase complex maintains chromosomal ends, and consequently ensures chromosome stability during DNA synthesis (reviewed in [<xref ref-type="bibr" rid="B81">81</xref>-<xref ref-type="bibr" rid="B83">83</xref>]). Telomerase activity is robust during embryogenesis [<xref ref-type="bibr" rid="B84">84</xref>] and is particularly elevated in the proliferating neuroepithelium. Though activity is decreased following cellular differentiation, the catalytic component of telomerase (TERT) continues to be expressed widely in post-mitotic neurons where it appears to function as a neuroprotective factor [<xref ref-type="bibr" rid="B40">40</xref>,<xref ref-type="bibr" rid="B41">41</xref>,<xref ref-type="bibr" rid="B85">85</xref>]. The lower dose of ethanol (120 mg/dl) resulted in increased TERT mRNA levels, perhaps as a compensatory protective response. In contrast, the suppression of TERT mRNA expression at high doses (620 mg/dl) is inconsistent with the observed increase in cell cycle progression at that dose. Interestingly, TERT physically associates with the anti-apoptotic kinase AKT [<xref ref-type="bibr" rid="B86">86</xref>], and a reduction in TERT expression levels has the potential to render dividing cortical precursors susceptible to future apoptotic stimuli, (for example, see [<xref ref-type="bibr" rid="B41">41</xref>,<xref ref-type="bibr" rid="B87">87</xref>,<xref ref-type="bibr" rid="B88">88</xref>]), even if ethanol itself does not induce apoptosis.</p>
+        <p>Because we observed that ethanol increased cell cycle activity in neurosphere cultures, we hypothesized that ethanol would also increase telomerase activity. Surprisingly, ethanol had no effect on telomerase activity. The lack of coordination between telomerase activity and changes in cell cycle activity suggests that DNA synthesis is likely to be incomplete in telomeric regions, increasing genomic instability in proliferating, ethanol-exposed neuroblasts. Recent research indicates that the prenatal rodent neuroepithelium normally exhibits a significant degree of genetic mosaicism in which 33% of all cortical precursors display some degree of chromosomal aneuploidy [<xref ref-type="bibr" rid="B89">89</xref>] and loss of heterozygosity [<xref ref-type="bibr" rid="B90">90</xref>]. It is surprising that the developing neuroepithelium tolerates such a significant degree of genetic instability without negative sequellae. However, given a high tolerance for mosaicism, any increases in genetic instability among ethanol-exposed cells of the neuroepithelium may not result in apoptosis, but in altered patterns of gene expression due to mechanisms like gene shedding [<xref ref-type="bibr" rid="B90">90</xref>], consequently altering neural differentiation. An intriguing possibility, supported by the discrepancy between telomerase and cell cycle data, is that the accumulation of progenitors with greater than G0 DNA content in ethanol-treated cultures represents increased aneuploidy rather than increased progression through cell cycle <italic>per se</italic>.</p>
+      </sec>
+      <sec>
+        <title>Ethanol pre-treatment prevents stimulus-dependent neuronal differentiation</title>
+        <p>The loss of stem cell markers, and evidence for increased cell division led us to hypothesize that ethanol exposure would promote the further maturation of the cortical stem and blast cells. However, contrary to our hypothesis, ethanol pre-treated neural progenitor cells were refractory to retinoic acid stimulation. Though retinoic acid is a potent stimulator of neuronal differentiation [<xref ref-type="bibr" rid="B54">54</xref>], it appears to have growth-stimulatory effects in part, by stimulating neurotrophic signaling <italic>via </italic>factors like glial-derived neurotrophic factor and neurotrophin-3 [<xref ref-type="bibr" rid="B91">91</xref>]. Since ethanol has been previously shown to interfere with growth factor signaling mechanisms in a variety of neural differentiation models [<xref ref-type="bibr" rid="B11">11</xref>,<xref ref-type="bibr" rid="B14">14</xref>-<xref ref-type="bibr" rid="B17">17</xref>,<xref ref-type="bibr" rid="B92">92</xref>], it is likely that ethanol disrupts growth factor signaling to interfere with the response to retinoic acid as well. The developmental consequences of delays in neuronal differentiation are likely to be profound. Even if the effect of ethanol is transient, the inside-out lamination of the cortical plate is likely to be significantly disrupted, because later-generated neural precursors do not appear to be able to populate earlier-developing cortical plate laminae, after the critical period for the generation of that specific lamina has been passed [<xref ref-type="bibr" rid="B93">93</xref>].</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>Conclusion</title>
+      <p><italic>In toto</italic>, our data support the hypothesis that the elimination of neural stem cell diversity contributes to the etiology of prenatal brain damage caused by maternal ethanol consumption. Rather than inducing apoptosis, ethanol stimulates cell-cycle activity and eliminates stem cell antigen expression. It is likely therefore, that ethanol drives the stem cell to blast cell transformation, ultimately depleting the reserve regenerative capacity of cerebral cortical neuroepithelium. Secondly, the uncoupling of telomerase activity from cell-cycle induction suggests that ethanol exposure may hasten telomere decay and cellular senescence, rendering maturing neuroblasts susceptible to genetic damage as they proceed through cycles of maturation-driven proliferation. Finally, if the ventricular and subventricular zones are indeed 'proto-maps' of the mature cortical plate [<xref ref-type="bibr" rid="B28">28</xref>], restrictions in the diversity of the stem cell pool are likely to translate into loss of diversity of neuronal and glial phenotypes that populate the mature cortical plate. While the developmental consequences of perturbing the cortical stem cell pool have not been adequately assessed in experimental systems of ethanol-induced brain damage, one likely sequel to such perturbations is a permanent transformation in the phenotypic composition of the neural network of the cerebral cortex.</p>
+    </sec>
+    <sec sec-type="methods">
+      <title>Methods</title>
+      <sec>
+        <title>Isolation of embryonic neural precursors</title>
+        <p>The University Laboratory Animal Care Committee approved all animal procedures. Timed-pregnant Sprague-Dawley rats (gestational day [GD] 13) were purchased from Harlan, Houston, Texas, and maintained in the animal housing facility at Texas A&amp;M University System Health Sciences Center, College of Medicine for two days until the pregnancy matured to GD15. At GD 15, pregnant females were anesthetized with ketamine (0.09 mg/gram)/xylazine (0.106 mg/gram) by intraperitoneal injection. Under aseptic conditions, the gravid uterus was delivered through a midline transverse abdominal incision. The gravid uterus was rinsed in chilled PBS containing 1% penicillin/streptomycin. Eight to ten fetuses were isolated and rinsed three times in chilled PBS. Anesthesia was achieved by placing fetuses in ice-cold Gey's Balanced Salt Solution. Fetuses were rapidly decapitated, and whole brains were removed and placed in chilled Gey's Balanced Salt Solution supplemented with glucose and magnesium chloride. Brains remained suspended in this solution throughout the remainder of the microdissection procedure. Meningeal tissue was removed, regions of the rat fetal brain corresponding to the structural precursor of the neocortex were isolated, and care was taken to exclude the structural precursors to the striatum and hippocampus. Individual cortical fragments were collected in sterile 15 ml conical tubes and gently triturated in trypsin/EDTA. Trypsin was inactivated with DMEM containing 10% fetal bovine serum. The cell suspension was centrifuged for 5 minutes at 18&#xB0;C, 1000 rpm (300 &#xD7; g). Cell pellets were resuspended in chilled PBS containing 0.5% BSA, Fraction-V, (#1526037, Invitrogen) and 2.0 mM EDTA. Total cell counts were determined using a hemocytometer</p>
+      </sec>
+      <sec>
+        <title>Cell culture</title>
+        <p>Neurosphere cultures were established from acutely dissociated cortices (described above). Precursor cultures were established at an initial density of 10<sup>6 </sup>cells in T-25 flasks containing 5&#x2013;6 ml of serum-free mitogenic media (DMEM/F12 (#11330-032 Invitrogen), 20 ng/ml bFGF (#13256-029 Invitrogen), 20 ng/ml hEGF (#53003-018 Invitrogen), ITS-X supplement (#51500-056 Invitrogen), 0.85 Units/ml heparin (#15077-019 Invitrogen), and 20 nM progesterone (#P6149 Sigma)). Cultures were incubated at 37&#xB0;C, 5% CO<sub>2 </sub>in a humidified environment for 48&#x2013;72 hours before the commencement of ethanol treatments to allow for stabilization of culture and for the generation of small neurospheres, a sign of precursor expansion. For some experiments, following ethanol treatment, neurosphere cultures were dissociated and differentiated for 4.5 days in the presence of 10 nM retinoic acid (in DMEM/F12 and 1%N2 supplement).</p>
+      </sec>
+      <sec>
+        <title>Ethanol treatment</title>
+        <p>Cultures were assigned to three treatment groups: (I) a control group containing no ethanol; (II) a low dose group containing 120 mg/dl (26.07 mM); (III) a high dose group containing 620 mg/dl (134.78 mM, prepared from 95% ethanol, molecular biology grade-Sigma). For some experiments, an intermediate, dose of ethanol, 320 mg/dl (69.56 mM) was used in place of the high dose. Gas chromatographic analyses indicated that the low and high doses resulted in ethanol levels of 97&#x2013;106 mg/dl (21.09 mM&#x2013;23.04 mM) and 367&#x2013;557 mg/dl (79.35 mM&#x2013;121.09 mM) respectively, while the moderate dose of ethanol resulted in measured levels between 182&#x2013;227 mg/dl (39.57 mM&#x2013;49.35 mM). These concentrations are within the range that has been previously observed in chronic alcoholics [<xref ref-type="bibr" rid="B94">94</xref>,<xref ref-type="bibr" rid="B95">95</xref>]. Doses of 150 mg/dl and 200 mg/dl have been used previously in cell culture models of chronic ethanol exposure [<xref ref-type="bibr" rid="B96">96</xref>,<xref ref-type="bibr" rid="B97">97</xref>]. The ethanol concentrations used in this study are expected to reflect the levels in the fetus during prenatal exposure, as it has been shown in rodent models that maternal blood alcohol levels produce equivalent concentrations in the fetus [<xref ref-type="bibr" rid="B98">98</xref>]. The ethanol treatment lasted 4 days. Ethanol containing media was replaced daily throughout the duration of the treatment period.</p>
+      </sec>
+      <sec>
+        <title>Labeling for stem cell surface antigen expression</title>
+        <p>Neurosphere cultures were dissociated in Accumax solution (Innovative Cell Technologies) by gentle trituration through a fire polished pipette. Precursors were labeled with phycoerythrin-conjugated antibodies to Sca-1/Ly6A/E (1 ug, Caltag Labs, MM4104), CD117/c-kit (1 ug, BD Pharmingen, 555714), CD133/prominin-1 (0.55 ug, Miltenyi Biotec, AC141), BCRP1 (ABCG2)-FITC (1 ug, Chemicon International MAB4155F) or isotype-matched IgG. 10<sup>6 </sup>live cells were incubated separately with each of the above antibodies for 10 minutes at 4&#xB0;C and immediately analyzed by flow cytometry. In each group, an equal amount of unlabeled IgG isotype-matched antibody was added to the labeling solution to serve as a blocking reagent for potential Fc-Receptor sites on the cell surface. Between 10,000 and 100,000 cells were counted in each sample. Staining levels from cells labeled with phycoerythrin-conjugated IgG isotype-matched antibodies served as a measure of background fluorescence. This background was subtracted from all groups labeled with stem cell antigen markers and flow cytometric data were collected for this population of cells. The proportion of labeled cells was expressed as the percentage of total cells gated.</p>
+      </sec>
+      <sec>
+        <title>Propidium iodide staining for DNA content</title>
+        <p>Neurosphere cultures were dissociated in Accumax solution (Innovative Cell Technologies) as mentioned above. Dissociated cells were collected by brief centrifugation at 1000 rpm, 18&#xB0;C and resuspended in cold PBS. An equal volume of 2% phosphate-buffered paraformaldehyde was added to yield a final concentration of 1% paraformaldehyde. Cells were fixed for 45 minutes at 4&#xB0;C. Fixed cells were washed twice in PBS and resuspended in PBS containing 0.5 mM EDTA, 0.1% Triton X-100, 0.05 mg/ml RNAse A (#R4642 Sigma). Cells were incubated at 37&#xB0;C for 30 minutes to allow for RNA degradation. Propidium iodide (#1348639 Roche) was added to the solution at a final dilution of 1:50 and incubated for at least 30 minutes at 4&#xB0;C. At least 10,000 cells were analyzed by flow cytometry.</p>
+      </sec>
+      <sec>
+        <title>Flow cytometry</title>
+        <p>Cell cycle analysis and measurements of stem cell antigen levels were conducted on a FACS Calibur Flow Cytometer (Beckton Dickinson). Excitation wavelength was set at 488 nm (Argon laser) and emission spectra for phycoerythrin and propidium iodide were 575 nm and 630 nm, respectively. Cell-cycle histograms were generated using Cell Quest software for Macintosh.</p>
+      </sec>
+      <sec>
+        <title>Immuno-fluorescence analysis</title>
+        <p>Neurosphere cultures were assayed for the expression of the neuroepithelial marker Nestin, and neuronal marker NeuN (neuronal nuclear antigen), according to previously published protocols [<xref ref-type="bibr" rid="B54">54</xref>]. After 3.5&#x2013;4 days, media was removed and cultures were washed in PBS, fixed in 1% phosphate-buffered paraformaldehyde for 45 minutes at room temperature. Cultures were rinsed twice with PBS and once with TBS, followed by incubation in blocking solution (2% normal serum, 0.1% BSA, 0.2% triton x-100, in TBS) for 1 hour at room temperature. Antibodies (all from Chemicon) against nestin 1:100 (MAB3353) and NeuN 1:100 (MAB377), were diluted in staining solution (TBS 0.1% BSA), and incubated with cells overnight at 4&#xB0;C. Following three washes in TBS, cells were labeled with rat-adsorbed, biotinylated secondary horse anti-mouse antibodies (1:250) (Vector Laboratories) in TBS according to manufacturers instructions, and antibody binding was visualized with by conjugation with avidin-rhodamine 1:250 (Vector Laboratories). Cells were mounted in Fluorescence Mounting Media containing DAPI (Vector Laboratories).</p>
+      </sec>
+      <sec>
+        <title>RNA extraction and cDNA synthesis</title>
+        <p>RNA was extracted using the Trizol reagent in accordance with the manufacturer's instructions (Invitrogen). RNA was purified with the SV Total RNA Isolation System (#Z3100 Promega). 2.5 micrograms of total RNA was used to synthesize cDNA using the Superscript III First-Strand Synthesis System for RT-PCR (Invitrogen #18080-051) and random hexamers according to the manufacturer's protocol.</p>
+      </sec>
+      <sec>
+        <title>Polymerase chain reaction (PCR)</title>
+        <p>PCR was performed by conventional thermocycling methods. 2 uls of cDNA mixture from above was combined with the primers (200 nM each) and PCR Supermix (#10572-014, Invitrogen) in a total volume of 50 ul. Primers for TERT were those used in (Holzmann et al., 2003). PCR products were resolved by agarose gel electrophoresis and visualized by ethidium bromide staining. The cyclophilin-A (Peptidyl-prolyl cis-trans isomerase A) gene served as an internal control measure [<xref ref-type="bibr" rid="B99">99</xref>,<xref ref-type="bibr" rid="B100">100</xref>]. Forward and reverse primer sequences are as indicated in Table <xref ref-type="table" rid="T1">1</xref>.</p>
+      </sec>
+      <sec>
+        <title>Measurement of telomerase activity by TRAP Assay</title>
+        <p>Telomerase is a reverse transcriptase ribonucleoprotein complex that catalyzes the addition of six base pair repeats to telomeric ends [<xref ref-type="bibr" rid="B101">101</xref>-<xref ref-type="bibr" rid="B103">103</xref>]. The PCR-based Telomeric Repeat Amplification Protocol (TRAP), to measure telomerase activity in biological samples, was adapted from [<xref ref-type="bibr" rid="B38">38</xref>], as described in [<xref ref-type="bibr" rid="B104">104</xref>], based on SYBR-Green I fluorescence and real-time PCR. PCR reactions were performed with SYBR Green JumpStart TaqReady Mix (Sigma #S4438). Cell pellets were homogenized in 200 uL of cold lysis buffer and chilled on ice for 30 minutes, then re-sedimented by centrifugation at 16,000 &#xD7; g for 20 minutes at 4&#xB0;C, then lysed in CHAPS lysis buffer [<xref ref-type="bibr" rid="B85">85</xref>]. Lysates were quantified for total protein content and diluted to a working concentration of 100 ng/ul and stored at -80&#xB0;C until use. The TS and ACX primers used for both the telomerase elongation and the amplification of telomerase elongation products are as described in [<xref ref-type="bibr" rid="B105">105</xref>]. The following components were mixed in a 25 ul volume and analyzed for telomerase activity; 13 ul SYBR Jumpstart Mix, 0.1 ug (1 ul) TS primer, 0.05 ug (1 ul) ACX primer (for primer sequence, see Table <xref ref-type="table" rid="T1">1</xref>), 0.2 ul T4 Gene 32 Protein (1 unit, Roche 972983), 1 ul extract (100&#x2013;500 ng) and water to 25 ul final volume. SYBR Green fluorescence intensity was quantified during the 60&#xB0;C annealing/elongation step and expressed graphically as a function of cycle number. Cycle threshold values (Ct) are an indirect measurement of telomerase activity and represent the cycle number at which the generated product reaches a preset threshold level. Thresholds were set at 10 standard deviations above background fluorescence.</p>
+      </sec>
+      <sec>
+        <title>Data analysis</title>
+        <p>TERT and nestin mRNA levels were quantified by densitometric measurement, and were expressed as a ratio of cyclophilin-A mRNA expression (Molecular Analyst for Windows, BioRad). For TRAP assays, Sybr-Green fluorescence intensities were plotted against cycle number, and cycle threshold (ct) determined. Neurosphere number and size were computed using a Java version of NIH image (ImageJ, V1.32j (NIH)). Data were analyzed using a standard statistical package, SPSS for Windows (Version 11). Analysis of Variance (ANOVA) and the Fischer's Least Significant Difference post-hoc test were used to identify statistically significant differences between groups. Alternatively, Pearson's correlations, and two-tailed tests of significance were computed to determine relationships between ethanol dose and response. Statistical significance was set at p &lt; 0.05.</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>List of abbreviations</title>
+      <p>CD117 C-kit</p>
+      <p>CD133 prominin-1</p>
+      <p>ABCG2 ATP-binding cassette, sub-family G (WHITE), member 2; member of the ATP-dependent multi-drug resistance transporter family; aka. BCRP1</p>
+      <p>FAS Fetal Alcohol Syndrome</p>
+      <p>NeuN Neuronal nuclear antigen</p>
+      <p>Sca-1 Stem Cell Antigen-1 or Ly6A/E</p>
+      <p>TERT Telomerase reverse transcriptase subunit</p>
+    </sec>
+    <sec>
+      <title>Authors' contributions</title>
+      <p>DRS and RCM contributed to the design of the experiments, data analysis and manuscript preparation. DRS, LSK, TLP, CC and JDT contributed to the cell culture, immunofluorescence and flow cytometric analyses. DRS and JDT contributed the RT-PCR and telomerase activity assay. All authors read and approved the final manuscript.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <sec>
+        <title>Acknowledgements</title>
+        <p>The authors would like to thank Dr. Jane Miller for technical assistance with flow cytometry, and Drs. James West and Wei-Jung Chen for critical review of this manuscript. This research was supported by grants from National Institute of Alcohol Abuse &amp; Alcoholism (#AA13440) and The Texas Tobacco Endowment Fund to RCM.</p>
+      </sec>
+    </ack>
+    <ref-list>
+      <ref id="B1">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Coles</surname>
+              <given-names>CD</given-names>
+            </name>
+            <name>
+              <surname>Platzman</surname>
+              <given-names>KA</given-names>
+            </name>
+            <name>
+              <surname>Raskind-Hood</surname>
+              <given-names>CL</given-names>
+            </name>
+            <name>
+              <surname>Brown</surname>
+              <given-names>RT</given-names>
+            </name>
+            <name>
+              <surname>Falek</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>IE</given-names>
+            </name>
+          </person-group>
+          <article-title>A comparison of children affected by prenatal alcohol exposure and attention deficit, hyperactivity disorder.</article-title>
+          <source>Alcohol Clin Exp Res</source>
+          <year>1997</year>
+          <volume>21 </volume>
+          <fpage>150</fpage>
+          <lpage>161</lpage>
+          <pub-id pub-id-type="pmid">9046388</pub-id>
+        </citation>
+      </ref>
+      <ref id="B2">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kodituwakku</surname>
+              <given-names>PW</given-names>
+            </name>
+            <name>
+              <surname>May</surname>
+              <given-names>PA</given-names>
+            </name>
+            <name>
+              <surname>Clericuzio</surname>
+              <given-names>CL</given-names>
+            </name>
+            <name>
+              <surname>Weers</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Emotion-related learning in individuals prenatally exposed to alcohol: an investigation of the relation between set shifting, extinction of responses, and behavior</article-title>
+          <source>Neuropsychologia</source>
+          <year>2001</year>
+          <volume>39</volume>
+          <fpage>699</fpage>
+          <lpage>708</lpage>
+          <pub-id pub-id-type="pmid">11311300</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S0028-3932(01)00002-1</pub-id>
+        </citation>
+      </ref>
+      <ref id="B3">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mattson</surname>
+              <given-names>SN</given-names>
+            </name>
+            <name>
+              <surname>Riley</surname>
+              <given-names>EP</given-names>
+            </name>
+            <name>
+              <surname>Delis</surname>
+              <given-names>DC</given-names>
+            </name>
+            <name>
+              <surname>Stern</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Jones</surname>
+              <given-names>KL</given-names>
+            </name>
+          </person-group>
+          <article-title>Verbal learning and memory in children with fetal alcohol syndrome</article-title>
+          <source>Alcohol Clin Exp Res</source>
+          <year>1996</year>
+          <volume>20 </volume>
+          <fpage>810</fpage>
+          <lpage>816</lpage>
+          <pub-id pub-id-type="pmid">8865953</pub-id>
+        </citation>
+      </ref>
+      <ref id="B4">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mattson</surname>
+              <given-names>SN</given-names>
+            </name>
+            <name>
+              <surname>Goodman</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Caine</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Delis</surname>
+              <given-names>DC</given-names>
+            </name>
+            <name>
+              <surname>Riley</surname>
+              <given-names>EP</given-names>
+            </name>
+          </person-group>
+          <article-title>Executive functioning in children with heavy prenatal alcohol exposure.</article-title>
+          <source>Alcohol Clin Exp Res</source>
+          <year>1999</year>
+          <volume>23 </volume>
+          <fpage>1808</fpage>
+          <lpage>1815</lpage>
+          <pub-id pub-id-type="pmid">10591598</pub-id>
+        </citation>
+      </ref>
+      <ref id="B5">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Roebuck</surname>
+              <given-names>TM</given-names>
+            </name>
+            <name>
+              <surname>Simmons</surname>
+              <given-names>RW</given-names>
+            </name>
+            <name>
+              <surname>Mattson</surname>
+              <given-names>SN</given-names>
+            </name>
+            <name>
+              <surname>Riley</surname>
+              <given-names>EP</given-names>
+            </name>
+          </person-group>
+          <article-title>Prenatal exposure to alcohol affects the ability to maintain postural balance.</article-title>
+          <source>Alcohol Clin Exp Res</source>
+          <year>1998</year>
+          <volume>22 </volume>
+          <fpage>252</fpage>
+          <lpage>258</lpage>
+          <pub-id pub-id-type="pmid">9514315</pub-id>
+        </citation>
+      </ref>
+      <ref id="B6">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Roebuck</surname>
+              <given-names>TM</given-names>
+            </name>
+            <name>
+              <surname>Mattson</surname>
+              <given-names>SN</given-names>
+            </name>
+            <name>
+              <surname>Riley</surname>
+              <given-names>EP</given-names>
+            </name>
+          </person-group>
+          <article-title>Behavioral and psychosocial profiles of alcohol-exposed children.</article-title>
+          <source>Alcohol Clin Exp Res</source>
+          <year>1999</year>
+          <volume>23 </volume>
+          <fpage>1070</fpage>
+          <lpage>1076</lpage>
+          <pub-id pub-id-type="pmid">10397293</pub-id>
+        </citation>
+      </ref>
+      <ref id="B7">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schonfeld</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Mattson</surname>
+              <given-names>SN</given-names>
+            </name>
+            <name>
+              <surname>Lang</surname>
+              <given-names>AR</given-names>
+            </name>
+            <name>
+              <surname>Delis</surname>
+              <given-names>DC</given-names>
+            </name>
+            <name>
+              <surname>Riley</surname>
+              <given-names>EP</given-names>
+            </name>
+          </person-group>
+          <article-title>Verbal and nonverbal fluency in children with heavy prenatal alcohol exposure.</article-title>
+          <source>J Stud Alcohol</source>
+          <year>2001</year>
+          <volume>62 </volume>
+          <fpage>239</fpage>
+          <lpage>246</lpage>
+          <pub-id pub-id-type="pmid">11327190</pub-id>
+        </citation>
+      </ref>
+      <ref id="B8">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Thomas</surname>
+              <given-names>SE</given-names>
+            </name>
+            <name>
+              <surname>Kelly</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Mattson</surname>
+              <given-names>SN</given-names>
+            </name>
+            <name>
+              <surname>Riley</surname>
+              <given-names>EP</given-names>
+            </name>
+          </person-group>
+          <article-title>Comparison of social abilities of children with fetal alcohol syndrome to those of children with similar IQ scores and normal controls.</article-title>
+          <source>Alcohol Clin Exp Res</source>
+          <year>1998</year>
+          <volume>22 </volume>
+          <fpage>528</fpage>
+          <lpage>533</lpage>
+          <pub-id pub-id-type="pmid">9581664</pub-id>
+        </citation>
+      </ref>
+      <ref id="B9">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Streissguth</surname>
+              <given-names>AP</given-names>
+            </name>
+            <name>
+              <surname>O'Malley</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Neuropsychiatric implications and long-term consequences of fetal alcohol spectrum disorders</article-title>
+          <source>Semin Clin Neuropsychiatry</source>
+          <year>2000</year>
+          <volume>5</volume>
+          <fpage>177</fpage>
+          <lpage>190</lpage>
+          <pub-id pub-id-type="pmid">11291013</pub-id>
+          <pub-id pub-id-type="doi">10.1053/scnp.2000.6729</pub-id>
+        </citation>
+      </ref>
+      <ref id="B10">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cheema</surname>
+              <given-names>ZF</given-names>
+            </name>
+            <name>
+              <surname>West</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>Miranda</surname>
+              <given-names>RC</given-names>
+            </name>
+          </person-group>
+          <article-title>Ethanol induces Fas/Apo [apoptosis]-1 mRNA and cell suicide in the developing cerebral cortex.</article-title>
+          <source>Alcohol Clin Exp Res</source>
+          <year>2000</year>
+          <volume>24</volume>
+          <fpage>535</fpage>
+          <lpage>543</lpage>
+          <pub-id pub-id-type="pmid">10798591</pub-id>
+          <pub-id pub-id-type="doi">10.1097/00000374-200004000-00029</pub-id>
+        </citation>
+      </ref>
+      <ref id="B11">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>McAlhany</surname>
+              <given-names>REJ</given-names>
+            </name>
+            <name>
+              <surname>West</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>Miranda</surname>
+              <given-names>RC</given-names>
+            </name>
+          </person-group>
+          <article-title>Glial-derived neurotrophic factor (GDNF) prevents ethanol-induced apoptosis and JUN kinase phosphorylation</article-title>
+          <source>Developmental Brain Research</source>
+          <year>2000</year>
+          <volume>119</volume>
+          <fpage>209</fpage>
+          <lpage>216</lpage>
+          <pub-id pub-id-type="pmid">10675770</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S0165-3806(99)00171-6</pub-id>
+        </citation>
+      </ref>
+      <ref id="B12">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mooney</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Miller</surname>
+              <given-names>MW</given-names>
+            </name>
+          </person-group>
+          <article-title>Ethanol-induced neuronal death in organotypic cultures of rat cerebral cortex</article-title>
+          <source>Brain Res Dev Brain Res</source>
+          <year>2003</year>
+          <volume>147</volume>
+          <fpage>135</fpage>
+          <lpage>141</lpage>
+          <pub-id pub-id-type="pmid">14741758</pub-id>
+          <pub-id pub-id-type="doi">10.1016/j.devbrainres.2003.08.012</pub-id>
+        </citation>
+      </ref>
+      <ref id="B13">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mooney</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Miller</surname>
+              <given-names>MW</given-names>
+            </name>
+          </person-group>
+          <article-title>Effects of prenatal exposure to ethanol on the expression of bcl-2, bax and caspase 3 in the developing rat cerebral cortex and thalamus</article-title>
+          <source>Brain Res</source>
+          <year>2001</year>
+          <volume>911</volume>
+          <fpage>71</fpage>
+          <lpage>81</lpage>
+          <pub-id pub-id-type="pmid">11489446</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S0006-8993(01)02718-4</pub-id>
+        </citation>
+      </ref>
+      <ref id="B14">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Heaton</surname>
+              <given-names>MB</given-names>
+            </name>
+            <name>
+              <surname>Mitchell</surname>
+              <given-names>JJ</given-names>
+            </name>
+            <name>
+              <surname>Paiva</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Walker</surname>
+              <given-names>DW</given-names>
+            </name>
+          </person-group>
+          <article-title>Ethanol-induced alterations in the expression of neurotrophic factors in the developing rat central nervous system</article-title>
+          <source>Developmental Brain Research</source>
+          <year>2000</year>
+          <volume>121</volume>
+          <fpage>97</fpage>
+          <lpage>107</lpage>
+          <pub-id pub-id-type="pmid">10837897</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S0165-3806(00)00032-8</pub-id>
+        </citation>
+      </ref>
+      <ref id="B15">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Luo</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>West</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>Pantazis</surname>
+              <given-names>NJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Ethanol exposure reduces the density of the low-affinity nerve growth factor receptor (p75) on pheochromocytoma (PC12) cells</article-title>
+          <source>Brain Research</source>
+          <year>1996</year>
+          <volume>737</volume>
+          <fpage>34</fpage>
+          <lpage>44</lpage>
+          <pub-id pub-id-type="pmid">8930347</pub-id>
+          <pub-id pub-id-type="doi">10.1016/0006-8993(96)00657-9</pub-id>
+        </citation>
+      </ref>
+      <ref id="B16">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>McAlhaney</surname>
+              <given-names>REJ</given-names>
+            </name>
+            <name>
+              <surname>Miranda</surname>
+              <given-names>RC</given-names>
+            </name>
+            <name>
+              <surname>Finnell</surname>
+              <given-names>RH</given-names>
+            </name>
+            <name>
+              <surname>West</surname>
+              <given-names>JR</given-names>
+            </name>
+          </person-group>
+          <article-title>Ethanol decreases Glial-Derived Neurotrophic Factor (GDNF) protein release but not mRNA expression and increases GDNF-stimulated Shc phosphorylation in the developing cerebellum.</article-title>
+          <source>Alcohol Clin Exp Res</source>
+          <year>1999</year>
+          <volume>23 </volume>
+          <fpage>1691</fpage>
+          <lpage>1697</lpage>
+          <pub-id pub-id-type="pmid">10550003</pub-id>
+        </citation>
+      </ref>
+      <ref id="B17">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Miller</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>King</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Heaton</surname>
+              <given-names>MB</given-names>
+            </name>
+            <name>
+              <surname>Walker</surname>
+              <given-names>DW</given-names>
+            </name>
+          </person-group>
+          <article-title>The effects of chronic ethanol consumption on neurotrophins and their receptors in the rat hippocampus and basal forebrain</article-title>
+          <source>Brain Research</source>
+          <year>2002</year>
+          <volume>950</volume>
+          <fpage>137</fpage>
+          <lpage>147</lpage>
+          <pub-id pub-id-type="pmid">12231238</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S0006-8993(02)03014-7</pub-id>
+        </citation>
+      </ref>
+      <ref id="B18">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Olney</surname>
+              <given-names>JW</given-names>
+            </name>
+            <name>
+              <surname>Wozniak</surname>
+              <given-names>DF</given-names>
+            </name>
+            <name>
+              <surname>Farber</surname>
+              <given-names>NB</given-names>
+            </name>
+            <name>
+              <surname>Jevtovic-Todorovic</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Bittigau</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Ikonomidou</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <article-title>The enigma of fetal alcohol neurotoxicity</article-title>
+          <source>Annals of Medicine</source>
+          <year>2002</year>
+          <volume>34 </volume>
+          <fpage>109</fpage>
+          <lpage>119</lpage>
+          <pub-id pub-id-type="pmid">12108574</pub-id>
+          <pub-id pub-id-type="doi">10.1080/07853890252953509</pub-id>
+        </citation>
+      </ref>
+      <ref id="B19">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhou</surname>
+              <given-names>FC</given-names>
+            </name>
+            <name>
+              <surname>Sari</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>TK</given-names>
+            </name>
+            <name>
+              <surname>Goodlett</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Azmitia</surname>
+              <given-names>EC</given-names>
+            </name>
+          </person-group>
+          <article-title>Deviations in brain early serotonergic development as a result of fetal alcohol exposure</article-title>
+          <source>Neurotox Res</source>
+          <year>2002</year>
+          <volume>4</volume>
+          <fpage>337</fpage>
+          <lpage>342</lpage>
+          <pub-id pub-id-type="pmid">12829423</pub-id>
+          <pub-id pub-id-type="doi">10.1080/10298420290030532</pub-id>
+        </citation>
+      </ref>
+      <ref id="B20">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hsiao</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>DuBois</surname>
+              <given-names>DW</given-names>
+            </name>
+            <name>
+              <surname>Miranda</surname>
+              <given-names>RC</given-names>
+            </name>
+            <name>
+              <surname>Frye</surname>
+              <given-names>GD</given-names>
+            </name>
+          </person-group>
+          <article-title>Critically timed ethanol exposure reduces GABAAR function on septal neurons developing in vivo but not in vitro</article-title>
+          <source>Brain Res</source>
+          <year>2004</year>
+          <volume>1008</volume>
+          <fpage>69</fpage>
+          <lpage>80</lpage>
+          <pub-id pub-id-type="pmid">15081384</pub-id>
+          <pub-id pub-id-type="doi">10.1016/j.brainres.2004.02.020</pub-id>
+        </citation>
+      </ref>
+      <ref id="B21">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hsiao</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Parrish</surname>
+              <given-names>AR</given-names>
+            </name>
+            <name>
+              <surname>Nahm</surname>
+              <given-names>SS</given-names>
+            </name>
+            <name>
+              <surname>Abbott</surname>
+              <given-names>LC</given-names>
+            </name>
+            <name>
+              <surname>McCool</surname>
+              <given-names>BA</given-names>
+            </name>
+            <name>
+              <surname>Frye</surname>
+              <given-names>GD</given-names>
+            </name>
+          </person-group>
+          <article-title>Effects of early postnatal ethanol intubation on GABAergic synaptic proteins</article-title>
+          <source>Brain Res Dev Brain Res</source>
+          <year>2002</year>
+          <volume>138</volume>
+          <fpage>177</fpage>
+          <lpage>185</lpage>
+          <pub-id pub-id-type="pmid">12354645</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S0165-3806(02)00470-4</pub-id>
+        </citation>
+      </ref>
+      <ref id="B22">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hsiao</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Acevedo</surname>
+              <given-names>JL</given-names>
+            </name>
+            <name>
+              <surname>DuBois</surname>
+              <given-names>DW</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>KR</given-names>
+            </name>
+            <name>
+              <surname>West</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>Frye</surname>
+              <given-names>GD</given-names>
+            </name>
+          </person-group>
+          <article-title>Early postnatal ethanol intubation blunts GABA(A) receptor up-regulation and modifies 3alpha-hydroxy-5alpha-pregnan-20-one sensitivity in rat MS/DB neurons</article-title>
+          <source>Brain Res Dev Brain Res</source>
+          <year>2001</year>
+          <volume>130</volume>
+          <fpage>25</fpage>
+          <lpage>40</lpage>
+          <pub-id pub-id-type="pmid">11557091</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S0165-3806(01)00194-8</pub-id>
+        </citation>
+      </ref>
+      <ref id="B23">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Savage</surname>
+              <given-names>DD</given-names>
+            </name>
+            <name>
+              <surname>Queen</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Sanchez</surname>
+              <given-names>CF</given-names>
+            </name>
+            <name>
+              <surname>Paxton</surname>
+              <given-names>LL</given-names>
+            </name>
+            <name>
+              <surname>Mahoney</surname>
+              <given-names>JC</given-names>
+            </name>
+            <name>
+              <surname>Goodlett</surname>
+              <given-names>CR</given-names>
+            </name>
+            <name>
+              <surname>West</surname>
+              <given-names>JR</given-names>
+            </name>
+          </person-group>
+          <article-title>Prenatal ethanol exposure during the last third of gestation in rat reduces hippocampal NMDA agonist binding site density in 45-day-old offspring</article-title>
+          <source>Alcohol</source>
+          <year>1992</year>
+          <volume>9</volume>
+          <fpage>37</fpage>
+          <lpage>41</lpage>
+          <pub-id pub-id-type="pmid">1346364</pub-id>
+          <pub-id pub-id-type="doi">10.1016/0741-8329(92)90007-W</pub-id>
+        </citation>
+      </ref>
+      <ref id="B24">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Savage</surname>
+              <given-names>DD</given-names>
+            </name>
+            <name>
+              <surname>Montano</surname>
+              <given-names>CY</given-names>
+            </name>
+            <name>
+              <surname>Otero</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Paxton</surname>
+              <given-names>LL</given-names>
+            </name>
+          </person-group>
+          <article-title>Prenatal ethanol exposure decreases hippocampal NMDA-sensitive [3H]-glutamate binding site density in 45-day-old rats</article-title>
+          <source>Alcohol</source>
+          <year>1991</year>
+          <volume>8</volume>
+          <fpage>193</fpage>
+          <lpage>201</lpage>
+          <pub-id pub-id-type="pmid">1648928</pub-id>
+          <pub-id pub-id-type="doi">10.1016/0741-8329(91)90806-8</pub-id>
+        </citation>
+      </ref>
+      <ref id="B25">
+        <citation citation-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bayer</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Altman</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <source>Neocortical Development</source>
+          <year>1991</year>
+          <publisher-name>New York, Raven Press</publisher-name>
+        </citation>
+      </ref>
+      <ref id="B26">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dai</surname>
+              <given-names>MS</given-names>
+            </name>
+            <name>
+              <surname>Mantel</surname>
+              <given-names>CR</given-names>
+            </name>
+            <name>
+              <surname>Xia</surname>
+              <given-names>ZB</given-names>
+            </name>
+            <name>
+              <surname>Broxmeyer</surname>
+              <given-names>HE</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>An expansion phase precedes terminal erythroid differentiation of hematopoietic progenitor cells from cord blood in vitro and is associated with up-regulation of cyclin E and cyclin-dependent kinase 2</article-title>
+          <source>Blood</source>
+          <year>2000</year>
+          <volume>96</volume>
+          <fpage>3985</fpage>
+          <lpage>3987</lpage>
+          <pub-id pub-id-type="pmid">11090089</pub-id>
+        </citation>
+      </ref>
+      <ref id="B27">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Miller</surname>
+              <given-names>MW</given-names>
+            </name>
+          </person-group>
+          <article-title>Effects of prenatal exposure to ethanol on neocortical development:  II.  Cell proliferation in the ventricular and subventricular zones of the rat.</article-title>
+          <source>The Journal of Comparative Neurology</source>
+          <year>1989</year>
+          <volume>287 </volume>
+          <fpage>326</fpage>
+          <lpage>338</lpage>
+          <pub-id pub-id-type="pmid">2778108</pub-id>
+          <pub-id pub-id-type="doi">10.1002/cne.902870305</pub-id>
+        </citation>
+      </ref>
+      <ref id="B28">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Donoghue</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Rakic</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>Molecular gradients and compartments in the embryonic primate cerebral cortex</article-title>
+          <source>Cereb Cortex</source>
+          <year>1999</year>
+          <volume>9</volume>
+          <fpage>586</fpage>
+          <lpage>600</lpage>
+          <pub-id pub-id-type="pmid">10498277</pub-id>
+          <pub-id pub-id-type="doi">10.1093/cercor/9.6.586</pub-id>
+        </citation>
+      </ref>
+      <ref id="B29">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nery</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Fishell</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Corbin</surname>
+              <given-names>JG</given-names>
+            </name>
+          </person-group>
+          <article-title>The caudal ganglionic eminence is a source of distinct cortical and subcortical cell populations</article-title>
+          <source>Nat Neurosci</source>
+          <year>2002</year>
+          <volume>5</volume>
+          <fpage>1279</fpage>
+          <lpage>1287</lpage>
+          <pub-id pub-id-type="pmid">12411960</pub-id>
+          <pub-id pub-id-type="doi">10.1038/nn971</pub-id>
+        </citation>
+      </ref>
+      <ref id="B30">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zecevic</surname>
+              <given-names>N</given-names>
+            </name>
+          </person-group>
+          <article-title>Specific characteristic of radial glia in the human fetal telencephalon</article-title>
+          <source>Glia</source>
+          <year>2004</year>
+          <volume>48</volume>
+          <fpage>27</fpage>
+          <lpage>35</lpage>
+          <pub-id pub-id-type="pmid">15326612</pub-id>
+          <pub-id pub-id-type="doi">10.1002/glia.20044</pub-id>
+        </citation>
+      </ref>
+      <ref id="B31">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bunting</surname>
+              <given-names>KD</given-names>
+            </name>
+          </person-group>
+          <article-title>ABC Transporters as Phenotypic Markers and Functional Regulators of Stem Cells</article-title>
+          <source>Stem Cells</source>
+          <year>2002</year>
+          <volume>20</volume>
+          <fpage>11</fpage>
+          <lpage>20</lpage>
+          <pub-id pub-id-type="pmid">11796918</pub-id>
+          <pub-id pub-id-type="doi">10.1634/stemcells.20-3-274</pub-id>
+        </citation>
+      </ref>
+      <ref id="B32">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Miraglia</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Godfrey</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Yin</surname>
+              <given-names>AH</given-names>
+            </name>
+            <name>
+              <surname>Atkins</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Warnke</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Holden</surname>
+              <given-names>JT</given-names>
+            </name>
+            <name>
+              <surname>Bray</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Waller</surname>
+              <given-names>EK</given-names>
+            </name>
+            <name>
+              <surname>Buck</surname>
+              <given-names>DW</given-names>
+            </name>
+          </person-group>
+          <article-title>A Novel Five-Transmembrane Hematopoietic Stem Cell Antigen: Isolation, Characterization, and Molecular Cloning</article-title>
+          <source>Blood</source>
+          <year>1997</year>
+          <volume>90</volume>
+          <fpage>5013</fpage>
+          <lpage>5021</lpage>
+          <pub-id pub-id-type="pmid">9389721</pub-id>
+        </citation>
+      </ref>
+      <ref id="B33">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yin</surname>
+              <given-names>AH</given-names>
+            </name>
+            <name>
+              <surname>Miraglia</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Zanjani</surname>
+              <given-names>ED</given-names>
+            </name>
+            <name>
+              <surname>Almeida-Porada</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Ogawa</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Leary</surname>
+              <given-names>AG</given-names>
+            </name>
+            <name>
+              <surname>Olweus</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Kearney</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Buck</surname>
+              <given-names>DW</given-names>
+            </name>
+          </person-group>
+          <article-title>AC133, a Novel Marker for Human Hematopoietic Stem and Progenitor Cells</article-title>
+          <source>Blood</source>
+          <year>1997</year>
+          <volume>90</volume>
+          <fpage>5002</fpage>
+          <lpage>5012</lpage>
+          <pub-id pub-id-type="pmid">9389720</pub-id>
+        </citation>
+      </ref>
+      <ref id="B34">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhu</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Chang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Zuo</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Dong</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Hu</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Fang</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <article-title>Fudenine, a C-terminal truncated rat homologue of mouse prominin, is blood glucose-regulated and can up-regulate the expression of GAPDH</article-title>
+          <source>Biochem Biophys Res Commun</source>
+          <year>2001</year>
+          <volume>281</volume>
+          <fpage>951</fpage>
+          <lpage>956</lpage>
+          <pub-id pub-id-type="pmid">11237753</pub-id>
+          <pub-id pub-id-type="doi">10.1006/bbrc.2001.4439</pub-id>
+        </citation>
+      </ref>
+      <ref id="B35">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Broccoli</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Young</surname>
+              <given-names>JW</given-names>
+            </name>
+            <name>
+              <surname>De Lange</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Telomerase activitiy in normal and malignant hematopoetic cells</article-title>
+          <source>PNAS</source>
+          <year>1995</year>
+          <volume>92 </volume>
+          <fpage>9082</fpage>
+          <lpage>9086</lpage>
+          <pub-id pub-id-type="pmid">7568077</pub-id>
+        </citation>
+      </ref>
+      <ref id="B36">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hiyama</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Hirai</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Kyoizumi</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Akiyama</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Hiyama</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Piatyszek</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Shay</surname>
+              <given-names>JW</given-names>
+            </name>
+            <name>
+              <surname>Ishioka</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Yamakido</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Activation of telomerase in human lymphocytes and hematopoietic progenitor cells</article-title>
+          <source>Immunol</source>
+          <year>1995</year>
+          <volume>155 </volume>
+          <fpage>3711</fpage>
+          <lpage>3715</lpage>
+        </citation>
+      </ref>
+      <ref id="B37">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wright</surname>
+              <given-names>WE</given-names>
+            </name>
+            <name>
+              <surname>Piatyszek</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Rainey</surname>
+              <given-names>WE</given-names>
+            </name>
+            <name>
+              <surname>Byrd</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Shay</surname>
+              <given-names>JW</given-names>
+            </name>
+          </person-group>
+          <article-title>Telomerase activity in human germline and embryonic tissues and cells</article-title>
+          <source>Developmental Genetics</source>
+          <year>1996</year>
+          <volume>18 </volume>
+          <fpage>173</fpage>
+          <lpage>179</lpage>
+          <pub-id pub-id-type="pmid">8934879</pub-id>
+          <pub-id pub-id-type="doi">10.1002/(SICI)1520-6408(1996)18:2&lt;173::AID-DVG10&gt;3.0.CO;2-3</pub-id>
+        </citation>
+      </ref>
+      <ref id="B38">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>NW</given-names>
+            </name>
+            <name>
+              <surname>Piatyszek</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Prowse</surname>
+              <given-names>KR</given-names>
+            </name>
+            <name>
+              <surname>Harley</surname>
+              <given-names>CB</given-names>
+            </name>
+            <name>
+              <surname>West</surname>
+              <given-names>MD</given-names>
+            </name>
+            <name>
+              <surname>Ho</surname>
+              <given-names>PL</given-names>
+            </name>
+            <name>
+              <surname>Coviello</surname>
+              <given-names>GM</given-names>
+            </name>
+            <name>
+              <surname>Wright</surname>
+              <given-names>WE</given-names>
+            </name>
+            <name>
+              <surname>Weinrich</surname>
+              <given-names>SL</given-names>
+            </name>
+            <name>
+              <surname>Shay</surname>
+              <given-names>JW</given-names>
+            </name>
+          </person-group>
+          <article-title>Specific association of human telomerase activity with immortal cells and cancer</article-title>
+          <source>Science</source>
+          <year>1994</year>
+          <volume>266</volume>
+          <fpage>2011</fpage>
+          <lpage>2015</lpage>
+          <pub-id pub-id-type="pmid">7605428</pub-id>
+        </citation>
+      </ref>
+      <ref id="B39">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rhyu</surname>
+              <given-names>MS</given-names>
+            </name>
+          </person-group>
+          <article-title>Telomeres, telomerase and immortality</article-title>
+          <source>J Nat Cancer Inst</source>
+          <year>1995</year>
+          <volume>87 </volume>
+          <fpage>884</fpage>
+          <lpage>894</lpage>
+          <pub-id pub-id-type="pmid">7666477</pub-id>
+        </citation>
+      </ref>
+      <ref id="B40">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fu</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Begley</surname>
+              <given-names>JG</given-names>
+            </name>
+            <name>
+              <surname>Mattson</surname>
+              <given-names>MP</given-names>
+            </name>
+          </person-group>
+          <article-title>Anti-apoptotic role of telomerase in pheochromocytoma cells</article-title>
+          <source>J Biol Chem</source>
+          <year>1999</year>
+          <volume>274</volume>
+          <fpage>7264</fpage>
+          <lpage>7271</lpage>
+          <pub-id pub-id-type="pmid">10066788</pub-id>
+          <pub-id pub-id-type="doi">10.1074/jbc.274.11.7264</pub-id>
+        </citation>
+      </ref>
+      <ref id="B41">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fu</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Killen</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Culmsee</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Dhar</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Pandita</surname>
+              <given-names>TK</given-names>
+            </name>
+            <name>
+              <surname>Mattson</surname>
+              <given-names>MP</given-names>
+            </name>
+          </person-group>
+          <article-title>The catalytic subunit of telomerase is expressed in developing brain neurons and serves a cell survival-promoting function</article-title>
+          <source>Journal of Molecular Neuroscience</source>
+          <year>2000</year>
+          <volume>14</volume>
+          <fpage>3</fpage>
+          <lpage>15</lpage>
+          <pub-id pub-id-type="pmid">10854032</pub-id>
+          <pub-id pub-id-type="doi">10.1385/JMN:14:1-2:003</pub-id>
+        </citation>
+      </ref>
+      <ref id="B42">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Reynolds</surname>
+              <given-names>BA</given-names>
+            </name>
+            <name>
+              <surname>Tetzlaff</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Weiss</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>A multipotent EGF-responsive striatal embryonic progenitor cell produces neurons and astrocytes</article-title>
+          <source>J Neurosci</source>
+          <year>1992</year>
+          <volume>12 </volume>
+          <fpage>4565</fpage>
+          <lpage>4574</lpage>
+          <pub-id pub-id-type="pmid">1432110</pub-id>
+        </citation>
+      </ref>
+      <ref id="B43">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Reynolds</surname>
+              <given-names>BA</given-names>
+            </name>
+            <name>
+              <surname>Weiss</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Generation of neurons and astrocytes from isolated cells of the adult mammalian central nervous system.</article-title>
+          <source>Science</source>
+          <year>1992</year>
+          <volume>255 </volume>
+          <fpage>1707</fpage>
+          <lpage>1710</lpage>
+          <pub-id pub-id-type="pmid">1553558</pub-id>
+        </citation>
+      </ref>
+      <ref id="B44">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vescovi</surname>
+              <given-names>AL</given-names>
+            </name>
+            <name>
+              <surname>Reynolds</surname>
+              <given-names>BA</given-names>
+            </name>
+            <name>
+              <surname>Fraser</surname>
+              <given-names>DD</given-names>
+            </name>
+            <name>
+              <surname>Weiss</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>bFGF regulates the proliferative fate of unipotent (neuronal) and bipotent (neuronal/astroglial) EGF-generated CNS progenitor cells.</article-title>
+          <source>Neuron</source>
+          <year>1993</year>
+          <volume>11</volume>
+          <fpage>951</fpage>
+          <lpage>966</lpage>
+          <pub-id pub-id-type="pmid">8240816</pub-id>
+          <pub-id pub-id-type="doi">10.1016/0896-6273(93)90124-A</pub-id>
+        </citation>
+      </ref>
+      <ref id="B45">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lendahl</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Zimmerman</surname>
+              <given-names>LB</given-names>
+            </name>
+            <name>
+              <surname>McKay</surname>
+              <given-names>RD</given-names>
+            </name>
+          </person-group>
+          <article-title>CNS stem cells express a new class of intermediate filament protein.</article-title>
+          <source>Cell</source>
+          <year>1990</year>
+          <volume>60 </volume>
+          <fpage>585</fpage>
+          <lpage>595</lpage>
+          <pub-id pub-id-type="pmid">1689217</pub-id>
+          <pub-id pub-id-type="doi">10.1016/0092-8674(90)90662-X</pub-id>
+        </citation>
+      </ref>
+      <ref id="B46">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cheema</surname>
+              <given-names>ZF</given-names>
+            </name>
+            <name>
+              <surname>Santillano</surname>
+              <given-names>DR</given-names>
+            </name>
+            <name>
+              <surname>Wade</surname>
+              <given-names>SB</given-names>
+            </name>
+            <name>
+              <surname>Newman</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Miranda</surname>
+              <given-names>RC</given-names>
+            </name>
+          </person-group>
+          <article-title>The extracellular matrix, p53 and estrogen compete to regulate cell-surface Fas/Apo-1 suicide receptor expression in proliferating embryonic cerebral cortical precursors, and reciprocally, Fas-ligand modifies estrogen control of cell-cycle proteins</article-title>
+          <source>BMC Neurosci</source>
+          <year>2004</year>
+          <volume>5</volume>
+          <fpage>11</fpage>
+          <pub-id pub-id-type="pmid">15038834</pub-id>
+          <pub-id pub-id-type="doi">10.1186/1471-2202-5-11</pub-id>
+        </citation>
+      </ref>
+      <ref id="B47">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kukekov</surname>
+              <given-names>VG</given-names>
+            </name>
+            <name>
+              <surname>Laywell</surname>
+              <given-names>ED</given-names>
+            </name>
+            <name>
+              <surname>Suslov</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Davies</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Scheffler</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Thomas</surname>
+              <given-names>LB</given-names>
+            </name>
+            <name>
+              <surname>O'Brien</surname>
+              <given-names>TF</given-names>
+            </name>
+            <name>
+              <surname>Kusakabe</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Steindler</surname>
+              <given-names>DA</given-names>
+            </name>
+          </person-group>
+          <article-title>Multipotent Stem/Progenitor Cells with Similar Properties Arise from Two Neurogenic Regions of Adult Human Brain</article-title>
+          <source>Experimental Neurology</source>
+          <year>1999</year>
+          <volume>156</volume>
+          <fpage>333</fpage>
+          <lpage>344</lpage>
+          <pub-id pub-id-type="pmid">10328940</pub-id>
+          <pub-id pub-id-type="doi">10.1006/exnr.1999.7028</pub-id>
+        </citation>
+      </ref>
+      <ref id="B48">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cai</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Cheng</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Luo</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Mattson</surname>
+              <given-names>MP</given-names>
+            </name>
+            <name>
+              <surname>Rao</surname>
+              <given-names>MS</given-names>
+            </name>
+            <name>
+              <surname>Furukawa</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Membrane properties of rat embryonic multipotent neural stem cells</article-title>
+          <source>J Neurochem</source>
+          <year>2004</year>
+          <volume>88</volume>
+          <fpage>212</fpage>
+          <lpage>226</lpage>
+          <pub-id pub-id-type="pmid">14675165</pub-id>
+        </citation>
+      </ref>
+      <ref id="B49">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhou</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Schuetz</surname>
+              <given-names>JD</given-names>
+            </name>
+            <name>
+              <surname>Bunting</surname>
+              <given-names>KD</given-names>
+            </name>
+            <name>
+              <surname>Colapietro</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Sampath</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Morris</surname>
+              <given-names>JJ</given-names>
+            </name>
+            <name>
+              <surname>Lagutina</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Grosveld</surname>
+              <given-names>GC</given-names>
+            </name>
+            <name>
+              <surname>Osawa</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Nakauchi</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Sorrentino</surname>
+              <given-names>BP</given-names>
+            </name>
+          </person-group>
+          <article-title>The ABC transporter Bcrp1/ABCG2 is expressed in a wide variety of stem cells and is a molecular determinant of the side-population phenotype</article-title>
+          <source>Nat Med</source>
+          <year>2001</year>
+          <volume>7</volume>
+          <fpage>1028</fpage>
+          <lpage>1034</lpage>
+          <pub-id pub-id-type="pmid">11533706</pub-id>
+          <pub-id pub-id-type="doi">10.1038/nm0901-1028</pub-id>
+        </citation>
+      </ref>
+      <ref id="B50">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Turnquist</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Jackson</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Sgagias</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Yan</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Gong</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Dean</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Sharp</surname>
+              <given-names>JG</given-names>
+            </name>
+            <name>
+              <surname>Cowan</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>The multidrug resistance transporter ABCG2 (breast cancer resistance protein 1) effluxes Hoechst 33342 and is overexpressed in hematopoietic stem cells</article-title>
+          <source>Clin Cancer Res</source>
+          <year>2002</year>
+          <volume>8</volume>
+          <fpage>22</fpage>
+          <lpage>28</lpage>
+          <pub-id pub-id-type="pmid">11801536</pub-id>
+        </citation>
+      </ref>
+      <ref id="B51">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Morshead</surname>
+              <given-names>CM</given-names>
+            </name>
+          </person-group>
+          <article-title>Distinct populations of forebrain neural stem and progenitor cells can be isolated using side-population analysis</article-title>
+          <source>J Neurosci</source>
+          <year>2003</year>
+          <volume>23</volume>
+          <fpage>10703</fpage>
+          <lpage>10709</lpage>
+          <pub-id pub-id-type="pmid">14627655</pub-id>
+        </citation>
+      </ref>
+      <ref id="B52">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sarkadi</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Ozvegy-Laczka</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Nemet</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Varadi</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>ABCG2 -- a transporter for all seasons</article-title>
+          <source>FEBS Lett</source>
+          <year>2004</year>
+          <volume>567</volume>
+          <fpage>116</fpage>
+          <lpage>120</lpage>
+          <pub-id pub-id-type="pmid">15165903</pub-id>
+          <pub-id pub-id-type="doi">10.1016/j.febslet.2004.03.123</pub-id>
+        </citation>
+      </ref>
+      <ref id="B53">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dahlstrand</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Lardelli</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Lendahl</surname>
+              <given-names>U</given-names>
+            </name>
+          </person-group>
+          <article-title>Nestin mRNA expression correlates with the central nervous system progenitor cell state in many, but not all, regions of developing central nervous system</article-title>
+          <source>Developmental Brain Research</source>
+          <year>1995</year>
+          <volume>84</volume>
+          <fpage>109</fpage>
+          <lpage>129</lpage>
+          <pub-id pub-id-type="pmid">7720210</pub-id>
+          <pub-id pub-id-type="doi">10.1016/0165-3806(94)00162-S</pub-id>
+        </citation>
+      </ref>
+      <ref id="B54">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wade</surname>
+              <given-names>SB</given-names>
+            </name>
+            <name>
+              <surname>Oommen</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Conner</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Earnest</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Miranda</surname>
+              <given-names>RC</given-names>
+            </name>
+          </person-group>
+          <article-title>Overlapping and divergent actions of estrogen and the neurogrophins on cell fate and p-53 dependent signal transduction in conditionally immortalized cerebral cortical neuroblasts</article-title>
+          <source>J Neurosci</source>
+          <year>1999</year>
+          <volume>15 </volume>
+          <fpage>6994</fpage>
+          <lpage>7006</lpage>
+        </citation>
+      </ref>
+      <ref id="B55">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Noctor</surname>
+              <given-names>SC</given-names>
+            </name>
+            <name>
+              <surname>Martinez-Cerdeno</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Ivic</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Kriegstein</surname>
+              <given-names>AR</given-names>
+            </name>
+          </person-group>
+          <article-title>Cortical neurons arise in symmetric and asymmetric division zones and migrate through specific phases</article-title>
+          <source>Nat Neurosci</source>
+          <year>2004</year>
+          <volume>7</volume>
+          <fpage>136</fpage>
+          <lpage>144</lpage>
+          <pub-id pub-id-type="pmid">14703572</pub-id>
+          <pub-id pub-id-type="doi">10.1038/nn1172</pub-id>
+        </citation>
+      </ref>
+      <ref id="B56">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ever</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Gaiano</surname>
+              <given-names>N</given-names>
+            </name>
+          </person-group>
+          <article-title>Radial 'glial' progenitors: neurogenesis and signaling</article-title>
+          <source>Curr Opin Neurobiol</source>
+          <year>2005</year>
+          <volume>15</volume>
+          <fpage>29</fpage>
+          <lpage>33</lpage>
+          <pub-id pub-id-type="pmid">15721741</pub-id>
+          <pub-id pub-id-type="doi">10.1016/j.conb.2005.01.005</pub-id>
+        </citation>
+      </ref>
+      <ref id="B57">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Miller</surname>
+              <given-names>MW</given-names>
+            </name>
+            <name>
+              <surname>Nowakowski</surname>
+              <given-names>RS</given-names>
+            </name>
+          </person-group>
+          <article-title>Effect of prenatal exposure to ethanol on the cell cycle kinetics and growth fraction in the proliferative zones of fetal rat cerebral cortex</article-title>
+          <source>Alcohol Clin Exp Res</source>
+          <year>1991</year>
+          <volume>15</volume>
+          <fpage>229</fpage>
+          <lpage>232</lpage>
+          <pub-id pub-id-type="pmid">2058800</pub-id>
+        </citation>
+      </ref>
+      <ref id="B58">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Miller</surname>
+              <given-names>MW</given-names>
+            </name>
+          </person-group>
+          <article-title>Limited ethanol exposure selectively alters the proliferation of precursor cells in the cerebral cortex</article-title>
+          <source>Alcohol Clin Exp Res</source>
+          <year>1996</year>
+          <volume>20</volume>
+          <fpage>139</fpage>
+          <lpage>143</lpage>
+          <pub-id pub-id-type="pmid">8651443</pub-id>
+        </citation>
+      </ref>
+      <ref id="B59">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Clarren</surname>
+              <given-names>SK</given-names>
+            </name>
+            <name>
+              <surname>Alvord</surname>
+              <given-names>ECJ</given-names>
+            </name>
+            <name>
+              <surname>Sumi</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Streissguth</surname>
+              <given-names>AP</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>DW</given-names>
+            </name>
+          </person-group>
+          <article-title>Brain malformations related to prenatal exposure to ethanol</article-title>
+          <source>J Pediatr</source>
+          <year>1978</year>
+          <volume>92</volume>
+          <fpage>64</fpage>
+          <lpage>67</lpage>
+          <pub-id pub-id-type="pmid">619080</pub-id>
+        </citation>
+      </ref>
+      <ref id="B60">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kotkoskie</surname>
+              <given-names>LA</given-names>
+            </name>
+            <name>
+              <surname>Norton</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Prenatal brain malformations following acute ethanol exposure in the rat.</article-title>
+          <source>Alcohol Clin Exp Res</source>
+          <year>1988</year>
+          <volume>12 </volume>
+          <fpage>831</fpage>
+          <lpage>836</lpage>
+          <pub-id pub-id-type="pmid">3064646</pub-id>
+        </citation>
+      </ref>
+      <ref id="B61">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mooney</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Siegenthaler</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Miller</surname>
+              <given-names>MW</given-names>
+            </name>
+          </person-group>
+          <article-title>Ethanol Induces Heterotopias in Organotypic Cultures of Rat Cerebral Cortex</article-title>
+          <source>Cereb Cortex</source>
+          <year>2004</year>
+          <volume>14</volume>
+          <fpage>1071</fpage>
+          <lpage>1080</lpage>
+          <pub-id pub-id-type="pmid">15166098</pub-id>
+          <pub-id pub-id-type="doi">10.1093/cercor/bhh066</pub-id>
+        </citation>
+      </ref>
+      <ref id="B62">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Corbeil</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Roper</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Fargeas</surname>
+              <given-names>CA</given-names>
+            </name>
+            <name>
+              <surname>Joester</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Huttner</surname>
+              <given-names>WB</given-names>
+            </name>
+          </person-group>
+          <article-title>Prominin: A Story of Cholesterol, Plasma Membrane Protrusions and Human Pathology</article-title>
+          <source>Traffic</source>
+          <year>2001</year>
+          <volume>2</volume>
+          <fpage>82</fpage>
+          <lpage>91</lpage>
+          <pub-id pub-id-type="pmid">11247306</pub-id>
+          <pub-id pub-id-type="doi">10.1034/j.1600-0854.2001.020202.x</pub-id>
+        </citation>
+      </ref>
+      <ref id="B63">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Corbeil</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Fargeas</surname>
+              <given-names>CA</given-names>
+            </name>
+            <name>
+              <surname>Huttner</surname>
+              <given-names>WB</given-names>
+            </name>
+          </person-group>
+          <article-title>Rat prominin, like its mouse and human orthologues is a pentaspan membrane glycoprotein</article-title>
+          <source>Biochem Biophys Res Commun</source>
+          <year>2001</year>
+          <volume>285</volume>
+          <fpage>939</fpage>
+          <lpage>944</lpage>
+          <pub-id pub-id-type="pmid">11467842</pub-id>
+          <pub-id pub-id-type="doi">10.1006/bbrc.2001.5271</pub-id>
+        </citation>
+      </ref>
+      <ref id="B64">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sawamoto</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Nakao</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Kakishita</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Ogawa</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Toyama</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Yamamoto</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Yamaguchi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Mori</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Goldman</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Itakura</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Okano</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Generation of dopaminergic neurons in the adult brain from mesencephalic precursor cells labeled with a nestin-GFP transgene</article-title>
+          <source>J Neurosci</source>
+          <year>2001</year>
+          <volume>21</volume>
+          <fpage>3895</fpage>
+          <lpage>3903</lpage>
+          <pub-id pub-id-type="pmid">11356877</pub-id>
+        </citation>
+      </ref>
+      <ref id="B65">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Uchida</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Buck</surname>
+              <given-names>DW</given-names>
+            </name>
+            <name>
+              <surname>He</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Reitsma</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Masek</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Phan</surname>
+              <given-names>TV</given-names>
+            </name>
+            <name>
+              <surname>Tsukamoto</surname>
+              <given-names>AS</given-names>
+            </name>
+            <name>
+              <surname>Gage</surname>
+              <given-names>FH</given-names>
+            </name>
+            <name>
+              <surname>Weissman</surname>
+              <given-names>IL</given-names>
+            </name>
+          </person-group>
+          <article-title>Direct isolation of human central nervous system stem cells</article-title>
+          <source>PNAS</source>
+          <year>2000</year>
+          <volume>97</volume>
+          <fpage>14720</fpage>
+          <lpage>14725</lpage>
+          <pub-id pub-id-type="pmid">11121071</pub-id>
+          <pub-id pub-id-type="doi">10.1073/pnas.97.26.14720</pub-id>
+        </citation>
+      </ref>
+      <ref id="B66">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vogel</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Gruneback</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Messam</surname>
+              <given-names>CA</given-names>
+            </name>
+            <name>
+              <surname>Kanz</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Brugger</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Buhring</surname>
+              <given-names>HJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Heterogeneity among human bone marrow-derived mesenchymal stem cells and neural progenitor cells.</article-title>
+          <source>Haematologica</source>
+          <year>2003</year>
+          <volume>88 </volume>
+          <fpage>126</fpage>
+          <lpage>133</lpage>
+          <pub-id pub-id-type="pmid">12604402</pub-id>
+        </citation>
+      </ref>
+      <ref id="B67">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jin</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Mao</surname>
+              <given-names>XO</given-names>
+            </name>
+            <name>
+              <surname>Sun</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Xie</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Greenberg</surname>
+              <given-names>DA</given-names>
+            </name>
+          </person-group>
+          <article-title>Stem cell factor stimulates neurogenesis in vitro and in vivo.</article-title>
+          <source>J Clin Invest</source>
+          <year>2002</year>
+          <volume>110 </volume>
+          <fpage>311</fpage>
+          <lpage>319</lpage>
+          <pub-id pub-id-type="pmid">12163450</pub-id>
+          <pub-id pub-id-type="doi">10.1172/JCI200215251</pub-id>
+        </citation>
+      </ref>
+      <ref id="B68">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>JB</given-names>
+            </name>
+            <name>
+              <surname>Kuroda</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Shichinohe</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Ikeda</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Seki</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Hida</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Tada</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Sawada</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Iwasaki</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Migration and differentiation of nuclear fluorescence-labeled bone marrow stromal cells after transplantation into cerebral infarct and spinal cord injury in mice</article-title>
+          <source>Neuropathology</source>
+          <year>2003</year>
+          <volume>23</volume>
+          <fpage>169</fpage>
+          <lpage>180</lpage>
+          <pub-id pub-id-type="pmid">14570283</pub-id>
+          <pub-id pub-id-type="doi">10.1046/j.1440-1789.2003.00496.x</pub-id>
+        </citation>
+      </ref>
+      <ref id="B69">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sanchez-Ramos</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Song</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Cardozo-Pelaez</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Hazzi</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Stedeford</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Willing</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Freeman</surname>
+              <given-names>TB</given-names>
+            </name>
+            <name>
+              <surname>Saporta</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Janssen</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Patel</surname>
+              <given-names>N</given-names>
+            </name>
+          </person-group>
+          <article-title>Adult Bone Marrow Stromal Cells Differentiate into Neural Cells in Vitro</article-title>
+          <source>Experimental Neurology</source>
+          <year>2000</year>
+          <volume>164</volume>
+          <fpage>247</fpage>
+          <lpage>256</lpage>
+          <pub-id pub-id-type="pmid">10915564</pub-id>
+          <pub-id pub-id-type="doi">10.1006/exnr.2000.7389</pub-id>
+        </citation>
+      </ref>
+      <ref id="B70">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Epting</surname>
+              <given-names>CL</given-names>
+            </name>
+            <name>
+              <surname>Lopez</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Shen</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Bristow</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Bernstein</surname>
+              <given-names>HS</given-names>
+            </name>
+          </person-group>
+          <article-title>Stem cell antigen-1 is necessary for cell-cycle withdrawal and myoblast differentiation in C2C12 cells</article-title>
+          <source>J Cell Sci</source>
+          <year>2004</year>
+          <volume>117</volume>
+          <fpage>6185</fpage>
+          <lpage>6195</lpage>
+          <pub-id pub-id-type="pmid">15546912</pub-id>
+          <pub-id pub-id-type="doi">10.1242/jcs.01548</pub-id>
+        </citation>
+      </ref>
+      <ref id="B71">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Giebel</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Corbeil</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Beckmann</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Hoehn</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Freund</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Giesen</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Fischer</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Koegler</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Wernet</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>Segregation of lipid raft markers including CD133 in polarized human hematopoietic stem and progenitor cells</article-title>
+          <source>Blood</source>
+          <year>2004</year>
+          <volume>[Epub ahead of print]</volume>
+        </citation>
+      </ref>
+      <ref id="B72">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jahn</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Seipel</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Coutinho</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Urschel</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Schwarz</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Miething</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Serve</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Peschel</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Duyster</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Analysing c-kit internalization using a functional c-kit-EGFP chimera containing the fluorochrome within the extracellular domain</article-title>
+          <source>Oncogene</source>
+          <year>2002</year>
+          <volume>21</volume>
+          <fpage>4508</fpage>
+          <lpage>4520</lpage>
+          <pub-id pub-id-type="pmid">12085229</pub-id>
+          <pub-id pub-id-type="doi">10.1038/sj.onc.1205559</pub-id>
+        </citation>
+      </ref>
+      <ref id="B73">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Broudy</surname>
+              <given-names>VC</given-names>
+            </name>
+          </person-group>
+          <article-title>Stem cell factor and hematopoiesis</article-title>
+          <source>Blood</source>
+          <year>1997</year>
+          <volume>90</volume>
+          <fpage>1345</fpage>
+          <lpage>1364</lpage>
+          <pub-id pub-id-type="pmid">9269751</pub-id>
+        </citation>
+      </ref>
+      <ref id="B74">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ito</surname>
+              <given-names>CY</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>CY</given-names>
+            </name>
+            <name>
+              <surname>Bernstein</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Dick</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Stanford</surname>
+              <given-names>WL</given-names>
+            </name>
+          </person-group>
+          <article-title>Hematopoietic stem cell and progenitor defects in Sca-1/Ly-6A-null mice</article-title>
+          <source>Blood</source>
+          <year>2003</year>
+          <volume>101</volume>
+          <fpage>517</fpage>
+          <lpage>523</lpage>
+          <pub-id pub-id-type="pmid">12393491</pub-id>
+          <pub-id pub-id-type="doi">10.1182/blood-2002-06-1918</pub-id>
+        </citation>
+      </ref>
+      <ref id="B75">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chen</surname>
+              <given-names>HC</given-names>
+            </name>
+            <name>
+              <surname>Frissora</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Durbin</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Muthusamy</surname>
+              <given-names>N</given-names>
+            </name>
+          </person-group>
+          <article-title>Activation induced differential regulation of stem cell antigen-1 (Ly-6A/E) expression in murine B cells</article-title>
+          <source>Cell Immunol</source>
+          <year>2003</year>
+          <volume>225</volume>
+          <fpage>42</fpage>
+          <lpage>52</lpage>
+          <pub-id pub-id-type="pmid">14643303</pub-id>
+          <pub-id pub-id-type="doi">10.1016/j.cellimm.2003.09.006</pub-id>
+        </citation>
+      </ref>
+      <ref id="B76">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sette</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Paronetto</surname>
+              <given-names>MP</given-names>
+            </name>
+            <name>
+              <surname>Barchi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Bevilacqua</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Geremia</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Rossi</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>Tr-kit-induced resumption of the cell cycle in mouse eggs requires activation of a Src-like kinase</article-title>
+          <source>Embo J</source>
+          <year>2002</year>
+          <volume>21</volume>
+          <fpage>5386</fpage>
+          <lpage>5395</lpage>
+          <pub-id pub-id-type="pmid">12374739</pub-id>
+          <pub-id pub-id-type="doi">10.1093/emboj/cdf553</pub-id>
+        </citation>
+      </ref>
+      <ref id="B77">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Paronetto</surname>
+              <given-names>MP</given-names>
+            </name>
+            <name>
+              <surname>Venables</surname>
+              <given-names>JP</given-names>
+            </name>
+            <name>
+              <surname>Elliott</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Geremia</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Rossi</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Sette</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <article-title>Tr-kit promotes the formation of a multimolecular complex composed by Fyn, PLCgamma1 and Sam68</article-title>
+          <source>Oncogene</source>
+          <year>2003</year>
+          <volume>22</volume>
+          <fpage>8707</fpage>
+          <lpage>8715</lpage>
+          <pub-id pub-id-type="pmid">14647465</pub-id>
+        </citation>
+      </ref>
+      <ref id="B78">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schumann</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Rujescu</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Kissling</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Soyka</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Dahmen</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Preuss</surname>
+              <given-names>UW</given-names>
+            </name>
+            <name>
+              <surname>Wieman</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Depner</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Wellek</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Lascorz</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Bondy</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Giegling</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Anghelescu</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Cowen</surname>
+              <given-names>MS</given-names>
+            </name>
+            <name>
+              <surname>Poustka</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Spanagel</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Mann</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Henn</surname>
+              <given-names>FA</given-names>
+            </name>
+            <name>
+              <surname>Szegedi</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Analysis of genetic variations of protein tyrosine kinase fyn and their association with alcohol dependence in two independent cohorts</article-title>
+          <source>Biol Psychiatry</source>
+          <year>2003</year>
+          <volume>54</volume>
+          <fpage>1422</fpage>
+          <lpage>1426</lpage>
+          <pub-id pub-id-type="pmid">14675807</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S0006-3223(03)00635-8</pub-id>
+        </citation>
+      </ref>
+      <ref id="B79">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yaka</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Tang</surname>
+              <given-names>KC</given-names>
+            </name>
+            <name>
+              <surname>Camarini</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Janak</surname>
+              <given-names>PH</given-names>
+            </name>
+            <name>
+              <surname>Ron</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Fyn kinase and NR2B-containing NMDA receptors regulate acute ethanol sensitivity but not ethanol intake or conditioned reward</article-title>
+          <source>Alcohol Clin Exp Res</source>
+          <year>2003</year>
+          <volume>27</volume>
+          <fpage>1736</fpage>
+          <lpage>1742</lpage>
+          <pub-id pub-id-type="pmid">14634488</pub-id>
+          <pub-id pub-id-type="doi">10.1097/01.ALC.0000095924.87729.D8</pub-id>
+        </citation>
+      </ref>
+      <ref id="B80">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yaka</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Phamluong</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Ron</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Scaffolding of Fyn kinase to the NMDA receptor determines brain region sensitivity to ethanol</article-title>
+          <source>J Neurosci</source>
+          <year>2003</year>
+          <volume>23</volume>
+          <fpage>3623</fpage>
+          <lpage>3632</lpage>
+          <pub-id pub-id-type="pmid">12736333</pub-id>
+        </citation>
+      </ref>
+      <ref id="B81">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bouffler</surname>
+              <given-names>SD</given-names>
+            </name>
+          </person-group>
+          <article-title>Involvement of telomeric sequences in chromosomal aberrations.</article-title>
+          <source>Mutation Research</source>
+          <year>1998</year>
+          <volume>404</volume>
+          <fpage>199</fpage>
+          <lpage>204</lpage>
+          <pub-id pub-id-type="pmid">9729384</pub-id>
+        </citation>
+      </ref>
+      <ref id="B82">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Holt</surname>
+              <given-names>SE</given-names>
+            </name>
+            <name>
+              <surname>Shay</surname>
+              <given-names>JW</given-names>
+            </name>
+          </person-group>
+          <article-title>Role of telomerase in cellular proliferation and cancer.</article-title>
+          <source>J Cell Physiol</source>
+          <year>1999</year>
+          <volume>180 </volume>
+          <fpage>10</fpage>
+          <lpage>18</lpage>
+          <pub-id pub-id-type="pmid">10362013</pub-id>
+          <pub-id pub-id-type="doi">10.1002/(SICI)1097-4652(199907)180:1&lt;10::AID-JCP2&gt;3.0.CO;2-D</pub-id>
+        </citation>
+      </ref>
+      <ref id="B83">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Oulton</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Harrington</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Telomeres, telomerase, and cancer: life on the edge of genomic stability.</article-title>
+          <source>Curr Opin Oncol</source>
+          <year>2000</year>
+          <volume>12 </volume>
+          <fpage>74</fpage>
+          <lpage>81</lpage>
+          <pub-id pub-id-type="pmid">10687733</pub-id>
+          <pub-id pub-id-type="doi">10.1097/00001622-200001000-00013</pub-id>
+        </citation>
+      </ref>
+      <ref id="B84">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yamaguchi</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Nozawa</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Savoysky</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Hayakawa</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Nimura</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Yoshida</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Change in telomerase activity of rat organs during growth and aging</article-title>
+          <source>Experimental Cell Research</source>
+          <year>1998</year>
+          <volume>242</volume>
+          <fpage>120</fpage>
+          <lpage>127</lpage>
+          <pub-id pub-id-type="pmid">9665809</pub-id>
+          <pub-id pub-id-type="doi">10.1006/excr.1998.4102</pub-id>
+        </citation>
+      </ref>
+      <ref id="B85">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Klapper</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Shin</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Mattson</surname>
+              <given-names>MP</given-names>
+            </name>
+          </person-group>
+          <article-title>Differential regulation of telomerase activity and TERT expression during brain development in mice</article-title>
+          <source>J Neurosci Res</source>
+          <year>2001</year>
+          <volume>64</volume>
+          <fpage>252</fpage>
+          <lpage>260</lpage>
+          <pub-id pub-id-type="pmid">11319769</pub-id>
+          <pub-id pub-id-type="doi">10.1002/jnr.1073</pub-id>
+        </citation>
+      </ref>
+      <ref id="B86">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Haendeler</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Hoffmann</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Rahman</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Zeiher</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Dimmeler</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Regulation of telomerase activity and anti-apoptotic function by protein-protein interaction and phosphorylation</article-title>
+          <source>FEBS Letters</source>
+          <year>2003</year>
+          <volume>536</volume>
+          <fpage>180</fpage>
+          <lpage>186</lpage>
+          <pub-id pub-id-type="pmid">12586360</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S0014-5793(03)00058-9</pub-id>
+        </citation>
+      </ref>
+      <ref id="B87">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhu</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Fu</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Mattson</surname>
+              <given-names>MP</given-names>
+            </name>
+          </person-group>
+          <article-title>The catalytic subunit of telomerase protects neurons against amyloid beta-peptide-induced apoptosis </article-title>
+          <source>Journal of Neurochemistry</source>
+          <year>2000</year>
+          <volume>75 </volume>
+          <fpage>117</fpage>
+          <lpage>124</lpage>
+          <pub-id pub-id-type="pmid">10854254</pub-id>
+          <pub-id pub-id-type="doi">10.1046/j.1471-4159.2000.0750117.x</pub-id>
+        </citation>
+      </ref>
+      <ref id="B88">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lu</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Fu</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Mattson</surname>
+              <given-names>MP</given-names>
+            </name>
+          </person-group>
+          <article-title>Telomerase protects developing neurons against DNA damage-induced cell death.</article-title>
+          <source>Brain Res Dev Brain Res</source>
+          <year>2001</year>
+          <volume>131 </volume>
+          <fpage>167</fpage>
+          <lpage>171</lpage>
+          <pub-id pub-id-type="pmid">11718848</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S0165-3806(01)00237-1</pub-id>
+        </citation>
+      </ref>
+      <ref id="B89">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rehen</surname>
+              <given-names>SK</given-names>
+            </name>
+            <name>
+              <surname>McConnell</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Kaushal</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Kingsbury</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>AH</given-names>
+            </name>
+            <name>
+              <surname>Chun</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Chromosomal variation in neurons of the developing and adult mammalian nervous system</article-title>
+          <source>PNAS</source>
+          <year>2001</year>
+          <volume>98</volume>
+          <fpage>13361</fpage>
+          <lpage>13366</lpage>
+          <pub-id pub-id-type="pmid">11698687</pub-id>
+          <pub-id pub-id-type="doi">10.1073/pnas.231487398</pub-id>
+        </citation>
+      </ref>
+      <ref id="B90">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kaushal</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Contos</surname>
+              <given-names>JJ</given-names>
+            </name>
+            <name>
+              <surname>Treuner</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>AH</given-names>
+            </name>
+            <name>
+              <surname>Kingsbury</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Rehen</surname>
+              <given-names>SK</given-names>
+            </name>
+            <name>
+              <surname>McConnell</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Okabe</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Barlow</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Chun</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Alteration of gene expression by chromosome loss in the postnatal mouse brain</article-title>
+          <source>J Neurosci</source>
+          <year>2003</year>
+          <volume>23</volume>
+          <fpage>5599</fpage>
+          <lpage>5606</lpage>
+          <pub-id pub-id-type="pmid">12843262</pub-id>
+        </citation>
+      </ref>
+      <ref id="B91">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Thang</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Kobayashi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Matsuoka</surname>
+              <given-names>I</given-names>
+            </name>
+          </person-group>
+          <article-title>Regulation of glial cell line-derived neurotrophic factor responsiveness in developing rat sympathetic neurons by retinoic acid and bone morphogenetic protein-2</article-title>
+          <source>J Neurosci</source>
+          <year>2000</year>
+          <volume>20</volume>
+          <fpage>2917</fpage>
+          <lpage>2925</lpage>
+          <pub-id pub-id-type="pmid">10751444</pub-id>
+        </citation>
+      </ref>
+      <ref id="B92">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dohrman</surname>
+              <given-names>DP</given-names>
+            </name>
+            <name>
+              <surname>West</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>Pantazis</surname>
+              <given-names>NJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Ethanol reduces expression of the nerve growth factor receptor, but not nerve growth factor protein levels in the neonatal rat cerebellum.</article-title>
+          <source>Alcohol Clin Exp Res</source>
+          <year>1997</year>
+          <volume>21</volume>
+          <fpage>882</fpage>
+          <lpage>893</lpage>
+          <pub-id pub-id-type="pmid">9267539</pub-id>
+        </citation>
+      </ref>
+      <ref id="B93">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Desai</surname>
+              <given-names>AR</given-names>
+            </name>
+            <name>
+              <surname>McConnell</surname>
+              <given-names>SK</given-names>
+            </name>
+          </person-group>
+          <article-title>Progressive restriction in fate potential by neural progenitors during cerebral cortical development</article-title>
+          <source>Development</source>
+          <year>2000</year>
+          <volume>127 </volume>
+          <fpage>2863</fpage>
+          <lpage>2872</lpage>
+          <pub-id pub-id-type="pmid">10851131</pub-id>
+        </citation>
+      </ref>
+      <ref id="B94">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Adachi</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Mizoi</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Fukunaga</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Ogawa</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Ueno</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Imamichi</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Degrees of alcohol intoxication in 117 hospitalized cases.</article-title>
+          <source>Journal of Studies on Alcohol</source>
+          <year>1991</year>
+          <volume>52 </volume>
+          <fpage>448</fpage>
+          <lpage>453</lpage>
+          <pub-id pub-id-type="pmid">1943100</pub-id>
+        </citation>
+      </ref>
+      <ref id="B95">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Perper</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Twerski</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Wienand</surname>
+              <given-names>JW</given-names>
+            </name>
+          </person-group>
+          <article-title>Tolerance at High Blood Alcohol Concentration: A study of 110 Cases and Review of the Literature.</article-title>
+          <source>Journal of Forensic Sciences</source>
+          <year>1986</year>
+          <volume>31 </volume>
+          <fpage>212</fpage>
+          <lpage>221</lpage>
+          <pub-id pub-id-type="pmid">3511175</pub-id>
+        </citation>
+      </ref>
+      <ref id="B96">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Netzeband</surname>
+              <given-names>JG</given-names>
+            </name>
+            <name>
+              <surname>Schneeloch</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>Trotter</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Caguioa-Aquino</surname>
+              <given-names>JN</given-names>
+            </name>
+            <name>
+              <surname>Gruol</surname>
+              <given-names>DL</given-names>
+            </name>
+          </person-group>
+          <article-title>Chronic ethanol treatment and withdrawal alter ACPD-evoked calcium signals in developing Purkinje neurons.</article-title>
+          <source>Alcohol Clin Exp Res</source>
+          <year>2002</year>
+          <volume>26</volume>
+          <fpage>386</fpage>
+          <lpage>393</lpage>
+          <pub-id pub-id-type="pmid">11923593</pub-id>
+        </citation>
+      </ref>
+      <ref id="B97">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Webb</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Walker</surname>
+              <given-names>DW</given-names>
+            </name>
+            <name>
+              <surname>Keaton</surname>
+              <given-names>MB</given-names>
+            </name>
+          </person-group>
+          <article-title>Nerve growth factor and chronic ethanol treatment alter calcium homeostasis in developing rat septal neurons</article-title>
+          <source>Developmental Brain Research</source>
+          <year>2003</year>
+          <volume>143 </volume>
+          <fpage>57</fpage>
+          <lpage>71</lpage>
+          <pub-id pub-id-type="pmid">12763581</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S0165-3806(03)00100-7</pub-id>
+        </citation>
+      </ref>
+      <ref id="B98">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gottesfeld</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Morgan</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Perez-Polo</surname>
+              <given-names>JR</given-names>
+            </name>
+          </person-group>
+          <article-title>Prenatal alcohol exposure alters the development of sympathetic synaptic components and of nerve growth factor receptor expression selectivity in lymphoid organs</article-title>
+          <source>Journal of Neuroscience Research</source>
+          <year>1990</year>
+          <volume>26</volume>
+          <fpage>308</fpage>
+          <lpage>316</lpage>
+          <pub-id pub-id-type="pmid">2168949</pub-id>
+          <pub-id pub-id-type="doi">10.1002/jnr.490260307</pub-id>
+        </citation>
+      </ref>
+      <ref id="B99">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Miranda</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Sohrabji</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Singh</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Toran-Allerand</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Nerve growth factor (NGF) regulation of estrogen receptors in explant cultures of the developing forebrain.</article-title>
+          <source>Journal of Neurobiology</source>
+          <year>1996</year>
+          <volume>31</volume>
+          <fpage>77</fpage>
+          <lpage>87</lpage>
+          <pub-id pub-id-type="pmid">9120438</pub-id>
+          <pub-id pub-id-type="doi">10.1002/(SICI)1097-4695(199609)31:1&lt;77::AID-NEU7&gt;3.0.CO;2-C</pub-id>
+        </citation>
+      </ref>
+      <ref id="B100">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sohrabji</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Miranda</surname>
+              <given-names>RCG</given-names>
+            </name>
+            <name>
+              <surname>Toran-Allerand</surname>
+              <given-names>CD</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of a Putative Estrogen Response Element in the Gene Encoding Brain-Derived Neurotrophic Factor</article-title>
+          <source>PNAS</source>
+          <year>1995</year>
+          <volume>92</volume>
+          <fpage>11110</fpage>
+          <lpage>11114</lpage>
+          <pub-id pub-id-type="pmid">7479947</pub-id>
+        </citation>
+      </ref>
+      <ref id="B101">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Greider</surname>
+              <given-names>CW</given-names>
+            </name>
+            <name>
+              <surname>Blackburn</surname>
+              <given-names>EH</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of a specific telomere terminal transferase activity in Tetrahymena extracts</article-title>
+          <source>Cell</source>
+          <year>1985</year>
+          <volume>43 </volume>
+          <fpage>405</fpage>
+          <lpage>413</lpage>
+          <pub-id pub-id-type="pmid">3907856</pub-id>
+          <pub-id pub-id-type="doi">10.1016/0092-8674(85)90170-9</pub-id>
+        </citation>
+      </ref>
+      <ref id="B102">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Greider</surname>
+              <given-names>CW</given-names>
+            </name>
+            <name>
+              <surname>Blackburn</surname>
+              <given-names>EH</given-names>
+            </name>
+          </person-group>
+          <article-title>A telomeric sequence in the RNA of Tetrahymena telomerase required for telomere repeat synthesis</article-title>
+          <source>Nature</source>
+          <year>1989</year>
+          <volume>337 </volume>
+          <fpage>331</fpage>
+          <lpage>337</lpage>
+          <pub-id pub-id-type="pmid">2463488</pub-id>
+          <pub-id pub-id-type="doi">10.1038/337331a0</pub-id>
+        </citation>
+      </ref>
+      <ref id="B103">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lingner</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Hughes</surname>
+              <given-names>TR</given-names>
+            </name>
+            <name>
+              <surname>Shevchenko</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Mann</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Lundblad</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Cech</surname>
+              <given-names>TR</given-names>
+            </name>
+          </person-group>
+          <article-title>Reverse transcriptase motifs in the catalytic subunit of telomerase</article-title>
+          <source>Science</source>
+          <year>1997</year>
+          <volume>267 </volume>
+          <fpage>567</fpage>
+        </citation>
+      </ref>
+      <ref id="B104">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wege</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Chui</surname>
+              <given-names>MS</given-names>
+            </name>
+            <name>
+              <surname>Le</surname>
+              <given-names>HT</given-names>
+            </name>
+            <name>
+              <surname>JM</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Zern</surname>
+              <given-names>MA</given-names>
+            </name>
+          </person-group>
+          <article-title>SYBR Green real-time telomeric repeat amplification protocol for the rapid quantification of telomerase activity.</article-title>
+          <source>Nucleic Acids Research</source>
+          <year>2003</year>
+          <volume>31</volume>
+          <fpage>E3</fpage>
+          <lpage>3</lpage>
+          <pub-id pub-id-type="pmid">12527792</pub-id>
+          <pub-id pub-id-type="doi">10.1093/nar/gng003</pub-id>
+        </citation>
+      </ref>
+      <ref id="B105">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>NW</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <article-title>Advances in quantification and characterization of telomerase activity by the telomeric repeat amplification protocol (TRAP)</article-title>
+          <source>Nucleic Acids Research</source>
+          <year>1997</year>
+          <volume>25</volume>
+          <fpage>2595</fpage>
+          <lpage>2597</lpage>
+          <pub-id pub-id-type="pmid">9185569</pub-id>
+          <pub-id pub-id-type="doi">10.1093/nar/25.13.2595</pub-id>
+        </citation>
+      </ref>
+      <ref id="B106">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Holzmann</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Berger</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Mejri</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Cerni</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Sasgary</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Detection and quantification of transcripts for the catalytic subunit TERT and the RNA component of telomerase in rat tissue.</article-title>
+          <source>Analytical Biochemistry</source>
+          <year>2003</year>
+          <volume>317</volume>
+          <fpage>120</fpage>
+          <lpage>123</lpage>
+          <pub-id pub-id-type="pmid">12729609</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S0003-2697(03)00091-5</pub-id>
+        </citation>
+      </ref>
+    </ref-list>
+    <sec sec-type="display-objects">
+      <title>Figures and Tables</title>
+      <fig position="float" id="F1">
+        <label>Figure 1</label>
+        <caption>
+          <p>Photomicrographs depicting immunofluorescence analysis of neurospheres labeled for intermediate filament proteins nestin (<bold>A</bold>), and the neuronal lineage marker, the neuronal-specific nuclear antigen, NeuN (<bold>B </bold>and lower magnification inset). Cell nuclei were counter-stained with DAPI (blue). Control neurosphere cultures are immuno-positive for nestin. However, cultures do not exhibit nuclear localization of NeuN, showing that neurosphere cultures were comprised of immature cells. (<bold>C</bold>) Differentiation following removal of the mitogen EGF, and dispersion of cells onto a laminin substrate, results in the upregulation and nuclear localization of NeuN. Photomicrograph represents a digitally merged immunofluorescence and phase contrast microscopic image showing NeuN immunofluorescence overlying nuclei (white arrows) of early differentiating neurons. Scale bars: 50 uM.</p>
+        </caption>
+        <graphic xlink:href="1471-2202-6-59-1"/>
+      </fig>
+      <fig position="float" id="F2">
+        <label>Figure 2</label>
+        <caption>
+          <p>(<bold>A</bold>) Cell-cycle analysis of cortical progenitors treated with ethanol for 4 days. (<bold>A<italic>i-iii</italic></bold>) Flow-cytometric frequency histograms of progenitors stained with propidium iodide (PI) for DNA content. (<bold>A<italic>ii,iii</italic></bold>) Ethanol stimulates DNA synthesis and cell-cycle progression, as indicated by the increase in area under the S-phase and G2/M peaks, relative to controls. <bold>B<italic>i-iii</italic></bold>, Quantitative analyses of cell-cycle. (<bold>B<italic>i,ii</italic></bold>) Ethanol significantly increased the number of cells entering S and G2/M-phases of the cell-cycle. (<bold>B<italic>iii</italic></bold>) The G2/S ratio was unchanged at low ethanol doses, but significantly increased with the high dose. (<bold>B<italic>iv</italic></bold>) Ethanol did not induce apoptosis at either dose used, and very little DNA fragmentation was observed in the sub-G0/1 range in (<bold><italic>Ai-iii</italic></bold>). Asterisks indicate statistical-significance, p &lt; 0.05.</p>
+        </caption>
+        <graphic xlink:href="1471-2202-6-59-2"/>
+      </fig>
+      <fig position="float" id="F3">
+        <label>Figure 3</label>
+        <caption>
+          <p>Ethanol increases neurosphere number and increases variation in the size of neurospheres. (<bold>A-D</bold>) Representative photomicrographs of control (<bold>A,B</bold>) and ethanol-treated (<bold>C,D</bold>) neurospheres showing that ethanol (at 5 days exposure) increases both the density and size variation of neurospheres. Arrows mark the appearance of large neurospheres in ethanol-treated cultures. (<bold>E-G</bold>) Morphometric analyses show that ethanol induces a significant increase in the density of neurospheres (<bold>E</bold>), without altering the mean area per neurosphere (in square pixels, <bold>F</bold>). However, ethanol induced a dose-related increase in variation (Standard Deviation) in neurosphere size (<bold>G</bold>). Asterisks indicate statistical-significance, p &lt; 0.05. Scale bar: <bold>A-D</bold>, 100 uM.</p>
+        </caption>
+        <graphic xlink:href="1471-2202-6-59-3"/>
+      </fig>
+      <fig position="float" id="F4">
+        <label>Figure 4</label>
+        <caption>
+          <p>Ethanol induces asymmetric division of neural progenitor cells. Dissociated neural progenitor cells (<bold>A</bold>) cultured under mitogenic conditions divide symmetrically to generate two similar daughter cells (<bold>D</bold>, representative examples of cells undergoing cytokinesis), and regenerate new neurospheres (data not shown). Ethanol (120 mg/dl)-treated neural progenitors also generate daughter cells by symmetrical division (<bold>B</bold>, examples of cells in different stages of cytokinesis), to regenerate neurospheres over a period of 44 (<bold>E</bold>) and 72 (<bold>G</bold>) hours, under mitogenic conditions. However, despite being cultured under mitogenic conditions, ethanol-treated progenitors also exhibit asymmetric division to generate morphologically dissimilar daughter cells (<bold>C</bold>, examples of asymmetrical division, showing daughter cells in different stages of cytokinesis). Over the period of 44 to 72 hours, one daughter cell exhibits somatic mobility (e.g., <bold>F,H</bold>, cell marked by a *), while the second daughter cells remains stationary (e.g., <bold>F,H</bold>, cell marked by +). The motile daughter cell transiently exhibits long filamentous processes (<bold>F</bold>,*), though these processes retract over a period of 72 hours (<bold>H</bold>,*), in mitogenic medium.</p>
+        </caption>
+        <graphic xlink:href="1471-2202-6-59-4"/>
+      </fig>
+      <fig position="float" id="F5">
+        <label>Figure 5</label>
+        <caption>
+          <p>Quantitative analysis of the effect of ethanol-pretreatment on the regenerative capacity of neural progenitor cells. Neurosphere cultures were treated with varying doses of ethanol for five days, then dissociated and cultured as individual progenitor cells, in ethanol-free mitogenic medium. Ethanol pre-treatment leads to a dose-related decline in the subsequent ability of neural progenitors to undergo cell division (mean number of dividing cells per well &#xB1; SEM) and generate clonal colonies of cells. Asterisks indicate statistical-significance, p &lt; 0.05.</p>
+        </caption>
+        <graphic xlink:href="1471-2202-6-59-5"/>
+      </fig>
+      <fig position="float" id="F6">
+        <label>Figure 6</label>
+        <caption>
+          <p>Quantitative analysis of flow-cytometric data for stem-cell antigen expression in cortical progenitors. Progenitors express stem-cell antigens <italic>(control)</italic>. After 4 days of treatment, low doses of ethanol significantly reduced the proportion of cells expressing Sca-1, CD117/C-kit and CD133. The high dose of ethanol did not further reduce stem-cell antigen expression. Asterisks indicate statistical-significance, p &lt; 0.05. Data were collected from at least 10,000 events/sample.</p>
+        </caption>
+        <graphic xlink:href="1471-2202-6-59-6"/>
+      </fig>
+      <fig position="float" id="F7">
+        <label>Figure 7</label>
+        <caption>
+          <p>(<bold>A</bold>) ABCG2 Transporter expression in cortical progenitors after ethanol treatment. Cultures w ere exposed to ethanol and live, immuno-labeled cells were processed for FACS analysis (see methods) with antibodies to surface ABCG2. Ethanol significantly reduced the expression of ABCG2 (p &lt; 0.05). Data were collected from 100,000 events/sample. (<bold>B</bold>) RT-PCR analysis for nestin in cortical progenitors treated with ethanol for 4 days. The levels of each transcript were unchanged by ethanol. Transcript levels were normalized to cyclophilin (data not shown).</p>
+        </caption>
+        <graphic xlink:href="1471-2202-6-59-7"/>
+      </fig>
+      <fig position="float" id="F8">
+        <label>Figure 8</label>
+        <caption>
+          <p>(<bold>A,B</bold>) TERT mRNA expression and telomerase activity in cortical-derived neurospheres treated with ethanol for 4 days. (<bold>A</bold>), RT-PCR for the TERT transcript. (<bold>B</bold>), Quantification of TERT levels in <italic>A</italic>, expressed as a ratio to cyclophilin. Low doses of ethanol modestly, but significantly, increased TERT transcript levels. However, high doses of ethanol decreased TERT mRNA expression. (<bold>C</bold>), TRAP assays revealed no differences in telomerase activity between treated and control groups. The cycle threshold value (Ct) indirectly measures activity; a lower Ct corresponds to higher telomerase activity. Inset table indicates Ct &#xB1; Standard Deviation (SD). Color code: Black, control; blue, 120 mg/dl; red, 620 mg/dl; pink, no-telomerase control. Asterisks indicate statistical-significance, p &lt; 0.05.</p>
+        </caption>
+        <graphic xlink:href="1471-2202-6-59-8"/>
+      </fig>
+      <fig position="float" id="F9">
+        <label>Figure 9</label>
+        <caption>
+          <p>Pre-treatment with ethanol disrupts retinoic acid-mediated differentiation. Neurosphere cultures were exposed to a dose range of ethanol for 4 days, dissociated into a single cell suspension, plated and then differentiated with retinoic acid (<bold>A</bold>) Quantitative analysis of the mean number (&#xB1; SEM) of primary and secondary branches per cell, formed in the presence of retinoic acid, as a function of ethanol pre-treatment dose. Asterisks indicate statistically significant differences from non-ethanol exposed, control cultures, * = p &lt; 0.003; ** = p &lt; 0.0001. (<bold>B-E</bold>) Representative photomicrographs of branching patterns observed in the presence of retinoic acid, in control (<bold>B</bold>), low (<bold>C</bold>) and moderate doses (<bold>D,E</bold>) of ethanol. Arrows point to second-order branches, which are missing in cells derived from neurosphere cultures exposed to 320 mg/dl ethanol. Scale bar, <bold>B-E</bold>, 25 uM</p>
+        </caption>
+        <graphic xlink:href="1471-2202-6-59-9"/>
+      </fig>
+      <table-wrap position="float" id="T1">
+        <label>Table 1</label>
+        <caption>
+          <p>List of PCR primers</p>
+        </caption>
+        <table frame="hsides" rules="groups">
+          <thead>
+            <tr>
+              <td align="left">
+                <bold>Primer Name</bold>
+              </td>
+              <td align="left">
+                <bold>Sequence</bold>
+              </td>
+              <td align="left">
+                <bold>Product Size</bold>
+              </td>
+              <td align="left">
+                <bold>Accession #/Reference</bold>
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="left">TS primer</td>
+              <td align="left">5'-ATTCCGTCGAGCAGAGTT-3'</td>
+              <td/>
+              <td align="left">[105]</td>
+            </tr>
+            <tr>
+              <td align="left">ACX primer</td>
+              <td align="left">5'-GCGCGG [CTTACC]<sub>3</sub>CTAACC-3'</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">R-Tert_Forward</td>
+              <td align="left">GGTCTTCCGCACGTTGGTTG</td>
+              <td align="left">349bp</td>
+              <td align="left">[106]</td>
+            </tr>
+            <tr>
+              <td align="left">R-Tert_Reverse</td>
+              <td align="left">CAGCAGGTAGAGCGCACAGT</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">Rat_Nestin_Forward</td>
+              <td align="left">TGCAGCCACTGAGGTATCTG</td>
+              <td align="left">1061bp</td>
+              <td align="left">Acc#: M34384</td>
+            </tr>
+            <tr>
+              <td align="left">Rat_Nestin_Reverse</td>
+              <td align="left">AGTTCCCACTCCTGTGGTTG</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">Cyclophilin A_Forward</td>
+              <td align="left">TGGTCAACCCCACCGTGTTCTTCG</td>
+              <td align="left">372bp</td>
+              <td align="left">Acc#: M19533</td>
+            </tr>
+            <tr>
+              <td align="left">Cyclophilin A_Reverse</td>
+              <td align="left">TGCCATCCAGCCACTCAGTCTTGG</td>
+              <td/>
+              <td/>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+    </sec>
+  </back>
+</article>
+</pmc-articleset>

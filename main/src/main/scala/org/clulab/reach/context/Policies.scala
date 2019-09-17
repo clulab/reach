@@ -1,6 +1,8 @@
 package org.clulab.reach.context
 
+import org.clulab.reach.context.context_utils.ContextFeatureUtils
 import org.clulab.reach.mentions._
+
 import collection.mutable
 
 
@@ -36,7 +38,7 @@ class BoundedPaddingContext(
       // Assign the context map to the mention
       m.context = if(contextMap != Map.empty) Some(contextMap) else None
     }
-
+    //ContextFeatureUtils.writeRowsToFile(mentions)
     mentions
   }
 
