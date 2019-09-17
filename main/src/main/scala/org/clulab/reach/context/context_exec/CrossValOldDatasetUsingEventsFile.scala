@@ -3,7 +3,9 @@ package org.clulab.reach.context.context_exec
 import com.typesafe.config.ConfigFactory
 import java.io.File
 
+import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
+import org.clulab.learning.LinearSVMClassifier
 import org.clulab.reach.context.context_utils.ContextFeatureUtils
 
 object CrossValOldDatasetUsingEventsFile extends App {
@@ -12,6 +14,8 @@ object CrossValOldDatasetUsingEventsFile extends App {
   val annotationsFileDir = config.getString("polarityContext.eventsFilesDir")
   val labelFile = config.getString("svmContext.labelFileOldDataset")
   val labelMapFromOldDataset = CodeUtils.generateLabelMap(labelFile)
+  val smallSetOfPapers = List("PMC2156142", "PMC2195994")
+  val dirsToUseForDebug = allPapersDirs.filter(x => smallSetOfPapers.contains(x.getName))
   val allPapersDirs = new File(parentDirForRows).listFiles().filter(x => x.isDirectory && x.getName != "newAnnotations")
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val keysForLabels = collection.mutable.HashMap[AggregatedContextInstance, (String, String, String)]()
@@ -38,13 +42,29 @@ object CrossValOldDatasetUsingEventsFile extends App {
     }
     val nameOfCurrentDirectory = paperDir.getName
     val entry = (nameOfCurrentDirectory,rowsForCurrentSent)
-    //val entry = Map(nameOfCurrentDirectory -> rowsForCurrentSent)
 
     allRowsByPaperID += entry
   }
 
 
   println(allRowsByPaperID.size)
+
+  val precisionScoreBoardPerPaper = collection.mutable.HashMap[String, Double]()
+  val recallScoreBoardPerPaper = collection.mutable.HashMap[String, Double]()
+  val f1ScoreBoardPerPaper = collection.mutable.HashMap[String, Double]()
+  val giantPredictedLabels = collection.mutable.ListBuffer[Int]()
+  val giantTruthLabels = collection.mutable.ListBuffer[Int]()
+  val quickerFixer = 1
+
+  for((paperID, testRowsPerPaper) <- allRowsByPaperID) {
+    val svmDeclaration = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
+    val svmInstance = new LinearSVMContextClassifier(Some(svmDeclaration))
+    val truthLabelsForThisPaper = collection.mutable.ListBuffer[Int]()
+    val predictedLabelsForThisPaper = collection.mutable.ListBuffer[Int]()
+    val trainingCaseRowsUnFiltered = collection.mutable.ListBuffer[AggregatedContextInstance]()
+    val notCurrentPaper = allRowsByPaperID.filter(_._1!=paperID)
+    print(notCurrentPaper.size)
+  }
 
 
 }
