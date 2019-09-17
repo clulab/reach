@@ -1,0 +1,49 @@
+1	0-6	
+2	0-17	
+4	6-21	manual:murine,manual:patients,go:GO:0072686
+5	0-30	manual:murine,go:GO:0072686
+6	4-20	manual:murine,manual:patients
+7	1-22	go:GO:0005813,go:GO:0000922
+8	2-34	taxonomy:10090,uniprot:SL-0149
+10	0-12	manual:patients
+11	1-17	taxonomy:10090
+12	3-29	manual:patients,taxonomy:10090
+13	0-28	manual:patients
+14	0-24	
+15	0-18	
+16	0-25	
+17	0-20	
+18	8-16	
+19	0-11	
+21	0-19	tissuelist:TS-0595,tissuelist:TS-0094
+22	2-51	
+27	1-55	taxonomy:10090,uaz:CL:2000042,uaz:CVCL_9115
+28	6-41	cellosaurus:CVCL_9502,taxonomy:9606,tissuelist:TS-0739
+29	2-46	manual:patients,taxonomy:10090,go:GO:0005813,tissuelist:TS-0591,go:GO:0097431
+31	1-31	go:GO:0072686
+32	5-20	
+33	2-22	
+34	2-13	go:GO:0000922
+37	0-20	uniprot:SL-0149,go:GO:0005813,go:GO:0000922
+38	2-36	
+39	2-35	go:GO:0005813,go:GO:0000922
+40	1-29	
+41	2-32	
+42	2-16	
+44	2-44	uaz:CVCL_9115
+46	2-8	uaz:CVCL_9115
+47	2-21	uaz:CVCL_9115
+48	16-24	uniprot:SL-0149,uaz:CVCL_9115
+49	5-20	uaz:CVCL_9115
+50	6-17	uniprot:SL-0149,uaz:CVCL_9115
+51	0-20	uaz:CVCL_9115
+53	2-37	tissuelist:TS-0158,cellosaurus:CVCL_0291
+54	4-21	tissuelist:TS-0417,cellosaurus:CVCL_0022
+55	2-22	taxonomy:10090
+56	4-28	taxonomy:10090,tissuelist:TS-0417,tissuelist:TS-0158,cellosaurus:CVCL_0022,cellosaurus:CVCL_0291
+58	4-28	manual:mitochondria
+59	2-44	go:GO:0005813,go:GO:0097431
+60	1-6	go:GO:0005813,go:GO:0097431
+61	8-25	tissuelist:TS-0161,tissuelist:TS-0417,cellosaurus:CVCL_0022,cellosaurus:CVCL_0291
+62	0-39	cellosaurus:CVCL_0022,cellosaurus:CVCL_0291
+63	6-32	tissuelist:TS-0161,tissuelist:TS-0417,cellosaurus:CVCL_0022,cellosaurus:CVCL_0291

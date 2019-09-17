@@ -1,0 +1,34 @@
+5	12-16	manual:murine,go:GO:0072686
+7	2-9	go:GO:0005813,go:GO:0000922
+7	2-14	go:GO:0005813,go:GO:0000922
+7	6-9	go:GO:0005813,go:GO:0000922
+7	6-14	go:GO:0005813,go:GO:0000922
+8	8-10	taxonomy:10090,uniprot:SL-0149
+8	25-28	taxonomy:10090,uniprot:SL-0149
+12	6-26	manual:patients,taxonomy:10090
+14	10-20	
+15	0-3	
+16	7-12	
+19	0-5	
+22	4-7	
+27	2-14	uaz:CL:2000042,uaz:CVCL_9115,taxonomy:10090
+30	2-12	
+30	7-12	
+32	5-10	
+33	3-6	
+38	27-30	
+41	20-27	
+43	26-30	
+44	3-4	uaz:CVCL_9115
+44	26-27	uaz:CVCL_9115
+44	37-41	uaz:CVCL_9115
+48	17-24	uaz:CVCL_9115,uniprot:SL-0149
+50	6-8	uaz:CVCL_9115,uniprot:SL-0149
+50	6-10	uaz:CVCL_9115,uniprot:SL-0149
+59	29-32	go:GO:0005813,go:GO:0097431
+59	29-34	go:GO:0005813,go:GO:0097431
+60	1-4	go:GO:0005813,go:GO:0097431
+60	1-6	go:GO:0005813,go:GO:0097431
+61	8-17	tissuelist:TS-0161,tissuelist:TS-0417,cellosaurus:CVCL_0291,cellosaurus:CVCL_0022
+61	8-19	tissuelist:TS-0161,tissuelist:TS-0417,cellosaurus:CVCL_0291,cellosaurus:CVCL_0022
+61	8-22	tissuelist:TS-0161,tissuelist:TS-0417,cellosaurus:CVCL_0291,cellosaurus:CVCL_0022

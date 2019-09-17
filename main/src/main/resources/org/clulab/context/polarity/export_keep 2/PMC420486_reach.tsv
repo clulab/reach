@@ -1,0 +1,124 @@
+0	5-6	cellosaurus:CVCL_0031
+2	30-31	manual:rat
+4	7-10	taxonomy:9606
+7	0-2	taxonomy:9606,tissuelist:TS-0591
+7	0-15	taxonomy:9606,tissuelist:TS-0591
+7	0-16	taxonomy:9606,tissuelist:TS-0591
+7	11-15	taxonomy:9606,tissuelist:TS-0591
+7	11-16	taxonomy:9606,tissuelist:TS-0591
+11	3-5	cellosaurus:CVCL_0031
+11	15-16	cellosaurus:CVCL_0031
+14	16-18	taxonomy:9606
+16	3-4	taxonomy:9606
+20	0-7	
+20	0-11	
+23	3-12	taxonomy:9606
+23	3-27	taxonomy:9606
+23	3-29	taxonomy:9606
+23	18-19	taxonomy:9606
+27	32-34	manual:nuclei
+27	32-36	manual:nuclei
+27	32-39	manual:nuclei
+28	1-3	manual:H3924A-cell-line,tissuelist:TS-0455,manual:H7795-line,manual:rat
+29	4-6	tissuelist:TS-0455,manual:rat
+33	19-21	taxonomy:9606,tissuelist:TS-0591,cellosaurus:CVCL_0031
+35	1-2	taxonomy:9606
+41	14-18	taxonomy:9606,tissuelist:TS-0933,tissuelist:TS-0510,manual:intestinal
+44	3-7	
+44	18-20	
+45	14-16	uberon:UBERON:0001555,tissuelist:TS-0158,manual:intestinal,manual:kidneys,manual:stomach
+45	21-23	uberon:UBERON:0001555,tissuelist:TS-0158,manual:intestinal,manual:kidneys,manual:stomach
+46	0-1	tissuelist:TS-1168,tissuelist:TS-0828,manual:pancreatic,tissuelist:TS-1047,tissuelist:TS-0934
+46	32-33	tissuelist:TS-0595,manual:uterine,tissuelist:TS-0568
+48	15-18	tissuelist:TS-0591,cellosaurus:CVCL_0031,tissuelist:TS-0597
+48	34-35	tissuelist:TS-0591,cellosaurus:CVCL_0031,tissuelist:TS-0597
+49	8-9	cellosaurus:CVCL_0031
+56	25-26	go:GO:0016020,manual:cytoplasmic
+59	0-5	cellosaurus:CVCL_0031
+60	10-12	cellosaurus:CVCL_0031
+60	10-14	cellosaurus:CVCL_0031
+60	40-41	cellosaurus:CVCL_0031
+60	40-47	cellosaurus:CVCL_0031
+62	5-6	cellosaurus:CVCL_0031
+64	9-35	
+65	14-15	cellosaurus:CVCL_0031
+67	39-40	cellosaurus:CVCL_0031
+69	3-4	cellosaurus:CVCL_0031
+70	13-16	cellosaurus:CVCL_0031
+70	13-18	cellosaurus:CVCL_0031
+71	21-23	cellosaurus:CVCL_0031
+72	62-64	cellosaurus:CVCL_0031
+74	1-2	cellosaurus:CVCL_0031
+74	1-6	cellosaurus:CVCL_0031
+74	1-10	cellosaurus:CVCL_0031
+76	17-18	tissuelist:TS-0591
+77	6-8	
+77	6-10	cellosaurus:CVCL_0031
+77	12-13	cellosaurus:CVCL_0031
+78	2-3	cellosaurus:CVCL_0031
+78	19-22	cellosaurus:CVCL_0031
+78	43-50	cellosaurus:CVCL_0031
+79	23-26	cellosaurus:CVCL_0031
+80	21-22	cellosaurus:CVCL_0031
+80	21-24	cellosaurus:CVCL_0031
+82	0-4	tissuelist:TS-0595,tissuelist:TS-1223
+82	2-4	tissuelist:TS-0595,tissuelist:TS-1223
+83	2-5	cellosaurus:CVCL_0031
+83	9-11	cellosaurus:CVCL_0031
+84	0-1	cellosaurus:CVCL_0031
+85	3-4	cellosaurus:CVCL_0031
+91	4-5	cellosaurus:CVCL_0031
+91	4-20	cellosaurus:CVCL_0031
+97	5-7	cellosaurus:CVCL_0031
+97	5-10	cellosaurus:CVCL_0031
+97	9-10	cellosaurus:CVCL_0031
+97	48-49	cellosaurus:CVCL_0031
+100	35-36	tissuelist:TS-0454
+101	13-15	taxonomy:9606
+103	25-28	taxonomy:9606
+104	1-2	taxonomy:9606
+105	1-3	tissuelist:TS-1030,taxonomy:10090,uaz:CL:0000019
+105	40-41	tissuelist:TS-1030,taxonomy:10090,uaz:CL:0000019
+106	40-42	
+108	6-9	taxonomy:9606
+109	15-17	tissuelist:TS-0591,cellosaurus:CVCL_0031
+109	25-28	tissuelist:TS-0597
+110	1-3	taxonomy:9606,tissuelist:TS-0591,cellosaurus:CVCL_0031
+110	1-8	taxonomy:9606,tissuelist:TS-0591,cellosaurus:CVCL_0031
+110	25-26	taxonomy:9606,tissuelist:TS-0591,cellosaurus:CVCL_0031
+111	28-29	cellosaurus:CVCL_0031
+112	15-27	cellosaurus:CVCL_0031
+113	0-1	cellosaurus:CVCL_0031
+113	0-9	cellosaurus:CVCL_0031
+113	0-10	cellosaurus:CVCL_0031
+113	0-15	cellosaurus:CVCL_0031
+113	0-17	cellosaurus:CVCL_0031
+113	5-9	cellosaurus:CVCL_0031
+113	5-10	cellosaurus:CVCL_0031
+113	5-15	cellosaurus:CVCL_0031
+113	5-17	cellosaurus:CVCL_0031
+115	3-4	tissuelist:TS-0591,cellosaurus:CVCL_0031
+115	34-35	tissuelist:TS-0591,cellosaurus:CVCL_0031
+116	10-11	cellosaurus:CVCL_0031
+116	30-38	cellosaurus:CVCL_0031
+116	33-34	cellosaurus:CVCL_0031
+116	47-51	cellosaurus:CVCL_0031
+116	49-51	cellosaurus:CVCL_0031
+117	12-13	cellosaurus:CVCL_0031
+117	13-17	cellosaurus:CVCL_0031
+117	20-21	cellosaurus:CVCL_0031
+119	4-5	cellosaurus:CVCL_0031
+119	4-20	cellosaurus:CVCL_0031
+121	8-10	cellosaurus:CVCL_0031
+121	28-30	cellosaurus:CVCL_0031
+121	28-33	cellosaurus:CVCL_0031
+121	32-33	cellosaurus:CVCL_0031
+125	0-2	cellosaurus:CVCL_0031
+128	3-9	cellosaurus:CVCL_0031
+132	3-5	cellosaurus:CVCL_0031
+132	15-16	cellosaurus:CVCL_0031
+182	3-5	
+182	3-8	
+183	3-4	
+203	20-21	
+205	8-11	

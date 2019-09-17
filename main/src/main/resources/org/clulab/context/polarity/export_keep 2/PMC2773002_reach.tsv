@@ -1,0 +1,69 @@
+12	4-6	manual:MDCK,cellosaurus:CVCL_0063
+12	17-18	manual:MDCK,cellosaurus:CVCL_0063
+13	6-8	tissuelist:TS-0571,tissuelist:TS-0595
+13	26-28	tissuelist:TS-0571,tissuelist:TS-0595
+22	14-16	taxonomy:9606
+29	2-7	taxonomy:9606
+29	5-7	taxonomy:9606
+31	9-11	taxonomy:9606
+33	3-5	tissuelist:TS-1223,tissuelist:TS-0828,tissuelist:TS-0095,tissuelist:TS-0595,manual:patients
+36	0-2	tissuelist:TS-0568,tissuelist:TS-0828,tissuelist:TS-0595,tissuelist:TS-1090
+38	1-3	tissuelist:TS-0571,manual:patients
+39	8-13	tissuelist:TS-0591,taxonomy:9606,uaz:CL:0002327
+40	29-31	tissuelist:TS-0828,taxonomy:10090
+53	28-29	taxonomy:9606
+53	28-31	taxonomy:9606
+66	8-15	cellosaurus:CVCL_0063
+66	8-18	cellosaurus:CVCL_0063
+66	8-21	cellosaurus:CVCL_0063
+67	7-23	cellosaurus:CVCL_0063
+67	7-28	cellosaurus:CVCL_0063
+67	9-23	cellosaurus:CVCL_0063
+67	9-28	cellosaurus:CVCL_0063
+73	7-8	manual:MDCK,cellosaurus:CVCL_0063
+78	6-8	manual:MDCK,taxonomy:10090,cellosaurus:CVCL_0063
+83	17-19	manual:MDCK,cellosaurus:CVCL_0063
+89	7-8	taxonomy:9606,cellosaurus:CVCL_0063
+90	4-5	taxonomy:9606,tissuelist:TS-0571,tissuelist:TS-0592,cellosaurus:CVCL_0060,cellosaurus:CVCL_0033,cellosaurus:CVCL_0063,uaz:CL:0000066
+90	5-7	taxonomy:9606,tissuelist:TS-0571,tissuelist:TS-0592,cellosaurus:CVCL_0060,cellosaurus:CVCL_0033,cellosaurus:CVCL_0063,uaz:CL:0000066
+94	4-17	taxonomy:9606,tissuelist:TS-0571,tissuelist:TS-0592,cellosaurus:CVCL_0060,cellosaurus:CVCL_0033,cellosaurus:CVCL_0063,uaz:CL:0000066
+94	15-17	taxonomy:9606,tissuelist:TS-0571,tissuelist:TS-0592,cellosaurus:CVCL_0060,cellosaurus:CVCL_0033,cellosaurus:CVCL_0063,uaz:CL:0000066
+97	1-4	cellosaurus:CVCL_0598,taxonomy:9606,tissuelist:TS-0571,tissuelist:TS-0595,uaz:CL:0002328,uaz:CL:0002327,tissuelist:TS-0568
+97	1-7	cellosaurus:CVCL_0598,taxonomy:9606,tissuelist:TS-0571,tissuelist:TS-0595,uaz:CL:0002328,uaz:CL:0002327,tissuelist:TS-0568
+100	22-24	cellosaurus:CVCL_0598,taxonomy:9606,tissuelist:TS-0571,tissuelist:TS-0595,uaz:CL:0002328,uaz:CL:0002327,tissuelist:TS-0568
+101	19-21	tissuelist:TS-0571,tissuelist:TS-0595
+102	0-7	taxonomy:9606
+115	43-46	tissuelist:TS-0591,taxonomy:10090,tissuelist:TS-1224
+123	12-13	taxonomy:9606,taxonomy:10090
+123	12-15	taxonomy:9606,taxonomy:10090
+127	8-9	taxonomy:10090
+131	13-14	taxonomy:10090
+135	1-3	taxonomy:9606
+135	11-13	taxonomy:9606
+139	2-4	tissuelist:TS-1223,tissuelist:TS-0828,tissuelist:TS-0095,tissuelist:TS-0595
+141	2-4	taxonomy:9606
+141	13-14	taxonomy:9606
+142	15-17	taxonomy:10090
+143	8-13	taxonomy:9606,taxonomy:10090
+147	14-15	cellosaurus:CVCL_0033,taxonomy:9606,cellosaurus:CVCL_0063,cellosaurus:CVCL_0060
+147	14-21	cellosaurus:CVCL_0033,taxonomy:9606,cellosaurus:CVCL_0063,cellosaurus:CVCL_0060
+147	14-23	cellosaurus:CVCL_0033,taxonomy:9606,cellosaurus:CVCL_0063,cellosaurus:CVCL_0060
+147	18-21	cellosaurus:CVCL_0033,taxonomy:9606,cellosaurus:CVCL_0063,cellosaurus:CVCL_0060
+147	18-23	cellosaurus:CVCL_0033,taxonomy:9606,cellosaurus:CVCL_0063,cellosaurus:CVCL_0060
+147	27-28	cellosaurus:CVCL_0033,taxonomy:9606,cellosaurus:CVCL_0063,cellosaurus:CVCL_0060
+147	33-35	cellosaurus:CVCL_0033,taxonomy:9606,cellosaurus:CVCL_0063,cellosaurus:CVCL_0060
+147	38-40	cellosaurus:CVCL_0033,taxonomy:9606,cellosaurus:CVCL_0063,cellosaurus:CVCL_0060
+150	8-11	
+150	8-12	
+154	3-5	
+154	13-15	
+155	13-14	
+155	13-15	
+155	13-17	
+156	17-19	
+157	18-20	tissuelist:TS-0591,tissuelist:TS-0571,tissuelist:TS-0595
+159	11-13	tissuelist:TS-0571
+169	45-58	taxonomy:9606
+169	56-58	taxonomy:9606
+200	1-20	
+218	2-4	

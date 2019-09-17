@@ -1,0 +1,38 @@
+2	0-2	uaz:CL:0000988,uaz:CL:0000084
+5	0-3	tissuelist:TS-1001,cellosaurus:CVCL_0065
+5	0-13	tissuelist:TS-1001,cellosaurus:CVCL_0065
+11	0-14	uaz:CL:0000084
+12	3-6	uaz:CL:0000084
+13	35-38	uaz:CL:0000988
+16	16-22	cellosaurus:CVCL_R861
+30	7-9	taxonomy:9606
+78	27-31	
+78	27-33	
+89	7-9	taxonomy:9606
+91	6-8	tissuelist:TS-1001,cellosaurus:CVCL_0065,cellosaurus:CVCL_0006,cellosaurus:CVCL_0008,cellosaurus:CVCL_0511,cellosaurus:CVCL_4069,tissuelist:TS-0068,tissuelist:TS-0647,cellosaurus:CVCL_0030,cellosaurus:CVCL_0559,cellosaurus:CVCL_0013,cellosaurus:CVCL_0597,cellosaurus:CVCL_2758
+93	4-11	manual:PBL,uaz:CL:0000084,uaz:CL:0000988,tissuelist:TS-0942,tissuelist:TS-1043,tissuelist:TS-0956
+112	11-16	manual:COS7
+122	5-7	manual:COS7
+124	3-21	manual:COS7
+126	0-3	manual:COS7
+126	0-16	manual:COS7
+126	0-19	manual:COS7
+126	11-16	manual:COS7
+127	17-22	cellosaurus:CVCL_0065
+127	17-25	cellosaurus:CVCL_0065
+128	31-39	cellosaurus:CVCL_0065
+132	16-20	cellosaurus:CVCL_0065
+133	13-16	cellosaurus:CVCL_0065
+133	31-35	cellosaurus:CVCL_0065
+143	8-10	manual:COS7
+143	18-20	
+143	18-22	
+147	5-10	cellosaurus:CVCL_0065
+147	10-16	cellosaurus:CVCL_0065
+148	2-10	
+148	2-26	
+148	5-10	
+148	5-26	
+150	15-16	cellosaurus:CVCL_0065
+150	16-27	cellosaurus:CVCL_0065
+151	7-9	manual:PBL,uaz:CL:0000084,uaz:CL:0000988,tissuelist:TS-0942,tissuelist:TS-1043,tissuelist:TS-0956
