@@ -53,7 +53,7 @@ object CrossValOldDatasetUsingEventsFile extends App {
   }
 
 
-  println(allRowsByPaperID.size)
+
 
   val precisionScoreBoardPerPaper = collection.mutable.HashMap[String, Double]()
   val recallScoreBoardPerPaper = collection.mutable.HashMap[String, Double]()
@@ -115,9 +115,7 @@ object CrossValOldDatasetUsingEventsFile extends App {
         }
       }
     }
-    println(s"Current test case: ${paperID}")
-    println(s"Size of training rows after filtering by appropriate event IDs: ${trainingRowsWithCorrectLabels.size}")
-    println(s"Size of training labels after filtering by appropriate event IDs: ${trainingLabels.size}")
+
     val (trainingRVFDataset, _) = svmInstance.dataConverter(trainingRowsWithCorrectLabels,Some(trainingLabels.toArray))
 
     svmInstance.fit(trainingRVFDataset)
