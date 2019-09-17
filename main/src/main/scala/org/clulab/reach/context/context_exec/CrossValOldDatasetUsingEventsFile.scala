@@ -18,13 +18,13 @@ object CrossValOldDatasetUsingEventsFile extends App {
   val labelFile = config.getString("svmContext.labelFileOldDataset")
   val labelMapFromOldDataset = CodeUtils.generateLabelMap(labelFile)
   val setOfEntriesWithAnnotations = labelsFromEventFiles.toSet.union(labelMapFromOldDataset.toSet)
-  println(setOfEntriesWithAnnotations.size)
   //  val smallSetOfPapers = List("PMC2156142", "PMC2195994")
 //  val dirsToUseForDebug = allPapersDirs.filter(x => smallSetOfPapers.contains(x.getName))
   val allPapersDirs = new File(parentDirForRows).listFiles().filter(x => x.isDirectory && x.getName != "newAnnotations")
   val idMap = collection.mutable.HashMap[(String,String,String),AggregatedContextInstance]()
   val keysForLabels = collection.mutable.HashMap[AggregatedContextInstance, (String, String, String)]()
   val allRowsByPaperID = collection.mutable.ListBuffer[(String, Seq[AggregatedContextInstance])]()
+  println(allPapersDirs.size)
   for(paperDir <- allPapersDirs) {
     // In this code we won't face the double counting of two rows from a given paper, because each paper appears only once over all.
     // While analyzing the performance over sentence windows, we encountered the same paper over different values of sentence window. That's why we had the risk of adding the same row twice.
