@@ -251,8 +251,7 @@ object CrossValOldDatasetUsingEventsFile extends App {
   def collapseEvtId(bigEvtID:String):(String,Int,Int,Int) = {
     println(bigEvtID)
     val sentInd = (bigEvtID.split("from"))(0)
-    println(sentInd)
-    val event1SentInd = Integer.parseInt(sentInd.slice(0,sentInd.length))
+    val event1SentInd = Integer.parseInt(sentInd.slice(2,sentInd.length))
 
     val part1 = bigEvtID.split("from")(1)
     val part2 = part1.split("to")
