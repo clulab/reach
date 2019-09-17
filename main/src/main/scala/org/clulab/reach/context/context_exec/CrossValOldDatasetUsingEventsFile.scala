@@ -17,7 +17,9 @@ object CrossValOldDatasetUsingEventsFile extends App {
   val labelsFromEventFiles = makeLabelMapFromEventFileDir(annotationsFileDir)
   val labelFile = config.getString("svmContext.labelFileOldDataset")
   val labelMapFromOldDataset = CodeUtils.generateLabelMap(labelFile)
-  val setOfEntriesWithAnnotations = labelsFromEventFiles.toSet.union(labelMapFromOldDataset.toSet)
+  val setOfEntriesWithAnnotations = labelsFromEventFiles.toSet.union(labelsFromEventFiles.toSet)
+  //val setOfEntriesWithAnnotations = labelsFromEventFiles.toSet.union(labelMapFromOldDataset.toSet)
+
   //  val smallSetOfPapers = List("PMC2156142", "PMC2195994")
 //  val dirsToUseForDebug = allPapersDirs.filter(x => smallSetOfPapers.contains(x.getName))
   val allPapersDirs = new File(parentDirForRows).listFiles().filter(x => x.isDirectory && x.getName != "newAnnotations")
