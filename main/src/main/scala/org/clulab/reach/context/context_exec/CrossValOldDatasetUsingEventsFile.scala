@@ -187,7 +187,6 @@ object CrossValOldDatasetUsingEventsFile extends App {
           val contextIDs = array(2).split(",")
           for(cnt <- contextIDs) {
             val tupleEntry = (pmcid,eventID,cnt)
-            println(tupleEntry)
             labelMapFromEventFile ++= Map(tupleEntry -> 1)
           }
         }
