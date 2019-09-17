@@ -97,7 +97,8 @@ object CrossValOldDatasetUsingEventsFile extends App {
       val lines = source.getLines()
       for(c <- lines) {
         val array = c.split("\t")
-        if(array(array.length-1).length >=1)
+        if(array.size > 2)
+
           println(array.mkString("*"))
 
       }
