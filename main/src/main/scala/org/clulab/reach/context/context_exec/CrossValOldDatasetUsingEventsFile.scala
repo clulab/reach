@@ -18,7 +18,6 @@ object CrossValOldDatasetUsingEventsFile extends App {
   val labelFile = config.getString("svmContext.labelFileOldDataset")
   val labelMapFromOldDataset = CodeUtils.generateLabelMap(labelFile)
   val setOfEntriesWithAnnotations = labelsFromEventFiles.toSet
-  println(setOfEntriesWithAnnotations)
   //val setOfEntriesWithAnnotations = labelsFromEventFiles.toSet.union(labelMapFromOldDataset.toSet)
 
   //  val smallSetOfPapers = List("PMC2156142", "PMC2195994")
