@@ -84,6 +84,9 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     val evtDepFeatVal = calculateEvtDepFeatureVals(datum)
     val ctxDepFeatVal = calculateCtxDepFeatureVals(datum)
 
+
+    println(s"Event ID from ContextPairInstance class: ${evntId}")
+
     val row = ContextPairInstance(sentencePos,
       PMCID,
       label,
