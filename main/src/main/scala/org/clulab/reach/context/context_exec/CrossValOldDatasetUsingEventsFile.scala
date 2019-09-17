@@ -84,8 +84,63 @@ object CrossValOldDatasetUsingEventsFile extends App {
     for(t <- trainingCaseRowsUnFiltered) {
       val specForCurrentRow = keysForLabels(t)
       val evtID = Integer.parseInt(specForCurrentRow._2)
+      val possibleMatchesInLabelFile = setOfEntriesWithAnnotations.filter(x => {
+        val int1 = Integer.parseInt(x._1._2)
+        val sep = Math.abs(evtID - int1)
+        x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3 && sep <= quickerFixer})
+      for((_,lab) <- possibleMatchesInLabelFile) {
+        if(!trainingRowsWithCorrectLabels.contains(t)) {
+          trainingRowsWithCorrectLabels += t
+          trainingLabels += lab
+
+        }
+      }
     }
+
+    val (trainingRVFDataset, _) = svmInstance.dataConverter(trainingRowsWithCorrectLabels,Some(trainingLabels.toArray))
+
+    svmInstance.fit(trainingRVFDataset)
+
+
+    for(testRow <- testRowsPerPaper) {
+      val pred = svmInstance.predict(Seq(testRow))
+
+
+
+      val specForCurrTestRow = keysForLabels(testRow)
+      val eventID = Integer.parseInt(specForCurrTestRow._2)
+      val possibleLabels = labelMapFromOldDataset.filter(x => {
+        val int1 = Integer.parseInt(x._1._2)
+        val sep = Math.abs(int1 - eventID)
+        x._1._1 == specForCurrTestRow._1 && x._1._3 == specForCurrTestRow._3 && sep <= quickerFixer})
+      for((_,truthLab) <- possibleLabels) {
+
+        truthLabelsForThisPaper += truthLab
+        predictedLabelsForThisPaper += pred(0)
+        //              giantPredictedLabels += pred(0)
+        //              giantTruthLabels += truthLab
+
+      }
+    }
+
+
+    val predictCountsMap = CodeUtils.predictCounts(truthLabelsForThisPaper.toArray, predictedLabelsForThisPaper.toArray)
+    println(s"Current test case: ${paperID}")
+    println(predictCountsMap)
+    val precisionPerPaper = CodeUtils.precision(predictCountsMap)
+    val recallPerPaper = CodeUtils.recall(predictCountsMap)
+    val f1PerPaper = CodeUtils.f1(predictCountsMap)
+    recallScoreBoardPerPaper ++= Map(paperID -> recallPerPaper)
+    precisionScoreBoardPerPaper ++= Map(paperID -> precisionPerPaper)
+    f1ScoreBoardPerPaper ++= Map(paperID -> f1PerPaper)
+    giantPredictedLabels ++= predictedLabelsForThisPaper
+    giantTruthLabels ++= truthLabelsForThisPaper
+
   }
+
+
+  println(s"Size of predicted labels list: ${giantPredictedLabels.size}")
+  println(s"Size of truth label list: ${giantTruthLabels.size}")
 
 
 
