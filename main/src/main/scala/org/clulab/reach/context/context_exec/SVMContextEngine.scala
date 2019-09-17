@@ -156,7 +156,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                     case _ => false
                   }
                 }
-                logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
+                logger.debug(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
 
                 (ctxId, prediction)
             }
