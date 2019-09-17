@@ -101,12 +101,7 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     entry
   }
 
-  def extractEvtId(evt:BioEventMention):EventID = {
-    val sentIndex = evt.sentence
-    val tokenIntervalStart = (evt.tokenInterval.start).toString()
-    val tokenIntervalEnd = (evt.tokenInterval.end).toString()
-    sentIndex+tokenIntervalStart+tokenIntervalEnd
-  }
+
 
 
 

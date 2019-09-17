@@ -218,12 +218,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   override def update(mentions: Seq[BioMention]): Unit = ()
 
 
-  def extractEvtId(evt:BioEventMention):EventID = {
-    val sentIndex = evt.sentence
-    val tokenIntervalStart = (evt.tokenInterval.start).toString()
-    val tokenIntervalEnd = (evt.tokenInterval.end).toString()
-    sentIndex+""+tokenIntervalStart+""+tokenIntervalEnd
-  }
+
 
 
 }
