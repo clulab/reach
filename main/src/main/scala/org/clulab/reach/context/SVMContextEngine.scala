@@ -44,12 +44,8 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
   val answer = this.getClass.getResourceAsStream(s"${pathToSVMModel}")
   println(answer)
-//  val source = Source.fromURL(classResource)
-//  val readfileOutput = source.mkString
-//  source.close()
-  val svmModelFile = new File(getClass().getClassLoader().getResource(pathToSVMModel).getFile())
-  //println(s"Output from read resource function in RuleReader: ${checkReturnValueFromReadResource}")
-  val trainedSVMInstance = svmWrapper.loadFrom(svmModelFile)
+
+  val trainedSVMInstance = svmWrapper.loadFrom(pathToSVMModel)
   val classifierToUse = trainedSVMInstance.classifier match {
     case Some(x) => x
     case None => {
