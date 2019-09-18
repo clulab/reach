@@ -115,6 +115,7 @@ object CrossValOldDatasetUsingEventsFile extends App {
       val evtID1 = specForCurrentRow._2
       val collapsedEvntId1 = collapseEvtId(evtID1)
       println(s"Sentence index of current aggregated row: ${collapsedEvntId1._2}")
+      // TODO : I need to recheck the pattern in which the row has its event ID stored and then check it for same sentence index
       val labelsToMatchFromCurrentPaper = setOfEntriesWithAnnotations.filter(x => x._1 == specForCurrentRow._1 && collapsedEvntId1._2.toString() == specForCurrentRow._2)
       val possibleMatches = labelsToMatchFromCurrentPaper.filter(x => {
           println(s"Current paper ID of label entry: ${x._1}")
