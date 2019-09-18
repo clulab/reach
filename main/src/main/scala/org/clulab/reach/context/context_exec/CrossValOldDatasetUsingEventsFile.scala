@@ -22,10 +22,17 @@ object CrossValOldDatasetUsingEventsFile extends App {
   val availableAnnotationsWithExpandedIntervals = collection.mutable.HashMap[(String,String,String),Int]()
   for((idTupDataframe, label) <- labelMapFromOldDataset) {
     for(idTupEventsFile <- labelsFromEventFiles) {
+      // only considering those rows in the events files that have the same paperID and same context ID as a given row in the dataframe.
       if(idTupDataframe._1 == idTupEventsFile._1 && idTupDataframe._3 == idTupEventsFile._3) {
-        val optimalInterval = expandIntervalOfAvailableAnnotation(idTupDataframe._2,idTupEventsFile._2)
-        val improvedIDTuple = (idTupDataframe._1, optimalInterval, idTupDataframe._3)
-        availableAnnotationsWithExpandedIntervals ++= Map(improvedIDTuple -> label)
+        val collapsedEventNameFromDataframe = collapseEvtId(idTupDataframe._2)
+        val collapsedEventNameFromEventsFile = collapseEvtId(idTupEventsFile._2)
+        // using only those event entries that have the same sentence index in old dataframe as well as events file
+        if(collapsedEventNameFromDataframe._2 == collapsedEventNameFromEventsFile._2) {
+          val optimalInterval = expandIntervalOfAvailableAnnotation(idTupDataframe._2,idTupEventsFile._2)
+          val improvedIDTuple = (idTupDataframe._1, optimalInterval, idTupDataframe._3)
+          availableAnnotationsWithExpandedIntervals ++= Map(improvedIDTuple -> label)
+        }
+
       }
 
     }
