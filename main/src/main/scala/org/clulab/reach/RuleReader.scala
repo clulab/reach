@@ -18,7 +18,6 @@ case class Rules(entities: String, modifications: String, events: String, contex
   val contextRelationsFile = s"$resourcesPath/context/context_relations.yml"
 
   def readResource(filename: String): String = {
-    println(s"size of Filename as received by readResource dir in RuleReader: ${filename}")
     val source = Source.fromURL(getClass.getResource(filename))
     val data = source.mkString
     source.close()

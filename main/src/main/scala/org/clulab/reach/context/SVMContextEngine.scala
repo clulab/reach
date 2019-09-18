@@ -10,6 +10,7 @@ import org.clulab.reach.context.context_feature_utils.{ContextFeatureAggregator,
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 
 import scala.collection.immutable
+import java.io._
 
 class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine with LazyLogging {
 
@@ -37,9 +38,9 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   val configPath = config.getString("contextEngine.params.pathToSVMModel")
   val resourcesPath = "/org/clulab/context/svmFeatures"
   val pathToSVMModel = s"$resourcesPath/svm_model.dat"
-  val checkReturnValueFromReadResource = readResource(pathToSVMModel)
-  println(s"Output from read resource function in RuleReader: ${checkReturnValueFromReadResource}")
-  val trainedSVMInstance = svmWrapper.loadFrom(configPath)
+  val svmModelFile = new File(getClass().getClassLoader().getResource(pathToSVMModel).getFile())
+  //println(s"Output from read resource function in RuleReader: ${checkReturnValueFromReadResource}")
+  val trainedSVMInstance = svmWrapper.loadFrom(svmModelFile)
   val classifierToUse = trainedSVMInstance.classifier match {
     case Some(x) => x
     case None => {
