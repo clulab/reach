@@ -111,6 +111,7 @@ object CrossValOldDatasetUsingEventsFile extends App {
     for(t <- trainingCaseRowsUnFiltered) {
       val specForCurrentRow = keysForLabels(t)
       println(s"Paper ID of current aggregated row: ${specForCurrentRow._1}")
+      println(s"Current event ID of aggregated row: ${specForCurrentRow._2}")
 
       val evtID1 = specForCurrentRow._2
       val collapsedEvntId1 = collapseEvtId(evtID1)
