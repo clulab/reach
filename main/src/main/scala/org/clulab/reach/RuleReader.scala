@@ -6,7 +6,7 @@ import scala.io.Source
  * Utilities to read rule files
  */
 
-// Testing git commit by Shraddha Thumsi
+
 object RuleReader {
 
 case class Rules(entities: String, modifications: String, events: String, context: String)
