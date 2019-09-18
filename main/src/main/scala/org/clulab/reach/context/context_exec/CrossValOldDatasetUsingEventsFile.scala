@@ -244,6 +244,10 @@ object CrossValOldDatasetUsingEventsFile extends App {
 //    val event2StartToken = Integer.parseInt(eventID2.split("*")(1).split("=")(0))
 //    val event2EndToken = Integer.parseInt(eventID2.split("*")(1).split("=")(1))
 
+    println(s"Inside event equality check function, examining the event IDs received here")
+    println(eventID1)
+    println(eventID2)
+
     val (_,event1SentInd,event1StartToken,event1EndToken) = collapseEvtId(eventID1)
     val (_,event2SentInd,event2StartToken,event2EndToken) = collapseEvtId(eventID2)
     val areSentenceIndicesSame = event1SentInd == event2SentInd
