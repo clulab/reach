@@ -37,7 +37,7 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     }
     val label = None
     val sentencePos = datum._1.sentence
-    val evntId = extractEvtId(datum._1)
+    val evntId = ContextFeatureUtils.extractEvtId(datum._1)
     val ctxId = ContextEngine.getContextKey(datum._2)
 
     val hardCodedFeatureNames = collection.mutable.ListBuffer[String]()
@@ -97,14 +97,6 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
 
     entry
   }
-
-  def extractEvtId(evt:BioEventMention):EventID = {
-    val sentIndex = evt.sentence
-    val tokenIntervalStart = (evt.tokenInterval.start).toString()
-    val tokenIntervalEnd = (evt.tokenInterval.end).toString()
-    sentIndex+tokenIntervalStart+tokenIntervalEnd
-  }
-
 
 
   private def calculateSpecificFeatValues(datum:(BioEventMention, BioTextBoundMention), contextMentions:Seq[BioTextBoundMention], ctxTypeFreq:Map[String,Double]):Map[String,Double] = {

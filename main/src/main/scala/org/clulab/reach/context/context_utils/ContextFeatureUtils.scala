@@ -33,26 +33,12 @@ object ContextFeatureUtils {
 
 
 
-  def writeAggRowToFile(row:AggregatedContextInstance, evtID: String, ctxString:String, whereToWriteFeatVal:String, whereToWriteRow:String):Unit = {
-    val file = new File(whereToWriteFeatVal)
-    if (!file.exists()) {
-      file.createNewFile()
-    }
-    val pw = new PrintWriter(file)
-    val zipped = row.featureGroupNames zip row.featureGroups
-    for((name,value) <- zipped) {
-      pw.write(s"The aggregated feature ${name} has value ${value} \n")
-    }
+  // the following few functions with the name writeAggRowToFile offer different signatures to the function,
+  // such that the aggregated rows may be written to file for further analyses
 
-    val file2 = new File(whereToWriteRow)
-    val os = new ObjectOutputStream(new FileOutputStream(whereToWriteRow))
-    if (!file2.exists()) {
-      file2.createNewFile()
-    }
-    os.writeObject(row)
-    os.close()
-  }
 
+  // This signature of writeAggRowToFile writes the AggregatedRow object to file whose path is specified by parentDir.
+  // The function also specifies the event and context IDs in the name of the file.
   def writeAggRowToFile(row:AggregatedContextInstance, evtID: String, ctxString:String, parentDir:String):Unit = {
     val pmcid = s"PMC${row.PMCID.split("_")(0)}"
     val whichDirToWriteRow = parentDir.concat(s"${pmcid}")
@@ -70,28 +56,10 @@ object ContextFeatureUtils {
   }
 
 
-  def writeAggrRowsToFile(rows:Array[((String, String),AggregatedContextInstance)], pathToFeatVal:String, pathToArrOfRows:String):Unit = {
-
-    val arrOfRowsFile = new File(pathToArrOfRows)
-    if(!(arrOfRowsFile.exists()))
-      arrOfRowsFile.createNewFile()
-    val os = new ObjectOutputStream(new FileOutputStream(pathToArrOfRows))
-    os.writeObject(rows)
-    val featValFile = new File(pathToFeatVal)
-    if(!(featValFile.exists()))
-      featValFile.createNewFile()
-    val printWriter = new PrintWriter(pathToFeatVal)
-    for(((eventID, ctxID), row) <- rows) {
-      val zip = row.featureGroupNames zip row.featureGroups
-      for((featName, featVal) <- zip) {
-        printWriter.write(s"The eventID ${eventID} and contextID ${ctxID} have feature ${featName} value of ${featVal}\n")
-      }
-    }
-    os.close()
-  }
 
 
-  //takes the aggregated row, event ID, context ID, sentence window and directory in which output is to be written. In this directory, a sub-directory called "sentencewindows/value_of_sent_window" will be created, and rows will be written to the directory.
+  // This following signature of writeAggRowToFile takes the aggregated row, event ID, context ID, sentence window and directory into which the file is to be written is to be written.
+  // In this directory, a sub-directory called "sentencewindows/$value_of_sent_window" will be created, and rows will be written to the directory.
   def writeAggRowToFile(row: AggregatedContextInstance, evtID: String, ctxID: String, sentenceWindow: Int, parentDir:String):Unit = {
 
     val outDir = parentDir.concat(s"/sentenceWindows/${sentenceWindow}")
@@ -140,11 +108,18 @@ object ContextFeatureUtils {
 
 
 
+  // The function extractEventID takes an event mention as the sole parameter,
+  // and returns a string containing information about the sentence index, token start and token end of the event interval.
+  // The eventId will be returned in the format "in${sentenceIndex}from${event_start_token}to${event_end_token}
+  // For example, if a given BioEventMention has the sentence index 3, and token start and end values of 7 and 8,
+  // the function will return a string that reads "in3from7to8"
+  // This format will be used across the SVM engine.
+
   def extractEvtId(evt:BioEventMention):EventID = {
     val sentIndex = evt.sentence
     val tokenIntervalStart = (evt.tokenInterval.start).toString()
     val tokenIntervalEnd = (evt.tokenInterval.end).toString()
-    sentIndex+tokenIntervalStart+tokenIntervalEnd
+    "in"+sentIndex+"from"+tokenIntervalStart+"to"+tokenIntervalEnd
   }
 
 

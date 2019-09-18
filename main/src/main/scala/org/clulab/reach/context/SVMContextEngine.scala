@@ -44,7 +44,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   if(classifierToUse == null) throw new NullPointerException("No classifier found on which I can predict. Please make sure the SVMContextEngine class receives a valid Linear SVM classifier.")
 
 
-  logger.info(s"The SVM model has been tuned to the following settings: C: ${classifierToUse.C}, Eps: ${classifierToUse.eps}, Bias: ${classifierToUse.bias}")
+  logger.debug(s"The SVM model has been tuned to the following settings: C: ${classifierToUse.C}, Eps: ${classifierToUse.eps}, Bias: ${classifierToUse.bias}")
 
   override def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
 
@@ -95,7 +95,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         val groupingsReadyToAggr = collection.mutable.ListBuffer[(Pair, ContextPairInstance)]()
         for((eventID, contextID) <- pairs) {
           val miniList = collection.mutable.ListBuffer[(Pair, ContextPairInstance)]()
-          val contextInstancesSubSet = contextPairInput.filter(x => extractEvtId(eventID) == x.EvtID)
+          val contextInstancesSubSet = contextPairInput.filter(x => ContextFeatureUtils.extractEvtId(eventID) == x.EvtID)
           val contextFiltByCtxID = contextInstancesSubSet.filter(x => x.CtxID == contextID.nsId())
           for(i <- 0 until contextFiltByCtxID.size) {
             val currentPair = (eventID,contextID)
@@ -107,7 +107,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         }
 
         val aggregatedFeatures = groupingsReadyToAggr.groupBy{
-          case (pair, _) => extractEvtId(pair._1)
+          case (pair, _) => ContextFeatureUtils.extractEvtId(pair._1)
         }.mapValues{
           v =>
             v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s => {
@@ -131,19 +131,14 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             val x = a.map {
               case (ctxId, aggregatedFeature) =>
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
-                val sentWind = sentenceWindow match {
-                  case Some(x) => x
-                  case None => -1
-                }
 
-                val parentDirToWriteAllRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
-                //val parentDirToWriteAllRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaperNewAnnotations")
-                val whereToWriteRowBySentDist = config.getString("policy4Params.mentionsOutputFile")
+
                 // It may be that we may need the aggregated instances for further analyses, like testing or cross-validation.
                 // Should such a need arise, you can write the aggregated instances to file by uncommenting the following line
-                // there are multiple signatures to this function, please refer to the definition of ContextFeatureUtils for more details
-                ContextFeatureUtils.writeAggRowToFile(aggregatedFeature,k.toString, ctxId._2, parentDirToWriteAllRows)
-                ContextFeatureUtils.writeAggRowToFile(aggregatedFeature, k.toString, ctxId._2,sentWind, whereToWriteRowBySentDist)
+                // there are multiple signatures to this function, please refer to the definition of ContextFeatureUtils.writeAggrRowToFile for more details
+                // Example usages:
+                // ContextFeatureUtils.writeAggRowToFile(aggregatedFeature,k.toString, ctxId._2, parentDirToWriteAllRows)
+                // ContextFeatureUtils.writeAggRowToFile(aggregatedFeature, k.toString, ctxId._2,sentWind, whereToWriteRowBySentDist)
                 // Please note that this function writes aggregated rows for each (eventID, contextID) pair. Therefore, you may have a large number of files written to your directory.
                 val tupToAddForFileIO = ((k.toString, ctxId._2), aggregatedFeature)
                 aggRowsForFileIO += tupToAddForFileIO
@@ -154,7 +149,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                     case _ => false
                   }
                 }
-                logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
+                logger.debug(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
 
                 (ctxId, prediction)
             }
@@ -172,7 +167,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             // If is an event mention, it's subject to context
             case evt: BioEventMention =>
               // Get its ID
-              val evtId = extractEvtId(evt)
+              val evtId = ContextFeatureUtils.extractEvtId(evt)
               // fetch its predicted pairs
               val contexts = predictions.getOrElse(evtId, Seq.empty)
 
@@ -215,13 +210,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
   override def update(mentions: Seq[BioMention]): Unit = ()
 
-
-  def extractEvtId(evt:BioEventMention):EventID = {
-    val sentIndex = evt.sentence
-    val tokenIntervalStart = (evt.tokenInterval.start).toString()
-    val tokenIntervalEnd = (evt.tokenInterval.end).toString()
-    sentIndex+tokenIntervalStart+tokenIntervalEnd
-  }
 
 
 
