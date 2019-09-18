@@ -110,10 +110,10 @@ object CrossValOldDatasetUsingEventsFile extends App {
     val trainingLabels = collection.mutable.ListBuffer[Int]()
     for(t <- trainingCaseRowsUnFiltered) {
       val specForCurrentRow = keysForLabels(t)
-      print(s"Paper ID of current aggregated row: ${specForCurrentRow._1}")
+      println(s"Paper ID of current aggregated row: ${specForCurrentRow._1}")
       val evtID1 = specForCurrentRow._2
-
-      val possibleMatches = setOfEntriesWithAnnotations.filter(x => {
+      val labelsToMatchFromCurrentPaper = setOfEntriesWithAnnotations.filter(_._1 == specForCurrentRow._1)
+      val possibleMatches = labelsToMatchFromCurrentPaper.filter(x => {
           println(s"Current paper ID of label entry: ${x._1}")
           val evtID2 = x._2
           val eventsMatch = checksIfEventsAreSame(evtID1,evtID2)
@@ -122,8 +122,6 @@ object CrossValOldDatasetUsingEventsFile extends App {
         })
 
       val possibleMatchesInLabelFile = possibleMatches.map({x =>
-        val reformattedEvtID = collapseEvtId(x._2)._1
-        val searchSpecForLabel = (x._1,reformattedEvtID,x._3)
         val labelFromDataframe = availableAnnotationsWithExpandedIntervals(x)
         (x,labelFromDataframe)
       })
@@ -248,10 +246,6 @@ object CrossValOldDatasetUsingEventsFile extends App {
   }
 
   def checksIfEventsAreSame(eventID1: String, eventID2:String):Boolean = {
-    println(s"Inside event equality check function, examining the event IDs received here")
-    println(eventID1)
-    println(eventID2)
-
     val (_,event1SentInd,event1StartToken,event1EndToken) = collapseEvtId(eventID1)
     val (_,event2SentInd,event2StartToken,event2EndToken) = collapseEvtId(eventID2)
     val areSentenceIndicesSame = event1SentInd == event2SentInd
