@@ -9,23 +9,29 @@ import org.clulab.learning.LinearSVMClassifier
 import org.clulab.reach.context.context_utils.ContextFeatureUtils
 
 import scala.io.Source
-
+// degenerate papers according to new Reach: PMC2063868
 object CrossValOldDatasetUsingEventsFile extends App {
   val config = ConfigFactory.load()
   val parentDirForRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
   val annotationsFileDir = config.getString("polarityContext.eventsFilesDir")
   val labelsFromEventFiles = makeLabelMapFromEventFileDir(annotationsFileDir)
-  println(labelsFromEventFiles.mkString(","))
   val labelFile = config.getString("svmContext.labelFileOldDataset")
   val labelMapFromOldDataset = CodeUtils.generateLabelMap(labelFile)
   //  Writing code that filters and finds the lines in the events file that have the same sentence index as that of the dataframe line, plus the context ID from dataframe should be equal to the context ID in the events file
   val availableAnnotationsWithExpandedIntervals = collection.mutable.HashMap[(String,String,String),Int]()
   for((idTupDataframe, label) <- labelMapFromOldDataset) {
     for(idTupEventsFile <- labelsFromEventFiles) {
+      if(idTupDataframe._1 == idTupEventsFile._1 && idTupDataframe._3 == idTupEventsFile._3) {
+        val optimalInterval = expandIntervalOfAvailableAnnotation(idTupDataframe._2,idTupEventsFile._2)
+        val improvedIDTuple = (idTupDataframe._1, optimalInterval, idTupDataframe._3)
+        availableAnnotationsWithExpandedIntervals ++= Map(improvedIDTuple -> label)
+      }
 
     }
   }
-  println(s"Number of manual annotations available: ${labelMapFromOldDataset.size}")
+
+
+  println(s"Size of label map: ${availableAnnotationsWithExpandedIntervals.size}")
   val setOfEntriesWithAnnotations = labelMapFromOldDataset.keySet
   //val setOfEntriesWithAnnotations = labelsFromEventFiles.toSet.union(labelMapFromOldDataset.toSet)
 
