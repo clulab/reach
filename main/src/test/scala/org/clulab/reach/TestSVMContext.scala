@@ -9,13 +9,10 @@ import org.clulab.context.utils.AggregatedContextInstance
 class TestSVMContext extends FlatSpec with Matchers {
   val config = ConfigFactory.load()
 
-  val configPath = config.getString("contextEngine.params.trainedSvmPath")
+  val configPath = config.getString("contextEngine.params.trainedSvmPathForContextPrediction")
   val svmWrapper = new LinearSVMContextClassifier()
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
   val rootDir = config.getString("rootDir")
-
-
-  // In this test suite, I'm testing more on inhibition papers rather than activation papers, since they are shorter in length, and thus take lesser time to run through reach.
 
 
 
@@ -26,7 +23,8 @@ class TestSVMContext extends FlatSpec with Matchers {
   val pair4 = "41820,cl:CL:0000312" // expected: 0
 
 
-  val outPaperDirPathActiv1 = rootDir.concat("/main/src/test/resources/SVMContext/PMC2910130/")
+  //val outPaperDirPathActiv1 = rootDir.concat("/main/src/test/resources/SVMContext/PMC2910130/")
+  val outPaperDirPathActiv1 = "main/src/test/resources/SVMContext/PMC2910130/"
 
 
   // Pair 1 tests start
@@ -236,7 +234,9 @@ class TestSVMContext extends FlatSpec with Matchers {
 
   // ************ STARTING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2636845  ************
 
-  val outPaperDirPathInhib1 = rootDir.concat("/main/src/test/resources/SVMContext/PMC2636845/")
+  //val outPaperDirPathInhib1 = rootDir.concat("/main/src/test/resources/SVMContext/PMC2636845/")
+  val outPaperDirPathInhib1 = "/main/src/test/resources/SVMContext/PMC2636845/"
+
   val inhibitPair1 = "52831,cl:CL:0000056" // expected prediction: 1
   val inhibitPair2 = "71114,cl:CL:0000056" // expected prediction: 1
   val inhibitPair3 = "5331,tissuelist:TS-0725" // expected prediction: 0
@@ -425,7 +425,9 @@ class TestSVMContext extends FlatSpec with Matchers {
 
 
  // STARTING TESTS AND VARIABLES FOR INHIBITION PAPER: PMC2587086
-  val outPaperDirPathInhib2 = rootDir.concat("/main/src/test/resources/SVMContext/PMC2587086/")
+  //val outPaperDirPathInhib2 = rootDir.concat("/main/src/test/resources/SVMContext/PMC2587086/")
+  val outPaperDirPathInhib2 = "/main/src/test/resources/SVMContext/PMC2587086/"
+
   val inhibitP1 = "6024,taxonomy:9606" // expected prediction: 1
   val inhibitP2 = "314,tissuelist:TS-1047" // expected prediction: 0
   val inhibitP3 = "606,go:GO:0005777" // expected prediction: 1
