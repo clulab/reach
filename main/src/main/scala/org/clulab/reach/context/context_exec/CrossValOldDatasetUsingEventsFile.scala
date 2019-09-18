@@ -94,6 +94,8 @@ object CrossValOldDatasetUsingEventsFile extends App {
 //        val sep = Math.abs(evtID - int1)
 //        x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3 && sep <= quickerFixer})
       val possibleMatches = setOfEntriesWithAnnotations.filter(x => {
+          println(s"Labels from events file: ${x}")
+
 
           val evtID2 = x._2
           val eventsMatch = checksIfEventsAreSame(evtID1,evtID2)
