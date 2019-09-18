@@ -1,6 +1,6 @@
-package org.clulab.reach.context.context_utils
+package org.clulab.reach.context.context_feature_utils
 
-import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils, ContextPairInstance}
+import org.clulab.context.utils.{AggregatedContextInstance, Scores_IO_Utils, ContextPairInstance}
 
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
@@ -111,7 +111,7 @@ class ContextFeatureAggregator(instances:Seq[ContextPairInstance], featValLookUp
   private def featureValuePairing(aggr:Map[String,(Double,Double, Double, Int)]): Seq[(String,Double)] = {
     val pairings = collection.mutable.ListBuffer[(String,Double)]()
     for((key,value) <- aggr) {
-      val extendedName = CodeUtils.extendFeatureName(key)
+      val extendedName = Scores_IO_Utils.extendFeatureName(key)
       val minTup = (extendedName._1, value._1)
       val maxTup = (extendedName._2, value._2)
       val avgTup = (extendedName._3, value._3/value._4)

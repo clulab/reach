@@ -1,7 +1,7 @@
-package org.clulab.reach.context.context_utils
+package org.clulab.reach.context.context_feature_utils
 
 import com.typesafe.config.ConfigFactory
-import org.clulab.context.utils.{CodeUtils, ContextPairInstance}
+import org.clulab.context.utils.{Scores_IO_Utils, ContextPairInstance}
 import org.clulab.processors.Document
 import org.clulab.reach.context.ContextEngine
 import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
@@ -19,13 +19,13 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
   def extractFeaturesToCalcByBestFeatSet():Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])] = {
     val config = ConfigFactory.load()
     // we need the contextSpecificDependencyFeatures file to get the names of the dependency features for which we need to calculate values.
-    // The same holds for contextSpecificNonDependencyFeatures. These are specific and much smaller in number.
+    // The same holds for specificNonDependencyFeatureNames. These are specific and much smaller in number.
     // It takes a different procedure to calculate the values of these features, the details of which can be obtained below.
     val configAllFeaturesPath = config.getString("contextEngine.params.dependencyFeatures")
-    val hardCodedFeaturesPath = config.getString("contextEngine.params.contextSpecificNonDependencyFeatures")
-    val hardCodedFeatures = CodeUtils.readHardcodedFeaturesFromFile(hardCodedFeaturesPath)
+    val hardCodedFeaturesPath = config.getString("contextEngine.params.specificNonDependencyFeatureNames")
+    val hardCodedFeatures = Scores_IO_Utils.readHardcodedFeaturesFromFile(hardCodedFeaturesPath)
     val numericFeaturesInputRow = hardCodedFeatures.drop(4)
-    val bestFeatureDict = CodeUtils.featureConstructor(configAllFeaturesPath)
+    val bestFeatureDict = ContextFeatureUtils.featureConstructor(configAllFeaturesPath)
 
     // Over all the feature names that were used, an exhaustive ablation study was performed to study the best performing subset of features,
     // and this was found to be the union of non-dependency features and context-dependency features.

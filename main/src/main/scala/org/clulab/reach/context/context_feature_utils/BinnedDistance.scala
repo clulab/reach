@@ -1,4 +1,4 @@
-package org.clulab.reach.context.context_utils
+package org.clulab.reach.context.context_feature_utils
 
 // this object is used in the feature extractor
 object BinnedDistance extends Enumeration{

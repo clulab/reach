@@ -1,4 +1,4 @@
-package org.clulab.reach.context.context_utils
+package org.clulab.reach.context.context_feature_utils
 
 import java.io.{File, FileInputStream, FileOutputStream, ObjectInputStream, ObjectOutputStream, PrintWriter}
 import org.apache.commons.io.{FilenameUtils}
@@ -128,6 +128,45 @@ object ContextFeatureUtils {
     val tokenIntervalEnd = (evt.tokenInterval.end).toString()
     "in"+sentIndex+"from"+tokenIntervalStart+"to"+tokenIntervalEnd
   }
+
+
+
+  def featureConstructor(file:String):Map[String, Seq[String]] = {
+    val is = new ObjectInputStream(new FileInputStream(file))
+    val headers = is.readObject().asInstanceOf[Array[String]]
+    val rectifiedHeaders = rectifyWrongFeatures(headers)
+    is.close()
+    createBestFeatureSet(rectifiedHeaders)
+  }
+
+
+
+  private def rectifyWrongFeatures(headers:Seq[String]): Seq[String] = {
+    val result = collection.mutable.ListBuffer[String]()
+    headers.map(h => if(headers.indexOf(h) == 1) result += "PMCID" else result += h)
+    result
+  }
+
+  def createBestFeatureSet(allFeatures:Seq[String]):Map[String, Seq[String]] = {
+    val nonNumericFeatures = Seq("PMCID", "label", "EvtID", "CtxID", "")
+    val numericFeatures = allFeatures.toSet -- nonNumericFeatures.toSet
+    val featureDict = createFeatureDictionary(numericFeatures.toSeq)
+    featureDict
+  }
+
+  def createFeatureDictionary(numericFeatures: Seq[String]):Map[String, Seq[String]] = {
+    val contextDepFeatures = numericFeatures.filter(_.startsWith("ctxDepTail"))
+    val eventDepFeatures = numericFeatures.filter(_.startsWith("evtDepTail"))
+    val nonDepFeatures = numericFeatures.toSet -- (contextDepFeatures.toSet ++ eventDepFeatures.toSet)
+    val map = collection.mutable.Map[String, Seq[String]]()
+    map += ("All_features" -> numericFeatures)
+    map += ("Non_Dependency_Features" -> nonDepFeatures.toSeq)
+    map += ("NonDep_Context" -> (nonDepFeatures ++ contextDepFeatures.toSet).toSeq)
+    map += ("NonDep_Event" -> (nonDepFeatures ++ eventDepFeatures.toSet).toSeq)
+    map += ("Context_Event" -> (contextDepFeatures.toSet ++ eventDepFeatures.toSet).toSeq)
+    map.toMap
+  }
+
 
 
 

@@ -21,8 +21,8 @@ case class ContextPairInstance(
 object ContextPairInstance{
 
   val config = ConfigFactory.load()
-  val hardCodedInputRowFeatures = config.getString("features.hardCodedFeatures")
-  private val listOfSpecificFeatures = CodeUtils.readHardcodedFeaturesFromFile(hardCodedInputRowFeatures)
+  val hardCodedInputRowFeatures = config.getString("contextEngine.params.specificNonDependencyFeatureNames")
+  private val listOfSpecificFeatures = Scores_IO_Utils.readHardcodedFeaturesFromFile(hardCodedInputRowFeatures)
   private def allOtherFeatures(headers:Seq[String]): Set[String] = headers.toSet -- (listOfSpecificFeatures ++ Seq(""))
 
   private def indices(headers:Seq[String]): Map[String, Int] = headers.zipWithIndex.toMap

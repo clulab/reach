@@ -9,7 +9,7 @@ import org.clulab.context.utils.AggregatedContextInstance
 class TestSVMContext extends FlatSpec with Matchers {
   val config = ConfigFactory.load()
 
-  val configPath = config.getString("contextEngine.params.trainedSvmPathForContextPrediction")
+  val configPath = config.getString("contextEngine.params.pathToSVMModel")
   val svmWrapper = new LinearSVMContextClassifier()
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
   val rootDir = config.getString("rootDir")
