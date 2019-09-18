@@ -15,6 +15,7 @@ object CrossValOldDatasetUsingEventsFile extends App {
   val parentDirForRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
   val annotationsFileDir = config.getString("polarityContext.eventsFilesDir")
   val labelsFromEventFiles = makeLabelMapFromEventFileDir(annotationsFileDir)
+  println(s"These many labels were detected in the events files: ${labelsFromEventFiles.size}")
   val labelFile = config.getString("svmContext.labelFileOldDataset")
   val labelMapFromOldDataset = CodeUtils.generateLabelMap(labelFile)
   //  Writing code that filters and finds the lines in the events file that have the same sentence index as that of the dataframe line, plus the context ID from dataframe should be equal to the context ID in the events file
