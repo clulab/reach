@@ -18,15 +18,18 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
   type ContextID = (String, String)
   def extractFeaturesToCalcByBestFeatSet():Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])] = {
     val config = ConfigFactory.load()
-    val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
-    val hardCodedFeaturesPath = config.getString("contextEngine.params.hardCodedFeatures")
+    // we need the contextSpecificDependencyFeatures file to get the names of the dependency features for which we need to calculate values.
+    // The same holds for contextSpecificNonDependencyFeatures. These are specific and much smaller in number.
+    // It takes a different procedure to calculate the values of these features, the details of which can be obtained below.
+    val configAllFeaturesPath = config.getString("contextEngine.params.dependencyFeatures")
+    val hardCodedFeaturesPath = config.getString("contextEngine.params.contextSpecificNonDependencyFeatures")
     val hardCodedFeatures = CodeUtils.readHardcodedFeaturesFromFile(hardCodedFeaturesPath)
     val numericFeaturesInputRow = hardCodedFeatures.drop(4)
     val bestFeatureDict = CodeUtils.featureConstructor(configAllFeaturesPath)
 
     // Over all the feature names that were used, an exhaustive ablation study was performed to study the best performing subset of features,
     // and this was found to be the union of non-dependency features and context-dependency features.
-    // We will only calculate the values of this subset of features
+    // We will only calculate the values of this subset of features.
     val featSeq = bestFeatureDict("NonDep_Context")
     val allFeatures = bestFeatureDict("All_features")
     // val file
@@ -61,12 +64,18 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     }
 
 
+
+
+    // we add to the list of features the specific, non-dependency features like sentenceDistance, dependencyDistance, etc.
     val dependencyFeatures = unAggregateFeatureName(allFeatures).toSet -- (unAggregateFeatureName(hardCodedFeatures).toSet ++ Seq(""))
     unAggregateFeatureName(numericFeaturesInputRow).map(h => {
       if(unAggregateFeatureName(featSeq).contains(h))
         hardCodedFeatureNames += h
     })
 
+
+    // here we classify the feature names into two separate lists, one that has event dependency feature values,
+    // and one that has context dependency values.
     dependencyFeatures foreach {
       case evt:String if evt.startsWith("evtDepTail") => {
         if(unAggregateFeatureName(featSeq).contains(evt)) evtDepFeatures += evt
@@ -79,7 +88,7 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
 
 
     // call feature value extractor here
-    // we will filter the feature names into "specific features", i.e. non-dependency features, context-dependency features, and finally event dependency features
+    // we will filter the feature names into "specific features", i.e. non-dependency features, context-dependency features, and event dependency features
     val specFeatVal = calculateSpecificFeatValues(datum, contextMentions, contextFrequencyMap.toMap)
     val evtDepFeatVal = calculateEvtDepFeatureVals(datum)
     val ctxDepFeatVal = calculateCtxDepFeatureVals(datum)
@@ -99,6 +108,14 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
   }
 
 
+
+
+ // this function extracts the values of the specific, non-dependency features mentioned above.
+ // It takes as input:
+ // a) tuple of event and context mention,
+ // b) all the mentions detected by Reach for the given paper,
+ // c) frequency of occurrence of each feature, which will prove necessary for feature names such as context_frequency.
+  // It returns to us a map of strings that are the feature names, with their corresponding values.
   private def calculateSpecificFeatValues(datum:(BioEventMention, BioTextBoundMention), contextMentions:Seq[BioTextBoundMention], ctxTypeFreq:Map[String,Double]):Map[String,Double] = {
     val event = datum._1
     val context = datum._2
@@ -171,6 +188,11 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     result.toMap
   }
 
+
+  // this function calculates the value of all the event dependency features.
+  // it takes as input the tuple of (eventID, contextID),
+  // and returns a map of feature_name -> feature_value, similar to the function(s) above
+
   private def calculateEvtDepFeatureVals(datum:(BioEventMention, BioTextBoundMention)):Map[String,Double] = {
     val event = datum._1
     val doc = event.document
@@ -179,6 +201,10 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     evtDepStrings.map(t => s"evtDepTail_$t").groupBy(identity).mapValues(_.length)
   }
 
+
+  // this function calculates the value of all the context dependency features.
+  // it takes as input the tuple of (eventID, contextID),
+  // and returns a map of feature_name -> feature_value, similar to the function(s) above
   private def calculateCtxDepFeatureVals(datum:(BioEventMention, BioTextBoundMention)):Map[String,Double] = {
     val context = datum._2
     val doc = context.document
@@ -191,6 +217,9 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
 
 
 
+
+
+  // ****** starting utility functions to calculate values of dependency features **********
   private def intersentenceDependencyPath(datum:(BioEventMention, BioTextBoundMention)): Option[Seq[String]] = {
     def pathToRoot(currentNodeIndx:Int, currentSentInd:Int, currentDoc:Document): Seq[String] = {
       val dependencies = currentDoc.sentences(currentSentInd).dependencies.get
@@ -364,6 +393,13 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
 
   }
 
+  // ****** ending utility functions to calculate values of dependency features **********
+
+
+  // this function calculates the value of the context_frequency feature.
+  // it takes as input the context mentions in the paper and counts the freequency of occurrence of each context label.
+  // this is then returned as a map of(context_label -> frequnecy)
+  //
   def calculateContextFreq(ctxMentions: Seq[BioTextBoundMention]):collection.mutable.Map[String, Double] = {
     val contextFrequencyMap = collection.mutable.Map[String, Double]()
     ctxMentions.map(f => {

@@ -32,7 +32,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   val svmWrapper = new LinearSVMContextClassifier()
 
   val config = ConfigFactory.load()
-  val configPath = config.getString("contextEngine.params.trainedSvmPath")
+  val configPath = config.getString("contextEngine.params.trainedSvmPathForContextPrediction")
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
   val classifierToUse = trainedSVMInstance.classifier match {
     case Some(x) => x
@@ -118,30 +118,25 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         }
 
 
-        // adding the aggregated rows to a list so that I can pass it to the Cross Validator.
-        // Please note that this call to the cross validator is to the class CrossValBySentDist.
-        // This is being done to measure the micro-averaged precision as a function of the sentence distance.
-        val aggRowsForFileIO = collection.mutable.ListBuffer[((String,String), AggregatedContextInstance)]()
-        //val whereToWriteFeatureValue = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsFeatValsToFile.txt")
-        //val whereToWriteRow = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsToFile.txt")
         val predictions:Map[EventID, Seq[(ContextID, Boolean)]] = {
           val map = collection.mutable.HashMap[EventID, Seq[(ContextID, Boolean)]]()
           for((k,a) <- aggregatedFeatures) {
 
             val x = a.map {
+              // this loop finds the prediction of the SVM on a given AggregatedFeature row.
+              // The prediction is based on  LinearSVMClassifier provided by Clulab/Processors,
+              // which returns 1 for true and 0 for false predictions. We then convert this to the appropriate boolean values.
               case (ctxId, aggregatedFeature) =>
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
 
 
                 // It may be that we may need the aggregated instances for further analyses, like testing or cross-validation.
-                // Should such a need arise, you can write the aggregated instances to file by uncommenting the following line
+                // Should such a need arise, you can write the aggregated instances to file by uncommenting the following line(s)
                 // there are multiple signatures to this function, please refer to the definition of ContextFeatureUtils.writeAggrRowToFile for more details
                 // Example usages:
-                // ContextFeatureUtils.writeAggRowToFile(aggregatedFeature,k.toString, ctxId._2, parentDirToWriteAllRows)
+                // ContextFeatureUtils.writeAggRowToFile(aggregatedFeature,k.toString, ctxId._2, parentDirToWriteAllRows) --> This signature writes the AggregatedInstance to file whose path is specified by parentDirToWriteAllRows
                 // ContextFeatureUtils.writeAggRowToFile(aggregatedFeature, k.toString, ctxId._2,sentWind, whereToWriteRowBySentDist)
                 // Please note that this function writes aggregated rows for each (eventID, contextID) pair. Therefore, you may have a large number of files written to your directory.
-                val tupToAddForFileIO = ((k.toString, ctxId._2), aggregatedFeature)
-                aggRowsForFileIO += tupToAddForFileIO
                 val prediction = {
                   predArrayIntForm(0) match {
                     case 1 => true
@@ -171,6 +166,8 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
               // fetch its predicted pairs
               val contexts = predictions.getOrElse(evtId, Seq.empty)
 
+              // collect only those context labels that have been predicted to be true and
+              // associate it to the global map of context mentions of the given paper.
               val contextMap =
                 (contexts collect {
                   case (ctx, true) => ctx

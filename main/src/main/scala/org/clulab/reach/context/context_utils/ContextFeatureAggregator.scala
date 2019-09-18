@@ -125,6 +125,9 @@ class ContextFeatureAggregator(instances:Seq[ContextPairInstance], featValLookUp
 
 
   // this function adds the feature name and value to the global list of feature name and value in the same order.
+  // It takes as input an indexable sequence of tuples of the form (feature_name, feature_value) and
+  // adds the feature name and corresponding value *in the same order* to the global list of feature names and values.
+  // the order in which they are added is crucial to the prediction of the SVM.
   private def addAggregatedOnce(input: Seq[(String, Double)]):Unit = {
     for((name,value) <- input) {
       featureSetNames += name

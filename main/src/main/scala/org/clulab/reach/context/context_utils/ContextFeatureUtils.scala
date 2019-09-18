@@ -38,7 +38,8 @@ object ContextFeatureUtils {
 
 
   // This signature of writeAggRowToFile writes the AggregatedRow object to file whose path is specified by parentDir.
-  // The function also specifies the event and context IDs in the name of the file.
+  // This function first creates a directory with the name of the paper, and then creates a text file using the paperID, eventID and contextID
+  // The aggregated row is written as an object.
   def writeAggRowToFile(row:AggregatedContextInstance, evtID: String, ctxString:String, parentDir:String):Unit = {
     val pmcid = s"PMC${row.PMCID.split("_")(0)}"
     val whichDirToWriteRow = parentDir.concat(s"${pmcid}")
@@ -59,7 +60,7 @@ object ContextFeatureUtils {
 
 
   // This following signature of writeAggRowToFile takes the aggregated row, event ID, context ID, sentence window and directory into which the file is to be written is to be written.
-  // In this directory, a sub-directory called "sentencewindows/$value_of_sent_window" will be created, and rows will be written to the directory.
+  // In this directory, a sub-directory called "sentencewindows/$value_of_sent_window" will be created, and rows will be written to this directory.
   def writeAggRowToFile(row: AggregatedContextInstance, evtID: String, ctxID: String, sentenceWindow: Int, parentDir:String):Unit = {
 
     val outDir = parentDir.concat(s"/sentenceWindows/${sentenceWindow}")
@@ -77,6 +78,15 @@ object ContextFeatureUtils {
 
   }
 
+
+
+
+  // This function can be used to read the AggregatedRow from file.
+  // It takes as parameter the path to the file where the row needs to be read from,
+  // and returns an instance of AggregatedContextInstance
+  // Please note that this function DOES NOT return the specifications of the AggregatedRow,
+  // i.e. using this function will not give you a reference of the paperID, eventID and contextID.
+  // please refer to the function called *createAggRowSpecsFromFile* that returns these specifications.
   def readAggRowFromFile(file: String):AggregatedContextInstance = {
     val is = new ObjectInputStream(new FileInputStream(file))
     val c = is.readObject().asInstanceOf[AggregatedContextInstance]
@@ -84,14 +94,11 @@ object ContextFeatureUtils {
     c
   }
 
-  def readAggRowsFromFile(file: String): Array[((String, String),AggregatedContextInstance)] = {
-    val is = new ObjectInputStream(new FileInputStream(file))
-    val c = is.readObject().asInstanceOf[Array[((String, String),AggregatedContextInstance)]]
-    is.close()
-    c
-  }
 
 
+
+  // This function takes as parameter the file in which an AggregatedContextInstance row is saved,
+  // and returns as tuple the paperID, eventID and contextID.
   def createAggRowSpecsFromFile(file: File):(String, String, String) = {
     val strOnly = FilenameUtils.removeExtension(file.getName)
     val pmcid = strOnly.split("_")(1)

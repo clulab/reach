@@ -66,6 +66,9 @@ object ContextPairInstance{
       evt_dependencyTails.toSet)
   }
 
+
+  // This fromStreamFunction accepts dataframe to be passed as an inputstream,
+  // and returns an instance of Seq(ContextPairInstance), wherein each of the data point is considered a *ContextPairInstance*
   def fromStream(stream:InputStream):Seq[ContextPairInstance] = {
     val source = Source.fromInputStream(stream)
     val lines = source.getLines()

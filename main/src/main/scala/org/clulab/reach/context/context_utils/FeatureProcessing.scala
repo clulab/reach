@@ -1,6 +1,8 @@
 package org.clulab.reach.context.context_utils
 
 // this object is used in the feature extractor to compare binned distances
+// it calculates the dependence types of each entity in a given sentence,
+// such as noun, verb, etc.
 object FeatureProcessing{
   def binSentenceDistance(d:Int):BinnedDistance.Value = {
     if(d == 0)
