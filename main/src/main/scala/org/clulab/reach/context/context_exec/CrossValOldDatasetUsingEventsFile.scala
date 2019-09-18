@@ -111,11 +111,16 @@ object CrossValOldDatasetUsingEventsFile extends App {
     for(t <- trainingCaseRowsUnFiltered) {
       val specForCurrentRow = keysForLabels(t)
       println(s"Paper ID of current aggregated row: ${specForCurrentRow._1}")
+
       val evtID1 = specForCurrentRow._2
+      val collapsedEvntId1 = collapseEvtId(evtID1)
+      println(s"Sentence index of current aggregated row: ${collapsedEvntId1._2}")
       val labelsToMatchFromCurrentPaper = setOfEntriesWithAnnotations.filter(_._1 == specForCurrentRow._1)
       val possibleMatches = labelsToMatchFromCurrentPaper.filter(x => {
           println(s"Current paper ID of label entry: ${x._1}")
           val evtID2 = x._2
+          val collapsedEvntId2 = collapseEvtId(evtID2)
+          println(s"Sentence index of current label row: ${collapsedEvntId2._2}")
           val eventsMatch = checksIfEventsAreSame(evtID1,evtID2)
 
           specForCurrentRow._1 == x._1 && eventsMatch && specForCurrentRow._3 == x._3
