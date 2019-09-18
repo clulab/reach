@@ -81,6 +81,10 @@ class ContextFeatureAggregator(instances:Seq[ContextPairInstance], featValLookUp
     newAggRow
   }
 
+
+
+  // this function takes as parameters the names of features that need to be aggregated, along with the value of the feature observed in each ContextPairInstance.
+  // it then aggregates each feature to find the _min, _max and _mean (arithmetic mean) of each feature.
   private def aggregateInputRowFeatValues(features:Seq[String], valuesPerGivenFeature: Map[String,mutable.ListBuffer[Double]]):Map[String,(Double,Double, Double, Int)] = {
     val resultingMap = collection.mutable.Map[String,(Double,Double, Double, Int)]()
     for(r <- features) {
@@ -101,6 +105,9 @@ class ContextFeatureAggregator(instances:Seq[ContextPairInstance], featValLookUp
     resultingMap.toMap
   }
 
+
+  // this function just matches the feature name with its correct value, and returns them as a list of tuples,
+  // where each tuple is in the form of (feature_name,feature_value)
   private def featureValuePairing(aggr:Map[String,(Double,Double, Double, Int)]): Seq[(String,Double)] = {
     val pairings = collection.mutable.ListBuffer[(String,Double)]()
     for((key,value) <- aggr) {
@@ -116,6 +123,8 @@ class ContextFeatureAggregator(instances:Seq[ContextPairInstance], featValLookUp
   }
 
 
+
+  // this function adds the feature name and value to the global list of feature name and value in the same order.
   private def addAggregatedOnce(input: Seq[(String, Double)]):Unit = {
     for((name,value) <- input) {
       featureSetNames += name
