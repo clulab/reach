@@ -110,12 +110,11 @@ object CrossValOldDatasetUsingEventsFile extends App {
     val trainingLabels = collection.mutable.ListBuffer[Int]()
     for(t <- trainingCaseRowsUnFiltered) {
       val specForCurrentRow = keysForLabels(t)
+      print(s"Paper ID of current aggregated row: ${specForCurrentRow._1}")
       val evtID1 = specForCurrentRow._2
-//      val possibleMatchesInLabelFile = setOfEntriesWithAnnotations.filter(x => {
-//        val int1 = x._1._2
-//        val sep = Math.abs(evtID - int1)
-//        x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3 && sep <= quickerFixer})
+
       val possibleMatches = setOfEntriesWithAnnotations.filter(x => {
+          println(s"Current paper ID of label entry: ${x._1}")
           val evtID2 = x._2
           val eventsMatch = checksIfEventsAreSame(evtID1,evtID2)
 
@@ -153,10 +152,7 @@ object CrossValOldDatasetUsingEventsFile extends App {
 
       val specForCurrTestRow = keysForLabels(testRow)
       val eventID1 = specForCurrTestRow._2
-//      val possibleLabels = labelMapFromOldDataset.filter(x => {
-//        val int1 = Integer.parseInt(x._1._2)
-//        val sep = Math.abs(int1 - eventID)
-//        x._1._1 == specForCurrTestRow._1 && x._1._3 == specForCurrTestRow._3 && sep <= quickerFixer})
+
       val possibleMatches = setOfEntriesWithAnnotations.filter(x => {
 
         val evtID2 = x._2
@@ -176,8 +172,6 @@ object CrossValOldDatasetUsingEventsFile extends App {
 
         truthLabelsForThisPaper += truthLab
         predictedLabelsForThisPaper += pred(0)
-        //              giantPredictedLabels += pred(0)
-        //              giantTruthLabels += truthLab
 
       }
     }
@@ -254,13 +248,6 @@ object CrossValOldDatasetUsingEventsFile extends App {
   }
 
   def checksIfEventsAreSame(eventID1: String, eventID2:String):Boolean = {
-//    val event1SentInd = Integer.parseInt(eventID1.split("*")(0))
-//    val event1StartToken = Integer.parseInt(eventID1.split("*")(1).split("=")(0))
-//    val event1EndToken = Integer.parseInt(eventID1.split("*")(1).split("=")(1))
-//    val event2SentInd = Integer.parseInt(eventID2.split("*")(0))
-//    val event2StartToken = Integer.parseInt(eventID2.split("*")(1).split("=")(0))
-//    val event2EndToken = Integer.parseInt(eventID2.split("*")(1).split("=")(1))
-
     println(s"Inside event equality check function, examining the event IDs received here")
     println(eventID1)
     println(eventID2)
