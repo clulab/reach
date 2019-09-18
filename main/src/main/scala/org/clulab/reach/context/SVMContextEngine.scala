@@ -40,12 +40,13 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   val configPath = config.getString("contextEngine.params.pathToSVMModel")
   val resourcesPath = "/org/clulab/context/svmFeatures"
   val pathToSVMModel = s"$resourcesPath/svm_model.dat"
-  val classResource = getClass.getResource(pathToSVMModel)
-  println(classResource)
-  // try passing encoding as Source.fromURL(classResource)(codec="utf-8)
-  val source = Source.fromURL(classResource)
-  val readfileOutput = source.mkString
-  source.close()
+
+
+  val answer = this.getClass.getResourceAsStream(s"${pathToSVMModel}")
+  println(answer)
+//  val source = Source.fromURL(classResource)
+//  val readfileOutput = source.mkString
+//  source.close()
   val svmModelFile = new File(getClass().getClassLoader().getResource(pathToSVMModel).getFile())
   //println(s"Output from read resource function in RuleReader: ${checkReturnValueFromReadResource}")
   val trainedSVMInstance = svmWrapper.loadFrom(svmModelFile)
