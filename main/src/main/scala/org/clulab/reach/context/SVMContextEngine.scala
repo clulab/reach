@@ -37,8 +37,8 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   val configPath = config.getString("contextEngine.params.pathToSVMModel")
   val resourcesPath = "/org/clulab/context/svmFeatures"
   val pathToSVMModel = s"$resourcesPath/svm_model.dat"
-  //val checkReturnValueFromReadResource = readResource(pathToSVMModel)
-  //println(s"Output from read resource function in RuleReader: ${checkReturnValueFromReadResource}")
+  val checkReturnValueFromReadResource = readResource(pathToSVMModel)
+  println(s"Output from read resource function in RuleReader: ${checkReturnValueFromReadResource}")
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
   val classifierToUse = trainedSVMInstance.classifier match {
     case Some(x) => x
