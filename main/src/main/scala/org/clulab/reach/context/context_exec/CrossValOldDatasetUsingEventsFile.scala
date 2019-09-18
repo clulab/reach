@@ -15,8 +15,16 @@ object CrossValOldDatasetUsingEventsFile extends App {
   val parentDirForRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
   val annotationsFileDir = config.getString("polarityContext.eventsFilesDir")
   val labelsFromEventFiles = makeLabelMapFromEventFileDir(annotationsFileDir)
+  println(labelsFromEventFiles.mkString(","))
   val labelFile = config.getString("svmContext.labelFileOldDataset")
   val labelMapFromOldDataset = CodeUtils.generateLabelMap(labelFile)
+  //  Writing code that filters and finds the lines in the events file that have the same sentence index as that of the dataframe line, plus the context ID from dataframe should be equal to the context ID in the events file
+  val availableAnnotationsWithExpandedIntervals = collection.mutable.HashMap[(String,String,String),Int]()
+  for((idTupDataframe, label) <- labelMapFromOldDataset) {
+    for(idTupEventsFile <- labelsFromEventFiles) {
+
+    }
+  }
   println(s"Number of manual annotations available: ${labelMapFromOldDataset.size}")
   val setOfEntriesWithAnnotations = labelMapFromOldDataset.keySet
   //val setOfEntriesWithAnnotations = labelsFromEventFiles.toSet.union(labelMapFromOldDataset.toSet)
@@ -94,7 +102,7 @@ object CrossValOldDatasetUsingEventsFile extends App {
 //        val sep = Math.abs(evtID - int1)
 //        x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3 && sep <= quickerFixer})
       val possibleMatches = setOfEntriesWithAnnotations.filter(x => {
-          println(s"Labels from events file: ${x}")
+
 
 
           val evtID2 = x._2
@@ -102,11 +110,6 @@ object CrossValOldDatasetUsingEventsFile extends App {
 
           specForCurrentRow._1 == x._1 && eventsMatch && specForCurrentRow._3 == x._3
         })
-
-      println(s"Number of matching events from events file and new reach: ${possibleMatches.size}")
-
-      val intersectingLabels = possibleMatches.intersect(labelMapFromOldDataset.keySet)
-      println(s"Size of labels matching with annotations: ${intersectingLabels.size}")
 
       val possibleMatchesInLabelFile = possibleMatches.map({x =>
         val reformattedEvtID = collapseEvtId(x._2)._1
@@ -271,6 +274,17 @@ object CrossValOldDatasetUsingEventsFile extends App {
     val event1EndToken = Integer.parseInt(part2(1))
     val strForm = event1SentInd+""+event1StartToken+""+event1EndToken
     (strForm,event1SentInd,event1StartToken,event1EndToken)
+  }
+
+
+
+  def expandIntervalOfAvailableAnnotation(eventFromDataFrame:String, eventFromEventsFile: String):String = {
+    val collapsedEventDataFrame = collapseEvtId(eventFromDataFrame)
+    val collapsedEventEvtFile = collapseEvtId(eventFromEventsFile)
+    val optimalStartToken = Math.min(collapsedEventDataFrame._3,collapsedEventEvtFile._3)
+    val optimalEndToken = Math.max(collapsedEventDataFrame._4,collapsedEventEvtFile._4)
+    s"in${collapsedEventDataFrame._2}from${optimalStartToken}to${optimalEndToken}"
+
   }
 
 
