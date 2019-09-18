@@ -40,7 +40,7 @@ object CrossValOldDatasetUsingEventsFile extends App {
 
 
   println(s"Size of label map: ${availableAnnotationsWithExpandedIntervals.size}")
-  val setOfEntriesWithAnnotations = labelMapFromOldDataset.keySet
+  val setOfEntriesWithAnnotations = availableAnnotationsWithExpandedIntervals.keySet
   //val setOfEntriesWithAnnotations = labelsFromEventFiles.toSet.union(labelMapFromOldDataset.toSet)
 
   //  val smallSetOfPapers = List("PMC2156142", "PMC2195994")
@@ -116,9 +116,6 @@ object CrossValOldDatasetUsingEventsFile extends App {
 //        val sep = Math.abs(evtID - int1)
 //        x._1._1 == specForCurrentRow._1 && x._1._3 == specForCurrentRow._3 && sep <= quickerFixer})
       val possibleMatches = setOfEntriesWithAnnotations.filter(x => {
-
-
-
           val evtID2 = x._2
           val eventsMatch = checksIfEventsAreSame(evtID1,evtID2)
 
@@ -128,9 +125,12 @@ object CrossValOldDatasetUsingEventsFile extends App {
       val possibleMatchesInLabelFile = possibleMatches.map({x =>
         val reformattedEvtID = collapseEvtId(x._2)._1
         val searchSpecForLabel = (x._1,reformattedEvtID,x._3)
-        val labelFromDataframe = labelMapFromOldDataset(searchSpecForLabel)
+        val labelFromDataframe = availableAnnotationsWithExpandedIntervals(x)
         (x,labelFromDataframe)
       })
+
+
+      println(s"These many rows were found to be common in new Reach and old reach.: ${possibleMatchesInLabelFile.size}. We will use them for training.")
 
       for((_,lab) <- possibleMatchesInLabelFile) {
         if(!trainingRowsWithCorrectLabels.contains(t)) {
