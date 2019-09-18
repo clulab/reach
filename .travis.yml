@@ -7,4 +7,8 @@ branches:
   only:
     - master
 script:
-  - ${TRAVIS_BUILD_DIR}/runAllTests.sh
+ # - ${TRAVIS_BUILD_DIR}/runAllTests.sh
+  - sbt test
+  - sbt main/test
+  - sbt causalAssembly/test
+  - sbt export/test
