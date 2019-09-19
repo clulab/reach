@@ -22,9 +22,23 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     // The same holds for specificNonDependencyFeatureNames. These are specific and much smaller in number.
     // It takes a different procedure to calculate the values of these features, the details of which can be obtained below.
     val configAllFeaturesPath = config.getString("contextEngine.params.dependencyFeatures")
-    val hardCodedFeaturesPath = config.getString("contextEngine.params.specificNonDependencyFeatureNames")
-    val hardCodedFeatures = Scores_IO_Utils.readHardcodedFeaturesFromFile(hardCodedFeaturesPath)
-    val numericFeaturesInputRow = hardCodedFeatures.drop(4)
+
+    val specificNonDepFeaturepath = config.getString("contextEngine.params.specificNonDependencyFeatureNames")
+
+
+    val resourcesPath = "/org/clulab/context/svmFeatures"
+
+
+    val pathToSpecificNonDepFeatures = s"${resourcesPath}/specific_nondependency_featurenames.txt"
+    val urlToSpecificNonDep = getClass.getResource(pathToSpecificNonDepFeatures)
+    val truncatedPathToSpecificNonDep = urlToSpecificNonDep.toString.slice(5,urlToSpecificNonDep.toString.length)
+    val specificNonDepFeatureList = Scores_IO_Utils.readHardcodedFeaturesFromFile(truncatedPathToSpecificNonDep)
+
+
+
+
+
+    val numericFeaturesInputRow = specificNonDepFeatureList.drop(4)
     val bestFeatureDict = ContextFeatureUtils.featureConstructor(configAllFeaturesPath)
 
     // Over all the feature names that were used, an exhaustive ablation study was performed to study the best performing subset of features,
@@ -67,7 +81,7 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
 
 
     // we add to the list of features the specific, non-dependency features like sentenceDistance, dependencyDistance, etc.
-    val dependencyFeatures = unAggregateFeatureName(allFeatures).toSet -- (unAggregateFeatureName(hardCodedFeatures).toSet ++ Seq(""))
+    val dependencyFeatures = unAggregateFeatureName(allFeatures).toSet -- (unAggregateFeatureName(specificNonDepFeatureList).toSet ++ Seq(""))
     unAggregateFeatureName(numericFeaturesInputRow).map(h => {
       if(unAggregateFeatureName(featSeq).contains(h))
         hardCodedFeatureNames += h
