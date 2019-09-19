@@ -44,9 +44,10 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
 
   //val answer = getClass.getResource(s"${pathToSVMModel}")
-  val answer = getClass().getClassLoader().getResource(pathToSVMModel)
+  //val answer = getClass().getClassLoader().getResource(pathToSVMModel)
+  val answer = Source.fromInputStream(getClass().getClassLoader().getResourceAsStream("svm_model.dat"))
   println(answer)
-  val svmFile = new File(answer.toURI());
+
 
   println("crossed risk of null pointer")
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
