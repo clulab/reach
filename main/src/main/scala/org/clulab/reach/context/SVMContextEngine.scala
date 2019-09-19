@@ -45,13 +45,11 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
   //val answer = getClass().getClassLoader().getResourceAsStream(pathToSVMModel)
   val answer = getClass.getResource(pathToSVMModel)
-  val reader = new BufferedReader(new InputStreamReader(answer.openStream()));
-
-  println(reader)
+  println(answer)
 
 
   println("crossed risk of null pointer")
-  val trainedSVMInstance = svmWrapper.loadFrom(configPath)
+  val trainedSVMInstance = svmWrapper.loadFrom(answer.toString)
   val classifierToUse = trainedSVMInstance.classifier match {
     case Some(x) => x
     case None => {
