@@ -24,9 +24,6 @@ class BoundedPaddingContext(
       val interval = getInterval(m.sentence)
       var contextMap = queryContext(interval)
 
-      println(s"Checking if current context mention is rice ${m.nsId() == "taxonomy:4530"}")
-      println(s"Checking if current context mention is mice/mouse ${m.nsId() == "taxonomy:10090"}")
-
       // If the context map doesn't have species and there's a default
       if(!contextMap.keySet.contains("Species")
           && defaultContexts.isDefined){

@@ -184,8 +184,21 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                   case (ctx, true) => ctx
                 } groupBy (_._1)).mapValues(x => x.map(_._2))
 
+              val appendedContextMap = collection.mutable.HashMap[String, Seq[String]]()
+              appendedContextMap ++= contextMap
+
+              if(!contextMap.keySet.contains("Species")
+                && defaultContexts.isDefined) {
+                val defaults = defaultContexts.get
+                if(defaults.keySet.contains("Species")){
+                  appendedContextMap += ("Species" -> Array(defaults("Species")))
+                }
+              }
+
+
+
               // Assign the context map to the mention
-              evt.context = if(contextMap != Map.empty) Some(contextMap) else None
+              evt.context = if(appendedContextMap != Map.empty) Some(appendedContextMap.toMap) else None
 
 
 
