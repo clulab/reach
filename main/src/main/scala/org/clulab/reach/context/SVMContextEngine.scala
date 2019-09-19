@@ -197,7 +197,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
               val hasSpecies = mention.context.exists(_.contains("Species"))
               println(s"In SVM Context engine, checking if the current mention has a species context: ${hasSpecies}")
-              val species = s"${mention.grounding.get.species}" if(hasSpecies) else "unknown species because no grounding was found"
+              val species = if(hasSpecies) s"${mention.grounding.get.species}" else "unknown species because no grounding was found"
               println(s"In SVM Context engine, checking species value: ${species}")
 
 
