@@ -42,9 +42,9 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   val pathToSVMModel = s"$resourcesPath/svm_model.dat"
 
 
-  val answer = this.getClass.getResourceAsStream(s"${pathToSVMModel}")
-  val stringForm = scala.io.Source.fromInputStream(answer).mkString
-  println(stringForm)
+  //val answer = getClass.getResource(s"${pathToSVMModel}")
+  val answer = getClass.getResource("/svm_model.dat")
+  println(answer.getPath)
 
   val trainedSVMInstance = svmWrapper.loadFrom(pathToSVMModel)
   val classifierToUse = trainedSVMInstance.classifier match {
