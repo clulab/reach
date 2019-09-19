@@ -38,14 +38,14 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
   val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.pathToSVMModel")
-  val resourcesPath = "../../../../../resources/org/clulab/context/svmFeatures"
+  //val resourcesPath = "../../../../../resources/org/clulab/context/svmFeatures"
+  val resourcesPath = "resources/org/clulab/context/svmFeatures"
   val pathToSVMModel = s"$resourcesPath/svm_model.dat"
 
 
   //val answer = getClass.getResource(s"${pathToSVMModel}")
-  val answer = getClass().getClassLoader().getResourceAsStream("/svm_model.dat")
-  val lines =  Source.fromInputStream(answer).getLines()
-  println(lines.mkString(", "))
+  val answer = getClass().getClassLoader().getResource(pathToSVMModel)
+
   println("crossed risk of null pointer")
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
   val classifierToUse = trainedSVMInstance.classifier match {

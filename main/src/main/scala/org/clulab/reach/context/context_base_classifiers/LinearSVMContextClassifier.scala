@@ -86,6 +86,13 @@ case class LinearSVMContextClassifier(classifier: Option[LinearSVMClassifier[Int
     c
   }
 
+  def loadFrom(inputStream: InputStream): LinearSVMContextClassifier = {
+    val is = new ObjectInputStream(new FileInputStream(file))
+    val c = is.readObject().asInstanceOf[LinearSVMContextClassifier]
+    is.close()
+    c
+  }
+
 
 
   // ******** Starting functions to convert data from AggregatedContextInstance to RVFDataSet, a useful format for using the in-house LinearSVMModel designed by Mihai's team.
