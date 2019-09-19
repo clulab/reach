@@ -31,6 +31,7 @@ object ContextEngine extends LazyLogging {
     } else "UNGROUNDED"
 
     val labels = mention.labels filter (contextMatching.contains(_))
+    println(s"Printing label of grounding ID from policy4")
 
     (labels.head, id)
   }
