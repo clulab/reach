@@ -38,14 +38,16 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
   val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.pathToSVMModel")
-  //val resourcesPath = "../../../../../resources/org/clulab/context/svmFeatures"
+  // VERY IMPORTANT TO KEEP THE STARTING / for jar file path to resource dir
   val resourcesPath = "/org/clulab/context/svmFeatures"
   val pathToSVMModel = s"${resourcesPath}/svm_model.dat"
 
 
   //val answer = getClass().getClassLoader().getResourceAsStream(pathToSVMModel)
   val answer = getClass.getResource(pathToSVMModel)
-  println(answer)
+  val reader = new BufferedReader(new InputStreamReader(answer.openStream()));
+
+  println(reader)
 
 
   println("crossed risk of null pointer")
