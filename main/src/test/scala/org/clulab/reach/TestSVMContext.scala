@@ -9,6 +9,10 @@ import org.clulab.context.utils.AggregatedContextInstance
 class TestSVMContext extends FlatSpec with Matchers {
   val config = ConfigFactory.load()
 
+
+
+  // when you do get around to this, make sure you read files as resources.
+  // It's fine until then, since these tests are not valis anyway, for the timebeing.
   val configPath = config.getString("contextEngine.params.pathToSVMModel")
   val svmWrapper = new LinearSVMContextClassifier()
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)

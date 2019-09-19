@@ -1,11 +1,8 @@
 package org.clulab.reach.context
 
-import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.context.classifiers.LinearSVMContextClassifier
-import org.clulab.context.utils.{AggregatedContextInstance, ContextPairInstance}
-import org.clulab.reach.RuleReader
-import org.clulab.reach.RuleReader.readResource
+import org.clulab.context.utils.ContextPairInstance
 import org.clulab.reach.context.context_feature_utils.{ContextFeatureAggregator, ContextFeatureUtils, EventContextPairGenerator}
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 
