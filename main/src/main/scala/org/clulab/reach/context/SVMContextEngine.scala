@@ -36,8 +36,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
   val svmWrapper = new LinearSVMContextClassifier()
 
-  val config = ConfigFactory.load()
-  val configPath = config.getString("contextEngine.params.pathToSVMModel")
   // VERY IMPORTANT TO KEEP THE STARTING / for jar file path to resource dir
   val resourcesPath = "/org/clulab/context/svmFeatures"
   val pathToSVMModel = s"${resourcesPath}/svm_model.dat"

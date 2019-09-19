@@ -20,9 +20,13 @@ case class ContextPairInstance(
 
 object ContextPairInstance{
 
-  val config = ConfigFactory.load()
-  val hardCodedInputRowFeatures = config.getString("contextEngine.params.specificNonDependencyFeatureNames")
-  private val listOfSpecificFeatures = Scores_IO_Utils.readHardcodedFeaturesFromFile(hardCodedInputRowFeatures)
+  val resourcesPath = "/org/clulab/context/svmFeatures"
+
+
+  val pathToSpecificNonDepFeatures = s"${resourcesPath}/specific_nondependency_featurenames.txt"
+  val urlToSpecificNonDep = getClass.getResource(pathToSpecificNonDepFeatures)
+  val truncatedPathToSpecificNonDep = urlToSpecificNonDep.toString.slice(5,urlToSpecificNonDep.toString.length)
+  val listOfSpecificFeatures = Scores_IO_Utils.readHardcodedFeaturesFromFile(truncatedPathToSpecificNonDep)
   private def allOtherFeatures(headers:Seq[String]): Set[String] = headers.toSet -- (listOfSpecificFeatures ++ Seq(""))
 
   private def indices(headers:Seq[String]): Map[String, Int] = headers.zipWithIndex.toMap

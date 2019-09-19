@@ -21,10 +21,6 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     // we need the contextSpecificDependencyFeatures file to get the names of the dependency features for which we need to calculate values.
     // The same holds for specificNonDependencyFeatureNames. These are specific and much smaller in number.
     // It takes a different procedure to calculate the values of these features, the details of which can be obtained below.
-    val configAllFeaturesPath = config.getString("contextEngine.params.dependencyFeatures")
-
-    val specificNonDepFeaturepath = config.getString("contextEngine.params.specificNonDependencyFeatureNames")
-
 
     val resourcesPath = "/org/clulab/context/svmFeatures"
 
@@ -34,12 +30,13 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     val truncatedPathToSpecificNonDep = urlToSpecificNonDep.toString.slice(5,urlToSpecificNonDep.toString.length)
     val specificNonDepFeatureList = Scores_IO_Utils.readHardcodedFeaturesFromFile(truncatedPathToSpecificNonDep)
 
-
-
+    val pathToAllFeatures = s"${resourcesPath}/all_feature_names_file.txt"
+    val urlToAllFeatures = getClass.getResource(pathToAllFeatures)
+    val truncatedPathToAllFeatures = urlToAllFeatures.toString.slice(5,urlToAllFeatures.toString.length)
 
 
     val numericFeaturesInputRow = specificNonDepFeatureList.drop(4)
-    val bestFeatureDict = ContextFeatureUtils.featureConstructor(configAllFeaturesPath)
+    val bestFeatureDict = ContextFeatureUtils.featureConstructor(truncatedPathToAllFeatures)
 
     // Over all the feature names that were used, an exhaustive ablation study was performed to study the best performing subset of features,
     // and this was found to be the union of non-dependency features and context-dependency features.
