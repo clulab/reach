@@ -12,7 +12,7 @@ class TestSVMContext extends FlatSpec with Matchers {
   val config = ConfigFactory.load()
 
 
-  val text2 = "Mouse AKT1 is different from rice AKT1."
+  val text2 = "Rat AKT1 is different from rice AKT1."
   val docID = "testSVMDoc"
   val chunkID = "1"
   val mentions2 = getBioMentions(text2)
