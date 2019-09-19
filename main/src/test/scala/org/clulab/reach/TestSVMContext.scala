@@ -1,22 +1,32 @@
 package org.clulab.reach
 import java.io.{FileInputStream, ObjectInputStream}
 
+import TestUtils._
 import org.scalatest.{FlatSpec, Matchers}
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.AggregatedContextInstance
+import org.clulab.reach.context.hasSpeciesContext
 
 class TestSVMContext extends FlatSpec with Matchers {
   val config = ConfigFactory.load()
 
 
+  val text2 = "Mouse AKT1 is different from rice AKT1."
+  val docID = "testSVMDoc"
+  val chunkID = "1"
+  val mentions2 = getBioMentions(text2)
+  val overrideSpecies = config.getBoolean("grounding.overrideSpecies")
+  "Text2 mentions" should "may or may not have all rice groundings" in {
+    // This test depends on the setting of grounding.overrideSpecies flag in application.conf:
+    mentions2.filter(m => hasSpeciesContext(m)).forall(m => m.isGrounded && m.grounding.get.species == "rice") should be (!overrideSpecies)
+    // Using species, this will no longer be true when Reach issue #152 is implemented:
+    // mentions2.filter(m => hasSpeciesContext(m)).forall(m => m.isGrounded && m.grounding.get.species == "rice") should be (true)
+    // This will only pass when Reach issue #152 is implemented:
+    // mentions2.filter(m => hasSpeciesContext(m)).forall(m => m.isGrounded && m.grounding.get.species == "rice") should be (false)
+  }
 
-  // when you do get around to this, make sure you read files as resources.
-  // It's fine until then, since these tests are not valis anyway, for the timebeing.
-  val configPath = config.getString("contextEngine.params.pathToSVMModel")
-  val svmWrapper = new LinearSVMContextClassifier()
-  val trainedSVMInstance = svmWrapper.loadFrom(configPath)
-  val rootDir = config.getString("rootDir")
+
 
 //
 //

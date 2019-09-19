@@ -63,18 +63,7 @@ class TestReachGrounder extends FlatSpec with Matchers {
 
   "Text2 mentions" should "may or may not have all rice groundings" in {
     // This test depends on the setting of grounding.overrideSpecies flag in application.conf:
-    //mentions2.filter(m => hasSpeciesContext(m)).forall(m => m.isGrounded && m.grounding.get.species == "rice") should be (!overrideSpecies)
-    // breaking down tests into blocks for debugging
-
-    mentions2.filter(m => hasSpeciesContext(m)).forall(m => {
-      val isGrounded = m.isGrounded
-      println(s"Bool value of whether mention has a grounding: ${isGrounded}")
-      val speciesIsRice = m.grounding.get.species == "rice"
-      println(s"Bool value of whether species is rice: ${speciesIsRice}")
-      isGrounded && speciesIsRice
-    }) should be (!overrideSpecies)
-
-
+    mentions2.filter(m => hasSpeciesContext(m)).forall(m => m.isGrounded && m.grounding.get.species == "rice") should be (!overrideSpecies)
     // Using species, this will no longer be true when Reach issue #152 is implemented:
     // mentions2.filter(m => hasSpeciesContext(m)).forall(m => m.isGrounded && m.grounding.get.species == "rice") should be (true)
     // This will only pass when Reach issue #152 is implemented:
