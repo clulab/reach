@@ -45,7 +45,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
   //val answer = getClass.getResource(s"${pathToSVMModel}")
   //val answer = getClass().getClassLoader().getResource(pathToSVMModel)
-  val answer = getClass.getResourceAsStream("/svm_model.dat")
+  val answer = getClass().getClassLoader().getResourceAsStream("/svm_model.dat")
   println(answer)
 
 
