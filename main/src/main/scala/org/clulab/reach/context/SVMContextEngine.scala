@@ -38,12 +38,13 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
   val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.pathToSVMModel")
-  val resourcesPath = "/org/clulab/context/svmFeatures"
+  val resourcesPath = "../../../../../resources/org/clulab/context/svmFeatures"
   val pathToSVMModel = s"$resourcesPath/svm_model.dat"
 
 
   val answer = this.getClass.getResourceAsStream(s"${pathToSVMModel}")
-  println(answer)
+  val stringForm = scala.io.Source.fromInputStream(answer).mkString
+  println(stringForm)
 
   val trainedSVMInstance = svmWrapper.loadFrom(pathToSVMModel)
   val classifierToUse = trainedSVMInstance.classifier match {
