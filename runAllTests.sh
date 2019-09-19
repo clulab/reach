@@ -8,33 +8,19 @@
 
 overallExitCode=0
 
-sbt test
+function runTest {
+    echo "Testing '$1' suite..."
+    sbt $1
+    if [ $? -ne 0 ]; then
+        echo "The '$1' suite failed!"
+        overallExitCode=1
+    fi
+}
 
-if [ $? -ne 0 ]; then
-    echo "The test suite failed!"
-    overallExitCode=1
-fi
-
-sbt main/test
-
-if [ $? -ne 0 ]; then
-    echo "The main/test suite failed!"
-    overallExitCode=1
-fi
-
-sbt causalAssembly/test
-
-if [ $? -ne 0 ]; then
-    echo "The causalAssembly/test suite failed!"
-    overallExitCode=1
-fi
-
-sbt export/test
-
-if [ $? -ne 0 ]; then
-    echo "The export/test suite failed!"
-    overallExitCode=1
-fi
+runTest "test"
+runTest "main/test"
+runTest "causalAssembly/test"
+runTest "export/test"
 
 #echo 'Stopping Processor Server...'
 #sbt 'run-main org.clulab.processors.csshare.ShutdownProcessorServer'
