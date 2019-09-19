@@ -35,16 +35,19 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
   // VERY IMPORTANT TO KEEP THE STARTING / for jar file path to resource dir
   val resourcesPath = "/org/clulab/context/svmFeatures"
-  val pathToSVMModel = s"${resourcesPath}/svm_model.dat"
+  val resourcesPathToSVMModel = s"${resourcesPath}/svm_model.dat"
 
 
-  //val answer = getClass().getClassLoader().getResourceAsStream(pathToSVMModel)
-  val answer = getClass.getResource(pathToSVMModel)
 
-  val truncatedPathToFile = answer.toString.slice(5,answer.toString.length)
+  // this function call to getResource returns to us a URL that is the path to the file svm_model.dat
+  // the variable urlPathToSVMModel holds the value file:/home/....
+  // so we need to take the shorter version of it that starts from /home/...
+  val urlPathToSVMModel = getClass.getResource(resourcesPathToSVMModel)
+
+  val truncatedPathToSVM = urlPathToSVMModel.toString.replace("file:","")
 
 
-  val trainedSVMInstance = svmWrapper.loadFrom(truncatedPathToFile)
+  val trainedSVMInstance = svmWrapper.loadFrom(truncatedPathToSVM)
   val classifierToUse = trainedSVMInstance.classifier match {
     case Some(x) => x
     case None => {
@@ -187,6 +190,9 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
               val appendedContextMap = collection.mutable.HashMap[String, Seq[String]]()
               appendedContextMap ++= contextMap
 
+
+              // adding a check to see if our context map has a species map, and if not,
+              // adding the species values to the context map before we return it
               if(!contextMap.keySet.contains("Species")
                 && defaultContexts.isDefined) {
                 val defaults = defaultContexts.get
@@ -194,12 +200,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                   appendedContextMap += ("Species" -> Array(defaults("Species")))
                 }
               }
-
-              val hasSpecies = mention.context.exists(_.contains("Species"))
-              println(s"In SVM Context engine, checking if the current mention has a species context: ${hasSpecies}")
-              val species = if(hasSpecies) s"${mention.grounding.get.species}" else "unknown species because no grounding was found"
-              println(s"In SVM Context engine, checking species value: ${species}")
-
 
 
               // Assign the context map to the mention

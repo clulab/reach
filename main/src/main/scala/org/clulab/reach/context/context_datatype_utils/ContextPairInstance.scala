@@ -24,10 +24,13 @@ object ContextPairInstance{
 
 
   val pathToSpecificNonDepFeatures = s"${resourcesPath}/specific_nondependency_featurenames.txt"
-  val urlToSpecificNonDep = getClass.getResource(pathToSpecificNonDepFeatures)
-  val truncatedPathToSpecificNonDep = urlToSpecificNonDep.toString.slice(5,urlToSpecificNonDep.toString.length)
-  val listOfSpecificFeatures = Scores_IO_Utils.readHardcodedFeaturesFromFile(truncatedPathToSpecificNonDep)
-  private def allOtherFeatures(headers:Seq[String]): Set[String] = headers.toSet -- (listOfSpecificFeatures ++ Seq(""))
+  val urlToSpecificNonDependFeaturesFile = getClass.getResource(pathToSpecificNonDepFeatures)
+  // this function call to getResource returns to us a URL that is the path to the file svm_model.dat
+  // the variable urlToSpecificNonDependFeaturesFile holds the value file:/home/....
+  // so we need to take the shorter version of it that starts from /home/...
+  val truncatedPathToSpecificNonDep = urlToSpecificNonDependFeaturesFile.toString.replace("file:","")
+  val listOfSpecificNonDependFeatures = Scores_IO_Utils.readHardcodedFeaturesFromFile(truncatedPathToSpecificNonDep)
+  private def allOtherFeatures(headers:Seq[String]): Set[String] = headers.toSet -- (listOfSpecificNonDependFeatures ++ Seq(""))
 
   private def indices(headers:Seq[String]): Map[String, Int] = headers.zipWithIndex.toMap
 
@@ -56,7 +59,7 @@ object ContextPairInstance{
     val ctx = rowData(indices("CtxID"))
 
     val specificFeatureNames = collection.mutable.ListBuffer[String]()
-    val listOfNumericFeatures = listOfSpecificFeatures.drop(4)
+    val listOfNumericFeatures = listOfSpecificNonDependFeatures.drop(4)
     listOfNumericFeatures.map(l => {
       specificFeatureNames += l
     })

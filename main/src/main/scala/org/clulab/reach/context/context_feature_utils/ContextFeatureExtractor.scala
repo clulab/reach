@@ -27,12 +27,15 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
 
     val pathToSpecificNonDepFeatures = s"${resourcesPath}/specific_nondependency_featurenames.txt"
     val urlToSpecificNonDep = getClass.getResource(pathToSpecificNonDepFeatures)
-    val truncatedPathToSpecificNonDep = urlToSpecificNonDep.toString.slice(5,urlToSpecificNonDep.toString.length)
+    // this function call to getResource returns to us a URL that is the path to the file svm_model.dat
+    // the variable urlToSpecificNonDep holds the value file:/home/....
+    // so we need to take the shorter version of it that starts from /home/...
+    val truncatedPathToSpecificNonDep = urlToSpecificNonDep.toString.replace("file:","")
     val specificNonDepFeatureList = Scores_IO_Utils.readHardcodedFeaturesFromFile(truncatedPathToSpecificNonDep)
 
     val pathToAllFeatures = s"${resourcesPath}/all_feature_names_file.txt"
     val urlToAllFeatures = getClass.getResource(pathToAllFeatures)
-    val truncatedPathToAllFeatures = urlToAllFeatures.toString.slice(5,urlToAllFeatures.toString.length)
+    val truncatedPathToAllFeatures = urlToAllFeatures.toString.replace("file:","")
 
 
     val numericFeaturesInputRow = specificNonDepFeatureList.drop(4)
