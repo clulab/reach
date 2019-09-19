@@ -11,7 +11,6 @@ class EventContextPairGenerator(mentions:Seq[BioMention], ctxMentions:Seq[BioTex
   val evtMentions = mentions collect  {
     case evt:BioEventMention => evt
   }
-  val groundingIDs = ctxMentions.map(x => x.nsId())
 
   // The constructor of this class is supplied with all the mentions and BioTextBoundMentions (i.e. context IDs)
   // Let the given Seq[BioTextBoundMention] be of size m
