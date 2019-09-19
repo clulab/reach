@@ -39,7 +39,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.pathToSVMModel")
   //val resourcesPath = "../../../../../resources/org/clulab/context/svmFeatures"
-  val resourcesPath = "org/clulab/context/svmFeatures"
+  val resourcesPath = "/org/clulab/context/svmFeatures"
   val pathToSVMModel = s"${resourcesPath}/svm_model.dat"
 
 
