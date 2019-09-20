@@ -1,9 +1,10 @@
 package org.clulab.reach.context.feature_utils
 
 import com.typesafe.config.ConfigFactory
-import org.clulab.context.utils.{Scores_IO_Utils, ContextPairInstance}
+import org.clulab.context.utils.ContextPairInstance
 import org.clulab.processors.Document
 import org.clulab.reach.context.ContextEngine
+import org.clulab.reach.context.utils.svm_training_performance_utils.Scores_IO_Utils
 import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
 import org.clulab.struct.Interval
 

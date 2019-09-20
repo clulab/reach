@@ -3,6 +3,7 @@ package org.clulab.context.utils
 import java.io.InputStream
 
 import com.typesafe.config.ConfigFactory
+import org.clulab.reach.context.utils.svm_training_performance_utils.Scores_IO_Utils
 
 import scala.collection.mutable
 import scala.io.Source

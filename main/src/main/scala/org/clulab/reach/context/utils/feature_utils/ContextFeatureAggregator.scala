@@ -1,6 +1,7 @@
 package org.clulab.reach.context.feature_utils
 
-import org.clulab.context.utils.{AggregatedContextInstance, Scores_IO_Utils, ContextPairInstance}
+import org.clulab.context.utils.{AggregatedContextInstance, ContextPairInstance}
+import org.clulab.reach.context.utils.svm_training_performance_utils.Scores_IO_Utils
 
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer

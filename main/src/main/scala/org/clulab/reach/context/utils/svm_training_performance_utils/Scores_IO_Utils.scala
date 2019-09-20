@@ -1,12 +1,6 @@
-package org.clulab.context.utils
+package org.clulab.reach.context.utils.svm_training_performance_utils
 
-import java.io._
-import java.util.zip._
-
-import org.clulab.learning.{RVFDataset, RVFDatum}
-
-import scala.collection.mutable
-import scala.io.Source
+import java.io.{FileInputStream, ObjectInputStream}
 
 object Scores_IO_Utils {
   def argMax(values:Map[Int, Double]):Int = {
