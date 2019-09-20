@@ -4,8 +4,7 @@ import java.io.{File, FileInputStream, FileOutputStream, ObjectInputStream, Obje
 import org.apache.commons.io.{FilenameUtils}
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.utils.{AggregatedContextInstance, ContextPairInstance}
-import org.clulab.reach.context.ContextEngine
-import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
+import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
 
 object ContextFeatureUtils {
   type Pair = (BioEventMention, BioTextBoundMention)

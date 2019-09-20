@@ -2,8 +2,7 @@ package org.clulab.context.utils
 
 import java.io.InputStream
 
-import com.typesafe.config.ConfigFactory
-import org.clulab.reach.context.utils.svm_training_performance_utils.Scores_IO_Utils
+import org.clulab.reach.context.utils.svm_training_utils.IOUtilsForFeatureName
 
 import scala.collection.mutable
 import scala.io.Source
@@ -30,7 +29,7 @@ object ContextPairInstance{
   // the variable urlToSpecificNonDependFeaturesFile holds the value file:/home/....
   // so we need to take the shorter version of it that starts from /home/...
   val truncatedPathToSpecificNonDep = urlToSpecificNonDependFeaturesFile.toString.replace("file:","")
-  val listOfSpecificNonDependFeatures = Scores_IO_Utils.readHardcodedFeaturesFromFile(truncatedPathToSpecificNonDep)
+  val listOfSpecificNonDependFeatures = IOUtilsForFeatureName.readSpecificNonDependencyFeatureNames(truncatedPathToSpecificNonDep)
   private def allOtherFeatures(headers:Seq[String]): Set[String] = headers.toSet -- (listOfSpecificNonDependFeatures ++ Seq(""))
 
   private def indices(headers:Seq[String]): Map[String, Int] = headers.zipWithIndex.toMap
