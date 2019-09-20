@@ -1,4 +1,4 @@
-package org.clulab.reach.context.context_feature_utils
+package org.clulab.reach.context.feature_utils
 
 import org.clulab.context.utils.{AggregatedContextInstance, Scores_IO_Utils, ContextPairInstance}
 
