@@ -7,8 +7,25 @@ import org.scalatest.{FlatSpec, Matchers}
 
 class TestSVMContext extends FlatSpec with Matchers {
 
-  val contextEngineType: Engine = SVMPolicy
+  val contextEngine: Engine = SVMPolicy
+  val procAnnotator = ProcessorAnnotatorFactory()
+  val testReachSystem = new ReachSystem(None,Some(procAnnotator),contextEngine)
+  val resourcesPath = "/inputs/aggregatedrowsbypaper"
+  val resourcesPathToPMC2686753 = s"${resourcesPath}/PMC2686753"
+  val resourcesPathToPMC2958340 = s"${resourcesPath}/PMC2958340"
+  val resourcesPathToPMC3411611 = s"${resourcesPath}/PMC3411611"
+  val resourcesPathToPMC3608085 = s"${resourcesPath}/PMC3608085"
 
+
+
+
+
+
+  def readAndTruncateFileName(resourcePath: String):String = {
+    val url = getClass.getResource(resourcePath)
+    val truncatedPathToSVM = url.toString.replace("file:","")
+    truncatedPathToSVM
+  }
 
   //
   //
