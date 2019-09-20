@@ -4,8 +4,10 @@ package org.clulab.reach.context.svm_scripts
 import org.clulab.learning.LinearSVMClassifier
 
 class TrainSVMInstance extends App {
-//  val resourcesPath = "/org/clulab/context/svmFeatures"
-//  val SVMClassifier = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
+  val resourcesPath = "/org/clulab/context/svmFeatures"
+  val SVMClassifier = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
+  //val svmInstance = new LinearSVMContextClassifier(Some(SVMClassifier))
+
 //  val svmInstance = new LinearSVMContextClassifier(Some(SVMClassifier))
 //  val groupedFeatures = config.getString("svmContext.groupedFeatures")
 //  val hardCodedFeaturePath = config.getString("contextEngine.params.hardCodedFeatures")
