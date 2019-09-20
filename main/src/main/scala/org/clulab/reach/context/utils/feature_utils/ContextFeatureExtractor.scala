@@ -1,9 +1,10 @@
-package org.clulab.reach.context.context_feature_utils
+package org.clulab.reach.context.feature_utils
 
 import com.typesafe.config.ConfigFactory
-import org.clulab.context.utils.{Scores_IO_Utils, ContextPairInstance}
+import org.clulab.context.utils.ContextPairInstance
 import org.clulab.processors.Document
 import org.clulab.reach.context.ContextEngine
+import org.clulab.reach.context.utils.svm_training_utils.IOUtilsForFeatureName
 import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
 import org.clulab.struct.Interval
 
@@ -31,7 +32,7 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     // the variable urlToSpecificNonDep holds the value file:/home/....
     // so we need to take the shorter version of it that starts from /home/...
     val truncatedPathToSpecificNonDep = urlToSpecificNonDep.toString.replace("file:","")
-    val specificNonDepFeatureList = Scores_IO_Utils.readHardcodedFeaturesFromFile(truncatedPathToSpecificNonDep)
+    val specificNonDepFeatureList = IOUtilsForFeatureName.readSpecificNonDependencyFeatureNames(truncatedPathToSpecificNonDep)
 
     val pathToAllFeatures = s"${resourcesPath}/all_feature_names_file.txt"
     val urlToAllFeatures = getClass.getResource(pathToAllFeatures)
@@ -254,7 +255,7 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
 
     val first = if(datum._1.sentence < datum._2.sentence) evtShortestPath else ctxShortestPath
     val second = if(datum._2.sentence < datum._1.sentence) ctxShortestPath else evtShortestPath
-    val selectedPath = (first.reverse ++ numOfJumps ++ second).map(FeatureProcessing.clusterDependency)
+    val selectedPath = (first.reverse ++ numOfJumps ++ second).map(POSMaker.clusterDependency)
 
     val bigrams = (selectedPath zip selectedPath.drop(1)).map{ case (a, b) => s"${a}_${b}" }
 
@@ -277,7 +278,7 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
               localPaths
           }
       }
-      val sequence = Try(paths.filter(_.size > 0).sortBy(_.size).head.map(FeatureProcessing.clusterDependency))
+      val sequence = Try(paths.filter(_.size > 0).sortBy(_.size).head.map(POSMaker.clusterDependency))
       sequence match {
         case Success(s) =>
           // make bigrams
@@ -338,7 +339,7 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
       else{
         edges flatMap {
           e =>
-            val label = FeatureProcessing.clusterDependency(e._2)
+            val label = POSMaker.clusterDependency(e._2)
             val further = helper(e._1, depth+1, maxDepth)
 
             further match {

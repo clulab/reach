@@ -3,7 +3,7 @@ package org.clulab.reach.context
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.ContextPairInstance
-import org.clulab.reach.context.context_feature_utils.{ContextFeatureAggregator, ContextFeatureUtils, EventContextPairGenerator}
+import org.clulab.reach.context.feature_utils.{ContextFeatureAggregator, ContextFeatureUtils, EventContextPairGenerator}
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 
 import scala.collection.immutable
