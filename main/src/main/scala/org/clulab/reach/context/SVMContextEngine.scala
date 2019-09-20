@@ -7,9 +7,6 @@ import org.clulab.reach.context.feature_utils.{ContextFeatureAggregator, Context
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 
 import scala.collection.immutable
-import java.io._
-
-import scala.io.Source
 
 class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine with LazyLogging {
 
@@ -37,7 +34,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   val resourcesPath = "/org/clulab/context/svmFeatures"
   val resourcesPathToSVMModel = s"${resourcesPath}/svm_model.dat"
 
-  println(s"In SVM class")
 
   // this function call to getResource returns to us a URL that is the path to the file svm_model.dat
   // the variable urlPathToSVMModel holds the value file:/home/....
