@@ -6,8 +6,15 @@ import com.typesafe.config.ConfigFactory
 import org.clulab.context.utils.AggregatedContextInstance
 import org.clulab.struct.Counter
 import org.clulab.learning._
+import org.clulab.reach.context.utils.svm_training_utils.DatatypeConversionUtils
 case class LinearSVMContextClassifier(classifier: Option[LinearSVMClassifier[Int,String]] = None, pathToClassifier:Option[String] = None) extends ContextClassifier {
-  override def fit(xTrain: Seq[AggregatedContextInstance]): Unit = ()
+  override def fit(xTrain: Seq[AggregatedContextInstance]): Unit = {
+    val trainingLabels = DatatypeConversionUtils.convertOptionalToBool(xTrain)
+    val labelsToInt = DatatypeConversionUtils.convertBooleansToInt(trainingLabels)
+    val tups = constructTupsForRVF(xTrain)
+    val (trainDataSet, _) = mkRVFDataSet(labelsToInt,tups)
+    fit(trainDataSet)
+  }
 
 
   // This class provides the basic API for training and predicting of a LinearSVM model.
@@ -130,8 +137,8 @@ case class LinearSVMContextClassifier(classifier: Option[LinearSVMClassifier[Int
 
   // This function is useful for converting your boolean labels to equivalent integer labels. 1 for true and 0 for false.
   def createLabels(data:Seq[AggregatedContextInstance]):Array[Int] = {
-    val currentTruthTest = DummyClassifier.convertOptionalToBool(data)
-    val currentTruthTestInt = DummyClassifier.convertBooleansToInt(currentTruthTest)
+    val currentTruthTest = DatatypeConversionUtils.convertOptionalToBool(data)
+    val currentTruthTestInt = DatatypeConversionUtils.convertBooleansToInt(currentTruthTest)
     currentTruthTestInt
   }
   // ************* Ending functions to convert AggregatedInstance to RVFDataset

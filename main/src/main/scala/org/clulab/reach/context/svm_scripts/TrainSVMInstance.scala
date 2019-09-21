@@ -1,8 +1,8 @@
 package org.clulab.reach.context.svm_scripts
 import org.clulab.context.utils.AggregatedContextInstance
-import org.clulab.context.classifiers.{LinearSVMContextClassifier, DummyClassifier}
+import org.clulab.context.classifiers.{DummyClassifier, LinearSVMContextClassifier}
 import org.clulab.learning.LinearSVMClassifier
-import org.clulab.reach.context.utils.svm_training_utils.IOUtilsForFeatureName
+import org.clulab.reach.context.utils.svm_training_utils.{DatatypeConversionUtils, IOUtilsForFeatureName}
 import org.clulab.reach.context.utils.feature_utils.FeatureNameProcessor
 object TrainSVMInstance extends App {
 
@@ -25,11 +25,7 @@ object TrainSVMInstance extends App {
   val bestFeatureSet = featureDict("NonDep_Context")
   val trainingDataPrior = dataPoints.filter(_.PMCID != "b'PMC4204162'")
   val trainingData = extractDataByRelevantFeatures(bestFeatureSet, trainingDataPrior)
-  val trainingLabels = DummyClassifier.convertOptionalToBool(trainingData)
-  val labelsToInt = DummyClassifier.convertBooleansToInt(trainingLabels)
-  val tups = svmInstance.constructTupsForRVF(trainingData)
-  val (trainDataSet, _) = svmInstance.mkRVFDataSet(labelsToInt,tups)
-  svmInstance.fit(trainDataSet)
+  svmInstance.fit(trainingData)
   svmInstance.saveModel(truncatedPathToSVM)
 
 
