@@ -1,6 +1,7 @@
 package org.clulab.reach.context
 import java.io.{FileInputStream, ObjectInputStream}
 import sys.process._
+import scala.language.postfixOps
 import org.clulab.context.utils.AggregatedContextInstance
 import org.scalatest.{FlatSpec, Matchers}
 class TestSVMTrainingScript extends FlatSpec with Matchers {
@@ -38,7 +39,6 @@ class TestSVMTrainingScript extends FlatSpec with Matchers {
 
   def readFileNameFromResource(resourcePath: String):String = {
     val url = getClass.getResource(resourcePath)
-    println(url)
     val truncatedPathToSVM = url.toString.replace("file:","")
     truncatedPathToSVM
   }
