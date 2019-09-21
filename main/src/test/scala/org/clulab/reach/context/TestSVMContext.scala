@@ -115,10 +115,9 @@ class TestSVMContext extends FlatSpec with Matchers {
 
   }
 
-  pair3 should "have closestContextOfClass_min of 1" in {
+  pair3 should "have closestContextOfClass_min of 0" in {
     val closestContextOfClass_min = rowForPair3.featureGroups(rowForPair3.featureGroupNames.indexOf("closesCtxOfClass_min"))
-    println(closestContextOfClass_min)
-    closestContextOfClass_min should be (1.0)
+    closestContextOfClass_min should be (0.0)
   }
 
 
