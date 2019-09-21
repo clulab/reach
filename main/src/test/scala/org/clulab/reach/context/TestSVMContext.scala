@@ -10,11 +10,15 @@ class TestSVMContext extends FlatSpec with Matchers {
   val contextEngine: Engine = SVMPolicy
   val procAnnotator = ProcessorAnnotatorFactory()
   val testReachSystem = new ReachSystem(None,Some(procAnnotator),contextEngine)
-  val resourcesPath = "/inputs/nxml"
+  val resourcesPath = "/inputs/aggregated-context-instance"
 
-  val resourcesPathToPMC3411611 = s"${resourcesPath}/PMC3411611.nxml"
-  val resourcesPathToPMC3608085 = s"${resourcesPath}/PMC3608085.nxml"
-  val pathToPMC3411611 = readAndTruncateFileName(resourcesPathToPMC3411611)
+
+
+  val pair1 = "in233from9to11,tissuelist:TS-1224"
+  val resourcesPathToPMC3411611Pair1 = s"${resourcesPath}/PMC3411611/AggregatedRow_PMC3411611_in233from9to11_tissuelist:TS-1224.txt"
+
+  val resourcesPathToPMC3608085 = s"${resourcesPath}/PMC3608085"
+  val pathToPMC3411611 = readAndTruncateFileName(resourcesPathToPMC3411611Pair1)
   val pathToPMC3608085 = readAndTruncateFileName(resourcesPathToPMC3608085)
 
 
