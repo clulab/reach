@@ -5,7 +5,6 @@ import org.clulab.context.utils.AggregatedContextInstance
 import org.scalatest.{FlatSpec, Matchers}
 class TestSVMTrainingScript extends FlatSpec with Matchers {
   val resourcesPath = "/inputs/aggregated-context-instance"
-
   val resourcesPathToDataframe = readFileNameFromResource(s"${resourcesPath}/grouped_features.csv.gz")
   val resourcePathToSpecificFeaturenames = readFileNameFromResource(s"${resourcesPath}/specific_nondependency_featurenames.txt")
   val resourcesPathToWriteSVMTo = readFileNameFromResource(s"${resourcesPath}/svm_model_from_train_script.dat")
@@ -39,6 +38,7 @@ class TestSVMTrainingScript extends FlatSpec with Matchers {
 
   def readFileNameFromResource(resourcePath: String):String = {
     val url = getClass.getResource(resourcePath)
+    println(url)
     val truncatedPathToSVM = url.toString.replace("file:","")
     truncatedPathToSVM
   }
