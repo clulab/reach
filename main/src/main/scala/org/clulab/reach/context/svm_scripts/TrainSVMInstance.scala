@@ -8,17 +8,23 @@ object TrainSVMInstance extends App {
 
   val SVMClassifier = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
   val svmInstance = new LinearSVMContextClassifier(Some(SVMClassifier))
-  val resourcesPath = "/org/clulab/context/svmFeatures"
-  val resourcesPathToGroupedFeatures = s"${resourcesPath}/grouped_features.csv.gz"
-  val resourcesPathToSpecificFeatures = s"${resourcesPath}/specific_nondependency_featurenames.txt"
-  val resourcesPathToSVMModel = s"${resourcesPath}/svm_model.dat"
-  val urlPathToSVMModel = getClass.getResource(resourcesPathToSVMModel)
-  val truncatedPathToSVM = urlPathToSVMModel.toString.replace("file:","")
-  val urlPathToGroupedFeatures = getClass.getResource(resourcesPathToGroupedFeatures)
-  val urlPathToSpecificFeatures = getClass.getResource(resourcesPathToSpecificFeatures)
-  val truncatedPathToGroupedFeatures = urlPathToGroupedFeatures.toString.replace("file:","")
-  val truncatedPathToSpecificFeatures = urlPathToSpecificFeatures.toString.replace("file:","")
-  val (allFeatures, dataPoints) = IOUtilsForFeatureName.loadAggregatedRowsFromDataFrame(truncatedPathToGroupedFeatures, truncatedPathToSpecificFeatures)
+  if(args.length == 0)
+    throw new IllegalArgumentException("This script takes arguments from the command line to run, but none were received. Please peruse examples of usage of this script")
+  val cmndLinePathToDataFrame = args(0)
+  val cmndLinePathToWriteSVMTo = args(1)
+  val cmndLinePathToSpecificFeatures = args(2)
+
+  //  val resourcesPath = "/org/clulab/context/svmFeatures"
+//  val resourcesPathToGroupedFeatures = s"${resourcesPath}/grouped_features.csv.gz"
+//  val resourcesPathToSpecificFeatures = s"${resourcesPath}/specific_nondependency_featurenames.txt"
+//  val resourcesPathToSVMModel = s"${resourcesPath}/svm_model.dat"
+//  val urlPathToSVMModel = getClass.getResource(resourcesPathToSVMModel)
+//  val truncatedPathToSVM = urlPathToSVMModel.toString.replace("file:","")
+//  val urlPathToGroupedFeatures = getClass.getResource(resourcesPathToGroupedFeatures)
+//  val urlPathToSpecificFeatures = getClass.getResource(resourcesPathToSpecificFeatures)
+//  val truncatedPathToGroupedFeatures = urlPathToGroupedFeatures.toString.replace("file:","")
+//  val truncatedPathToSpecificFeatures = urlPathToSpecificFeatures.toString.replace("file:","")
+  val (allFeatures, dataPoints) = IOUtilsForFeatureName.loadAggregatedRowsFromDataFrame(cmndLinePathToDataFrame, cmndLinePathToSpecificFeatures)
   val nonNumericFeatures = Seq("PMCID", "label", "EvtID", "CtxID", "")
   val numericFeatures = allFeatures.toSet -- nonNumericFeatures.toSet
   val featureDict = FeatureNameProcessor.createFeatureTypeDictionary(numericFeatures.toSeq)
@@ -26,7 +32,7 @@ object TrainSVMInstance extends App {
   val trainingDataPrior = dataPoints.filter(_.PMCID != "b'PMC4204162'")
   val trainingData = extractDataByRelevantFeatures(bestFeatureSet, trainingDataPrior)
   svmInstance.fit(trainingData)
-  svmInstance.saveModel(truncatedPathToSVM)
+  svmInstance.saveModel(cmndLinePathToWriteSVMTo)
 
 
   def extractDataByRelevantFeatures(featureSet:Seq[String], data:Seq[AggregatedContextInstance]):Seq[AggregatedContextInstance] = {
