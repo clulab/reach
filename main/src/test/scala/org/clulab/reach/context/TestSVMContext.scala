@@ -2,23 +2,65 @@ package org.clulab.reach
 
 
 import org.clulab.reach.context.ContextEngineFactory.Engine.{Engine, SVMPolicy}
-
+import org.clulab.context.utils.AggregatedContextInstance
 import org.scalatest.{FlatSpec, Matchers}
+import java.io.{FileInputStream, ObjectInputStream}
+
+import org.clulab.context.classifiers.LinearSVMContextClassifier
 
 class TestSVMContext extends FlatSpec with Matchers {
 
-  val contextEngine: Engine = SVMPolicy
-  val procAnnotator = ProcessorAnnotatorFactory()
-  val testReachSystem = new ReachSystem(None,Some(procAnnotator),contextEngine)
+
   val resourcesPath = "/inputs/aggregated-context-instance"
 
 
-
-  val pair1 = "in233from9to11,tissuelist:TS-1224"
+  val svmWrapper = new LinearSVMContextClassifier()
+  val svmInstancePath = "/inputs/svm_model.dat"
+  val urlPathToSVMModel = readAndTruncateFileName(svmInstancePath)
+  val trainedSVMInstance = svmWrapper.loadFrom(urlPathToSVMModel)
+  val pair1 = "PMC3411611,in233from9to11,tissuelist:TS-1224" //prediction is 1
   val resourcesPathToPMC3411611Pair1 = s"${resourcesPath}/PMC3411611/AggregatedRow_PMC3411611_in233from9to11_tissuelist:TS-1224.txt"
+  val urlPathToPair1 = readAndTruncateFileName(resourcesPathToPMC3411611Pair1)
+  val rowForPair1 = readAggRowFromFile(urlPathToPair1)
+
+
+  pair1 should "have prediction 1" in {
+    val pred = trainedSVMInstance.predict(Seq(rowForPair1))(0)
+    pred should be (1)
+  }
+
+  pair1 should "have sentenceDistance_min of 3" in {
+    val sentenceDistance_min = rowForPair1.featureGroups(rowForPair1.featureGroupNames.indexOf("sentenceDistance_min"))
+    sentenceDistance_min should be (3.0)
+  }
+
+  pair1 should "have dependencyDistance_min of 6" in {
+    val sentenceDistance_min = rowForPair1.featureGroups(rowForPair1.featureGroupNames.indexOf("dependencyDistance_min"))
+    sentenceDistance_min should be (6.0)
+  }
+
+
+  pair1 should "have contextFrequency_min of 40" in {
+    val sentenceDistance_min = rowForPair1.featureGroups(rowForPair1.featureGroupNames.indexOf("contextFrequency_min"))
+    sentenceDistance_min should be (40.0)
+  }
+
+  pair1 should "have closestContextOfClass_min of 1" in {
+    val sentenceDistance_min = rowForPair1.featureGroups(rowForPair1.featureGroupNames.indexOf("closestContextOfClass_min"))
+    sentenceDistance_min should be (1.0)
+  }
+
+
+
+
+
+
+
+
+
 
   val resourcesPathToPMC3608085 = s"${resourcesPath}/PMC3608085"
-  val pathToPMC3411611 = readAndTruncateFileName(resourcesPathToPMC3411611Pair1)
+
   val pathToPMC3608085 = readAndTruncateFileName(resourcesPathToPMC3608085)
 
 
@@ -535,12 +577,12 @@ class TestSVMContext extends FlatSpec with Matchers {
   //
   //
   //
-  //  def readAggRowFromFile(fileName: String):AggregatedContextInstance = {
-  //    val is = new ObjectInputStream(new FileInputStream(fileName))
-  //    val c = is.readObject().asInstanceOf[AggregatedContextInstance]
-  //    is.close()
-  //    c
-  //  }
+    def readAggRowFromFile(fileName: String):AggregatedContextInstance = {
+      val is = new ObjectInputStream(new FileInputStream(fileName))
+      val c = is.readObject().asInstanceOf[AggregatedContextInstance]
+      is.close()
+      c
+    }
 
 
 }

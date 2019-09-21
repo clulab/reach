@@ -18,7 +18,7 @@ object TrainSVMInstance extends App {
   val urlPathToSpecificFeatures = getClass.getResource(resourcesPathToSpecificFeatures)
   val truncatedPathToGroupedFeatures = urlPathToGroupedFeatures.toString.replace("file:","")
   val truncatedPathToSpecificFeatures = urlPathToSpecificFeatures.toString.replace("file:","")
-  val (allFeatures, dataPoints) = IOUtilsForFeatureName.loadAggregatedRowsFromFile(truncatedPathToGroupedFeatures, truncatedPathToSpecificFeatures)
+  val (allFeatures, dataPoints) = IOUtilsForFeatureName.loadAggregatedRowsFromDataFrame(truncatedPathToGroupedFeatures, truncatedPathToSpecificFeatures)
   val nonNumericFeatures = Seq("PMCID", "label", "EvtID", "CtxID", "")
   val numericFeatures = allFeatures.toSet -- nonNumericFeatures.toSet
   val featureDict = FeatureNameProcessor.createFeatureTypeDictionary(numericFeatures.toSeq)
