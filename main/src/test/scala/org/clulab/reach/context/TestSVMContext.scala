@@ -1,15 +1,19 @@
 package org.clulab.reach
 
 
-import org.clulab.reach.context.ContextEngineFactory.Engine.{Engine, SVMPolicy}
 import org.clulab.context.utils.AggregatedContextInstance
 import org.scalatest.{FlatSpec, Matchers}
 import java.io.{FileInputStream, ObjectInputStream}
 
 import org.clulab.context.classifiers.LinearSVMContextClassifier
+import org.clulab.reach.PaperReader.procAnnotator
+import org.clulab.reach.context.ContextEngineFactory.Engine
 
 class TestSVMContext extends FlatSpec with Matchers {
 
+  lazy val reachSystemWithSVMContext = new ReachSystem(processorAnnotator = Some(procAnnotator),
+    contextEngineType = Engine.withName("SVMPolicy"),
+    contextParams = Map("bound" -> "7"))
 
   val resourcesPath = "/inputs/aggregated-context-instance"
 
@@ -23,6 +27,13 @@ class TestSVMContext extends FlatSpec with Matchers {
   val urlPathToPair1 = readAndTruncateFileName(resourcesPathToPair1)
   val rowForPair1 = readAggRowFromFile(urlPathToPair1)
 
+
+  "Reach System with SVM context engine" should "run correctly" in {
+    val text = "S6K1 phosphorylates the RPTOR protein and promotes the hydroxylation of the Pkh1 protein."
+    val doc = reachSystemWithSVMContext.mkDoc(text, "testdoc")
+    val mentions = reachSystemWithSVMContext.extractFrom(doc)
+    mentions should not be empty
+  }
 
   pair1 should "have prediction 1" in {
     val pred = trainedSVMInstance.predict(Seq(rowForPair1))(0)
