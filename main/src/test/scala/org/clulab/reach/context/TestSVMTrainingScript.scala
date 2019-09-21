@@ -8,15 +8,21 @@ class TestSVMTrainingScript extends FlatSpec with Matchers {
 
   val resourcesPathToDataframe = readFileNameFromResource(s"${resourcesPath}/grouped_features.csv.gz")
   val resourcePathToSpecificFeaturenames = readFileNameFromResource(s"${resourcesPath}/specific_nondependency_featurenames.txt")
-  val resourcesPathToWriteSVMTo = readFileNameFromResource(s"${resourcesPath}/svm_model.dat")
+  val resourcesPathToWriteSVMTo = readFileNameFromResource(s"${resourcesPath}/svm_model_from_train_script.dat")
 
+  val commandLineScriptWithParams = s"sbt 'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance ${resourcesPathToDataframe} ${resourcesPathToWriteSVMTo} ${resourcePathToSpecificFeaturenames}'"
 
-  "SVM training script" should "take 3 command line parameters" in {
-    //TODO
-  }
+  val commandLineScriptWithoutParams = s"sbt 'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance'"
 
   "SVM training script" should "create a .dat file to save the trained SVM model to" in {
-    //TODO
+    val listOfFilesFromScriptRun = commandLineScriptWithParams #| "ls -al" #| "grep svm_model_from_train_script.dat" !
+    listOfFilesFromScriptRun should be (0)
+  }
+
+  "SVM training script" should "throw an exception if no arguments are passed" in {
+    val result = commandLineScriptWithoutParams !!
+    val resultThrowsException = result.contains("java.lang.IllegalArgumentException")
+    resultThrowsException should be (true)
   }
 
   "Default training dataset" should "not contain degenerate papers" in {
@@ -27,9 +33,7 @@ class TestSVMTrainingScript extends FlatSpec with Matchers {
     //TODO
   }
 
-  "SVM training script" should "throw an exception if no arguments are passed" in {
-    //TODO
-  }
+
 
 
   def readFileNameFromResource(resourcePath: String):String = {
