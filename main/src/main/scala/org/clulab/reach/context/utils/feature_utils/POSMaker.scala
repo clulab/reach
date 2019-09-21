@@ -1,9 +1,9 @@
-package org.clulab.reach.context.context_feature_utils
+package org.clulab.reach.context.feature_utils
 
 // this object is used in the feature extractor to compare binned distances
 // it calculates the dependence types of each entity in a given sentence,
 // such as noun, verb, etc.
-object FeatureProcessing{
+object POSMaker{
   def binSentenceDistance(d:Int):BinnedDistance.Value = {
     if(d == 0)
       BinnedDistance.SAME
@@ -46,6 +46,5 @@ object FeatureProcessing{
     else
       d
   }
-
 
 }

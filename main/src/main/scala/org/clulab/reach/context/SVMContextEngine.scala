@@ -3,13 +3,10 @@ package org.clulab.reach.context
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.ContextPairInstance
-import org.clulab.reach.context.context_feature_utils.{ContextFeatureAggregator, ContextFeatureUtils, EventContextPairGenerator}
+import org.clulab.reach.context.feature_utils.{ContextFeatureAggregator, ContextFeatureUtils, EventContextPairGenerator}
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 
 import scala.collection.immutable
-import java.io._
-
-import scala.io.Source
 
 class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine with LazyLogging {
 
@@ -36,7 +33,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   // VERY IMPORTANT TO KEEP THE STARTING / for jar file path to resource dir
   val resourcesPath = "/org/clulab/context/svmFeatures"
   val resourcesPathToSVMModel = s"${resourcesPath}/svm_model.dat"
-
 
 
   // this function call to getResource returns to us a URL that is the path to the file svm_model.dat
@@ -158,7 +154,9 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                     case _ => false
                   }
                 }
-                logger.debug(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
+
+                logger.info(s"Current pair: (${aggregatedFeature.PMCID}, ${k.toString}, ${ctxId._2})")
+                logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
 
                 (ctxId, prediction)
             }
