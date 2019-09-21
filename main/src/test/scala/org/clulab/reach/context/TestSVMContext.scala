@@ -104,20 +104,21 @@ class TestSVMContext extends FlatSpec with Matchers {
   }
 
   pair3 should "have dependencyDistance_min of 2" in {
-    val sentenceDistance_min = rowForPair3.featureGroups(rowForPair3.featureGroupNames.indexOf("dependencyDistance_min"))
-    sentenceDistance_min should be (2.0)
+    val dependencyDistance_min = rowForPair3.featureGroups(rowForPair3.featureGroupNames.indexOf("dependencyDistance_min"))
+    dependencyDistance_min should be (2.0)
   }
 
 
   pair3 should "have contextFrequency_min of 26" in {
-    val sentenceDistance_min = rowForPair3.featureGroups(rowForPair3.featureGroupNames.indexOf("context_frequency_min"))
-    sentenceDistance_min should be(26.0)
+    val contextFrequency_min = rowForPair3.featureGroups(rowForPair3.featureGroupNames.indexOf("context_frequency_min"))
+    contextFrequency_min should be(26.0)
 
   }
 
   pair3 should "have closestContextOfClass_min of 1" in {
-    val sentenceDistance_min = rowForPair3.featureGroups(rowForPair3.featureGroupNames.indexOf("closesCtxOfClass_min"))
-    sentenceDistance_min should be (1.0)
+    val closestContextOfClass_min = rowForPair3.featureGroups(rowForPair3.featureGroupNames.indexOf("closesCtxOfClass_min"))
+    println(closestContextOfClass_min)
+    closestContextOfClass_min should be (1.0)
   }
 
 
