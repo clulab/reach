@@ -31,23 +31,23 @@ class TestSVMContext extends FlatSpec with Matchers {
 
   pair1 should "have sentenceDistance_min of 3" in {
     val sentenceDistance_min = rowForPair1.featureGroups(rowForPair1.featureGroupNames.indexOf("sentenceDistance_min"))
-    sentenceDistance_min should be (3.0)
+    sentenceDistance_min should be (2.0)
   }
 
   pair1 should "have dependencyDistance_min of 6" in {
     val sentenceDistance_min = rowForPair1.featureGroups(rowForPair1.featureGroupNames.indexOf("dependencyDistance_min"))
-    sentenceDistance_min should be (6.0)
+    sentenceDistance_min should be (11.0)
   }
 
 
   pair1 should "have contextFrequency_min of 40" in {
-    val sentenceDistance_min = rowForPair1.featureGroups(rowForPair1.featureGroupNames.indexOf("contextFrequency_min"))
-    sentenceDistance_min should be (40.0)
+    val sentenceDistance_min = rowForPair1.featureGroups(rowForPair1.featureGroupNames.indexOf("context_frequency_min"))
+    sentenceDistance_min should be (33.0)
   }
 
   pair1 should "have closestContextOfClass_min of 1" in {
-    val sentenceDistance_min = rowForPair1.featureGroups(rowForPair1.featureGroupNames.indexOf("closestContextOfClass_min"))
-    sentenceDistance_min should be (1.0)
+    val sentenceDistance_min = rowForPair1.featureGroups(rowForPair1.featureGroupNames.indexOf("closesCtxOfClass_min"))
+    sentenceDistance_min should be (0.0)
   }
 
 
