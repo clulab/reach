@@ -90,6 +90,15 @@ class ReachSystem(
     logger.debug(s"${events.size} events after MentionFilter.keepMostCompleteMentions: ${display.summarizeMentions(events, doc)}")
     contextEngine.update(events)
     val eventsWithContext = contextEngine.assign(events)
+    var contextCount = 0
+    var nonContextCount = 0
+    events.map(e => {
+      e.context match {
+        case Some(c) => contextCount += 1
+        case None => nonContextCount += 1
+      }
+    })
+    logger.info(s"We have $contextCount of context and $nonContextCount of non-context cases. The total is ${contextCount + nonContextCount}")
 
     logger.debug(s"${eventsWithContext.size} events after contextEngine.assign: ${display.summarizeMentions(eventsWithContext, doc)}")
     val grounded = grounder(eventsWithContext)

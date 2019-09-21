@@ -1,0 +1,45 @@
+6	2-18	manual:B-RAF-V600E
+7	0-7	manual:B-RAF-V600E
+9	3-24	tissuelist:TS-0614,manual:B-RAF-V600E
+11	49-59	cellosaurus:CVCL_0132
+16	0-27	cellosaurus:CVCL_0132,cellosaurus:CVCL_0526
+17	0-28	manual:B-RAF-V600E
+19	3-21	cellosaurus:CVCL_0132,cellosaurus:CVCL_0526
+20	0-18	cellosaurus:CVCL_0132,cellosaurus:CVCL_0526
+21	8-21	cellosaurus:CVCL_0132,cellosaurus:CVCL_0526
+22	12-36	cellosaurus:CVCL_0132,cellosaurus:CVCL_0526
+23	0-20	cellosaurus:CVCL_0132,cellosaurus:CVCL_0526
+24	4-16	cellosaurus:CVCL_0132
+25	2-16	cellosaurus:CVCL_0132
+26	3-25	cellosaurus:CVCL_0132
+27	1-28	cellosaurus:CVCL_0132
+27	36-44	cellosaurus:CVCL_0132
+28	5-35	cellosaurus:CVCL_0132
+29	1-43	cellosaurus:CVCL_0132
+31	0-32	taxonomy:9606,uaz:CL:0000148
+32	2-38	cellosaurus:CVCL_0132
+33	1-27	cellosaurus:CVCL_0132
+34	2-35	cellosaurus:CVCL_0132
+35	2-50	cellosaurus:CVCL_0132
+36	0-20	cellosaurus:CVCL_0132
+39	0-41	tissuelist:TS-0614,cellosaurus:CVCL_1666,cellosaurus:CVCL_3088,tissuelist:TS-0160
+40	10-12	tissuelist:TS-0614
+41	0-29	uaz:UA-CLine-100096
+42	0-33	cellosaurus:CVCL_3088,cellosaurus:CVCL_1666,uaz:UA-CLine-100096
+43	4-32	cellosaurus:CVCL_3088,cellosaurus:CVCL_1666
+44	2-16	tissuelist:TS-0614,manual:patients,manual:B-RAF-V600E
+46	18-25	tissuelist:TS-0614,manual:patients
+48	9-25	tissuelist:TS-0614
+49	0-26	tissuelist:TS-0614
+53	0-36	cellosaurus:CVCL_1666
+54	0-38	cellosaurus:CVCL_1666
+57	2-22	cellosaurus:CVCL_3088,cellosaurus:CVCL_1666
+58	0-30	cellosaurus:CVCL_0132,cellosaurus:CVCL_0526
+59	0-20	cellosaurus:CVCL_0132
+60	0-23	cellosaurus:CVCL_0132,cellosaurus:CVCL_0526
+62	2-32	
+63	4-17	
+64	4-13	
+65	0-40	cellosaurus:CVCL_0132,cellosaurus:CVCL_0526
+66	19-30	cellosaurus:CVCL_0132,cellosaurus:CVCL_0526
+70	3-31	taxonomy:9606,cellosaurus:CVCL_0132,cellosaurus:CVCL_0526

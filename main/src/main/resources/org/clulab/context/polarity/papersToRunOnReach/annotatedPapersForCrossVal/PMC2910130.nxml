@@ -1,0 +1,99 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="EN">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">101233144</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">32834</journal-id>
+      <journal-id journal-id-type="nlm-ta">Acta Biomater</journal-id>
+      <journal-title>Acta biomaterialia</journal-title>
+      <issn pub-type="ppub">1742-7061</issn>
+      <issn pub-type="epub">1878-7568</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">20398806</article-id>
+      <article-id pub-id-type="pmc">2910130</article-id>
+      <article-id pub-id-type="doi">10.1016/j.actbio.2010.04.006</article-id>
+      <article-id pub-id-type="manuscript">NIHMS204187</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Regulation of Keratinocyte Signaling and Function via Changes in Epidermal Growth Factor Presentation</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Puccinelli</surname>
+            <given-names>Tracy J.</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Bertics</surname>
+            <given-names>Paul J.</given-names>
+          </name>
+          <xref rid="A2" ref-type="aff">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Masters</surname>
+            <given-names>Kristyn S.</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">1</xref>
+          <xref rid="A3" ref-type="aff">3</xref>
+          <xref rid="FN1" ref-type="author-notes">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label> Materials Science Program, University of Wisconsin, Madison, WI 53706</aff>
+      <aff id="A2"><label>2</label> Department of Biomolecular Chemistry, University of Wisconsin, Madison, WI 53706</aff>
+      <aff id="A3"><label>3</label> Department of Biomedical Engineering, University of Wisconsin, Madison, WI 53706</aff>
+      <author-notes>
+        <corresp id="FN1">
+<label>*</label>Corresponding Author: Address for Correspondence and Reprint Requests: Kristyn S. Masters, Ph.D., University of Wisconsin-Madison, Dept. of Biomedical Engineering, 1550 Engineering Drive, #2152, Madison, WI 53706. <email>kmasters@wisc.edu</email>, phone: +1 (608) 265-4052, fax: +1 (608) 265-9239</corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>24</day>
+        <month>5</month>
+        <year>2010</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>14</day>
+        <month>4</month>
+        <year>2010</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>9</month>
+        <year>2010</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>1</day>
+        <month>9</month>
+        <year>2011</year>
+      </pub-date>
+      <volume>6</volume>
+      <issue>9</issue>
+      <fpage>3415</fpage>
+      <lpage>3425</lpage>
+      <abstract>
+        <p id="P1">Motivated by the need for bioactive materials that can accelerate dermal wound healing, this work describes the response of keratinocytes to covalently immobilized epidermal growth factor (EGF) and how differences in the physical presentation of this growth factor impact cell function. Specifically, human keratinocytes were cultured with EGF delivered in soluble form, immobilized in a homogeneous pattern, or immobilized in a gradient pattern, followed by analysis of cellular signaling, proliferation, and migration. By changing the manner in which EGF was presented, keratinocyte behavior was dramatically altered. Keratinocytes responded to immobilized EGF patterns with high EGF receptor (EGFR) but low ERK 1/2 and Akt phosphorylation, accompanied by low proliferation, high migratory activity, and coordinated cell alignment. In contrast, keratinocytes treated with soluble EGF experienced lower EGFR but higher ERK 1/2 and Akt phosphorylation, and displayed a highly proliferative, rather than migratory, phenotype. Keratinocytes also responded to differences in immobilized EGF patterns, as migration was fastest upon immobilized gradients of EGF. Better understanding the interaction of cells with soluble vs. immobilized growth factors can help elucidate native healing events and achieve greater control over cell function, which may be useful in the development of wound repair treatments for many types of tissues.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>wound healing</kwd>
+        <kwd>epidermal growth factor</kwd>
+        <kwd>keratinocyte</kwd>
+        <kwd>intracellular signaling</kwd>
+        <kwd>cell migration</kwd>
+      </kwd-group>
+      <contract-num rid="EB1">R21 EB005440-01A1
+				||EB</contract-num>
+      <contract-sponsor id="EB1">National Institute of Biomedical Imaging and Bioengineering : NIBIB</contract-sponsor>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

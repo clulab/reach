@@ -1,0 +1,113 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="EN">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">2984705R</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">2786</journal-id>
+      <journal-id journal-id-type="nlm-ta">Cancer Res</journal-id>
+      <journal-title>Cancer research</journal-title>
+      <issn pub-type="ppub">0008-5472</issn>
+      <issn pub-type="epub">1538-7445</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">18701481</article-id>
+      <article-id pub-id-type="pmc">2587086</article-id>
+      <article-id pub-id-type="doi">10.1158/0008-5472.CAN-08-0855</article-id>
+      <article-id pub-id-type="manuscript">NIHMS56315</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>PPAR&#x3B4; INDUCES CELL PROLIFERATION BY A CYCLIN E1-DEPENDENT MECHANISM AND IS UPREGULATED IN THYROID TUMORS</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zeng</surname>
+            <given-names>Lingchun</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Geng</surname>
+            <given-names>Yan</given-names>
+          </name>
+          <xref rid="A2" ref-type="aff">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Tretiakova</surname>
+            <given-names>Maria</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yu</surname>
+            <given-names>Xuemei</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sicinski</surname>
+            <given-names>Peter</given-names>
+          </name>
+          <xref rid="A2" ref-type="aff">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kroll</surname>
+            <given-names>Todd G.</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">1</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label> Department of Pathology, University of Chicago School of Medicine, University of Chicago Cancer Research Center, Chicago, IL 60637</aff>
+      <aff id="A2"><label>2</label> Department of Cancer Biology, Dana Farber Cancer Institute and Department of Pathology, Harvard Medical School, Boston, MA 02115</aff>
+      <author-notes>
+        <corresp id="FN1">Please address correspondence to: Todd G. Kroll, M.D., Ph.D. 5841 South Maryland Avenue AMB P323 (MC1089) Chicago, IL 60637 Tel: 773-702-3017 Fax: 773-834-5251 e-mail: <email>tkroll@bsd.uchicago.edu</email></corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>30</day>
+        <month>6</month>
+        <year>2008</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <day>15</day>
+        <month>8</month>
+        <year>2008</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>15</day>
+        <month>8</month>
+        <year>2009</year>
+      </pub-date>
+      <volume>68</volume>
+      <issue>16</issue>
+      <fpage>6578</fpage>
+      <lpage>6586</lpage>
+      <abstract>
+        <p id="P2">Peroxisome proliferator-activated receptors (PPARs) are lipid sensing nuclear receptors that have been implicated in multiple physiologic processes including cancer. Here, we determine that PPAR&#x3B4; induces cell proliferation through a novel cyclin E1-dependent mechanism and is upregulated in many human thyroid tumors. The expression of PPAR&#x3B4; was induced coordinately with proliferation in primary human thyroid cells by activation of serum, TSH/cAMP/pKa or EGF/MEK/ERK mitogenic signaling pathways. Engineered overexpression of PPAR&#x3B4; increased thyroid cell number, the incorporation of BrdU and the phosphorylation of Rb 40&#x2013;45% in just 2 days, one usual cell population doubling. The synthetic PPAR&#x3B4; agonist GW501516 augmented these PPAR&#x3B4; proliferation effects in a dose-dependent manner. Overexpression of PPAR&#x3B4; increased cyclin E1 protein 9-fold, whereas knock down of PPAR&#x3B4; by siRNA reduced both cyclin E1 protein and cell proliferation 2-fold. Induction of proliferation by PPAR&#x3B4; wasabrogated by knockdown of cyclin E1 by siRNA in primary thyroid cells and by knockout of <italic>cyclin E1</italic> in mouse embryo fibroblasts, confirming a cyclin E1 dependence for this PPAR&#x3B4; pathway. In addition, the mean expression of native PPAR&#x3B4; was increased 2- to 5-fold (<italic>p</italic>&lt;0.0001) and correlated with that of the <italic>in situ</italic> proliferation marker Ki67 (R=0.8571; <italic>p</italic>=0.02381) in six different classes of benign and malignant human thyroid tumors. Our experiments identify a PPAR&#x3B4; mechanism that induces cell proliferation through cyclin E1 and is regulated by growth factor and lipid signals. The data argue for systematic investigation of PPAR&#x3B4; antagonists as anti-neoplastic agents and implicate altered PPAR&#x3B4;-cyclin E1 signaling in thyroid and other carcinomas.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>PPAR&#x3B4;</kwd>
+        <kwd>nuclear receptors</kwd>
+        <kwd>thyroid cancer</kwd>
+        <kwd>cell proliferation</kwd>
+        <kwd>cyclin E1</kwd>
+      </kwd-group>
+      <contract-num rid="CA1">K08 CA075425-07</contract-num>
+      <contract-num rid="CA1">K08 CA075425-06</contract-num>
+      <contract-num rid="CA1">K08 CA075425-05</contract-num>
+      <contract-sponsor id="CA1">National Cancer Institute : NCI</contract-sponsor>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>
