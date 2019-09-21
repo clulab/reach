@@ -114,6 +114,7 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     val sentenceDistance = Math.abs(datum._1.sentence - datum._2.sentence)
     val sentDistEntry = Map("sentenceDistance" -> sentenceDistance.toDouble)
     result ++= sentDistEntry
+    println(s"Sentence distance: ${sentenceDistance}")
 
     val dependencyPath = constructDependencyPath(datum)
     val dependencyDistance = dependencyPath match {
@@ -122,11 +123,15 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
       case None => 0.0
     }
 
+    println(s"dependency path:")
+    println(dependencyPath)
+
     val dependencyDistEntry = Map("dependencyDistance" -> dependencyDistance)
     result ++= dependencyDistEntry
 
     val context_frequency = ctxTypeFreq(context.nsId())
     result ++= Map("context_frequency" -> context_frequency)
+    println(s"context_frequency: ${context_frequency}")
 
 
     // Dependency tails
