@@ -20,11 +20,11 @@ class TestSVMContext extends FlatSpec with Matchers {
 
   val svmWrapper = new LinearSVMContextClassifier()
   val svmInstancePath = s"${resourcesPath}/svm_model.dat"
-  val urlPathToSVMModel = readAndTruncateFileName(svmInstancePath)
+  val urlPathToSVMModel = readFileNameFromResource(svmInstancePath)
   val trainedSVMInstance = svmWrapper.loadFrom(urlPathToSVMModel)
   val pair1 = "PMC3411611,in233from9to11,tissuelist:TS-1224" //prediction is 1
   val resourcesPathToPair1 = s"${resourcesPath}/PMC3411611/AggregatedRow_PMC3411611_in233from9to11_tissuelist:TS-1224.txt"
-  val urlPathToPair1 = readAndTruncateFileName(resourcesPathToPair1)
+  val urlPathToPair1 = readFileNameFromResource(resourcesPathToPair1)
   val rowForPair1 = readAggRowFromFile(urlPathToPair1)
 
 
@@ -66,7 +66,7 @@ class TestSVMContext extends FlatSpec with Matchers {
 
   val pair2 = "PMC3411611,in15from22to23,tissuelist:TS-0649"
   val resourcesPathToPair2 = s"${resourcesPath}/PMC3411611/AggregatedRow_PMC3411611_in15from22to23_tissuelist:TS-0649.txt"
-  val urlPathToPair2 = readAndTruncateFileName(resourcesPathToPair2)
+  val urlPathToPair2 = readFileNameFromResource(resourcesPathToPair2)
   val rowForPair2 = readAggRowFromFile(urlPathToPair2)
 
   pair2 should "have prediction 0" in {
@@ -100,7 +100,7 @@ class TestSVMContext extends FlatSpec with Matchers {
 
   val pair3 = "PMC3608085,in195from6to12,tissuelist:TS-0500"
   val resourcesPathToPair3 = s"${resourcesPath}/PMC3608085/AggregatedRow_PMC3608085_in195from6to12_tissuelist:TS-0500.txt"
-  val urlPathToPair3 = readAndTruncateFileName(resourcesPathToPair3)
+  val urlPathToPair3 = readFileNameFromResource(resourcesPathToPair3)
   val rowForPair3 = readAggRowFromFile(urlPathToPair3)
 
   pair3 should "have prediction 1" in {
@@ -134,7 +134,7 @@ class TestSVMContext extends FlatSpec with Matchers {
 
   val pair4 = "PMC3608085,in195from6to12,uberon:UBERON:0000105"
   val resourcesPathToPair4 = s"${resourcesPath}/PMC3608085/AggregatedRow_PMC3608085_in195from6to12_uberon:UBERON:0000105.txt"
-  val urlPathToPair4 = readAndTruncateFileName(resourcesPathToPair4)
+  val urlPathToPair4 = readFileNameFromResource(resourcesPathToPair4)
   val rowForPair4 = readAggRowFromFile(urlPathToPair4)
   pair4 should "have prediction 0" in {
     val pred = trainedSVMInstance.predict(Seq(rowForPair4))(0)
@@ -167,7 +167,7 @@ class TestSVMContext extends FlatSpec with Matchers {
 
 
 
-  def readAndTruncateFileName(resourcePath: String):String = {
+  def readFileNameFromResource(resourcePath: String):String = {
     val url = getClass.getResource(resourcePath)
     val truncatedPathToSVM = url.toString.replace("file:","")
     truncatedPathToSVM

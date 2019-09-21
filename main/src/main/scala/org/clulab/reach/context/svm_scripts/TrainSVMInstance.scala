@@ -14,16 +14,6 @@ object TrainSVMInstance extends App {
   val cmndLinePathToWriteSVMTo = args(1)
   val cmndLinePathToSpecificFeatures = args(2)
 
-  //  val resourcesPath = "/org/clulab/context/svmFeatures"
-//  val resourcesPathToGroupedFeatures = s"${resourcesPath}/grouped_features.csv.gz"
-//  val resourcesPathToSpecificFeatures = s"${resourcesPath}/specific_nondependency_featurenames.txt"
-//  val resourcesPathToSVMModel = s"${resourcesPath}/svm_model.dat"
-//  val urlPathToSVMModel = getClass.getResource(resourcesPathToSVMModel)
-//  val truncatedPathToSVM = urlPathToSVMModel.toString.replace("file:","")
-//  val urlPathToGroupedFeatures = getClass.getResource(resourcesPathToGroupedFeatures)
-//  val urlPathToSpecificFeatures = getClass.getResource(resourcesPathToSpecificFeatures)
-//  val truncatedPathToGroupedFeatures = urlPathToGroupedFeatures.toString.replace("file:","")
-//  val truncatedPathToSpecificFeatures = urlPathToSpecificFeatures.toString.replace("file:","")
   val (allFeatures, dataPoints) = IOUtilsForFeatureName.loadAggregatedRowsFromDataFrame(cmndLinePathToDataFrame, cmndLinePathToSpecificFeatures)
   val nonNumericFeatures = Seq("PMCID", "label", "EvtID", "CtxID", "")
   val numericFeatures = allFeatures.toSet -- nonNumericFeatures.toSet
