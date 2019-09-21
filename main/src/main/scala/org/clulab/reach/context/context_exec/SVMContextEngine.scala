@@ -156,7 +156,17 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                     case _ => false
                   }
                 }
-                logger.debug(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
+
+                val sentenceDistance_min = aggregatedFeature.featureGroups(aggregatedFeature.featureGroupNames.indexOf("sentenceDistance_min"))
+                val dependencyDistance_min = aggregatedFeature.featureGroups(aggregatedFeature.featureGroupNames.indexOf("dependencyDistance_min"))
+                val contextFrequency_min = aggregatedFeature.featureGroups(aggregatedFeature.featureGroupNames.indexOf("context_frequency_min"))
+                val closestContextOfClass_min = aggregatedFeature.featureGroups(aggregatedFeature.featureGroupNames.indexOf("closesCtxOfClass_min"))
+                println(s"sentenceDistance_min: ${sentenceDistance_min}")
+                println(s"dependencyDistance_min: ${dependencyDistance_min}")
+                println(s"contextFrequency_min: ${contextFrequency_min}")
+                println(s"closestContextOfClass_min: ${closestContextOfClass_min}")
+
+                logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
 
                 (ctxId, prediction)
             }
