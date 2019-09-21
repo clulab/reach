@@ -15,7 +15,7 @@ class TestSVMContext extends FlatSpec with Matchers {
 
 
   val svmWrapper = new LinearSVMContextClassifier()
-  val svmInstancePath = "/inputs/svm_model.dat"
+  val svmInstancePath = s"${resourcesPath}/svm_model.dat"
   val urlPathToSVMModel = readAndTruncateFileName(svmInstancePath)
   val trainedSVMInstance = svmWrapper.loadFrom(urlPathToSVMModel)
   val pair1 = "PMC3411611,in233from9to11,tissuelist:TS-1224" //prediction is 1
