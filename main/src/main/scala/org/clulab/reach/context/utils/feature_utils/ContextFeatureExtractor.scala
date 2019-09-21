@@ -137,9 +137,13 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     val doc = event.document
     val result = collection.mutable.Map[String,Double]()
     // ****************INTEGER VALUE FEATURES BEGIN****************
+    val evntId = ContextFeatureUtils.extractEvtId(datum._1)
+   val ctxId = ContextEngine.getContextKey(datum._2)
+    println(s"The current pair is: ${evntId},${ctxId}")
     val sentenceDistance = Math.abs(datum._1.sentence - datum._2.sentence)
     val sentDistEntry = Map("sentenceDistance" -> sentenceDistance.toDouble)
     result ++= sentDistEntry
+    println(s"The current pair has sentence distance: ${sentenceDistance}")
 
     val dependencyPath = constructDependencyPath(datum)
     val dependencyDistance = dependencyPath match {
@@ -148,11 +152,17 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
       case None => 0.0
     }
 
+
+   println(s"The current dependency path is : ")
+   println(dependencyPath)
+
     val dependencyDistEntry = Map("dependencyDistance" -> dependencyDistance)
     result ++= dependencyDistEntry
 
     val context_frequency = ctxTypeFreq(context.nsId())
     result ++= Map("context_frequency" -> context_frequency)
+    println(s"The current context frequency is : ${context_frequency}")
+
 
 
     // Dependency tails
@@ -188,6 +198,7 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
 
     val closesCtxOfClass = if(isItClosestContextOfSameCategory(event, context, contextMentions)) 1.0 else 0.0
     result ++= Map("closesCtxOfClass" -> closesCtxOfClass)
+    println(s"Closest context of class value for this pair : ${closesCtxOfClass}")
 
 
     // Negation in context mention
