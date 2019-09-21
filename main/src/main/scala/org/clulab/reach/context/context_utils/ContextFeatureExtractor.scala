@@ -129,6 +129,8 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     val dependencyDistEntry = Map("dependencyDistance" -> dependencyDistance)
     result ++= dependencyDistEntry
 
+    println(s"dependencyDistance: ${dependencyDistance}")
+
     val context_frequency = ctxTypeFreq(context.nsId())
     result ++= Map("context_frequency" -> context_frequency)
     println(s"context_frequency: ${context_frequency}")
