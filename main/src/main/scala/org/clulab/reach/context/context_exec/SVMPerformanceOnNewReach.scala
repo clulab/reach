@@ -20,7 +20,8 @@ object SVMPerformanceOnNewReach extends App {
       null
     }
   }
-
+  // degenerate in new reach: PMC2063868
+  // manually testing on PMC3378484, PMC2064697, PMC2743561
 
   if(classifierToUse == null) throw new NullPointerException("No classifier found on which I can predict. Please make sure the SVMContextEngine class receives a valid Linear SVM classifier.")
   val labelFile = config.getString("svmContext.labelFileOldDataset")
@@ -56,6 +57,7 @@ object SVMPerformanceOnNewReach extends App {
       for((labelID,label) <- possibleLabelIDsInThisPaper) {
         val specForTester = specsByRow(tester)
         if(eventsAlign(specForTester._2,labelID._2) && contextsAlign(specForTester._3,labelID._3)) {
+          println(s"Specs of test row with matching labels: ${specForTester}")
           testRowsWithMatchingLabels += tester
           trueLabelsInThisPaper += label
         }
@@ -81,7 +83,8 @@ object SVMPerformanceOnNewReach extends App {
     val tupEvt1 = parseEventIDToTup(evtID1)
     val tupEvt2 = parseEventIDToTup(evtID2)
     // the purpose of this function is to align events.
-    // Since we need to consider possible overlap and containment of one event by another, we need to test if both ways are possible
+    // Since overlap or containment of one event by another is possible,
+    // we need to test if one event contains the other, or vice versa. Same holds for overlap.
     eventsAlign(tupEvt1, tupEvt2) || eventsAlign(tupEvt2, tupEvt1)
   }
 
