@@ -76,17 +76,13 @@ object SVMPerformanceOnNewReach extends App {
 
     giantTruthLabelList ++= trueLabelsInThisPaper
     giantPredictedLabelList ++= predictedLabelsInThisPaper
-
-
-    val predictionsMap = CodeUtils.predictCounts(giantTruthLabelList.toArray,giantPredictedLabelList.toArray)
-    val precision = CodeUtils.precision(predictionsMap)
-    println(s"MicroAveraged precision is : ${precision}")
-
   }
 
   println(s"After prediction, ${giantTruthLabelList.size} truth labels were found")
   println(s"After prediction, ${giantPredictedLabelList.size} predicted labels were found")
-
+  val predictionsMap = CodeUtils.predictCounts(giantTruthLabelList.toArray,giantPredictedLabelList.toArray)
+  val precision = CodeUtils.precision(predictionsMap)
+  println(s"MicroAveraged precision is : ${precision}")
 
   def eventsAlign(evtID1: String, evtID2: String):Boolean = {
     val tupEvt1 = parseEventIDToTup(evtID1)
