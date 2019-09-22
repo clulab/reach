@@ -6,11 +6,14 @@ import org.clulab.context.utils.AggregatedContextInstance
 import org.scalatest.{FlatSpec, Matchers}
 class TestSVMTrainingScript extends FlatSpec with Matchers {
   val resourcesPath = "/inputs/aggregated-context-instance"
-  val resourcesPathToDataframe = readFileNameFromResource(s"${resourcesPath}/grouped_features.csv.gz")
-  val resourcePathToSpecificFeaturenames = readFileNameFromResource(s"${resourcesPath}/specific_nondependency_featurenames.txt")
-  val resourcesPathToWriteSVMTo = readFileNameFromResource(s"${resourcesPath}/svm_model_from_train_script.dat")
+  val resourcePathToDataFrame = s"${resourcesPath}/grouped_features.csv.gz"
+  val urlPathToDataframe = readFileNameFromResource(resourcePathToDataFrame)
+  val resourcePathToSpecificFeatures = s"${resourcesPath}/specific_nondependency_featurenames.txt"
+  val urlPathToSpecificFeaturenames = readFileNameFromResource(resourcePathToSpecificFeatures)
+  val resourcesPathToSVMOutFile = s"${resourcesPath}/svm_model_from_train_script.dat"
+  val urlPathToWriteSVMOutFile = readFileNameFromResource(resourcesPathToSVMOutFile)
 
-  val commandLineScriptWithParams = s"sbt 'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance ${resourcesPathToDataframe} ${resourcesPathToWriteSVMTo} ${resourcePathToSpecificFeaturenames}'"
+  val commandLineScriptWithParams = s"sbt 'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance ${urlPathToDataframe} ${urlPathToWriteSVMOutFile} ${urlPathToSpecificFeaturenames}'"
 
   val commandLineScriptWithoutParams = s"sbt 'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance'"
 
