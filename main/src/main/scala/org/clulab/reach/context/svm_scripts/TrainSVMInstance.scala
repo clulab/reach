@@ -6,6 +6,9 @@ import org.clulab.reach.context.utils.svm_training_utils.{DatatypeConversionUtil
 import org.clulab.reach.context.utils.feature_utils.FeatureNameProcessor
 object TrainSVMInstance extends App {
 
+  override def main(args:Array[String]): Unit = {
+    println(s"Hello world")
+  }
   val SVMClassifier = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
   val svmInstance = new LinearSVMContextClassifier(Some(SVMClassifier))
   if(args.length == 0)

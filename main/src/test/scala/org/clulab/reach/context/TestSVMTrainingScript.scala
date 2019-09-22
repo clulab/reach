@@ -1,6 +1,7 @@
 package org.clulab.reach.context
 import java.io.{FileInputStream, ObjectInputStream}
 import sys.process._
+import org.clulab.reach.context.svm_scripts.TrainSVMInstance
 import scala.language.postfixOps
 import org.clulab.context.utils.AggregatedContextInstance
 import org.scalatest.{FlatSpec, Matchers}
@@ -17,6 +18,7 @@ class TestSVMTrainingScript extends FlatSpec with Matchers {
   val commandLineScriptWithoutParams = s"'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance'"
 
   "SVM training script" should "create a .dat file to save the trained SVM model to" in {
+    TrainSVMInstance.main(Array(""))
     val seqOfCommandsToTrain = Seq("sbt",commandLineScriptWithoutParams) ++ params
     val listOfFilesFromScriptRun = seqOfCommandsToTrain.!
     println(listOfFilesFromScriptRun)
