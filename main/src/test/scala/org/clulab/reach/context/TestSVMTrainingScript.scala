@@ -18,7 +18,7 @@ class TestSVMTrainingScript extends FlatSpec with Matchers {
   val commandLineScriptWithoutParams = s"'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance'"
 
   "SVM training script" should "create a .dat file to save the trained SVM model to" in {
-    TrainSVMInstance.main(Array(""))
+    TrainSVMInstance.insidePrint()
     val seqOfCommandsToTrain = Seq("sbt",commandLineScriptWithoutParams) ++ params
     val listOfFilesFromScriptRun = seqOfCommandsToTrain.!
     println(listOfFilesFromScriptRun)
