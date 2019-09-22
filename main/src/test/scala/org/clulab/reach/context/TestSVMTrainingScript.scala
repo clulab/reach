@@ -13,14 +13,14 @@ class TestSVMTrainingScript extends FlatSpec with Matchers {
   val resourcesPathToSVMOutFile = s"${resourcesPath}/svm_model_from_train_script.dat"
   val urlPathToWriteSVMOutFile = readFileNameFromResource(resourcesPathToSVMOutFile)
 
-  val commandLineScriptWithParams = s"sbt'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance ${urlPathToDataframe} ${urlPathToWriteSVMOutFile} ${urlPathToSpecificFeaturenames}'"
+  val commandLineScriptWithParams = s"'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance ${urlPathToDataframe} ${urlPathToWriteSVMOutFile} ${urlPathToSpecificFeaturenames}'"
 
-  val commandLineScriptWithoutParams = s"sbt'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance'"
+  val commandLineScriptWithoutParams = s"'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance'"
 
   "SVM training script" should "create a .dat file to save the trained SVM model to" in {
     val tryingshell = Seq("echo","'ok bye'").!
     println(tryingshell)
-    val listOfFilesFromScriptRun = Seq(commandLineScriptWithParams).!
+    val listOfFilesFromScriptRun = Seq("sbt",commandLineScriptWithParams).!
     println(listOfFilesFromScriptRun)
     //val listOfFilesFromScriptRun = Seq(commandLineScriptWithParams,"ls","grep svm_model_from_train_script.dat").!
     listOfFilesFromScriptRun should be (0)
@@ -28,7 +28,7 @@ class TestSVMTrainingScript extends FlatSpec with Matchers {
   }
 
   "SVM training script" should "throw an exception if no arguments are passed" in {
-    val result = Seq(commandLineScriptWithoutParams).!!
+    val result = Seq("sbt",commandLineScriptWithoutParams).!!
     val resultThrowsException = result.contains("java.lang.IllegalArgumentException")
     resultThrowsException should be (true)
 
