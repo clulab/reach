@@ -24,10 +24,10 @@ class TestSVMTrainingScript extends FlatSpec with Matchers {
   }
 
   "SVM training script" should "throw an exception if no arguments are passed" in {
-//    val result = commandLineScriptWithoutParams!!
-//    val resultThrowsException = result.contains("java.lang.IllegalArgumentException")
-//    resultThrowsException should be (true)
-    //TODO
+    val result = commandLineScriptWithoutParams.!!
+    val resultThrowsException = result.contains("java.lang.IllegalArgumentException")
+    resultThrowsException should be (true)
+
   }
 
   "Default training dataset" should "not contain degenerate papers" in {
