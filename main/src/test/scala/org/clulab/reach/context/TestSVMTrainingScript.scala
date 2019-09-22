@@ -11,10 +11,10 @@ class TestSVMTrainingScript extends FlatSpec with Matchers {
   val urlPathToDataframe = readFileNameFromResource(resourcePathToDataFrame)
   val resourcePathToSpecificFeatures = s"${resourcesPath}/specific_nondependency_featurenames.txt"
   val urlPathToSpecificFeaturenames = readFileNameFromResource(resourcePathToSpecificFeatures)
-  val resourcesPathToSVMOutFile = s"${resourcesPath}/svm_model_from_train_script.dat"
-  val urlPathToWriteSVMOutFile = readFileNameFromResource(resourcesPathToSVMOutFile)
+//  val resourcesPathToSVMOutFile = s"${resourcesPath}/svm_model_from_train_script.dat"
+//  val urlPathToWriteSVMOutFile = readFileNameFromResource(resourcesPathToSVMOutFile)
 
-  val params = Seq(s"${urlPathToDataframe}", s"${urlPathToWriteSVMOutFile}", s"${urlPathToSpecificFeaturenames}")
+  val params = Seq(s"${urlPathToDataframe}", s"${urlPathToSpecificFeaturenames}")
   val commandLineScriptWithoutParams = s"'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance'"
 
   "SVM training script" should "create a .dat file to save the trained SVM model to" in {
