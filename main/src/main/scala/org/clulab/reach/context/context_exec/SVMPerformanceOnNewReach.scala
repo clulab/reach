@@ -77,6 +77,11 @@ object SVMPerformanceOnNewReach extends App {
     giantTruthLabelList ++= trueLabelsInThisPaper
     giantPredictedLabelList ++= predictedLabelsInThisPaper
 
+
+    val predictionsMap = CodeUtils.predictCounts(giantTruthLabelList.toArray,giantPredictedLabelList.toArray)
+    val precision = CodeUtils.precision(predictionsMap)
+    println(s"MicroAveraged precision is : ${precision}")
+
   }
 
   println(s"After prediction, ${giantTruthLabelList.size} truth labels were found")
