@@ -59,6 +59,7 @@ object SVMPerformanceOnNewReach extends App {
         if(eventsAlign(specForTester._2,labelID._2) && contextsAlign(specForTester._3,labelID._3)) {
           if(!testRowsWithMatchingLabels.contains(tester)) {
             println(s"Specs of test row with matching labels: ${specForTester}")
+            println(s"Specs of label row : ${labelID}")
             testRowsWithMatchingLabels += tester
             trueLabelsInThisPaper += label
           }
