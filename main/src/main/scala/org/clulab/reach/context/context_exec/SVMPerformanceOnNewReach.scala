@@ -82,7 +82,12 @@ object SVMPerformanceOnNewReach extends App {
   println(s"After prediction, ${giantPredictedLabelList.size} predicted labels were found")
   val predictionsMap = CodeUtils.predictCounts(giantTruthLabelList.toArray,giantPredictedLabelList.toArray)
   val precision = CodeUtils.precision(predictionsMap)
+  val f1 = CodeUtils.f1(predictionsMap)
+  val recall = CodeUtils.recall(predictionsMap)
   println(s"MicroAveraged precision is : ${precision}")
+  println(s"MicroAveraged recall is : ${recall}")
+  println(s"MicroAveraged f1 is : ${f1}")
+
 
   def eventsAlign(evtID1: String, evtID2: String):Boolean = {
     val tupEvt1 = parseEventIDToTup(evtID1)
