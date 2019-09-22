@@ -57,9 +57,12 @@ object SVMPerformanceOnNewReach extends App {
       for((labelID,label) <- possibleLabelIDsInThisPaper) {
         val specForTester = specsByRow(tester)
         if(eventsAlign(specForTester._2,labelID._2) && contextsAlign(specForTester._3,labelID._3)) {
-          println(s"Specs of test row with matching labels: ${specForTester}")
-          testRowsWithMatchingLabels += tester
-          trueLabelsInThisPaper += label
+          if(!testRowsWithMatchingLabels.contains(tester)) {
+            println(s"Specs of test row with matching labels: ${specForTester}")
+            testRowsWithMatchingLabels += tester
+            trueLabelsInThisPaper += label
+          }
+
         }
       }
     }
