@@ -24,7 +24,7 @@ class TestSVMTrainingScript extends FlatSpec with Matchers {
   }
 
   "SVM training script" should "throw an exception if no arguments are passed" in {
-    val result = commandLineScriptWithoutParams.!!
+    val result = Seq(commandLineScriptWithoutParams).!!
     val resultThrowsException = result.contains("java.lang.IllegalArgumentException")
     resultThrowsException should be (true)
 
