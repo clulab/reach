@@ -40,7 +40,7 @@ object CrossValBySentDist extends App{
     for(r<-rowFiles) {
       val pathToRow = dirForType.concat(s"/${d.getName}").concat(s"/${r.getName}")
       val rowSpecs = ContextFeatureUtils.createAggRowSpecsFromFile(r)
-      val row = ContextFeatureUtils.readAggRowFromFile(pathToRow)
+      val row = ContextFeatureUtils.readAggRowFromFilePath(pathToRow)
       if(!rowsForCurrentSent.contains(row))
       {keysForLabels ++= Map(row -> rowSpecs)
         rowsForCurrentSent += row}

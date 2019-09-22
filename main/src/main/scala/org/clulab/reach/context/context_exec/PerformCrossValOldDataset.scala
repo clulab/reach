@@ -48,7 +48,7 @@ object PerformCrossValOldDataset extends App {
       containsOnlyThisPapersRows = containsOnlyThisPapersRows && (r.getName.contains(paperDir.getName))
       val pathToRow = parentDirForRows.concat(s"${paperDir.getName}").concat(s"/${r.getName}")
       val rowSpecs = ContextFeatureUtils.createAggRowSpecsFromFile(r)
-      val row = ContextFeatureUtils.readAggRowFromFile(pathToRow)
+      val row = ContextFeatureUtils.readAggRowFromFilePath(pathToRow)
       if(!rowsForCurrentSent.contains(row))
       {
         idMap ++= Map(rowSpecs -> row)

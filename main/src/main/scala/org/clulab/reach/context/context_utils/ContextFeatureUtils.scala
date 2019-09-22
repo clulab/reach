@@ -153,7 +153,15 @@ object ContextFeatureUtils {
 
   }
 
-  def readAggRowFromFile(file: String):AggregatedContextInstance = {
+  def readAggRowFromFilePath(pathToFile: String):AggregatedContextInstance = {
+    val is = new ObjectInputStream(new FileInputStream(pathToFile))
+    val c = is.readObject().asInstanceOf[AggregatedContextInstance]
+    is.close()
+    c
+  }
+
+
+  def readAggRowFromFile(file: File):AggregatedContextInstance = {
     val is = new ObjectInputStream(new FileInputStream(file))
     val c = is.readObject().asInstanceOf[AggregatedContextInstance]
     is.close()
