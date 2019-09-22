@@ -13,17 +13,19 @@ class TestSVMTrainingScript extends FlatSpec with Matchers {
   val resourcesPathToSVMOutFile = s"${resourcesPath}/svm_model_from_train_script.dat"
   val urlPathToWriteSVMOutFile = readFileNameFromResource(resourcesPathToSVMOutFile)
 
-  val commandLineScriptWithParams = s"'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance ${urlPathToDataframe} ${urlPathToWriteSVMOutFile} ${urlPathToSpecificFeaturenames}'"
-
+  //val commandLineScriptWithParams = s"'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance ${urlPathToDataframe} ${urlPathToWriteSVMOutFile} ${urlPathToSpecificFeaturenames}'"
+  val params = Seq(s"${urlPathToDataframe}", s"${urlPathToWriteSVMOutFile}", s"${urlPathToSpecificFeaturenames}")
   val commandLineScriptWithoutParams = s"'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance'"
 
   "SVM training script" should "create a .dat file to save the trained SVM model to" in {
     val tryingshell = Seq("echo","'ok bye'").!
     println(tryingshell)
-    val listOfFilesFromScriptRun = Seq("sbt",commandLineScriptWithParams).!
+    val seqOfCommandsToTrain = Seq("sbt",commandLineScriptWithoutParams) ++ params
+    val listOfFilesFromScriptRun = seqOfCommandsToTrain.!
     println(listOfFilesFromScriptRun)
+    val seqOfCommandsToListFile = (seqOfCommandsToTrain ++ Seq("ls","grep","svm_model_from_train_script.dat")).!
     //val listOfFilesFromScriptRun = Seq(commandLineScriptWithParams,"ls","grep svm_model_from_train_script.dat").!
-    listOfFilesFromScriptRun should be (0)
+    seqOfCommandsToListFile should be (0)
 
   }
 
