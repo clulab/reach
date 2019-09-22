@@ -81,6 +81,7 @@ object SVMPerformanceOnNewReach extends App {
   println(s"After prediction, ${giantTruthLabelList.size} truth labels were found")
   println(s"After prediction, ${giantPredictedLabelList.size} predicted labels were found")
   val predictionsMap = CodeUtils.predictCounts(giantTruthLabelList.toArray,giantPredictedLabelList.toArray)
+  println(predictionsMap)
   val precision = CodeUtils.precision(predictionsMap)
   val f1 = CodeUtils.f1(predictionsMap)
   val recall = CodeUtils.recall(predictionsMap)
