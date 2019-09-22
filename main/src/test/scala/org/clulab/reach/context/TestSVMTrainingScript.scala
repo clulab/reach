@@ -13,18 +13,14 @@ class TestSVMTrainingScript extends FlatSpec with Matchers {
   val resourcesPathToSVMOutFile = s"${resourcesPath}/svm_model_from_train_script.dat"
   val urlPathToWriteSVMOutFile = readFileNameFromResource(resourcesPathToSVMOutFile)
 
-  //val commandLineScriptWithParams = s"'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance ${urlPathToDataframe} ${urlPathToWriteSVMOutFile} ${urlPathToSpecificFeaturenames}'"
   val params = Seq(s"${urlPathToDataframe}", s"${urlPathToWriteSVMOutFile}", s"${urlPathToSpecificFeaturenames}")
   val commandLineScriptWithoutParams = s"'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance'"
 
   "SVM training script" should "create a .dat file to save the trained SVM model to" in {
-    val tryingshell = Seq("echo","'ok bye'").!
-    println(tryingshell)
     val seqOfCommandsToTrain = Seq("sbt",commandLineScriptWithoutParams) ++ params
     val listOfFilesFromScriptRun = seqOfCommandsToTrain.!
     println(listOfFilesFromScriptRun)
-    val seqOfCommandsToListFile = (seqOfCommandsToTrain ++ Seq("ls","grep","svm_model_from_train_script.dat")).!
-    //val listOfFilesFromScriptRun = Seq(commandLineScriptWithParams,"ls","grep svm_model_from_train_script.dat").!
+    val seqOfCommandsToListFile = Seq("ls","grep","svm_model_from_train_script.dat").!
     seqOfCommandsToListFile should be (0)
 
   }
@@ -35,16 +31,6 @@ class TestSVMTrainingScript extends FlatSpec with Matchers {
     resultThrowsException should be (1)
 
   }
-
-  "Default training dataset" should "not contain degenerate papers" in {
-    //TODO
-  }
-
-  "All datapoints in the frame" should "have the same number of features" in {
-    //TODO
-  }
-
-
 
 
   def readFileNameFromResource(resourcePath: String):String = {
