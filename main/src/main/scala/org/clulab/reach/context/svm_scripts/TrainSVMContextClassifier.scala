@@ -44,8 +44,6 @@ class TrainSVMContextClassifier(pathToDataframe:String, pathToFileToSaveSVMModel
     })
     result
   }
-
-  println("Done training the SVM")
 }
 
 

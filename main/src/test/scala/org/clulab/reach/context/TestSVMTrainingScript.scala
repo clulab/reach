@@ -1,36 +1,39 @@
 package org.clulab.reach.context
-import java.io.{FileInputStream, ObjectInputStream}
+import java.io.{FileInputStream, ObjectInputStream, File}
 import sys.process._
 import org.clulab.reach.context.svm_scripts.TrainSVMContextClassifier
 import scala.language.postfixOps
+import org.clulab.utils.Files
+
 import org.clulab.context.utils.AggregatedContextInstance
 import org.scalatest.{FlatSpec, Matchers}
 class TestSVMTrainingScript extends FlatSpec with Matchers {
-  val resourcesPath = "/inputs/aggregated-context-instance"
-  val resourcePathToDataFrame = s"${resourcesPath}/grouped_features.csv.gz"
-  val urlPathToDataframe = readFileNameFromResource(resourcePathToDataFrame)
-  val resourcePathToSpecificFeatures = s"${resourcesPath}/specific_nondependency_featurenames.txt"
-  val urlPathToSpecificFeaturenames = readFileNameFromResource(resourcePathToSpecificFeatures)
-//  val resourcesPathToSVMOutFile = s"${resourcesPath}/svm_model_from_train_script.dat"
-//  val urlPathToWriteSVMOutFile = readFileNameFromResource(resourcesPathToSVMOutFile)
 
-  val params = Seq(s"${urlPathToDataframe}", s"${urlPathToSpecificFeaturenames}")
-  val commandLineScriptWithoutParams = s"'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance'"
 
-  "SVM training script" should "create a .dat file to save the trained SVM model to" in {
-    val seqOfCommandsToTrain = Seq("sbt",commandLineScriptWithoutParams) ++ params
-    val listOfFilesFromScriptRun = seqOfCommandsToTrain.!
-    println(listOfFilesFromScriptRun)
-    val seqOfCommandsToListFile = Seq("ls","grep","svm_model_from_train_script.dat").!
-    seqOfCommandsToListFile should be (0)
 
+
+  "SVM training script" should "create a .dat file to save the trained SVM instance to" in {
+    val resourcesPath = "/inputs/aggregated-context-instance"
+    val resourcePathToDataFrame = s"${resourcesPath}/grouped_features.csv.gz"
+    val urlPathToDataframe = readFileNameFromResource(resourcePathToDataFrame)
+    val resourcePathToSpecificFeatures = s"${resourcesPath}/specific_nondependency_featurenames.txt"
+    val urlPathToSpecificFeaturenames = readFileNameFromResource(resourcePathToSpecificFeatures)
+
+
+
+    val tempDirToTestDat = new File(Files.mkTmpDir(s"testFileCreationByTrain",deleteOnExit=true))
+    val absolutePathToTempDir = tempDirToTestDat.getAbsolutePath
+    // creating the path to where the output svm_model should be
+    val pathToSVMModelToTest = s"${absolutePathToTempDir}/svm_model_temp.dat"
+    val trainSVMContextInstance = new TrainSVMContextClassifier(urlPathToDataframe,urlPathToSpecificFeaturenames,pathToSVMModelToTest)
+    val checkIfDatFileExists = new File(pathToSVMModelToTest).exists()
+    checkIfDatFileExists should be (true)
   }
 
   "SVM training script" should "throw an exception if no arguments are passed" in {
+    val commandLineScriptWithoutParams = s"'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance'"
     val resultThrowsException = Seq("sbt",commandLineScriptWithoutParams).!
-
     resultThrowsException should be (1)
-
   }
 
 
