@@ -39,14 +39,14 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     val truncatedPathToAllFeatures = urlToAllFeatures.toString.replace("file:","")
 
 
-    val numericFeaturesInputRow = specificNonDepFeatureList.drop(4)
+    val numericFeaturesToCalculateValuesFor = specificNonDepFeatureList.drop(4)
     val bestFeatureDict = ContextFeatureUtils.featureConstructor(truncatedPathToAllFeatures)
 
     // Over all the feature names that were used, an exhaustive ablation study was performed to study the best performing subset of features,
     // and this was found to be the union of non-dependency features and context-dependency features.
     // We will only calculate the values of this subset of features.
-    val featSeq = bestFeatureDict("NonDep_Context")
-    val allFeatures = bestFeatureDict("All_features")
+    val bestFeatureSequence = bestFeatureDict("NonDep_Context")
+    val allFeaturesSequence = bestFeatureDict("All_features")
     // val file
     val contextFrequencyMap = calculateContextFreq(contextMentions)
     val PMCID = datum._1.document.id match {
@@ -58,7 +58,7 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     val evntId = ContextFeatureUtils.extractEvtId(datum._1)
     val ctxId = ContextEngine.getContextKey(datum._2)
 
-    val hardCodedFeatureNames = collection.mutable.ListBuffer[String]()
+    val specificNonDepFeatureNames = collection.mutable.ListBuffer[String]()
     val ctxDepFeatures = collection.mutable.ListBuffer[String]()
     val evtDepFeatures = collection.mutable.ListBuffer[String]()
 
@@ -82,21 +82,27 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
 
 
     // we add to the list of features the specific, non-dependency features like sentenceDistance, dependencyDistance, etc.
-    val dependencyFeatures = unAggregateFeatureName(allFeatures).toSet -- (unAggregateFeatureName(specificNonDepFeatureList).toSet ++ Seq(""))
-    unAggregateFeatureName(numericFeaturesInputRow).map(h => {
-      if(unAggregateFeatureName(featSeq).contains(h))
-        hardCodedFeatureNames += h
+    val dependencyFeatures = unAggregateFeatureName(allFeaturesSequence).toSet -- (unAggregateFeatureName(specificNonDepFeatureList).toSet ++ Seq(""))
+
+
+    // checking if for the specific non-dependency feature names, the best feature set contains the feature name,
+    // then we calculate the value for that feature, else we ignore that feature.
+    unAggregateFeatureName(numericFeaturesToCalculateValuesFor).map(h => {
+      if(unAggregateFeatureName(bestFeatureSequence).contains(h))
+        specificNonDepFeatureNames += h
     })
 
 
+    // checking if for the dependency feature names, the best feature set contains the feature name,
+    // then we calculate the value for that feature, else we ignore that feature.
     // here we classify the feature names into two separate lists, one that has event dependency feature values,
     // and one that has context dependency values.
     dependencyFeatures foreach {
       case evt:String if evt.startsWith("evtDepTail") => {
-        if(unAggregateFeatureName(featSeq).contains(evt)) evtDepFeatures += evt
+        if(unAggregateFeatureName(bestFeatureSequence).contains(evt)) evtDepFeatures += evt
       }
       case ctx:String if ctx.startsWith("ctxDepTail")=> {
-        if(unAggregateFeatureName(featSeq).contains(ctx)) ctxDepFeatures += ctx
+        if(unAggregateFeatureName(bestFeatureSequence).contains(ctx)) ctxDepFeatures += ctx
       }
     }
 
@@ -113,7 +119,7 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
       label,
       evntId,
       ctxId._2,
-      hardCodedFeatureNames.toSet.toArray,
+      specificNonDepFeatureNames.toSet.toArray,
       ctxDepFeatures.toSet,
       evtDepFeatures.toSet)
 

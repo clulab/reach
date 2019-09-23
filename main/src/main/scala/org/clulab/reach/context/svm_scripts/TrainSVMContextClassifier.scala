@@ -4,12 +4,7 @@ import org.clulab.context.classifiers.{DummyClassifier, LinearSVMContextClassifi
 import org.clulab.learning.LinearSVMClassifier
 import org.clulab.reach.context.utils.svm_training_utils.{DatatypeConversionUtils, IOUtilsForFeatureName}
 import org.clulab.reach.context.utils.feature_utils.FeatureNameProcessor
-object TrainSVMInstance extends App {
-
-
-  def insidePrint(): Unit = {
-    println("Hello world")
-  }
+object TrainSVMContextClassifier extends App{
 
   val SVMClassifier = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
   val svmInstance = new LinearSVMContextClassifier(Some(SVMClassifier))

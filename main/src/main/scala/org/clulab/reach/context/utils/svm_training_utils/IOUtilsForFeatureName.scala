@@ -10,8 +10,8 @@ import org.clulab.reach.context.utils.feature_utils.FeatureNameProcessor
 import scala.io.Source
 
 object IOUtilsForFeatureName {
-  def loadAggregatedRowsFromDataFrame(groupedFeaturesFileName: String, hardCodedFilePath: String):(Seq[String], Seq[AggregatedContextInstance]) = {
-    val listOfSpecificFeatures = readSpecificNonDependencyFeatureNames(hardCodedFilePath)
+  def loadAggregatedRowsFromDataFrame(groupedFeaturesFileName: String, pathToSpecificNonDepFeatures: String):(Seq[String], Seq[AggregatedContextInstance]) = {
+    val listOfSpecificFeatures = readSpecificNonDependencyFeatureNames(pathToSpecificNonDepFeatures)
     def allOtherFeatures(headers:Seq[String]): Set[String] = headers.toSet -- (listOfSpecificFeatures ++ Seq(""))
     def indices(headers:Seq[String]): Map[String, Int] = headers.zipWithIndex.toMap
     val fileInputStream = new FileInputStream(groupedFeaturesFileName)
