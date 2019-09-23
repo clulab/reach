@@ -33,7 +33,7 @@ object SVMPerformanceOnNewReach extends App {
   val paperIDByNewRows = collection.mutable.ListBuffer[(String, Seq[AggregatedContextInstance])]()
   val papersToConsiderInOrder = collection.mutable.ListBuffer[String]()
   var stringWithFeatureValues = ""
-  val pathToWriteFeatureValuesTo = config.getString("polarity.fileToWriteFeatureValuesTo")
+  val pathToWriteFeatureValuesTo = config.getString("polarityContext.fileToWriteFeatureValuesTo")
   val featureValuesFile = new File(pathToWriteFeatureValuesTo)
   if(!featureValuesFile.exists)
     featureValuesFile.createNewFile()
@@ -42,7 +42,6 @@ object SVMPerformanceOnNewReach extends App {
 
     val listOfRowsInPaper = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val paperID = paperDir.getName
-    println(paperID)
     papersToConsiderInOrder += paperID
     val rowFilesInThisPaper = paperDir.listFiles().filter(_.getName.startsWith("Aggreg"))
     for(rowFile <- rowFilesInThisPaper) {
@@ -57,6 +56,8 @@ object SVMPerformanceOnNewReach extends App {
     val tuple2 = (paperID, listOfRowsInPaper)
     paperIDByNewRows += tuple2
   }
+
+  println(papersToConsiderInOrder)
 
   val giantTruthLabelList = collection.mutable.ListBuffer[Int]()
   val giantPredictedLabelList = collection.mutable.ListBuffer[Int]()
