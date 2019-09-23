@@ -29,8 +29,8 @@ class TestSVMTrainingScript extends FlatSpec with Matchers {
   }
 
   "SVM training script" should "throw an exception if no arguments are passed" in {
-    val commandLineScriptWithoutParams = s"'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance'"
-    val resultThrowsException = Seq("sbt",commandLineScriptWithoutParams).!
+    val resultThrowsException = s"sbt 'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance'".!
+
     resultThrowsException should be (1)
   }
 
