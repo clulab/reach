@@ -1,13 +1,28 @@
 package org.clulab.reach
 
-import org.scalatest.{Matchers, FlatSpec}
+import java.io.PrintWriter
+
+import org.scalatest.{FlatSpec, Matchers}
 import org.clulab.reach.mentions._
 import TestUtils._
-import scala.io.Source
+
+import scala.io.{BufferedSource, Source}
 
 
 
 class RegulationTests extends FlatSpec with Matchers{
+
+  val outFilenameIrrelevant = "irrelevantSentences.tsv"
+  val pwIrr = new PrintWriter(outFilenameIrrelevant)
+
+  val outFilenameRelevant = "relevantSentences.tsv"
+  val pwRel = new PrintWriter(outFilenameRelevant)
+
+  val outFilenameFail = "failingSentences.tsv"
+  val pwFail = new PrintWriter(outFilenameFail)
+
+  val outFilenamePass = "passingSentences.tsv"
+  val pwPass = new PrintWriter(outFilenamePass)
 
 
   // methods for checking for correct regulation triggers
@@ -34,7 +49,9 @@ class RegulationTests extends FlatSpec with Matchers{
 
 
   // load tsv file from resources
-  val file: String = Source.fromURL(getClass.getResource("/tsv/expt_stmts.tsv")).mkString
+  val originalFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/expt_stmts.tsv"))//.mkString
+//  val relFile: BufferedSource = Source.fromURL(getClass.getResource("relevantSentences.tsv"))
+  val file: String = originalFile.mkString
   val lines: Array[String] = file.split("\n")
 
   for (line <- lines.tail) {
@@ -74,36 +91,54 @@ class RegulationTests extends FlatSpec with Matchers{
     var controlled = splitLine(5)
 //    println("CONTROLLED:\t"+controlled)
 
+    val mentions = getBioMentions(sentence).filter(_ matches "Event")
+    val reg = mentions.find(_.label == regulationPolarity)
+    //todo: What is happening here? why does it work in the test but not here where I want it?!
+    val realController = if (reg.get.arguments("controller").nonEmpty) reg.get.arguments("controller").head.text else "None"
+    val realControlled = "None"
+    println(index)
+//    println("IDEAL CONTROLLER:\t"+controller)
+//    println("REAL CONTROLLER:\t"+realController)
+//    println("IDEAL CONTROLLED:\t"+controlled)
+//    println("REAL CONTROLLED:\t"+realControlled)
+    println(realController.contains(controller) && realControlled.contains(controller))
+
 
     // test for regulation modifications ONLY
     // use number of passing tests here as numerator
-    index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
-      val mentions = getBioMentions(sentence).filter(_ matches "Event")
-      val reg = mentions filter (_ matches regulationPolarity)
-      regulationType match {
-        case "knockdown" => getKDRegulation(reg.head) should be('nonEmpty)
-        case "knockout" => getKORegulation(reg.head) should be('nonEmpty)
-        case "dominant negative" => getDNRegulation(reg.head) should be('nonEmpty)
-        case "overexpression" => getOERegulation(reg.head) should be('nonEmpty)
-        case "chemical inhibition" => getCHEMRegulation(reg.head) should be('nonEmpty)
-        case _ => println("NONE")
-      }
-    }
+//    index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
+//      val mentions = getBioMentions(sentence).filter(_ matches "Event")
+//      val reg = mentions filter (_ matches regulationPolarity)
+//      regulationType match {
+//        case "knockdown" => getKDRegulation(reg.head) should be('nonEmpty)
+//        case "knockout" => getKORegulation(reg.head) should be('nonEmpty)
+//        case "dominant negative" => getDNRegulation(reg.head) should be('nonEmpty)
+//        case "overexpression" => getOERegulation(reg.head) should be('nonEmpty)
+//        case "chemical inhibition" => getCHEMRegulation(reg.head) should be('nonEmpty)
+//        case _ => println("NONE")
+//      }
+//    }
 
-    // test for controller and controlled ONLY
-    // use number of passing tests here as denominator
+
+
+//    // test for controller and controlled ONLY
+//    // use number of passing tests here as denominator
 //    index+":\t"+sentence should "contain the right controller AND controlled" in {
 //      val mentions = getBioMentions(sentence).filter(_ matches "Event")
 //      val reg = mentions.find(_.label == regulationPolarity)
-//      reg.get.arguments("controller").head.text.contains(controller) should be(true)
-//      reg.get.arguments("controlled").head.text.contains(controlled) should be(true)
-//    //      println(index)
-//    //      println("IDEAL CONTROLLER:\t"+controller)
-//    //      println("REAL CONTROLLER:\t"+reg.get.arguments("controller").head.text)
-//    //      println("IDEAL CONTROLLED:\t"+controlled)
-//    //      println("REAL CONTROLLED:\t"+reg.get.arguments("controlled").head.text)
-//    //      println(reg.get.arguments("controller").head.text.contains(controller))
+//      val extractedController = reg.get.arguments("controller").head.text//.contains(controller) should be(true)
+//      val extractedControlled = reg.get.arguments("controlled").head.text//.contains(controlled) should be(true)
+//      extractedController.contains(controller) should be(true)
+//      extractedControlled.contains(controlled) should be(true)
+////      pwRel.println(line)
+////          println(index)
+////          println("IDEAL CONTROLLER:\t"+controller)
+////          println("REAL CONTROLLER:\t"+reg.get.arguments("controller").head.text)
+////          println("IDEAL CONTROLLED:\t"+controlled)
+////          println("REAL CONTROLLED:\t"+reg.get.arguments("controlled").head.text)
+////          println(reg.get.arguments("controller").head.text.contains(controller))
 //        }
-
     }
+  pwRel.close()
+  pwIrr.close()
 }
