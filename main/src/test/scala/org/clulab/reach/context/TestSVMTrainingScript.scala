@@ -28,13 +28,6 @@ class TestSVMTrainingScript extends FlatSpec with Matchers {
     svmModelFile.deleteOnExit()
   }
 
-  "SVM training script" should "throw an exception if no arguments are passed" in {
-    val resultThrowsException = s"sbt 'run-main org.clulab.reach.context.svm_scripts.TrainSVMInstance'".!
-
-    resultThrowsException should be (1)
-  }
-
-
   def readFileNameFromResource(resourcePath: String):String = {
     val url = getClass.getResource(resourcePath)
     val truncatedPathToSVM = url.toString.replace("file:","")
