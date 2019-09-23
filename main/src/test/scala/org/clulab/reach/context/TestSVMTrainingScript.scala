@@ -5,7 +5,7 @@ import sys.process._
 import org.clulab.reach.context.svm_scripts.TrainSVMContextClassifier
 
 import scala.language.postfixOps
-import org.clulab.utils.Files
+
 import org.clulab.context.utils.AggregatedContextInstance
 import org.scalatest.{FlatSpec, Matchers}
 class TestSVMTrainingScript extends FlatSpec with Matchers {
@@ -34,10 +34,4 @@ class TestSVMTrainingScript extends FlatSpec with Matchers {
     truncatedPathToSVM
   }
 
-  def readAggRowFromFile(fileName: String):AggregatedContextInstance = {
-    val is = new ObjectInputStream(new FileInputStream(fileName))
-    val c = is.readObject().asInstanceOf[AggregatedContextInstance]
-    is.close()
-    c
-  }
 }
