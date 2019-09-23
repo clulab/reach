@@ -1,10 +1,11 @@
 package org.clulab.reach.context
-import java.io.{FileInputStream, ObjectInputStream, File}
+import java.io.{File, FileInputStream, ObjectInputStream}
+
 import sys.process._
 import org.clulab.reach.context.svm_scripts.TrainSVMContextClassifier
+
 import scala.language.postfixOps
 import org.clulab.utils.Files
-
 import org.clulab.context.utils.AggregatedContextInstance
 import org.scalatest.{FlatSpec, Matchers}
 class TestSVMTrainingScript extends FlatSpec with Matchers {
@@ -18,16 +19,13 @@ class TestSVMTrainingScript extends FlatSpec with Matchers {
     val urlPathToDataframe = readFileNameFromResource(resourcePathToDataFrame)
     val resourcePathToSpecificFeatures = s"${resourcesPath}/specific_nondependency_featurenames.txt"
     val urlPathToSpecificFeaturenames = readFileNameFromResource(resourcePathToSpecificFeatures)
-
-
-
-    val tempDirToTestDat = new File(Files.mkTmpDir(s"testFileCreationByTrain",deleteOnExit=true))
-    val absolutePathToTempDir = tempDirToTestDat.getAbsolutePath
-    // creating the path to where the output svm_model should be
+    // creating the path to where the output svm_model should be, using the ready URL path from another file in the same location
     val pathToSVMModelToTest = urlPathToSpecificFeaturenames.replace("specific_nondependency_featurenames.txt","svm_model_temp.dat")
-    val trainSVMContextInstance = new TrainSVMContextClassifier(urlPathToDataframe,pathToSVMModelToTest,urlPathToSpecificFeaturenames)
-    val checkIfDatFileExists = new File(pathToSVMModelToTest).exists()
+    new TrainSVMContextClassifier(urlPathToDataframe,pathToSVMModelToTest,urlPathToSpecificFeaturenames)
+    val svmModelFile = new File(pathToSVMModelToTest)
+    val checkIfDatFileExists = svmModelFile.exists()
     checkIfDatFileExists should be (true)
+    svmModelFile.deleteOnExit()
   }
 
   "SVM training script" should "throw an exception if no arguments are passed" in {
