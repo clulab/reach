@@ -24,7 +24,7 @@ class TestSVMTrainingScript extends FlatSpec with Matchers {
     val tempDirToTestDat = new File(Files.mkTmpDir(s"testFileCreationByTrain",deleteOnExit=true))
     val absolutePathToTempDir = tempDirToTestDat.getAbsolutePath
     // creating the path to where the output svm_model should be
-    val pathToSVMModelToTest = s"${absolutePathToTempDir}/svm_model_temp.dat"
+    val pathToSVMModelToTest = urlPathToSpecificFeaturenames.replace("specific_nondependency_featurenames.txt","svm_model_temp.dat")
     val trainSVMContextInstance = new TrainSVMContextClassifier(urlPathToDataframe,urlPathToSpecificFeaturenames,pathToSVMModelToTest)
     val checkIfDatFileExists = new File(pathToSVMModelToTest).exists()
     checkIfDatFileExists should be (true)
