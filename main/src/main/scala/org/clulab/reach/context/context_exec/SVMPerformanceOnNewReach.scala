@@ -2,7 +2,7 @@ package org.clulab.reach.context.context_exec
 
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
-import java.io.File
+import java.io.{File, PrintWriter}
 
 import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
 import org.clulab.reach.context.context_utils.ContextFeatureUtils
@@ -21,7 +21,7 @@ object SVMPerformanceOnNewReach extends App {
     }
   }
   // degenerate in new reach: PMC2063868
-  // manually testing on PMC3378484, PMC2064697, PMC2743561
+  // manually testing on PMC3378484, PMC2064697
 
   if(classifierToUse == null) throw new NullPointerException("No classifier found on which I can predict. Please make sure the SVMContextEngine class receives a valid Linear SVM classifier.")
   val labelFile = config.getString("svmContext.labelFileOldDataset")
@@ -30,10 +30,20 @@ object SVMPerformanceOnNewReach extends App {
   val pathToParentdirToLoadNewRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
   val parentDirfileInstanceToLoadNewRows = new File(pathToParentdirToLoadNewRows)
   val paperDirs = parentDirfileInstanceToLoadNewRows.listFiles().filter(x => x.isDirectory && x.getName.startsWith("PMC"))
-  val paperIDByNewRowsMap = collection.mutable.HashMap[String, Seq[AggregatedContextInstance]]()
+  val paperIDByNewRows = collection.mutable.ListBuffer[(String, Seq[AggregatedContextInstance])]()
+  val papersToConsiderInOrder = collection.mutable.ListBuffer[String]()
+  var stringWithFeatureValues = ""
+  val pathToWriteFeatureValuesTo = config.getString("polarity.fileToWriteFeatureValuesTo")
+  val featureValuesFile = new File(pathToWriteFeatureValuesTo)
+  if(!featureValuesFile.exists)
+    featureValuesFile.createNewFile()
+  val printWriter = new PrintWriter(featureValuesFile)
   for (paperDir <- paperDirs) {
+
     val listOfRowsInPaper = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val paperID = paperDir.getName
+    println(paperID)
+    papersToConsiderInOrder += paperID
     val rowFilesInThisPaper = paperDir.listFiles().filter(_.getName.startsWith("Aggreg"))
     for(rowFile <- rowFilesInThisPaper) {
       val rowSpecs = ContextFeatureUtils.createAggRowSpecsFromFile(rowFile)
@@ -43,12 +53,14 @@ object SVMPerformanceOnNewReach extends App {
         specsByRow ++= Map(row -> rowSpecs)
       }
     }
-    paperIDByNewRowsMap ++= Map(paperID -> listOfRowsInPaper)
+
+    val tuple2 = (paperID, listOfRowsInPaper)
+    paperIDByNewRows += tuple2
   }
 
   val giantTruthLabelList = collection.mutable.ListBuffer[Int]()
   val giantPredictedLabelList = collection.mutable.ListBuffer[Int]()
-  for((paperID, testRows) <- paperIDByNewRowsMap) {
+  for((paperID, testRows) <- paperIDByNewRows) {
     val testRowsWithMatchingLabels = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val predictedLabelsInThisPaper = collection.mutable.ListBuffer[Int]()
     val trueLabelsInThisPaper = collection.mutable.ListBuffer[Int]()
@@ -58,6 +70,15 @@ object SVMPerformanceOnNewReach extends App {
         val specForTester = specsByRow(tester)
         if(eventsAlign(specForTester._2,labelID._2) && contextsAlign(specForTester._3,labelID._3)) {
           if(!testRowsWithMatchingLabels.contains(tester)) {
+            val featureNames = tester.featureGroupNames
+            val featureValues = tester.featureGroups
+            for(feature <- featureNames) {
+              val featureIndex =  featureNames.indexOf(feature)
+              val featureValue = featureValues(featureIndex)
+              val featureValueStringOfCurrentRow = s"The feature ${feature} has the value ${featureValue}\n"
+              stringWithFeatureValues = stringWithFeatureValues.concat(featureValueStringOfCurrentRow)
+            }
+
             testRowsWithMatchingLabels += tester
             trueLabelsInThisPaper += label
           }
@@ -65,6 +86,8 @@ object SVMPerformanceOnNewReach extends App {
         }
       }
     }
+
+    printWriter.write(stringWithFeatureValues)
 
 
     for(validTestRow <- testRowsWithMatchingLabels) {
