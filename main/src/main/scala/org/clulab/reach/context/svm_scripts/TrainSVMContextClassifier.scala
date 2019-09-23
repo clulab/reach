@@ -4,17 +4,13 @@ import org.clulab.context.classifiers.{DummyClassifier, LinearSVMContextClassifi
 import org.clulab.learning.LinearSVMClassifier
 import org.clulab.reach.context.utils.svm_training_utils.{DatatypeConversionUtils, IOUtilsForFeatureName}
 import org.clulab.reach.context.utils.feature_utils.FeatureNameProcessor
-object TrainSVMContextClassifier extends App{
+class TrainSVMContextClassifier(pathToDataframe:String, pathToFileToSaveSVMModel: String, pathToSpecificFeaturenames:String){
 
   val SVMClassifier = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
   val svmInstance = new LinearSVMContextClassifier(Some(SVMClassifier))
-  if(args.length == 0)
-    throw new IllegalArgumentException("This script takes arguments from the command line to run, but none were received. Please peruse examples of usage of this script")
-  val cmndLinePathToDataFrame = args(0)
-  val cmndLinePathToWriteSVMTo = args(1)
-  val cmndLinePathToSpecificFeatures = args(2)
 
-  val (allFeatures, dataPoints) = IOUtilsForFeatureName.loadAggregatedRowsFromDataFrame(cmndLinePathToDataFrame, cmndLinePathToSpecificFeatures)
+
+  val (allFeatures, dataPoints) = IOUtilsForFeatureName.loadAggregatedRowsFromDataFrame(pathToDataframe, pathToSpecificFeaturenames)
   val nonNumericFeatures = Seq("PMCID", "label", "EvtID", "CtxID", "")
   val numericFeatures = allFeatures.toSet -- nonNumericFeatures.toSet
   val featureDict = FeatureNameProcessor.createFeatureTypeDictionary(numericFeatures.toSeq)
@@ -22,7 +18,7 @@ object TrainSVMContextClassifier extends App{
   val trainingDataPrior = dataPoints.filter(_.PMCID != "b'PMC4204162'")
   val trainingData = extractDataByRelevantFeatures(bestFeatureSet, trainingDataPrior)
   svmInstance.fit(trainingData)
-  svmInstance.saveModel(cmndLinePathToWriteSVMTo)
+  svmInstance.saveModel(pathToFileToSaveSVMModel)
 
 
   def extractDataByRelevantFeatures(featureSet:Seq[String], data:Seq[AggregatedContextInstance]):Seq[AggregatedContextInstance] = {
@@ -48,4 +44,17 @@ object TrainSVMContextClassifier extends App{
     })
     result
   }
+
+  println("Done training the SVM")
+}
+
+
+object TrainSVMContextClassifier extends App {
+    if(args.length == 0)
+      throw new IllegalArgumentException("This script takes arguments from the command line to run, but none were received. Please peruse examples of usage of this script")
+    val cmndLinePathToDataFrame = args(0)
+    val cmndLinePathToWriteSVMTo = args(1)
+    val cmndLinePathToSpecificFeatures = args(2)
+    val trainSVMContextClassifier: TrainSVMContextClassifier = new TrainSVMContextClassifier(cmndLinePathToDataFrame, cmndLinePathToWriteSVMTo, cmndLinePathToSpecificFeatures)
+
 }
