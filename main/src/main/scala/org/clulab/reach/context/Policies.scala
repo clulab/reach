@@ -1,6 +1,6 @@
 package org.clulab.reach.context
 
-import org.clulab.reach.context.context_utils.ContextFeatureUtils
+import org.clulab.reach.context.feature_utils.ContextFeatureUtils
 import org.clulab.reach.mentions._
 
 import collection.mutable

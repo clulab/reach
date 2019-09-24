@@ -1,4 +1,4 @@
-package org.clulab.reach.context.context_exec
+package org.clulab.reach.context.research_exec
 
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
@@ -6,7 +6,7 @@ import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
 import java.io.{File, PrintWriter}
 
 import org.clulab.learning.LinearSVMClassifier
-import org.clulab.reach.context.context_utils.ContextFeatureUtils
+import org.clulab.reach.context.feature_utils.ContextFeatureUtils
 object PerformCrossValOldDataset extends App {
   val config = ConfigFactory.load()
 

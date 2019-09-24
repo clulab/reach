@@ -1,4 +1,4 @@
-package org.clulab.reach.context.context_utils
+package org.clulab.reach.context.feature_utils
 
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.utils.{CodeUtils, ContextPairInstance}

@@ -1,4 +1,4 @@
-package org.clulab.reach.context.context_utils
+package org.clulab.reach.context.feature_utils
 
 object PolarityUtils {
 

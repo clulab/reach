@@ -1,4 +1,4 @@
-package org.clulab.reach.context.context_exec
+package org.clulab.reach.context.research_exec
 import org.apache.commons.io.{FileUtils, FilenameUtils}
 import java.io.{File, PrintWriter}
 import java.io.{File, FileOutputStream, ObjectOutputStream, PrintWriter}
@@ -9,7 +9,7 @@ import org.clulab.odin.EventMention
 import org.clulab.reach.PaperReader.{contextEngineParams, ignoreSections, preproc, procAnnotator}
 import org.clulab.reach.ReachSystem
 import org.clulab.reach.context.ContextEngineFactory.Engine
-import org.clulab.reach.context.context_utils.{ProcessingStats}
+import org.clulab.reach.context.feature_utils.{ProcessingStats}
 import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
 import java.util.Date
 

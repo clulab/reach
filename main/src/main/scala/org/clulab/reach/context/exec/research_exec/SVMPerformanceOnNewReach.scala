@@ -1,11 +1,11 @@
-package org.clulab.reach.context.context_exec
+package org.clulab.reach.context.research_exec
 
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
 import java.io.{File, PrintWriter}
 
 import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
-import org.clulab.reach.context.context_utils.ContextFeatureUtils
+import org.clulab.reach.context.feature_utils.ContextFeatureUtils
 
 object SVMPerformanceOnNewReach extends App {
   val svmWrapper = new LinearSVMContextClassifier()

@@ -1,4 +1,4 @@
-package org.clulab.reach.context.context_utils
+package org.clulab.reach.context.feature_utils
 
 // this object is used in the feature extractor to compare binned distances
 object FeatureProcessing{

@@ -1,11 +1,11 @@
-package org.clulab.reach.context.context_exec
+package org.clulab.reach.context.research_exec
 
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.{AggregatedContextInstance, ContextPairInstance}
 import org.clulab.reach.context.ContextEngine
-import org.clulab.reach.context.context_utils.{ContextFeatureAggregator, ContextFeatureUtils, EventContextPairGenerator}
+import org.clulab.reach.context.feature_utils.{ContextFeatureAggregator, ContextFeatureUtils, EventContextPairGenerator}
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 import java.io.{File, PrintWriter}
 

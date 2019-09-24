@@ -1,4 +1,4 @@
-package org.clulab.reach.context.context_exec
+package org.clulab.reach.context.research_exec
 
 import java.io.{File, PrintWriter}
 
@@ -9,7 +9,7 @@ import org.clulab.reach.PaperReader.{contextEngineParams, ignoreSections, prepro
 import org.clulab.reach.ReachSystem
 import org.clulab.reach.context.ContextEngine
 import org.clulab.reach.context.ContextEngineFactory.Engine
-import org.clulab.reach.context.context_utils.EventContextPairGenerator
+import org.clulab.reach.context.feature_utils.EventContextPairGenerator
 import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
 
 import scala.collection.immutable.ListMap
