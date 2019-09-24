@@ -20,8 +20,7 @@ object SVMPerformanceOnNewReach extends App {
       null
     }
   }
-  // degenerate in new reach: PMC2063868
-  // manually testing on PMC3378484, PMC2064697
+
 
   if(classifierToUse == null) throw new NullPointerException("No classifier found on which I can predict. Please make sure the SVMContextEngine class receives a valid Linear SVM classifier.")
   val labelFile = config.getString("svmContext.labelFileOldDataset")
