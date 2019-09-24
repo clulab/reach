@@ -1,9 +1,9 @@
-package org.clulab.reach.context.research_exec
+package org.clulab.reach.context.context_exec
+
+import java.io.File
 
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
-import java.io.{File, PrintWriter}
-
 import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
 import org.clulab.reach.context.feature_utils.ContextFeatureUtils
 
@@ -87,6 +87,20 @@ object SVMPerformanceOnNewReach extends App {
 
 
       }
+
+
+      val matchingLabelsInThisPaperNewReach = Map(paperID -> matchingLabelsPerPaperNewReach)
+      matchingLabelsInNewReachByPaper ++= matchingLabelsInThisPaperNewReach
+
+      val nonMatchingLablesInThisPaperNewReach = Map(paperID -> nonMatchingLabelsPerPaperNewReach)
+      nonMathcingLabelsInNewReachByPaper ++= nonMatchingLablesInThisPaperNewReach
+
+
+      val matchingLabelsInThisPaperOldReach = Map(paperID -> matchingLabelsPerPaperOldReach)
+      matchingLabelsInOldReachByPaper  ++= matchingLabelsInThisPaperOldReach
+
+      val nonMatchingLabelsInThisPaperOldReach = Map(paperID -> nonMatchingLabelsPerPaperOldReach)
+      nonMatchingLabelsInOldReachByPaper ++= nonMatchingLabelsInThisPaperOldReach
     }
 
 
