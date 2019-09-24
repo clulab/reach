@@ -1,6 +1,4 @@
 name := "reach-main"
-scalaVersion := "2.11.11"
-retrieveManaged := true
 libraryDependencies ++= {
   val akkaV = "2.5.4"
   val luceVer = "5.3.1"
@@ -37,7 +35,6 @@ libraryDependencies ++= {
     // testing
     "org.scalatest"       %%  "scalatest"      % "3.0.1"  % "test",
     "com.typesafe.akka"   %%  "akka-testkit"   % akkaV    % "test"
-    //"org.ml4ai" %% "scalacontext" % "0.1.0-SNAPSHOT"
 
   )
 
