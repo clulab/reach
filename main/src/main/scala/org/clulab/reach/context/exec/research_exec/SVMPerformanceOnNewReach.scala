@@ -31,18 +31,11 @@ object SVMPerformanceOnNewReach extends App {
   val parentDirfileInstanceToLoadNewRows = new File(pathToParentdirToLoadNewRows)
   val paperDirs = parentDirfileInstanceToLoadNewRows.listFiles().filter(x => x.isDirectory && x.getName.startsWith("PMC"))
   val paperIDByNewRows = collection.mutable.ListBuffer[(String, Seq[AggregatedContextInstance])]()
-  val papersToConsiderInOrder = collection.mutable.ListBuffer[String]()
-  var stringWithFeatureValues = ""
-  val pathToWriteFeatureValuesTo = config.getString("polarityContext.fileToWriteFeatureValuesTo")
-  val featureValuesFile = new File(pathToWriteFeatureValuesTo)
-  if(!featureValuesFile.exists)
-    featureValuesFile.createNewFile()
-  val printWriter = new PrintWriter(featureValuesFile)
+
   for (paperDir <- paperDirs) {
 
     val listOfRowsInPaper = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val paperID = paperDir.getName
-    papersToConsiderInOrder += paperID
     val rowFilesInThisPaper = paperDir.listFiles().filter(_.getName.startsWith("Aggreg"))
     for(rowFile <- rowFilesInThisPaper) {
       val rowSpecs = ContextFeatureUtils.createAggRowSpecsFromFile(rowFile)
@@ -57,38 +50,46 @@ object SVMPerformanceOnNewReach extends App {
     paperIDByNewRows += tuple2
   }
 
-  println(papersToConsiderInOrder)
+
 
   val giantTruthLabelList = collection.mutable.ListBuffer[Int]()
   val giantPredictedLabelList = collection.mutable.ListBuffer[Int]()
+  val nonMathcingLabelsInNewReachByPaper = collection.mutable.HashMap[String,Seq[(String,String,String)]]()
+  val matchingLabelsInNewReachByPaper = collection.mutable.HashMap[String,Seq[(String,String,String)]]()
+  val nonMatchingLabelsInOldReachByPaper = collection.mutable.HashMap[String,Seq[(String,String,String)]]()
+  val matchingLabelsInOldReachByPaper = collection.mutable.HashMap[String,Seq[(String,String,String)]]()
   for((paperID, testRows) <- paperIDByNewRows) {
     val testRowsWithMatchingLabels = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val predictedLabelsInThisPaper = collection.mutable.ListBuffer[Int]()
     val trueLabelsInThisPaper = collection.mutable.ListBuffer[Int]()
     val possibleLabelIDsInThisPaper = labelMap.filter(_._1._1 == paperID)
     for(tester <- testRows) {
+      val matchingLabelsPerPaperNewReach = collection.mutable.ListBuffer[(String, String, String)]()
+      val nonMatchingLabelsPerPaperNewReach = collection.mutable.ListBuffer[(String, String, String)]()
+      val matchingLabelsPerPaperOldReach = collection.mutable.ListBuffer[(String, String, String)]()
+      val nonMatchingLabelsPerPaperOldReach = collection.mutable.ListBuffer[(String, String, String)]()
       for((labelID,label) <- possibleLabelIDsInThisPaper) {
         val specForTester = specsByRow(tester)
         if(eventsAlign(specForTester._2,labelID._2) && contextsAlign(specForTester._3,labelID._3)) {
           if(!testRowsWithMatchingLabels.contains(tester)) {
-            val featureNames = tester.featureGroupNames
-            val featureValues = tester.featureGroups
-            for(feature <- featureNames) {
-              val featureIndex =  featureNames.indexOf(feature)
-              val featureValue = featureValues(featureIndex)
-              val featureValueStringOfCurrentRow = s"The feature ${feature} has the value ${featureValue}\n"
-              stringWithFeatureValues = stringWithFeatureValues.concat(featureValueStringOfCurrentRow)
-            }
-
             testRowsWithMatchingLabels += tester
             trueLabelsInThisPaper += label
+            matchingLabelsPerPaperNewReach += specForTester
+            matchingLabelsPerPaperOldReach += labelID
           }
 
         }
+        else {
+          if(!nonMatchingLabelsPerPaperNewReach.contains(specForTester))
+            nonMatchingLabelsPerPaperNewReach += specForTester
+          if(!nonMatchingLabelsPerPaperOldReach.contains(labelID))
+            nonMatchingLabelsPerPaperOldReach += labelID
+        }
+
+
       }
     }
 
-    printWriter.write(stringWithFeatureValues)
 
 
     for(validTestRow <- testRowsWithMatchingLabels) {
@@ -100,16 +101,13 @@ object SVMPerformanceOnNewReach extends App {
     giantPredictedLabelList ++= predictedLabelsInThisPaper
   }
 
+
+  println(s"From the old Reach, there were ${nonMatchingLabelsInOldReachByPaper.size} event mentions that were not detected by the new Reach")
+  println(s"From the new Reach, there were ${nonMathcingLabelsInNewReachByPaper.size} event mentions that were not detected by the old Reach")
+
   println(s"After prediction, ${giantTruthLabelList.size} truth labels were found")
   println(s"After prediction, ${giantPredictedLabelList.size} predicted labels were found")
-  val predictionsMap = CodeUtils.predictCounts(giantTruthLabelList.toArray,giantPredictedLabelList.toArray)
-  println(predictionsMap)
-  val precision = CodeUtils.precision(predictionsMap)
-  val f1 = CodeUtils.f1(predictionsMap)
-  val recall = CodeUtils.recall(predictionsMap)
-  println(s"MicroAveraged precision is : ${precision}")
-  println(s"MicroAveraged recall is : ${recall}")
-  println(s"MicroAveraged f1 is : ${f1}")
+
 
 
   def eventsAlign(evtID1: String, evtID2: String):Boolean = {

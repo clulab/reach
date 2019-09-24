@@ -20,8 +20,8 @@ import scala.io.Source
 
 object Polarity extends App {
   val config = ConfigFactory.load()
-  val papersDir = config.getString("polarityContext.temporaryRunParallelProcess")
-  val dirForOutput = config.getString("polarityContext.contextLabelsOutputDir")
+  val papersDir = config.getString("papersDir")
+  val dirForOutput = config.getString("polarityContext.outputForPolarityAnalysisDir")
   val threadLimit: Int = config.getInt("threadLimit")
 
 
