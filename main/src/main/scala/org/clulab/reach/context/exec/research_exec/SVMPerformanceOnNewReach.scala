@@ -23,6 +23,7 @@ object SVMPerformanceOnNewReach extends App {
 
 
   if(classifierToUse == null) throw new NullPointerException("No classifier found on which I can predict. Please make sure the SVMContextEngine class receives a valid Linear SVM classifier.")
+  println(s"In svm performance class, running code")
   val labelFile = config.getString("svmContext.labelFileOldDataset")
   val labelMap = CodeUtils.generateLabelMap(labelFile).toSeq
   val specsByRow = collection.mutable.HashMap[AggregatedContextInstance, (String,String,String)]()
@@ -120,7 +121,7 @@ object SVMPerformanceOnNewReach extends App {
 
   println(s"After prediction, ${giantTruthLabelList.size} truth labels were found")
   println(s"After prediction, ${giantPredictedLabelList.size} predicted labels were found")
-
+  println(s"In svm performance class, finished code")
 
 
   def eventsAlign(evtID1: String, evtID2: String):Boolean = {
