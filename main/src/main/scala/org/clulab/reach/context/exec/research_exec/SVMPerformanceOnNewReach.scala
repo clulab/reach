@@ -183,8 +183,7 @@ object SVMPerformanceOnNewReach extends App {
           if(allExceptLeft.size > 0) {
             val rightEvent = allExceptLeft(0)
             // we need all other events that are not the left event or the right event, to see if anything else appears between them.
-            val allOtherEvents = eventsSortedByStartToken.filter(x => x._2 > leftEvent._2 && x._2 > rightEvent._2)
-            if(EventAlignmentUtils.areEventsAdjacent(leftEvent,rightEvent, allOtherEvents)) {
+            if(EventAlignmentUtils.areEventsAdjacent(leftEvent,rightEvent)) {
               val myNameIsLeftEvent = EventAlignmentUtils.parseEventIDFromTupToString(leftEvent)
               val myNameIsRightEvent = EventAlignmentUtils.parseEventIDFromTupToString(rightEvent)
               val neighbors = (myNameIsLeftEvent,myNameIsRightEvent)
