@@ -177,21 +177,27 @@ object SVMPerformanceOnNewReach extends App {
       // we start checking for neighbors with the left most event
       for(leftEvent <- eventsSortedByStartToken) {
         if(eventsSortedByStartToken.indexOf(leftEvent) <= eventsSortedByStartToken.size - 2) {
-          println(s"Left event: ${leftEvent}")
+
           // we then take the next immediate event to be the right event.
-          val rightEvent = eventsSortedByStartToken.filter(_._2 > leftEvent._2)(0)
-          println(s"Right event: ${rightEvent}")
-          // we need all other events that are not the left event or the right event, to see if anything else appears between them.
-          val allOtherEvents = eventsSortedByStartToken.filter(x => x._2 > leftEvent._2 && x._2 > rightEvent._2)
-          if(EventAlignmentUtils.areEventsAdjacent(leftEvent,rightEvent, allOtherEvents)) {
-            val myNameIsLeftEvent = EventAlignmentUtils.parseEventIDFromTupToString(leftEvent)
-            val myNameIsRightEvent = EventAlignmentUtils.parseEventIDFromTupToString(rightEvent)
-            val neighbors = (myNameIsLeftEvent,myNameIsRightEvent)
-            neighboringEventsInThisSentence += neighbors
+
+          val allExceptLeft = eventsSortedByStartToken.filter(_._2 > leftEvent._2)
+          if(allExceptLeft.size > 0) {
+            val rightEvent = allExceptLeft(0)
+            // we need all other events that are not the left event or the right event, to see if anything else appears between them.
+            val allOtherEvents = eventsSortedByStartToken.filter(x => x._2 > leftEvent._2 && x._2 > rightEvent._2)
+            if(EventAlignmentUtils.areEventsAdjacent(leftEvent,rightEvent, allOtherEvents)) {
+              val myNameIsLeftEvent = EventAlignmentUtils.parseEventIDFromTupToString(leftEvent)
+              val myNameIsRightEvent = EventAlignmentUtils.parseEventIDFromTupToString(rightEvent)
+              val neighbors = (myNameIsLeftEvent,myNameIsRightEvent)
+              neighboringEventsInThisSentence += neighbors
+            }
           }
+
         }
 
       }
+
+      println(s"No. Of neighbors in this sentence: ${neighboringEventsInThisSentence.size}")
 
       val neighborsEntry = (neighboringEventsInThisSentence.size,neighboringEventsInThisSentence.toList)
       val sentenceIndexEntry = Map(sentenceIndex -> neighborsEntry)
