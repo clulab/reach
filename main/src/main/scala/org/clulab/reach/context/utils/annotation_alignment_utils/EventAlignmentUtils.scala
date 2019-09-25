@@ -33,7 +33,7 @@ object EventAlignmentUtils {
     sameSentenceIndex && someMatchExists
   }
 
-  def parseEventIDToTup(eventID: String):(Int,Int,Int) = {
+  def parseEventIDFromStringToTup(eventID: String):(Int,Int,Int) = {
     val sentenceIndexString = eventID.split("from")(0).replace("in","")
     val eventTokenString = eventID.split("from")(1)
     val sentenceIndex = Integer.parseInt(sentenceIndexString)
@@ -43,11 +43,26 @@ object EventAlignmentUtils {
   }
 
   def eventsAlign(evtID1: String, evtID2: String):Boolean = {
-    val tupEvt1 = EventAlignmentUtils.parseEventIDToTup(evtID1)
-    val tupEvt2 = EventAlignmentUtils.parseEventIDToTup(evtID2)
+    val tupEvt1 = EventAlignmentUtils.parseEventIDFromStringToTup(evtID1)
+    val tupEvt2 = EventAlignmentUtils.parseEventIDFromStringToTup(evtID2)
     // the purpose of this function is to align events.
     // Since overlap or containment of one event by another is possible,
     // we need to test if one event contains the other, or vice versa. Same holds for overlap.
     EventAlignmentUtils.eventsAlign(tupEvt1, tupEvt2) || EventAlignmentUtils.eventsAlign(tupEvt2, tupEvt1)
+  }
+
+
+  def parseEventIDFromTupToString(eventID:(Int,Int,Int)):String = {
+    s"in${eventID._1}from${eventID._2}to${eventID._3}"
+  }
+
+  // checking the condition for neighborhood of events:
+  // If A and B are events in the same sentence such that B starts after A has ended, then if C is another event in this sentence
+  // such that C starts after A ends but B begins, then A and B *cannot* be adjacent
+  // we find all the events that may come in between A and B, end ensure that this list is empty.
+  // i.e. A and B are neighbors iff there are no other events that come in between and B starts after A has ended
+  def areEventsAdjacent(leftEvent:(Int,Int,Int), rightEvent:(Int,Int,Int), allOtherEvents:Seq[(Int,Int,Int)]):Boolean = {
+    val eventsInBetween = allOtherEvents.filter(x => x._2 > leftEvent._3 && x._2 <= rightEvent._2)
+    eventsInBetween.isEmpty && rightEvent._2 >= leftEvent._3
   }
 }

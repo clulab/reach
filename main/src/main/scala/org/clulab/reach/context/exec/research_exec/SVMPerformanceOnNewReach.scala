@@ -149,11 +149,16 @@ object SVMPerformanceOnNewReach extends App {
   val trueLabelsGroupedByPaperID = trueLabelsFromOldDataset.groupBy(_._1._1)
 
 
+  // Storing the information of neighboring events per paper per sentence:
+  // We will have a Map(paperID -> Map(sentenceIndex -> (neighborCount, List((leftNeighbor, rightNeighbor))  ) ) )
+  val neighborsPerSentencePerPaper = collection.mutable.HashMap[String, Map[Int,(Int,List[(String,String)])]]()
+
+
   // then, for each paper, we need to cluster the events by the sentence in which they occur.
   for((paperID,annotationsInThisPaper) <- trueLabelsGroupedByPaperID) {
     // getting the eventIDs in this paper
     val eventIDs = annotationsInThisPaper.map(_._1._2)
-    val eventIDInTupForm = eventIDs.map(EventAlignmentUtils.parseEventIDToTup(_))
+    val eventIDInTupForm = eventIDs.map(EventAlignmentUtils.parseEventIDFromStringToTup(_))
 
 
     // group the events by the sentence in which they occur
@@ -164,20 +169,43 @@ object SVMPerformanceOnNewReach extends App {
     // This step is necessary because we need to find the events that are neighboring to each other.
     // This condition of "neighborhood" is contingent upon the end token of the left event and the start token of the right event
     // basically, two events are "neighbors" if they appear in the same sentence and there is no event that appears between them
+
+    val neighborsPerSent = collection.mutable.HashMap[Int,(Int,List[(String,String)])]()
     for((sentenceIndex, eventsInThisSentence) <- eventsGroupedBySentIndex) {
       val eventsSortedByStartToken = eventsInThisSentence.sortWith(_._2 <= _._2)
+      val neighboringEventsInThisSentence = collection.mutable.ListBuffer[(String,String)]()
       // we start checking for neighbors with the left most event
       for(leftEvent <- eventsSortedByStartToken) {
-        println(s"Left event: ${leftEvent}")
-        // we then take the next immediate event to be the right event.
-        val rightEvent = eventsSortedByStartToken.filter(_ != leftEvent)(0)
-        println(s"Right event: ${rightEvent}")
-        // we need all other events that are not the left event or the right event, to see if anything else appears between them.
-        val allOtherEvents = eventsSortedByStartToken.filter(x => x!=leftEvent && x!=rightEvent)
+        if(eventsSortedByStartToken.indexOf(leftEvent) <= eventsSortedByStartToken.size - 2) {
+          println(s"Left event: ${leftEvent}")
+          // we then take the next immediate event to be the right event.
+          val rightEvent = eventsSortedByStartToken.filter(_._2 > leftEvent._2)(0)
+          println(s"Right event: ${rightEvent}")
+          // we need all other events that are not the left event or the right event, to see if anything else appears between them.
+          val allOtherEvents = eventsSortedByStartToken.filter(x => x._2 > leftEvent._2 && x._2 > rightEvent._2)
+          if(EventAlignmentUtils.areEventsAdjacent(leftEvent,rightEvent, allOtherEvents)) {
+            val myNameIsLeftEvent = EventAlignmentUtils.parseEventIDFromTupToString(leftEvent)
+            val myNameIsRightEvent = EventAlignmentUtils.parseEventIDFromTupToString(rightEvent)
+            val neighbors = (myNameIsLeftEvent,myNameIsRightEvent)
+            neighboringEventsInThisSentence += neighbors
+          }
+        }
+
       }
+
+      val neighborsEntry = (neighboringEventsInThisSentence.size,neighboringEventsInThisSentence.toList)
+      val sentenceIndexEntry = Map(sentenceIndex -> neighborsEntry)
+      neighborsPerSent ++= sentenceIndexEntry
     }
 
+    val paperEntry = Map(paperID -> neighborsPerSent.toMap)
+
+    neighborsPerSentencePerPaper ++= paperEntry
+
   }
+
+
+  println(neighborsPerSentencePerPaper)
 
 
 
