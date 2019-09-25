@@ -176,7 +176,6 @@ object SVMPerformanceOnNewReach extends App {
       val neighboringEventsInThisSentence = collection.mutable.ListBuffer[(String,String)]()
       // we start checking for neighbors with the left most event
       for(leftEvent <- eventsSortedByStartToken) {
-        if(eventsSortedByStartToken.indexOf(leftEvent) <= eventsSortedByStartToken.size - 2) {
 
           // we then take the next immediate event to be the right event.
 
@@ -193,7 +192,7 @@ object SVMPerformanceOnNewReach extends App {
             }
           }
 
-        }
+
 
       }
 
