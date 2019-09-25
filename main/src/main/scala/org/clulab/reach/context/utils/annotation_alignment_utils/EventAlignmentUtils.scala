@@ -60,6 +60,6 @@ object EventAlignmentUtils {
  // events A and B are adjacent if B starts exactly when A ends, or B starts at the next word
   def areEventsAdjacent(leftEvent:(Int,Int,Int), rightEvent:(Int,Int,Int)):Boolean = {
 
-    rightEvent._2 >= leftEvent._3 || rightEvent._2 <= leftEvent._3 + 3
+    rightEvent._2 >= leftEvent._3 && rightEvent._2 <= leftEvent._3 + 3
   }
 }
