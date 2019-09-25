@@ -116,11 +116,24 @@ object SVMPerformanceOnNewReach extends App {
   }
 
 
-  println(s"From the old Reach, there were ${nonMatchingLabelsInOldReachByPaper.size} event mentions that were not detected by the new Reach")
-  println(s"From the new Reach, there were ${nonMathcingLabelsInNewReachByPaper.size} event mentions that were not detected by the old Reach")
-
   println(s"After prediction, ${giantTruthLabelList.size} truth labels were found")
   println(s"After prediction, ${giantPredictedLabelList.size} predicted labels were found")
+
+  println(s"The paper PMC2063868 is degenerate as per new Reach and will not appear in this analysis.")
+  println(s"All events and contexts that appeared in the new Reach are 15 sentences away. We will restrict ourselves to this window even n the old dataset.")
+  for((paperID,matchingLabelsNew) <-  matchingLabelsInNewReachByPaper) {
+    println(s"In new Reach (Reach 2019), the paper ${paperID} has ${matchingLabelsNew.size} labels that matched.")
+    val nonMatches = nonMathcingLabelsInNewReachByPaper(paperID)
+    println(s"In new Reach (Reach 2019), the paper ${paperID} has ${nonMatches.size} labels that did not match")
+  }
+
+
+  for((paperID, matchingLabelsOld) <- matchingLabelsInOldReachByPaper) {
+    println(s"In old Reach (Reach 2015), the paper ${paperID} has ${matchingLabelsOld.size} labels that matched")
+    val nonMatches = nonMatchingLabelsInOldReachByPaper(paperID)
+    println(s"In old Reach (Reach 2015), the paper ${paperID} has ${nonMatches.size} labels that did not match")
+  }
+
   println(s"In svm performance class, finished code")
 
 
