@@ -211,8 +211,8 @@ object SVMPerformanceOnNewReach extends App {
   // printing some neighbors and no-neighbors for debugging and manual verification
   for((paperID, neighborsBySent) <- neighborsPerSentencePerPaper) {
     println(s"The current paper is: ${paperID}")
-    val fiveSentencesThatHaveSomeNeighbors = neighborsBySent.map(_._2._1 > 0).take(5)
-    val fiveSentencesThatHaveNoNeighbors = neighborsBySent.map(_._2._1 == 0).take(5)
+    val fiveSentencesThatHaveSomeNeighbors = neighborsBySent.filter(_._2._1 > 0).take(5)
+    val fiveSentencesThatHaveNoNeighbors = neighborsBySent.filter(_._2._1 == 0).take(5)
     println("Printing some sentences that do have neighbors in them")
     println(fiveSentencesThatHaveSomeNeighbors)
 
