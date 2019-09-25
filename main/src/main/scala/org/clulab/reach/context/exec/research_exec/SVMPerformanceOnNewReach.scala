@@ -31,10 +31,11 @@ object SVMPerformanceOnNewReach extends App {
   val parentDirfileInstanceToLoadNewRows = new File(pathToParentdirToLoadNewRows)
   val paperDirs = parentDirfileInstanceToLoadNewRows.listFiles().filter(x => x.isDirectory && x.getName.startsWith("PMC"))
   val paperIDByNewRows = collection.mutable.ListBuffer[(String, Seq[AggregatedContextInstance])]()
-
+  val paperIDByNewRowsSpecs = collection.mutable.ListBuffer[(String, Seq[(String,String,String)])]()
   for (paperDir <- paperDirs) {
 
     val listOfRowsInPaper = collection.mutable.ListBuffer[AggregatedContextInstance]()
+    val listOfSpecsInPaper = collection.mutable.ListBuffer[(String,String,String)]()
     val paperID = paperDir.getName
     val rowFilesInThisPaper = paperDir.listFiles().filter(_.getName.startsWith("Aggreg"))
     for(rowFile <- rowFilesInThisPaper) {
@@ -42,32 +43,35 @@ object SVMPerformanceOnNewReach extends App {
       val row = ContextFeatureUtils.readAggRowFromFile(rowFile)
       if(!listOfRowsInPaper.contains(row)) {
         listOfRowsInPaper += row
+        listOfSpecsInPaper += rowSpecs
         specsByRow ++= Map(row -> rowSpecs)
       }
     }
 
     val tuple2 = (paperID, listOfRowsInPaper)
+    val tuple2Specs = (paperID,listOfSpecsInPaper)
     paperIDByNewRows += tuple2
+    paperIDByNewRowsSpecs += tuple2Specs
   }
+
+
+  val paperIDByOldRowsSpecs = labelMap.map(_._1)
 
 
 
   val giantTruthLabelList = collection.mutable.ListBuffer[Int]()
   val giantPredictedLabelList = collection.mutable.ListBuffer[Int]()
-  val nonMathcingLabelsInNewReachByPaper = collection.mutable.HashMap[String,Seq[(String,String,String)]]()
   val matchingLabelsInNewReachByPaper = collection.mutable.HashMap[String,Seq[(String,String,String)]]()
-  val nonMatchingLabelsInOldReachByPaper = collection.mutable.HashMap[String,Seq[(String,String,String)]]()
   val matchingLabelsInOldReachByPaper = collection.mutable.HashMap[String,Seq[(String,String,String)]]()
   for((paperID, testRows) <- paperIDByNewRows) {
     val testRowsWithMatchingLabels = collection.mutable.ListBuffer[AggregatedContextInstance]()
+    val matchingLabelsPerPaperNewReach = collection.mutable.ListBuffer[(String, String, String)]()
+    val matchingLabelsPerPaperOldReach = collection.mutable.ListBuffer[(String, String, String)]()
     val predictedLabelsInThisPaper = collection.mutable.ListBuffer[Int]()
     val trueLabelsInThisPaper = collection.mutable.ListBuffer[Int]()
     val possibleLabelIDsInThisPaper = labelMap.filter(_._1._1 == paperID)
     for(tester <- testRows) {
-      val matchingLabelsPerPaperNewReach = collection.mutable.ListBuffer[(String, String, String)]()
-      val nonMatchingLabelsPerPaperNewReach = collection.mutable.ListBuffer[(String, String, String)]()
-      val matchingLabelsPerPaperOldReach = collection.mutable.ListBuffer[(String, String, String)]()
-      val nonMatchingLabelsPerPaperOldReach = collection.mutable.ListBuffer[(String, String, String)]()
+
       for((labelID,label) <- possibleLabelIDsInThisPaper) {
         val specForTester = specsByRow(tester)
         if(eventsAlign(specForTester._2,labelID._2) && contextsAlign(specForTester._3,labelID._3)) {
@@ -77,31 +81,20 @@ object SVMPerformanceOnNewReach extends App {
             matchingLabelsPerPaperNewReach += specForTester
             matchingLabelsPerPaperOldReach += labelID
           }
-
         }
-        else {
-          if(!nonMatchingLabelsPerPaperNewReach.contains(specForTester))
-            nonMatchingLabelsPerPaperNewReach += specForTester
-          if(!nonMatchingLabelsPerPaperOldReach.contains(labelID))
-            nonMatchingLabelsPerPaperOldReach += labelID
-        }
-
-
       }
 
 
       val matchingLabelsInThisPaperNewReach = Map(paperID -> matchingLabelsPerPaperNewReach)
       matchingLabelsInNewReachByPaper ++= matchingLabelsInThisPaperNewReach
 
-      val nonMatchingLablesInThisPaperNewReach = Map(paperID -> nonMatchingLabelsPerPaperNewReach)
-      nonMathcingLabelsInNewReachByPaper ++= nonMatchingLablesInThisPaperNewReach
+
 
 
       val matchingLabelsInThisPaperOldReach = Map(paperID -> matchingLabelsPerPaperOldReach)
       matchingLabelsInOldReachByPaper  ++= matchingLabelsInThisPaperOldReach
 
-      val nonMatchingLabelsInThisPaperOldReach = Map(paperID -> nonMatchingLabelsPerPaperOldReach)
-      nonMatchingLabelsInOldReachByPaper ++= nonMatchingLabelsInThisPaperOldReach
+
     }
 
 
@@ -123,14 +116,21 @@ object SVMPerformanceOnNewReach extends App {
   println(s"All events and contexts that appeared in the new Reach are 15 sentences away. We will restrict ourselves to this window even n the old dataset.")
   for((paperID,matchingLabelsNew) <-  matchingLabelsInNewReachByPaper) {
     println(s"In new Reach (Reach 2019), the paper ${paperID} has ${matchingLabelsNew.size} labels that matched.")
-    val nonMatches = nonMathcingLabelsInNewReachByPaper(paperID)
+    // getting all the rows that were extracted by new Reach and extracting their event IDs
+    val allRowSpecsInThisPaper = paperIDByNewRowsSpecs.filter(_._1 == paperID).map(_._2).flatten
+    val allUniqueEventSpans = allRowSpecsInThisPaper.map(_._2).toSet
+    val matchingUniqueEventSpans = matchingLabelsNew.map(_._2).toSet
+    val nonMatches = allUniqueEventSpans -- matchingUniqueEventSpans
     println(s"In new Reach (Reach 2019), the paper ${paperID} has ${nonMatches.size} labels that did not match")
   }
 
 
   for((paperID, matchingLabelsOld) <- matchingLabelsInOldReachByPaper) {
     println(s"In old Reach (Reach 2015), the paper ${paperID} has ${matchingLabelsOld.size} labels that matched")
-    val nonMatches = nonMatchingLabelsInOldReachByPaper(paperID)
+    val allLabelsInPaper = paperIDByOldRowsSpecs.filter(_._1 == paperID)
+    val allUniqueEventsInPaper = allLabelsInPaper.map(_._2).toSet
+    val matchingUniqueEventSpans = matchingLabelsOld.map(_._2).toSet
+    val nonMatches = allUniqueEventsInPaper -- matchingUniqueEventSpans
     println(s"In old Reach (Reach 2015), the paper ${paperID} has ${nonMatches.size} labels that did not match")
   }
 
@@ -193,6 +193,9 @@ object SVMPerformanceOnNewReach extends App {
 
     exactMatch || sameStart || sameEnd || containment || overlap
   }
+
+
+
 
 
 
