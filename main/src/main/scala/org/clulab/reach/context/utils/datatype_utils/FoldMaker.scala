@@ -45,8 +45,7 @@ object FoldMaker {
         val trainInstance = new BaselineContextClassifier(k_val)
         val pred = trainInstance.predict(balancedTrainingData)
         val labelsToInt = trainInstance.createLabels(balancedTrainingData)
-        val counts = CodeUtils.predictCounts(labelsToInt, pred)
-        val f1score = CodeUtils.f1(counts)
+        val f1score = CodeUtils.f1(labelsToInt, pred)
         kToF1Map += (k_val -> f1score)
       }
       val bestK = CodeUtils.argMax(kToF1Map.toMap)

@@ -79,9 +79,9 @@ object CrossValBySentDist extends App{
 
 
     val perPaperCountsMap = CodeUtils.predictCounts(truthListPerSentDist.toArray, predListPerSentDist.toArray)
-    val perPaperPrecision = CodeUtils.precision(perPaperCountsMap)
-    val perPaperRecall = CodeUtils.recall(perPaperCountsMap)
-    val perPaperF1 = CodeUtils.f1(perPaperCountsMap)
+    val perPaperPrecision = CodeUtils.precision(truthListPerSentDist.toArray, predListPerSentDist.toArray)
+    val perPaperRecall = CodeUtils.recall(truthListPerSentDist.toArray, predListPerSentDist.toArray)
+    val perPaperF1 = CodeUtils.f1(truthListPerSentDist.toArray, predListPerSentDist.toArray)
     valsForMeanPrec += perPaperPrecision
     valsForMeanRec += perPaperRecall
     valsForMeanF1 += perPaperF1
@@ -90,9 +90,9 @@ object CrossValBySentDist extends App{
   }
 
   val microAveragedMap = CodeUtils.predictCounts(giantTruthListPerSentDist.toArray, giantPredListPerSentDist.toArray)
-  val microAveragedPrecision = CodeUtils.precision(microAveragedMap)
-  val microAveragedRecall = CodeUtils.recall(microAveragedMap)
-  val microAveragedF1 = CodeUtils.f1(microAveragedMap)
+  val microAveragedPrecision = CodeUtils.precision(giantTruthListPerSentDist.toArray, giantPredListPerSentDist.toArray)
+  val microAveragedRecall = CodeUtils.recall(giantTruthListPerSentDist.toArray, giantPredListPerSentDist.toArray)
+  val microAveragedF1 = CodeUtils.f1(giantTruthListPerSentDist.toArray, giantPredListPerSentDist.toArray)
   for((sentDist,(prec,rec,f1)) <- perSentDistScoreBoard) {
     println(s"The sentence distance ${sentDist} has precision of ${prec}, recall of ${rec} and f1 score of ${f1}")
   }

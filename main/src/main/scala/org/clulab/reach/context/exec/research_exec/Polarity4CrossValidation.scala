@@ -102,8 +102,7 @@ object Polarity4CrossValidation extends App {
   }
 
   def findPrecision(truth:Array[Int], test:Array[Int]):Double = {
-    val countsTest = CodeUtils.predictCounts(truth, test)
-    val precision = CodeUtils.precision(countsTest)
+    val precision = CodeUtils.precision(truth, test)
     precision
   }
 

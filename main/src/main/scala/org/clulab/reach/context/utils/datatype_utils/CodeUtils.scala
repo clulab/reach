@@ -16,26 +16,29 @@ object CodeUtils {
     bestK
   }
 
-  def f1(preds: Map[String, Int]): Double = {
-    val p = precision(preds)
-    val r = recall(preds)
+  def f1(yTrue: Array[Int], yPred: Array[Int]): Double = {
+    val p = precision(yTrue, yPred)
+    val r = recall(yTrue, yPred)
     if (p + r == 0) 0.0
     else ((2 * (p * r))/(p + r))
   }
 
-  def precision(preds: Map[String, Int]): Double = {
-    if(!(preds("TP").toDouble + preds("FP").toDouble == 0.toDouble)) preds("TP").toDouble / (preds("TP") + preds("FP")).toDouble
+  def precision(yTrue: Array[Int], yPred: Array[Int]): Double = {
+    val predictsMap = predictCounts(yTrue,yPred)
+    if(!(predictsMap("TP").toDouble + predictsMap("FP").toDouble == 0.toDouble)) predictsMap("TP").toDouble / (predictsMap("TP") + predictsMap("FP")).toDouble
     else 0.0
   }
 
-  def recall(preds: Map[String, Int]): Double = {
-    if (!(preds("TP").toDouble + preds("FN").toDouble == 0)) preds("TP").toDouble/(preds("TP") + preds("FN")).toDouble
+  def recall(yTrue: Array[Int], yPred: Array[Int]): Double = {
+    val predictsMap = predictCounts(yTrue,yPred)
+    if (!(predictsMap("TP").toDouble + predictsMap("FN").toDouble == 0)) predictsMap("TP").toDouble/(predictsMap("TP") + predictsMap("FN")).toDouble
     else 0.0
   }
 
 
-  def accuracy(preds:Map[String, Int]): Double = {
-    if (!((preds("TP") + preds("FP") + preds("FN") + preds("TN").toDouble) == 0)) (preds("TP") + preds("TN")).toDouble/(preds("TP") + preds("TN") + preds("FP") + preds("FN")).toDouble
+  def accuracy(yTrue: Array[Int], yPred: Array[Int]): Double = {
+    val predictsMap = predictCounts(yTrue,yPred)
+    if (!((predictsMap("TP") + predictsMap("FP") + predictsMap("FN") + predictsMap("TN").toDouble) == 0)) (predictsMap("TP") + predictsMap("TN")).toDouble/(predictsMap("TP") + predictsMap("TN") + predictsMap("FP") + predictsMap("FN")).toDouble
     else 0.0
   }
 
@@ -58,9 +61,9 @@ object CodeUtils {
 
   def scoreMaker(name: String, truthTest:Array[Int], predTest:Array[Int]):Map[String, (String, Double, Double, Double)] = {
     val countsTest = CodeUtils.predictCounts(truthTest, predTest)
-    val precTest = CodeUtils.precision(countsTest)
-    val recallTest = CodeUtils.recall(countsTest)
-    val f1Test = CodeUtils.f1(countsTest)
+    val precTest = CodeUtils.precision(truthTest, predTest)
+    val recallTest = CodeUtils.recall(truthTest, predTest)
+    val f1Test = CodeUtils.f1(truthTest, predTest)
     val testTup = ("test", precTest, recallTest, f1Test)
     val mapToReturn = Map(name -> testTup)
     mapToReturn

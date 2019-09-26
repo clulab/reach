@@ -146,9 +146,9 @@ object PerformCrossValOldDataset extends App {
     val predictCountsMap = CodeUtils.predictCounts(truthLabelsForThisPaper.toArray, predictedLabelsForThisPaper.toArray)
     println(s"Current test case: ${paperID}")
     println(predictCountsMap)
-    val precisionPerPaper = CodeUtils.precision(predictCountsMap)
-    val recallPerPaper = CodeUtils.recall(predictCountsMap)
-    val f1PerPaper = CodeUtils.f1(predictCountsMap)
+    val precisionPerPaper = CodeUtils.precision(truthLabelsForThisPaper.toArray, predictedLabelsForThisPaper.toArray)
+    val recallPerPaper = CodeUtils.recall(truthLabelsForThisPaper.toArray, predictedLabelsForThisPaper.toArray)
+    val f1PerPaper = CodeUtils.f1(truthLabelsForThisPaper.toArray, predictedLabelsForThisPaper.toArray)
     recallScoreBoardPerPaper ++= Map(paperID -> recallPerPaper)
     precisionScoreBoardPerPaper ++= Map(paperID -> precisionPerPaper)
     f1ScoreBoardPerPaper ++= Map(paperID -> f1PerPaper)
@@ -162,9 +162,9 @@ object PerformCrossValOldDataset extends App {
   println(s"Size of truth label list: ${giantTruthLabels.size}")
 
   val microAveragedCountsMap = CodeUtils.predictCounts(giantTruthLabels.toArray, giantPredictedLabels.toArray)
-  val microAveragedPrecisionScore = CodeUtils.precision(microAveragedCountsMap)
-  val microAveragedRecallScore = CodeUtils.recall(microAveragedCountsMap)
-  val microAveragedF1Score = CodeUtils.f1(microAveragedCountsMap)
+  val microAveragedPrecisionScore = CodeUtils.precision(giantTruthLabels.toArray, giantPredictedLabels.toArray)
+  val microAveragedRecallScore = CodeUtils.recall(giantTruthLabels.toArray, giantPredictedLabels.toArray)
+  val microAveragedF1Score = CodeUtils.f1(giantTruthLabels.toArray, giantPredictedLabels.toArray)
 
 
   val listOfAllPrecisions = precisionScoreBoardPerPaper.map{case (_,v) => v}
