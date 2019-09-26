@@ -119,6 +119,8 @@ object SVMPerformanceOnNewReach extends App {
   // Tasks 1 and 2: finding the events in new and old Reach that don't match up with each other
   println(s"The paper PMC2063868 is degenerate as per new Reach and will not appear in this analysis.")
   println(s"All events and contexts that appeared in the new Reach are 15 sentences away. We will restrict ourselves to this window even n the old dataset.")
+  var totalLabelsMissingFromNewDataset = 0
+  var totalLabelsMissingFromOldDataset = 0
   for((paperID,matchingLabelsNew) <-  matchingLabelsInNewReachByPaper) {
     println(s"In new Reach (Reach 2019), the paper ${paperID} has ${matchingLabelsNew.size} labels that matched.")
     // getting all the rows that were extracted by new Reach and extracting their event IDs
@@ -127,6 +129,7 @@ object SVMPerformanceOnNewReach extends App {
     val matchingUniqueEventSpans = matchingLabelsNew.map(_._2).toSet
     val nonMatches = allUniqueEventSpans -- matchingUniqueEventSpans
     println(s"In new Reach (Reach 2019), the paper ${paperID} has ${nonMatches.size} labels that did not match")
+    totalLabelsMissingFromOldDataset += nonMatches.size
   }
 
 
@@ -137,7 +140,12 @@ object SVMPerformanceOnNewReach extends App {
     val matchingUniqueEventSpans = matchingLabelsOld.map(_._2).toSet
     val nonMatches = allUniqueEventsInPaper -- matchingUniqueEventSpans
     println(s"In old Reach (Reach 2015), the paper ${paperID} has ${nonMatches.size} labels that did not match")
+    totalLabelsMissingFromNewDataset += nonMatches.size
   }
+
+  println(s"Total number of event-context labels that appeared in new Reach (2019) but not old Reach (2015): ${totalLabelsMissingFromOldDataset}")
+  println(s"Total numbrt of event-context labels that appeared in old Reach (2015) but not new Reach (2019): ${totalLabelsMissingFromNewDataset}")
+
 
 
   // Task 3: In the old annotation dataset, we need to find the neighboring events that have different contexts associated with them
