@@ -112,8 +112,7 @@ object SVMPerformanceOnNewReach extends App {
   }
 
 
-  println(s"After prediction, ${giantTruthLabelList.size} truth labels were found")
-  println(s"After prediction, ${giantPredictedLabelList.size} predicted labels were found")
+
 
 
 
@@ -221,6 +220,15 @@ object SVMPerformanceOnNewReach extends App {
     println(" **************************** ")
 
   }
+
+
+  println(s"After prediction, ${giantTruthLabelList.size} truth labels were found")
+  println(s"After prediction, ${giantPredictedLabelList.size} predicted labels were found")
+
+  // Task 4: Finding the accuracy of predictions vs ground truth, i.e. how much of the matching labels do we agree upon with the old dataset
+  val predictsCountsMap = CodeUtils.predictCounts(giantTruthLabelList.toArray, giantPredictedLabelList.toArray)
+  val accuracy = CodeUtils.accuracy(predictsCountsMap)
+  println(s"The accuracy was found to be: ${accuracy}")
 
 
 
