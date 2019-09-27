@@ -8,6 +8,8 @@ import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
 import org.clulab.reach.context.feature_utils.ContextFeatureUtils
 import org.clulab.reach.context.utils.annotation_alignment_utils.{ContextAlignmentUtils, EventAlignmentUtils}
 
+import scala.io.Source
+
 object SVMPerformanceOnNewReach extends App {
   val svmWrapper = new LinearSVMContextClassifier()
   val config = ConfigFactory.load()
@@ -218,21 +220,21 @@ object SVMPerformanceOnNewReach extends App {
 
   }
 
-
-  // printing some neighbors and no-neighbors for debugging and manual verification
-  for((paperID, neighborsBySent) <- neighborsPerSentencePerPaper) {
-    println(s"The current paper is: ${paperID}")
-    val fiveSentencesThatHaveSomeNeighbors = neighborsBySent.filter(_._2._1 > 0).take(5)
-    val fiveSentencesThatHaveNoNeighbors = neighborsBySent.filter(_._2._1 == 0).take(5)
-    println("Printing some sentences that do have neighbors in them")
-    println(fiveSentencesThatHaveSomeNeighbors)
-
-    println("Printing some sentences that have no neighbors in them")
-    println(fiveSentencesThatHaveNoNeighbors)
-
-    println(" **************************** ")
-
-  }
+// If there are neighboring events, we can print them by uncommenting the block below
+//  // printing some neighbors and no-neighbors for debugging and manual verification
+//  for((paperID, neighborsBySent) <- neighborsPerSentencePerPaper) {
+//    println(s"The current paper is: ${paperID}")
+//    val fiveSentencesThatHaveSomeNeighbors = neighborsBySent.filter(_._2._1 > 0).take(5)
+//    val fiveSentencesThatHaveNoNeighbors = neighborsBySent.filter(_._2._1 == 0).take(5)
+//    println("Printing some sentences that do have neighbors in them")
+//    println(fiveSentencesThatHaveSomeNeighbors)
+//
+//    println("Printing some sentences that have no neighbors in them")
+//    println(fiveSentencesThatHaveNoNeighbors)
+//
+//    println(" **************************** ")
+//
+//  }
 
 
   println(s"After prediction, ${giantTruthLabelList.size} truth labels were found")
@@ -247,8 +249,10 @@ object SVMPerformanceOnNewReach extends App {
 
 
   // Task 5: Writing binary strings for sentences in each paper
+  val dirPathForSentencesFileByPaper = config.getString("svmContext.outputDirForAnnotations")
+  val sentencesByPaper = CodeUtils.loadSentencesPerPaper(dirPathForSentencesFileByPaper)
 
-
+  println(sentencesByPaper.size)
 
 
 

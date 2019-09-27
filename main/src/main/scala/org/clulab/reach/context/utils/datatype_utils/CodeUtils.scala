@@ -236,4 +236,25 @@ object CodeUtils {
   }
 
 
+  def loadSentencesPerPaper(parentDirForPapers:String):Map[String,Seq[String]] = {
+    val dirsForSentencesFile = new File(parentDirForPapers).listFiles.filter(_.isDirectory)
+    val sentencesByPaper = collection.mutable.HashMap[String, Seq[String]]()
+    for(paperDir <- dirsForSentencesFile) {
+      val sentencesInThisFile = collection.mutable.ListBuffer[String]()
+      val sentencesFile = paperDir.listFiles.filter(_.getName == "sentences.txt")(0)
+      val source = Source.fromFile(sentencesFile)
+      val sentences = source.getLines()
+      for(s <- sentences) {
+        sentencesInThisFile += s
+      }
+
+      val mapEntry = Map(paperDir.getName -> sentencesInThisFile)
+      sentencesByPaper ++= mapEntry
+
+    }
+
+    sentencesByPaper.toMap
+  }
+
+
 }
