@@ -1,5 +1,7 @@
 package org.clulab.reach.context.utils.annotation_alignment_utils
 
+import scala.collection.mutable
+import scala.collection.immutable.ListMap
 object EventAlignmentUtils {
   def isThereSomeMatch(evt1Start:Int, evt1End:Int, evt2Start:Int, evt2End: Int):Boolean = {
     // exact match is when both events have the same start and end token values
@@ -61,5 +63,28 @@ object EventAlignmentUtils {
   def areEventsAdjacent(leftEvent:(Int,Int,Int), rightEvent:(Int,Int,Int)):Boolean = {
 
     rightEvent._2 == leftEvent._3 + 1
+  }
+
+
+  def getSortedEventSpansPerPaper(eventSpansPerPaper:Map[String,Seq[String]]):Map[String,Map[Int,Seq[(Int,Int,Int)]]] = {
+
+    val toReturn = collection.mutable.HashMap[String,Map[Int,Seq[(Int,Int,Int)]]]()
+    for((paperID, eventSpans)<-eventSpansPerPaper) {
+      val eventsInTupForm = eventSpans.map(parseEventIDFromStringToTup(_))
+      // group the events by sentence index
+      val eventsGroupedBySentIndex = eventsInTupForm.groupBy(_._1)
+      // sort all the groups by sentence index, and sort each group by the start token of the event span
+      val eventsSortedBySentIndex = ListMap(eventsGroupedBySentIndex.toSeq.sortBy(_._1):_*)
+      val eventSpansSortedByStartToken = eventsSortedBySentIndex.mapValues(x => x.sortBy(_._2))
+      val mapEntry = Map(paperID -> eventSpansSortedByStartToken)
+      toReturn ++= mapEntry
+    }
+    toReturn.toMap
+  }
+
+  def makeBinarySentenceFromWords(paperID: String, sentence: String, sentenceIndex: Int,
+                                  mapOfEventSpans:Map[String,Map[Int,Seq[(Int,Int,Int)]]]): String = {
+    //TODO
+    ""
   }
 }

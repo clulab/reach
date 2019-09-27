@@ -238,7 +238,6 @@ object CodeUtils {
 
   def loadSentencesPerPaper(parentDirForPapers:String):Map[String,Seq[String]] = {
     val dirsForSentencesFile = new File(parentDirForPapers).listFiles.filter(_.isDirectory)
-    println(dirsForSentencesFile.size + " : In codeUtils object, these many paper directories were found")
     val sentencesByPaper = collection.mutable.HashMap[String, Seq[String]]()
     for(paperDir <- dirsForSentencesFile) {
       val sentencesInThisFile = collection.mutable.ListBuffer[String]()

@@ -121,8 +121,8 @@ object SVMPerformanceOnNewReach extends App {
   println(s"All events and contexts that appeared in the new Reach are 15 sentences away. We will restrict ourselves to this window even n the old dataset.")
   var totalLabelsMissingFromNewDataset = 0
   var totalLabelsMissingFromOldDataset = 0
-  // for each paper, just because an annotation does not match, does *NOT* mean that it appears in the old annotation dataset
-  // we need to do an
+  val eventsOnlyInNewReach = collection.mutable.HashMap[String, Seq[String]]()
+  val eventsOnlyInOldReach = collection.mutable.HashMap[String, Seq[String]]()
   for((paperID,matchingLabelsNew) <-  matchingLabelsInNewReachByPaper) {
     println(s"In new Reach (Reach 2019), the paper ${paperID} has ${matchingLabelsNew.size} labels that matched.")
     // getting all the rows that were extracted by new Reach and extracting their event IDs
@@ -130,7 +130,9 @@ object SVMPerformanceOnNewReach extends App {
     val allUniqueEventSpans = allRowSpecsInThisPaper.map(_._2).toSet
     val matchingUniqueEventSpans = matchingLabelsNew.map(_._2).toSet
     val nonMatches = allUniqueEventSpans -- matchingUniqueEventSpans
-    println(s"In the new Reach (Reach 2019), the paper ${paperID} has ${nonMatches.size} unique events that did not appear in the old Reach.")
+    val mapEntry = Map(paperID -> nonMatches.toSeq)
+    eventsOnlyInNewReach ++= mapEntry
+    println(s"In the new Reach (Reach 2019), the paper ${paperID} has ${nonMatches.size} unique events that are not present in the old dataset.")
     totalLabelsMissingFromOldDataset += nonMatches.size
   }
 
@@ -144,6 +146,8 @@ object SVMPerformanceOnNewReach extends App {
     val allUniqueEventsInPaper = allLabelsInPaper.map(_._2).toSet
     val matchingUniqueEventSpans = matchingLabelsOld.map(_._2).toSet
     val nonMatches = allUniqueEventsInPaper -- matchingUniqueEventSpans
+    val mapEntry = Map(paperID -> nonMatches.toSeq)
+    eventsOnlyInOldReach ++= mapEntry
     println(s"In the old Reach (Reach 2015), the paper ${paperID} has ${nonMatches.size} unique events that did not appear in the new Reach.")
     totalLabelsMissingFromNewDataset += nonMatches.size
   }
@@ -247,12 +251,29 @@ object SVMPerformanceOnNewReach extends App {
 
 
   // Task 5: Writing binary strings for sentences in each paper
+
+  // step 1: load the sentences from each paper into a map of [paperID -> Seq[Sentences]]
   val dirPathForSentencesFileByPaper = config.getString("svmContext.outputDirForAnnotations")
-  val sentencesByPaper = CodeUtils.loadSentencesPerPaper(dirPathForSentencesFileByPaper)
-
-  println(sentencesByPaper.size)
+  val mapOfSentencesByPaper = CodeUtils.loadSentencesPerPaper(dirPathForSentencesFileByPaper)
 
 
+  // step 2: get the events that lie exclusively in new Reach or exclusively in old Reach, and sort them by sentenceIndex
+  // and start token of the events.
+
+  // if something goes wrong with the binary string, first check for the order in which sentences are appearing, maybe the missing event spans didn't get sorted correctly.
+  val sortedEventsInNewReachByPaper = EventAlignmentUtils.getSortedEventSpansPerPaper(eventsOnlyInNewReach.toMap)
+  val sortedEventsInOldReachByPaper = EventAlignmentUtils.getSortedEventSpansPerPaper(eventsOnlyInOldReach.toMap)
+
+  val mapOfBinaryStringsByPaperOldReach = collection.mutable.HashMap[String, Seq[String]]()
+  val mapOfBinaryStringsByPaperNewReach = collection.mutable.HashMap[String, Seq[String]]()
+  for((paperID,sentences) <- mapOfSentencesByPaper) {
+      val sentencesWithIndices = sentences.zipWithIndex
+      val sentencesToWriteToOldReach = collection.mutable.ListBuffer[String]()
+      val sentencesToWriteTonewReach = collection.mutable.ListBuffer[String]()
+      for((sentence,sentenceIndex) <- sentencesWithIndices) {
+        // refer step 6 from notes
+      }
+  }
 
   println(s"In svm performance class, finished code")
 
