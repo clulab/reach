@@ -8,8 +8,6 @@ import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
 import org.clulab.reach.context.feature_utils.ContextFeatureUtils
 import org.clulab.reach.context.utils.annotation_alignment_utils.{ContextAlignmentUtils, EventAlignmentUtils}
 
-import scala.io.Source
-
 object SVMPerformanceOnNewReach extends App {
   val svmWrapper = new LinearSVMContextClassifier()
   val config = ConfigFactory.load()
@@ -150,8 +148,8 @@ object SVMPerformanceOnNewReach extends App {
     totalLabelsMissingFromNewDataset += nonMatches.size
   }
 
-  println(s"Total number of event-context labels that appeared in new Reach (2019) but not old Reach (2015): ${totalLabelsMissingFromOldDataset}")
-  println(s"Total numbrt of event-context labels that appeared in old Reach (2015) but not new Reach (2019): ${totalLabelsMissingFromNewDataset}")
+  println(s"Total no. of unique events missing from the new dataset: ${totalLabelsMissingFromNewDataset} ")
+  println(s"Total no. of unique events missing from the old dataset: ${totalLabelsMissingFromOldDataset} ")
 
 
 
