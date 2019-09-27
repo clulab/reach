@@ -130,6 +130,7 @@ object SVMPerformanceOnNewReach extends App {
     val allUniqueEventSpans = allRowSpecsInThisPaper.map(_._2).toSet
     val matchingUniqueEventSpans = matchingLabelsNew.map(_._2).toSet
     val nonMatches = allUniqueEventSpans -- matchingUniqueEventSpans
+    println(s"In the new Reach (Reach 2019), the paper ${paperID} has ${nonMatches.size} unique events that did not appear in the old Reach.")
     totalLabelsMissingFromOldDataset += nonMatches.size
   }
 
@@ -143,6 +144,7 @@ object SVMPerformanceOnNewReach extends App {
     val allUniqueEventsInPaper = allLabelsInPaper.map(_._2).toSet
     val matchingUniqueEventSpans = matchingLabelsOld.map(_._2).toSet
     val nonMatches = allUniqueEventsInPaper -- matchingUniqueEventSpans
+    println(s"In the old Reach (Reach 2015), the paper ${paperID} has ${nonMatches.size} unique events that did not appear in the new Reach.")
     totalLabelsMissingFromNewDataset += nonMatches.size
   }
 
