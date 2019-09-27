@@ -121,6 +121,8 @@ object SVMPerformanceOnNewReach extends App {
   println(s"All events and contexts that appeared in the new Reach are 15 sentences away. We will restrict ourselves to this window even n the old dataset.")
   var totalLabelsMissingFromNewDataset = 0
   var totalLabelsMissingFromOldDataset = 0
+  // for each paper, just because an annotation does not match, does *NOT* mean that it appears in the old annotation dataset
+  // we need to do an
   for((paperID,matchingLabelsNew) <-  matchingLabelsInNewReachByPaper) {
     println(s"In new Reach (Reach 2019), the paper ${paperID} has ${matchingLabelsNew.size} labels that matched.")
     // getting all the rows that were extracted by new Reach and extracting their event IDs
@@ -128,10 +130,12 @@ object SVMPerformanceOnNewReach extends App {
     val allUniqueEventSpans = allRowSpecsInThisPaper.map(_._2).toSet
     val matchingUniqueEventSpans = matchingLabelsNew.map(_._2).toSet
     val nonMatches = allUniqueEventSpans -- matchingUniqueEventSpans
-    println(s"In new Reach (Reach 2019), the paper ${paperID} has ${nonMatches.size} labels that did not match")
-    totalLabelsMissingFromNewDataset += nonMatches.size
+    totalLabelsMissingFromOldDataset += nonMatches.size
   }
 
+
+
+  println("*********")
 
   for((paperID, matchingLabelsOld) <- matchingLabelsInOldReachByPaper) {
     println(s"In old Reach (Reach 2015), the paper ${paperID} has ${matchingLabelsOld.size} labels that matched")
@@ -139,8 +143,7 @@ object SVMPerformanceOnNewReach extends App {
     val allUniqueEventsInPaper = allLabelsInPaper.map(_._2).toSet
     val matchingUniqueEventSpans = matchingLabelsOld.map(_._2).toSet
     val nonMatches = allUniqueEventsInPaper -- matchingUniqueEventSpans
-    println(s"In old Reach (Reach 2015), the paper ${paperID} has ${nonMatches.size} labels that did not match")
-    totalLabelsMissingFromOldDataset+= nonMatches.size
+    totalLabelsMissingFromNewDataset += nonMatches.size
   }
 
   println(s"Total number of event-context labels that appeared in new Reach (2019) but not old Reach (2015): ${totalLabelsMissingFromOldDataset}")
