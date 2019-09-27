@@ -129,7 +129,7 @@ object SVMPerformanceOnNewReach extends App {
     val matchingUniqueEventSpans = matchingLabelsNew.map(_._2).toSet
     val nonMatches = allUniqueEventSpans -- matchingUniqueEventSpans
     println(s"In new Reach (Reach 2019), the paper ${paperID} has ${nonMatches.size} labels that did not match")
-    totalLabelsMissingFromOldDataset += nonMatches.size
+    totalLabelsMissingFromNewDataset += nonMatches.size
   }
 
 
@@ -140,7 +140,7 @@ object SVMPerformanceOnNewReach extends App {
     val matchingUniqueEventSpans = matchingLabelsOld.map(_._2).toSet
     val nonMatches = allUniqueEventsInPaper -- matchingUniqueEventSpans
     println(s"In old Reach (Reach 2015), the paper ${paperID} has ${nonMatches.size} labels that did not match")
-    totalLabelsMissingFromNewDataset += nonMatches.size
+    totalLabelsMissingFromOldDataset+= nonMatches.size
   }
 
   println(s"Total number of event-context labels that appeared in new Reach (2019) but not old Reach (2015): ${totalLabelsMissingFromOldDataset}")
@@ -241,7 +241,9 @@ object SVMPerformanceOnNewReach extends App {
 
 
 
-  // Task 5: Writing binary files for each paper
+  // Task 5: Writing binary strings for sentences in each paper
+
+
 
 
 
