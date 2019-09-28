@@ -4,24 +4,12 @@ import java.io._
 import java.util.zip._
 
 import org.clulab.learning.{RVFDataset, RVFDatum}
+import org.clulab.reach.context.utils.score_utils.ScoreMetricsOfClassifier
 
 import scala.collection.mutable
 import scala.io.Source
 
 object CodeUtils {
-  def argMax(values:Map[Int, Double]):Int = {
-    var bestK = Integer.MIN_VALUE
-    var bestF1 = Double.MinValue
-    values.map(x => {if (x._2 > bestF1) {bestK = x._1; bestF1 = x._2}})
-    bestK
-  }
-
-  def f1(yTrue: Array[Int], yPred: Array[Int]): Double = {
-    val p = precision(yTrue, yPred)
-    val r = recall(yTrue, yPred)
-    if (p + r == 0) 0.0
-    else ((2 * (p * r))/(p + r))
-  }
 
   def precision(yTrue: Array[Int], yPred: Array[Int]): Double = {
     val predictsMap = predictCounts(yTrue,yPred)
@@ -63,7 +51,7 @@ object CodeUtils {
     val countsTest = CodeUtils.predictCounts(truthTest, predTest)
     val precTest = CodeUtils.precision(truthTest, predTest)
     val recallTest = CodeUtils.recall(truthTest, predTest)
-    val f1Test = CodeUtils.f1(truthTest, predTest)
+    val f1Test = ScoreMetricsOfClassifier.f1(truthTest, predTest)
     val testTup = ("test", precTest, recallTest, f1Test)
     val mapToReturn = Map(name -> testTup)
     mapToReturn
@@ -261,7 +249,7 @@ object CodeUtils {
     val parentDirFileInstance = new File(parentDirPath)
     val dirsWithPaperNames = parentDirFileInstance.listFiles().filter(_.isDirectory)
     for(paperDir <- dirsWithPaperNames) {
-      val pathToEventsSpanFile = s"${paperDir.getName}/uniqueEventSpans_${reachVersion}Reach.txt"
+      val pathToEventsSpanFile = s"${parentDirPath}/${paperDir.getName}/uniqueEventSpans_${reachVersion}Reach.txt"
       val eventSpanFileInstance = new File(pathToEventsSpanFile)
       if(!eventSpanFileInstance.exists())
         eventSpanFileInstance.createNewFile()

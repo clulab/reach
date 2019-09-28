@@ -6,6 +6,7 @@ import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.reach.context.feature_utils.ContextFeatureUtils
+import org.clulab.reach.context.utils.score_utils.ScoreMetricsOfClassifier
 
 object CrossValBySentDist extends App{
   val svmWrapper = new LinearSVMContextClassifier()
@@ -81,7 +82,7 @@ object CrossValBySentDist extends App{
     val perPaperCountsMap = CodeUtils.predictCounts(truthListPerSentDist.toArray, predListPerSentDist.toArray)
     val perPaperPrecision = CodeUtils.precision(truthListPerSentDist.toArray, predListPerSentDist.toArray)
     val perPaperRecall = CodeUtils.recall(truthListPerSentDist.toArray, predListPerSentDist.toArray)
-    val perPaperF1 = CodeUtils.f1(truthListPerSentDist.toArray, predListPerSentDist.toArray)
+    val perPaperF1 = ScoreMetricsOfClassifier.f1(truthListPerSentDist.toArray, predListPerSentDist.toArray)
     valsForMeanPrec += perPaperPrecision
     valsForMeanRec += perPaperRecall
     valsForMeanF1 += perPaperF1
@@ -92,7 +93,7 @@ object CrossValBySentDist extends App{
   val microAveragedMap = CodeUtils.predictCounts(giantTruthListPerSentDist.toArray, giantPredListPerSentDist.toArray)
   val microAveragedPrecision = CodeUtils.precision(giantTruthListPerSentDist.toArray, giantPredListPerSentDist.toArray)
   val microAveragedRecall = CodeUtils.recall(giantTruthListPerSentDist.toArray, giantPredListPerSentDist.toArray)
-  val microAveragedF1 = CodeUtils.f1(giantTruthListPerSentDist.toArray, giantPredListPerSentDist.toArray)
+  val microAveragedF1 = ScoreMetricsOfClassifier.f1(giantTruthListPerSentDist.toArray, giantPredListPerSentDist.toArray)
   for((sentDist,(prec,rec,f1)) <- perSentDistScoreBoard) {
     println(s"The sentence distance ${sentDist} has precision of ${prec}, recall of ${rec} and f1 score of ${f1}")
   }

@@ -7,6 +7,7 @@ import java.io.{File, PrintWriter}
 
 import org.clulab.learning.LinearSVMClassifier
 import org.clulab.reach.context.feature_utils.ContextFeatureUtils
+import org.clulab.reach.context.utils.score_utils.ScoreMetricsOfClassifier
 object PerformCrossValOldDataset extends App {
   val config = ConfigFactory.load()
 
@@ -148,7 +149,7 @@ object PerformCrossValOldDataset extends App {
     println(predictCountsMap)
     val precisionPerPaper = CodeUtils.precision(truthLabelsForThisPaper.toArray, predictedLabelsForThisPaper.toArray)
     val recallPerPaper = CodeUtils.recall(truthLabelsForThisPaper.toArray, predictedLabelsForThisPaper.toArray)
-    val f1PerPaper = CodeUtils.f1(truthLabelsForThisPaper.toArray, predictedLabelsForThisPaper.toArray)
+    val f1PerPaper = ScoreMetricsOfClassifier.f1(truthLabelsForThisPaper.toArray, predictedLabelsForThisPaper.toArray)
     recallScoreBoardPerPaper ++= Map(paperID -> recallPerPaper)
     precisionScoreBoardPerPaper ++= Map(paperID -> precisionPerPaper)
     f1ScoreBoardPerPaper ++= Map(paperID -> f1PerPaper)
@@ -164,7 +165,7 @@ object PerformCrossValOldDataset extends App {
   val microAveragedCountsMap = CodeUtils.predictCounts(giantTruthLabels.toArray, giantPredictedLabels.toArray)
   val microAveragedPrecisionScore = CodeUtils.precision(giantTruthLabels.toArray, giantPredictedLabels.toArray)
   val microAveragedRecallScore = CodeUtils.recall(giantTruthLabels.toArray, giantPredictedLabels.toArray)
-  val microAveragedF1Score = CodeUtils.f1(giantTruthLabels.toArray, giantPredictedLabels.toArray)
+  val microAveragedF1Score = ScoreMetricsOfClassifier.f1(giantTruthLabels.toArray, giantPredictedLabels.toArray)
 
 
   val listOfAllPrecisions = precisionScoreBoardPerPaper.map{case (_,v) => v}

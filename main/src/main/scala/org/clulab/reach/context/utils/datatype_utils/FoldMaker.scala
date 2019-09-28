@@ -1,6 +1,7 @@
 package org.clulab.context.utils
 
 import org.clulab.context.classifiers.{BaselineContextClassifier, LinearSVMContextClassifier}
+import org.clulab.reach.context.utils.score_utils.ScoreMetricsOfClassifier
 
 import scala.collection.mutable
 import scala.io.BufferedSource
@@ -45,10 +46,10 @@ object FoldMaker {
         val trainInstance = new BaselineContextClassifier(k_val)
         val pred = trainInstance.predict(balancedTrainingData)
         val labelsToInt = trainInstance.createLabels(balancedTrainingData)
-        val f1score = CodeUtils.f1(labelsToInt, pred)
+        val f1score = ScoreMetricsOfClassifier.f1(labelsToInt, pred)
         kToF1Map += (k_val -> f1score)
       }
-      val bestK = CodeUtils.argMax(kToF1Map.toMap)
+      val bestK = ScoreMetricsOfClassifier.argMax(kToF1Map.toMap)
       val testInstance = new BaselineContextClassifier(bestK)
       val testingData = test.collect{case x:Int => rows2(x)}
       val currentTruthTestInt = testInstance.createLabels(testingData)
