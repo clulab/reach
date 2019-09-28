@@ -2,9 +2,11 @@ package org.clulab.reach.context.research_exec
 
 import java.io.File
 
-import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
+import org.clulab.context.utils.{AggregatedContextInstance, CrossValidationUtils}
 import com.typesafe.config.ConfigFactory
 import org.clulab.reach.context.feature_utils.ContextFeatureUtils
+import org.clulab.reach.context.utils.io_utils.ReachSystemAnalysisIOUtils
+import org.clulab.reach.context.utils.score_utils.ScoreMetricsOfClassifier
 
 object Polarity4CrossValidation extends App {
   val config = ConfigFactory.load()
@@ -62,7 +64,7 @@ object Polarity4CrossValidation extends App {
       })
 
 
-      val intersectingTestingLabels = testingLabelsIDs.toSet.intersect(CodeUtils.generateLabelMap(labelFile).keySet)
+      val intersectingTestingLabels = testingLabelsIDs.toSet.intersect(ReachSystemAnalysisIOUtils.generateLabelMap(labelFile).keySet)
       val testingRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
       val testingLabels = collection.mutable.ListBuffer[Int]()
       for(tup<-intersectingTestingLabels) {
@@ -70,7 +72,7 @@ object Polarity4CrossValidation extends App {
           if(keysForLabels(key) == tup)
           {
             testingRows += key
-            val label = CodeUtils.generateLabelMap(labelFile)(tup)
+            val label = ReachSystemAnalysisIOUtils.generateLabelMap(labelFile)(tup)
             testingLabels += label
           }
         }
@@ -102,7 +104,7 @@ object Polarity4CrossValidation extends App {
   }
 
   def findPrecision(truth:Array[Int], test:Array[Int]):Double = {
-    val precision = CodeUtils.precision(truth, test)
+    val precision = ScoreMetricsOfClassifier.precision(truth, test)
     precision
   }
 

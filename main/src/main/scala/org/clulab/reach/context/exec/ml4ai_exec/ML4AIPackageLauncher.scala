@@ -3,8 +3,10 @@ package org.clulab.context.exec
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.FoldMaker
-import org.clulab.context.utils.CodeUtils
+import org.clulab.context.utils.CrossValidationUtils
 import org.clulab.learning.LinearSVMClassifier
+import org.clulab.reach.context.utils.io_utils.SVMDataTypeIOUtils
+import org.clulab.reach.context.utils.score_utils.ScoreMetricsOfClassifier
 
 import scala.io.Source
 
@@ -16,13 +18,13 @@ object ML4AIPackageLauncher extends App {
   val allFeatsPath = config.getString("contextEngine.params.allFeatures")
   val groupedFeaturesPath = config.getString("svmContext.groupedFeatures")
   val hardCodedFeaturePath = config.getString("contextEngine.params.hardCodedFeatures")
-  CodeUtils.writeHardcodedFeaturesToFile(hardCodedFeaturePath)
-  val (allFeatures,rows) = CodeUtils.loadAggregatedRowsFromFile(groupedFeaturesPath, hardCodedFeaturePath)
-  CodeUtils.writeAllFeaturesToFile(allFeatures, allFeatsPath)
+  SVMDataTypeIOUtils.writeHardcodedFeaturesToFile(hardCodedFeaturePath)
+  val (allFeatures,rows) = SVMDataTypeIOUtils.loadAggregatedRowsFromFile(groupedFeaturesPath, hardCodedFeaturePath)
+  SVMDataTypeIOUtils.writeAllFeaturesToFile(allFeatures, allFeatsPath)
   val rows2 = rows.filter(_.PMCID != "b'PMC4204162'")
   val bufferedFoldIndices = Source.fromFile(foldsPath)
   val foldsFromCSV = FoldMaker.getFoldsPerPaper(bufferedFoldIndices)
-  val trainValCombined = CodeUtils.combineTrainVal(foldsFromCSV)
+  val trainValCombined = CrossValidationUtils.combineTrainVal(foldsFromCSV)
 
   // =========================== BASELINE RESULTS ===========================
   // baseline results
@@ -45,7 +47,7 @@ object ML4AIPackageLauncher extends App {
   // the loadedModel variable is an instance of LinearSVMWrapper. If you want access to the LinearSVMClassifier instance,
   // you need to just call loadedModel.classifier.
   val (truthTestSVM, predTestSVM) = FoldMaker.svmControllerLinearSVM(loadedModelWrapper, trainValCombined, rows2)
-  val svmResult = CodeUtils.scoreMaker("Linear SVM", truthTestSVM, predTestSVM)
+  val svmResult = ScoreMetricsOfClassifier.scoreMaker("Linear SVM", truthTestSVM, predTestSVM)
   scoreDictionary ++= svmResult
   //========================== CONCLUDING LINEAR SVM RESULTS ==========================
 

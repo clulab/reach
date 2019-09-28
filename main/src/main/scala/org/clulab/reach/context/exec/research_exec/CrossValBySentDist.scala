@@ -2,10 +2,11 @@ package org.clulab.reach.context.research_exec
 
 import java.io.File
 
-import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
+import org.clulab.context.utils.{AggregatedContextInstance, CrossValidationUtils}
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.reach.context.feature_utils.ContextFeatureUtils
+import org.clulab.reach.context.utils.io_utils.ReachSystemAnalysisIOUtils
 import org.clulab.reach.context.utils.score_utils.ScoreMetricsOfClassifier
 
 object CrossValBySentDist extends App{
@@ -27,7 +28,7 @@ object CrossValBySentDist extends App{
 
   if(classifierToUse == null) throw new NullPointerException("No classifier found on which I can predict. Please make sure the SVMContextEngine class receives a valid Linear SVM classifier.")
   val labelFile = config.getString("svmContext.labelFile")
-  val labelMap = CodeUtils.generateLabelMap(labelFile)
+  val labelMap = ReachSystemAnalysisIOUtils.generateLabelMap(labelFile)
   val dirForType = config.getString("policy4Params.mentionsOutputFile").concat("sentenceWindows")
   val allSentDirs = new File(dirForType).listFiles().filter(_.isDirectory)
   val allRowsBySentDist = collection.mutable.HashMap[Int, Seq[AggregatedContextInstance]]()
@@ -79,9 +80,9 @@ object CrossValBySentDist extends App{
     println(truthListPerSentDist.size)
 
 
-    val perPaperCountsMap = CodeUtils.predictCounts(truthListPerSentDist.toArray, predListPerSentDist.toArray)
-    val perPaperPrecision = CodeUtils.precision(truthListPerSentDist.toArray, predListPerSentDist.toArray)
-    val perPaperRecall = CodeUtils.recall(truthListPerSentDist.toArray, predListPerSentDist.toArray)
+    val perPaperCountsMap = ScoreMetricsOfClassifier.predictCounts(truthListPerSentDist.toArray, predListPerSentDist.toArray)
+    val perPaperPrecision = ScoreMetricsOfClassifier.precision(truthListPerSentDist.toArray, predListPerSentDist.toArray)
+    val perPaperRecall = ScoreMetricsOfClassifier.recall(truthListPerSentDist.toArray, predListPerSentDist.toArray)
     val perPaperF1 = ScoreMetricsOfClassifier.f1(truthListPerSentDist.toArray, predListPerSentDist.toArray)
     valsForMeanPrec += perPaperPrecision
     valsForMeanRec += perPaperRecall
@@ -90,18 +91,18 @@ object CrossValBySentDist extends App{
     perSentDistScoreBoard ++= Map(sentDist -> (perPaperPrecision, perPaperRecall, perPaperF1))
   }
 
-  val microAveragedMap = CodeUtils.predictCounts(giantTruthListPerSentDist.toArray, giantPredListPerSentDist.toArray)
-  val microAveragedPrecision = CodeUtils.precision(giantTruthListPerSentDist.toArray, giantPredListPerSentDist.toArray)
-  val microAveragedRecall = CodeUtils.recall(giantTruthListPerSentDist.toArray, giantPredListPerSentDist.toArray)
+  val microAveragedMap = ScoreMetricsOfClassifier.predictCounts(giantTruthListPerSentDist.toArray, giantPredListPerSentDist.toArray)
+  val microAveragedPrecision = ScoreMetricsOfClassifier.precision(giantTruthListPerSentDist.toArray, giantPredListPerSentDist.toArray)
+  val microAveragedRecall = ScoreMetricsOfClassifier.recall(giantTruthListPerSentDist.toArray, giantPredListPerSentDist.toArray)
   val microAveragedF1 = ScoreMetricsOfClassifier.f1(giantTruthListPerSentDist.toArray, giantPredListPerSentDist.toArray)
   for((sentDist,(prec,rec,f1)) <- perSentDistScoreBoard) {
     println(s"The sentence distance ${sentDist} has precision of ${prec}, recall of ${rec} and f1 score of ${f1}")
   }
 
 
-  val arithmeticMeanPrec = CodeUtils.arithmeticMeanScore(valsForMeanPrec)
-  val arithmeticMeanRecl = CodeUtils.arithmeticMeanScore(valsForMeanRec)
-  val arithmeticMeanF1 = CodeUtils.arithmeticMeanScore(valsForMeanF1)
+  val arithmeticMeanPrec = ScoreMetricsOfClassifier.arithmeticMeanScore(valsForMeanPrec)
+  val arithmeticMeanRecl = ScoreMetricsOfClassifier.arithmeticMeanScore(valsForMeanRec)
+  val arithmeticMeanF1 = ScoreMetricsOfClassifier.arithmeticMeanScore(valsForMeanF1)
 
 
   println(s"Arithmetic mean precision: ${arithmeticMeanPrec}")

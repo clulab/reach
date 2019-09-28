@@ -2,8 +2,9 @@ package org.clulab.context.exec
 
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.{DummyClassifier, LinearSVMContextClassifier}
-import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
+import org.clulab.context.utils.{AggregatedContextInstance, CrossValidationUtils}
 import org.clulab.learning.LinearSVMClassifier
+import org.clulab.reach.context.utils.io_utils.SVMDataTypeIOUtils
 
 object SVMTrainSaveInstance extends App {
   //data preprocessing
@@ -13,7 +14,7 @@ object SVMTrainSaveInstance extends App {
   val svmInstance = new LinearSVMContextClassifier(Some(SVMClassifier))
   val groupedFeatures = config.getString("svmContext.groupedFeatures")
   val hardCodedFeaturePath = config.getString("contextEngine.params.hardCodedFeatures")
-  val (allFeatures,rows) = CodeUtils.loadAggregatedRowsFromFile(groupedFeatures, hardCodedFeaturePath)
+  val (allFeatures,rows) = SVMDataTypeIOUtils.loadAggregatedRowsFromFile(groupedFeatures, hardCodedFeaturePath)
   val nonNumericFeatures = Seq("PMCID", "label", "EvtID", "CtxID", "")
   val numericFeatures = allFeatures.toSet -- nonNumericFeatures.toSet
   val featureDict = createFeaturesLists(numericFeatures.toSeq)

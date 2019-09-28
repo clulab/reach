@@ -4,9 +4,11 @@ import java.io.File
 
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
-import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
+import org.clulab.context.utils.{AggregatedContextInstance, CrossValidationUtils}
 import org.clulab.reach.context.feature_utils.ContextFeatureUtils
 import org.clulab.reach.context.utils.annotation_alignment_utils.{ContextAlignmentUtils, EventAlignmentUtils}
+import org.clulab.reach.context.utils.io_utils.ReachSystemAnalysisIOUtils
+import org.clulab.reach.context.utils.score_utils.ScoreMetricsOfClassifier
 
 object SVMPerformanceOnNewReach extends App {
   val svmWrapper = new LinearSVMContextClassifier()
@@ -26,7 +28,7 @@ object SVMPerformanceOnNewReach extends App {
   if(classifierToUse == null) throw new NullPointerException("No classifier found on which I can predict. Please make sure the SVMContextEngine class receives a valid Linear SVM classifier.")
   println(s"In svm performance class, running code")
   val labelFile = config.getString("svmContext.labelFileOldDataset")
-  val labelMap = CodeUtils.generateLabelMap(labelFile).toSeq
+  val labelMap = ReachSystemAnalysisIOUtils.generateLabelMap(labelFile).toSeq
   val specsByRow = collection.mutable.HashMap[AggregatedContextInstance, (String,String,String)]()
   val pathToParentdirToLoadNewRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
   val parentDirfileInstanceToLoadNewRows = new File(pathToParentdirToLoadNewRows)
@@ -243,7 +245,7 @@ object SVMPerformanceOnNewReach extends App {
   println(s"After prediction, ${giantPredictedLabelList.size} predicted labels were found")
 
   // Task 4: Finding the accuracy of predictions vs ground truth, i.e. how much of the matching labels do we agree upon with the old dataset
-  val accuracy = CodeUtils.accuracy(giantTruthLabelList.toArray, giantPredictedLabelList.toArray)
+  val accuracy = ScoreMetricsOfClassifier.accuracy(giantTruthLabelList.toArray, giantPredictedLabelList.toArray)
   println(s"The accuracy was found to be: ${accuracy}")
 
 
@@ -254,7 +256,7 @@ object SVMPerformanceOnNewReach extends App {
 
   // step 1: load the sentences from each paper into a map of [paperID -> Seq[Sentences]]
   val dirPathForSentencesFileByPaper = config.getString("svmContext.outputDirForAnnotations")
-  val mapOfSentencesByPaper = CodeUtils.loadSentencesPerPaper(dirPathForSentencesFileByPaper)
+  val mapOfSentencesByPaper = ReachSystemAnalysisIOUtils.loadSentencesPerPaper(dirPathForSentencesFileByPaper)
 
 
   // step 2: get the events that lie exclusively in new Reach or exclusively in old Reach, and sort them by sentenceIndex
@@ -288,8 +290,8 @@ object SVMPerformanceOnNewReach extends App {
   }
 
 
-  CodeUtils.writeBinaryStringsOfEventSpansByPaper(dirPathForSentencesFileByPaper, mapOfBinaryStringsByPaperOldReach.toMap, "old")
-  CodeUtils.writeBinaryStringsOfEventSpansByPaper(dirPathForSentencesFileByPaper, mapOfBinaryStringsByPaperNewReach.toMap, "new")
+  ReachSystemAnalysisIOUtils.writeBinaryStringsOfEventSpansByPaper(dirPathForSentencesFileByPaper, mapOfBinaryStringsByPaperOldReach.toMap, "old")
+  ReachSystemAnalysisIOUtils.writeBinaryStringsOfEventSpansByPaper(dirPathForSentencesFileByPaper, mapOfBinaryStringsByPaperNewReach.toMap, "new")
 
 
 

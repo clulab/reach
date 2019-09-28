@@ -2,11 +2,12 @@ package org.clulab.reach.context.research_exec
 
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
-import org.clulab.context.utils.{AggregatedContextInstance, CodeUtils}
+import org.clulab.context.utils.{AggregatedContextInstance, CrossValidationUtils}
 import java.io.{File, PrintWriter}
 
 import org.clulab.learning.LinearSVMClassifier
 import org.clulab.reach.context.feature_utils.ContextFeatureUtils
+import org.clulab.reach.context.utils.io_utils.ReachSystemAnalysisIOUtils
 import org.clulab.reach.context.utils.score_utils.ScoreMetricsOfClassifier
 object PerformCrossValOldDataset extends App {
   val config = ConfigFactory.load()
@@ -17,7 +18,7 @@ object PerformCrossValOldDataset extends App {
   // To combat this, this code will parse the events ID as an integer, and only consider those events as the same if they math.abs(a-b) <= 1. That means, if the integer values differ by 1, they are just one token away.
 
   val labelFile = config.getString("svmContext.labelFileOldDataset")
-  val labelMapFromOldDataset = CodeUtils.generateLabelMap(labelFile)
+  val labelMapFromOldDataset = ReachSystemAnalysisIOUtils.generateLabelMap(labelFile)
   val parentDirForRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
   val predictionFilePath = parentDirForRows.concat("/predictionsOldDataset_2.txt")
   val predsFile = new File(predictionFilePath)
@@ -144,11 +145,11 @@ object PerformCrossValOldDataset extends App {
     }
 
 
-    val predictCountsMap = CodeUtils.predictCounts(truthLabelsForThisPaper.toArray, predictedLabelsForThisPaper.toArray)
+    val predictCountsMap = ScoreMetricsOfClassifier.predictCounts(truthLabelsForThisPaper.toArray, predictedLabelsForThisPaper.toArray)
     println(s"Current test case: ${paperID}")
     println(predictCountsMap)
-    val precisionPerPaper = CodeUtils.precision(truthLabelsForThisPaper.toArray, predictedLabelsForThisPaper.toArray)
-    val recallPerPaper = CodeUtils.recall(truthLabelsForThisPaper.toArray, predictedLabelsForThisPaper.toArray)
+    val precisionPerPaper = ScoreMetricsOfClassifier.precision(truthLabelsForThisPaper.toArray, predictedLabelsForThisPaper.toArray)
+    val recallPerPaper = ScoreMetricsOfClassifier.recall(truthLabelsForThisPaper.toArray, predictedLabelsForThisPaper.toArray)
     val f1PerPaper = ScoreMetricsOfClassifier.f1(truthLabelsForThisPaper.toArray, predictedLabelsForThisPaper.toArray)
     recallScoreBoardPerPaper ++= Map(paperID -> recallPerPaper)
     precisionScoreBoardPerPaper ++= Map(paperID -> precisionPerPaper)
@@ -162,18 +163,18 @@ object PerformCrossValOldDataset extends App {
   println(s"Size of predicted labels list: ${giantPredictedLabels.size}")
   println(s"Size of truth label list: ${giantTruthLabels.size}")
 
-  val microAveragedCountsMap = CodeUtils.predictCounts(giantTruthLabels.toArray, giantPredictedLabels.toArray)
-  val microAveragedPrecisionScore = CodeUtils.precision(giantTruthLabels.toArray, giantPredictedLabels.toArray)
-  val microAveragedRecallScore = CodeUtils.recall(giantTruthLabels.toArray, giantPredictedLabels.toArray)
+  val microAveragedCountsMap = ScoreMetricsOfClassifier.predictCounts(giantTruthLabels.toArray, giantPredictedLabels.toArray)
+  val microAveragedPrecisionScore = ScoreMetricsOfClassifier.precision(giantTruthLabels.toArray, giantPredictedLabels.toArray)
+  val microAveragedRecallScore = ScoreMetricsOfClassifier.recall(giantTruthLabels.toArray, giantPredictedLabels.toArray)
   val microAveragedF1Score = ScoreMetricsOfClassifier.f1(giantTruthLabels.toArray, giantPredictedLabels.toArray)
 
 
   val listOfAllPrecisions = precisionScoreBoardPerPaper.map{case (_,v) => v}
   val listOfAllRecalls = precisionScoreBoardPerPaper.map{case (_,v) => v}
   val listOfAllF1 = precisionScoreBoardPerPaper.map{case (_,v) => v}
-  val arithmeticMeanPrecision = CodeUtils.arithmeticMeanScore(listOfAllPrecisions.toSeq)
-  val arithmeticMeanRecall = CodeUtils.arithmeticMeanScore(listOfAllRecalls.toSeq)
-  val arithmeticMeanF1 = CodeUtils.arithmeticMeanScore(listOfAllF1.toSeq)
+  val arithmeticMeanPrecision = ScoreMetricsOfClassifier.arithmeticMeanScore(listOfAllPrecisions.toSeq)
+  val arithmeticMeanRecall = ScoreMetricsOfClassifier.arithmeticMeanScore(listOfAllRecalls.toSeq)
+  val arithmeticMeanF1 = ScoreMetricsOfClassifier.arithmeticMeanScore(listOfAllF1.toSeq)
 
 
   println(s"We have a total of ${allRowsByPaperID.size} papers")
