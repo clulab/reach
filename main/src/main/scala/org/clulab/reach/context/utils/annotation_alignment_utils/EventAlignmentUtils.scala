@@ -108,6 +108,7 @@ object EventAlignmentUtils {
 
   def convertWordsToBinaryString(sentence:String, sentenceIndex:Int, mapOfEventSpans:Map[Int,Seq[(Int,Int,Int)]]):String = {
     val missingEventsInCurrentSent = mapOfEventSpans(sentenceIndex)
+    println(missingEventsInCurrentSent)
     val originalTokens = sentence.split(" ").zipWithIndex
     val tokensToReturn = collection.mutable.ListBuffer[String]()
     for((_,index) <- originalTokens) {
