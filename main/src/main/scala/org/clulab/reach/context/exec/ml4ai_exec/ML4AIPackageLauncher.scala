@@ -5,7 +5,7 @@ import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.FoldMaker
 import org.clulab.context.utils.CrossValidationUtils
 import org.clulab.learning.LinearSVMClassifier
-import org.clulab.reach.context.utils.io_utils.SVMDataTypeIOUtils
+import org.clulab.reach.context.utils.io_utils.{SVMDataTypeIOUtils, SVMTrainingIOUtils}
 import org.clulab.reach.context.utils.score_utils.ScoreMetricsOfClassifier
 
 import scala.io.Source
@@ -18,8 +18,8 @@ object ML4AIPackageLauncher extends App {
   val allFeatsPath = config.getString("contextEngine.params.allFeatures")
   val groupedFeaturesPath = config.getString("svmContext.groupedFeatures")
   val hardCodedFeaturePath = config.getString("contextEngine.params.hardCodedFeatures")
-  SVMDataTypeIOUtils.writeHardcodedFeaturesToFile(hardCodedFeaturePath)
-  val (allFeatures,rows) = SVMDataTypeIOUtils.loadAggregatedRowsFromFile(groupedFeaturesPath, hardCodedFeaturePath)
+  SVMTrainingIOUtils.writeHardcodedFeaturesToFile(hardCodedFeaturePath)
+  val (allFeatures,rows) = SVMTrainingIOUtils.loadAggregatedRowsFromFile(groupedFeaturesPath, hardCodedFeaturePath)
   SVMDataTypeIOUtils.writeAllFeaturesToFile(allFeatures, allFeatsPath)
   val rows2 = rows.filter(_.PMCID != "b'PMC4204162'")
   val bufferedFoldIndices = Source.fromFile(foldsPath)

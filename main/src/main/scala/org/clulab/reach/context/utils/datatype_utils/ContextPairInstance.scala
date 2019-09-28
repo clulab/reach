@@ -3,7 +3,7 @@ package org.clulab.context.utils
 import java.io.InputStream
 
 import com.typesafe.config.ConfigFactory
-import org.clulab.reach.context.utils.io_utils.SVMDataTypeIOUtils
+import org.clulab.reach.context.utils.io_utils.{SVMDataTypeIOUtils, SVMTrainingIOUtils}
 
 import scala.collection.mutable
 import scala.io.Source
@@ -23,7 +23,7 @@ object ContextPairInstance{
 
   val config = ConfigFactory.load()
   val hardCodedInputRowFeatures = config.getString("features.hardCodedFeatures")
-  private val listOfSpecificFeatures = SVMDataTypeIOUtils.readHardcodedFeaturesFromFile(hardCodedInputRowFeatures)
+  private val listOfSpecificFeatures = SVMTrainingIOUtils.readHardcodedFeaturesFromFile(hardCodedInputRowFeatures)
   private def allOtherFeatures(headers:Seq[String]): Set[String] = headers.toSet -- (listOfSpecificFeatures ++ Seq(""))
 
   private def indices(headers:Seq[String]): Map[String, Int] = headers.zipWithIndex.toMap

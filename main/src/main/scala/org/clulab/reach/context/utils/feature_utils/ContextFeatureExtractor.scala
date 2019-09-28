@@ -1,11 +1,11 @@
 package org.clulab.reach.context.feature_utils
 
 import com.typesafe.config.ConfigFactory
-import org.clulab.context.utils.{CrossValidationUtils, ContextPairInstance}
+import org.clulab.context.utils.{ContextPairInstance, CrossValidationUtils}
 import org.clulab.processors.Document
 import org.clulab.reach.context.ContextEngine
 import org.clulab.reach.context.utils.feature_utils.FeatureNameCruncher
-import org.clulab.reach.context.utils.io_utils.SVMDataTypeIOUtils
+import org.clulab.reach.context.utils.io_utils.{SVMDataTypeIOUtils, SVMTrainingIOUtils}
 import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
 import org.clulab.struct.Interval
 
@@ -22,9 +22,9 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     val config = ConfigFactory.load()
     val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
     val hardCodedFeaturesPath = config.getString("contextEngine.params.hardCodedFeatures")
-    val hardCodedFeatures = SVMDataTypeIOUtils.readHardcodedFeaturesFromFile(hardCodedFeaturesPath)
+    val hardCodedFeatures = SVMTrainingIOUtils.readHardcodedFeaturesFromFile(hardCodedFeaturesPath)
     val numericFeaturesInputRow = hardCodedFeatures.drop(4)
-    val bestFeatureDict = SVMDataTypeIOUtils.bestFeatureSetForTrainingConstructor(configAllFeaturesPath)
+    val bestFeatureDict = SVMTrainingIOUtils.bestFeatureSetForTrainingConstructor(configAllFeaturesPath)
 
     // Over all the feature names that were used, an exhaustive ablation study was performed to study the best performing subset of features,
     // and this was found to be the union of non-dependency features and context-dependency features.
