@@ -249,7 +249,7 @@ object SVMPerformanceOnNewReach extends App {
   println(s"The accuracy was found to be: ${accuracy}")
 
 
-
+  println("**********************")
 
 
   // Task 5: Writing binary strings for sentences in each paper
@@ -274,6 +274,9 @@ object SVMPerformanceOnNewReach extends App {
       val sentencesToWriteToOldReach = collection.mutable.ListBuffer[String]()
 
       val sortedEventSpansInPaperNewReach = sortedEventsInNewReachByPaper(paperID)
+      println(s"In task 5, The current paper is: ${paperID}")
+      println(s"The following are the unique event spans as found in new Reach")
+      println(sortedEventSpansInPaperNewReach)
       val sortedEventSpansInPaperOldReach = sortedEventsInOldReachByPaper(paperID)
       for((sentence,sentenceIndex) <- sentencesWithIndices) {
         val sentenceToAddToNewReach = EventAlignmentUtils.makeBinarySentenceFromWords(sentence,sentenceIndex,sortedEventSpansInPaperNewReach)
