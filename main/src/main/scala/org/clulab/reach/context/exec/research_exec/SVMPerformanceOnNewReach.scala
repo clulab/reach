@@ -268,12 +268,32 @@ object SVMPerformanceOnNewReach extends App {
   val mapOfBinaryStringsByPaperNewReach = collection.mutable.HashMap[String, Seq[String]]()
   for((paperID,sentences) <- mapOfSentencesByPaper) {
       val sentencesWithIndices = sentences.zipWithIndex
+      val sentencesToWriteToNewReach = collection.mutable.ListBuffer[String]()
       val sentencesToWriteToOldReach = collection.mutable.ListBuffer[String]()
-      val sentencesToWriteTonewReach = collection.mutable.ListBuffer[String]()
+
+      val sortedEventSpansInPaperNewReach = sortedEventsInNewReachByPaper(paperID)
+      val sortedEventSpansInPaperOldReach = sortedEventsInOldReachByPaper(paperID)
       for((sentence,sentenceIndex) <- sentencesWithIndices) {
-        // refer step 6 from notes
+        val sentenceToAddToNewReach = EventAlignmentUtils.makeBinarySentenceFromWords(sentence,sentenceIndex,sortedEventSpansInPaperNewReach)
+        val sentenceToAddToOldReach = EventAlignmentUtils.makeBinarySentenceFromWords(sentence,sentenceIndex,sortedEventSpansInPaperOldReach)
+        sentencesToWriteToNewReach += sentenceToAddToNewReach
+        sentencesToWriteToOldReach += sentenceToAddToOldReach
       }
+
+    val mapEntryOldReach = Map(paperID -> sentencesToWriteToOldReach)
+    mapOfBinaryStringsByPaperOldReach ++= mapEntryOldReach
+
+    val mapEntryNewReach = Map(paperID -> sentencesToWriteToNewReach)
+    mapOfBinaryStringsByPaperNewReach ++= mapEntryNewReach
   }
+
+
+  CodeUtils.writeBinaryStringsOfEventSpansByPaper(dirPathForSentencesFileByPaper, mapOfBinaryStringsByPaperOldReach.toMap, "old")
+  CodeUtils.writeBinaryStringsOfEventSpansByPaper(dirPathForSentencesFileByPaper, mapOfBinaryStringsByPaperNewReach.toMap, "new")
+
+
+
+
 
   println(s"In svm performance class, finished code")
 

@@ -82,9 +82,43 @@ object EventAlignmentUtils {
     toReturn.toMap
   }
 
-  def makeBinarySentenceFromWords(paperID: String, sentence: String, sentenceIndex: Int,
-                                  mapOfEventSpans:Map[String,Map[Int,Seq[(Int,Int,Int)]]]): String = {
-    //TODO
-    ""
+
+  // we want to build a binary string for each sentence in the current paper.
+  // for this, we will lookup the map of unique event spans.
+  // If the position (sentence index) of the current paper appeared in the map, it means the current sentence has some missing events,
+  // and we need to find the spans and add a 1 to the span and 0 to the rest of the sentence.
+  // If not, the current sentence has no unique event spans and we can fill a list of 0s for the length of the sentence
+  def makeBinarySentenceFromWords(sentence: String, sentenceIndex: Int,
+                                  mapOfEventSpans:Map[Int,Seq[(Int,Int,Int)]]): String = {
+
+    if(mapOfEventSpans.contains(sentenceIndex)) {
+      val sentenceToSend = convertWordsToBinaryString(sentence,sentenceIndex,mapOfEventSpans)
+      sentenceToSend
+    } else {
+      val sentenceToSend = List.fill(sentence.length)("0").mkString("")
+      sentenceToSend
+    }
+  }
+
+
+  // this function handles the case wherein a given sentence does have some unique events in it.
+  // the way we do this is by iterating over the tokens of the original sentence, and if the index of the token in the string was a part of
+  // an event span, then we keep a 1, else we replace the token with a 0
+  // we then return this string of 1s and 0s
+
+  def convertWordsToBinaryString(sentence:String, sentenceIndex:Int, mapOfEventSpans:Map[Int,Seq[(Int,Int,Int)]]):String = {
+    val missingEventsInCurrentSent = mapOfEventSpans(sentenceIndex)
+    val originalTokens = sentence.split(" ").zipWithIndex
+    val tokensToReturn = collection.mutable.ListBuffer[String]()
+    for((_,index) <- originalTokens) {
+      for(m <- missingEventsInCurrentSent) {
+        // checking if the index of the current sentence is the start of some event, end, or lies in the event span, then we add a "1"
+        // else a "0"
+        if(index == m._2 || index == m._3 || index == m._3-m._2)
+          tokensToReturn += "1"
+        else tokensToReturn += "0"
+      }
+    }
+    tokensToReturn.mkString("")
   }
 }

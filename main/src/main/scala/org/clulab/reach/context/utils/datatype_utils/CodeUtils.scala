@@ -257,4 +257,20 @@ object CodeUtils {
   }
 
 
+  def writeBinaryStringsOfEventSpansByPaper(parentDirPath:String, mapOfBinaries:Map[String,Seq[String]], reachVersion:String):Unit = {
+    val parentDirFileInstance = new File(parentDirPath)
+    val dirsWithPaperNames = parentDirFileInstance.listFiles().filter(_.isDirectory)
+    for(paperDir <- dirsWithPaperNames) {
+      val pathToEventsSpanFile = s"${paperDir.getName}/uniqueEventSpans_${reachVersion}Reach.txt"
+      val eventSpanFileInstance = new File(pathToEventsSpanFile)
+      if(!eventSpanFileInstance.exists())
+        eventSpanFileInstance.createNewFile()
+      val printWriter = new PrintWriter(eventSpanFileInstance)
+      val binariesInThisPaper = mapOfBinaries(paperDir.getName)
+      val separator = binariesInThisPaper.mkString("\n")
+      printWriter.write(separator)
+    }
+  }
+
+
 }
