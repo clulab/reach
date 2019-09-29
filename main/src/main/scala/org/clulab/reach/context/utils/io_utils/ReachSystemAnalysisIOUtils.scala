@@ -53,7 +53,7 @@ object ReachSystemAnalysisIOUtils {
         eventSpanFileInstance.createNewFile()
       val printWriter = new PrintWriter(eventSpanFileInstance)
       val binariesInThisPaper = mapOfBinaries(paperDir.getName)
-      println(s"In write string function, the current paperID is: ${binariesInThisPaper.size}")
+      println(s"In write string function, the current paperID is:${paperDir} and it has ${binariesInThisPaper.size} sentences")
       val separator = binariesInThisPaper.mkString("\n")
       printWriter.write(separator)
     }
