@@ -66,20 +66,21 @@ object EventAlignmentUtils {
   }
 
 
-  def getSortedEventSpansPerPaper(eventSpansPerPaper:Map[String,Seq[String]]):Map[String,Map[Int,Seq[(Int,Int,Int)]]] = {
+  def getSortedEventSpansPerPaper(eventSpansPerPaper:Map[String,Seq[String]]):Seq[(String,Seq[(Int,Seq[(Int,Int,Int)])])] = {
 
-    val toReturn = collection.mutable.HashMap[String,Map[Int,Seq[(Int,Int,Int)]]]()
+    val toReturn = collection.mutable.ListBuffer[(String,Seq[(Int,Seq[(Int,Int,Int)])])]()
     for((paperID, eventSpans)<-eventSpansPerPaper) {
       val eventsInTupForm = eventSpans.map(parseEventIDFromStringToTup(_))
       // group the events by sentence index
-      val eventsGroupedBySentIndex = eventsInTupForm.groupBy(_._1)
-      // sort all the groups by sentence index, and sort each group by the start token of the event span
-      val eventsSortedBySentIndex = ListMap(eventsGroupedBySentIndex.toSeq.sortBy(_._1):_*)
-      val eventSpansSortedByStartToken = eventsSortedBySentIndex.mapValues(x => x.sortBy(_._2))
-      val mapEntry = Map(paperID -> eventSpansSortedByStartToken)
-      toReturn ++= mapEntry
+      val eventsGroupedBySentIndex = eventsInTupForm.groupBy(_._1).toSeq
+      // sort all the groups by sentence index, and sort each group by the start token and end token of the event span
+      val eventsSortedBySentIndex = eventsGroupedBySentIndex.sortBy(_._1)
+
+      val eventSpansSortedByStartToken = eventsSortedBySentIndex.map(x => (x._1, x._2.sortBy(y => (y._2,y._3))))
+      val mapEntry = (paperID, eventSpansSortedByStartToken)
+      toReturn += mapEntry
     }
-    toReturn.toMap
+    toReturn
   }
 
 
