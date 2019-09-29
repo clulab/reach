@@ -279,8 +279,12 @@ object SVMPerformanceOnNewReach extends App {
       println(s"The paper has ${sentencesWithIndices.size} sentences")
       val sortedEventSpansInPaperNewReach = sortedEventsInNewReachByPaper.filter(_._1 == paperID)(0)
       println(s"Checking for unique events in: ${sortedEventSpansInPaperNewReach._1} (new reach)")
+      println(s"The unique events in the new Reach in ${sortedEventSpansInPaperNewReach._1} are: ")
+      println(sortedEventSpansInPaperNewReach._2)
       val sortedEventSpansInPaperOldReach = sortedEventsInOldReachByPaper.filter(_._1 == paperID)(0)
       println(s"Checking for unique events in: ${sortedEventSpansInPaperOldReach._1} (old reach)")
+      println(s"The unique events in the old Reach in ${sortedEventSpansInPaperOldReach._1} are: ")
+      println(sortedEventSpansInPaperOldReach._2)
       for((sentence,sentenceIndex) <- sentencesWithIndices) {
         val sentenceToAddToNewReach = EventAlignmentUtils.makeBinarySentenceFromWords(sentence, sentenceIndex, sortedEventSpansInPaperNewReach._2, sortedEventSpansInPaperNewReach._1)
         val sentenceToAddToOldReach = EventAlignmentUtils.makeBinarySentenceFromWords(sentence, sentenceIndex, sortedEventSpansInPaperOldReach._2, sortedEventSpansInPaperOldReach._1)
