@@ -94,7 +94,7 @@ object EventAlignmentUtils {
     val sentenceIndices = mapOfEventSpans.map(_._1)
     if(sentenceIndices.contains(sentenceIndex)) {
       val uniqueEventsFromCurrentSent = mapOfEventSpans.filter(x => x._1 == sentenceIndex)(0)
-      val sentenceToSend = s"${paperID},${sentenceIndex}:=${convertWordsToBinaryString(sentence,sentenceIndex,uniqueEventsFromCurrentSent)}"
+      val sentenceToSend = s"${paperID},${sentenceIndex}:=${convertWordsToBinaryString(sentence,uniqueEventsFromCurrentSent)}"
       sentenceToSend
     } else {
       val sentenceToSend = s"${paperID},${sentenceIndex}:=${List.fill(sentence.length)("0").mkString("")}"
@@ -104,23 +104,28 @@ object EventAlignmentUtils {
 
 
   // this function handles the case wherein a given sentence does have some unique events in it.
-  // the way we do this is by iterating over the tokens of the original sentence, and if the index of the token in the string was a part of
-  // an event span, then we keep a 1, else we replace the token with a 0
-  // we then return this string of 1s and 0s
 
-  def convertWordsToBinaryString(sentence:String, sentenceIndex:Int, mapOfEventSpans:(Int,Seq[(Int,Int,Int)])):String = {
-    val originalTokens = sentence.split(" ").zipWithIndex
-    val tokensToReturn = collection.mutable.ListBuffer[String]()
-    for((_,index) <- originalTokens) {
-      for(m <- mapOfEventSpans._2) {
 
-        // checking if the index of the current sentence is the start of some event, end, or lies in the event span, then we add a "1"
-        // else a "0"
-        if(index == m._2 || index == m._3 || index == m._3-m._2)
-          tokensToReturn += "1"
-        else tokensToReturn += "0"
-      }
+
+  def convertWordsToBinaryString(sentence:String, mapOfEventSpans:(Int,Seq[(Int,Int,Int)])):String = {
+    val eventSpansAs1s = mapOfEventSpans._2.map(x => {
+      val numOf1s = (x._3 - x._2) + 1
+      val stringOf1s = List.fill(numOf1s)("1").mkString("")
+      (x._2, x._3, stringOf1s)
+    })
+    val leadingZeroesLength = eventSpansAs1s(0)._1
+    val stringOfLeadingZeroes = List.fill(leadingZeroesLength)("0").mkString("")
+    val stringBuilder = new mutable.StringBuilder(stringOfLeadingZeroes)
+    for(i <- 1 until eventSpansAs1s.length) {
+      val previousSpan = eventSpansAs1s(i-1)._3
+      stringBuilder ++= previousSpan
+      val numOfZerosBtwnLeftRight = (Math.abs(eventSpansAs1s(i)._1 - eventSpansAs1s(i-1)._1) - 1)
+      val zeroesBetweenEvents = List.fill(numOfZerosBtwnLeftRight)("0").mkString("")
+      stringBuilder ++= zeroesBetweenEvents
     }
-    tokensToReturn.mkString("")
+    val trailingZeroesLength = Math.abs(sentence.length - 1 - eventSpansAs1s(eventSpansAs1s.length-1)._2)
+    val stringOfTrailingZeroes = List.fill(trailingZeroesLength)("0").mkString("")
+    stringBuilder ++= stringOfTrailingZeroes
+    stringBuilder.toString()
   }
 }
