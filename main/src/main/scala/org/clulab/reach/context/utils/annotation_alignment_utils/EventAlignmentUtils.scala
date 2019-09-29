@@ -95,10 +95,10 @@ object EventAlignmentUtils {
     val sentenceIndices = mapOfEventSpans.map(_._1)
     if(sentenceIndices.contains(sentenceIndex)) {
       val uniqueEventsFromCurrentSent = mapOfEventSpans.filter(x => x._1 == sentenceIndex)(0)
-      val sentenceToSend = convertWordsToBinaryString(sentence,sentenceIndex,uniqueEventsFromCurrentSent)
+      val sentenceToSend = s"${sentenceIndex}:=${convertWordsToBinaryString(sentence,sentenceIndex,uniqueEventsFromCurrentSent)}"
       sentenceToSend
     } else {
-      val sentenceToSend = List.fill(sentence.length)("0").mkString("")
+      val sentenceToSend = s"${sentenceIndex}:=${List.fill(sentence.length)("0").mkString("")}"
       sentenceToSend
     }
   }

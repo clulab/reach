@@ -282,7 +282,6 @@ object SVMPerformanceOnNewReach extends App {
       val sortedEventSpansInPaperOldReach = sortedEventsInOldReachByPaper.filter(_._1 == paperID)(0)
       for((sentence,sentenceIndex) <- sentencesWithIndices) {
         val sentenceToAddToNewReach = EventAlignmentUtils.makeBinarySentenceFromWords(sentence,sentenceIndex,sortedEventSpansInPaperNewReach._2)
-        println(s"Binary sentence to add to new Reach: ${sentenceToAddToNewReach}")
         val sentenceToAddToOldReach = EventAlignmentUtils.makeBinarySentenceFromWords(sentence,sentenceIndex,sortedEventSpansInPaperOldReach._2)
         sentencesToWriteToNewReach += sentenceToAddToNewReach
         sentencesToWriteToOldReach += sentenceToAddToOldReach
