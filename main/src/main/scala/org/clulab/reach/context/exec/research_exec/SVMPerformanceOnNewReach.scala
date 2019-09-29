@@ -272,10 +272,11 @@ object SVMPerformanceOnNewReach extends App {
   val mapOfBinaryStringsByPaperNewReach = collection.mutable.HashMap[String, Seq[String]]()
   for((paperID,sentences) <- mapOfSentencesByPaper) {
       val sentencesWithIndices = sentences.zipWithIndex
+
       val sentencesToWriteToNewReach = collection.mutable.ListBuffer[String]()
       val sentencesToWriteToOldReach = collection.mutable.ListBuffer[String]()
       println(s"We are currently viewing sentences from ${paperID}")
-
+      println(s"The paper has ${sentencesWithIndices.size} sentences")
       val sortedEventSpansInPaperNewReach = sortedEventsInNewReachByPaper.filter(_._1 == paperID)(0)
       println(s"Checking for unique events in: ${sortedEventSpansInPaperNewReach._1} (new reach)")
       val sortedEventSpansInPaperOldReach = sortedEventsInOldReachByPaper.filter(_._1 == paperID)(0)
@@ -286,7 +287,8 @@ object SVMPerformanceOnNewReach extends App {
         sentencesToWriteToNewReach += sentenceToAddToNewReach
         sentencesToWriteToOldReach += sentenceToAddToOldReach
       }
-
+    println(s"The size of our binary strings array is: ${sentencesToWriteToNewReach.size} (new reach)")
+    println(s"The size of our binary strings array is: ${sentencesToWriteToOldReach.size} (old reach)")
     val mapEntryOldReach = Map(paperID -> sentencesToWriteToOldReach)
     mapOfBinaryStringsByPaperOldReach ++= mapEntryOldReach
 
