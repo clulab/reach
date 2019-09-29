@@ -275,15 +275,15 @@ object SVMPerformanceOnNewReach extends App {
       val sentencesToWriteToNewReach = collection.mutable.ListBuffer[String]()
       val sentencesToWriteToOldReach = collection.mutable.ListBuffer[String]()
 
-      val sortedEventSpansInPaperNewReach = sortedEventsInNewReachByPaper(paperID)
+      val sortedEventSpansInPaperNewReach = sortedEventsInNewReachByPaper.filter(_._1 == paperID)(0)
       println(s"In task 5, The current paper is: ${paperID}")
       println(s"The following are the unique event spans as found in new Reach")
       println(sortedEventSpansInPaperNewReach)
-      val sortedEventSpansInPaperOldReach = sortedEventsInOldReachByPaper(paperID)
+      val sortedEventSpansInPaperOldReach = sortedEventsInOldReachByPaper.filter(_._1 == paperID)(0)
       for((sentence,sentenceIndex) <- sentencesWithIndices) {
-        val sentenceToAddToNewReach = EventAlignmentUtils.makeBinarySentenceFromWords(sentence,sentenceIndex,sortedEventSpansInPaperNewReach)
+        val sentenceToAddToNewReach = EventAlignmentUtils.makeBinarySentenceFromWords(sentence,sentenceIndex,sortedEventSpansInPaperNewReach._2)
         println(s"Binary sentence to add to new Reach: ${sentenceToAddToNewReach}")
-        val sentenceToAddToOldReach = EventAlignmentUtils.makeBinarySentenceFromWords(sentence,sentenceIndex,sortedEventSpansInPaperOldReach)
+        val sentenceToAddToOldReach = EventAlignmentUtils.makeBinarySentenceFromWords(sentence,sentenceIndex,sortedEventSpansInPaperOldReach._2)
         sentencesToWriteToNewReach += sentenceToAddToNewReach
         sentencesToWriteToOldReach += sentenceToAddToOldReach
       }
