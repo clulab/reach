@@ -12,11 +12,12 @@ import scala.io.{BufferedSource, Source}
 
 class RegulationTests extends FlatSpec with Matchers{
 
-  val outFilenameIrrelevant = "irrelevantSentences.tsv"
-  val pwIrr = new PrintWriter(outFilenameIrrelevant)
-
-  val outFilenameRelevant = "relevantSentences.tsv"
-  val pwRel = new PrintWriter(outFilenameRelevant)
+  // split sentences into ir/relevant and passing/failing
+//  val outFilenameIrrelevant = "irrelevantSentences.tsv"
+//  val pwIrr = new PrintWriter(outFilenameIrrelevant)
+//
+//  val outFilenameRelevant = "relevantSentences.tsv"
+//  val pwRel = new PrintWriter(outFilenameRelevant)
 
   val outFilenameFail = "failingSentences.tsv"
   val pwFail = new PrintWriter(outFilenameFail)
@@ -48,13 +49,15 @@ class RegulationTests extends FlatSpec with Matchers{
   }
 
 
-  // load tsv file from resources
-  val originalFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/expt_stmts.tsv"))//.mkString
-//  val relFile: BufferedSource = Source.fromURL(getClass.getResource("relevantSentences.tsv"))
-  val file: String = originalFile.mkString
+  // load tsv files from resources
+  val passingFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/regulations/passingSentences.tsv"))
+  val failingFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/regulations/failingSentences.tsv"))
+  val originalFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/regulations/expt_stmts.tsv"))
+  val relFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/regulations/relevantSentences.tsv"))
+  val file: String = relFile.mkString
   val lines: Array[String] = file.split("\n")
 
-  for (line <- lines.tail) {
+  for (line <- lines) {
     val index = lines.indexOf(line).toString
 
     val splitLine = line.split("\t")
@@ -81,47 +84,58 @@ class RegulationTests extends FlatSpec with Matchers{
 //    println("POLARITY:\t"+regulationPolarity)
 
     // get the sentence text
-    var sentence = splitLine(6)
+    val sentence = splitLine(6)
 
-    // get the controller of the regulation
+    // get the "controller" argument of the regulation
     var controller = splitLine(3)
 //    println("CONTROLLER:\t"+controller)
 
-    // get the controlled of the regulation
+    // get the "controlled" argument of the regulation
     var controlled = splitLine(5)
 //    println("CONTROLLED:\t"+controlled)
 
-    val mentions = getBioMentions(sentence).filter(_ matches "Event")
-    val reg = mentions.find(_.label == regulationPolarity)
-    //todo: What is happening here? why does it work in the test but not here where I want it?!
-    val realController = if (reg.get.arguments("controller").nonEmpty) reg.get.arguments("controller").head.text else "None"
-    val realControlled = "None"
-    println(index)
+
+    /** used this to preprocess data to get relevant and irrelevant sentences */
+//    val mentions = getBioMentions(sentence).filter(_ matches "Event")
+//    val reg = mentions.find(_.label == regulationPolarity)
+//
+//    val allArguments = if (reg != None) reg.get.arguments else None
+//
+//    val realController = if (allArguments != None) reg.get.arguments("controller").head.text else None
+//    val realControlled = if (allArguments != None) reg.get.arguments("controlled").head.text else None
+//
+//    println(index)
 //    println("IDEAL CONTROLLER:\t"+controller)
 //    println("REAL CONTROLLER:\t"+realController)
 //    println("IDEAL CONTROLLED:\t"+controlled)
 //    println("REAL CONTROLLED:\t"+realControlled)
-    println(realController.contains(controller) && realControlled.contains(controller))
-
-
-    // test for regulation modifications ONLY
-    // use number of passing tests here as numerator
-//    index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
-//      val mentions = getBioMentions(sentence).filter(_ matches "Event")
-//      val reg = mentions filter (_ matches regulationPolarity)
-//      regulationType match {
-//        case "knockdown" => getKDRegulation(reg.head) should be('nonEmpty)
-//        case "knockout" => getKORegulation(reg.head) should be('nonEmpty)
-//        case "dominant negative" => getDNRegulation(reg.head) should be('nonEmpty)
-//        case "overexpression" => getOERegulation(reg.head) should be('nonEmpty)
-//        case "chemical inhibition" => getCHEMRegulation(reg.head) should be('nonEmpty)
-//        case _ => println("NONE")
-//      }
+//
+//    if (realController.toString.contains(controller) && realControlled.toString.contains(controlled)){
+//      pwRel.write(line)
+//    }
+//    else{
+//      pwIrr.write(line)
 //    }
 
 
+    /** test for regulation modifications */
+    index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" ignore {
+      val mentions = getBioMentions(sentence).filter(_ matches "Event")
+      val reg = mentions.find(_.label == regulationPolarity)
+      regulationType match {
+        case "knockdown" => getKDRegulation(reg.head) should be('nonEmpty)
+        case "knockout" => getKORegulation(reg.head) should be('nonEmpty)
+        case "dominant negative" => getDNRegulation(reg.head) should be('nonEmpty)
+        case "overexpression" => getOERegulation(reg.head) should be('nonEmpty)
+        case "chemical inhibition" => getCHEMRegulation(reg.head) should be('nonEmpty)
+        case _ => println("NONE")
+      }
+    }
 
-//    // test for controller and controlled ONLY
+
+
+    /** test for controller and controlled ONLY */
+    /** don't need this now after preprocessing! */
 //    // use number of passing tests here as denominator
 //    index+":\t"+sentence should "contain the right controller AND controlled" in {
 //      val mentions = getBioMentions(sentence).filter(_ matches "Event")
@@ -130,7 +144,6 @@ class RegulationTests extends FlatSpec with Matchers{
 //      val extractedControlled = reg.get.arguments("controlled").head.text//.contains(controlled) should be(true)
 //      extractedController.contains(controller) should be(true)
 //      extractedControlled.contains(controlled) should be(true)
-////      pwRel.println(line)
 ////          println(index)
 ////          println("IDEAL CONTROLLER:\t"+controller)
 ////          println("REAL CONTROLLER:\t"+reg.get.arguments("controller").head.text)
@@ -138,7 +151,6 @@ class RegulationTests extends FlatSpec with Matchers{
 ////          println("REAL CONTROLLED:\t"+reg.get.arguments("controlled").head.text)
 ////          println(reg.get.arguments("controller").head.text.contains(controller))
 //        }
+
     }
-  pwRel.close()
-  pwIrr.close()
 }
