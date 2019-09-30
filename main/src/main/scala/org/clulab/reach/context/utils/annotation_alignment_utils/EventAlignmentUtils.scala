@@ -90,10 +90,6 @@ object EventAlignmentUtils {
   // and we need to find the spans and add a 1 to the span and 0 to the rest of the sentence.
   // If not, the current sentence has no unique event spans and we can fill a list of 0s for the length of the sentence
   def makeBinarySentenceFromWords(sentence: String, sentenceIndex: Int, mapOfEventSpans: Seq[(Int, Seq[(Int, Int, Int)])], paperID: String): String = {
-    println(s"Inside make binary sentence from words function.")
-    println(s"The current paper is: ${paperID}")
-    println(s"The map of unique events received in this function is: ")
-    println(mapOfEventSpans)
     val sentenceIndices = mapOfEventSpans.map(_._1)
     if(sentenceIndices.contains(sentenceIndex)) {
       val uniqueEventsFromCurrentSent = mapOfEventSpans.filter(x => x._1 == sentenceIndex)(0)
