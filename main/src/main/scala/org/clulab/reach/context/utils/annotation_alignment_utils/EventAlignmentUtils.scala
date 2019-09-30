@@ -113,24 +113,15 @@ object EventAlignmentUtils {
 
 
   def convertWordsToBinaryString(sentence:String, mapOfEventSpans:Seq[(Int,Int,Int)]):String = {
-    val eventSpansAs1s = mapOfEventSpans.map(x => {
-      val numOf1s = Math.abs(x._3 - x._2) + 1
-      val stringOf1s = List.fill(numOf1s)("1").mkString("")
-      (x._2, x._3, stringOf1s)
-    })
-    val leadingZeroesLength = eventSpansAs1s(0)._1
-    val stringOfLeadingZeroes = List.fill(leadingZeroesLength)("0").mkString("")
-    val stringBuilder = new StringBuilder(stringOfLeadingZeroes)
-    for(i <- 1 until eventSpansAs1s.length) {
-      val previousSpan = eventSpansAs1s(i-1)._3
-      stringBuilder ++= previousSpan
-      val numOfZerosBtwnLeftRight = (Math.abs(eventSpansAs1s(i)._1 - eventSpansAs1s(i-1)._2))-1
-      val zeroesBetweenEvents = List.fill(numOfZerosBtwnLeftRight)("0").mkString("")
-      stringBuilder ++= zeroesBetweenEvents
+    val tokensWithIndex = sentence.split(" ").zipWithIndex
+    val listOfBinaries = collection.mutable.ListBuffer[String]()
+    val listOfRangesFlattened = (mapOfEventSpans.map(x => x._2 to x._3)).flatten
+    for((_,tokenIndex) <- tokensWithIndex) {
+        if(listOfRangesFlattened.contains(tokenIndex))
+          listOfBinaries += "1"
+        else listOfBinaries += "0"
+
     }
-    val trailingZeroesLength = Math.abs(sentence.length - 1 - eventSpansAs1s(eventSpansAs1s.length-1)._2)
-    val stringOfTrailingZeroes = List.fill(trailingZeroesLength)("0").mkString("")
-    stringBuilder ++= stringOfTrailingZeroes
-    stringBuilder.toString()
+    listOfBinaries.mkString("")
   }
 }
