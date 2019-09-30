@@ -276,6 +276,7 @@ object SVMPerformanceOnNewReach extends App {
       val sentencesToWriteToNewReach = collection.mutable.ListBuffer[String]()
       val sentencesToWriteToOldReach = collection.mutable.ListBuffer[String]()
       println(s"We are currently viewing sentences from ${paperID}")
+      println(s"This paper has ${sentencesWithIndices.size} sentences")
       val sortedEventSpansInPaperNewReach = sortedEventsInNewReachByPaper.filter(_._1 == paperID)(0)
       val sortedEventSpansInPaperOldReach = sortedEventsInOldReachByPaper.filter(_._1 == paperID)(0)
       for((sentence,sentenceIndex) <- sentencesWithIndices) {
