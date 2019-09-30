@@ -18,12 +18,12 @@ class RegulationTests extends FlatSpec with Matchers{
 //
 //  val outFilenameRelevant = "relevantSentences.tsv"
 //  val pwRel = new PrintWriter(outFilenameRelevant)
-
-  val outFilenameFail = "failingSentences.tsv"
-  val pwFail = new PrintWriter(outFilenameFail)
-
-  val outFilenamePass = "passingSentences.tsv"
-  val pwPass = new PrintWriter(outFilenamePass)
+//
+//  val outFilenameFail = "failingSentences.tsv"
+//  val pwFail = new PrintWriter(outFilenameFail)
+//
+//  val outFilenamePass = "passingSentences.tsv"
+//  val pwPass = new PrintWriter(outFilenamePass)
 
 
   // methods for checking for correct regulation triggers
@@ -72,7 +72,6 @@ class RegulationTests extends FlatSpec with Matchers{
       case "chemical inhibition of" | "inhibitor of" => regulationType = "chemical inhibition"
       case _ => regulationType = "NONE"
     }
-//    println("REGULATION TYPE:\t"+regulationType)
 
     // get the polarity of the regulation
     var regulationPolarity = splitLine(1).split("\\(")(0)
@@ -81,18 +80,15 @@ class RegulationTests extends FlatSpec with Matchers{
       case "IncreaseAmount" => regulationPolarity = "Positive_regulation"
       case _ => regulationPolarity = "NONE"
     }
-//    println("POLARITY:\t"+regulationPolarity)
 
     // get the sentence text
     val sentence = splitLine(6)
 
     // get the "controller" argument of the regulation
     var controller = splitLine(3)
-//    println("CONTROLLER:\t"+controller)
 
     // get the "controlled" argument of the regulation
     var controlled = splitLine(5)
-//    println("CONTROLLED:\t"+controlled)
 
 
     /** used this to preprocess data to get relevant and irrelevant sentences */

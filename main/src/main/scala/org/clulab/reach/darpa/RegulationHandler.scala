@@ -19,17 +19,11 @@ object RegulationHandler {
           val eventTokInterval = event.tokenInterval //token interval for the event
           //find the indices of words in the sentence that are in the event span
           for (wordIdx <- event.sentenceObj.words.indices if (wordIdx >= eventTokInterval.start & wordIdx < eventTokInterval.end)) {
-
-//            println("word: " + event.sentenceObj.words(wordIdx) + " index: " + wordIdx)
-//            println("all outgoing: " + event.sentenceObj.dependencies.get.outgoingEdges(wordIdx).mkString(" "))
-
             //based on the word index for the words inside the event span, get all outgoing deps for this word
             val allOutgoingFromWord = event.sentenceObj.dependencies.get.outgoingEdges(wordIdx)
             //for each outgoing relation
             for (outgoing <- allOutgoingFromWord) {
-//              println("current word: " + event.sentenceObj.words(wordIdx) + " " +outgoing + " word at the end of node " + event.sentenceObj.words(outgoing._1))
               //if the node at the end of the outgoing edge is one of the triggers
-
               if (Seq("sirna", "silencing", "si-", "sh-", "shrna") contains event.sentenceObj.words(outgoing._1).toLowerCase) {
                 //add the KD modification
                 event.modifications += KDtrigger(new BioTextBoundMention(
@@ -41,7 +35,6 @@ object RegulationHandler {
                   foundBy = event.foundBy
                 ))
               }
-
               else if (Seq("knockout", "ko", "-/-") contains event.sentenceObj.words(outgoing._1).toLowerCase) {
                 //add the KO modification
                 event.modifications += KOtrigger(new BioTextBoundMention(
@@ -64,7 +57,6 @@ object RegulationHandler {
                   foundBy = event.foundBy
                 ))
               }
-
               else if (Seq("overexpress", "overexpression", "oe") contains event.sentenceObj.words(outgoing._1).toLowerCase) {
                 //add the OE modification
                 event.modifications += OEtrigger(new BioTextBoundMention(
@@ -76,7 +68,6 @@ object RegulationHandler {
                   foundBy = event.foundBy
                 ))
               }
-
               else if (Seq(("chemical", "inhibition", "of"), ("inhibitor", "of")) contains event.sentenceObj.words(outgoing._1).toLowerCase) {
                 //add the CHEM modification
                 event.modifications += CHEMtrigger(new BioTextBoundMention(
@@ -94,7 +85,7 @@ object RegulationHandler {
           ///////////////////////////////////////////////////
 
           ///////////////////////////////////////////////////
-          // Check for the presence of some negative verbs
+          // Check for the presence of some regulation keywords
           // in all the sentence except the tokens
 
           // First, extract the trigger's range from the mention
@@ -106,13 +97,18 @@ object RegulationHandler {
           val pairsL = pairs takeWhile (_._1 < interval.start)
           val pairsR = pairs dropWhile (_._1 <= interval.end)
 
-          // Get the evidence for the existing negations to avoid duplicates
+          // Get the evidence for the existing regulations to avoid duplicates
           val evidence:Set[Int] = event.modifications flatMap {
                   case mod:KDtrigger => mod.evidence.tokenInterval
+                  case mod:KOtrigger => mod.evidence.tokenInterval
+                  case mod:DNtrigger => mod.evidence.tokenInterval
+                  case mod:OEtrigger => mod.evidence.tokenInterval
+                  case mod:CHEMtrigger => mod.evidence.tokenInterval
                   case _ => Nil
               }
 
-          // Check for single-token triggers
+
+          /** Check for single-token triggers */
 
           // knockdown triggers
           for{
@@ -186,7 +182,7 @@ object RegulationHandler {
 
           // dominant negative bigrams
           val dnVerbs = Seq(("dominant", "negative"))
-          // Introduce bigrams for two-token verbs in both sides of the trigger
+          // Introduce bigrams for two-token keywords in both sides of the trigger
           for(side <- Seq(pairsL, pairsR)){
             val bigrams = (side zip side.slice(1, side.length)) map (x =>
               flattenTuples(x._1, x._2)
@@ -211,7 +207,7 @@ object RegulationHandler {
           // chemical inhibition bigrams
           // 'chemical inhibition of' trigram?
           val chemVerbs = Seq(("chemical", "inhibition", "of"), ("inhibitor", "of"))
-          // Introduce bigrams for two-token verbs in both sides of the trigger
+          // Introduce bigrams for two-token keywords in both sides of the trigger
           for(side <- Seq(pairsL, pairsR)){
             val bigrams = (side zip side.slice(1, side.length)) map (x =>
               flattenTuples(x._1, x._2)
