@@ -59,6 +59,7 @@ object ReachSystemAnalysisIOUtils {
         printWriter.write(b)
         printWriter.write("\n")
       }
+      printWriter.close()
     }
   }
 }
