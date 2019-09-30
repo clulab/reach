@@ -92,7 +92,6 @@ object EventAlignmentUtils {
   def makeBinarySentenceFromWords(sentence: String, sentenceIndex: Int, mapOfEventSpans: Seq[(Int, Seq[(Int, Int, Int)])], paperID: String): String = {
     val sentenceIndices = mapOfEventSpans.map(_._1)
     if(sentenceIndices.contains(sentenceIndex)) {
-      println(s"The size of list of events that occur in this sentence: ${mapOfEventSpans.filter(x => x._1 == sentenceIndex).size}")
       val uniqueEventsFromCurrentSent = mapOfEventSpans.toMap
       val sentenceToSend = s"${paperID},${sentenceIndex}:=${convertWordsToBinaryString(sentence,uniqueEventsFromCurrentSent(sentenceIndex))}"
       sentenceToSend
@@ -109,17 +108,20 @@ object EventAlignmentUtils {
 
   def convertWordsToBinaryString(sentence:String, mapOfEventSpans:Seq[(Int,Int,Int)]):String = {
     val eventSpansAs1s = mapOfEventSpans.map(x => {
-      val numOf1s = (x._3 - x._2) + 1
+      val numOf1s = Math.abs(x._3 - x._2) + 1
       val stringOf1s = List.fill(numOf1s)("1").mkString("")
       (x._2, x._3, stringOf1s)
     })
     val leadingZeroesLength = eventSpansAs1s(0)._1
+    println(s"Number of leading zeroes: ${leadingZeroesLength}")
+    println(s"Current sentence size: ${sentence.length}")
+    println(s"Current sentence: \n ${sentence}")
     val stringOfLeadingZeroes = List.fill(leadingZeroesLength)("0").mkString("")
-    val stringBuilder = new mutable.StringBuilder(stringOfLeadingZeroes)
+    val stringBuilder = new StringBuilder(stringOfLeadingZeroes)
     for(i <- 1 until eventSpansAs1s.length) {
       val previousSpan = eventSpansAs1s(i-1)._3
       stringBuilder ++= previousSpan
-      val numOfZerosBtwnLeftRight = (Math.abs(eventSpansAs1s(i)._1 - eventSpansAs1s(i-1)._1) - 1)
+      val numOfZerosBtwnLeftRight = (Math.abs(eventSpansAs1s(i)._1 - eventSpansAs1s(i-1)._2))-1
       val zeroesBetweenEvents = List.fill(numOfZerosBtwnLeftRight)("0").mkString("")
       stringBuilder ++= zeroesBetweenEvents
     }
