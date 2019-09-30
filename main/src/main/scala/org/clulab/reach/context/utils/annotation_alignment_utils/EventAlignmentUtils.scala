@@ -89,15 +89,12 @@ object EventAlignmentUtils {
   // If the position (sentence index) of the current paper appeared in the map, it means the current sentence has some missing events,
   // and we need to find the spans and add a 1 to the span and 0 to the rest of the sentence.
   // If not, the current sentence has no unique event spans and we can fill a list of 0s for the length of the sentence
-  def makeBinarySentenceFromWords(sentence: String, sentenceIndex: Int, mapOfEventSpans: Seq[(Int, Seq[(Int, Int, Int)])], paperID: String, reachVersion: String): String = {
+  def makeBinarySentenceFromWords(sentence: String, sentenceIndex: Int, mapOfEventSpans: Seq[(Int, Seq[(Int, Int, Int)])], paperID: String): String = {
     val sentenceIndices = mapOfEventSpans.map(_._1)
-    println(reachVersion)
-    println(paperID)
     if(sentenceIndices.contains(sentenceIndex)) {
-      val uniqueEventsFromCurrentSent = mapOfEventSpans.filter(x => x._1 == sentenceIndex)(0)
-      println(uniqueEventsFromCurrentSent)
-      val sentenceToSend = s"${paperID},${sentenceIndex}:=${convertWordsToBinaryString(sentence,uniqueEventsFromCurrentSent)}"
-      println(sentenceToSend)
+      println(s"The size of list of events that occur in this sentence: ${mapOfEventSpans.filter(x => x._1 == sentenceIndex).size}")
+      val uniqueEventsFromCurrentSent = mapOfEventSpans.toMap
+      val sentenceToSend = s"${paperID},${sentenceIndex}:=${convertWordsToBinaryString(sentence,uniqueEventsFromCurrentSent(sentenceIndex))}"
       sentenceToSend
     } else {
       val sentenceToSend = s"${paperID},${sentenceIndex}:=${List.fill(sentence.length)("0").mkString("")}"
@@ -110,8 +107,8 @@ object EventAlignmentUtils {
 
 
 
-  def convertWordsToBinaryString(sentence:String, mapOfEventSpans:(Int,Seq[(Int,Int,Int)])):String = {
-    val eventSpansAs1s = mapOfEventSpans._2.map(x => {
+  def convertWordsToBinaryString(sentence:String, mapOfEventSpans:Seq[(Int,Int,Int)]):String = {
+    val eventSpansAs1s = mapOfEventSpans.map(x => {
       val numOf1s = (x._3 - x._2) + 1
       val stringOf1s = List.fill(numOf1s)("1").mkString("")
       (x._2, x._3, stringOf1s)
