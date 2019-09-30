@@ -93,8 +93,6 @@ object EventAlignmentUtils {
     val sentenceIndices = mapOfEventSpans.map(_._1)
     println(reachVersion)
     println(paperID)
-    println(sentenceIndex)
-    println(mapOfEventSpans)
     if(sentenceIndices.contains(sentenceIndex)) {
       val uniqueEventsFromCurrentSent = mapOfEventSpans.filter(x => x._1 == sentenceIndex)(0)
       println(uniqueEventsFromCurrentSent)
