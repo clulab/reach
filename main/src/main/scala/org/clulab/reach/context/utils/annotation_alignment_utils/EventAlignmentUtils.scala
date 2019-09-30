@@ -93,13 +93,7 @@ object EventAlignmentUtils {
     val sentenceIndices = mapOfEventSpans.map(_._1)
     if(sentenceIndices.contains(sentenceIndex)) {
       val uniqueEventsFromCurrentSent = mapOfEventSpans.toMap
-      println(s"Reach version: ${reachVersion}")
-      println(s"Map of event spans in sentence ${sentenceIndex}: ")
-      println(uniqueEventsFromCurrentSent(sentenceIndex))
-      println(s"Sentence contents:=\n ${sentence}")
       val sentenceToSend = s"${paperID},${sentenceIndex}:=${convertWordsToBinaryString(sentence,uniqueEventsFromCurrentSent(sentenceIndex))}"
-      println("Checking sentence received from string maker")
-      println(sentenceToSend)
       sentenceToSend
     } else {
       val sentenceToSend = s"${paperID},${sentenceIndex}:=${List.fill(sentence.length)("0").mkString("")}"
