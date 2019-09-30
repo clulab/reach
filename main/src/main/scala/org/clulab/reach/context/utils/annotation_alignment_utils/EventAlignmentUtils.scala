@@ -89,14 +89,17 @@ object EventAlignmentUtils {
   // If the position (sentence index) of the current paper appeared in the map, it means the current sentence has some missing events,
   // and we need to find the spans and add a 1 to the span and 0 to the rest of the sentence.
   // If not, the current sentence has no unique event spans and we can fill a list of 0s for the length of the sentence
-  def makeBinarySentenceFromWords(sentence: String, sentenceIndex: Int, mapOfEventSpans: Seq[(Int, Seq[(Int, Int, Int)])], paperID: String): String = {
+  def makeBinarySentenceFromWords(sentence: String, sentenceIndex: Int, mapOfEventSpans: Seq[(Int, Seq[(Int, Int, Int)])], paperID: String, reachVersion: String): String = {
     val sentenceIndices = mapOfEventSpans.map(_._1)
+    println(reachVersion)
+    println(paperID)
     println(sentenceIndex)
     println(mapOfEventSpans)
-    println(sentenceIndices.contains(sentenceIndex))
     if(sentenceIndices.contains(sentenceIndex)) {
       val uniqueEventsFromCurrentSent = mapOfEventSpans.filter(x => x._1 == sentenceIndex)(0)
+      println(uniqueEventsFromCurrentSent)
       val sentenceToSend = s"${paperID},${sentenceIndex}:=${convertWordsToBinaryString(sentence,uniqueEventsFromCurrentSent)}"
+      println(sentenceToSend)
       sentenceToSend
     } else {
       val sentenceToSend = s"${paperID},${sentenceIndex}:=${List.fill(sentence.length)("0").mkString("")}"
