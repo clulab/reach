@@ -98,6 +98,8 @@ object EventAlignmentUtils {
       println(uniqueEventsFromCurrentSent(sentenceIndex))
       println(s"Sentence contents:=\n ${sentence}")
       val sentenceToSend = s"${paperID},${sentenceIndex}:=${convertWordsToBinaryString(sentence,uniqueEventsFromCurrentSent(sentenceIndex))}"
+      println("Checking sentence received from string maker")
+      println(sentenceToSend)
       sentenceToSend
     } else {
       val sentenceToSend = s"${paperID},${sentenceIndex}:=${List.fill(sentence.length)("0").mkString("")}"
