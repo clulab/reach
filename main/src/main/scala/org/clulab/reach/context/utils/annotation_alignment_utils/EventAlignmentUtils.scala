@@ -91,6 +91,9 @@ object EventAlignmentUtils {
   // If not, the current sentence has no unique event spans and we can fill a list of 0s for the length of the sentence
   def makeBinarySentenceFromWords(sentence: String, sentenceIndex: Int, mapOfEventSpans: Seq[(Int, Seq[(Int, Int, Int)])], paperID: String): String = {
     val sentenceIndices = mapOfEventSpans.map(_._1)
+    println(sentenceIndex)
+    println(mapOfEventSpans)
+    println(sentenceIndices.contains(sentenceIndex))
     if(sentenceIndices.contains(sentenceIndex)) {
       val uniqueEventsFromCurrentSent = mapOfEventSpans.filter(x => x._1 == sentenceIndex)(0)
       val sentenceToSend = s"${paperID},${sentenceIndex}:=${convertWordsToBinaryString(sentence,uniqueEventsFromCurrentSent)}"

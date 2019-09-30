@@ -276,24 +276,20 @@ object SVMPerformanceOnNewReach extends App {
       val sentencesToWriteToNewReach = collection.mutable.ListBuffer[String]()
       val sentencesToWriteToOldReach = collection.mutable.ListBuffer[String]()
       println(s"We are currently viewing sentences from ${paperID}")
-      println(s"The paper has ${sentencesWithIndices.size} sentences")
       val sortedEventSpansInPaperNewReach = sortedEventsInNewReachByPaper.filter(_._1 == paperID)(0)
-      println(s"Checking for unique events in: ${sortedEventSpansInPaperNewReach._1} (new reach)")
-      println(s"There are ${sortedEventSpansInPaperNewReach._2.size} unique events in the new Reach in ${sortedEventSpansInPaperNewReach._1}, and they are: ")
-      println(sortedEventSpansInPaperNewReach._2)
+//      println(s"Checking for unique events in: ${sortedEventSpansInPaperNewReach._1} (new reach)")
+//      println(s"There are ${sortedEventSpansInPaperNewReach._2.size} unique events in the new Reach in ${sortedEventSpansInPaperNewReach._1}, and they are: ")
+//      println(sortedEventSpansInPaperNewReach._2)
       val sortedEventSpansInPaperOldReach = sortedEventsInOldReachByPaper.filter(_._1 == paperID)(0)
-      println(s"Checking for unique events in: ${sortedEventSpansInPaperOldReach._1} (old reach)")
-      println(s"There are ${sortedEventSpansInPaperOldReach._2.size} unique events in the old Reach in ${sortedEventSpansInPaperOldReach._1}, and they are: ")
-      println(sortedEventSpansInPaperOldReach._2)
+//      println(s"Checking for unique events in: ${sortedEventSpansInPaperOldReach._1} (old reach)")
+//      println(s"There are ${sortedEventSpansInPaperOldReach._2.size} unique events in the old Reach in ${sortedEventSpansInPaperOldReach._1}, and they are: ")
+//      println(sortedEventSpansInPaperOldReach._2)
       for((sentence,sentenceIndex) <- sentencesWithIndices) {
-        println(s"Current sentence index: ${sentenceIndex}")
         val sentenceToAddToNewReach = EventAlignmentUtils.makeBinarySentenceFromWords(sentence, sentenceIndex, sortedEventSpansInPaperNewReach._2, sortedEventSpansInPaperNewReach._1)
         val sentenceToAddToOldReach = EventAlignmentUtils.makeBinarySentenceFromWords(sentence, sentenceIndex, sortedEventSpansInPaperOldReach._2, sortedEventSpansInPaperOldReach._1)
         sentencesToWriteToNewReach += sentenceToAddToNewReach
         sentencesToWriteToOldReach += sentenceToAddToOldReach
       }
-    println(s"The size of our binary strings array is: ${sentencesToWriteToNewReach.size} (new reach)")
-    println(s"The size of our binary strings array is: ${sentencesToWriteToOldReach.size} (old reach)")
     val mapEntryOldReach = Map(paperID -> sentencesToWriteToOldReach)
     mapOfBinaryStringsByPaperOldReach ++= mapEntryOldReach
 
