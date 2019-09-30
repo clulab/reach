@@ -116,10 +116,10 @@ object EventAlignmentUtils {
       (x._2, x._3, stringOf1s)
     })
     val leadingZeroesLength = eventSpansAs1s(0)._1
+    println(s"In convert to binary function: there seems to be some stray sentence index here")
     println(eventSpansAs1s)
     println(s"Number of leading zeroes: ${leadingZeroesLength}")
     println(s"Current sentence size: ${sentence.length}")
-    println(s"Current sentence: \n ${sentence}")
     val stringOfLeadingZeroes = List.fill(leadingZeroesLength)("0").mkString("")
     val stringBuilder = new StringBuilder(stringOfLeadingZeroes)
     for(i <- 1 until eventSpansAs1s.length) {

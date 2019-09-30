@@ -286,6 +286,8 @@ object SVMPerformanceOnNewReach extends App {
         sentencesToWriteToOldReach += sentenceToAddToOldReach
       }
     val mapEntryOldReach = Map(paperID -> sentencesToWriteToOldReach)
+    println(s"We are currently viewing sentences from ${paperID}")
+    println(s"This paper has ${sentencesWithIndices.size} sentences")
     println(s"For the paper ${paperID}, we will write ${sentencesToWriteToOldReach.size} sentences to the old Reach file")
     mapOfBinaryStringsByPaperOldReach ++= mapEntryOldReach
 
