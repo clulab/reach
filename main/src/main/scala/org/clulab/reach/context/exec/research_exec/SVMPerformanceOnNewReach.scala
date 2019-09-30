@@ -280,17 +280,17 @@ object SVMPerformanceOnNewReach extends App {
       val sortedEventSpansInPaperNewReach = sortedEventsInNewReachByPaper.filter(_._1 == paperID)(0)
       val sortedEventSpansInPaperOldReach = sortedEventsInOldReachByPaper.filter(_._1 == paperID)(0)
       for((sentence,sentenceIndex) <- sentencesWithIndices) {
-        println("new")
-        val sentenceToAddToNewReach = EventAlignmentUtils.makeBinarySentenceFromWords(sentence, sentenceIndex, sortedEventSpansInPaperNewReach._2, sortedEventSpansInPaperNewReach._1)
-        println("old")
-        val sentenceToAddToOldReach = EventAlignmentUtils.makeBinarySentenceFromWords(sentence, sentenceIndex, sortedEventSpansInPaperOldReach._2, sortedEventSpansInPaperOldReach._1)
+        val sentenceToAddToNewReach = EventAlignmentUtils.makeBinarySentenceFromWords(sentence, sentenceIndex, sortedEventSpansInPaperNewReach._2, sortedEventSpansInPaperNewReach._1, "new")
+        val sentenceToAddToOldReach = EventAlignmentUtils.makeBinarySentenceFromWords(sentence, sentenceIndex, sortedEventSpansInPaperOldReach._2, sortedEventSpansInPaperOldReach._1, "old")
         sentencesToWriteToNewReach += sentenceToAddToNewReach
         sentencesToWriteToOldReach += sentenceToAddToOldReach
       }
     val mapEntryOldReach = Map(paperID -> sentencesToWriteToOldReach)
+    println(s"For the paper ${paperID}, we will write ${sentencesToWriteToOldReach.size} sentences to the old Reach file")
     mapOfBinaryStringsByPaperOldReach ++= mapEntryOldReach
 
     val mapEntryNewReach = Map(paperID -> sentencesToWriteToNewReach)
+    println(s"For the paper ${paperID}, we will write ${sentencesToWriteToNewReach.size} sentences to the new Reach file")
     mapOfBinaryStringsByPaperNewReach ++= mapEntryNewReach
   }
 
