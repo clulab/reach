@@ -54,6 +54,7 @@ object ReachSystemAnalysisIOUtils {
       val printWriter = new PrintWriter(eventSpanFileInstance)
       val binariesInThisPaper = mapOfBinaries(paperDir.getName)
       for(b <- binariesInThisPaper) {
+        println(s"Reach version: ${reachVersion}")
         println(s"Writing to: ${paperDir.getName}")
         println(b)
         printWriter.write(b)
