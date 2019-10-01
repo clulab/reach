@@ -123,6 +123,6 @@ object EventAlignmentUtils {
         else listOfBinaries += "0"
 
     }
-    listOfBinaries.take(sentence.length).mkString("")
+    listOfBinaries.mkString("")
   }
 }
