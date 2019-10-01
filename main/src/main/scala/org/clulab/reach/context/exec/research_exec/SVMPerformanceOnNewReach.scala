@@ -327,6 +327,14 @@ object SVMPerformanceOnNewReach extends App {
   }
 
 
+  var totalAnnotationCount  = 0
+  for((_,_) <- labelMap) {
+    totalAnnotationCount += 1
+  }
+
+  println(s"We have a total of ${totalAnnotationCount} annotations")
+
+
   println(s"The total number of contexts that unique events in old Reach have, is: ${totalContextLabelCount}")
 
 
