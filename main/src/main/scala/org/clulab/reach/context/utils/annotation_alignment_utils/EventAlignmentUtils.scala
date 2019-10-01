@@ -101,7 +101,7 @@ object EventAlignmentUtils {
       sentenceToSend
     } else {
       val sizeOftokensInSentence = sentence.split(" ").size
-      val sentenceToSend = s"${paperID},${sizeOftokensInSentence}:=${List.fill(sentence.length)("0").mkString("")}"
+      val sentenceToSend = s"${paperID},${sentenceIndex}:=${List.fill(sizeOftokensInSentence)("0").mkString("")}"
       println("expecting only zeroes")
       println(sentenceToSend.length)
       println(sentence.length)
