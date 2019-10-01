@@ -53,9 +53,9 @@ object ReachSystemAnalysisIOUtils {
         eventSpanFileInstance.createNewFile()
       val printWriter = new PrintWriter(eventSpanFileInstance)
       val binariesInThisPaper = mapOfBinaries(paperDir.getName)
-      println(s"The current paper that I'm writing to: ${paperDir.getName}")
-      println(s"This paper has ${binariesInThisPaper.size} sentences as promised")
       for(b <- binariesInThisPaper) {
+        println(s"Writing to: ${paperDir.getName}")
+        println(b)
         printWriter.write(b)
         printWriter.write("\n")
       }
