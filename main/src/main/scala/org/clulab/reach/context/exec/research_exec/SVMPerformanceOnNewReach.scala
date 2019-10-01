@@ -273,8 +273,6 @@ object SVMPerformanceOnNewReach extends App {
 
       val sentencesToWriteToNewReach = collection.mutable.ListBuffer[String]()
       val sentencesToWriteToOldReach = collection.mutable.ListBuffer[String]()
-      println(s"We are currently viewing sentences from ${paperID}")
-      println(s"This paper has ${sentencesWithIndices.size} sentences")
       val sortedEventSpansInPaperNewReach = sortedEventsInNewReachByPaper.filter(_._1 == paperID)(0)
       val sortedEventSpansInPaperOldReach = sortedEventsInOldReachByPaper.filter(_._1 == paperID)(0)
       for((sentence,sentenceIndex) <- sentencesWithIndices) {
@@ -296,9 +294,20 @@ object SVMPerformanceOnNewReach extends App {
 
 
 
+  val eventSpansInMatchingLabelsInOldData = collection.mutable.HashMap[String,(Int,Seq[(Int,Int,Int)])]()
+  var totalUniqueEventSpansInOldMatchings = 0
+  for((paperID, matchingLabels) <- matchingLabelsInOldReachByPaper) {
+    val eventSpans = matchingLabels.map(x=>x._2)
+    val eventSpansInTupForm = eventSpans.map(EventAlignmentUtils.parseEventIDFromStringToTup(_)).toSet.toSeq
+    val tupEntry = (eventSpansInTupForm.size, eventSpansInTupForm)
+    totalUniqueEventSpansInOldMatchings += eventSpansInTupForm.size
+    val mapEntry = Map(paperID -> tupEntry)
+    eventSpansInMatchingLabelsInOldData ++= mapEntry
+  }
 
 
-  println(s"In svm performance class, finished code")
+  println(s"A total of ${totalUniqueEventSpansInOldMatchings} unique event spans were found in the 7k set of matching context-event labels")
+
 
 
 

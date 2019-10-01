@@ -94,17 +94,10 @@ object EventAlignmentUtils {
     if(sentenceIndices.contains(sentenceIndex)) {
       val uniqueEventsFromCurrentSent = mapOfEventSpans.toMap
       val sentenceToSend = s"${paperID},${sentenceIndex}:=${convertWordsToBinaryString(sentence,uniqueEventsFromCurrentSent(sentenceIndex))}"
-      println("expecting 1s and 0s")
-      println(sentenceToSend.length)
-      println(sentenceToSend)
-      println(sentence.length)
       sentenceToSend
     } else {
       val sizeOftokensInSentence = sentence.split(" ").size
       val sentenceToSend = s"${paperID},${sentenceIndex}:=${List.fill(sizeOftokensInSentence)("0").mkString("")}"
-      println("expecting only zeroes")
-      println(sentenceToSend.length)
-      println(sentence.length)
       sentenceToSend
     }
   }
