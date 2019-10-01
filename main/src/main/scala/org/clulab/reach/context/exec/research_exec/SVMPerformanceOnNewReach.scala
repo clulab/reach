@@ -126,7 +126,6 @@ object SVMPerformanceOnNewReach extends App {
   val eventsOnlyInNewReach = collection.mutable.HashMap[String, Seq[String]]()
   val eventsOnlyInOldReach = collection.mutable.HashMap[String, Seq[String]]()
   for((paperID,matchingLabelsNew) <-  matchingLabelsInNewReachByPaper) {
-    println(s"In new Reach (Reach 2019), the paper ${paperID} has ${matchingLabelsNew.size} labels that matched.")
     // getting all the rows that were extracted by new Reach and extracting their event IDs
     val allRowSpecsInThisPaper = paperIDByNewRowsSpecs.filter(_._1 == paperID).map(_._2).flatten
     val allUniqueEventSpans = allRowSpecsInThisPaper.map(_._2).toSet
@@ -143,7 +142,6 @@ object SVMPerformanceOnNewReach extends App {
   println("*********")
 
   for((paperID, matchingLabelsOld) <- matchingLabelsInOldReachByPaper) {
-    println(s"In old Reach (Reach 2015), the paper ${paperID} has ${matchingLabelsOld.size} labels that matched")
     val allLabelsInPaper = paperIDByOldRowsSpecs.filter(_._1 == paperID)
     val allUniqueEventsInPaper = allLabelsInPaper.map(_._2).toSet
     val matchingUniqueEventSpans = matchingLabelsOld.map(_._2).toSet
@@ -154,8 +152,8 @@ object SVMPerformanceOnNewReach extends App {
     totalLabelsMissingFromNewDataset += nonMatches.size
   }
 
-  println(s"Total no. of unique events missing from the new dataset: ${totalLabelsMissingFromNewDataset} ")
-  println(s"Total no. of unique events missing from the old dataset: ${totalLabelsMissingFromOldDataset} ")
+  println(s"Total no. of unique event spans appearing only in old Reach (Reach 2015): ${totalLabelsMissingFromNewDataset} ")
+  println(s"Total no. of unique event spans appearing only in new Reach (Reach 2019): ${totalLabelsMissingFromOldDataset} ")
 
 //
 //  uncomment the below block for task 3
