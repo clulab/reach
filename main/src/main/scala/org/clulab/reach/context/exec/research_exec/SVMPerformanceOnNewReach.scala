@@ -306,7 +306,37 @@ object SVMPerformanceOnNewReach extends App {
   }
 
 
-  println(s"A total of ${totalUniqueEventSpansInOldMatchings} unique event spans were found in the 7k set of matching context-event labels")
+  println(s"A total of ${totalUniqueEventSpansInOldMatchings} unique event spans were found in the 7k set of matching context-event labels in old Reach")
+  for((paperID, uniqueEventsInfo) <- eventSpansInMatchingLabelsInOldData) {
+    println(s"The paper ${paperID} has ${uniqueEventsInfo._1} unique event spans as per old Reach")
+  }
+
+  val mapOfcontextLabelsPerEvent = collection.mutable.HashMap[String,Seq[(String,Int,Seq[String])]]()
+  var totalContextLabelCount = 0
+  for((paperID, eventSpansInPaper) <- eventsOnlyInOldReach) {
+    val contextLabelsInfoPerEvent = collection.mutable.ListBuffer[(String, Int, Seq[String])]()
+    for(ev <- eventSpansInPaper) {
+      val contextLabelsInEvent = labelMap.filter(x => (x._1._1 == paperID && x._1._2 == ev)).map(x => x._1._3)
+      val tupleEntry = (ev,contextLabelsInEvent.size, contextLabelsInEvent)
+      println(s"The event ${ev} has ${contextLabelsInEvent.size} context labels")
+      contextLabelsInfoPerEvent += tupleEntry
+      totalContextLabelCount += contextLabelsInEvent.size
+    }
+    val mapEntry = Map(paperID -> contextLabelsInfoPerEvent)
+    mapOfcontextLabelsPerEvent ++= mapEntry
+  }
+
+
+  println(s"The total number of contexts that unique events in old Reach have, is: ${totalContextLabelCount}")
+
+
+
+
+
+
+
+
+
 
 
 
