@@ -60,8 +60,6 @@ object SVMPerformanceOnNewReach extends App {
 
   val paperIDByOldRowsSpecs = labelMap.map(_._1)
 
-
-
   val giantTruthLabelList = collection.mutable.ListBuffer[Int]()
   val giantPredictedLabelList = collection.mutable.ListBuffer[Int]()
   val matchingLabelsInNewReachByPaper = collection.mutable.HashMap[String,Seq[(String,String,String)]]()
@@ -121,10 +119,11 @@ object SVMPerformanceOnNewReach extends App {
   // Tasks 1 and 2: finding the events in new and old Reach that don't match up with each other
   println(s"The paper PMC2063868 is degenerate as per new Reach and will not appear in this analysis.")
   println(s"All events and contexts that appeared in the new Reach are 15 sentences away. We will restrict ourselves to this window even n the old dataset.")
-  var totalLabelsMissingFromNewDataset = 0
-  var totalLabelsMissingFromOldDataset = 0
+  var totalEventsMissingFromNewDataset = 0
+  var totalEventsMissingFromOldDataset = 0
   val eventsOnlyInNewReach = collection.mutable.HashMap[String, Seq[String]]()
   val eventsOnlyInOldReach = collection.mutable.HashMap[String, Seq[String]]()
+
   for((paperID,matchingLabelsNew) <-  matchingLabelsInNewReachByPaper) {
     // getting all the rows that were extracted by new Reach and extracting their event IDs
     val allRowSpecsInThisPaper = paperIDByNewRowsSpecs.filter(_._1 == paperID).map(_._2).flatten
@@ -134,26 +133,27 @@ object SVMPerformanceOnNewReach extends App {
     val mapEntry = Map(paperID -> nonMatches.toSeq)
     eventsOnlyInNewReach ++= mapEntry
     println(s"In the new Reach (Reach 2019), the paper ${paperID} has ${nonMatches.size} unique events that are not present in the old dataset.")
-    totalLabelsMissingFromOldDataset += nonMatches.size
+    totalEventsMissingFromOldDataset += nonMatches.size
   }
 
 
 
   println("*********")
-
+  var totalUniqueEventSpansOldData = 0
   for((paperID, matchingLabelsOld) <- matchingLabelsInOldReachByPaper) {
     val allLabelsInPaper = paperIDByOldRowsSpecs.filter(_._1 == paperID)
     val allUniqueEventsInPaper = allLabelsInPaper.map(_._2).toSet
+    totalUniqueEventSpansOldData += allUniqueEventsInPaper.size
     val matchingUniqueEventSpans = matchingLabelsOld.map(_._2).toSet
     val nonMatches = allUniqueEventsInPaper -- matchingUniqueEventSpans
     val mapEntry = Map(paperID -> nonMatches.toSeq)
     eventsOnlyInOldReach ++= mapEntry
     println(s"In the old Reach (Reach 2015), the paper ${paperID} has ${nonMatches.size} unique events that did not appear in the new Reach.")
-    totalLabelsMissingFromNewDataset += nonMatches.size
+    totalEventsMissingFromNewDataset += nonMatches.size
   }
 
-  println(s"Total no. of unique event spans appearing only in old Reach (Reach 2015): ${totalLabelsMissingFromNewDataset} ")
-  println(s"Total no. of unique event spans appearing only in new Reach (Reach 2019): ${totalLabelsMissingFromOldDataset} ")
+  println(s"Total no. of unique event spans appearing only in old Reach (Reach 2015): ${totalEventsMissingFromNewDataset} ")
+  println(s"Total no. of unique event spans appearing only in new Reach (Reach 2019): ${totalEventsMissingFromOldDataset} ")
 
 //
 //  uncomment the below block for task 3
@@ -307,35 +307,16 @@ object SVMPerformanceOnNewReach extends App {
 
 
   println(s"A total of ${totalUniqueEventSpansInOldMatchings} unique event spans were found in the 7k set of matching context-event labels in old Reach")
+  println(s"A total of ${totalUniqueEventSpansOldData} unique event spans were found in the whole annotation set, matchings and non-matchings included")
   for((paperID, uniqueEventsInfo) <- eventSpansInMatchingLabelsInOldData) {
     println(s"The paper ${paperID} has ${uniqueEventsInfo._1} unique event spans as per old Reach")
   }
 
-  val mapOfcontextLabelsPerEvent = collection.mutable.HashMap[String,Seq[(String,Int,Seq[String])]]()
-  var totalContextLabelCount = 0
-  for((paperID, eventSpansInPaper) <- eventsOnlyInOldReach) {
-    val contextLabelsInfoPerEvent = collection.mutable.ListBuffer[(String, Int, Seq[String])]()
-    for(ev <- eventSpansInPaper) {
-      val contextLabelsInEvent = labelMap.filter(x => (x._1._1 == paperID && x._1._2 == ev)).map(x => x._1._3)
-      val tupleEntry = (ev,contextLabelsInEvent.size, contextLabelsInEvent)
-      println(s"The event ${ev} has ${contextLabelsInEvent.size} context labels")
-      contextLabelsInfoPerEvent += tupleEntry
-      totalContextLabelCount += contextLabelsInEvent.size
-    }
-    val mapEntry = Map(paperID -> contextLabelsInfoPerEvent)
-    mapOfcontextLabelsPerEvent ++= mapEntry
-  }
 
 
-  var totalAnnotationCount  = 0
-  for((_,_) <- labelMap) {
-    totalAnnotationCount += 1
-  }
-
-  println(s"We have a total of ${totalAnnotationCount} annotations")
 
 
-  println(s"The total number of contexts that unique events in old Reach have, is: ${totalContextLabelCount}")
+
 
 
 
