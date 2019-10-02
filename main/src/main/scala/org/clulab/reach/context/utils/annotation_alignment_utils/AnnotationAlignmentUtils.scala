@@ -2,7 +2,7 @@ package org.clulab.reach.context.utils.annotation_alignment_utils
 
 import scala.collection.mutable
 import scala.collection.immutable.ListMap
-object EventAlignmentUtils {
+object AnnotationAlignmentUtils {
   def isThereSomeMatch(evt1Start:Int, evt1End:Int, evt2Start:Int, evt2End: Int):Boolean = {
     // exact match is when both events have the same start and end token values
     val exactMatch = ((evt1Start == evt2Start) && (evt1End == evt2End))
@@ -31,7 +31,7 @@ object EventAlignmentUtils {
 
   def eventsAlign(eventSpec1:(Int,Int,Int), eventSpec2:(Int,Int,Int)):Boolean = {
     val sameSentenceIndex = eventSpec1._1 == eventSpec2._1
-    val someMatchExists = EventAlignmentUtils.isThereSomeMatch(eventSpec1._2, eventSpec1._3, eventSpec2._2, eventSpec2._3)
+    val someMatchExists = AnnotationAlignmentUtils.isThereSomeMatch(eventSpec1._2, eventSpec1._3, eventSpec2._2, eventSpec2._3)
     sameSentenceIndex && someMatchExists
   }
 
@@ -45,12 +45,12 @@ object EventAlignmentUtils {
   }
 
   def eventsAlign(evtID1: String, evtID2: String):Boolean = {
-    val tupEvt1 = EventAlignmentUtils.parseEventIDFromStringToTup(evtID1)
-    val tupEvt2 = EventAlignmentUtils.parseEventIDFromStringToTup(evtID2)
+    val tupEvt1 = AnnotationAlignmentUtils.parseEventIDFromStringToTup(evtID1)
+    val tupEvt2 = AnnotationAlignmentUtils.parseEventIDFromStringToTup(evtID2)
     // the purpose of this function is to align events.
     // Since overlap or containment of one event by another is possible,
     // we need to test if one event contains the other, or vice versa. Same holds for overlap.
-    EventAlignmentUtils.eventsAlign(tupEvt1, tupEvt2) || EventAlignmentUtils.eventsAlign(tupEvt2, tupEvt1)
+    AnnotationAlignmentUtils.eventsAlign(tupEvt1, tupEvt2) || AnnotationAlignmentUtils.eventsAlign(tupEvt2, tupEvt1)
   }
 
 
@@ -118,5 +118,27 @@ object EventAlignmentUtils {
 
     }
     listOfBinaries.mkString("")
+  }
+
+  def contextsAlign(ctxID1: String, ctxID2: String):Boolean = {
+    ctxID1 == ctxID2
+  }
+
+
+  def countFrequencyOfAnnotations(annotations:Seq[(String,String,String)]):Map[(String,String,String),Int] = {
+    val frequencyOfAnnotations = collection.mutable.HashMap[(String,String,String),Int]()
+    for(a <- annotations) {
+      if(frequencyOfAnnotations.contains(a)) {
+        var currentFrequency = frequencyOfAnnotations(a)
+        currentFrequency += 1
+        frequencyOfAnnotations(a) = currentFrequency
+      }
+      else {
+        val freqMapNewEntry = Map(a -> 1)
+        frequencyOfAnnotations ++= freqMapNewEntry
+      }
+    }
+
+    frequencyOfAnnotations.toMap
   }
 }
