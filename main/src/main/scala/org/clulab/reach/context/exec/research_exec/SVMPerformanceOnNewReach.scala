@@ -334,12 +334,22 @@ object SVMPerformanceOnNewReach extends App {
   val matchingAnnotInOldReachPaperAgnostic = matchingLabelsInOldReachByPaper.map(_._2).flatten
   val freqMapOfMatchingAnnotFromOldReach =  AnnotationAlignmentUtils.countFrequencyOfAnnotations(matchingAnnotInOldReachPaperAgnostic.toSeq)
   val numOfMatchingAnnotHighFreqOldReach = freqMapOfMatchingAnnotFromOldReach.filter(_._2 > 1)
-  val frequencyMapOfAnnotOldReachOnly = AnnotationAlignmentUtils.countFrequencyOfAnnotations(annotationsOnlyInOldReachPaperAgnostic)
-  val annotationsWithHighFreq = frequencyMapOfAnnotOldReachOnly.filter(x => x._2 > 1)
-  println(s"The number of annotations only in the old dataset that appeared more than once is: ${annotationsWithHighFreq.size}")
-  println(s"The number of annotations in the matching set that came from old Reach is: ${numOfMatchingAnnotHighFreqOldReach.size}")
+  println(s"The number of matching annotations from old Reach that have high frequency is: ${numOfMatchingAnnotHighFreqOldReach.size}")
 
 
+
+
+  var totalCountOfContextsInNonMatches = 0
+  for((_,nonMatchEvents) <- eventsOnlyInOldReach) {
+    for(n <- nonMatchEvents) {
+
+      val countOfContextsPerEvent = matchingAnnotInOldReachPaperAgnostic.filter(_._2 == n).size
+      totalCountOfContextsInNonMatches += countOfContextsPerEvent
+    }
+  }
+
+
+  println(s"The total number of contexts over all the non-matching event spans is: ${totalCountOfContextsInNonMatches}")
 
 
 
