@@ -159,6 +159,17 @@ package object display {
     val summaryOfMods = b.modifications map {
       case Negation(evidence) =>
         s"""$indent\t\tNegated by \"${evidence.text}\""""
+      case KDtrigger(evidence) =>
+        s"""$indent\t\tKnockdown Triggered by \"${evidence.text}\""""
+      case KOtrigger(evidence) =>
+        s"""$indent\t\tKnockout Triggered by \"${evidence.text}\""""
+      case DNtrigger(evidence) =>
+        s"""$indent\t\tDominant Negative Triggered by \"${evidence.text}\""""
+      case OEtrigger(evidence) =>
+        s"""$indent\t\tOverexpression Triggered by \"${evidence.text}\""""
+      case CHEMtrigger(evidence) =>
+        s"""$indent\t\tChemical Inhibition Triggered by \"${evidence.text}\""""
+
       case Hypothesis(evidence) =>
         s"""$indent\t\tHypothesis by \"${evidence.text}\""""
       case Mutant(evidence, foundBy) =>
