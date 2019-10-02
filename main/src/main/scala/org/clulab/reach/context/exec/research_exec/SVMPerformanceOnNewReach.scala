@@ -339,31 +339,4 @@ object SVMPerformanceOnNewReach extends App {
 
 
 
-  var totalCountOfContextsInNonMatches = 0
-  for((_,nonMatchEvents) <- eventsOnlyInOldReach) {
-    for(n <- nonMatchEvents) {
-
-      val countOfContextsPerEvent = matchingAnnotInOldReachPaperAgnostic.filter(_._2 == n).size
-      totalCountOfContextsInNonMatches += countOfContextsPerEvent
-    }
-  }
-
-
-  println(s"The total number of contexts over all the non-matching event spans is: ${totalCountOfContextsInNonMatches}")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
