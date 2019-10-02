@@ -140,10 +140,12 @@ object SVMPerformanceOnNewReach extends App {
 
   println("*********")
   var totalUniqueEventSpansOldData = 0
-
+  var countingannotationsNotInMatchingsInOldData = 0
   for((paperID, matchingLabelsOld) <- matchingLabelsInOldReachByPaper) {
 
     val allLabelsInPaper = paperIDByOldRowsSpecs.filter(_._1 == paperID)
+    val annotationsOnlyInOldReach = allLabelsInPaper.toSet -- matchingLabelsOld.toSet
+    countingannotationsNotInMatchingsInOldData += annotationsOnlyInOldReach.size
     val allUniqueEventsInPaper = allLabelsInPaper.map(_._2).toSet
 
     totalUniqueEventSpansOldData += allUniqueEventsInPaper.size
@@ -312,6 +314,7 @@ object SVMPerformanceOnNewReach extends App {
 
   println(s"A total of ${totalUniqueEventSpansInOldMatchings} unique event spans were found in the 7k set of matching context-event labels in old Reach")
   println(s"A total of ${totalUniqueEventSpansOldData} unique event spans were found in the whole annotation set, matchings and non-matchings included")
+  println(s"The number of annotations only in the old dataset = ${countingannotationsNotInMatchingsInOldData}")
   for((paperID, uniqueEventsInfo) <- eventSpansInMatchingLabelsInOldData) {
     println(s"The paper ${paperID} has ${uniqueEventsInfo._1} unique event spans as per old Reach in the matching subset of annotations")
   }
