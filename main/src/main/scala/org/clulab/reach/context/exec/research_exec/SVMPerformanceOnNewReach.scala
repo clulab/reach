@@ -331,8 +331,11 @@ object SVMPerformanceOnNewReach extends App {
 
 
       val annotationMapByEventID = allAnnotationsFromOldReach.groupBy(_._2)
-      for((_,seqOfContexts) <- annotationMapByEventID)
-        totalContextCountForAllMissingEvents += seqOfContexts.size
+      for(nonMatch <- annotationsOnlyInOldReachPaperAgnostic) {
+        val contextsPerNonMatch = annotationMapByEventID(nonMatch)
+        totalContextCountForAllMissingEvents += contextsPerNonMatch.size
+      }
+
 
   println(s"Total no. of contexts available with events only in old Reach: ${totalContextCountForAllMissingEvents}")
 
