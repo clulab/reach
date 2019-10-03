@@ -329,7 +329,7 @@ object SVMPerformanceOnNewReach extends App {
 
   val frequencyOfMatchingAnnotationsOldReach = AnnotationAlignmentUtils.countFrequencyOfAnnotations(paperIDByOldRowsSpecs)
   val highFreq = frequencyOfMatchingAnnotationsOldReach.filter(_._2 > 1)
-  println(s"There were ${highFreq.size} annotations from the old dataset that matched with atleast 2 new reach events:")
+  println(s"There were ${highFreq.size} annotations from the old dataset that appeared more than 1 time")
 
 
 }
