@@ -147,7 +147,7 @@ object SVMPerformanceOnNewReach extends App {
   println("*********")
   var totalContextCountForAllMissingEvents = 0
   var totalUniqueEventSpansOldData = 0
-  val annotationsOnlyInOldReachPaperAgnostic = collection.mutable.ListBuffer[String]()
+  val eventSpansOnlyInOldReachPaperAgnostic = collection.mutable.ListBuffer[String]()
 
   for((paperID, matchingLabelsOld) <- matchingLabelsInOldReachByPaper) {
 
@@ -155,16 +155,16 @@ object SVMPerformanceOnNewReach extends App {
 
     val allEventsInPaper = allLabelsInPaper.map(_._2)
 
-    totalUniqueEventSpansOldData += allEventsInPaper.size
+    totalUniqueEventSpansOldData += allEventsInPaper.toSet.size
     val matchingEventSpans = matchingLabelsOld.map(_._2)
 
     val nonMatches = collection.mutable.ListBuffer[String]()
     for(a <- allEventsInPaper) {
-      if(!matchingEventSpans.contains(a))
+      if(!matchingEventSpans.contains(a) && !nonMatches.contains(a))
         nonMatches += a
     }
 
-    annotationsOnlyInOldReachPaperAgnostic ++= nonMatches
+    eventSpansOnlyInOldReachPaperAgnostic ++= nonMatches
 
     val mapEntry = Map(paperID -> nonMatches)
     eventsOnlyInOldReach ++= mapEntry
@@ -336,7 +336,7 @@ object SVMPerformanceOnNewReach extends App {
 
 
       val annotationMapByEventID = allAnnotationsFromOldReach.groupBy(_._2)
-      for(nonMatch <- annotationsOnlyInOldReachPaperAgnostic) {
+      for(nonMatch <- eventSpansOnlyInOldReachPaperAgnostic) {
         val contextsPerNonMatch = annotationMapByEventID(nonMatch)
         totalContextCountForAllMissingEvents += contextsPerNonMatch.size
       }
