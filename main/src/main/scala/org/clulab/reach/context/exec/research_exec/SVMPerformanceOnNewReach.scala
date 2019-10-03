@@ -159,8 +159,9 @@ object SVMPerformanceOnNewReach extends App {
     val matchingUniqueEventSpans = matchingLabelsOld.map(_._2).toSet
 
     val nonMatches = allUniqueEventsInPaper -- matchingUniqueEventSpans
-    val annotationCountPerNonMatches = allAnnotationsFromOldReach.filter(x => nonMatches.contains(x._2))
-    totalContextCountForAllMissingEvents += annotationCountPerNonMatches.size
+    val annotationCountPerNonMatches = allAnnotationsFromOldReach.groupBy(_._2)
+    for((_,seqOfContexts) <- annotationCountPerNonMatches)
+      totalContextCountForAllMissingEvents += seqOfContexts.size
     val mapEntry = Map(paperID -> nonMatches.toSeq)
     eventsOnlyInOldReach ++= mapEntry
     totalEventsMissingFromNewDataset += nonMatches.size
