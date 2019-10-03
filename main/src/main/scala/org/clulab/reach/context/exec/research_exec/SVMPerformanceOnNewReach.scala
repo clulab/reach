@@ -58,7 +58,7 @@ object SVMPerformanceOnNewReach extends App {
   }
 
 
-  val paperIDByOldRowsSpecs = labelMap.map(_._1)
+  val allAnnotationsFromOldReach = labelMap.map(_._1)
 
   val giantTruthLabelList = collection.mutable.ListBuffer[Int]()
   val giantPredictedLabelList = collection.mutable.ListBuffer[Int]()
@@ -146,14 +146,12 @@ object SVMPerformanceOnNewReach extends App {
 
   println("*********")
   var totalUniqueEventSpansOldData = 0
-  var countingUniqueNonMatchingOldReachOnly = 0
   val annotationsOnlyInOldReachPaperAgnostic = collection.mutable.ListBuffer[(String,String,String)]()
 
   for((paperID, matchingLabelsOld) <- matchingLabelsInOldReachByPaper) {
 
-    val allLabelsInPaper = paperIDByOldRowsSpecs.filter(_._1 == paperID)
-    val annotationsOnlyInOldReachPerPaper = allLabelsInPaper.toSet -- matchingLabelsOld.toSet
-    countingUniqueNonMatchingOldReachOnly += annotationsOnlyInOldReachPerPaper.size
+    val allLabelsInPaper = allAnnotationsFromOldReach.filter(_._1 == paperID)
+
     val allUniqueEventsInPaper = allLabelsInPaper.map(_._2).toSet
 
     totalUniqueEventSpansOldData += allUniqueEventsInPaper.size
@@ -321,7 +319,14 @@ object SVMPerformanceOnNewReach extends App {
 
   println(s"A total of ${totalUniqueEventSpansInOldMatchings} unique event spans were found in the 7k set of matching context-event labels in old Reach")
   println(s"A total of ${totalUniqueEventSpansOldData} unique event spans were found in the whole annotation set, matchings and non-matchings included in old reach")
-  println(s"A total of ${countingUniqueNonMatchingOldReachOnly} unique annotations were found in the non-matching list of annotations in old Reach")
+
+
+  //paperIDByOldRowsSpecs
+  val onlyMatchingsFromOldReach = matchingLabelsInOldReachByPaper.map(x => x._2).flatten.toSet
+  val missingAnnotations = allAnnotationsFromOldReach.toSet -- onlyMatchingsFromOldReach
+  println(s"Size of missing annotations: ${missingAnnotations.size}")
+
+
 
 
 
