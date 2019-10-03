@@ -158,7 +158,6 @@ object SVMPerformanceOnNewReach extends App {
     val nonMatches = allUniqueEventsInPaper -- matchingUniqueEventSpans
     val mapEntry = Map(paperID -> nonMatches.toSeq)
     eventsOnlyInOldReach ++= mapEntry
-    println(s"In the old Reach (Reach 2015), the paper ${paperID} has ${nonMatches.size} unique events that did not appear in the new Reach.")
     totalEventsMissingFromNewDataset += nonMatches.size
   }
 
@@ -317,12 +316,9 @@ object SVMPerformanceOnNewReach extends App {
 
 
   println(s"A total of ${totalUniqueEventSpansInOldMatchings} unique event spans were found in the 7k set of matching context-event labels in old Reach")
-  println(s"A total of ${totalUniqueEventSpansOldData} unique event spans were found in the whole annotation set, matchings and non-matchings included")
-  println(s"A total of ${countingNonUniqueNonMacthingOldReachOnly} non-unique annotations were found in the non-matching list of annotations")
-  println(s"A total of ${countingUniqueNonMatchingOldReachOnly} unique annotations were found in the non-matching list of annotations")
-  for((paperID, uniqueEventsInfo) <- eventSpansInMatchingLabelsInOldData) {
-    println(s"The paper ${paperID} has ${uniqueEventsInfo._1} unique event spans as per old Reach in the matching subset of annotations")
-  }
+  println(s"A total of ${totalUniqueEventSpansOldData} unique event spans were found in the whole annotation set, matchings and non-matchings included in old reach")
+  println(s"A total of ${countingUniqueNonMatchingOldReachOnly} unique annotations were found in the non-matching list of annotations in old Reach")
+
 
 
   var totalNoOfAnnotations = 0
@@ -330,15 +326,10 @@ object SVMPerformanceOnNewReach extends App {
 
   println(s"The total number of annotations we have is: ${totalNoOfAnnotations}")
 
-  println(s"The total number of (non-unique) matchings is: ${countMatchingsNonUnique}")
 
-  val matchingAnnotInOldReachPaperAgnostic = matchingLabelsInOldReachByPaper.map(_._2).flatten
-  val freqMapOfMatchingAnnotFromOldReach =  AnnotationAlignmentUtils.countFrequencyOfAnnotations(matchingAnnotInOldReachPaperAgnostic.toSeq)
-  val freqsInMatchingLabels = freqMapOfMatchingAnnotFromOldReach.map(_._2)
-  val numOfMatchingAnnotHighFreqOldReach = freqMapOfMatchingAnnotFromOldReach.filter(_._2 >= 3)
-  println(s"The number of matching annotations from old Reach that have frequency >= 3: ${numOfMatchingAnnotHighFreqOldReach.size}")
-  println(s"The max frequency of matching annotations is: ${freqsInMatchingLabels.max}")
-
+  val frequencyOfMatchingAnnotationsOldReach = AnnotationAlignmentUtils.countFrequencyOfAnnotations(paperIDByOldRowsSpecs)
+  val highFreq = frequencyOfMatchingAnnotationsOldReach.filter(_._2 > 1)
+  println(s"There were ${highFreq.size} annotations from the old dataset that matched with atleast 2 new reach events:")
 
 
 }
