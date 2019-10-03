@@ -64,11 +64,15 @@ object SVMPerformanceOnNewReach extends App {
   val giantPredictedLabelList = collection.mutable.ListBuffer[Int]()
   val matchingLabelsInNewReachByPaper = collection.mutable.HashMap[String,Seq[(String,String,String)]]()
   val matchingLabelsInOldReachByPaper = collection.mutable.HashMap[String,Seq[(String,String,String)]]()
+
+
+
   // testing if event-context pairs detected by new Reach align neatly with those from the old Reach.
   // If they do, we can use the annotation from the old one as "gold standard", and the new row can be predicted and tested for precision
   var countMatchingsNonUnique = 0
   for((paperID, testRows) <- paperIDByNewRows) {
     val testRowsWithMatchingLabels = collection.mutable.ListBuffer[AggregatedContextInstance]()
+    val alreadyVisitedOldAnnotations = collection.mutable.ListBuffer[(String,String,String)]()
     val matchingLabelsPerPaperNewReach = collection.mutable.ListBuffer[(String, String, String)]()
     val matchingLabelsPerPaperOldReach = collection.mutable.ListBuffer[(String, String, String)]()
     val predictedLabelsInThisPaper = collection.mutable.ListBuffer[Int]()
@@ -79,13 +83,15 @@ object SVMPerformanceOnNewReach extends App {
       for((labelID,label) <- possibleLabelIDsInThisPaper) {
         val specForTester = specsByRow(tester)
         if(AnnotationAlignmentUtils.eventsAlign(specForTester._2,labelID._2) && AnnotationAlignmentUtils.contextsAlign(specForTester._3,labelID._3)) {
-          countMatchingsNonUnique += 1
-          //if(!testRowsWithMatchingLabels.contains(tester)) {
+            countMatchingsNonUnique += 1
+          if(!alreadyVisitedOldAnnotations.contains(labelID)) {
             testRowsWithMatchingLabels += tester
             trueLabelsInThisPaper += label
+
             matchingLabelsPerPaperNewReach += specForTester
             matchingLabelsPerPaperOldReach += labelID
-          //}
+            alreadyVisitedOldAnnotations += labelID
+          }
         }
       }
 
@@ -133,7 +139,6 @@ object SVMPerformanceOnNewReach extends App {
     val nonMatches = allUniqueEventSpans -- matchingUniqueEventSpans
     val mapEntry = Map(paperID -> nonMatches.toSeq)
     eventsOnlyInNewReach ++= mapEntry
-    println(s"In the new Reach (Reach 2019), the paper ${paperID} has ${nonMatches.size} unique events that are not present in the old dataset.")
     totalEventsMissingFromOldDataset += nonMatches.size
   }
 
@@ -142,7 +147,6 @@ object SVMPerformanceOnNewReach extends App {
   println("*********")
   var totalUniqueEventSpansOldData = 0
   var countingUniqueNonMatchingOldReachOnly = 0
-  var countingNonUniqueNonMacthingOldReachOnly = 0
   val annotationsOnlyInOldReachPaperAgnostic = collection.mutable.ListBuffer[(String,String,String)]()
 
   for((paperID, matchingLabelsOld) <- matchingLabelsInOldReachByPaper) {
@@ -326,10 +330,6 @@ object SVMPerformanceOnNewReach extends App {
 
   println(s"The total number of annotations we have is: ${totalNoOfAnnotations}")
 
-
-  val frequencyOfMatchingAnnotationsOldReach = AnnotationAlignmentUtils.countFrequencyOfAnnotations(paperIDByOldRowsSpecs)
-  val highFreq = frequencyOfMatchingAnnotationsOldReach.filter(_._2 > 1)
-  println(s"There were ${highFreq.size} annotations from the old dataset that appeared more than 1 time")
 
 
 }
