@@ -330,11 +330,16 @@ object SVMPerformanceOnNewReach extends App {
   }
 
 
+  var totalNoOfAnnotations = 0
+  for((_,_) <- labelMap) totalNoOfAnnotations += 1
+
+  println(s"The total number of annotations we have is: ${totalNoOfAnnotations}")
+
 
   val matchingAnnotInOldReachPaperAgnostic = matchingLabelsInOldReachByPaper.map(_._2).flatten
   val freqMapOfMatchingAnnotFromOldReach =  AnnotationAlignmentUtils.countFrequencyOfAnnotations(matchingAnnotInOldReachPaperAgnostic.toSeq)
-  val numOfMatchingAnnotHighFreqOldReach = freqMapOfMatchingAnnotFromOldReach.filter(_._2 > 1)
-  println(s"The number of matching annotations from old Reach that have high frequency is: ${numOfMatchingAnnotHighFreqOldReach.size}")
+  val numOfMatchingAnnotHighFreqOldReach = freqMapOfMatchingAnnotFromOldReach.filter(_._2 >= 3)
+  println(s"The number of matching annotations from old Reach that have frequency >= 3: ${numOfMatchingAnnotHighFreqOldReach.size}")
 
 
 
