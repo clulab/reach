@@ -341,9 +341,10 @@ object SVMPerformanceOnNewReach extends App {
 
   val matchingAnnotInOldReachPaperAgnostic = matchingLabelsInOldReachByPaper.map(_._2).flatten
   val freqMapOfMatchingAnnotFromOldReach =  AnnotationAlignmentUtils.countFrequencyOfAnnotations(matchingAnnotInOldReachPaperAgnostic.toSeq)
+  val freqsInMatchingLabels = freqMapOfMatchingAnnotFromOldReach.map(_._2)
   val numOfMatchingAnnotHighFreqOldReach = freqMapOfMatchingAnnotFromOldReach.filter(_._2 >= 3)
   println(s"The number of matching annotations from old Reach that have frequency >= 3: ${numOfMatchingAnnotHighFreqOldReach.size}")
-
+  println(s"The max frequency of matching annotations is: ${freqsInMatchingLabels.max}")
 
 
 
