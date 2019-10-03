@@ -80,12 +80,12 @@ object SVMPerformanceOnNewReach extends App {
         val specForTester = specsByRow(tester)
         if(AnnotationAlignmentUtils.eventsAlign(specForTester._2,labelID._2) && AnnotationAlignmentUtils.contextsAlign(specForTester._3,labelID._3)) {
           countMatchingsNonUnique += 1
-          if(!testRowsWithMatchingLabels.contains(tester)) {
+          //if(!testRowsWithMatchingLabels.contains(tester)) {
             testRowsWithMatchingLabels += tester
             trueLabelsInThisPaper += label
             matchingLabelsPerPaperNewReach += specForTester
             matchingLabelsPerPaperOldReach += labelID
-          }
+          //}
         }
       }
 
@@ -149,13 +149,6 @@ object SVMPerformanceOnNewReach extends App {
 
     val allLabelsInPaper = paperIDByOldRowsSpecs.filter(_._1 == paperID)
     val annotationsOnlyInOldReachPerPaper = allLabelsInPaper.toSet -- matchingLabelsOld.toSet
-    for(a <- allLabelsInPaper) {
-      if(!matchingLabelsOld.contains(a)) {
-        countingNonUniqueNonMacthingOldReachOnly += 1
-        annotationsOnlyInOldReachPaperAgnostic += a
-      }
-
-    }
     countingUniqueNonMatchingOldReachOnly += annotationsOnlyInOldReachPerPaper.size
     val allUniqueEventsInPaper = allLabelsInPaper.map(_._2).toSet
 
