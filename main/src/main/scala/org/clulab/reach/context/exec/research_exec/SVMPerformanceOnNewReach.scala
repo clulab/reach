@@ -66,6 +66,7 @@ object SVMPerformanceOnNewReach extends App {
   val matchingLabelsInOldReachByPaper = collection.mutable.HashMap[String,Seq[(String,String,String)]]()
   // testing if event-context pairs detected by new Reach align neatly with those from the old Reach.
   // If they do, we can use the annotation from the old one as "gold standard", and the new row can be predicted and tested for precision
+  var countMatchingsNonUnique = 0
   for((paperID, testRows) <- paperIDByNewRows) {
     val testRowsWithMatchingLabels = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val matchingLabelsPerPaperNewReach = collection.mutable.ListBuffer[(String, String, String)]()
@@ -78,6 +79,7 @@ object SVMPerformanceOnNewReach extends App {
       for((labelID,label) <- possibleLabelIDsInThisPaper) {
         val specForTester = specsByRow(tester)
         if(AnnotationAlignmentUtils.eventsAlign(specForTester._2,labelID._2) && AnnotationAlignmentUtils.contextsAlign(specForTester._3,labelID._3)) {
+          countMatchingsNonUnique += 1
           if(!testRowsWithMatchingLabels.contains(tester)) {
             testRowsWithMatchingLabels += tester
             trueLabelsInThisPaper += label
@@ -335,6 +337,7 @@ object SVMPerformanceOnNewReach extends App {
 
   println(s"The total number of annotations we have is: ${totalNoOfAnnotations}")
 
+  println(s"The total number of (non-unique) matchings is: ${countMatchingsNonUnique}")
 
   val matchingAnnotInOldReachPaperAgnostic = matchingLabelsInOldReachByPaper.map(_._2).flatten
   val freqMapOfMatchingAnnotFromOldReach =  AnnotationAlignmentUtils.countFrequencyOfAnnotations(matchingAnnotInOldReachPaperAgnostic.toSeq)
