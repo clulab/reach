@@ -147,7 +147,7 @@ object SVMPerformanceOnNewReach extends App {
   println("*********")
   var totalContextCountForAllMissingEvents = 0
   var totalUniqueEventSpansOldData = 0
-  val annotationsOnlyInOldReachPaperAgnostic = collection.mutable.ListBuffer[(String,String,String)]()
+  val annotationsOnlyInOldReachPaperAgnostic = collection.mutable.ListBuffer[String]()
 
   for((paperID, matchingLabelsOld) <- matchingLabelsInOldReachByPaper) {
 
@@ -159,9 +159,8 @@ object SVMPerformanceOnNewReach extends App {
     val matchingUniqueEventSpans = matchingLabelsOld.map(_._2).toSet
 
     val nonMatches = allUniqueEventsInPaper -- matchingUniqueEventSpans
-    val annotationCountPerNonMatches = allAnnotationsFromOldReach.groupBy(_._2)
-    for((_,seqOfContexts) <- annotationCountPerNonMatches)
-      totalContextCountForAllMissingEvents += seqOfContexts.size
+    annotationsOnlyInOldReachPaperAgnostic ++= nonMatches.toSeq
+
     val mapEntry = Map(paperID -> nonMatches.toSeq)
     eventsOnlyInOldReach ++= mapEntry
     totalEventsMissingFromNewDataset += nonMatches.size
@@ -329,11 +328,13 @@ object SVMPerformanceOnNewReach extends App {
   val onlyMatchingsFromOldReach = matchingLabelsInOldReachByPaper.map(x => x._2).flatten.toSet
   val missingAnnotations = allAnnotationsFromOldReach.toSet -- onlyMatchingsFromOldReach
   println(s"Size of missing annotations: ${missingAnnotations.size}")
-  println(s"Total no. od contexts available with events only in old Reach: ${totalContextCountForAllMissingEvents}")
 
 
+      val annotationMapByEventID = allAnnotationsFromOldReach.groupBy(_._2)
+      for((_,seqOfContexts) <- annotationMapByEventID)
+        totalContextCountForAllMissingEvents += seqOfContexts.size
 
-
+  println(s"Total no. of contexts available with events only in old Reach: ${totalContextCountForAllMissingEvents}")
 
   var totalNoOfAnnotations = 0
   for((_,_) <- labelMap) totalNoOfAnnotations += 1
