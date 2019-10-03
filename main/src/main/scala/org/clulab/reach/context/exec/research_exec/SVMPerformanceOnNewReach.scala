@@ -153,15 +153,20 @@ object SVMPerformanceOnNewReach extends App {
 
     val allLabelsInPaper = allAnnotationsFromOldReach.filter(_._1 == paperID)
 
-    val allUniqueEventsInPaper = allLabelsInPaper.map(_._2).toSet
+    val allEventsInPaper = allLabelsInPaper.map(_._2)
 
-    totalUniqueEventSpansOldData += allUniqueEventsInPaper.size
-    val matchingUniqueEventSpans = matchingLabelsOld.map(_._2).toSet
+    totalUniqueEventSpansOldData += allEventsInPaper.size
+    val matchingEventSpans = matchingLabelsOld.map(_._2)
 
-    val nonMatches = allUniqueEventsInPaper -- matchingUniqueEventSpans
-    annotationsOnlyInOldReachPaperAgnostic ++= nonMatches.toSeq
+    val nonMatches = collection.mutable.ListBuffer[String]()
+    for(a <- allEventsInPaper) {
+      if(!matchingEventSpans.contains(a))
+        nonMatches += a
+    }
 
-    val mapEntry = Map(paperID -> nonMatches.toSeq)
+    annotationsOnlyInOldReachPaperAgnostic ++= nonMatches
+
+    val mapEntry = Map(paperID -> nonMatches)
     eventsOnlyInOldReach ++= mapEntry
     totalEventsMissingFromNewDataset += nonMatches.size
   }
