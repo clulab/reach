@@ -77,9 +77,9 @@ object SVMPerformanceOnNewReach extends App {
     val trueLabelsInThisPaper = collection.mutable.ListBuffer[Int]()
     val possibleLabelIDsInThisPaper = annotationsGroupedByPaperID(paperID)
     for(tester <- testRows) {
-
+      val specForTester = specsByRow(tester)
       for((labelID,label) <- possibleLabelIDsInThisPaper) {
-        val specForTester = specsByRow(tester)
+
         if(AnnotationAlignmentUtils.eventsAlign(specForTester._2,labelID._2) && AnnotationAlignmentUtils.contextsAlign(specForTester._3,labelID._3)) {
 //          println(s"The matching label from new Reach is: ${specForTester}")
 //          println(s"The matching label from old Reach is: ${labelID}")
@@ -343,6 +343,14 @@ object SVMPerformanceOnNewReach extends App {
 
   val onlyMatchingsFromOldReach = matchingLabelsInOldReachByPaper.map(x => x._2).flatten.toSeq
   val intersection = allAnnotationsFromOldReach.toSet.intersect(onlyMatchingsFromOldReach.toSet)
+  val mysteriousAnnotations = onlyMatchingsFromOldReach.toSet -- intersection
+  var missingContainedInNew = true
+  val allRowsInNewReach = paperIDByNewRowsSpecs.map(_._2).flatten
+  for(m <- mysteriousAnnotations) {
+
+    missingContainedInNew = missingContainedInNew && allRowsInNewReach.contains(m)
+  }
+  println(s"Truth value of whether some stray rows are coming in from new Reach")
   println(s"These number of annotations appear in matchings as well as non matchings in old Reach: ${intersection.size}")
   val missingAnnotations = collection.mutable.ListBuffer[(String,String,String)]()
   for(a <- allAnnotationsFromOldReach)
@@ -351,9 +359,6 @@ object SVMPerformanceOnNewReach extends App {
   println(s"Number of missing annotations: ${missingAnnotations.size}")
   var totalNoOfAnnotations = 0
   for((_,_) <- labelMap) totalNoOfAnnotations += 1
-
-  println(s"We have ${onlyMatchingsFromOldReach.size} annotations from the old dataset that match with the new one:")
-
 
   val freqMapOfEventSpanInPaper = AnnotationAlignmentUtils.countFrequency(listOfMatchesForOldFromNew)
   val maxFreq = freqMapOfEventSpanInPaper.map(_._2).max
