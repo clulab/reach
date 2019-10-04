@@ -29,6 +29,7 @@ object SVMPerformanceOnNewReach extends App {
   println(s"In svm performance class, running code")
   val labelFile = config.getString("svmContext.labelFileOldDataset")
   val labelMap = ReachSystemAnalysisIOUtils.generateLabelMap(labelFile).toSeq
+  val annotationsGroupedByPaperID= labelMap.groupBy(x => x._1._1)
   val specsByRow = collection.mutable.HashMap[AggregatedContextInstance, (String,String,String)]()
   val pathToParentdirToLoadNewRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
   val parentDirfileInstanceToLoadNewRows = new File(pathToParentdirToLoadNewRows)
@@ -74,7 +75,7 @@ object SVMPerformanceOnNewReach extends App {
     val matchingLabelsPerPaperOldReach = collection.mutable.ListBuffer[(String, String, String)]()
     val predictedLabelsInThisPaper = collection.mutable.ListBuffer[Int]()
     val trueLabelsInThisPaper = collection.mutable.ListBuffer[Int]()
-    val possibleLabelIDsInThisPaper = labelMap.filter(_._1._1 == paperID)
+    val possibleLabelIDsInThisPaper = annotationsGroupedByPaperID(paperID)
     for(tester <- testRows) {
 
       for((labelID,label) <- possibleLabelIDsInThisPaper) {
