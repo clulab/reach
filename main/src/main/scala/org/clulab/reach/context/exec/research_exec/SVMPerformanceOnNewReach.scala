@@ -80,11 +80,11 @@ object SVMPerformanceOnNewReach extends App {
       for((labelID,label) <- possibleLabelIDsInThisPaper) {
         val specForTester = specsByRow(tester)
         if(AnnotationAlignmentUtils.eventsAlign(specForTester._2,labelID._2) && AnnotationAlignmentUtils.contextsAlign(specForTester._3,labelID._3)) {
-          println(s"The matching label from new Reach is: ${specForTester}")
-          println(s"The matching label from old Reach is: ${labelID}")
+//          println(s"The matching label from new Reach is: ${specForTester}")
+//          println(s"The matching label from old Reach is: ${labelID}")
 
 
-          //if(!alreadyVisitedOldAnnotations.contains(labelID)) {
+          if(!testRowsWithMatchingLabels.contains(tester)) {
             testRowsWithMatchingLabels += tester
             trueLabelsInThisPaper += label
             val tupToAddForFreqCount = (labelID._2,paperID)
@@ -94,7 +94,7 @@ object SVMPerformanceOnNewReach extends App {
 
             matchingLabelsPerPaperNewReach += specForTester
             matchingLabelsPerPaperOldReach += labelID
-          //}
+          }
         }
       }
 
