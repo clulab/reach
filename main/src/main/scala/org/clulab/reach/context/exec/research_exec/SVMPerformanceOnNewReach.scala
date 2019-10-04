@@ -337,15 +337,6 @@ object SVMPerformanceOnNewReach extends App {
   println(s"Size of missing annotations: ${missingAnnotations.size}")
 
 
-      val annotationMapByEventID = allAnnotationsFromOldReach.groupBy(_._2)
-      for(nonMatch <- eventSpansOnlyInOldReachPaperAgnostic) {
-        val contextsPerNonMatch = annotationMapByEventID(nonMatch)
-        totalContextCountForAllMissingEvents += contextsPerNonMatch.size
-      }
-
-
-  println(s"Total no. of contexts available with events only in old Reach: ${totalContextCountForAllMissingEvents}")
-
   var totalNoOfAnnotations = 0
   for((_,_) <- labelMap) totalNoOfAnnotations += 1
 
