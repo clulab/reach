@@ -82,9 +82,9 @@ object SVMPerformanceOnNewReach extends App {
         val specForTester = specsByRow(tester)
         if(AnnotationAlignmentUtils.eventsAlign(specForTester._2,labelID._2) && AnnotationAlignmentUtils.contextsAlign(specForTester._3,labelID._3)) {
 
-          listOfMatchesForOldFromNew += labelID._2
 
-          if(!alreadyVisitedOldAnnotations.contains(labelID)) {
+
+          //if(!alreadyVisitedOldAnnotations.contains(labelID)) {
             testRowsWithMatchingLabels += tester
             trueLabelsInThisPaper += label
 
@@ -93,7 +93,7 @@ object SVMPerformanceOnNewReach extends App {
             matchingLabelsPerPaperNewReach += specForTester
             matchingLabelsPerPaperOldReach += labelID
             alreadyVisitedOldAnnotations += labelID
-          }
+          //}
         }
       }
 
@@ -335,15 +335,10 @@ object SVMPerformanceOnNewReach extends App {
   val onlyMatchingsFromOldReach = matchingLabelsInOldReachByPaper.map(x => x._2).flatten.toSet
   val missingAnnotations = allAnnotationsFromOldReach.toSet -- onlyMatchingsFromOldReach
   println(s"Size of missing annotations: ${missingAnnotations.size}")
-
-
   var totalNoOfAnnotations = 0
   for((_,_) <- labelMap) totalNoOfAnnotations += 1
 
-  val frequencyMapOfEventSpansOldReach = AnnotationAlignmentUtils.countFrequency(listOfMatchesForOldFromNew)
 
-  val maxFreqOfOldEventSpan = frequencyMapOfEventSpansOldReach.map(_._2).max
-  println(s"Maximum number of matches for old event spans: ${maxFreqOfOldEventSpan}")
 
 
 
