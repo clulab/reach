@@ -65,11 +65,9 @@ object SVMPerformanceOnNewReach extends App {
   val matchingLabelsInNewReachByPaper = collection.mutable.HashMap[String,Seq[(String,String,String)]]()
   val matchingLabelsInOldReachByPaper = collection.mutable.HashMap[String,Seq[(String,String,String)]]()
 
-
-
   // testing if event-context pairs detected by new Reach align neatly with those from the old Reach.
   // If they do, we can use the annotation from the old one as "gold standard", and the new row can be predicted and tested for precision
-  var countMatchingsNonUnique = 0
+  val listOfMatchesForOldFromNew = collection.mutable.ListBuffer[String]()
   for((paperID, testRows) <- paperIDByNewRows) {
     val testRowsWithMatchingLabels = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val alreadyVisitedOldAnnotations = collection.mutable.ListBuffer[(String,String,String)]()
@@ -83,12 +81,14 @@ object SVMPerformanceOnNewReach extends App {
       for((labelID,label) <- possibleLabelIDsInThisPaper) {
         val specForTester = specsByRow(tester)
         if(AnnotationAlignmentUtils.eventsAlign(specForTester._2,labelID._2) && AnnotationAlignmentUtils.contextsAlign(specForTester._3,labelID._3)) {
-            countMatchingsNonUnique += 1
-//            println(s"The matching annotation from new Reach: ${specForTester}")
-//            println(s"The matching annotation from old Reach: ${labelID}")
+
+          listOfMatchesForOldFromNew += labelID._2
+
           if(!alreadyVisitedOldAnnotations.contains(labelID)) {
             testRowsWithMatchingLabels += tester
             trueLabelsInThisPaper += label
+
+
 
             matchingLabelsPerPaperNewReach += specForTester
             matchingLabelsPerPaperOldReach += labelID
@@ -339,6 +339,14 @@ object SVMPerformanceOnNewReach extends App {
 
   var totalNoOfAnnotations = 0
   for((_,_) <- labelMap) totalNoOfAnnotations += 1
+
+  val frequencyMapOfEventSpansOldReach = AnnotationAlignmentUtils.countFrequency(listOfMatchesForOldFromNew)
+
+  val maxFreqOfOldEventSpan = frequencyMapOfEventSpansOldReach.map(_._2).max
+  println(s"Maximum number of matches for old event spans: ${maxFreqOfOldEventSpan}")
+
+
+
 
   println(s"The total number of annotations we have is: ${totalNoOfAnnotations}")
 

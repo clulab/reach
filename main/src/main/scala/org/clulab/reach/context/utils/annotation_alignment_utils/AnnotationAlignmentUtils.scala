@@ -128,8 +128,8 @@ object AnnotationAlignmentUtils {
   }
 
 
-  def countFrequencyOfAnnotations(annotations:Seq[(String,String,String)]):Map[(String,String,String),Int] = {
-    val frequencyOfAnnotations = collection.mutable.HashMap[(String,String,String),Int]()
+  def countFrequency(annotations: Seq[Any]):Map[Any,Int] = {
+    val frequencyOfAnnotations = collection.mutable.HashMap[Any,Int]()
     for(a <- annotations) {
       if(frequencyOfAnnotations.contains(a)) {
         var currentFrequency = frequencyOfAnnotations(a)
