@@ -6,7 +6,6 @@ object AnnotationAlignmentUtils {
   def isThereSomeMatch(evt1Start:Int, evt1End:Int, evt2Start:Int, evt2End: Int):Boolean = {
     // exact match is when both events have the same start and end token values
     val exactMatch = ((evt1Start == evt2Start) && (evt1End == evt2End))
-    if(exactMatch == true) println("EXACT MATCH FOUND")
     val tokenWindow = 2
 
     // same start is when the tokens start at the same point, but one event must end before the other

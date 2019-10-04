@@ -84,8 +84,8 @@ object SVMPerformanceOnNewReach extends App {
         val specForTester = specsByRow(tester)
         if(AnnotationAlignmentUtils.eventsAlign(specForTester._2,labelID._2) && AnnotationAlignmentUtils.contextsAlign(specForTester._3,labelID._3)) {
             countMatchingsNonUnique += 1
-//            println(s"The matching annotation from new Reach: ${specForTester}")
-//            println(s"The matching annotation from old Reach: ${labelID}")
+            println(s"The matching annotation from new Reach: ${specForTester}")
+            println(s"The matching annotation from old Reach: ${labelID}")
           if(!alreadyVisitedOldAnnotations.contains(labelID)) {
             testRowsWithMatchingLabels += tester
             trueLabelsInThisPaper += label
