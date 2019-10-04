@@ -350,7 +350,7 @@ object SVMPerformanceOnNewReach extends App {
 
     missingContainedInNew = missingContainedInNew && allRowsInNewReach.contains(m)
   }
-  println(s"Truth value of whether some stray rows are coming in from new Reach")
+  println(s"Truth value of whether some stray rows are coming in from new Reach: ${missingContainedInNew}")
   println(s"These number of annotations appear in matchings as well as non matchings in old Reach: ${intersection.size}")
   val missingAnnotations = collection.mutable.ListBuffer[(String,String,String)]()
   for(a <- allAnnotationsFromOldReach)
