@@ -67,7 +67,7 @@ object SVMPerformanceOnNewReach extends App {
 
   // testing if event-context pairs detected by new Reach align neatly with those from the old Reach.
   // If they do, we can use the annotation from the old one as "gold standard", and the new row can be predicted and tested for precision
-  val listOfMatchesForOldFromNew = collection.mutable.ListBuffer[String]()
+  val listOfMatchesForOldFromNew = collection.mutable.ListBuffer[(String,String)]()
   for((paperID, testRows) <- paperIDByNewRows) {
     val testRowsWithMatchingLabels = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val alreadyVisitedOldAnnotations = collection.mutable.ListBuffer[(String,String,String)]()
@@ -87,6 +87,8 @@ object SVMPerformanceOnNewReach extends App {
           //if(!alreadyVisitedOldAnnotations.contains(labelID)) {
             testRowsWithMatchingLabels += tester
             trueLabelsInThisPaper += label
+            val tupToAddForFreqCount = (labelID._2,paperID)
+            listOfMatchesForOldFromNew += tupToAddForFreqCount
 
 
 
@@ -341,7 +343,9 @@ object SVMPerformanceOnNewReach extends App {
 
 
 
-
+  val freqMapOfEventSpanInPaper = AnnotationAlignmentUtils.countFrequency(listOfMatchesForOldFromNew)
+  val maxFreq = freqMapOfEventSpanInPaper.map(_._2).max
+  println(s"The max frequency was found to be: ${maxFreq}")
 
   println(s"The total number of annotations we have is: ${totalNoOfAnnotations}")
 
