@@ -345,14 +345,7 @@ object SVMPerformanceOnNewReach extends App {
 
   val onlyMatchingsFromOldReach = matchingLabelsInOldReachByPaper.map(x => x._2).flatten.toSeq
   val intersection = allAnnotationsFromOldReach.toSet.intersect(onlyMatchingsFromOldReach.toSet)
-  val mysteriousAnnotations = onlyMatchingsFromOldReach.toSet -- intersection
-  var missingContainedInNew = true
-  val allRowsInNewReach = paperIDByNewRowsSpecs.map(_._2).flatten
-  for(m <- mysteriousAnnotations) {
 
-    missingContainedInNew = missingContainedInNew && allRowsInNewReach.contains(m)
-  }
-  println(s"Truth value of whether some stray rows are coming in from new Reach: ${missingContainedInNew}")
   println(s"These number of annotations appear in matchings as well as non matchings in old Reach: ${intersection.size}")
   val missingAnnotations = collection.mutable.ListBuffer[(String,String,String)]()
   for(a <- allAnnotationsFromOldReach)
@@ -362,15 +355,13 @@ object SVMPerformanceOnNewReach extends App {
   var totalNoOfAnnotations = 0
   for((_,_) <- labelMap) totalNoOfAnnotations += 1
 
-  val freqMapOfEventSpanInPaper = AnnotationAlignmentUtils.countFrequency(listOfMatchesForOldFromNew)
-  val maxFreq = freqMapOfEventSpanInPaper.map(_._2).max
-  val whichAnnotationMax = freqMapOfEventSpanInPaper.filter(_._2 == maxFreq)
-  println(s"The max frequency was found to be: ${maxFreq}")
-  println(s"In the old Reach, The event span with the maximum number of matches is: ${whichAnnotationMax}")
-
-
   println(s"The total number of annotations we have is: ${totalNoOfAnnotations}")
 
+  val nonMatchingsOnlyOldReach = allAnnotationsFromOldReach.toSet -- intersection
+  val nonMatchesGroupedByEvents = nonMatchingsOnlyOldReach.groupBy(x => x._2)
+  var totalContexts = 0
+  for((_, annotations) <- nonMatchesGroupedByEvents) totalContexts += annotations.size
 
+  println(s"Total number of contexts: ${totalContexts}")
 
 }
