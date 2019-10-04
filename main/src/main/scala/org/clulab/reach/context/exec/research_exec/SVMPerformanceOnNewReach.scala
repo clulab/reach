@@ -71,6 +71,7 @@ object SVMPerformanceOnNewReach extends App {
   val listOfMatchesForOldFromNew = collection.mutable.ListBuffer[(String,String)]()
   for((paperID, testRows) <- paperIDByNewRows) {
     val testRowsWithMatchingLabels = collection.mutable.ListBuffer[AggregatedContextInstance]()
+    val annotationsAlreadyVisited = collection.mutable.ListBuffer[(String,String,String)]()
     val matchingLabelsPerPaperNewReach = collection.mutable.ListBuffer[(String, String, String)]()
     val matchingLabelsPerPaperOldReach = collection.mutable.ListBuffer[(String, String, String)]()
     val predictedLabelsInThisPaper = collection.mutable.ListBuffer[Int]()
@@ -84,8 +85,8 @@ object SVMPerformanceOnNewReach extends App {
 //          println(s"The matching label from new Reach is: ${specForTester}")
 //          println(s"The matching label from old Reach is: ${labelID}")
 
-
-          if(!testRowsWithMatchingLabels.contains(tester)) {
+          if(!annotationsAlreadyVisited.contains(labelID)) {
+          //if(!testRowsWithMatchingLabels.contains(tester)) {
             testRowsWithMatchingLabels += tester
             trueLabelsInThisPaper += label
             val tupToAddForFreqCount = (labelID._2,paperID)
@@ -95,6 +96,7 @@ object SVMPerformanceOnNewReach extends App {
 
             matchingLabelsPerPaperNewReach += specForTester
             matchingLabelsPerPaperOldReach += labelID
+            annotationsAlreadyVisited += labelID
           }
         }
       }
