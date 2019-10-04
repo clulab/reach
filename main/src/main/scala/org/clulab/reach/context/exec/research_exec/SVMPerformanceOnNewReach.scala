@@ -351,7 +351,7 @@ object SVMPerformanceOnNewReach extends App {
   var totalNoOfAnnotations = 0
   for((_,_) <- labelMap) totalNoOfAnnotations += 1
 
-
+  println(s"We have ${onlyMatchingsFromOldReach.size} annotations from the old dataset that match with the new one:")
 
 
   val freqMapOfEventSpanInPaper = AnnotationAlignmentUtils.countFrequency(listOfMatchesForOldFromNew)
