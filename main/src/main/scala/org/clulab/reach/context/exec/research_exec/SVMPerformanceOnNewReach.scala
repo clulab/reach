@@ -99,14 +99,7 @@ object SVMPerformanceOnNewReach extends App {
       }
 
 
-      val matchingLabelsInThisPaperNewReach = Map(paperID -> matchingLabelsPerPaperNewReach)
-      matchingLabelsInNewReachByPaper ++= matchingLabelsInThisPaperNewReach
 
-
-
-
-      val matchingLabelsInThisPaperOldReach = Map(paperID -> matchingLabelsPerPaperOldReach)
-      matchingLabelsInOldReachByPaper  ++= matchingLabelsInThisPaperOldReach
 
 
     }
@@ -117,6 +110,16 @@ object SVMPerformanceOnNewReach extends App {
       val predictionByTestRow = trainedSVMInstance.predict(Seq(validTestRow))(0)
       predictedLabelsInThisPaper += predictionByTestRow
     }
+
+
+    val matchingLabelsInThisPaperNewReach = Map(paperID -> matchingLabelsPerPaperNewReach)
+    matchingLabelsInNewReachByPaper ++= matchingLabelsInThisPaperNewReach
+
+
+
+
+    val matchingLabelsInThisPaperOldReach = Map(paperID -> matchingLabelsPerPaperOldReach)
+    matchingLabelsInOldReachByPaper  ++= matchingLabelsInThisPaperOldReach
 
     giantTruthLabelList ++= trueLabelsInThisPaper
     giantPredictedLabelList ++= predictedLabelsInThisPaper
