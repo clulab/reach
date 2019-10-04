@@ -70,7 +70,6 @@ object SVMPerformanceOnNewReach extends App {
   val listOfMatchesForOldFromNew = collection.mutable.ListBuffer[(String,String)]()
   for((paperID, testRows) <- paperIDByNewRows) {
     val testRowsWithMatchingLabels = collection.mutable.ListBuffer[AggregatedContextInstance]()
-    val alreadyVisitedOldAnnotations = collection.mutable.ListBuffer[(String,String,String)]()
     val matchingLabelsPerPaperNewReach = collection.mutable.ListBuffer[(String, String, String)]()
     val matchingLabelsPerPaperOldReach = collection.mutable.ListBuffer[(String, String, String)]()
     val predictedLabelsInThisPaper = collection.mutable.ListBuffer[Int]()
@@ -81,7 +80,8 @@ object SVMPerformanceOnNewReach extends App {
       for((labelID,label) <- possibleLabelIDsInThisPaper) {
         val specForTester = specsByRow(tester)
         if(AnnotationAlignmentUtils.eventsAlign(specForTester._2,labelID._2) && AnnotationAlignmentUtils.contextsAlign(specForTester._3,labelID._3)) {
-
+          println(s"The matching label from new Reach is: ${specForTester}")
+          println(s"The matching label from old Reach is: ${labelID}")
 
 
           //if(!alreadyVisitedOldAnnotations.contains(labelID)) {
@@ -94,7 +94,6 @@ object SVMPerformanceOnNewReach extends App {
 
             matchingLabelsPerPaperNewReach += specForTester
             matchingLabelsPerPaperOldReach += labelID
-            alreadyVisitedOldAnnotations += labelID
           //}
         }
       }
@@ -334,9 +333,16 @@ object SVMPerformanceOnNewReach extends App {
 
 
   //paperIDByOldRowsSpecs
-  val onlyMatchingsFromOldReach = matchingLabelsInOldReachByPaper.map(x => x._2).flatten.toSet
-  val missingAnnotations = allAnnotationsFromOldReach.toSet -- onlyMatchingsFromOldReach
-  println(s"Size of missing annotations: ${missingAnnotations.size}")
+//  val onlyMatchingsFromOldReach = matchingLabelsInOldReachByPaper.map(x => x._2).flatten
+//  val missingAnnotations = allAnnotationsFromOldReach -- onlyMatchingsFromOldReach
+//  println(s"Size of missing annotations: ${missingAnnotations.size}")
+
+  val onlyMatchingsFromOldReach = matchingLabelsInOldReachByPaper.map(x => x._2).flatten.toSeq
+  val missingAnnotations = collection.mutable.ListBuffer[(String,String,String)]()
+  for(a <- allAnnotationsFromOldReach)
+    if(!onlyMatchingsFromOldReach.contains(a))
+      missingAnnotations += a
+  println(s"Number of missing annotations: ${missingAnnotations.size}")
   var totalNoOfAnnotations = 0
   for((_,_) <- labelMap) totalNoOfAnnotations += 1
 
@@ -345,7 +351,10 @@ object SVMPerformanceOnNewReach extends App {
 
   val freqMapOfEventSpanInPaper = AnnotationAlignmentUtils.countFrequency(listOfMatchesForOldFromNew)
   val maxFreq = freqMapOfEventSpanInPaper.map(_._2).max
+  val whichAnnotationMax = freqMapOfEventSpanInPaper.filter(_._2 == maxFreq)
   println(s"The max frequency was found to be: ${maxFreq}")
+  println(s"In the old Reach, The event span with the maximum number of matches is: ${whichAnnotationMax}")
+
 
   println(s"The total number of annotations we have is: ${totalNoOfAnnotations}")
 
