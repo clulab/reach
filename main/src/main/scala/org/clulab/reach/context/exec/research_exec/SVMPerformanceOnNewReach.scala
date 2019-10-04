@@ -338,6 +338,8 @@ object SVMPerformanceOnNewReach extends App {
 //  println(s"Size of missing annotations: ${missingAnnotations.size}")
 
   val onlyMatchingsFromOldReach = matchingLabelsInOldReachByPaper.map(x => x._2).flatten.toSeq
+  val intersection = allAnnotationsFromOldReach.toSet.intersect(onlyMatchingsFromOldReach.toSet)
+  println(s"These number of annotations appear in matchings as well as non matchings in old Reach: ${intersection.size}")
   val missingAnnotations = collection.mutable.ListBuffer[(String,String,String)]()
   for(a <- allAnnotationsFromOldReach)
     if(!onlyMatchingsFromOldReach.contains(a))
