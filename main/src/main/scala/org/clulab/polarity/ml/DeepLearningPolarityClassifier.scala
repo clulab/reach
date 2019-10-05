@@ -174,19 +174,17 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       val ctrlr_start = controller.start
       val ctrlr_end = controller.end
       println("==========")
-      println(lemmas.toString)
-      println(controller.text)
-      if (controller.isInstanceOf[org.clulab.reach.mentions.BioEventMention]){
-        if (controller.arguments.contains("theme")){
-          println("controller theme:",controller.arguments("theme").head.text)
-        }
-        else{
-          println("controller event no theme")
-        }
+      println("sentence:",lemmas.toSeq)
+      println("\tcontroller:",controller.text)
+      println("\tcontroller class:", controller.getClass.getName)
+
+      if (controller.arguments.contains("theme")){
+        println("\t\tcontroller theme:",controller.arguments("theme").head.text)
       }
       else{
-        println(controller.getClass.getName, " | ", controller.text)
+        println("\t\tcontroller event no theme")
       }
+
 //      var ctrlr_start=0
 //      var ctrlr_end = 0
 //      if (controller.getClass.getName=="org.clulab.reach.mentions.BioEventMention"){
