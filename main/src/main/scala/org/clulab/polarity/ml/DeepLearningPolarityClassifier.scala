@@ -173,8 +173,16 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       var controller = event.arguments("controller").head
       val ctrlr_start = controller.start
       val ctrlr_end = controller.end
+      println("==========")
+      println(lemmas.toString)
+      println(controller.text)
       if (controller.isInstanceOf[org.clulab.reach.mentions.BioEventMention]){
-        println(controller.arguments("theme").head.text)
+        if (controller.arguments.contains("theme")){
+          println("controller theme:",controller.arguments("theme").head.text)
+        }
+        else{
+          println("controller event no theme")
+        }
       }
       else{
         println(controller.getClass.getName, " | ", controller.text)
