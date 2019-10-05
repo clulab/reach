@@ -175,6 +175,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       val ctrlr_end = controller.end
       println("==========")
       println("sentence:",lemmas.toSeq)
+      println("event:",event.text)
       println("\tcontroller:",controller.text)
       println("\tcontroller class:", controller.getClass.getName)
 
