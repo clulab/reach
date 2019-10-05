@@ -117,7 +117,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         this.fitSingleEpoch(sens_train, labels_train)
         this.testSingleEpoch(sens_test, labels_test)
         if (maskOption=="tag") {
-          sgd.learningRate=sgd.learningRate*0.9.toFloat
+          sgd.learningRate=sgd.learningRate*0.6.toFloat
         }
         else{
           sgd.learningRate=sgd.learningRate*0.3.toFloat
@@ -173,6 +173,12 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       var controller = event.arguments("controller").head
       val ctrlr_start = controller.start
       val ctrlr_end = controller.end
+      if (controller.isInstanceOf[org.clulab.reach.mentions.BioEventMention]){
+        println(controller.arguments("theme").head.text)
+      }
+      else{
+        println(controller.getClass.getName, " | ", controller.text)
+      }
 //      var ctrlr_start=0
 //      var ctrlr_end = 0
 //      if (controller.getClass.getName=="org.clulab.reach.mentions.BioEventMention"){
