@@ -185,8 +185,10 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       else{
         println("\t\tcontroller event no theme")
       }
+      println("----------")
 
-//      var ctrlr_start=0
+
+      //      var ctrlr_start=0
 //      var ctrlr_end = 0
 //      if (controller.getClass.getName=="org.clulab.reach.mentions.BioEventMention"){
 //        ctrlr_start = controller.arguments("theme").head.tokenInterval.start
@@ -208,6 +210,16 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       var controlled = event.arguments("controlled").head
       val ctrld_start = controlled.start
       val ctrld_end = controlled.end
+
+      println("\tcontrolled:",controlled.text)
+      println("\tcontrolled class:", controlled.getClass.getName)
+
+      if (controlled.arguments.contains("theme")){
+        println("\t\tcontrolled theme:",controlled.arguments("theme").head.text)
+      }
+      else{
+        println("\t\tcontrolled event no theme")
+      }
 //      var ctrld_start = 0
 //      var ctrld_end = 0
 //      if (controlled.getClass.getName=="org.clulab.reach.mentions.BioEventMention"){
