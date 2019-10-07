@@ -184,6 +184,31 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       }
       else{
         println("\t\tcontroller event no theme")
+        if (controller.arguments.contains("controller")){
+          println("\t\t\tnested controller:", controller.arguments("controller").head.text)
+          if (controller.arguments("controller").head.arguments.contains("theme")){
+            println("\t\t\tNested controller theme:", controller.arguments("controller").head.arguments("theme").head.text)
+          }
+          else{
+            println("\t\t\tNo theme for nested controller")
+          }
+        }
+        else{
+          println("\t\t\tNo nested controller")
+        }
+
+        if (controller.arguments.contains("controlled")){
+          println("\t\t\tnested controlled:", controller.arguments("controlled").head.text)
+          if (controller.arguments("controlled").head.arguments.contains("theme")){
+            println("\t\t\tNested controller theme:", controller.arguments("controlled").head.arguments("theme").head.text)
+          }
+          else{
+            println("\t\t\tNo theme for nested controlled")
+          }
+        }
+        else{
+          println("\t\t\tNo nested controlled")
+        }
       }
       println("----------")
 
