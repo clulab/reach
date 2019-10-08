@@ -155,13 +155,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   override def predict(event: BioEventMention): Polarity = {
     if (event matches "ComplexEvent") {
 
-//      println("==========================================")
-//      println(s"Original text:${event.text}")
-//      println(s"Unexpanded text:${event.sentenceObj.words.slice(event.start, event.end).toList.toString}")
-
-      //var lemmas = event.lemmas.get.toArray
       var lemmas = event.sentenceObj.words.clone()
-      //var lemmas = event.sentenceObj.lemmas.get.clone()
       val rule = event.label
       var rulePolarity = 0
       if (rule.startsWith("Neg")) {
@@ -171,8 +165,12 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       }
 
       var lemmas_masked = lemmas
+
+      // filter out the edge cases where event has no controller or controlled.
       if (event.arguments.contains("controller") && event.arguments.contains("controlled")){
+        // filter out the edge cases where controller or controlled is vector.
         if (event.arguments("controller").isInstanceOf[mutable.ArraySeq[Mention]] && event.arguments("controlled").isInstanceOf[mutable.ArraySeq[Mention]]) {
+          // recursively masking the controller and controlled
           val controller = event.arguments("controller").head
           lemmas = controller match {
             case controller:CorefEventMention => lemmas
@@ -190,15 +188,10 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
           val (start, end) = getExpandBound(event, controller.start, controlled.start)
 
           lemmas_masked = lemmas.slice(start, end)
-          println(lemmas.slice(start, end).toSeq)
 
         }
-        println(event.arguments("controller").isInstanceOf[mutable.ArraySeq[Mention]])
 
       }
-
-      //val ctrlr_start = controller.start
-      //val ctrlr_end = controller.end
 
       ComputationGraph.renew()
 
@@ -216,6 +209,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     else {NeutralPolarity}
   }
 
+  // recursively mask the event
   def maskRecursively(lemmas:Array[String], mention:Mention,  maskOption:String, role:String):Array[String] = {
     if (mention.arguments.contains("theme")){
       val (mask_flag, intervalStart, intervalEnd) = getIntervalRecursively(mention.arguments("theme").head.text, mention)
@@ -232,6 +226,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     }
   }
 
+  // get the bound of controller or controlled, which is later used for masking
   def getIntervalRecursively(theme:String, mention:Mention):(Boolean, Int, Int) = {
     if (mention.text==theme) {
       (true, mention.start, mention.end)
@@ -256,6 +251,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     }
   }
 
+  // mask the event given the controller and controlled bound.
   def maskDirect(lemmas:Array[String], maskOption:String, role:String, intervalStart:Int, intervalEnd:Int) : Array[String]= {
     if (role=="controller"){
       if (maskOption == "tag_name") {
