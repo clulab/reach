@@ -248,7 +248,8 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     }
     else if (mention.text.contains(theme)) {
       println("we are here")
-      (true, mention.start + mention.text.indexOf(theme), mention.start + mention.text.indexOf(theme) + 1)
+      println(mention.start, mention.end)
+      (true, mention.start, mention.end)
     }
     else{
       (false, 0,0)
