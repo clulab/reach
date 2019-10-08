@@ -173,44 +173,52 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       var controller = event.arguments("controller").head
       val ctrlr_start = controller.start
       val ctrlr_end = controller.end
-      println("==========")
-      println("sentence:",lemmas.toSeq)
-      println("event:",event.text)
-      println("\tcontroller:",controller.text)
-      println("\tcontroller class:", controller.getClass.getName)
 
-      if (controller.arguments.contains("theme")){
-        println("\t\tcontroller theme:",controller.arguments("theme").head.text)
+      println("controller type:", event.arguments("controller").getClass.getName)
+      println("controlled type:", event.arguments("controlled").getClass.getName)
+      if (event.arguments.contains("theme")){
+        println("theme:", event.arguments("theme").getClass.getName)
       }
-      else{
-        println("\t\tcontroller event no theme")
-        if (controller.arguments.contains("controller")){
-          println("\t\t\tnested controller:", controller.arguments("controller").head.text)
-          if (controller.arguments("controller").head.arguments.contains("theme")){
-            println("\t\t\tNested controller theme:", controller.arguments("controller").head.arguments("theme").head.text)
-          }
-          else{
-            println("\t\t\tNo theme for nested controller")
-          }
-        }
-        else{
-          println("\t\t\tNo nested controller")
-        }
+      scala.io.StdIn.readLine()
 
-        if (controller.arguments.contains("controlled")){
-          println("\t\t\tnested controlled:", controller.arguments("controlled").head.text)
-          if (controller.arguments("controlled").head.arguments.contains("theme")){
-            println("\t\t\tNested controller theme:", controller.arguments("controlled").head.arguments("theme").head.text)
-          }
-          else{
-            println("\t\t\tNo theme for nested controlled")
-          }
-        }
-        else{
-          println("\t\t\tNo nested controlled")
-        }
-      }
-      println("----------")
+      //      println("==========")
+//      println("sentence:",lemmas.toSeq)
+//      println("event:",event.text)
+//      println("\tcontroller:",controller.text)
+//      println("\tcontroller class:", controller.getClass.getName)
+//
+//      if (controller.arguments.contains("theme")){
+//        println("\t\tcontroller theme:",controller.arguments("theme").head.text)
+//      }
+//      else{
+//        println("\t\tcontroller event no theme")
+//        if (controller.arguments.contains("controller")){
+//          println("\t\t\tnested controller:", controller.arguments("controller").head.text)
+//          if (controller.arguments("controller").head.arguments.contains("theme")){
+//            println("\t\t\tNested controller theme:", controller.arguments("controller").head.arguments("theme").head.text)
+//          }
+//          else{
+//            println("\t\t\tNo theme for nested controller")
+//          }
+//        }
+//        else{
+//          println("\t\t\tNo nested controller")
+//        }
+//
+//        if (controller.arguments.contains("controlled")){
+//          println("\t\t\tnested controlled:", controller.arguments("controlled").head.text)
+//          if (controller.arguments("controlled").head.arguments.contains("theme")){
+//            println("\t\t\tNested controller theme:", controller.arguments("controlled").head.arguments("theme").head.text)
+//          }
+//          else{
+//            println("\t\t\tNo theme for nested controlled")
+//          }
+//        }
+//        else{
+//          println("\t\t\tNo nested controlled")
+//        }
+//      }
+//      println("----------")
 
 
       //      var ctrlr_start=0
@@ -236,15 +244,15 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       val ctrld_start = controlled.start
       val ctrld_end = controlled.end
 
-      println("\tcontrolled:",controlled.text)
-      println("\tcontrolled class:", controlled.getClass.getName)
-
-      if (controlled.arguments.contains("theme")){
-        println("\t\tcontrolled theme:",controlled.arguments("theme").head.text)
-      }
-      else{
-        println("\t\tcontrolled event no theme")
-      }
+//      println("\tcontrolled:",controlled.text)
+//      println("\tcontrolled class:", controlled.getClass.getName)
+//
+//      if (controlled.arguments.contains("theme")){
+//        println("\t\tcontrolled theme:",controlled.arguments("theme").head.text)
+//      }
+//      else{
+//        println("\t\tcontrolled event no theme")
+//      }
 //      var ctrld_start = 0
 //      var ctrld_end = 0
 //      if (controlled.getClass.getName=="org.clulab.reach.mentions.BioEventMention"){
