@@ -170,38 +170,35 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         rulePolarity = 1
       }
 
+      var lemmas_masked = lemmas
+      if (event.arguments("controller").isInstanceOf[mutable.ArraySeq[Mention]] && event.arguments("controlled").isInstanceOf[mutable.ArraySeq[Mention]]) {
+        val controller = event.arguments("controller").head
+        lemmas = controller match {
+          case controller:CorefEventMention => lemmas
+          case controller:EventMention => maskRecursively(lemmas, controller, "controller")
+          case controller:TextBoundMention => maskDirect(lemmas, maskOption, "controller", controller.start, controller.end)
+        }
+        val controlled = event.arguments("controlled").head
+        lemmas = controlled match {
+          case controlled:CorefEventMention => lemmas
+          case controlled:EventMention => maskRecursively(lemmas, controlled, "controlled")
+          case controlled:TextBoundMention => maskDirect(lemmas, maskOption, "controlled", controlled.start, controlled.end)
+        }
+        val (start, end) = getExpandBound(event, controller.start, controlled.start)
 
-      val controller = event.arguments("controller").isInstanceOf[mutable.ArraySeq[Mention]] match {
-        case true => event.arguments("controller").head // In some cases the controller is a vector, thus having no head.
+        lemmas_masked = lemmas.slice(start, end)
+        println(lemmas.slice(start, end).toSeq)
+
       }
-      val controlled = event.arguments("controlled").isInstanceOf[mutable.ArraySeq[Mention]] match {
-        case true => event.arguments("controlled").head // In some cases the controller is a vector, thus having no head.
-      }
+
       println(event.arguments("controller").isInstanceOf[mutable.ArraySeq[Mention]])
 
       //val ctrlr_start = controller.start
       //val ctrlr_end = controller.end
 
-      lemmas = controller match {
-        case controller:CorefEventMention => lemmas
-        case controller:EventMention => maskRecursively(lemmas, controller, "controller")
-        case controller:TextBoundMention => maskDirect(lemmas, maskOption, "controller", controller.start, controller.end)
-      }
-
-      lemmas = controlled match {
-        case controlled:CorefEventMention => lemmas
-        case controlled:EventMention => maskRecursively(lemmas, controlled, "controlled")
-        case controlled:TextBoundMention => maskDirect(lemmas, maskOption, "controlled", controlled.start, controlled.end)
-      }
-
-      val (start, end) = getExpandBound(event, controller.start, controlled.start)
-
-      println(lemmas.slice(start, end).toSeq)
-
-
       ComputationGraph.renew()
 
-      val y_pred = runInstance(lemmas.slice(start, end), rulePolarity)
+      val y_pred = runInstance(lemmas_masked, rulePolarity)
 
 //      scala.io.StdIn.readLine()
 
