@@ -170,10 +170,10 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         rulePolarity = 1
       }
 
-      val controller = event.arguments("controller").isInstanceOf[mutable.ArraySeq] match {
+      val controller = event.arguments("controller").isInstanceOf[mutable.ArraySeq[Mention]] match {
         case true => event.arguments("controller").head // In some cases the controller is a vector, thus having no head.
       }
-      val controlled = event.arguments("controlled").isInstanceOf[mutable.ArraySeq] match {
+      val controlled = event.arguments("controlled").isInstanceOf[mutable.ArraySeq[Mention]] match {
         case true => event.arguments("controlled").head // In some cases the controller is a vector, thus having no head.
       }
 
