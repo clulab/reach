@@ -169,17 +169,18 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         rulePolarity = 1
       }
 
-
       var controller = event.arguments("controller").head
       val ctrlr_start = controller.start
       val ctrlr_end = controller.end
 
-      println("controller type:", event.arguments("controller").getClass.getName)
-      println("controlled type:", event.arguments("controlled").getClass.getName)
-      if (event.arguments.contains("theme")){
-        println("theme:", event.arguments("theme").getClass.getName)
+      if (event.arguments("controller").getClass.getName=="scala.collection.immutable.Vector"){
+        println(lemmas.toSeq)
+        println(event.text)
+        println(event.arguments("controller"))
+        scala.io.StdIn.readLine()
+
       }
-      scala.io.StdIn.readLine()
+
 
       //      println("==========")
 //      println("sentence:",lemmas.toSeq)
