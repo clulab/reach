@@ -171,29 +171,33 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       }
 
       var lemmas_masked = lemmas
-      if (event.arguments("controller").isInstanceOf[mutable.ArraySeq[Mention]] && event.arguments("controlled").isInstanceOf[mutable.ArraySeq[Mention]]) {
-        val controller = event.arguments("controller").head
-        lemmas = controller match {
-          case controller:CorefEventMention => lemmas
-          case controller:EventMention => maskRecursively(lemmas, controller, "controller")
-          case controller:TextBoundMention => maskDirect(lemmas, maskOption, "controller", controller.start, controller.end)
-          case _ => lemmas
-        }
-        val controlled = event.arguments("controlled").head
-        lemmas = controlled match {
-          case controlled:CorefEventMention => lemmas
-          case controlled:EventMention => maskRecursively(lemmas, controlled, "controlled")
-          case controlled:TextBoundMention => maskDirect(lemmas, maskOption, "controlled", controlled.start, controlled.end)
-          case _ => lemmas
-        }
-        val (start, end) = getExpandBound(event, controller.start, controlled.start)
+      if (event.arguments.contains("controller") && event.arguments.contains("controlled")){
+        if (event.arguments("controller").isInstanceOf[mutable.ArraySeq[Mention]] && event.arguments("controlled").isInstanceOf[mutable.ArraySeq[Mention]]) {
+          val controller = event.arguments("controller").head
+          lemmas = controller match {
+            case controller:CorefEventMention => lemmas
+            case controller:EventMention => maskRecursively(lemmas, controller, "controller")
+            case controller:TextBoundMention => maskDirect(lemmas, maskOption, "controller", controller.start, controller.end)
+            case _ => lemmas
+          }
+          val controlled = event.arguments("controlled").head
+          lemmas = controlled match {
+            case controlled:CorefEventMention => lemmas
+            case controlled:EventMention => maskRecursively(lemmas, controlled, "controlled")
+            case controlled:TextBoundMention => maskDirect(lemmas, maskOption, "controlled", controlled.start, controlled.end)
+            case _ => lemmas
+          }
+          val (start, end) = getExpandBound(event, controller.start, controlled.start)
 
-        lemmas_masked = lemmas.slice(start, end)
-        println(lemmas.slice(start, end).toSeq)
+          lemmas_masked = lemmas.slice(start, end)
+          println(lemmas.slice(start, end).toSeq)
+
+        }
+        println(event.arguments("controller").isInstanceOf[mutable.ArraySeq[Mention]])
 
       }
 
-      println(event.arguments("controller").isInstanceOf[mutable.ArraySeq[Mention]])
+
 
       //val ctrlr_start = controller.start
       //val ctrlr_end = controller.end
