@@ -173,12 +173,9 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       val ctrlr_start = controller.start
       val ctrlr_end = controller.end
 
-      if (event.arguments("controller").getClass.getName=="scala.collection.immutable.Vector"){
-        println(lemmas.toSeq)
-        println(event.text)
-        println(event.arguments("controller"))
+      if (event.arguments("controller").getClass.getName=="scala.collection.mutable.ArraySeq"){
+        println(event.arguments("controller").length)
         scala.io.StdIn.readLine()
-
       }
 
 
