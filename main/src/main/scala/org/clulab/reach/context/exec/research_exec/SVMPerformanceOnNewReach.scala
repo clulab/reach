@@ -359,6 +359,7 @@ object SVMPerformanceOnNewReach extends App {
 
   val nonMatchingsOnlyOldReach = allAnnotationsFromOldReach.toSet -- intersection
   val nonMatchesGroupedByEvents = nonMatchingsOnlyOldReach.groupBy(x => x._2)
+  println(nonMatchesGroupedByEvents.size)
   var totalContexts = 0
   for((_, annotations) <- nonMatchesGroupedByEvents) totalContexts += annotations.size
 
