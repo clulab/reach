@@ -8,7 +8,8 @@ import edu.cmu.dynet._
 import org.clulab.fatdynet.utils.CloseableModelSaver
 import org.clulab.fatdynet.utils.Closer.AutoCloser
 import org.clulab.polarity.{NegativePolarity, NeutralPolarity, Polarity, PositivePolarity}
-import org.clulab.reach.mentions.BioEventMention
+import org.clulab.reach.mentions.{BioEventMention, CorefEventMention}
+import org.clulab.odin.{Mention, EventMention, TextBoundMention}
 
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
@@ -169,145 +170,37 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         rulePolarity = 1
       }
 
-      var controller = event.arguments("controller").head
-      val ctrlr_start = controller.start
-      val ctrlr_end = controller.end
-
-      if (event.arguments("controller").getClass.getName=="scala.collection.mutable.ArraySeq"){
-        println(event.arguments("controller").length)
-        scala.io.StdIn.readLine()
+      val controller = event.arguments("controller").isInstanceOf[mutable.ArraySeq] match {
+        case true => event.arguments("controller").head // In some cases the controller is a vector, thus having no head.
+      }
+      val controlled = event.arguments("controlled").isInstanceOf[mutable.ArraySeq] match {
+        case true => event.arguments("controlled").head // In some cases the controller is a vector, thus having no head.
       }
 
+      //val ctrlr_start = controller.start
+      //val ctrlr_end = controller.end
 
-      //      println("==========")
-//      println("sentence:",lemmas.toSeq)
-//      println("event:",event.text)
-//      println("\tcontroller:",controller.text)
-//      println("\tcontroller class:", controller.getClass.getName)
-//
-//      if (controller.arguments.contains("theme")){
-//        println("\t\tcontroller theme:",controller.arguments("theme").head.text)
-//      }
-//      else{
-//        println("\t\tcontroller event no theme")
-//        if (controller.arguments.contains("controller")){
-//          println("\t\t\tnested controller:", controller.arguments("controller").head.text)
-//          if (controller.arguments("controller").head.arguments.contains("theme")){
-//            println("\t\t\tNested controller theme:", controller.arguments("controller").head.arguments("theme").head.text)
-//          }
-//          else{
-//            println("\t\t\tNo theme for nested controller")
-//          }
-//        }
-//        else{
-//          println("\t\t\tNo nested controller")
-//        }
-//
-//        if (controller.arguments.contains("controlled")){
-//          println("\t\t\tnested controlled:", controller.arguments("controlled").head.text)
-//          if (controller.arguments("controlled").head.arguments.contains("theme")){
-//            println("\t\t\tNested controller theme:", controller.arguments("controlled").head.arguments("theme").head.text)
-//          }
-//          else{
-//            println("\t\t\tNo theme for nested controlled")
-//          }
-//        }
-//        else{
-//          println("\t\t\tNo nested controlled")
-//        }
-//      }
-//      println("----------")
+      lemmas = controller match {
+        case controller:CorefEventMention => lemmas
+        case controller:EventMention => maskRecursively(lemmas, controller, "controller")
+        case controller:TextBoundMention => maskDirect(lemmas, maskOption, "controller", controller.start, controller.end)
+      }
 
+      lemmas = controlled match {
+        case controlled:CorefEventMention => lemmas
+        case controlled:EventMention => maskRecursively(lemmas, controlled, "controlled")
+        case controlled:TextBoundMention => maskDirect(lemmas, maskOption, "controlled", controlled.start, controlled.end)
+      }
 
-      //      var ctrlr_start=0
-//      var ctrlr_end = 0
-//      if (controller.getClass.getName=="org.clulab.reach.mentions.BioEventMention"){
-//        ctrlr_start = controller.arguments("theme").head.tokenInterval.start
-//        ctrlr_end = controller.arguments("theme").head.tokenInterval.end
-//      }
-//      else{
-//        ctrlr_start = controller.start
-//        ctrlr_end = controller.end
-//      }
-      //    while (controller.arguments.contains("controller") || controller.arguments.contains("controlled")) {
-      //      if (controller.arguments.contains("controller")){
-      //        controller = controller.arguments("controller").head
-      //      }else{
-      //        controller = controller.arguments("controlled").head
-      //      }
-      //    }
+      val (start, end) = getExpandBound(event, controller.start, controlled.start)
 
+      println(lemmas.slice(start, end).toSeq)
 
-      var controlled = event.arguments("controlled").head
-      val ctrld_start = controlled.start
-      val ctrld_end = controlled.end
-
-//      println("\tcontrolled:",controlled.text)
-//      println("\tcontrolled class:", controlled.getClass.getName)
-//
-//      if (controlled.arguments.contains("theme")){
-//        println("\t\tcontrolled theme:",controlled.arguments("theme").head.text)
-//      }
-//      else{
-//        println("\t\tcontrolled event no theme")
-//      }
-//      var ctrld_start = 0
-//      var ctrld_end = 0
-//      if (controlled.getClass.getName=="org.clulab.reach.mentions.BioEventMention"){
-//        ctrld_start = controlled.arguments("theme").head.tokenInterval.start
-//        ctrld_end = controlled.arguments("theme").head.tokenInterval.end
-//      }
-//      else{
-//        ctrld_start = controlled.start
-//        ctrld_end = controlled.end
-//      }
-      //    while (controlled.arguments.contains("controller") || controlled.arguments.contains("controlled")) {
-      //      if (controlled.arguments.contains("controlled")){
-      //        controlled = controlled.arguments("controlled").head
-      //      }else{
-      //        controlled = controlled.arguments("controller").head
-      //      }
-      //    }
-
-      val (start, end) = getExpandBound(event, ctrlr_start, ctrld_start)
 
       ComputationGraph.renew()
 
-      if (maskOption == "tag_name") {
-        for (index <- ctrlr_start until ctrlr_end) {
-          lemmas(index) = "controller_" + lemmas(index)
-        }
-        for (index <- ctrld_start until ctrld_end) {
-          lemmas(index) = "controlled_" + lemmas(index)
-        }
-      }
-      else if (maskOption == "tag") {
-        for (index <- ctrlr_start until ctrlr_end) {
-          if (lemmas(index).endsWith("kd")) {
-            lemmas(index) = "__controller__-kd"
-          }
-          else {
-            lemmas(index) = "__controller__"
-          }
-        }
-        for (index <- ctrld_start until ctrld_end) {
-          if (lemmas(index).endsWith("kd")) {
-            lemmas(index) = "__controlled__-kd"
-          }
-          else {
-            lemmas(index) = "__controlled__"
-          }
-        }
-      }
-
       val y_pred = runInstance(lemmas.slice(start, end), rulePolarity)
 
-//      println(s"sentence text${event.sentenceObj.words.toList.toString}")
-//      println(s"masked sentence${lemmas.toList.toString}")
-//      println("-----------------------")
-//      println(controlled.getClass.getName)
-//      println(s"masked event${lemmas.slice(start, end).toList.toString}")
-//      println(y_pred.value().toFloat())
 //      scala.io.StdIn.readLine()
 
       if (y_pred.value().toFloat > 0.5) {
@@ -318,6 +211,48 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       }
     }
     else {NeutralPolarity}
+  }
+
+  def maskRecursively(lemmas:Array[String], mention:Mention, role:String):Array[String] = {
+    lemmas
+  }
+
+  def maskDirect(lemmas:Array[String], maskOption:String, role:String, intervalStart:Int, intervalEnd:Int) : Array[String]= {
+    if (role=="controller"){
+      if (maskOption == "tag_name") {
+        for (index <- intervalStart until intervalEnd) {
+          lemmas(index) = "controller_" + lemmas(index)
+        }
+      }
+      else if (maskOption == "tag") {
+        for (index <- intervalStart until intervalEnd) {
+          if (lemmas(index).endsWith("kd")) {
+            lemmas(index) = "__controller__-kd"
+          }
+          else {
+            lemmas(index) = "__controller__"
+          }
+        }
+      }
+    }
+    if (role=="controlled"){
+      if (maskOption == "tag_name") {
+        for (index <- intervalStart until intervalEnd) {
+          lemmas(index) = "controlled_" + lemmas(index)
+        }
+      }
+      else if (maskOption == "tag") {
+        for (index <- intervalStart until intervalEnd) {
+          if (lemmas(index).endsWith("kd")) {
+            lemmas(index) = "__controlled__-kd"
+          }
+          else {
+            lemmas(index) = "__controlled__"
+          }
+        }
+      }
+    }
+    lemmas
   }
 
   def predictManual(event:String, rulePolarity:Int): Unit= {

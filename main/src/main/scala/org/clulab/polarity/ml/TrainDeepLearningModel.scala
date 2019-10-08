@@ -56,4 +56,9 @@ object ManualCheckModel extends App{
   for (index <- eventsList2.indices){
     lstmClassifier.predictManual(eventsList2(index), polarityRule2(index))
   }
+
+}
+
+object TestFunc extends App {
+  var A = (("A",Seq(1,2,3)), ("B",2), ("C",(4,5)))
 }
