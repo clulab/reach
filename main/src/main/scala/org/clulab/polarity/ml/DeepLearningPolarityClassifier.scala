@@ -228,6 +228,9 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
   // get the bound of controller or controlled, which is later used for masking
   def getIntervalRecursively(theme:String, mention:Mention):(Boolean, Int, Int) = {
+    println(mention.text)
+    println(theme)
+    scala.io.StdIn.readLine()
     if (mention.text==theme) {
       println("we are here")
       (true, mention.start, mention.end)
