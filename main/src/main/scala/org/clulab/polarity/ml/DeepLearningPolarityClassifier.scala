@@ -247,9 +247,12 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       }
     }
     else if (mention.text.contains(theme)) {
-      println("we are here")
-      println(mention.start, mention.end)
-      (true, mention.start, mention.end)
+      if (mention.isInstanceOf[EventMention]){
+        (true, mention.start+mention.text.split(" ").indexOf(theme), mention.start+mention.text.split(" ").indexOf(theme)+1)
+      }
+      else{
+        (true, mention.start, mention.end)
+      }
     }
     else{
       (false, 0,0)
