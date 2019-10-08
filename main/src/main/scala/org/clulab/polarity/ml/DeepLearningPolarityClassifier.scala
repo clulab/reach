@@ -176,14 +176,14 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
           val controller = event.arguments("controller").head
           lemmas = controller match {
             case controller:CorefEventMention => lemmas
-            case controller:EventMention => maskRecursively(lemmas, controller, "controller")
+            case controller:EventMention => maskRecursively(lemmas, controller, maskOption,"controller")
             case controller:TextBoundMention => maskDirect(lemmas, maskOption, "controller", controller.start, controller.end)
             case _ => lemmas
           }
           val controlled = event.arguments("controlled").head
           lemmas = controlled match {
             case controlled:CorefEventMention => lemmas
-            case controlled:EventMention => maskRecursively(lemmas, controlled, "controlled")
+            case controlled:EventMention => maskRecursively(lemmas, controlled,maskOption, "controlled")
             case controlled:TextBoundMention => maskDirect(lemmas, maskOption, "controlled", controlled.start, controlled.end)
             case _ => lemmas
           }
@@ -196,8 +196,6 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         println(event.arguments("controller").isInstanceOf[mutable.ArraySeq[Mention]])
 
       }
-
-
 
       //val ctrlr_start = controller.start
       //val ctrlr_end = controller.end
@@ -218,8 +216,44 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     else {NeutralPolarity}
   }
 
-  def maskRecursively(lemmas:Array[String], mention:Mention, role:String):Array[String] = {
-    lemmas
+  def maskRecursively(lemmas:Array[String], mention:Mention,  maskOption:String, role:String):Array[String] = {
+    if (mention.arguments.contains("theme")){
+      val (mask_flag, intervalStart, intervalEnd) = getIntervalRecursively(mention.arguments("theme").head.text, mention)
+      if (mask_flag) {
+        val lemmas_masked =maskDirect(lemmas, maskOption, role, intervalStart, intervalEnd)
+        lemmas_masked
+      }
+      else{
+        lemmas
+      }
+    }
+    else{
+      lemmas
+    }
+  }
+
+  def getIntervalRecursively(theme:String, mention:Mention):(Boolean, Int, Int) = {
+    if (mention.text==theme) {
+      (true, mention.start, mention.end)
+    }
+    else{
+      if (mention.arguments.contains("controller") && mention.arguments.contains("controlled")){
+        val (controllerFlag, controllerStart, controllerEnd) = getIntervalRecursively(theme, mention.arguments("controller").head)
+        val (controlledFlag, controlledStart, controlledEnd) = getIntervalRecursively(theme, mention.arguments("controlled").head)
+        if (controllerFlag){
+          (controllerFlag, controllerStart, controllerEnd)
+        }
+        else if (controlledFlag){
+          (controlledFlag, controlledStart, controlledEnd)
+        }
+        else{
+          (false, 0,0)
+        }
+      }
+      else{
+        (false, 0,0)
+      }
+    }
   }
 
   def maskDirect(lemmas:Array[String], maskOption:String, role:String, intervalStart:Int, intervalEnd:Int) : Array[String]= {
