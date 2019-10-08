@@ -188,7 +188,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
           val (start, end) = getExpandBound(event, controller.start, controlled.start)
 
           lemmas_masked = lemmas.slice(start, end)
-          println(lemmas_masked.toSeq)
+          //println(lemmas_masked.toSeq)
 
         }
 
