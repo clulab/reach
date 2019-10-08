@@ -17,10 +17,15 @@ object ReachSystemAnalysisIOUtils {
       val ctxID = array(2)
       val label = Integer.parseInt(array(3))
       val tup = (pmcid,evtID,ctxID)
+      val tupleForAnnotationsByPaper = (tup,label)
       map ++= Map(tup -> label)
+
     }
 
-    map.toMap
+
+    val mapToReturnWithoutDegen = map.filter(_._1._1!="PMC2063868")
+    val annotationsGroupedByPaperID = mapToReturnWithoutDegen
+    mapToReturnWithoutDegen.toMap
   }
 
   def loadSentencesPerPaper(parentDirForPapers:String):Map[String,Seq[String]] = {

@@ -3,7 +3,7 @@ package org.clulab.context.utils
 import java.io.InputStream
 
 import com.typesafe.config.ConfigFactory
-import org.clulab.reach.context.utils.io_utils.{SVMDataTypeIOUtils, SVMTrainingIOUtils}
+import org.clulab.reach.context.utils.io_utils.{ReachPredictionDataTypeIOUtils, SVMTrainingIOUtils}
 
 import scala.collection.mutable
 import scala.io.Source

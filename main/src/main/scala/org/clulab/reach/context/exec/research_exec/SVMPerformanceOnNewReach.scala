@@ -7,7 +7,7 @@ import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.{AggregatedContextInstance, CrossValidationUtils}
 import org.clulab.reach.context.feature_utils.ContextFeatureUtils
 import org.clulab.reach.context.utils.annotation_alignment_utils.AnnotationAlignmentUtils
-import org.clulab.reach.context.utils.io_utils.ReachSystemAnalysisIOUtils
+import org.clulab.reach.context.utils.io_utils.{ClassifierLoader, ReachPredictionDataTypeIOUtils, ReachSystemAnalysisIOUtils}
 import org.clulab.reach.context.utils.score_utils.ScoreMetricsOfClassifier
 
 object SVMPerformanceOnNewReach extends App {
@@ -16,51 +16,21 @@ object SVMPerformanceOnNewReach extends App {
 
 
   val configPath = config.getString("contextEngine.params.trainedSvmPath")
-  val trainedSVMInstance = svmWrapper.loadFrom(configPath)
-  val classifierToUse = trainedSVMInstance.classifier match {
-    case Some(x) => x
-    case None => {
-      null
-    }
-  }
 
+  val trainedSVMInstance = ClassifierLoader.getClassifierInstanceFromPath(configPath)
 
-  if(classifierToUse == null) throw new NullPointerException("No classifier found on which I can predict. Please make sure the SVMContextEngine class receives a valid Linear SVM classifier.")
   println(s"In svm performance class, running code")
   val labelFile = config.getString("svmContext.labelFileOldDataset")
-  val labelMap = ReachSystemAnalysisIOUtils.generateLabelMap(labelFile).toSeq
-  val annotationsGroupedByPaperID= labelMap.groupBy(x => x._1._1)
-  val specsByRow = collection.mutable.HashMap[AggregatedContextInstance, (String,String,String)]()
+  val labelMap= ReachSystemAnalysisIOUtils.generateLabelMap(labelFile)
   val pathToParentdirToLoadNewRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
-  val parentDirfileInstanceToLoadNewRows = new File(pathToParentdirToLoadNewRows)
-  val paperDirs = parentDirfileInstanceToLoadNewRows.listFiles().filter(x => x.isDirectory && x.getName.startsWith("PMC"))
-  val paperIDByNewRows = collection.mutable.ListBuffer[(String, Seq[AggregatedContextInstance])]()
-  val paperIDByNewRowsSpecs = collection.mutable.ListBuffer[(String, Seq[(String,String,String)])]()
-  for (paperDir <- paperDirs) {
+  val (paperIDByNewDataPoints,paperIDByNewDataPointSpecs, idForNewReachAggrRow) = ReachPredictionDataTypeIOUtils.readAggrRowsWithSpecsFromFile(pathToParentdirToLoadNewRows)
 
-    val listOfRowsInPaper = collection.mutable.ListBuffer[AggregatedContextInstance]()
-    val listOfSpecsInPaper = collection.mutable.ListBuffer[(String,String,String)]()
-    val paperID = paperDir.getName
-    val rowFilesInThisPaper = paperDir.listFiles().filter(_.getName.startsWith("Aggreg"))
-    for(rowFile <- rowFilesInThisPaper) {
-      val rowSpecs = ContextFeatureUtils.createAggRowSpecsFromFile(rowFile)
-      val row = ContextFeatureUtils.readAggRowFromFile(rowFile)
-      if(!listOfRowsInPaper.contains(row)) {
-        listOfRowsInPaper += row
-        listOfSpecsInPaper += rowSpecs
-        specsByRow ++= Map(row -> rowSpecs)
-      }
-    }
 
-    val tuple2 = (paperID, listOfRowsInPaper)
-    val tuple2Specs = (paperID,listOfSpecsInPaper)
-    paperIDByNewRows += tuple2
-    paperIDByNewRowsSpecs += tuple2Specs
-  }
 
 
   val allAnnotationsFromOldReach = labelMap.map(_._1).filter(_._1!="PMC2063868")
 
+  val annotationsGroupedByPaperID = labelMap.groupBy(x => x._1._1)
   val giantTruthLabelList = collection.mutable.ListBuffer[Int]()
   val giantPredictedLabelList = collection.mutable.ListBuffer[Int]()
   val matchingLabelsInNewReachByPaper = collection.mutable.HashMap[String,Seq[(String,String,String)]]()
@@ -69,7 +39,7 @@ object SVMPerformanceOnNewReach extends App {
   // testing if event-context pairs detected by new Reach align neatly with those from the old Reach.
   // If they do, we can use the annotation from the old one as "gold standard", and the new row can be predicted and tested for precision
 
-  for((paperID, testRows) <- paperIDByNewRows) {
+  for((paperID, testRows) <- paperIDByNewDataPoints) {
     val testRowsWithMatchingLabels = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val annotationsAlreadyVisited = collection.mutable.ListBuffer[(String,String,String)]()
     val matchingLabelsPerPaperNewReach = collection.mutable.ListBuffer[(String, String, String)]()
@@ -78,7 +48,7 @@ object SVMPerformanceOnNewReach extends App {
     val trueLabelsInThisPaper = collection.mutable.ListBuffer[Int]()
     val possibleLabelIDsInThisPaper = annotationsGroupedByPaperID(paperID)
     for(tester <- testRows) {
-      val specForTester = specsByRow(tester)
+      val specForTester = idForNewReachAggrRow(tester)
       for((labelID,label) <- possibleLabelIDsInThisPaper) {
 
         if(AnnotationAlignmentUtils.eventsAlign(specForTester._2,labelID._2) && AnnotationAlignmentUtils.contextsAlign(specForTester._3,labelID._3)) {
@@ -92,10 +62,6 @@ object SVMPerformanceOnNewReach extends App {
           }
         }
       }
-
-
-
-
 
     }
 
@@ -134,7 +100,7 @@ object SVMPerformanceOnNewReach extends App {
   val eventsOnlyInOldReach = collection.mutable.HashMap[String, Seq[String]]()
   for((paperID,matchingLabelsNew) <-  matchingLabelsInNewReachByPaper) {
     // getting all the rows that were extracted by new Reach and extracting their event IDs
-    val allRowSpecsInThisPaper = paperIDByNewRowsSpecs.filter(_._1 == paperID).map(_._2).flatten
+    val allRowSpecsInThisPaper = paperIDByNewDataPointSpecs.filter(_._1 == paperID).map(_._2).flatten
     val allUniqueEventSpans = allRowSpecsInThisPaper.map(_._2).toSet
     val matchingUniqueEventSpans = matchingLabelsNew.map(_._2).toSet
     val nonMatches = allUniqueEventSpans -- matchingUniqueEventSpans
@@ -319,10 +285,7 @@ object SVMPerformanceOnNewReach extends App {
   for((paperID, matchingLabels) <- matchingLabelsInOldReachByPaper) {
     val eventSpans = matchingLabels.map(x=>x._2)
     val eventSpansInTupForm = eventSpans.map(AnnotationAlignmentUtils.parseEventIDFromStringToTup(_)).toSet.toSeq
-    val tupEntry = (eventSpansInTupForm.size, eventSpansInTupForm)
     totalUniqueEventSpansInOldMatchings += eventSpansInTupForm.size
-    val mapEntry = Map(paperID -> tupEntry)
-    eventSpansInMatchingLabelsInOldData ++= mapEntry
   }
 
 

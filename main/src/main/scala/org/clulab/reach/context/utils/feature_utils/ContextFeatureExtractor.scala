@@ -5,7 +5,7 @@ import org.clulab.context.utils.{ContextPairInstance, CrossValidationUtils}
 import org.clulab.processors.Document
 import org.clulab.reach.context.ContextEngine
 import org.clulab.reach.context.utils.feature_utils.FeatureNameCruncher
-import org.clulab.reach.context.utils.io_utils.{SVMDataTypeIOUtils, SVMTrainingIOUtils}
+import org.clulab.reach.context.utils.io_utils.{ReachPredictionDataTypeIOUtils, SVMTrainingIOUtils}
 import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
 import org.clulab.struct.Interval
 

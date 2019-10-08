@@ -4,7 +4,7 @@ import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.{DummyClassifier, LinearSVMContextClassifier}
 import org.clulab.context.utils.{AggregatedContextInstance, CrossValidationUtils}
 import org.clulab.learning.LinearSVMClassifier
-import org.clulab.reach.context.utils.io_utils.{SVMDataTypeIOUtils, SVMTrainingIOUtils}
+import org.clulab.reach.context.utils.io_utils.{ReachPredictionDataTypeIOUtils, SVMTrainingIOUtils}
 
 object SVMTrainSaveInstance extends App {
   //data preprocessing
