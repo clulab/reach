@@ -59,7 +59,7 @@ object SVMPerformanceOnNewReach extends App {
   }
 
 
-  val allAnnotationsFromOldReach = labelMap.map(_._1)
+  val allAnnotationsFromOldReach = labelMap.map(_._1).filter(_._1!="PMC2063868")
 
   val giantTruthLabelList = collection.mutable.ListBuffer[Int]()
   val giantPredictedLabelList = collection.mutable.ListBuffer[Int]()
