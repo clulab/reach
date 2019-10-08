@@ -231,28 +231,27 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     println(mention.text)
     println(theme)
     scala.io.StdIn.readLine()
-    if (mention.text==theme) {
-      println("we are here")
-      (true, mention.start, mention.end)
-    }
-    else{
-      if (mention.arguments.contains("controller") && mention.arguments.contains("controlled")){
-        val (controllerFlag, controllerStart, controllerEnd) = getIntervalRecursively(theme, mention.arguments("controller").head)
-        val (controlledFlag, controlledStart, controlledEnd) = getIntervalRecursively(theme, mention.arguments("controlled").head)
-        if (controllerFlag){
-          (controllerFlag, controllerStart, controllerEnd)
-        }
-        else if (controlledFlag){
-          (controlledFlag, controlledStart, controlledEnd)
-        }
-        else{
-          (false, 0,0)
-        }
+
+    if (mention.arguments.contains("controller") && mention.arguments.contains("controlled")){
+      val (controllerFlag, controllerStart, controllerEnd) = getIntervalRecursively(theme, mention.arguments("controller").head)
+      val (controlledFlag, controlledStart, controlledEnd) = getIntervalRecursively(theme, mention.arguments("controlled").head)
+      if (controllerFlag){
+        (controllerFlag, controllerStart, controllerEnd)
+      }
+      else if (controlledFlag){
+        (controlledFlag, controlledStart, controlledEnd)
       }
       else{
         (false, 0,0)
       }
     }
+    else if (mention.text.contains(theme)) {
+      (true, mention.start + mention.text.indexOf(theme), mention.start + mention.text.indexOf(theme) + 1)
+    }
+    else{
+      (false, 0,0)
+    }
+
   }
 
   // mask the event given the controller and controlled bound.
