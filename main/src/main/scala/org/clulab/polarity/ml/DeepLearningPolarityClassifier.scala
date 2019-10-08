@@ -188,6 +188,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
           val (start, end) = getExpandBound(event, controller.start, controlled.start)
 
           lemmas_masked = lemmas.slice(start, end)
+          println(lemmas_masked.toSeq)
 
         }
 
@@ -228,9 +229,9 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
   // get the bound of controller or controlled, which is later used for masking
   def getIntervalRecursively(theme:String, mention:Mention):(Boolean, Int, Int) = {
-    println(mention.text)
-    println(theme)
-    scala.io.StdIn.readLine()
+    //println(mention.text)
+    //println(theme)
+    //scala.io.StdIn.readLine()
 
     if (mention.arguments.contains("controller") && mention.arguments.contains("controlled")){
       val (controllerFlag, controllerStart, controllerEnd) = getIntervalRecursively(theme, mention.arguments("controller").head)
