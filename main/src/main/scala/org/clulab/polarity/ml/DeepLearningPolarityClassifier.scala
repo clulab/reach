@@ -226,7 +226,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   // recursively mask the event
   def maskRecursively(lemmas:Array[String], mention:Mention,  maskOption:String, role:String):Array[String] = {
     if (mention.arguments.contains("theme")){
-      val (mask_flag, intervalStart, intervalEnd) = getIntervalRecursively(mention.arguments("theme").head.text, mention)
+      val (mask_flag, intervalStart, intervalEnd) = getIntervalRecursively(mention.arguments("theme").head, mention)
       if (mask_flag) {
         val lemmas_masked =maskDirect(lemmas, maskOption, role, intervalStart, intervalEnd)
         lemmas_masked
@@ -241,7 +241,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   }
 
   // get the bound of controller or controlled, which is later used for masking
-  def getIntervalRecursively(theme:String, mention:Mention):(Boolean, Int, Int) = {
+  def getIntervalRecursively(theme:Mention, mention:Mention):(Boolean, Int, Int) = {
     //println(mention.text)
     //println(theme)
     //scala.io.StdIn.readLine()
@@ -259,9 +259,9 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         (false, 0,0)
       }
     }
-    else if (mention.text.contains(theme)) {
+    else if (mention.text.contains(theme.text)) {
       if (mention.isInstanceOf[EventMention]){
-        (true, mention.start+mention.text.split(" ").indexOf(theme), mention.start+mention.text.split(" ").indexOf(theme)+1)
+        (true, theme.start, theme.end)
       }
       else{
         (true, mention.start, mention.end)
