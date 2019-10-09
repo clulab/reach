@@ -226,14 +226,15 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   // recursively mask the event
   def maskRecursively(lemmas:Array[String], mention:Mention,  maskOption:String, role:String):Array[String] = {
     if (mention.arguments.contains("theme")){
-      val (mask_flag, intervalStart, intervalEnd) = getIntervalRecursively(mention.arguments("theme").head, mention)
-      if (mask_flag) {
-        val lemmas_masked =maskDirect(lemmas, maskOption, role, intervalStart, intervalEnd)
-        lemmas_masked
-      }
-      else{
-        lemmas
-      }
+      maskDirect(lemmas, maskOption, role, mention.arguments("theme").head.start, mention.arguments("theme").head.end)
+//      val (mask_flag, intervalStart, intervalEnd) = getIntervalRecursively(mention.arguments("theme").head, mention)
+//      if (mask_flag) {
+//        val lemmas_masked =maskDirect(lemmas, maskOption, role, intervalStart, intervalEnd)
+//        lemmas_masked
+//      }
+//      else{
+//        lemmas
+//      }
     }
     else{
       lemmas
