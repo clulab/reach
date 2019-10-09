@@ -76,9 +76,9 @@ object TestFunc extends App {
 
   var a = 1
 
-  println(testfunc(a))
-  def testfunc(x:Int):Int = {
-    x= x+1
-    x
-  }
+//  println(testfunc(a))
+//  def testfunc(x:Int):Int = {
+//    x= x+1
+//    x
+//  }
 }
