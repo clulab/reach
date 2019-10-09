@@ -16,7 +16,13 @@ class TestPolarity extends FlatSpec with Matchers{
 
         println("=====================")
         for (mention <- mentions){
-          println("\t",mention)
+          println("\t",mention.text)
+          if (mention.arguments.contains("controller")){
+            println("\t\t",mention.arguments("controller").head.text )
+          }else {println("\t\tNo controller")}
+          if (mention.arguments.contains("controlled")){
+            println("\t\t",mention.arguments("controlled").head.text )
+          }else {println("\t\tNo controlled")}
         }
         scala.io.StdIn.readLine()
 
