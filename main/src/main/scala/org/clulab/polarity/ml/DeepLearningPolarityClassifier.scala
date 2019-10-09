@@ -196,9 +196,11 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
       }
 
-      ComputationGraph.renew()
-
-      val y_pred = runInstance(lemmas_masked, rulePolarity)
+      val y_pred:Expression =
+        synchronized(this){
+          ComputationGraph.renew()
+          runInstance(lemmas_masked, rulePolarity)
+        }
 
 //      scala.io.StdIn.readLine()
 
