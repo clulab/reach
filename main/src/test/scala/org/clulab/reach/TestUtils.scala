@@ -189,7 +189,7 @@ object TestUtils {
 
     println("=====================")
     val classifierTemp = new org.clulab.polarity.ml.DeepLearningPolarityClassifier()
-    println(mentions(0).sentenceObj.words)
+    println(mentions(0).sentenceObj.words.toSeq)
     val bioEventM = mentions filter {
       case em:BioEventMention => true
       case _ => false
