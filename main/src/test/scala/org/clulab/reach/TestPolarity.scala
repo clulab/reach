@@ -1,9 +1,7 @@
 package org.clulab.reach
 
+import org.clulab.reach.TestUtils._
 import org.scalatest.{FlatSpec, Matchers}
-import org.clulab.reach.mentions._
-import TestUtils._
-import com.typesafe.scalalogging.LazyLogging
 
 class TestPolarity extends FlatSpec with Matchers{
 
@@ -16,6 +14,13 @@ class TestPolarity extends FlatSpec with Matchers{
         val mentions = getBioMentions(sentence)
         info(s"Num mentions: ${mentions.size}")
 
+        println("=====================")
+        for (mention <- mentions){
+          println("\t",mention)
+        }
+        scala.io.StdIn.readLine()
+
+
         val result =
           if (positive)
             hasPositiveActivation(controller, controlled, mentions)
@@ -24,10 +29,13 @@ class TestPolarity extends FlatSpec with Matchers{
 
         result should be(true)
       }
+
     }
     else{
       it should description ignore {}
     }
+
+
 
 
   }
