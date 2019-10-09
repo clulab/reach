@@ -25,7 +25,7 @@ class TestPolarity extends FlatSpec with Matchers{
         for (bioM <- bioEventM){
           if (bioM.isInstanceOf[BioEventMention]){
             val masked_lemmas = classifierTemp.maskEvent(bioM.sentenceObj.words.clone(), bioM.asInstanceOf[BioEventMention] , "tag")
-            println("\t",masked_lemmas)
+            println("\t",masked_lemmas.toSeq)
           }
 
 //          println("\t",mention.text)
