@@ -197,7 +197,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       }
 
       val y_pred:Expression =
-        synchronized(this){
+        this.synchronized{
           ComputationGraph.renew()
           runInstance(lemmas_masked, rulePolarity)
         }
