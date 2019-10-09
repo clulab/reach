@@ -199,16 +199,20 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         lemmas = controller match {
           case controller:CorefEventMention => {println("CorefEventMention?")
             lemmas}
-          case controller:EventMention => maskRecursively(lemmas, controller, maskOption,"controller")
-          case controller:TextBoundMention => maskDirect(lemmas, maskOption, "controller", controller.start, controller.end)
+          case controller:EventMention => {println("Recursive mask!")
+            maskRecursively(lemmas, controller, maskOption,"controller")}
+          case controller:TextBoundMention => {println("Direct mask!")
+            maskDirect(lemmas, maskOption, "controller", controller.start, controller.end)}
           case _ => lemmas
         }
         val controlled = event.arguments("controlled").head
         lemmas = controlled match {
           case controlled:CorefEventMention => {println("CorefEventMention?")
             lemmas}
-          case controlled:EventMention => maskRecursively(lemmas, controlled,maskOption, "controlled")
-          case controlled:TextBoundMention => maskDirect(lemmas, maskOption, "controlled", controlled.start, controlled.end)
+          case controlled:EventMention => {println("Recursive mask!")
+            maskRecursively(lemmas, controlled,maskOption, "controlled")}
+          case controlled:TextBoundMention => {println("Direct mask!")
+            maskDirect(lemmas, maskOption, "controlled", controlled.start, controlled.end)}
           case _ => lemmas
         }
         val (start, end) = getExpandBound(event, controller.start, controlled.start)
@@ -273,7 +277,6 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
   // mask the event given the controller and controlled bound.
   def maskDirect(lemmas:Array[String], maskOption:String, role:String, intervalStart:Int, intervalEnd:Int) : Array[String]= {
-    println("direct mask!")
     if (role=="controller"){
       if (maskOption == "tag_name") {
         for (index <- intervalStart until intervalEnd) {
