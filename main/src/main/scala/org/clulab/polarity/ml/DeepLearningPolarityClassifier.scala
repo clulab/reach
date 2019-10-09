@@ -196,7 +196,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         val controller = event.arguments("controller").head
         lemmas = controller match {
           case controller:CorefEventMention => {println("CorefEventMention?")
-            lemmas}
+            maskRecursively(lemmas, controller, maskOption,"controller")}
           case controller:EventMention => {println("Recursive mask!")
             maskRecursively(lemmas, controller, maskOption,"controller")}
           case controller:TextBoundMention => {println("Direct mask!")
@@ -206,7 +206,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         val controlled = event.arguments("controlled").head
         lemmas = controlled match {
           case controlled:CorefEventMention => {println("CorefEventMention?")
-            lemmas}
+            maskRecursively(lemmas, controlled,maskOption, "controlled")}
           case controlled:EventMention => {println("Recursive mask!")
             maskRecursively(lemmas, controlled,maskOption, "controlled")}
           case controlled:TextBoundMention => {println("Direct mask!")
