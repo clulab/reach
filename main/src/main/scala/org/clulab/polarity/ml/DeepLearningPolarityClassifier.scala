@@ -7,16 +7,14 @@ import edu.cmu.dynet.Expression._
 import edu.cmu.dynet._
 import org.clulab.fatdynet.utils.CloseableModelSaver
 import org.clulab.fatdynet.utils.Closer.AutoCloser
+import org.clulab.odin.{EventMention, Mention, TextBoundMention}
 import org.clulab.polarity.{NegativePolarity, NeutralPolarity, Polarity, PositivePolarity}
 import org.clulab.reach.mentions.{BioEventMention, CorefEventMention}
-import org.clulab.odin.{Mention, EventMention, TextBoundMention}
 
 import scala.collection.mutable
-import scala.collection.mutable.ArrayBuffer
+import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 import scala.io.Source
 import scala.util.Random
-
-import scala.collection.mutable.ListBuffer
 
 
 
