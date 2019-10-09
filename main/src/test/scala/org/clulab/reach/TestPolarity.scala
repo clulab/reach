@@ -29,10 +29,10 @@ class TestPolarity extends FlatSpec with Matchers{
             println("\t",masked_lemmas.toSeq)
 
             if (bioM.arguments.contains("controller")){
-              println("\t\tcontroller: ",bioM.arguments("controller").head.text )
+              println("\t\tcontroller: ",bioM.arguments("controller").head.text, "\ttype:", bioM.arguments("controller").head.getClass.getName, bioM.arguments("controller").head.start, bioM.arguments("controller").head.end)
             }else {println("\t\tNo controller")}
             if (bioM.arguments.contains("controlled")){
-              println("\t\tcontrolled: ",bioM.arguments("controlled").head.text )
+              println("\t\tcontrolled: ",bioM.arguments("controlled").head.text, "\ttype:", bioM.arguments("controlled").head.getClass.getName, bioM.arguments("controlled").head.start, bioM.arguments("controlled").head.end)
             }else {println("\t\tNo controlled")}
           }
 

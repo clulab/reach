@@ -73,4 +73,12 @@ object TestFunc extends App {
 
   val B = A.toList
   println(B)
+
+  var a = 1
+
+  println(testfunc(a))
+  def testfunc(x:Int):Int = {
+    x= x+1
+    x
+  }
 }
