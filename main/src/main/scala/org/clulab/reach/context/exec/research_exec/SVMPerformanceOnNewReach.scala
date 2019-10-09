@@ -97,51 +97,11 @@ object SVMPerformanceOnNewReach extends App {
   println(s"All events and contexts that appeared in the new Reach are 15 sentences away. We will restrict ourselves to this window even n the old dataset.")
 
   val (eventsOnlyInNewReach,totalEventsMissingFromOldDataset) = AnnotationAlignmentUtils.getUniqueEventSpansInReach(matchingLabelsInNewReachByPaper.toMap, paperIDByNewDataPointSpecs)
-  //var totalEventsMissingFromNewDataset = 0
-  //var totalEventsMissingFromOldDataset = 0
-  //val eventsOnlyInNewReach = collection.mutable.HashMap[String, Seq[String]]()
-  //val eventsOnlyInOldReach = collection.mutable.HashMap[String, Seq[String]]()
-
-//  for((paperID,matchingLabelsNew) <-  matchingLabelsInNewReachByPaper) {
-//    val annotationsInPaper = paperIDByNewDataPointSpecs(paperID)
-//
-//    // getting all the rows that were extracted by new Reach and extracting their event IDs
-//    val allUniqueEventSpans = annotationsInPaper.map(_._2).toSet
-//
-//    val matchingUniqueEventSpans = matchingLabelsNew.map(_._2).toSet
-//    val nonMatches = allUniqueEventSpans -- matchingUniqueEventSpans
-//    val mapEntry = Map(paperID -> nonMatches.toSeq)
-//    eventsOnlyInNewReach ++= mapEntry
-//    totalEventsMissingFromOldDataset += nonMatches.size
-//  }
 
 
 
   println("*********")
   var totalUniqueEventSpansOldData = 0
-  val eventSpansOnlyInOldReachPaperAgnostic = collection.mutable.ListBuffer[String]()
-
-//  for((paperID, matchingLabelsOld) <- matchingLabelsInOldReachByPaper) {
-//
-//    val allLabelsInPaper = oldAnnotationsGroupedByPaperID(paperID)
-//
-//    val allEventsInPaper = allLabelsInPaper.map(_._2)
-//
-//    totalUniqueEventSpansOldData += allEventsInPaper.toSet.size
-//    val matchingEventSpans = matchingLabelsOld.map(_._2)
-//
-//    val nonMatches = collection.mutable.ListBuffer[String]()
-//    for(a <- allEventsInPaper) {
-//      if(!matchingEventSpans.contains(a) && !nonMatches.contains(a))
-//        nonMatches += a
-//    }
-//
-//    eventSpansOnlyInOldReachPaperAgnostic ++= nonMatches
-//
-//    val mapEntry = Map(paperID -> nonMatches)
-//    eventsOnlyInOldReach ++= mapEntry
-//    totalEventsMissingFromNewDataset += nonMatches.size
-//  }
 
   val (eventsOnlyInOldReach, totalEventsMissingFromNewDataset) = AnnotationAlignmentUtils.getUniqueEventSpansInReach(matchingLabelsInOldReachByPaper.toMap, oldAnnotationsGroupedByPaperID)
 
@@ -152,86 +112,68 @@ object SVMPerformanceOnNewReach extends App {
 //  uncomment the below block for task 3
 //  // Task 3: In the old annotation dataset, we need to find the neighboring events that have different contexts associated with them
 //    // To do task 3, the first step is to use only those manual annotations that have a true prediction. If an event is not truly associated with a context, we need not bother counting it in.
-//  val trueLabelsFromOldDataset = labelMap.filter(_._2 == 1)
-//
-//  // in these true predictions, we should first group the annotations by paperID, to get all the true predictions in a given paper
-//  val trueLabelsGroupedByPaperID = trueLabelsFromOldDataset.groupBy(_._1._1)
-//
-//
-//  // Storing the information of neighboring events per paper per sentence:
-//  // We will have a Map(paperID -> Map(sentenceIndex -> (neighborCount, List((leftNeighbor, rightNeighbor))  ) ) )
-//  val neighborsPerSentencePerPaper = collection.mutable.HashMap[String, Map[Int,(Int,List[(String,String)])]]()
-//
-//
-//  // then, for each paper, we need to cluster the events by the sentence in which they occur.
-//  for((paperID,annotationsInThisPaper) <- trueLabelsGroupedByPaperID) {
-//    // getting the eventIDs in this paper
-//    val eventIDs = annotationsInThisPaper.map(_._1._2)
-//    val eventIDInTupForm = eventIDs.map(EventAlignmentUtils.parseEventIDFromStringToTup(_))
-//
-//
-//    // group the events by the sentence in which they occur
-//    // this is because we need to find the events that are neighbors, and their sentence position is a necessary condition for this.
-//    val eventsGroupedBySentIndex = eventIDInTupForm.groupBy(_._1)
-//
-//    // for all the events in a given sentence, ensure they are sorted in increasing order of start token
-//    // This step is necessary because we need to find the events that are neighboring to each other.
-//    // This condition of "neighborhood" is contingent upon the end token of the left event and the start token of the right event
-//    // basically, two events are "neighbors" if they appear in the same sentence and there is no event that appears between them
-//
-//    val neighborsPerSent = collection.mutable.HashMap[Int,(Int,List[(String,String)])]()
-//    for((sentenceIndex, eventsInThisSentence) <- eventsGroupedBySentIndex) {
-//      val eventsSortedByStartToken = eventsInThisSentence.sortWith(_._2 <= _._2)
-//      val neighboringEventsInThisSentence = collection.mutable.ListBuffer[(String,String)]()
-//      // we start checking for neighbors with the left most event
-//      for(leftEvent <- eventsSortedByStartToken) {
-//
-//          // we then take the next immediate event to be the right event.
-//
-//          val allExceptLeft = eventsSortedByStartToken.filter(_._2 > leftEvent._2)
-//          if(allExceptLeft.size > 0) {
-//            val rightEvent = allExceptLeft(0)
-//            // we need all other events that are not the left event or the right event, to see if anything else appears between them.
-//            if(EventAlignmentUtils.areEventsAdjacent(leftEvent,rightEvent)) {
-//              val myNameIsLeftEvent = EventAlignmentUtils.parseEventIDFromTupToString(leftEvent)
-//              val myNameIsRightEvent = EventAlignmentUtils.parseEventIDFromTupToString(rightEvent)
-//              val neighbors = (myNameIsLeftEvent,myNameIsRightEvent)
-//              neighboringEventsInThisSentence += neighbors
-//            }
-//          }
-//
-//
-//
-//      }
-//
-//      val neighborsEntry = (neighboringEventsInThisSentence.size,neighboringEventsInThisSentence.toList)
-//      val sentenceIndexEntry = Map(sentenceIndex -> neighborsEntry)
-//      neighborsPerSent ++= sentenceIndexEntry
-//    }
-//
-//    val paperEntry = Map(paperID -> neighborsPerSent.toMap)
-//
-//    neighborsPerSentencePerPaper ++= paperEntry
-//
-//  }
-  // Uncomment the above block for task 3
+  val trueLabelsFromOldDataset = labelMap.filter(_._2 == 1)
+
+  // in these true predictions, we should first group the annotations by paperID, to get all the true predictions in a given paper
+  val trueLabelsGroupedByPaperID = trueLabelsFromOldDataset.groupBy(_._1._1)
 
 
-// If there are neighboring events, we can print them by uncommenting the block below
-//  // printing some neighbors and no-neighbors for debugging and manual verification
-//  for((paperID, neighborsBySent) <- neighborsPerSentencePerPaper) {
-//    println(s"The current paper is: ${paperID}")
-//    val fiveSentencesThatHaveSomeNeighbors = neighborsBySent.filter(_._2._1 > 0).take(5)
-//    val fiveSentencesThatHaveNoNeighbors = neighborsBySent.filter(_._2._1 == 0).take(5)
-//    println("Printing some sentences that do have neighbors in them")
-//    println(fiveSentencesThatHaveSomeNeighbors)
-//
-//    println("Printing some sentences that have no neighbors in them")
-//    println(fiveSentencesThatHaveNoNeighbors)
-//
-//    println(" **************************** ")
-//
-//  }
+  // Storing the information of neighboring events per paper per sentence:
+  // We will have a Map(paperID -> Map(sentenceIndex -> (neighborCount, List((leftNeighbor, rightNeighbor))  ) ) )
+  val neighborsPerSentencePerPaper = collection.mutable.HashMap[String, Map[Int,(Int,List[(String,String)])]]()
+
+
+  // then, for each paper, we need to cluster the events by the sentence in which they occur.
+  for((paperID,annotationsInThisPaper) <- trueLabelsGroupedByPaperID) {
+    // getting the eventIDs in this paper
+    val eventIDs = annotationsInThisPaper.map(_._1._2)
+    val eventIDInTupForm = eventIDs.map(AnnotationAlignmentUtils.parseEventIDFromStringToTup(_)).toSeq
+
+
+    // group the events by the sentence in which they occur
+    // this is because we need to find the events that are neighbors, and their sentence position is a necessary condition for this.
+    val eventsGroupedBySentIndex = eventIDInTupForm.groupBy(_._1)
+
+    // for all the events in a given sentence, ensure they are sorted in increasing order of start token
+    // This step is necessary because we need to find the events that are neighboring to each other.
+    // This condition of "neighborhood" is contingent upon the end token of the left event and the start token of the right event
+    // basically, two events are "neighbors" if they appear in the same sentence and there is no event that appears between them
+
+    val neighborsPerSent = collection.mutable.HashMap[Int,(Int,List[(String,String)])]()
+    for((sentenceIndex, eventsInThisSentence) <- eventsGroupedBySentIndex) {
+      val eventsSortedByStartToken = eventsInThisSentence.sortWith(_._2 <= _._2)
+      val neighboringEventsInThisSentence = collection.mutable.ListBuffer[(String,String)]()
+      // we start checking for neighbors with the left most event
+      for(leftEvent <- eventsSortedByStartToken) {
+
+          // we then take the next immediate event to be the right event.
+
+          val allExceptLeft = eventsSortedByStartToken.filter(_._2 > leftEvent._2)
+          if(allExceptLeft.size > 0) {
+            val rightEvent = allExceptLeft(0)
+            // we need all other events that are not the left event or the right event, to see if anything else appears between them.
+            if(AnnotationAlignmentUtils.areEventsAdjacent(leftEvent,rightEvent)) {
+              val myNameIsLeftEvent = AnnotationAlignmentUtils.parseEventIDFromTupToString(leftEvent)
+              val myNameIsRightEvent = AnnotationAlignmentUtils.parseEventIDFromTupToString(rightEvent)
+              val neighbors = (myNameIsLeftEvent,myNameIsRightEvent)
+              neighboringEventsInThisSentence += neighbors
+            }
+          }
+      }
+
+      val neighborsEntry = (neighboringEventsInThisSentence.size,neighboringEventsInThisSentence.toList)
+      val sentenceIndexEntry = Map(sentenceIndex -> neighborsEntry)
+      neighborsPerSent ++= sentenceIndexEntry
+    }
+
+    val paperEntry = Map(paperID -> neighborsPerSent.toMap)
+
+    neighborsPerSentencePerPaper ++= paperEntry
+
+  }
+
+
+
 
 
   println(s"After prediction, ${giantTruthLabelList.size} truth labels were found")
@@ -287,38 +229,5 @@ object SVMPerformanceOnNewReach extends App {
 
 
 
-  val eventSpansInMatchingLabelsInOldData = collection.mutable.HashMap[String,(Int,Seq[(Int,Int,Int)])]()
-  var totalUniqueEventSpansInOldMatchings = 0
-  for((paperID, matchingLabels) <- matchingLabelsInOldReachByPaper) {
-    val eventSpans = matchingLabels.map(x=>x._2)
-    val eventSpansInTupForm = eventSpans.map(AnnotationAlignmentUtils.parseEventIDFromStringToTup(_)).toSet.toSeq
-    totalUniqueEventSpansInOldMatchings += eventSpansInTupForm.size
-  }
-
-
-  println(s"A total of ${totalUniqueEventSpansInOldMatchings} unique event spans were found in the 7k set of matching context-event labels in old Reach")
-  println(s"A total of ${totalUniqueEventSpansOldData} unique event spans were found in the whole annotation set, matchings and non-matchings included in old reach")
-
-  val onlyMatchingsFromOldReach = matchingLabelsInOldReachByPaper.map(x => x._2).flatten.toSeq
-  val intersection = allAnnotationsFromOldReach.toSet.intersect(onlyMatchingsFromOldReach.toSet)
-
-  println(s"These number of annotations appear in matchings as well as non matchings in old Reach: ${intersection.size}")
-  val missingAnnotations = collection.mutable.ListBuffer[(String,String,String)]()
-  for(a <- allAnnotationsFromOldReach)
-    if(!onlyMatchingsFromOldReach.contains(a))
-      missingAnnotations += a
-  println(s"Number of missing annotations: ${missingAnnotations.size}")
-  var totalNoOfAnnotations = 0
-  for((_,_) <- labelMap) totalNoOfAnnotations += 1
-
-  println(s"The total number of annotations we have is: ${totalNoOfAnnotations}")
-
-  val nonMatchingsOnlyOldReach = allAnnotationsFromOldReach.toSet -- intersection
-  val nonMatchesGroupedByEvents = nonMatchingsOnlyOldReach.groupBy(x => (x._1, x._2))
-  println(nonMatchesGroupedByEvents.size)
-  var totalContexts = 0
-  for((_, annotations) <- nonMatchesGroupedByEvents) totalContexts += annotations.size
-
-  println(s"Total number of contexts: ${totalContexts}")
 
 }
