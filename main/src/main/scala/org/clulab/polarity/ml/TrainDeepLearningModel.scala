@@ -1,5 +1,8 @@
 
 package org.clulab.polarity.ml
+import scala.collection.mutable.ListBuffer
+
+
 
 object TrainDeepLearningModel extends App {
 //use this object to train the deep learning model. This will the parameter of the model in the root directory of reach.
@@ -60,5 +63,14 @@ object ManualCheckModel extends App{
 }
 
 object TestFunc extends App {
-  var A = (("A",Seq(1,2,3)), ("B",2), ("C",(4,5)))
+  //var A = (("A",Seq(1,2,3)), ("B",2), ("C",(4,5)))
+  val A = new ListBuffer[Int]()
+
+  A.append(1)
+  A.append(2)
+
+  println(A)
+
+  val B = A.toList
+  println(B)
 }

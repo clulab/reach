@@ -16,6 +16,8 @@ import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
 import scala.util.Random
 
+import scala.collection.mutable.ListBuffer
+
 
 
 class DeepLearningPolarityClassifier() extends PolarityClassifier{
@@ -448,7 +450,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
     var total_loss = 0.toFloat
     var correct_count = 0
-    var predLabels = Seq[Int]()
+    var predLabels_ = ListBuffer[Int]()
     for ((instance, label) <- input_sens zip labels) {
       ComputationGraph.renew()
 
@@ -461,15 +463,18 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       total_loss+=loss
 
       if (y_pred.value().toFloat>0.5){
-        predLabels = predLabels:+1
+        predLabels_.append(1)
         if (label==1) {correct_count+=1}
       }
-      else{
-        predLabels = predLabels:+0
-        if (label==0) {correct_count+=1}
+      else {
+        predLabels_.append(0)
+        if (label == 0) {
+          correct_count += 1
+        }
       }
 
     }
+    val predLabels = predLabels_.toList
     val average_loss = total_loss/input_sens.length
     val test_acc = correct_count.toFloat/labels.length
     val (precision, recall, f1)  = getPrecisionRecallF1(predLabels, labels)
@@ -488,8 +493,8 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
   def readFromSpreadsheet(spreadsheet_path:String, train_ratio:Float, mask_option:String="tag_name"): (Seq[(Seq[String], Int)], Seq[Int], Seq[(Seq[String], Int)], Seq[Int]) ={
     logger.info("Loading data from spreadsheet ...")
-    var instances = Seq[(Seq[String],Int)]()
-    var labels = Seq[Int]()
+    val instances_ = ListBuffer[(Seq[String],Int)]()
+    val labels_ = ListBuffer[Int]()
 
     val bufferedSource = Source.fromFile(spreadsheet_path)
     for (line <- bufferedSource.getLines.drop(1)) {
@@ -522,7 +527,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         }
         //println(sentence_mod.slice(start, end).toSeq)
         //scala.io.StdIn.readLine()
-        instances = instances :+ (sentence_mod.slice(start, end).toSeq, rulePolarity)
+        instances_.append((sentence_mod.slice(start, end).toSeq, rulePolarity))
       }
       else if (mask_option=="tag"){
         val ctrlr_start = cols(14).toInt
@@ -545,21 +550,25 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         }
 //        println(sentence_mod.slice(start, end).toSeq)
 //        scala.io.StdIn.readLine()
-        instances = instances :+ (sentence_mod.slice(start, end).toSeq, rulePolarity)
+        instances_.append((sentence_mod.slice(start, end).toSeq, rulePolarity))
       }
       else if (mask_option=="name"){
-        instances = instances :+ (sentence.split(" ").slice(start, end).toSeq, rulePolarity)
+        instances_.append((sentence.split(" ").slice(start, end).toSeq, rulePolarity))
       }
       if (cols(6).startsWith("Pos")) {
         val label = 1
-        labels = labels :+label
+        labels_.append(label)
       }else{
         val label=0
-        labels = labels :+label
+        labels_.append(label)
       }
 
     }
     bufferedSource.close
+
+    val instances = instances_.toList
+    val labels = labels_.toList
+
 
     logger.info(s"Num. all samples: ${instances.length}")
     logger.info(s"Num. all labels: ${labels.length}")
