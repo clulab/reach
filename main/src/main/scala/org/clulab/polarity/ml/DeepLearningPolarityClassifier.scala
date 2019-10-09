@@ -168,33 +168,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
       var lemmas_masked = lemmas
 
-      // filter out the edge cases where event has no controller or controlled.
-      if (event.arguments.contains("controller") && event.arguments.contains("controlled")){
-        // filter out the edge cases where controller or controlled is vector.
-        if (event.arguments("controller").isInstanceOf[mutable.ArraySeq[Mention]] && event.arguments("controlled").isInstanceOf[mutable.ArraySeq[Mention]]) {
-          // recursively masking the controller and controlled
-          val controller = event.arguments("controller").head
-          lemmas = controller match {
-            case controller:CorefEventMention => lemmas
-            case controller:EventMention => maskRecursively(lemmas, controller, maskOption,"controller")
-            case controller:TextBoundMention => maskDirect(lemmas, maskOption, "controller", controller.start, controller.end)
-            case _ => lemmas
-          }
-          val controlled = event.arguments("controlled").head
-          lemmas = controlled match {
-            case controlled:CorefEventMention => lemmas
-            case controlled:EventMention => maskRecursively(lemmas, controlled,maskOption, "controlled")
-            case controlled:TextBoundMention => maskDirect(lemmas, maskOption, "controlled", controlled.start, controlled.end)
-            case _ => lemmas
-          }
-          val (start, end) = getExpandBound(event, controller.start, controlled.start)
-
-          lemmas_masked = lemmas.slice(start, end)
-          //println(lemmas_masked.toSeq)
-
-        }
-
-      }
+      lemmas_masked = maskEvent(lemmas, event, maskOption)
 
       val y_pred:Expression =
         this.synchronized{
@@ -214,6 +188,37 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     else {NeutralPolarity}
   }
 
+  def maskEvent(lemmas_raw:Array[String], event:BioEventMention,  maskOption:String): Array[String] ={
+    var lemmas = lemmas_raw
+    // filter out the edge cases where event has no controller or controlled.
+    if (event.arguments.contains("controller") && event.arguments.contains("controlled")){
+      // filter out the edge cases where controller or controlled is vector.
+      if (event.arguments("controller").isInstanceOf[mutable.ArraySeq[Mention]] && event.arguments("controlled").isInstanceOf[mutable.ArraySeq[Mention]]) {
+        // recursively masking the controller and controlled
+        val controller = event.arguments("controller").head
+        lemmas = controller match {
+          case controller:CorefEventMention => lemmas
+          case controller:EventMention => maskRecursively(lemmas, controller, maskOption,"controller")
+          case controller:TextBoundMention => maskDirect(lemmas, maskOption, "controller", controller.start, controller.end)
+          case _ => lemmas
+        }
+        val controlled = event.arguments("controlled").head
+        lemmas = controlled match {
+          case controlled:CorefEventMention => lemmas
+          case controlled:EventMention => maskRecursively(lemmas, controlled,maskOption, "controlled")
+          case controlled:TextBoundMention => maskDirect(lemmas, maskOption, "controlled", controlled.start, controlled.end)
+          case _ => lemmas
+        }
+        val (start, end) = getExpandBound(event, controller.start, controlled.start)
+
+        lemmas.slice(start, end)
+        //println(lemmas_masked.toSeq)
+
+      } else lemmas_raw
+
+    } else lemmas_raw
+
+  }
   // recursively mask the event
   def maskRecursively(lemmas:Array[String], mention:Mention,  maskOption:String, role:String):Array[String] = {
     if (mention.arguments.contains("theme")){

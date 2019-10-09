@@ -1,9 +1,12 @@
 package org.clulab.reach
 
 import org.clulab.reach.TestUtils._
+import org.clulab.reach.mentions.BioEventMention
 import org.scalatest.{FlatSpec, Matchers}
 
+
 class TestPolarity extends FlatSpec with Matchers{
+  val classifierTemp = new org.clulab.polarity.ml.DeepLearningPolarityClassifier()
 
   def activationBehaivor(sentence:String, controller:String, controlled:String, positive:Boolean, ignored:Boolean = false): Unit ={
 
@@ -15,14 +18,23 @@ class TestPolarity extends FlatSpec with Matchers{
         info(s"Num mentions: ${mentions.size}")
 
         println("=====================")
-        for (mention <- mentions){
-          println("\t",mention.text)
-          if (mention.arguments.contains("controller")){
-            println("\t\t",mention.arguments("controller").head.text )
-          }else {println("\t\tNo controller")}
-          if (mention.arguments.contains("controlled")){
-            println("\t\t",mention.arguments("controlled").head.text )
-          }else {println("\t\tNo controlled")}
+        val bioEventM = mentions filter {
+          case em:BioEventMention => true
+          case _ => false
+        }
+        for (bioM <- bioEventM){
+          if (bioM.isInstanceOf[BioEventMention]){
+            val masked_lemmas = classifierTemp.maskEvent(bioM.sentenceObj.words.clone(), bioM.asInstanceOf[BioEventMention] , "tag")
+            println("\t",masked_lemmas)
+          }
+
+//          println("\t",mention.text)
+          //          if (mention.arguments.contains("controller")){
+//            println("\t\t",mention.arguments("controller").head.text )
+//          }else {println("\t\tNo controller")}
+//          if (mention.arguments.contains("controlled")){
+//            println("\t\t",mention.arguments("controlled").head.text )
+//          }else {println("\t\tNo controlled")}
         }
         scala.io.StdIn.readLine()
 
