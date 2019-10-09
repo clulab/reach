@@ -144,4 +144,18 @@ object AnnotationAlignmentUtils {
 
     frequencyOfAnnotations.toMap
   }
+
+  def getUniqueEventSpansInReach(matchingSet: Map[String,Seq[(String,String,String)]], allAnnotations:Map[String,Seq[(String,String,String)]]):(Map[String,Seq[String]], Int) = {
+    val eventSpansByPaperNotInMatch = collection.mutable.HashMap[String,Seq[String]]()
+    var totalEventSpanCountNotInMatch = 0
+    for((paperID, matchingLabels) <- matchingSet) {
+      val allAnnotationsInPaper = allAnnotations(paperID)
+      val allUniqueEventSpans = allAnnotationsInPaper.map(_._2).toSet
+      val matchingUniqueEventSpans = matchingLabels.map(_._2).toSet
+      val nonMatchingUniqueEventSpans = allUniqueEventSpans -- matchingUniqueEventSpans
+      totalEventSpanCountNotInMatch += nonMatchingUniqueEventSpans.size
+      eventSpansByPaperNotInMatch ++= Map(paperID -> nonMatchingUniqueEventSpans.toSeq)
+    }
+    (eventSpansByPaperNotInMatch.toMap, totalEventSpanCountNotInMatch)
+  }
 }

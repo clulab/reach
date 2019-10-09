@@ -28,7 +28,8 @@ object SVMPerformanceOnNewReach extends App {
 
 
 
-  val allAnnotationsFromOldReach = labelMap.map(_._1).filter(_._1!="PMC2063868")
+  val allAnnotationsFromOldReach = labelMap.map(_._1).filter(_._1!="PMC2063868").toSeq
+  val oldAnnotationsGroupedByPaperID = allAnnotationsFromOldReach.groupBy(_._1)
 
   val annotationsGroupedByPaperID = labelMap.groupBy(x => x._1._1)
   val giantTruthLabelList = collection.mutable.ListBuffer[Int]()
@@ -94,49 +95,55 @@ object SVMPerformanceOnNewReach extends App {
   // Tasks 1 and 2: finding the events in new and old Reach that don't match up with each other
   println(s"The paper PMC2063868 is degenerate as per new Reach and will not appear in this analysis.")
   println(s"All events and contexts that appeared in the new Reach are 15 sentences away. We will restrict ourselves to this window even n the old dataset.")
-  var totalEventsMissingFromNewDataset = 0
-  var totalEventsMissingFromOldDataset = 0
-  val eventsOnlyInNewReach = collection.mutable.HashMap[String, Seq[String]]()
-  val eventsOnlyInOldReach = collection.mutable.HashMap[String, Seq[String]]()
-  for((paperID,matchingLabelsNew) <-  matchingLabelsInNewReachByPaper) {
-    // getting all the rows that were extracted by new Reach and extracting their event IDs
-    val allRowSpecsInThisPaper = paperIDByNewDataPointSpecs.filter(_._1 == paperID).map(_._2).flatten
-    val allUniqueEventSpans = allRowSpecsInThisPaper.map(_._2).toSet
-    val matchingUniqueEventSpans = matchingLabelsNew.map(_._2).toSet
-    val nonMatches = allUniqueEventSpans -- matchingUniqueEventSpans
-    val mapEntry = Map(paperID -> nonMatches.toSeq)
-    eventsOnlyInNewReach ++= mapEntry
-    totalEventsMissingFromOldDataset += nonMatches.size
-  }
+
+  val (eventsOnlyInNewReach,totalEventsMissingFromOldDataset) = AnnotationAlignmentUtils.getUniqueEventSpansInReach(matchingLabelsInNewReachByPaper.toMap, paperIDByNewDataPointSpecs)
+  //var totalEventsMissingFromNewDataset = 0
+  //var totalEventsMissingFromOldDataset = 0
+  //val eventsOnlyInNewReach = collection.mutable.HashMap[String, Seq[String]]()
+  //val eventsOnlyInOldReach = collection.mutable.HashMap[String, Seq[String]]()
+
+//  for((paperID,matchingLabelsNew) <-  matchingLabelsInNewReachByPaper) {
+//    val annotationsInPaper = paperIDByNewDataPointSpecs(paperID)
+//
+//    // getting all the rows that were extracted by new Reach and extracting their event IDs
+//    val allUniqueEventSpans = annotationsInPaper.map(_._2).toSet
+//
+//    val matchingUniqueEventSpans = matchingLabelsNew.map(_._2).toSet
+//    val nonMatches = allUniqueEventSpans -- matchingUniqueEventSpans
+//    val mapEntry = Map(paperID -> nonMatches.toSeq)
+//    eventsOnlyInNewReach ++= mapEntry
+//    totalEventsMissingFromOldDataset += nonMatches.size
+//  }
 
 
 
   println("*********")
-  var totalContextCountForAllMissingEvents = 0
   var totalUniqueEventSpansOldData = 0
   val eventSpansOnlyInOldReachPaperAgnostic = collection.mutable.ListBuffer[String]()
 
-  for((paperID, matchingLabelsOld) <- matchingLabelsInOldReachByPaper) {
+//  for((paperID, matchingLabelsOld) <- matchingLabelsInOldReachByPaper) {
+//
+//    val allLabelsInPaper = oldAnnotationsGroupedByPaperID(paperID)
+//
+//    val allEventsInPaper = allLabelsInPaper.map(_._2)
+//
+//    totalUniqueEventSpansOldData += allEventsInPaper.toSet.size
+//    val matchingEventSpans = matchingLabelsOld.map(_._2)
+//
+//    val nonMatches = collection.mutable.ListBuffer[String]()
+//    for(a <- allEventsInPaper) {
+//      if(!matchingEventSpans.contains(a) && !nonMatches.contains(a))
+//        nonMatches += a
+//    }
+//
+//    eventSpansOnlyInOldReachPaperAgnostic ++= nonMatches
+//
+//    val mapEntry = Map(paperID -> nonMatches)
+//    eventsOnlyInOldReach ++= mapEntry
+//    totalEventsMissingFromNewDataset += nonMatches.size
+//  }
 
-    val allLabelsInPaper = allAnnotationsFromOldReach.filter(_._1 == paperID)
-
-    val allEventsInPaper = allLabelsInPaper.map(_._2)
-
-    totalUniqueEventSpansOldData += allEventsInPaper.toSet.size
-    val matchingEventSpans = matchingLabelsOld.map(_._2)
-
-    val nonMatches = collection.mutable.ListBuffer[String]()
-    for(a <- allEventsInPaper) {
-      if(!matchingEventSpans.contains(a) && !nonMatches.contains(a))
-        nonMatches += a
-    }
-
-    eventSpansOnlyInOldReachPaperAgnostic ++= nonMatches
-
-    val mapEntry = Map(paperID -> nonMatches)
-    eventsOnlyInOldReach ++= mapEntry
-    totalEventsMissingFromNewDataset += nonMatches.size
-  }
+  val (eventsOnlyInOldReach, totalEventsMissingFromNewDataset) = AnnotationAlignmentUtils.getUniqueEventSpansInReach(matchingLabelsInOldReachByPaper.toMap, oldAnnotationsGroupedByPaperID)
 
   println(s"Total no. of unique event spans appearing only in old Reach (Reach 2015): ${totalEventsMissingFromNewDataset} ")
   println(s"Total no. of unique event spans appearing only in new Reach (Reach 2019): ${totalEventsMissingFromOldDataset} ")
@@ -249,8 +256,8 @@ object SVMPerformanceOnNewReach extends App {
   // and start token of the events.
 
   // if something goes wrong with the binary string, first check for the order in which sentences are appearing, maybe the missing event spans didn't get sorted correctly.
-  val sortedEventsInNewReachByPaper = AnnotationAlignmentUtils.getSortedEventSpansPerPaper(eventsOnlyInNewReach.toMap)
-  val sortedEventsInOldReachByPaper = AnnotationAlignmentUtils.getSortedEventSpansPerPaper(eventsOnlyInOldReach.toMap)
+  val sortedEventsInNewReachByPaper = AnnotationAlignmentUtils.getSortedEventSpansPerPaper(eventsOnlyInNewReach)
+  val sortedEventsInOldReachByPaper = AnnotationAlignmentUtils.getSortedEventSpansPerPaper(eventsOnlyInOldReach)
 
   val mapOfBinaryStringsByPaperOldReach = collection.mutable.HashMap[String, Seq[String]]()
   val mapOfBinaryStringsByPaperNewReach = collection.mutable.HashMap[String, Seq[String]]()
