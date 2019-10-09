@@ -271,6 +271,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
   // mask the event given the controller and controlled bound.
   def maskDirect(lemmas:Array[String], maskOption:String, role:String, intervalStart:Int, intervalEnd:Int) : Array[String]= {
+    println("direct mask!")
     if (role=="controller"){
       if (maskOption == "tag_name") {
         for (index <- intervalStart until intervalEnd) {
