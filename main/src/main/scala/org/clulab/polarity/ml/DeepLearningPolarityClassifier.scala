@@ -214,9 +214,9 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         lemmas.slice(start, end)
         //println(lemmas_masked.toSeq)
 
-      } else lemmas_raw
+      } else lemmas_raw.slice(event.start, event.end)
 
-    } else lemmas_raw
+    } else lemmas_raw.slice(event.start, event.end)
 
   }
   // recursively mask the event

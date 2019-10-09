@@ -18,6 +18,7 @@ class TestPolarity extends FlatSpec with Matchers{
         info(s"Num mentions: ${mentions.size}")
 
         println("=====================")
+        println(sentence)
         val bioEventM = mentions filter {
           case em:BioEventMention => true
           case _ => false
@@ -26,15 +27,15 @@ class TestPolarity extends FlatSpec with Matchers{
           if (bioM.isInstanceOf[BioEventMention]){
             val masked_lemmas = classifierTemp.maskEvent(bioM.sentenceObj.words.clone(), bioM.asInstanceOf[BioEventMention] , "tag")
             println("\t",masked_lemmas.toSeq)
+
+            if (bioM.arguments.contains("controller")){
+              println("\t\tcontroller: ",bioM.arguments("controller").head.text )
+            }else {println("\t\tNo controller")}
+            if (bioM.arguments.contains("controlled")){
+              println("\t\tcontrolled: ",bioM.arguments("controlled").head.text )
+            }else {println("\t\tNo controlled")}
           }
 
-//          println("\t",mention.text)
-          //          if (mention.arguments.contains("controller")){
-//            println("\t\t",mention.arguments("controller").head.text )
-//          }else {println("\t\tNo controller")}
-//          if (mention.arguments.contains("controlled")){
-//            println("\t\t",mention.arguments("controlled").head.text )
-//          }else {println("\t\tNo controlled")}
         }
         scala.io.StdIn.readLine()
 
