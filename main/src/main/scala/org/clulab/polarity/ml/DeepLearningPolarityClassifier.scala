@@ -286,7 +286,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       }
       else if (maskOption == "tag") {
         for (index <- intervalStart until intervalEnd) {
-          if (lemmas(index).endsWith("kd")) {
+          if (lemmas(index).toLowerCase.endsWith("kd")) {
             lemmas(index) = "__controller__-kd"
           }
           else {
@@ -303,7 +303,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       }
       else if (maskOption == "tag") {
         for (index <- intervalStart until intervalEnd) {
-          if (lemmas(index).endsWith("kd")) {
+          if (lemmas(index).toLowerCase.endsWith("kd")) {
             lemmas(index) = "__controlled__-kd"
           }
           else {
