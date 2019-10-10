@@ -4,7 +4,7 @@ import org.clulab.reach.TestUtils._
 import org.scalatest.{FlatSpec, Matchers}
 import org.clulab.reach.mentions.BioEventMention
 
-class Failed_TestPolarity extends FlatSpec with Matchers {
+class Zhengzhong_MaskTestMihai extends FlatSpec with Matchers {
 
   def showMask(sentence: String): Unit = {
 
