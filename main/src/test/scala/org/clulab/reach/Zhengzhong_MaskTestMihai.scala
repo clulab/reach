@@ -6,13 +6,14 @@ import org.clulab.reach.mentions.BioEventMention
 
 class Zhengzhong_MaskTestMihai extends FlatSpec with Matchers {
 
+  val classifierTemp = new org.clulab.polarity.ml.DeepLearningPolarityClassifier()
+
   def showMask(sentence: String): Unit = {
 
     val mentions = getBioMentions(sentence)
     info(s"Num mentions: ${mentions.size}")
 
     println("=====================")
-    val classifierTemp = new org.clulab.polarity.ml.DeepLearningPolarityClassifier()
     println(mentions(0).sentenceObj.words.toSeq)
     val bioEventM = mentions filter {
       case em: BioEventMention => true
@@ -53,8 +54,12 @@ class Zhengzhong_MaskTestMihai extends FlatSpec with Matchers {
     "IL-6 knockdown impaired the function of ASPP2"
   )
 
+  val polarityRule2 = List(0,0,0,0,0)
+
   for (sen <- senList2){
     showMask(sen)
   }
+
+
 }
 
