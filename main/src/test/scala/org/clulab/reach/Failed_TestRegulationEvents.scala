@@ -61,29 +61,32 @@ class Failed_TestRegulationEvents extends FlatSpec with Matchers {
   val sent44 = "Cells expressing ErbB3 show tyrosine phosphorylation in response to RAS inhibition"
   sent44 should "contain 1 negative regulation and 1 phosphorylation" in {
     val mentions = getBioMentions(sent44)
+    hasNegativeRegulationByEntity("RAS", "Phosphorylation", List("ErbB3"), mentions) should be (true)
+
     mentions.filter(_ matches "Negative_regulation") should have size (1)
     mentions.filter(_ matches "Phosphorylation") should have size (1)
-    hasNegativeRegulationByEntity("RAS", "Phosphorylation", List("ErbB3"), mentions) should be (true)
   }
 
   val sent45 = "Together these data demonstrate that E2-induced SRC-3 phosphorylation is dependent on a direct interaction between SRC-3 and ERalpha and can occur outside of the nucleus."
   sent45 should "contain 1 phosphorylation, 1 positive regulation, and 1 binding" in {
     val mentions = getBioMentions(sent45)
+    hasPositiveRegulationByEntity("E2", "Phosphorylation", List("SRC-3"), mentions) should be (true)
+
     mentions.filter(_ matches "Positive_regulation") should have size (1)
     mentions.filter(_ matches "Phosphorylation") should have size (1)
     mentions.filter(_ matches "Binding") should have size (1)
-    hasPositiveRegulationByEntity("E2", "Phosphorylation", List("SRC-3"), mentions) should be (true)
     hasEventWithArguments("Binding", List("SRC-3", "ERalpha"), mentions) should be (true)
   }
 
   val sent47 = "The phosphorylation of AFT by BEF is inhibited by the ubiquitination of Akt."
   sent47 should "contain a regulation of a regulation" in {
     val mentions = getBioMentions(sent47)
+    hasPositiveRegulationByEntity("BEF", "Phosphorylation", List("AFT"), mentions) should be (true)
+
     val inner = mentions.filter(_ matches "Positive_regulation")
     val outer = mentions.filter(_ matches "Negative_regulation")
     inner should have size (1)
     outer should have size (1)
-    hasPositiveRegulationByEntity("BEF", "Phosphorylation", List("AFT"), mentions) should be (true)
     outer.head.arguments("controlled").head == inner.head should be (true)
   }
 
