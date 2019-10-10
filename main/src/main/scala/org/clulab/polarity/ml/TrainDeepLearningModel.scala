@@ -59,7 +59,7 @@ object ManualCheckModel extends App{
     "inhibition of __controller__ increases the phosphorylation of __controlled__",
     "__controller__ blocked the serum stimulated phosphorylation of __controlled__",
     "phosphorylation of AKT1 following inhibition of MEK",
-    "",
+    //"",
   )
   val polarityRule_regulation_20191009 = List(1,0,1
   )
