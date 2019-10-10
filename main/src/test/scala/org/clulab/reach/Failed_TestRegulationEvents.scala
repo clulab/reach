@@ -96,6 +96,14 @@ class Failed_TestRegulationEvents extends FlatSpec with Matchers {
     hasNegativeRegulationByEntity("MEK", "Phosphorylation", List("AKT1"), mentions) should be (true)
   }
 
+  val sent41 = "Our model, in which E2-induced SRC-3 phosphorylation occurs in a complex with ER"
+  sent41 should "contain 1 positive regulation and 1 phosphorylation" in {
+    val mentions = getBioMentions(sent41)
+    hasPositiveRegulationByEntity("E2", "Phosphorylation", List("SRC-3"), mentions) should be (true)
+    mentions.filter(_ matches "Positive_regulation") should have size (1)
+    mentions.filter(_ matches "Phosphorylation") should have size (1)
+  }
+
   val sent58 = "We observed increased ERBB3 binding to PI3K following MEK inhibition (Figure 1D), and accordingly, MEK inhibition substantially increased tyrosine phosphorylated ERBB3 levels (Figure 1A)."
   sent58 should "contain 1 amount, 1 binding, and 2 negative regulations" in {
     val mentions = getBioMentions(sent58)
