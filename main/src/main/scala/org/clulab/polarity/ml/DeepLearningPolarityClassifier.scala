@@ -164,9 +164,8 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         rulePolarity = 1
       }
 
-      var lemmas_masked = lemmas
 
-      lemmas_masked = maskEvent(lemmas, event, maskOption)
+      val lemmas_masked = maskEvent(lemmas, event, maskOption)
 
       val y_pred:Expression =
         this.synchronized{
@@ -187,11 +186,13 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   }
 
   def maskEvent(lemmas_raw:Array[String], event:BioEventMention,  maskOption:String): Array[String] ={
-    var lemmas = lemmas_raw
     // filter out the edge cases where event has no controller or controlled.
+    var lemmas = lemmas_raw.clone()
     if (event.arguments.contains("controller") && event.arguments.contains("controlled")){
       // filter out the edge cases where controller or controlled is vector.
-      if (event.arguments("controller").isInstanceOf[mutable.ArraySeq[Mention]] && event.arguments("controlled").isInstanceOf[mutable.ArraySeq[Mention]]) {
+      //if (event.arguments("controller").isInstanceOf[mutable.ArraySeq[Mention]] && event.arguments("controlled").isInstanceOf[mutable.ArraySeq[Mention]]) {
+      if (event.arguments("controller").isInstanceOf[Seq[Mention]] && event.arguments("controlled").isInstanceOf[Seq[Mention]]) {
+        println("Start masking")
         // recursively masking the controller and controlled
         val controller = event.arguments("controller").head
         lemmas = controller match {
