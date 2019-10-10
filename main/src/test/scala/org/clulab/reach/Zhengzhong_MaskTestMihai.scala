@@ -19,7 +19,7 @@ class Zhengzhong_MaskTestMihai extends FlatSpec with Matchers {
       case _ => false
     }
     for (bioM <- bioEventM) {
-        println("\t", bioM.sentenceObj.words.slice(bioM.start, bioM.end))
+        println("\t", bioM.sentenceObj.words.slice(bioM.start, bioM.end).toSeq)
         val masked_lemmas = classifierTemp.maskEvent(bioM.sentenceObj.words.clone(), bioM.asInstanceOf[BioEventMention], "tag")
         println("\t", masked_lemmas.toSeq)
 
@@ -38,6 +38,7 @@ class Zhengzhong_MaskTestMihai extends FlatSpec with Matchers {
   }
   val senList = List(
     "ASPP1 phosphorylates ASPP2.",
+    "ASPP1 activates ASPP2.",
     "ASPP1 promotes the phosphorylation of ASPP2.",
     "The ubiquitination of ASPP1 promotes the phosphorylation of ASPP2.",
     "The ubiquitination of ASPP1 promotes the phosphorylation of ASPP2 by ASPP1."
