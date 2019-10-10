@@ -19,7 +19,7 @@ class Zhengzhong_MaskTestMihai extends FlatSpec with Matchers {
       case _ => false
     }
     for (bioM <- bioEventM) {
-      if (bioM.isInstanceOf[BioEventMention]) {
+        println("\t", bioM.sentenceObj.words.slice(bioM.start, bioM.end))
         val masked_lemmas = classifierTemp.maskEvent(bioM.sentenceObj.words.clone(), bioM.asInstanceOf[BioEventMention], "tag")
         println("\t", masked_lemmas.toSeq)
 
@@ -33,7 +33,7 @@ class Zhengzhong_MaskTestMihai extends FlatSpec with Matchers {
         } else {
           println("\t\tNo controlled")
         }
-      }
+
     }
   }
   val senList = List(
