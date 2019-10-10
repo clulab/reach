@@ -1,6 +1,5 @@
 package org.clulab.reach
 
-import org.clulab.polarity.ml.ManualCheckModel.lstmClassifier
 import org.clulab.reach.TestUtils._
 import org.clulab.reach.mentions.BioEventMention
 import org.scalatest.{FlatSpec, Matchers}
@@ -69,7 +68,7 @@ class Zhengzhong_MaskTestMihai extends FlatSpec with Matchers {
   val polarityRule3 = List(0,0,1)
 
   for (index <- senList3.indices){
-    lstmClassifier.predictManual(senList3(index), polarityRule3(index))
+    classifierTemp.predictManual(senList3(index), polarityRule3(index))
   }
 
 }
