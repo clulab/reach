@@ -1,8 +1,9 @@
 package org.clulab.reach
 
+import org.clulab.polarity.ml.ManualCheckModel.lstmClassifier
 import org.clulab.reach.TestUtils._
-import org.scalatest.{FlatSpec, Matchers}
 import org.clulab.reach.mentions.BioEventMention
+import org.scalatest.{FlatSpec, Matchers}
 
 class Zhengzhong_MaskTestMihai extends FlatSpec with Matchers {
 
@@ -54,12 +55,22 @@ class Zhengzhong_MaskTestMihai extends FlatSpec with Matchers {
     "IL-6 knockdown impaired the function of ASPP2"
   )
 
-  val polarityRule2 = List(0,0,0,0,0)
-
   for (sen <- senList2){
     showMask(sen)
   }
 
+
+  val senList3 = List(
+    "__controller__ silencing deactivates __controlled__",
+    "__controller__ deletion deactivates __controlled__",
+    "Knockdown of __controller__ induced growth inhibition and knockdown of __controlled__"
+  )
+
+  val polarityRule3 = List(0,0,1)
+
+  for (index <- senList3.indices){
+    lstmClassifier.predictManual(senList3(index), polarityRule3(index))
+  }
 
 }
 
