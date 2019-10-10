@@ -156,9 +156,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     if (event matches "ComplexEvent") {
 
       var lemmas = event.sentenceObj.words.clone()
-      for (index <- 0 until lemmas.length){
-        lemmas(index) = lemmas(index).toLowerCase
-      }
+
       val rule = event.label
       var rulePolarity = 0
       if (rule.startsWith("Neg")) {
