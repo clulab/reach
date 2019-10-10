@@ -7,9 +7,9 @@ import edu.cmu.dynet.Expression._
 import edu.cmu.dynet._
 import org.clulab.fatdynet.utils.CloseableModelSaver
 import org.clulab.fatdynet.utils.Closer.AutoCloser
-import org.clulab.odin.{EventMention, Mention, TextBoundMention}
+import org.clulab.odin.{EventMention, Mention, RelationMention, TextBoundMention}
 import org.clulab.polarity.{NegativePolarity, NeutralPolarity, Polarity, PositivePolarity}
-import org.clulab.reach.mentions.{BioEventMention, CorefEventMention}
+import org.clulab.reach.mentions.BioEventMention
 
 import scala.collection.mutable
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
@@ -196,9 +196,9 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         // recursively masking the controller and controlled
         val controller = event.arguments("controller").head
         lemmas = controller match {
-          case controller:CorefEventMention => {println("CorefEventMention?")
+          case controller:RelationMention => {println("RelationMention Recursive Mask")
             maskRecursively(lemmas, controller, maskOption,"controller")}
-          case controller:EventMention => {println("Recursive mask!")
+          case controller:EventMention => {println("EventMention Recursive Mask!")
             maskRecursively(lemmas, controller, maskOption,"controller")}
           case controller:TextBoundMention => {println("Direct mask!")
             maskDirect(lemmas, maskOption, "controller", controller.start, controller.end)}
@@ -206,9 +206,9 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         }
         val controlled = event.arguments("controlled").head
         lemmas = controlled match {
-          case controlled:CorefEventMention => {println("CorefEventMention?")
+          case controlled:RelationMention => {println("RelationMention Recursive Mask!")
             maskRecursively(lemmas, controlled,maskOption, "controlled")}
-          case controlled:EventMention => {println("Recursive mask!")
+          case controlled:EventMention => {println("EventMention Recursive Mask!")
             maskRecursively(lemmas, controlled,maskOption, "controlled")}
           case controlled:TextBoundMention => {println("Direct mask!")
             maskDirect(lemmas, maskOption, "controlled", controlled.start, controlled.end)}
