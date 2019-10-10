@@ -45,7 +45,15 @@ class Zhengzhong_MaskTestMihai extends FlatSpec with Matchers {
     "The ubiquitination of ASPP1 promotes the phosphorylation of ASPP2 by ASPP1."
   )
 
-  for (sen <- senList){
+  val senList2 = List(
+    "EGFR silencing deactivates MAPK1",
+    "EGFR deletion deactivates MAPK1",
+    "The TSC2 and TSC1 tuberous sclerosis complex, acting downstream of AKT, negatively regulates mTORC1 by inhibiting the GTPase activity of Rheb (Ras Homolog Enriched in Brain), which is a positive regulator of mTORC1.",
+    "In addition, Knockdown of CDK5 induced growth inhibition and knockdown of TP53 reduced silencing CDK5 mediated growth inhibition in the presence or absence of paclitaxel (XREF_FIG).",
+    "IL-6 knockdown impaired the function of ASPP2"
+  )
+
+  for (sen <- senList2){
     showMask(sen)
   }
 }
