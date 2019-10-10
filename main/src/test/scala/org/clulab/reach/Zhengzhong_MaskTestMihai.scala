@@ -37,10 +37,10 @@ class Zhengzhong_MaskTestMihai extends FlatSpec with Matchers {
     }
   }
   val senList = List(
-    "ASPP1 phosphorylates ASPP2",
-    "ASPP1 promotes the phosphorylation of ASPP2",
-    "The ubiquitination of ASPP1 promotes the phosphorylation of ASPP2",
-    "The ubiquitination of ASPP1 promotes the phosphorylation of ASPP2 by ASPP1"
+    "ASPP1 phosphorylates ASPP2.",
+    "ASPP1 promotes the phosphorylation of ASPP2.",
+    "The ubiquitination of ASPP1 promotes the phosphorylation of ASPP2.",
+    "The ubiquitination of ASPP1 promotes the phosphorylation of ASPP2 by ASPP1."
   )
 
   for (sen <- senList){
