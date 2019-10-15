@@ -197,21 +197,21 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         // recursively masking the controller and controlled
         val controller = event.arguments("controller").head
         lemmas = controller match {
-          case controller:RelationMention => {println("RelationMention Recursive Mask")
+          case controller:RelationMention => {
             maskRecursively(lemmas, controller, maskOption,"controller")}
-          case controller:EventMention => {println("EventMention Recursive Mask!")
+          case controller:EventMention => {
             maskRecursively(lemmas, controller, maskOption,"controller")}
-          case controller:TextBoundMention => {println("Direct mask!")
+          case controller:TextBoundMention => {
             maskDirect(lemmas, maskOption, "controller", controller.start, controller.end)}
           case _ => lemmas
         }
         val controlled = event.arguments("controlled").head
         lemmas = controlled match {
-          case controlled:RelationMention => {println("RelationMention Recursive Mask!")
+          case controlled:RelationMention => {
             maskRecursively(lemmas, controlled,maskOption, "controlled")}
-          case controlled:EventMention => {println("EventMention Recursive Mask!")
+          case controlled:EventMention => {
             maskRecursively(lemmas, controlled,maskOption, "controlled")}
-          case controlled:TextBoundMention => {println("Direct mask!")
+          case controlled:TextBoundMention => {
             maskDirect(lemmas, maskOption, "controlled", controlled.start, controlled.end)}
           case _ => lemmas
         }
@@ -229,14 +229,6 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   def maskRecursively(lemmas:Array[String], mention:Mention,  maskOption:String, role:String):Array[String] = {
     if (mention.arguments.contains("theme")){
       maskDirect(lemmas, maskOption, role, mention.arguments("theme").head.start, mention.arguments("theme").head.end)
-//      val (mask_flag, intervalStart, intervalEnd) = getIntervalRecursively(mention.arguments("theme").head, mention)
-//      if (mask_flag) {
-//        val lemmas_masked =maskDirect(lemmas, maskOption, role, intervalStart, intervalEnd)
-//        lemmas_masked
-//      }
-//      else{
-//        lemmas
-//      }
     }
     else{
       lemmas
@@ -245,9 +237,6 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
   // get the bound of controller or controlled, which is later used for masking
   def getIntervalRecursively(theme:Mention, mention:Mention):(Boolean, Int, Int) = {
-    //println(mention.text)
-    //println(theme)
-    //scala.io.StdIn.readLine()
 
     if (mention.arguments.contains("controller") && mention.arguments.contains("controlled")){
       val (controllerFlag, controllerStart, controllerEnd) = getIntervalRecursively(theme, mention.arguments("controller").head)
@@ -562,8 +551,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
           }
           else{sentence_mod(index) = "__controlled__"}
         }
-//        println(sentence_mod.slice(start, end).toSeq)
-//        scala.io.StdIn.readLine()
+
         instances_.append((sentence_mod.slice(start, end).toSeq, rulePolarity))
       }
       else if (mask_option=="name"){
@@ -674,10 +662,3 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   }
 }
 
-
-// object DeepLearningPolarityClassifier extends App{
-//   //def load(path:String):DeepLearningPolarityClassifier = ???
-//   val lstmClassifier = new DeepLearningPolarityClassifier()
-//   lstmClassifier.fit()
-//   //lstmClassifier.loadModelEval()
-// }
