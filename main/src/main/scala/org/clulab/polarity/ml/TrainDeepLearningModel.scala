@@ -1,6 +1,5 @@
 
 package org.clulab.polarity.ml
-import scala.collection.mutable.ListBuffer
 
 
 
@@ -11,11 +10,7 @@ object TrainDeepLearningModel extends App {
  }
 
 
-object EvalDeepLearningModel extends App {
-  val lstmClassifier = new DeepLearningPolarityClassifier()
-  lstmClassifier.loadModelEval()
-}
-
+// This function is reserved for manually chech the behavior of deep learning model, for debugging purpose.
 object ManualCheckModel extends App{
   val eventsList = List("inhibition of __controller__ increases the phosphorylation of __controlled__",
   "__controller__ blocked the serum-stimulated __controlled__ __controlled__ __controlled__",
@@ -72,25 +67,4 @@ object ManualCheckModel extends App{
     lstmClassifier.predictManual(eventsList2(index), polarityRule2(index))
   }
 
-}
-
-object TestFunc extends App {
-  //var A = (("A",Seq(1,2,3)), ("B",2), ("C",(4,5)))
-  val A = new ListBuffer[Int]()
-
-  A.append(1)
-  A.append(2)
-
-  println(A)
-
-  val B = A.toList
-  println(B)
-
-  var a = 1
-
-//  println(testfunc(a))
-//  def testfunc(x:Int):Int = {
-//    x= x+1
-//    x
-//  }
 }

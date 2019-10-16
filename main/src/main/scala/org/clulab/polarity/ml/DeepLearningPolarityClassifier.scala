@@ -445,7 +445,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
   }
 
-  def testSingleEpoch(input_sens: Seq[(Seq[String],Int)],labels: Seq[Int]): Unit = {
+  def testSingleEpoch(input_sens: Seq[(Seq[String],Int)],labels: Seq[Int]): Float = {
 
     var total_loss = 0.toFloat
     var correct_count = 0
@@ -482,9 +482,11 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     logger.info(s"testing loss ${average_loss}")
     logger.info(s"testing acc ${test_acc}")
     logger.info(s"precision:${precision}\trecall:${recall}\tf1:${f1}")
+
+    f1
   }
 
-  def loadModelEval(trainingPath:String = spreadsheetPath, trainRatio:Float=0.8.toFloat):Unit={
+  def loadModelEval(trainingPath:String = spreadsheetPath, trainRatio:Float=0.8.toFloat):Float={
     val (sens_train, labels_train, sens_test, labels_test) = this.readFromSpreadsheet(trainingPath, trainRatio, maskOption)
 
     this.testSingleEpoch(sens_test, labels_test)
