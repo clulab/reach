@@ -157,6 +157,10 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
       var lemmas = event.sentenceObj.words.clone()
 
+      println("================")
+      println("Using deep learning engine!")
+      println(lemmas.toSeq)
+
       val rule = event.label
       var rulePolarity = 0
       if (rule.startsWith("Neg")) {
