@@ -144,7 +144,6 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     * @return Predictions of Polarity subclasses
     */
   override def predict(events: Seq[BioEventMention]): Seq[Polarity] = {
-    //println("++++++++++++++++++++++++++++++++++++++++++")
     var predictions = Seq[Polarity]()
     for (event<-events) {
       predictions = predictions:+predict(event)
@@ -193,7 +192,6 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       // filter out the edge cases where controller or controlled is vector.
       //if (event.arguments("controller").isInstanceOf[mutable.ArraySeq[Mention]] && event.arguments("controlled").isInstanceOf[mutable.ArraySeq[Mention]]) {
       if (event.arguments("controller").isInstanceOf[Seq[Mention]] && event.arguments("controlled").isInstanceOf[Seq[Mention]]) {
-        println("Start masking")
         // recursively masking the controller and controlled
         val controller = event.arguments("controller").head
         lemmas = controller match {
@@ -218,7 +216,6 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         val (start, end) = getExpandBound(event, controller.start, controlled.start)
 
         lemmas.slice(start, end)
-        //println(lemmas_masked.toSeq)
 
       } else lemmas_raw.slice(event.start, event.end)
 
@@ -386,7 +383,6 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   }
 
   def mkCharEmbedding(word: String): Expression = {
-    //println(s"make embedding for word [$word]")
     val charEmbeddings = new ArrayBuffer[Expression]()
     if (word.length>0){
       for(i <- word.indices) {
@@ -528,8 +524,6 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         for (index <- ctrld_start until ctrld_end){
           sentence_mod(index) = "controlled_"+sentence_mod(index)
         }
-        //println(sentence_mod.slice(start, end).toSeq)
-        //scala.io.StdIn.readLine()
         instances_.append((sentence_mod.slice(start, end).toSeq, rulePolarity))
       }
       else if (mask_option=="tag"){
@@ -649,7 +643,6 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
     val dependencyTreeObj = event.document.sentences(0).dependencies.get.allEdges
 
-    //println(dependencyTreeObj)
 
     for (edge <- dependencyTreeObj){
       val potentialBound = Seq(edge._1, edge._2)
