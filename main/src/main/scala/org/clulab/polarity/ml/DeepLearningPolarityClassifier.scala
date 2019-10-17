@@ -471,7 +471,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       val y_pred:Expression = this.synchronized{
         ComputationGraph.renew()
         val y_pred_ = runInstance(instance._1, instance._2)
-        val loss_expr = Expression.binaryLogLoss(y_pred, y)
+        val loss_expr = Expression.binaryLogLoss(y_pred_, y)
         val loss = ComputationGraph.forward(loss_expr).toFloat
         total_loss+=loss
         y_pred_
