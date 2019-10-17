@@ -12,6 +12,6 @@ class TestDeepLearningPolarityEngine extends FlatSpec with Matchers {
   val lstmClassifier = new DeepLearningPolarityClassifier()
 
   "Trained LSTM polarity classifier" should " have >0.87 f1 score on dev set. " in {
-    lstmClassifier.loadModelEval()>0.9 should be (true)
+    lstmClassifier.loadModelEval()>0.87 should be (true)
   }
 }
