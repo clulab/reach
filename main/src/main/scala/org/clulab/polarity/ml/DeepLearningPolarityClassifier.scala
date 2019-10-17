@@ -310,7 +310,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   def predictManual(event:String, rulePolarity:Int): Unit= {
     val words  = event.split(" ")
 
-    val y_pred:Expression = this.synchronized(){
+    val y_pred:Expression = this.synchronized{
       ComputationGraph.renew()
       runInstance(words, rulePolarity)
     }
@@ -441,7 +441,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       val y_value = label
 
       val y = Expression.input(y_value)
-      val y_pred:Expression = this.synchronized(){
+      val y_pred:Expression = this.synchronized{
         ComputationGraph.renew()
         runInstance(instance._1, instance._2)
 
@@ -468,7 +468,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       val y_value = label
 
       val y = Expression.input(y_value)
-      val y_pred:Expression = this.synchronized(){
+      val y_pred:Expression = this.synchronized{
         ComputationGraph.renew()
         runInstance(instance._1, instance._2)
       }
