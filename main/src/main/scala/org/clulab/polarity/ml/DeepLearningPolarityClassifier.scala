@@ -435,13 +435,11 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     var total_loss = 0.toFloat
     for ((instance, label) <- input_sens zip labels) {
 
-
       val y_value = label
-
-      val y = Expression.input(y_value)
 
       this.synchronized{
         ComputationGraph.renew()
+        val y = Expression.input(y_value)
         val y_pred = runInstance(instance._1, instance._2)
         val loss_expr = Expression.binaryLogLoss(y_pred, y)
         val loss =  ComputationGraph.forward(loss_expr).toFloat
@@ -467,16 +465,16 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
       val y_value = label
 
-      val y = Expression.input(y_value)
       val y_pred:Expression = this.synchronized{
         ComputationGraph.renew()
+        val y = Expression.input(y_value)
         val y_pred_ = runInstance(instance._1, instance._2)
         val loss_expr = Expression.binaryLogLoss(y_pred_, y)
         val loss = ComputationGraph.forward(loss_expr).toFloat
-        total_loss+=loss
         y_pred_
       }
 
+      total_loss+=loss
 
       if (y_pred.value().toFloat>0.5){
         predLabels_.append(1)
