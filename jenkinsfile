@@ -1,0 +1,13 @@
+pipeline {
+  agent any
+  stages {
+    stage('Test') {
+      steps {
+        ansiColor('xterm') {
+          sh 'echo "Testing..."'
+          sh './runAllTests.sh'
+        }
+      }
+    }
+  }
+}
