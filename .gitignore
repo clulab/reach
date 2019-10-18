@@ -8,6 +8,16 @@ core/*.iml
 .DS_Store
 Makefile
 
+vocab.txt
+w2vvoc.txt
+SavedLSTM_tag_20190806
+SavedLSTM_WideBound_tag
+SentencesInfo_all_label_final_ExactRecur.txt
+SentencesInfo_all_label_final_ExactRecur_ExpandBound.txt
+SentencesInfo_all_label_final_ExactRecur_ExpandBound_WideSubjObjBound.txt
+SentencesInfo_all_label_final_ExactRecur_train.csv
+
+
 # sbt specific
 dist/*
 target/
@@ -18,3 +28,5 @@ project/plugins/project/
 
 # Scala-IDE specific
 .scala_dependencies
+# SavedLSTM
+
