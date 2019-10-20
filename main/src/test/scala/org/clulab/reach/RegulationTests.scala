@@ -1,10 +1,8 @@
 package org.clulab.reach
 
-import java.io.PrintWriter
-
-import org.scalatest.{FlatSpec, Matchers}
+import org.clulab.reach.TestUtils._
 import org.clulab.reach.mentions._
-import TestUtils._
+import org.scalatest.{FlatSpec, Matchers}
 
 import scala.io.{BufferedSource, Source}
 
@@ -115,7 +113,7 @@ class RegulationTests extends FlatSpec with Matchers{
 
 
     /** test for regulation modifications */
-    index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" ignore {
+    index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
       val mentions = getBioMentions(sentence).filter(_ matches "Event")
       val reg = mentions.find(_.label == regulationPolarity)
       regulationType match {
