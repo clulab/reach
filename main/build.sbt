@@ -3,7 +3,7 @@ name := "reach-main"
 libraryDependencies ++= {
   val akkaV = "2.5.4"
   val luceVer = "5.3.1"
-  val procVer = "7.5.2"
+  val procVer = "7.5.3"
 
   Seq(
     "ai.lum"              %%  "nxmlreader"  % "0.0.9",

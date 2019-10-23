@@ -1,5 +1,6 @@
 #Changes
 =======
++ **1.5.1** - Updated to processors 7.5.3.
 + **1.5.1** - Event polarity is now detected using a hybrid approach that uses rules for simpler texts, and deep learning for more complex statements.
 + **1.5.1** - Added verbose text to the index card format.
 + **1.5.1** - Implements variables for grammar rules.
