@@ -1,4 +1,4 @@
-package org.clulab.reach.context.exec.research_exec
+package org.clulab.reach.context.exec.research
 
 import java.io.File
 
