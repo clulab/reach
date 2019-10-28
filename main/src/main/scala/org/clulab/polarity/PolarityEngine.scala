@@ -2,6 +2,7 @@ package org.clulab.polarity
 
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
+import org.clulab.polarity.ml.{DeepLearningPolarityClassifier, MLPolarityEngine}
 import org.clulab.reach.mentions.BioEventMention
 
 /**
@@ -88,6 +89,13 @@ object PolarityEngine extends LazyLogging {
   def apply(engineName:String): PolarityEngine = engineName match {
     case "Linguistic" =>
       LinguisticPolarityEngine
+    case "DeepLearning" =>
+      val deepLearningClassifier = new DeepLearningPolarityClassifier()
+      new MLPolarityEngine(deepLearningClassifier)
+    case "Hybrid" =>
+      val deepLearningClassifier = new DeepLearningPolarityClassifier()
+      val mlEngine = new MLPolarityEngine(deepLearningClassifier)
+      new HybridLinguisticDeepLearningPolarityEngine(mlEngine)
     case _ =>
       logger.error(s"Requesting an unknown polarity engine: $engineName. Returning the default engine")
       // Return the default engine
@@ -107,5 +115,10 @@ object PolarityEngine extends LazyLogging {
       logger.error("Config file doesn't have polarity engine configured. Returning the default engine")
       defaultEngine
     }
+  }
+
+  def main(inputString:String): Int = {
+    1
+
   }
 }

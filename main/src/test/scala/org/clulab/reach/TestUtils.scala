@@ -2,16 +2,14 @@ package org.clulab.reach
 
 import java.io.File
 
-import scala.io.Source
-import scala.util.Try
-
 import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
-import org.clulab.reach.mentions._
 import org.clulab.odin._
 import org.clulab.processors.Document
-import org.clulab.processors.bionlp.BioNLPProcessor
-import org.clulab.processors.shallownlp.ShallowNLPProcessor
+import org.clulab.reach.mentions._
 import org.clulab.reach.utils.MentionManager
+
+import scala.io.Source
+import scala.util.Try
 
 
 /**
@@ -188,6 +186,7 @@ object TestUtils {
                             controlledLabel: String,
                             controlledArgs: Seq[String],
                             mentions: Seq[Mention]): Boolean = {
+
     for (m <- mentions) {
       if (!m.isInstanceOf[TextBoundMention]) {
         if (m.labels contains label) {
@@ -216,6 +215,7 @@ object TestUtils {
         }
       }
     }
+
     false
   }
 

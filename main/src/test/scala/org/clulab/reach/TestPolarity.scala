@@ -1,13 +1,12 @@
 package org.clulab.reach
 
+import org.clulab.reach.TestUtils._
 import org.scalatest.{FlatSpec, Matchers}
-import org.clulab.reach.mentions._
-import TestUtils._
-import com.typesafe.scalalogging.LazyLogging
+
 
 class TestPolarity extends FlatSpec with Matchers{
 
-  def activationBehaivor(sentence:String, controller:String, controlled:String, positive:Boolean, ignored:Boolean = false): Unit ={
+  def activationBehavior(sentence:String, controller:String, controlled:String, positive:Boolean, ignored:Boolean = false): Unit ={
 
     val description = s"contain a ${if(positive) "positive" else "negative"} activation of $controlled by $controller"
 
@@ -24,15 +23,18 @@ class TestPolarity extends FlatSpec with Matchers{
 
         result should be(true)
       }
+
     }
     else{
       it should description ignore {}
     }
 
 
+
+
   }
-  def positiveActivationBehavior(sentence:String, controller:String, controlled:String, ignored:Boolean = false): Unit = activationBehaivor(sentence, controller, controlled, positive = true, ignored)
-  def negativeActivationBehavior(sentence:String, controller:String, controlled:String, ignored:Boolean = false): Unit = activationBehaivor(sentence, controller, controlled, positive = false, ignored)
+  def positiveActivationBehavior(sentence:String, controller:String, controlled:String, ignored:Boolean = false): Unit = activationBehavior(sentence, controller, controlled, positive = true, ignored)
+  def negativeActivationBehavior(sentence:String, controller:String, controlled:String, ignored:Boolean = false): Unit = activationBehavior(sentence, controller, controlled, positive = false, ignored)
 
   def regulationBehavior(sentence:String, controllerEntity:String, controlledLabel:String, controlledArgs:Seq[String], positive:Boolean, ignored:Boolean = false): Unit ={
 
