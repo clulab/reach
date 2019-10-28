@@ -6,33 +6,34 @@ object AnnotationAlignmentUtils {
   def isThereSomeMatch(evt1Start:Int, evt1End:Int, evt2Start:Int, evt2End: Int):Boolean = {
     // exact match is when both events have the same start and end token values
     val exactMatch = ((evt1Start == evt2Start) && (evt1End == evt2End))
-    val tokenWindow = 2
+
 
     // same start is when the tokens start at the same point, but one event must end before the other
     // please note that one event has to end before the other, because if they were the same, they would have already
-    // been counted as an exactMatch. We will restrict this to two tokens to the right, i.e. the shorted event should
-    // extend until two tokens of the longer one and must end before the longer event ends
-    //val sameStart = ((evt1Start == evt2Start) && (evt1End < evt2End))
-    val sameStart = ((evt1Start == evt2Start) && (evt1End >= evt2End - tokenWindow) && (evt1End < evt2End))
+
+    val sameStart = ((evt1Start == evt2Start) && (evt1End < evt2End))
 
 
     // same end is when one event may start after the other has already started, but they end at the same token
     // again, they must start at different points, else they would have been counted as an exact match
-    val sameEnd = ((evt1End == evt2End) && (evt1Start >= evt2Start - tokenWindow) && (evt1Start < evt2Start))
+    val sameEnd = ((evt1End == evt2End) && (evt1Start > evt2Start))
 
     // containment is when one event is completely inside the other event. We will restrict this to two tokens to the left and right
-    val containment = ((evt1Start >= evt2Start - tokenWindow) && (evt1Start < evt2Start) && (evt1End > evt2End) && (evt1End <= evt2End + tokenWindow))
-    //val containment = ((evt1Start < evt2Start) && (evt1End > evt2End))
+    val containment = ((evt1Start > evt2Start) && (evt1End < evt2End))
+
 
     //overlap is when one event starts before the other, but also ends before the other.
     // the end of the first event has to be before the second event finishes.
-    val overlap = ((evt1Start < evt2Start) && (evt1End < evt2End) && (evt1End > evt2Start))
+    // To account for noisy test cases wherein there is very little overlap, we will enforce a condition that one event must stretch atleast to quarter of the other event.
+    val tokenWindow = (evt1End - evt1Start)/4
+    val overlap = ((evt2Start > evt1Start) && (evt2End <= evt1End - tokenWindow) && (evt2End > evt1End))
 
 
     exactMatch || sameStart || sameEnd || containment || overlap
   }
 
   def eventsAlign(eventSpec1:(Int,Int,Int), eventSpec2:(Int,Int,Int)):Boolean = {
+
     val sameSentenceIndex = eventSpec1._1 == eventSpec2._1
     val someMatchExists = AnnotationAlignmentUtils.isThereSomeMatch(eventSpec1._2, eventSpec1._3, eventSpec2._2, eventSpec2._3)
     sameSentenceIndex && someMatchExists
@@ -50,7 +51,7 @@ object AnnotationAlignmentUtils {
   def eventsAlign(evtID1: String, evtID2: String):Boolean = {
     val tupEvt1 = AnnotationAlignmentUtils.parseEventIDFromStringToTup(evtID1)
     val tupEvt2 = AnnotationAlignmentUtils.parseEventIDFromStringToTup(evtID2)
-    // the purpose of this function is to align events.
+    // the purpose of this function is to check for alignment of events from Reach 2016 and Reach 2019.
     // Since overlap or containment of one event by another is possible,
     // we need to test if one event contains the other, or vice versa. Same holds for overlap.
     AnnotationAlignmentUtils.eventsAlign(tupEvt1, tupEvt2) || AnnotationAlignmentUtils.eventsAlign(tupEvt2, tupEvt1)

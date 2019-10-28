@@ -7,7 +7,17 @@ import org.clulab.context.utils.AggregatedContextInstance
 import org.clulab.struct.Counter
 import org.clulab.learning._
 case class LinearSVMContextClassifier(classifier: Option[LinearSVMClassifier[Int,String]] = None, pathToClassifier:Option[String] = None) extends ContextClassifier {
-  override def fit(xTrain: Seq[AggregatedContextInstance]): Unit = ()
+  override def fit(xTrain: Seq[AggregatedContextInstance]): Unit = {
+    val (datasetInRVFFormat,_) = dataConverter(xTrain)
+    val classifierToPredict = checkForNullException(classifier, pathToClassifier)
+    classifierToPredict match {
+      case Some(c) => fit(datasetInRVFFormat)
+      case None => {
+        print("I have detected a null state for the LinearSVM classifier, upon which no training can be done. " +
+          "Please ensure your SVM model has been correctly loaded from file")
+      }
+    }
+  }
 
 
   // This class provides the basic API for training and predicting of a LinearSVM model.

@@ -8,6 +8,7 @@ import org.clulab.reach.context.utils.io_utils.{ReachPredictionDataTypeIOUtils, 
 
 object SVMTrainSaveInstance extends App {
   //data preprocessing
+  // This script allows you to train your SVM on your dataset. You can adjust the hyperparameters to get different performances.
   val config = ConfigFactory.load()
   val fileName = config.getString("contextEngine.params.trainedSvmPath")
   val SVMClassifier = new LinearSVMClassifier[Int, String](C = 0.001, eps = 0.001, bias = false)
