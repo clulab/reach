@@ -1,6 +1,10 @@
 package org.clulab.reach.context.utils.polarity_analysis_utils
 
+import java.io.File
+
 import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
+
+import scala.io.Source
 
 object ContextLabelCountUtils {
 
@@ -88,7 +92,7 @@ object ContextLabelCountUtils {
     mapToReturn.toMap
   }
 
-  def countLabelsPerPaper(labelsPerPaperMap: collection.mutable.HashMap[String, collection.mutable.ListBuffer[String]], uniquelyActivation:Set[String], uniquelyInhibition:Set[String], intersection:Set[String]):Map[String, (Int, Int, Array[String], Int, Array[String], Int, Array[String])] = {
+  def countLabelsPerPaper(labelsPerPaperMap: Map[String, collection.mutable.ListBuffer[String]], uniquelyActivation:Set[String], uniquelyInhibition:Set[String], intersection:Set[String]):Map[String, (Int, Int, Array[String], Int, Array[String], Int, Array[String])] = {
     val perPaperLabelSpecs = collection.mutable.HashMap[String, (Int, Int, Array[String], Int, Array[String], Int, Array[String])]()
     for((paperID, labelList) <- labelsPerPaperMap) {
       var uniqueActivationCount = 0
@@ -134,7 +138,7 @@ object ContextLabelCountUtils {
     listOfPairs.toArray
   }
 
-  def countCoOccurrenceOfAllPairs(arrayOfPairs:Array[(String, String, String, String)], labelsPerPaperMap: collection.mutable.HashMap[String, collection.mutable.ListBuffer[String]]):Map[(String, String, String, String), (Int, Array[String])] = {
+  def countCoOccurrenceOfAllPairs(arrayOfPairs:Array[(String, String, String, String)], labelsPerPaperMap: Map[String, collection.mutable.ListBuffer[String]]):Map[(String, String, String, String), (Int, Array[String])] = {
     val coOccurrenceMap = collection.mutable.HashMap[(String, String, String, String), (Int, Array[String])]()
     for(pair <- arrayOfPairs) {
       var paperCount = 0
@@ -179,5 +183,38 @@ object ContextLabelCountUtils {
     val tokenIntervalStart = (evt.tokenInterval.start).toString()
     val tokenIntervalEnd = (evt.tokenInterval.end).toString()
     sentIndex+tokenIntervalStart+tokenIntervalEnd
+  }
+
+  def classifyPolaritiesFromOutfiles(pathToParentDirOfPapers:String):(Array[String],Array[String], Map[String, collection.mutable.ListBuffer[String]]) = {
+    val operatingDirFile = new File(pathToParentDirOfPapers)
+    val paperDirs = operatingDirFile.listFiles().filter(_.isDirectory)
+    val contextsPerPaperMap = collection.mutable.HashMap[String, collection.mutable.ListBuffer[String]]()
+    val activationLabelsNonUnique = collection.mutable.ListBuffer[String]()
+    val inhibitionLabelsNonUnique = collection.mutable.ListBuffer[String]()
+    for(pDir <- paperDirs) {
+      val contextsFiles = pDir.listFiles().filter(x => x.getName().contains("ContextsForEvent"))
+      for(contextsFile <- contextsFiles) {
+        val contextFileName = contextsFile.getName()
+        val polarity1 = contextFileName.split("_")(2)
+        val polarity = polarity1.slice(0, polarity1.length - 4)
+        val paperID = pDir.getName()
+        val fileContents = Source.fromFile(contextsFile).getLines().toSeq
+        val labelsTemp = fileContents(0).split(",")
+        val labels = collection.mutable.ListBuffer[String]()
+        labelsTemp.map(x => labels += x)
+        if(contextsPerPaperMap.contains(paperID)) {
+          val currentList = contextsPerPaperMap(paperID)
+          currentList ++= labels
+        }
+        else {
+          val entry = Map(paperID -> labels)
+          contextsPerPaperMap ++= entry
+        }
+
+        if(polarity == "activation") activationLabelsNonUnique ++= labels
+        else inhibitionLabelsNonUnique ++= labels
+      }
+    }
+    (activationLabelsNonUnique.toArray, inhibitionLabelsNonUnique.toArray, contextsPerPaperMap.toMap)
   }
 }
