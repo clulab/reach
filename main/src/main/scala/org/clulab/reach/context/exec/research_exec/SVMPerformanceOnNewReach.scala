@@ -26,7 +26,7 @@ object SVMPerformanceOnNewReach extends App {
   val (paperIDByNewDataPoints,paperIDByNewDataPointSpecs, idForNewReachAggrRow) = ReachPredictionDataTypeIOUtils.readAggrRowsWithSpecsFromFile(pathToParentdirToLoadNewRows)
 
 
-
+  print(paperIDByNewDataPoints.contains("PMC2063868"))
 
   val allAnnotationsFromOldReach = labelMap.map(_._1).toSeq
   val oldAnnotationsGroupedByPaperID = allAnnotationsFromOldReach.groupBy(_._1)
