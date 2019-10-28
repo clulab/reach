@@ -1,6 +1,8 @@
 package org.clulab.reach.context.utils.polarity_analysis_utils
 
-object ContextLabelBehaviorUtils {
+import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
+
+object ContextLabelCountUtils {
 
   def countFrequencyOfString(seq: Seq[String]): Map[String, Int] = {
     val map = collection.mutable.HashMap[String, Int]()
@@ -151,5 +153,31 @@ object ContextLabelBehaviorUtils {
 
     }
     coOccurrenceMap.toMap
+  }
+
+  def checkAddingCondition(sentence: String, event:BioEventMention):Boolean = {
+    checkControllercase(sentence) && checkControlledCase(sentence) && checkValidPolarity(event)
+  }
+
+  def checkControllercase(sentence:String):Boolean = {
+    sentence.contains("EGF") || sentence.contains("egf") || sentence.contains("Epidermal Growth Factor") || sentence.contains("Epidermal growth factor") || sentence.contains("epidermal growth factor")
+  }
+
+  def checkControlledCase(sentence:String):Boolean = {
+    sentence.contains("differentiation") || sentence.contains("Differentiation") || sentence.contains("cell differentiation") || sentence.contains("Cell differentiation") || sentence.contains("cell-differentiation")
+  }
+
+  def checkValidPolarity(evt:BioEventMention):Boolean = {
+    evt.label.contains("Positive") || evt.label.contains("Negative")
+  }
+
+  type Pair = (BioEventMention, BioTextBoundMention)
+  type EventID = String
+  type ContextID = (String, String)
+  def extractEvtId(evt:BioEventMention):EventID = {
+    val sentIndex = evt.sentence
+    val tokenIntervalStart = (evt.tokenInterval.start).toString()
+    val tokenIntervalEnd = (evt.tokenInterval.end).toString()
+    sentIndex+tokenIntervalStart+tokenIntervalEnd
   }
 }

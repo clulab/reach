@@ -1,30 +1,28 @@
 package org.clulab.reach.context.research_exec
-import org.apache.commons.io.{FileUtils, FilenameUtils}
+import org.apache.commons.io.{FilenameUtils}
 import java.io.{File, PrintWriter}
-import java.io.{File, FileOutputStream, ObjectOutputStream, PrintWriter}
 
 import ai.lum.nxmlreader.NxmlReader
 import com.typesafe.config.ConfigFactory
-import org.clulab.odin.EventMention
 import org.clulab.reach.PaperReader.{contextEngineParams, ignoreSections, preproc, procAnnotator}
 import org.clulab.reach.ReachSystem
 import org.clulab.reach.context.ContextEngineFactory.Engine
-import org.clulab.reach.context.feature_utils.{ProcessingStats}
-import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
+import org.clulab.reach.context.feature_utils.ProcessingStats
+import org.clulab.reach.mentions.{BioEventMention}
 import java.util.Date
 
+import org.clulab.reach.context.utils.polarity_analysis_utils.ContextLabelCountUtils
+
 import scala.collection.parallel.ForkJoinTaskSupport
-import scala.collection.immutable.ListMap
-import scala.collection.mutable
-import scala.io.Source
+
 
 object Polarity extends App {
+  // Please run this script on the papers for polarity before running the PerformPolarityAnalysis script.
+  // This script generates some files that is required by the other script.
   val config = ConfigFactory.load()
   val papersDir = config.getString("papersDir")
   val dirForOutput = config.getString("polarityContext.outputForPolarityAnalysisDir")
   val threadLimit: Int = config.getInt("threadLimit")
-
-
   val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
   val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
   lazy val reachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
@@ -33,7 +31,6 @@ object Polarity extends App {
   val egfDiffEvents = collection.mutable.ListBuffer[BioEventMention]()
   processPapers(Some(threadLimit))
   val statsKeeper: ProcessingStats = new ProcessingStats
-
 
   def processPapers(threadLimit:Option[Int]):Unit = {
     val fileList = new File(papersDir)
@@ -48,7 +45,6 @@ object Polarity extends App {
     }
 
   }
-
 
   def processPaper(file:File):Unit = {
     val paperId = FilenameUtils.removeExtension(file.getName)
@@ -65,7 +61,7 @@ object Polarity extends App {
         val sentenceID = ev.sentence
         val tokenInterval = ev.tokenInterval
         val subsentence = ev.document.sentences(sentenceID).words.slice(tokenInterval.start,tokenInterval.end+1).mkString(" ")
-        if (checkAddingCondition(subsentence, ev))
+        if (ContextLabelCountUtils.checkAddingCondition(subsentence, ev))
         {egfDiffEvents += ev
           println(subsentence)}
       }
@@ -99,7 +95,7 @@ object Polarity extends App {
     var polarity = "unknown"
     if(e.label.contains("Positive")) polarity = "activation"
     else if(e.label.contains("Negative")) polarity = "inhibition"
-    val eventFileName = path.concat(s"/ContextsForEvent_${extractEvtId(e)}_${polarity}.txt")
+    val eventFileName = path.concat(s"/ContextsForEvent_${ContextLabelCountUtils.extractEvtId(e)}_${polarity}.txt")
     val eventFile = new File(eventFileName)
     if (!eventFile.exists()) {
       eventFile.createNewFile()
@@ -121,31 +117,4 @@ object Polarity extends App {
 
   }
 
-  def checkAddingCondition(sentence: String, event:BioEventMention):Boolean = {
-    checkEGFcase(sentence) && checkDifferentCase(sentence) && checkValidPolarity(event)
-  }
-
-  def checkEGFcase(sentence:String):Boolean = {
-    sentence.contains("EGF") || sentence.contains("egf") || sentence.contains("Epidermal Growth Factor") || sentence.contains("Epidermal growth factor") || sentence.contains("epidermal growth factor")
-  }
-
-  def checkDifferentCase(sentence:String):Boolean = {
-    sentence.contains("differentiation") || sentence.contains("Differentiation") || sentence.contains("cell differentiation") || sentence.contains("Cell differentiation") || sentence.contains("cell-differentiation")
-  }
-
-  def checkValidPolarity(evt:BioEventMention):Boolean = {
-    evt.label.contains("Positive") || evt.label.contains("Negative")
-  }
-
-  type Pair = (BioEventMention, BioTextBoundMention)
-  type EventID = String
-  type ContextID = (String, String)
-  def extractEvtId(evt:BioEventMention):EventID = {
-    val sentIndex = evt.sentence
-    val tokenIntervalStart = (evt.tokenInterval.start).toString()
-    val tokenIntervalEnd = (evt.tokenInterval.end).toString()
-    sentIndex+tokenIntervalStart+tokenIntervalEnd
-  }
-
-  private def durationToS (startNS:Long, endNS:Long): Long = (endNS - startNS) / 1000000000L
 }

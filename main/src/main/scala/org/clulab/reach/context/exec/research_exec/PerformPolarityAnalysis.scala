@@ -4,7 +4,7 @@ import java.io.{File, PrintWriter}
 
 import scala.collection.immutable.ListMap
 import com.typesafe.config.ConfigFactory
-import org.clulab.reach.context.utils.polarity_analysis_utils.ContextLabelBehaviorUtils
+import org.clulab.reach.context.utils.polarity_analysis_utils.ContextLabelCountUtils
 
 import scala.io.Source
 
@@ -44,8 +44,8 @@ object PerformPolarityAnalysis extends App {
   val allNonUniqueLabels = collection.mutable.ListBuffer[String]()
   allNonUniqueLabels ++= activationLabelsNonUnique
   allNonUniqueLabels ++= inhibitionLabelsNonUnique
-  val frequencyOfAllNonUniqueLabels = ContextLabelBehaviorUtils.countLabelFrequencyInList(allNonUniqueLabels.toArray)
-  val parentPapersCountAllNonUniqueLabels = ContextLabelBehaviorUtils.countPapersUsingLabelsInList(allNonUniqueLabels.toArray, contextsPerPaperMap.toMap)
+  val frequencyOfAllNonUniqueLabels = ContextLabelCountUtils.countLabelFrequencyInList(allNonUniqueLabels.toArray)
+  val parentPapersCountAllNonUniqueLabels = ContextLabelCountUtils.countPapersUsingLabelsInList(allNonUniqueLabels.toArray, contextsPerPaperMap.toMap)
   val composeAllLabelsResult = collection.mutable.HashMap[String,(Int, Int, Array[String])]()
   for(a <- allNonUniqueLabels) {
     val frequency = frequencyOfAllNonUniqueLabels(a)
@@ -111,7 +111,7 @@ object PerformPolarityAnalysis extends App {
   // CODE FOR COUNTING THE NUMBER OF LABELS IN EACH PAPER ******
 
 
-  val labelDistributionPerPaper = ContextLabelBehaviorUtils.countLabelsPerPaper(contextsPerPaperMap, exclusivelyActivation, exclusivelyInhibition, commonLabels)
+  val labelDistributionPerPaper = ContextLabelCountUtils.countLabelsPerPaper(contextsPerPaperMap, exclusivelyActivation, exclusivelyInhibition, commonLabels)
   //val sortedParentPaperMapPart1 = ListMap(composeAllLabelsResult.toSeq.sortWith(_._2._2 > _._2._2):_*)
 
   val sortedLabelDistributionPerPaper = ListMap(labelDistributionPerPaper.toSeq.sortWith(_._2._1 > _._2._1):_*)
@@ -142,9 +142,9 @@ object PerformPolarityAnalysis extends App {
 
 
     val acrossPolarityPairs = collection.mutable.ListBuffer[(String,String,String,String)]()
-    val pairListFromActInh = ContextLabelBehaviorUtils.constructAllPairsTwoSets(exclusivelyActivation,"activation",exclusivelyInhibition, "inhibition")
-    val pairListFromActInter = ContextLabelBehaviorUtils.constructAllPairsTwoSets(exclusivelyActivation, "activation", commonLabels, "intersection")
-    val pairListFromInhInter = ContextLabelBehaviorUtils.constructAllPairsTwoSets(exclusivelyInhibition, "inhibition", commonLabels, "intersection")
+    val pairListFromActInh = ContextLabelCountUtils.constructAllPairsTwoSets(exclusivelyActivation,"activation",exclusivelyInhibition, "inhibition")
+    val pairListFromActInter = ContextLabelCountUtils.constructAllPairsTwoSets(exclusivelyActivation, "activation", commonLabels, "intersection")
+    val pairListFromInhInter = ContextLabelCountUtils.constructAllPairsTwoSets(exclusivelyInhibition, "inhibition", commonLabels, "intersection")
   acrossPolarityPairs ++= pairListFromActInh
   acrossPolarityPairs ++= pairListFromActInter
   acrossPolarityPairs ++= pairListFromInhInter
@@ -152,20 +152,20 @@ object PerformPolarityAnalysis extends App {
 
 
 
-    val pairListFromActAct = ContextLabelBehaviorUtils.constructAllPairsTwoSets(exclusivelyActivation,"activation",exclusivelyActivation,"activation")
-    val pairListFromInhInh = ContextLabelBehaviorUtils.constructAllPairsTwoSets(exclusivelyInhibition, "inhibition", exclusivelyInhibition, "inhibition")
-    val pairListFromInterInter = ContextLabelBehaviorUtils.constructAllPairsTwoSets(commonLabels, "intersection", commonLabels, "intersection")
+    val pairListFromActAct = ContextLabelCountUtils.constructAllPairsTwoSets(exclusivelyActivation,"activation",exclusivelyActivation,"activation")
+    val pairListFromInhInh = ContextLabelCountUtils.constructAllPairsTwoSets(exclusivelyInhibition, "inhibition", exclusivelyInhibition, "inhibition")
+    val pairListFromInterInter = ContextLabelCountUtils.constructAllPairsTwoSets(commonLabels, "intersection", commonLabels, "intersection")
 
 
   // counting co-occurrence of labels of the same polarity
-  val coOccurrenceActAct = ContextLabelBehaviorUtils.countCoOccurrenceOfAllPairs(pairListFromActAct, contextsPerPaperMap)
+  val coOccurrenceActAct = ContextLabelCountUtils.countCoOccurrenceOfAllPairs(pairListFromActAct, contextsPerPaperMap)
   val sortedcoOccurrenceActAct = ListMap(coOccurrenceActAct.toSeq.sortWith(_._2._1 > _._2._1):_*)
-  val coOccurrenceInhInh = ContextLabelBehaviorUtils.countCoOccurrenceOfAllPairs(pairListFromInhInh, contextsPerPaperMap)
+  val coOccurrenceInhInh = ContextLabelCountUtils.countCoOccurrenceOfAllPairs(pairListFromInhInh, contextsPerPaperMap)
   val sortedcoOccurrenceInhInh = ListMap(coOccurrenceInhInh.toSeq.sortWith(_._2._1 > _._2._1):_*)
-  val coOccurrenceInterInter = ContextLabelBehaviorUtils.countCoOccurrenceOfAllPairs(pairListFromInterInter, contextsPerPaperMap)
+  val coOccurrenceInterInter = ContextLabelCountUtils.countCoOccurrenceOfAllPairs(pairListFromInterInter, contextsPerPaperMap)
   val sortedcoOccurrenceInterInter  = ListMap(coOccurrenceInterInter.toSeq.sortWith(_._2._1 > _._2._1):_*)
 
-  val coOccurrenceAcrossPolarity = ContextLabelBehaviorUtils.countCoOccurrenceOfAllPairs(acrossPolarityPairs.toArray, contextsPerPaperMap)
+  val coOccurrenceAcrossPolarity = ContextLabelCountUtils.countCoOccurrenceOfAllPairs(acrossPolarityPairs.toArray, contextsPerPaperMap)
   val sortedcoOccurrenceAcrossPolarity  = ListMap(coOccurrenceAcrossPolarity.toSeq.sortWith(_._2._1 > _._2._1):_*)
 
 
