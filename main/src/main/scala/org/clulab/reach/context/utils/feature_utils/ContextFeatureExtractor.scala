@@ -86,9 +86,6 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     val evtDepFeatVal = calculateEvtDepFeatureVals(datum)
     val ctxDepFeatVal = calculateCtxDepFeatureVals(datum)
 
-
-    println(s"Event ID from ContextPairInstance class: ${evntId}")
-
     val row = ContextPairInstance(sentencePos,
       PMCID,
       label,
@@ -125,17 +122,14 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
       case None => 0.0
     }
 
-    println(s"dependency path:")
-    println(dependencyPath)
+
 
     val dependencyDistEntry = Map("dependencyDistance" -> dependencyDistance)
     result ++= dependencyDistEntry
 
-    println(s"dependencyDistance: ${dependencyDistance}")
 
     val context_frequency = ctxTypeFreq(context.nsId())
     result ++= Map("context_frequency" -> context_frequency)
-    println(s"context_frequency: ${context_frequency}")
 
 
     // Dependency tails
