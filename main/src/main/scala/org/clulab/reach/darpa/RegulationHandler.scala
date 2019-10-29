@@ -278,7 +278,6 @@ object RegulationHandler {
 
   def regulationClassifierBaseline(lemmas:Seq[String]):String = {
 
-    var noneCount = 0
     var kdCount = 0
     var koCount = 0
     var dnCount = 0
@@ -306,16 +305,19 @@ object RegulationHandler {
     chemCount +=countSubSeqMatch(lemmas, List("chemical", "inhibition", "of"))
     chemCount +=countSubSeqMatch(lemmas, List("inhibitor", "of"))
 
-    var regTokenCounts = Map("None"->noneCount,"KD"-> kdCount, "KO"-> koCount,"DN"-> dnCount,"OE"-> oeCount,"CHEM"-> chemCount)
+    var regTokenCounts = Map("KD"-> kdCount, "KO"-> koCount,"DN"-> dnCount,"OE"-> oeCount,"CHEM"-> chemCount)
 
     val mostPossibleTypeEntry = regTokenCounts.maxBy { case (key, value) => value }
     println(lemmas)
     println(regTokenCounts)
     println("===============")
 
-
-    mostPossibleTypeEntry._1
-
+    if (mostPossibleTypeEntry._2>0){
+      mostPossibleTypeEntry._1
+    }
+    else{
+      "None"
+    }
   }
 
   def countSubSeqMatch(lemmas:Seq[String], keywords:Seq[String]):Int = {
