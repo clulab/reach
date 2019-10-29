@@ -277,30 +277,35 @@ object RegulationHandler {
 //  }
 
   def regulationClassifierBaseline(lemmas:Seq[String]):String = {
-    var regTokenCounts = Map("KD"-> 0, "KO"-> 0,"DN"-> 0,"OE"-> 0,"CHEM"-> 0)
 
-
+    var kdCount = 0
+    var koCount = 0
+    var dnCount = 0
+    var oeCount = 0
+    var chemCount = 0
     // First detect regulation type with 1 keyword
     for (lemma <- lemmas) {
       for (keyword <- keywordKD if lemma.contains(keyword)){
-        regTokenCounts("KD") += 1
+        kdCount += 1
       }
       for (keyword <- keywordKO if lemma.contains(keyword)){
-        regTokenCounts("KO") += 1
+        koCount += 1
       }
       for (keyword <- keywordDN if lemma.contains(keyword)){
-        regTokenCounts("DN") += 1
+        dnCount += 1
       }
       for (keyword <- keywordOE if lemma.contains(keyword)) {
-        regTokenCounts("OE") += 1
+        oeCount += 1
       }
     }
 
     // Then detect regulation type with a sequence of keywords
     // Hard code these for now. TODO: code these in more general way
-    regTokenCounts("DN")+=countSubSeqMatch(lemmas, List("dominant", "negative"))
-    regTokenCounts("CHEM")+=countSubSeqMatch(lemmas, List("chemical", "inhibition", "of"))
-    regTokenCounts("CHEM")+=countSubSeqMatch(lemmas, List("inhibitor", "of"))
+    dnCount +=countSubSeqMatch(lemmas, List("dominant", "negative"))
+    chemCount +=countSubSeqMatch(lemmas, List("chemical", "inhibition", "of"))
+    chemCount +=countSubSeqMatch(lemmas, List("inhibitor", "of"))
+
+    var regTokenCounts = Map("KD"-> kdCount, "KO"-> koCount,"DN"-> dnCount,"OE"-> oeCount,"CHEM"-> chemCount)
 
     val mostPossibleTypeEntry = regTokenCounts.maxBy { case (key, value) => value }
 
@@ -345,6 +350,5 @@ object reguTestZ extends App {
 
   println(list3.contains(3))
   println(list3.contains(4))
-
 
 }
