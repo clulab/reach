@@ -1,12 +1,11 @@
-package org.clulab.reach.context.research_exec
+package org.clulab.reach.context.scripts
 
 import java.io.{File, PrintWriter}
 
-import scala.collection.immutable.ListMap
 import com.typesafe.config.ConfigFactory
 import org.clulab.reach.context.utils.polarity_analysis_utils.ContextLabelCountUtils
 
-import scala.io.Source
+import scala.collection.immutable.ListMap
 
 object PerformPolarityAnalysis extends App {
 

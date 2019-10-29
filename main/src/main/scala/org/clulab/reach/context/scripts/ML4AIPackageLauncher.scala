@@ -1,9 +1,8 @@
-package org.clulab.context.exec
+package org.clulab.reach.context.scripts
 
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
-import org.clulab.context.utils.FoldMaker
-import org.clulab.context.utils.CrossValidationUtils
+import org.clulab.context.utils.{CrossValidationUtils, FoldMaker}
 import org.clulab.learning.LinearSVMClassifier
 import org.clulab.reach.context.utils.io_utils.{ReachPredictionDataTypeIOUtils, SVMTrainingIOUtils}
 import org.clulab.reach.context.utils.score_utils.ScoreMetricsOfClassifier

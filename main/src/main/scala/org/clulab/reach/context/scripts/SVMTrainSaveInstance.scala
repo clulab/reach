@@ -1,10 +1,10 @@
-package org.clulab.context.exec
+package org.clulab.reach.context.scripts
 
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.{DummyClassifier, LinearSVMContextClassifier}
-import org.clulab.context.utils.{AggregatedContextInstance, CrossValidationUtils}
+import org.clulab.context.utils.AggregatedContextInstance
 import org.clulab.learning.LinearSVMClassifier
-import org.clulab.reach.context.utils.io_utils.{ReachPredictionDataTypeIOUtils, SVMTrainingIOUtils}
+import org.clulab.reach.context.utils.io_utils.SVMTrainingIOUtils
 
 object SVMTrainSaveInstance extends App {
   //data preprocessing

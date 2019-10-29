@@ -1,4 +1,4 @@
-package org.clulab.context.context_exec
+package org.clulab.reach.context.scripts
 
 import java.io.{File, PrintWriter}
 
@@ -18,7 +18,6 @@ object GenerateOutputFiles extends App {
     // These files are required to run the annotator web app that was designed by Zechy.
     val config = ConfigFactory.load()
     val dirForType = config.getString("papersDir")
-    //val dirForType = config.getString("polarityContext.temporaryRun")
     val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
     val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
     lazy val reachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),

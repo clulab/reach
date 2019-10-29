@@ -1,11 +1,8 @@
-package org.clulab.reach.context.scripts.research
-
-import java.io.File
+package org.clulab.reach.context.scripts
 
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
-import org.clulab.context.utils.{AggregatedContextInstance, CrossValidationUtils}
-import org.clulab.reach.context.feature_utils.ContextFeatureUtils
+import org.clulab.context.utils.AggregatedContextInstance
 import org.clulab.reach.context.utils.annotation_alignment_utils.AnnotationAlignmentUtils
 import org.clulab.reach.context.utils.io_utils.{ClassifierLoader, ReachPredictionDataTypeIOUtils, ReachSystemAnalysisIOUtils}
 import org.clulab.reach.context.utils.score_utils.ScoreMetricsOfClassifier

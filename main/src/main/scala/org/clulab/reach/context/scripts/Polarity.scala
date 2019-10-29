@@ -1,20 +1,19 @@
-package org.clulab.reach.context.research_exec
-import org.apache.commons.io.{FilenameUtils}
+package org.clulab.reach.context.scripts
+
 import java.io.{File, PrintWriter}
+import java.util.Date
 
 import ai.lum.nxmlreader.NxmlReader
 import com.typesafe.config.ConfigFactory
+import org.apache.commons.io.FilenameUtils
 import org.clulab.reach.PaperReader.{contextEngineParams, ignoreSections, preproc, procAnnotator}
 import org.clulab.reach.ReachSystem
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.context.feature_utils.ProcessingStats
-import org.clulab.reach.mentions.{BioEventMention}
-import java.util.Date
-
 import org.clulab.reach.context.utils.polarity_analysis_utils.ContextLabelCountUtils
+import org.clulab.reach.mentions.BioEventMention
 
 import scala.collection.parallel.ForkJoinTaskSupport
-
 
 object Polarity extends App {
   // Please run this script on the papers for polarity before running the PerformPolarityAnalysis script.

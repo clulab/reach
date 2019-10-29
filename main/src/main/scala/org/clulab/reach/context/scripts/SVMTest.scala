@@ -1,4 +1,4 @@
-package org.clulab.context.exec
+package org.clulab.reach.context.scripts
 
 import org.clulab.learning.{LinearSVMClassifier, RVFDataset, RVFDatum}
 import org.clulab.struct.Counter
