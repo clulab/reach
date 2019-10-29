@@ -308,6 +308,10 @@ object RegulationHandler {
     var regTokenCounts = Map("KD"-> kdCount, "KO"-> koCount,"DN"-> dnCount,"OE"-> oeCount,"CHEM"-> chemCount)
 
     val mostPossibleTypeEntry = regTokenCounts.maxBy { case (key, value) => value }
+    println(lemmas)
+    println(regTokenCounts)
+    scala.io.StdIn.readLine()
+
 
     mostPossibleTypeEntry._1
 
