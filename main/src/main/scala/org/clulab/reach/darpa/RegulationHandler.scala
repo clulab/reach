@@ -18,6 +18,7 @@ object RegulationHandler {
   val keywordOE: Seq[String] = Seq("overexpress", "overexpression", "oe")
   val keywordCHEM: Seq[Product] = Seq(("chemical", "inhibition", "of"), ("inhibitor", "of"))
 
+
     def detectRegulations(mentions: Seq[Mention], state:State): Seq[Mention] = {
     // do something very smart to handle triggers
     // and then return the mentions
@@ -274,5 +275,76 @@ object RegulationHandler {
 //      }
 //    }
 //  }
+
+  def regulationClassifierBaseline(lemmas:Seq[String]):String = {
+    var regTokenCounts = Map("KD"-> 0, "KO"-> 0,"DN"-> 0,"OE"-> 0,"CHEM"-> 0)
+
+
+    // First detect regulation type with 1 keyword
+    for (lemma <- lemmas) {
+      for (keyword <- keywordKD if lemma.contains(keyword)){
+        regTokenCounts("KD") += 1
+      }
+      for (keyword <- keywordKO if lemma.contains(keyword)){
+        regTokenCounts("KO") += 1
+      }
+      for (keyword <- keywordDN if lemma.contains(keyword)){
+        regTokenCounts("DN") += 1
+      }
+      for (keyword <- keywordOE if lemma.contains(keyword)) {
+        regTokenCounts("OE") += 1
+      }
+    }
+
+    // Then detect regulation type with a sequence of keywords
+    // Hard code these for now. TODO: code these in more general way
+    regTokenCounts("DN")+=countSubSeqMatch(lemmas, List("dominant", "negative"))
+    regTokenCounts("CHEM")+=countSubSeqMatch(lemmas, List("chemical", "inhibition", "of"))
+    regTokenCounts("CHEM")+=countSubSeqMatch(lemmas, List("inhibitor", "of"))
+
+    val mostPossibleTypeEntry = regTokenCounts.maxBy { case (key, value) => value }
+
+    mostPossibleTypeEntry._1
+
+  }
+
+  def countSubSeqMatch(lemmas:Seq[String], keywords:Seq[String]):Int = {
+    var count = 0
+    for (index <- 0 until lemmas.length-keywords.length){
+      if (lemmas.slice(index, index+keywords.length)==keywords){
+        count+=1
+      }
+    }
+    count
+  }
+
+}
+
+
+// TODO: this function is for debugging purpose only. Delete this when merging the code.
+object reguTestZ extends App {
+  val keywordCHEM: Seq[Product] = Seq(("chemical", "inhibition", "of"), ("inhibitor", "of"))
+  println(keywordCHEM(1))
+
+
+  val list1 = List(1,2,3,4,3,4,5,6,4,3,4,5,6,3,4)
+  val list2 = List(3,4)
+
+  var count = 0
+  for (index <- 0 until (list1.length-list2.length)){
+    println(list1.slice(index, index+list2.length), list2)
+    if (list1.slice(index, index+list2.length)==list2){
+      count +=1
+    }
+  }
+  println(count)
+
+
+  val list3 = List(4,5,6, list2)
+  println(list3)
+
+  println(list3.contains(3))
+  println(list3.contains(4))
+
 
 }

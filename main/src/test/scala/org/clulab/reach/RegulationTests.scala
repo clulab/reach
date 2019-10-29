@@ -1,6 +1,6 @@
 package org.clulab.reach
 
-import org.clulab.reach.TestUtils._
+import org.clulab.reach.darpa.RegulationHandler.regulationClassifierBaseline
 import org.clulab.reach.mentions._
 import org.scalatest.{FlatSpec, Matchers}
 
@@ -112,16 +112,29 @@ class RegulationTests extends FlatSpec with Matchers{
 //    }
 
 
-    /** test for regulation modifications */
+//    /** test for regulation modifications */
+//    index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
+//      val mentions = getBioMentions(sentence).filter(_ matches "Event")
+//      val reg = mentions.find(_.label == regulationPolarity)
+//      regulationType match {
+//        case "knockdown" => getKDRegulation(reg.head) should be('nonEmpty)
+//        case "knockout" => getKORegulation(reg.head) should be('nonEmpty)
+//        case "dominant negative" => getDNRegulation(reg.head) should be('nonEmpty)
+//        case "overexpression" => getOERegulation(reg.head) should be('nonEmpty)
+//        case "chemical inhibition" => getCHEMRegulation(reg.head) should be('nonEmpty)
+//        case _ => println("NONE")
+//      }
+//    }
+
+    // Baseline regulation classifier: classify events by the count of keywords
     index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
-      val mentions = getBioMentions(sentence).filter(_ matches "Event")
-      val reg = mentions.find(_.label == regulationPolarity)
+      val lemmas = sentence.split(" ")
       regulationType match {
-        case "knockdown" => getKDRegulation(reg.head) should be('nonEmpty)
-        case "knockout" => getKORegulation(reg.head) should be('nonEmpty)
-        case "dominant negative" => getDNRegulation(reg.head) should be('nonEmpty)
-        case "overexpression" => getOERegulation(reg.head) should be('nonEmpty)
-        case "chemical inhibition" => getCHEMRegulation(reg.head) should be('nonEmpty)
+        case "knockdown" => regulationClassifierBaseline(lemmas) should be("KD")
+        case "knockout" => regulationClassifierBaseline(lemmas) should be("KO")
+        case "dominant negative" => regulationClassifierBaseline(lemmas) should be("DN")
+        case "overexpression" => regulationClassifierBaseline(lemmas) should be("OE")
+        case "chemical inhibition" => regulationClassifierBaseline(lemmas) should be("CHEM")
         case _ => println("NONE")
       }
     }
