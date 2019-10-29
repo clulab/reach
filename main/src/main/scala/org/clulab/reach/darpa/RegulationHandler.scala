@@ -10,7 +10,7 @@ import org.clulab.struct.Interval
 object RegulationHandler {
 
   /** Keywords for each regulation type */
-  val keywordKD: Seq[String] = Seq("sirna", "silencing", "si-", "sh-", "shrna", "knockdown", "knock-down", "siRNA")
+  val keywordKD: Seq[String] = Seq("sirna", "silencing", "si-", "sh-", "shrna", "knockdown", "knock-down")
   val keywordKO: Seq[String] = Seq("knockout", "ko", "-/-")
   val keywordDN: Seq[io.Serializable] = Seq("dn-", "dominant-negative", ("dominant", "negative")) // for dependencies
   val keywordDNuni: Seq[String] = Seq("dn-", "dominant-negative") // for unigram tokens
