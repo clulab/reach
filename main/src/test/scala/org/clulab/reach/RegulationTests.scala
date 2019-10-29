@@ -5,7 +5,7 @@ import org.clulab.reach.mentions._
 import org.scalatest.{FlatSpec, Matchers}
 
 import scala.io.{BufferedSource, Source}
-
+import TestUtils._
 
 
 class RegulationTests extends FlatSpec with Matchers{
@@ -126,20 +126,36 @@ class RegulationTests extends FlatSpec with Matchers{
 //      }
 //    }
 
-    // Baseline regulation classifier: classify events by the count of keywords
-    index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
-      //val mentions = getBioMentions(sentence).filter(_ matches "Event")
-      val lemmas = sentence.toLowerCase().split(" ")
-      println(regulationType)
-      regulationType match {
-        case "knockdown" => regulationClassifierBaseline(lemmas) should be("KD")
-        case "knockout" => regulationClassifierBaseline(lemmas) should be("KO")
-        case "dominant negative" => regulationClassifierBaseline(lemmas) should be("DN")
-        case "overexpression" => regulationClassifierBaseline(lemmas) should be("OE")
-        case "chemical inhibition" => regulationClassifierBaseline(lemmas) should be("CHEM")
-        case _ => println("NONE")
-      }
-    }
+    // Baseline 1: regulation classifier, classify the whole sentence by the count of keywords
+//    index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
+//      //val mentions = getBioMentions(sentence).filter(_ matches "Event")
+//      val lemmas = sentence.toLowerCase().split(" ")
+//      println(regulationType)
+//      regulationType match {
+//        case "knockdown" => regulationClassifierBaseline(lemmas) should be("KD")
+//        case "knockout" => regulationClassifierBaseline(lemmas) should be("KO")
+//        case "dominant negative" => regulationClassifierBaseline(lemmas) should be("DN")
+//        case "overexpression" => regulationClassifierBaseline(lemmas) should be("OE")
+//        case "chemical inhibition" => regulationClassifierBaseline(lemmas) should be("CHEM")
+//        case _ => println("NONE")
+//      }
+//    }
+
+    // Baseline 2: regulation classifier, classify event by the count of keywords
+        index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
+          val mentions = getBioMentions(sentence).filter(_ matches "Event")
+          val reg = mentions.find(_.label == regulationPolarity)
+          val lemmas_ = reg.head.sentenceObj.words.slice(reg.head.start, reg.head.end)
+          val lemmas = lemmas_.mkString(" ").toLowerCase().split(" ")
+          regulationType match {
+            case "knockdown" => regulationClassifierBaseline(lemmas) should be("KD")
+            case "knockout" => regulationClassifierBaseline(lemmas) should be("KO")
+            case "dominant negative" => regulationClassifierBaseline(lemmas) should be("DN")
+            case "overexpression" => regulationClassifierBaseline(lemmas) should be("OE")
+            case "chemical inhibition" => regulationClassifierBaseline(lemmas) should be("CHEM")
+            case _ => println("NONE")
+          }
+        }
 
 
 
