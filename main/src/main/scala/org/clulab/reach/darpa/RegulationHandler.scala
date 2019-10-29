@@ -10,7 +10,7 @@ import org.clulab.struct.Interval
 object RegulationHandler {
 
   /** Keywords for each regulation type */
-  val keywordKD: Seq[String] = Seq("sirna", "silencing", "si-", "sh-", "shrna", "knockdown", "knock-down")
+  val keywordKD: Seq[String] = Seq("sirna", "silencing", "si-", "sh-", "shrna", "knockdown", "knock-down", "siRNA")
   val keywordKO: Seq[String] = Seq("knockout", "ko", "-/-")
   val keywordDN: Seq[io.Serializable] = Seq("dn-", "dominant-negative", ("dominant", "negative")) // for dependencies
   val keywordDNuni: Seq[String] = Seq("dn-", "dominant-negative") // for unigram tokens
@@ -278,6 +278,7 @@ object RegulationHandler {
 
   def regulationClassifierBaseline(lemmas:Seq[String]):String = {
 
+    var noneCount = 0
     var kdCount = 0
     var koCount = 0
     var dnCount = 0
@@ -305,12 +306,12 @@ object RegulationHandler {
     chemCount +=countSubSeqMatch(lemmas, List("chemical", "inhibition", "of"))
     chemCount +=countSubSeqMatch(lemmas, List("inhibitor", "of"))
 
-    var regTokenCounts = Map("KD"-> kdCount, "KO"-> koCount,"DN"-> dnCount,"OE"-> oeCount,"CHEM"-> chemCount)
+    var regTokenCounts = Map("None"->noneCount,"KD"-> kdCount, "KO"-> koCount,"DN"-> dnCount,"OE"-> oeCount,"CHEM"-> chemCount)
 
     val mostPossibleTypeEntry = regTokenCounts.maxBy { case (key, value) => value }
     println(lemmas)
     println(regTokenCounts)
-    scala.io.StdIn.readLine()
+    println("===============")
 
 
     mostPossibleTypeEntry._1
