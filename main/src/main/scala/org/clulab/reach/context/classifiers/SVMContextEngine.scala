@@ -73,10 +73,19 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
               val parentDirForManualAnnotations = config.getString("svmContext.transferredAnnotationsParentDir")
               val manualAnnotations = ReachSystemAnalysisIOUtils.getTransferredAnnotationsFromReach2016(parentDirForManualAnnotations)
               println(s"The number of manual annotations we have: ${manualAnnotations.size}")
-              pairs
+              val matchingPairs = collection.mutable.ListBuffer[Pair]()
+              for (p <- pairs) {
+                val eventID = ContextFeatureUtils.extractEvtId(p._1)
+                val contextID = p._2.nsId()
+                if(manualAnnotations.contains((eventID,contextID)))
+                  matchingPairs += p
+              }
+              matchingPairs
             }
 
         }
+        println(s"We are going to use ${filteredPairs.size} pairs for feature extraction")
+
 
         // The filteredPairs, as the name suggests, contains the subset of the context-event pairs, filtered based on the sentence distance window.
         // A filteredPair is an instance of Pair as defined on line 15. Once we have the seq(filteredPair), we are ready to calculate the feature values.
