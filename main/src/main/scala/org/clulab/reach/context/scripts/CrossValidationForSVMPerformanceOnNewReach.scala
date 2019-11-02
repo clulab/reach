@@ -10,11 +10,11 @@ object CrossValidationForSVMPerformanceOnNewReach extends App {
   // Loading the AggrRows from file. AggrRows are the output from Reach 2019.
   val reach2019RootDir = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
   val mapOfaggrRowsByPaperID = ReachSystemAnalysisIOUtils.getReach2019RowsByPaperID(reach2019RootDir)
-
-  val parentDirForManualAnnotations = config.getString("svmContext.transferredAnnotationsParentDir")
-  val manualPredictions = ReachSystemAnalysisIOUtils.getManualPredictions(parentDirForManualAnnotations)
-
-  print(s"We have a total of ${manualPredictions.size} annotations")
+  print(s"Number of papers: ${mapOfaggrRowsByPaperID.size}")
+//  val parentDirForManualAnnotations = config.getString("svmContext.transferredAnnotationsParentDir")
+//  val manualPredictions = ReachSystemAnalysisIOUtils.getManualPredictions(parentDirForManualAnnotations)
+//
+//  print(s"We have a total of ${manualPredictions.size} annotations")
 
 
 
