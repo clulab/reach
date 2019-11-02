@@ -75,9 +75,14 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
               println(s"The number of manual annotations we have: ${manualAnnotations.size}")
               val matchingPairs = collection.mutable.ListBuffer[Pair]()
               for (p <- pairs) {
+                val paperID = p._1.document.id match {
+                  case Some(x) => s"PMC${x.split("_")(0)}"
+                  case None => "unknown paper id"
+                }
+                println(s"Current paper: ${paperID}")
                 val eventID = ContextFeatureUtils.extractEvtId(p._1)
                 val contextID = p._2.nsId()
-                if(manualAnnotations.contains((eventID,contextID)))
+                if(manualAnnotations.contains((paperID, eventID,contextID)))
                   matchingPairs += p
               }
               matchingPairs
