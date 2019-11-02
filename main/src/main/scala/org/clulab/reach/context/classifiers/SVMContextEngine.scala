@@ -6,6 +6,7 @@ import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.{AggregatedContextInstance, ContextPairInstance}
 import org.clulab.reach.context.ContextEngine
 import org.clulab.reach.context.feature_utils.{ContextFeatureAggregator, ContextFeatureUtils, EventContextPairGenerator}
+import org.clulab.reach.context.utils.io_utils.ReachSystemAnalysisIOUtils
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 
 import scala.collection.immutable
@@ -42,6 +43,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
     }
   }
 
+
   if(classifierToUse == null) throw new NullPointerException("No classifier found on which I can predict. Please make sure the SVMContextEngine class receives a valid Linear SVM classifier.")
 
 
@@ -64,8 +66,16 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
               case (evt, ctx) =>
                 Math.abs(evt.sentence - ctx.sentence) <= bound
             }
+          //case None => pairs
           case None =>
-            pairs
+            {
+              // this None case is only for checking the feature values of the matching event-context pairs, i.e. the event-context pairs that matched between Reach 2019 and Reach 2016.
+              val parentDirForManualAnnotations = config.getString("svmContext.transferredAnnotationsParentDir")
+              val manualAnnotations = ReachSystemAnalysisIOUtils.getTransferredAnnotationsFromReach2016(parentDirForManualAnnotations)
+              println(s"The number of manual annotations we have: ${manualAnnotations.size}")
+              pairs
+            }
+
         }
 
         // The filteredPairs, as the name suggests, contains the subset of the context-event pairs, filtered based on the sentence distance window.

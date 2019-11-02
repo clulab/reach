@@ -61,8 +61,8 @@ object ReachSystemAnalysisIOUtils {
     mapOfRowsByPaperID.toMap
   }
 
-  def getManualPredictions(pathToPredictionsDir:String):Seq[((String,String,String),Int)] = {
-    val annotationsPerPaper = collection.mutable.ListBuffer[((String,String,String),Int)]()
+  def getTransferredAnnotationsFromReach2016(pathToPredictionsDir:String):Seq[(String,String, String)] = {
+    val annotationsPerPaper = collection.mutable.ListBuffer[(String,String, String)]()
     val parentDirAsFile = new File(pathToPredictionsDir)
     val papersDirs = parentDirAsFile.listFiles().filter(_.isDirectory)
 
@@ -74,7 +74,7 @@ object ReachSystemAnalysisIOUtils {
       for(l<-lines){
         val eventID = l.split(",")(0)
         val contextID = l.split(",")(1)
-        val tupleEntry = ((paperID,eventID,contextID),1)
+        val tupleEntry = (paperID, eventID,contextID)
         annotationsPerPaper += tupleEntry
       }
     }
