@@ -132,10 +132,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             val x = a.map {
               case (ctxId, aggregatedFeature) =>
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
-                val sentWind = sentenceWindow match {
-                  case Some(x) => x
-                  case None => -1
-                }
+
 
                 val parentDirToWriteAllRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
                 //val parentDirToWriteAllRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaperNewAnnotations")
@@ -155,12 +152,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                     case _ => false
                   }
                 }
-
-                val sentenceDistance_min = aggregatedFeature.featureGroups(aggregatedFeature.featureGroupNames.indexOf("sentenceDistance_min"))
-                val dependencyDistance_min = aggregatedFeature.featureGroups(aggregatedFeature.featureGroupNames.indexOf("dependencyDistance_min"))
-                val contextFrequency_min = aggregatedFeature.featureGroups(aggregatedFeature.featureGroupNames.indexOf("context_frequency_min"))
-                val closestContextOfClass_min = aggregatedFeature.featureGroups(aggregatedFeature.featureGroupNames.indexOf("closesCtxOfClass_min"))
-
 
                 logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
 

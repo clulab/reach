@@ -113,7 +113,6 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
     val sentenceDistance = Math.abs(datum._1.sentence - datum._2.sentence)
     val sentDistEntry = Map("sentenceDistance" -> sentenceDistance.toDouble)
     result ++= sentDistEntry
-    println(s"Sentence distance: ${sentenceDistance}")
 
     val dependencyPath = constructDependencyPath(datum)
     val dependencyDistance = dependencyPath match {

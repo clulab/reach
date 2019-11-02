@@ -16,8 +16,15 @@ import org.clulab.reach.mentions.BioEventMention
 import scala.collection.parallel.ForkJoinTaskSupport
 
 object Polarity extends App {
-  // Please run this script on the papers for polarity before running the PerformPolarityAnalysis script.
+  // Please run this script on the papers for polarity before running the PolarityAnalysis script.
   // This script generates some files that is required by the other script.
+  // The purpose of this script is to extract the events that have context.
+  // The events of interest are the ones where EGF is the controller and "positive" or "negative" is the polarity of the event.
+  // For all such events, we want the context labels associated with them.
+  // The output of this script is a directory in polarity/genericFileResources/outputForPolarityAnalysisDir/paper_dir.
+  // In each paper directory, we have n text files, wherein the name of each text file is the event span that satisfies the EGF (activates/inhibits) condition.
+  // The contents of the text file are the context labels that are associated with such events.
+  // The PolarityAnalysis script will then read the context labels and count them.
   val config = ConfigFactory.load()
   val papersDir = config.getString("papersDir")
   val dirForOutput = config.getString("polarityContext.outputForPolarityAnalysisDir")

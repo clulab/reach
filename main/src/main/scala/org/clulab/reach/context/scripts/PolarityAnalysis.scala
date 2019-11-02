@@ -7,7 +7,7 @@ import org.clulab.reach.context.utils.polarity_analysis_utils.ContextLabelCountU
 
 import scala.collection.immutable.ListMap
 
-object PerformPolarityAnalysis extends App {
+object PolarityAnalysis extends App {
 
   val config = ConfigFactory.load()
   val operatingDirPath = config.getString("polarityContext.outputForPolarityAnalysisDir")

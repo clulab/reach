@@ -17,7 +17,6 @@ object ContextFeatureUtils {
   // using the inputs, this function calls the feature extractor, and receives a seq(map). To simplify this data structure, we will flatten the output to a simple map.
   // :output :- map of ContextPairInstance -> (feature_name -> feature_value)
   def getFeatValMapPerInput(filteredPairs: Set[Pair], ctxMentions: Seq[BioTextBoundMention]):Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])] = {
-    println(s"The current paper uses ${filteredPairs.size} event-context pairs")
     val labelFilePath = config.getString("svmContext.outputDirForAnnotations")
     val allContextPairsFilePath = labelFilePath.concat("/AllContextPairs.txt")
     val allPairsFile = new File(allContextPairsFilePath)
@@ -29,7 +28,6 @@ object ContextFeatureUtils {
         case Some(x) => s"PMC${x.split("_")(0)}"
         case None => "unknown_paper_id"
       }
-      println(s"Paper ID: ${currentPaperID}, Event ID := ${extractEvtId(p._1)}, Context ID := ${p._2.nsId()} \n")
       pw.append(s"Paper ID: ${currentPaperID}, Event ID := ${extractEvtId(p._1)}, Context ID := ${p._2.nsId()} \n")
 
       val featureExtractor = new ContextFeatureExtractor(p, ctxMentions)
