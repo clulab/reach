@@ -17,23 +17,11 @@ object ContextFeatureUtils {
   // using the inputs, this function calls the feature extractor, and receives a seq(map). To simplify this data structure, we will flatten the output to a simple map.
   // :output :- map of ContextPairInstance -> (feature_name -> feature_value)
   def getFeatValMapPerInput(filteredPairs: Set[Pair], ctxMentions: Seq[BioTextBoundMention]):Map[ContextPairInstance, (Map[String,Double],Map[String,Double],Map[String,Double])] = {
-    val labelFilePath = config.getString("svmContext.outputDirForAnnotations")
-    val allContextPairsFilePath = labelFilePath.concat("/AllContextPairs.txt")
-    val allPairsFile = new File(allContextPairsFilePath)
-    if(!allPairsFile.exists())
-      allPairsFile.createNewFile()
-    val pw = new PrintWriter(allPairsFile)
-    val tempo = filteredPairs.map{p =>
-      val currentPaperID = p._1.document.id match {
-        case Some(x) => s"PMC${x.split("_")(0)}"
-        case None => "unknown_paper_id"
-      }
-      pw.append(s"Paper ID: ${currentPaperID}, Event ID := ${extractEvtId(p._1)}, Context ID := ${p._2.nsId()} \n")
 
+    val tempo = filteredPairs.map{p =>
       val featureExtractor = new ContextFeatureExtractor(p, ctxMentions)
       featureExtractor.extractFeaturesToCalcByBestFeatSet()
     }
-    pw.close()
     val flattenedMap = tempo.flatMap(t=>t).toMap
     println(s"The number of pairs we are operating on is: ${filteredPairs.size} \n")
     println(s"The number of input rows we have is ${flattenedMap.size}")

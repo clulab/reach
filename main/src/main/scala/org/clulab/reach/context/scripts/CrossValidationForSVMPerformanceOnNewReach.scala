@@ -1,12 +1,23 @@
 package org.clulab.reach.context.scripts
-import java.io.{File}
+
+
 import com.typesafe.config.ConfigFactory
+import org.clulab.reach.context.utils.io_utils.ReachSystemAnalysisIOUtils
 
 object CrossValidationForSVMPerformanceOnNewReach extends App {
   val config = ConfigFactory.load()
+
+  // Loading the AggrRows from file. AggrRows are the output from Reach 2019.
   val reach2019RootDir = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
-  val dirInstance = new File(reach2019RootDir)
-  val paperDirs = dirInstance.listFiles().filter(_.isDirectory)
-  print(paperDirs.size)
+  val mapOfaggrRowsByPaperID = ReachSystemAnalysisIOUtils.getReach2019RowsByPaperID(reach2019RootDir)
+
+  val parentDirForManualAnnotations = config.getString("svmContext.transferredAnnotationsParentDir")
+  val manualPredictions = ReachSystemAnalysisIOUtils.getManualPredictions(parentDirForManualAnnotations)
+
+  print(s"We have a total of ${manualPredictions.size} annotations")
+
+
+
+
 
 }

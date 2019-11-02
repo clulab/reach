@@ -2,31 +2,13 @@ package org.clulab.reach.context.utils.io_utils
 
 import java.io.{File, PrintWriter}
 
+import org.clulab.context.utils.AggregatedContextInstance
+import org.clulab.reach.context.feature_utils.ContextFeatureUtils
+
 import scala.io.Source
 
 object ReachSystemAnalysisIOUtils {
-  def generateLabelMap(fileName: String): Map[(String,String,String), Int] = {
-    val map = collection.mutable.HashMap[(String,String,String), Int]()
-    val source = Source.fromFile(fileName)
-    val lines = source.getLines()
-    val content = lines.drop(1)
-    for(c <- content) {
-      val array = c.split(",")
-      val pmcid = array(0)
-      val evtID = array(1)
-      val ctxID = array(2)
-      val label = Integer.parseInt(array(3))
-      val tup = (pmcid,evtID,ctxID)
-      val tupleForAnnotationsByPaper = (tup,label)
-      map ++= Map(tup -> label)
 
-    }
-
-
-    val mapToReturnWithoutDegen = map.filter(_._1._1!="PMC2063868")
-    val annotationsGroupedByPaperID = mapToReturnWithoutDegen
-    mapToReturnWithoutDegen.toMap
-  }
 
   def loadSentencesPerPaper(parentDirForPapers:String):Map[String,Seq[String]] = {
     val dirsForSentencesFile = new File(parentDirForPapers).listFiles.filter(_.isDirectory)
@@ -64,5 +46,38 @@ object ReachSystemAnalysisIOUtils {
       }
       printWriter.close()
     }
+  }
+
+
+  def getReach2019RowsByPaperID(reach2019RootDir:String):Map[String,Seq[AggregatedContextInstance]]={
+    val dirInstance = new File(reach2019RootDir)
+    val mapOfRowsByPaperID = collection.mutable.HashMap[String,Seq[AggregatedContextInstance]]()
+    val paperDirs = dirInstance.listFiles().filter(_.isDirectory)
+    for(currentPaperDir <- paperDirs){
+      val rowsAsFiles = currentPaperDir.listFiles()
+      val aggrRowsInPaper = rowsAsFiles.map(ContextFeatureUtils.readAggRowFromFile(_))
+      mapOfRowsByPaperID ++= Map(currentPaperDir.getName -> aggrRowsInPaper)
+    }
+    mapOfRowsByPaperID.toMap
+  }
+
+  def getManualPredictions(pathToPredictionsDir:String):Seq[((String,String,String),Int)] = {
+    val annotationsPerPaper = collection.mutable.ListBuffer[((String,String,String),Int)]()
+    val parentDirAsFile = new File(pathToPredictionsDir)
+    val papersDirs = parentDirAsFile.listFiles().filter(_.isDirectory)
+
+    for(paperDir <- papersDirs){
+      val paperID = paperDir.getName
+      val annotationsFile = paperDir.listFiles()(0)
+      val source = Source.fromFile(annotationsFile)
+      val lines = source.getLines()
+      for(l<-lines){
+        val eventID = l.split(",")(0)
+        val contextID = l.split(",")(1)
+        val tupleEntry = ((paperID,eventID,contextID),1)
+        annotationsPerPaper += tupleEntry
+      }
+    }
+    annotationsPerPaper
   }
 }
