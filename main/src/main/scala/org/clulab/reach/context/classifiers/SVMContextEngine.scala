@@ -80,7 +80,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 }
                 val eventID = ContextFeatureUtils.extractEvtId(p._1)
                 val contextID = p._2.nsId()
-                manualAnnotations.contains((paperID, eventID,contextID)))
+                manualAnnotations.contains((paperID, eventID,contextID))
               })
               matchingPairs
             }
