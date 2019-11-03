@@ -71,9 +71,6 @@ object ReachSystemAnalysisIOUtils {
       val annotationsFile = paperDir.listFiles()(0)
       val source = Source.fromFile(annotationsFile)
       val lines = source.getLines()
-      println("Inside annotation parser function")
-      println(s"The current paper is: ${paperID}")
-      println(s"This paper has ${lines.size} annotations")
       for(l<-lines){
         val eventID = l.split(",")(0)
         val contextID = l.split(",")(1)
