@@ -60,8 +60,13 @@ object ReachSystemAnalysisIOUtils {
     val rowFilesInCurrentPaper = currentPaperDir.listFiles()
     val aggrRowsInCurrent = rowFilesInCurrentPaper.map(x => ContextFeatureUtils.readAggRowFromFile(x))
     val aggrRowSpecsInCurrent = rowFilesInCurrentPaper.map(x => ContextFeatureUtils.createAggRowSpecsFromFile(x))
-    val matchingAggrRowSpecs = aggrRowSpecsInCurrent.filter(x => annotationsInPaper.contains(x))
-    print(s"We have found ${matchingAggrRowSpecs.size} matching rows in this paper from the write function")
+
+    if(currentPaperID == "PMC2156142")
+      {
+        println(annotationsInPaper)
+        println(aggrRowSpecsInCurrent)
+      }
+
     for (rowAsFileInstance <- rowFilesInCurrentPaper) {
       val row = ContextFeatureUtils.readAggRowFromFile(rowAsFileInstance)
       val specs = ContextFeatureUtils.createAggRowSpecsFromFile(rowAsFileInstance)

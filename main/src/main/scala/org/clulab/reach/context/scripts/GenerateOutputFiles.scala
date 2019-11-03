@@ -38,7 +38,6 @@ object GenerateOutputFiles extends App {
             val reach2019RootDir = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
             val parentDirForManualAnnotations = config.getString("svmContext.transferredAnnotationsParentDir")
             val numberOfMatchingRows = ReachSystemAnalysisIOUtils.writeMatchingRowFeatureValues(reach2019RootDir, parentDirForManualAnnotations, outPaperDirPath, pmcid)
-            print(s"The paper ${pmcid} has ${numberOfMatchingRows} matching rows")
 
 
 
