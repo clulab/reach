@@ -49,31 +49,13 @@ object ReachSystemAnalysisIOUtils {
   }
 
 
-  def writeMatchingRowFeatureValues(reach2019RootDirPath:String, matchingAnnotationsRootDirPath:String, pathToFeatureValueDataframe:String, currentPaperID:String):Int={
+  def writeMatchingRowFeatureValues(reach2019RootDirPath:String, matchingAnnotationsRootDirPath:String, pathToFeatureValueDataframe:String, currentPaperID:String):Unit={
     val dirInstance = new File(reach2019RootDirPath)
     val currentPaperDir = dirInstance.listFiles().filter(x => x.isDirectory && x.getName.contains(currentPaperID))(0)
     val allManualAnnotations = getTransferredAnnotationsFromReach2016(matchingAnnotationsRootDirPath)
-    println(s"Total number of manual annotations found: ${allManualAnnotations.size}")
     val annotationsInPaper = allManualAnnotations.filter(_._1 == currentPaperID)
-    println(s"The current paper ${currentPaperID} has ${annotationsInPaper.size} annotations")
     val matchingRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val rowFilesInCurrentPaper = currentPaperDir.listFiles()
-    val aggrRowsInCurrent = rowFilesInCurrentPaper.map(x => ContextFeatureUtils.readAggRowFromFile(x))
-    val aggrRowSpecsInCurrent = rowFilesInCurrentPaper.map(x => ContextFeatureUtils.createAggRowSpecsFromFile(x))
-    val allContextLabelsInPaper = aggrRowSpecsInCurrent.map(_._3)
-
-    if(currentPaperID == "PMC2156142")
-      {
-        println("Matching annotations from file read")
-        println(annotationsInPaper)
-        println(s"Number of rows in paper without filtering")
-        println(aggrRowSpecsInCurrent.size)
-        println(s"Checking truth value : ${allContextLabelsInPaper.contains("taxonomy:7262")} of whether (PMC2156142,in15from0to16,taxonomy:7262) is contained over all the event-context pairs or not")
-        for(sp <- aggrRowSpecsInCurrent) {
-          if(annotationsInPaper.contains(sp))
-            println(sp)
-        }
-      }
 
     for (rowAsFileInstance <- rowFilesInCurrentPaper) {
       val row = ContextFeatureUtils.readAggRowFromFile(rowAsFileInstance)
@@ -81,26 +63,27 @@ object ReachSystemAnalysisIOUtils {
       if(annotationsInPaper.contains(specs))
         matchingRows += row
     }
-    matchingRows.size
-    //    val dirInstance = new File(reach2019RootDirPath)
-//    val mapOfRowsByPaperID = collection.mutable.HashMap[String,Seq[AggregatedContextInstance]]()
-//    val paperDirs = dirInstance.listFiles().filter(_.isDirectory)
-//    val manualAnnotations = getTransferredAnnotationsFromReach2016(matchingAnnotationsRootDirPath)
-//    for(currentPaperDir <- paperDirs){
-//      val rowsAsFiles = currentPaperDir.listFiles()
-//      val featureNames = ContextFeatureUtils.readAggRowFromFile(rowsAsFiles(0)).featureGroupNames
-//      val strOfFeatureNames = featureNames.mkString(",")
-//      val aggrRowsInPaper = collection.mutable.ListBuffer[AggregatedContextInstance]()
-//      for(rowFileInstance<-rowsAsFiles){
-//        val row = ContextFeatureUtils.readAggRowFromFile(rowFileInstance)
-//        val specs = ContextFeatureUtils.createAggRowSpecsFromFile(rowFileInstance)
-//        if(manualAnnotations.contains(specs)){
-//          aggrRowsInPaper += row
-//        }
-//      }
-//      mapOfRowsByPaperID ++= Map(currentPaperDir.getName -> aggrRowsInPaper)
-//    }
-//    mapOfRowsByPaperID.toMap
+
+    val featureValueStringPerRow = collection.mutable.ListBuffer[String]()
+    val firstRow = ContextFeatureUtils.readAggRowFromFile(rowFilesInCurrentPaper(0))
+    val featureNames = firstRow.featureGroupNames
+    val featureNamesString = featureNames.mkString(",").concat("\n")
+    for(mRow <- matchingRows) {
+      val featureNamesOfCurrentRow = mRow.featureGroupNames
+      val featureValuesOfCurrentRow = mRow.featureGroups
+      val featureValuesInFixedOrder = collection.mutable.ListBuffer[Double]()
+      for(feature <- featureNames) {
+        val indexOfFeatureInCurrentRow = featureNamesOfCurrentRow.indexOf(feature)
+        val valueOfCurrentFeature = featureValuesOfCurrentRow(indexOfFeatureInCurrentRow)
+        featureValuesInFixedOrder += valueOfCurrentFeature
+      }
+      val featureValuesInFixedOrderStringForm = featureValuesInFixedOrder.mkString(",")
+      featureValueStringPerRow += featureValuesInFixedOrderStringForm
+    }
+
+    val numericValuesAsString = featureValueStringPerRow.mkString("\n")
+    val featureValueStringToWritePerPaper = featureNamesString.concat(numericValuesAsString)
+    println(featureValueStringToWritePerPaper)
   }
 
   def getTransferredAnnotationsFromReach2016(pathToPredictionsDir:String):Seq[(String,String,String)] = {

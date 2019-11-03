@@ -35,9 +35,7 @@ object GenerateOutputFiles extends App {
             val pmcid = file.getName.replace(".nxml","")
             val outPaperDirPath = config.getString("svmContext.outputDirForAnnotations").concat(s"/${pmcid}")
 
-            val reach2019RootDir = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
-            val parentDirForManualAnnotations = config.getString("svmContext.transferredAnnotationsParentDir")
-            val numberOfMatchingRows = ReachSystemAnalysisIOUtils.writeMatchingRowFeatureValues(reach2019RootDir, parentDirForManualAnnotations, outPaperDirPath, pmcid)
+
 
 
 
@@ -138,6 +136,12 @@ object GenerateOutputFiles extends App {
             pwctx.close()
             // ********* Finished writing to mention_intervals.txt *********
 
+
+
+            // *********** Start writing feature values to file *************
+            val reach2019RootDir = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
+            val parentDirForManualAnnotations = config.getString("svmContext.transferredAnnotationsParentDir")
+            ReachSystemAnalysisIOUtils.writeMatchingRowFeatureValues(reach2019RootDir, parentDirForManualAnnotations, outPaperDirPath, pmcid)
 
 
 
