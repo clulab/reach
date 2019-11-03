@@ -49,13 +49,21 @@ object ReachSystemAnalysisIOUtils {
   }
 
 
-  def getReach2019RowsByPaperID(reach2019RootDir:String):Map[String,Seq[AggregatedContextInstance]]={
-    val dirInstance = new File(reach2019RootDir)
+  def writeMatchingRowFeatureValues(reach2019RootDirPath:String, matchingAnnotationsRootDirPath:String):Map[String,Seq[AggregatedContextInstance]]={
+    val dirInstance = new File(reach2019RootDirPath)
     val mapOfRowsByPaperID = collection.mutable.HashMap[String,Seq[AggregatedContextInstance]]()
     val paperDirs = dirInstance.listFiles().filter(_.isDirectory)
+    val manualAnnotations = getTransferredAnnotationsFromReach2016(matchingAnnotationsRootDirPath)
     for(currentPaperDir <- paperDirs){
       val rowsAsFiles = currentPaperDir.listFiles()
-      val aggrRowsInPaper = rowsAsFiles.map(ContextFeatureUtils.readAggRowFromFile(_))
+      val aggrRowsInPaper = collection.mutable.ListBuffer[AggregatedContextInstance]()
+      for(rowFileInstance<-rowsAsFiles){
+        val row = ContextFeatureUtils.readAggRowFromFile(rowFileInstance)
+        val specs = ContextFeatureUtils.createAggRowSpecsFromFile(rowFileInstance)
+        if(manualAnnotations.contains(specs)){
+          aggrRowsInPaper += row
+        }
+      }
       mapOfRowsByPaperID ++= Map(currentPaperDir.getName -> aggrRowsInPaper)
     }
     mapOfRowsByPaperID.toMap

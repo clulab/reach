@@ -33,7 +33,9 @@ object GenerateOutputFiles extends App {
     for(file <- fileList) {
         try{
             val reach2019RootDir = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
-            val mapOfaggrRowsByPaperID = ReachSystemAnalysisIOUtils.getReach2019RowsByPaperID(reach2019RootDir)
+            val parentDirForManualAnnotations = config.getString("svmContext.transferredAnnotationsParentDir")
+            val mapOfaggrRowsByPaperID = ReachSystemAnalysisIOUtils.writeMatchingRowFeatureValues(reach2019RootDir, parentDirForManualAnnotations)
+
             print(s"Number of papers: ${mapOfaggrRowsByPaperID.size}")
 
             val pmcid = file.getName.slice(0,file.getName.length-5)
