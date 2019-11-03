@@ -9,6 +9,7 @@ import org.clulab.reach.PaperReader.{contextEngineParams, ignoreSections, prepro
 import org.clulab.reach.ReachSystem
 import org.clulab.reach.context.ContextEngine
 import org.clulab.reach.context.ContextEngineFactory.Engine
+import org.clulab.reach.context.utils.io_utils.ReachSystemAnalysisIOUtils
 import org.clulab.reach.mentions.BioTextBoundMention
 
 import scala.collection.immutable.ListMap
@@ -31,6 +32,10 @@ object GenerateOutputFiles extends App {
     val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
     for(file <- fileList) {
         try{
+            val reach2019RootDir = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
+            val mapOfaggrRowsByPaperID = ReachSystemAnalysisIOUtils.getReach2019RowsByPaperID(reach2019RootDir)
+            print(s"Number of papers: ${mapOfaggrRowsByPaperID.size}")
+
             val pmcid = file.getName.slice(0,file.getName.length-5)
             val outPaperDirPath = config.getString("svmContext.outputDirForAnnotations").concat(s"/${pmcid}")
             // creating output directory if it doesn't already exist
@@ -129,6 +134,9 @@ object GenerateOutputFiles extends App {
             }
             pwctx.close()
             // ********* Finished writing to mention_intervals.txt *********
+
+
+
 
         } catch {
             case e:RuntimeException => println(e)
