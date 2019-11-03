@@ -32,14 +32,16 @@ object GenerateOutputFiles extends App {
     val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
     for(file <- fileList) {
         try{
+            val pmcid = file.getName.replace(".nxml","")
+            val outPaperDirPath = config.getString("svmContext.outputDirForAnnotations").concat(s"/${pmcid}")
+
             val reach2019RootDir = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
             val parentDirForManualAnnotations = config.getString("svmContext.transferredAnnotationsParentDir")
-            val mapOfaggrRowsByPaperID = ReachSystemAnalysisIOUtils.writeMatchingRowFeatureValues(reach2019RootDir, parentDirForManualAnnotations)
+            val numberOfMatchingRows = ReachSystemAnalysisIOUtils.writeMatchingRowFeatureValues(reach2019RootDir, parentDirForManualAnnotations, outPaperDirPath, pmcid)
+            print(s"The paper ${pmcid} has ${numberOfMatchingRows} matching rows")
 
-            print(s"Number of papers: ${mapOfaggrRowsByPaperID.size}")
 
-            val pmcid = file.getName.slice(0,file.getName.length-5)
-            val outPaperDirPath = config.getString("svmContext.outputDirForAnnotations").concat(s"/${pmcid}")
+
             // creating output directory if it doesn't already exist
             val outputPaperDir = new File(outPaperDirPath)
             if(!outputPaperDir.exists()) {

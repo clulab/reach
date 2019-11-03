@@ -49,24 +49,38 @@ object ReachSystemAnalysisIOUtils {
   }
 
 
-  def writeMatchingRowFeatureValues(reach2019RootDirPath:String, matchingAnnotationsRootDirPath:String):Map[String,Seq[AggregatedContextInstance]]={
+  def writeMatchingRowFeatureValues(reach2019RootDirPath:String, matchingAnnotationsRootDirPath:String, pathToFeatureValueDataframe:String, currentPaperID:String):Int={
     val dirInstance = new File(reach2019RootDirPath)
-    val mapOfRowsByPaperID = collection.mutable.HashMap[String,Seq[AggregatedContextInstance]]()
-    val paperDirs = dirInstance.listFiles().filter(_.isDirectory)
-    val manualAnnotations = getTransferredAnnotationsFromReach2016(matchingAnnotationsRootDirPath)
-    for(currentPaperDir <- paperDirs){
-      val rowsAsFiles = currentPaperDir.listFiles()
-      val aggrRowsInPaper = collection.mutable.ListBuffer[AggregatedContextInstance]()
-      for(rowFileInstance<-rowsAsFiles){
-        val row = ContextFeatureUtils.readAggRowFromFile(rowFileInstance)
-        val specs = ContextFeatureUtils.createAggRowSpecsFromFile(rowFileInstance)
-        if(manualAnnotations.contains(specs)){
-          aggrRowsInPaper += row
-        }
-      }
-      mapOfRowsByPaperID ++= Map(currentPaperDir.getName -> aggrRowsInPaper)
+    val currentPaperDir = dirInstance.listFiles().filter(x => x.isDirectory && x.getName.contains(currentPaperID))(0)
+    val allManualAnnotations = getTransferredAnnotationsFromReach2016(matchingAnnotationsRootDirPath)
+    val matchingRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
+    val rowFilesInCurrentPaper = currentPaperDir.listFiles()
+    for (rowAsFileInstance <- rowFilesInCurrentPaper) {
+      val row = ContextFeatureUtils.readAggRowFromFile(rowAsFileInstance)
+      val specs = ContextFeatureUtils.createAggRowSpecsFromFile(rowAsFileInstance)
+      if(allManualAnnotations.contains(specs))
+        matchingRows += row
     }
-    mapOfRowsByPaperID.toMap
+    matchingRows.size
+    //    val dirInstance = new File(reach2019RootDirPath)
+//    val mapOfRowsByPaperID = collection.mutable.HashMap[String,Seq[AggregatedContextInstance]]()
+//    val paperDirs = dirInstance.listFiles().filter(_.isDirectory)
+//    val manualAnnotations = getTransferredAnnotationsFromReach2016(matchingAnnotationsRootDirPath)
+//    for(currentPaperDir <- paperDirs){
+//      val rowsAsFiles = currentPaperDir.listFiles()
+//      val featureNames = ContextFeatureUtils.readAggRowFromFile(rowsAsFiles(0)).featureGroupNames
+//      val strOfFeatureNames = featureNames.mkString(",")
+//      val aggrRowsInPaper = collection.mutable.ListBuffer[AggregatedContextInstance]()
+//      for(rowFileInstance<-rowsAsFiles){
+//        val row = ContextFeatureUtils.readAggRowFromFile(rowFileInstance)
+//        val specs = ContextFeatureUtils.createAggRowSpecsFromFile(rowFileInstance)
+//        if(manualAnnotations.contains(specs)){
+//          aggrRowsInPaper += row
+//        }
+//      }
+//      mapOfRowsByPaperID ++= Map(currentPaperDir.getName -> aggrRowsInPaper)
+//    }
+//    mapOfRowsByPaperID.toMap
   }
 
   def getTransferredAnnotationsFromReach2016(pathToPredictionsDir:String):Seq[(String,String,String)] = {
