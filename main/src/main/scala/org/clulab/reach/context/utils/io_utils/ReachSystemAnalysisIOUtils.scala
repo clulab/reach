@@ -60,6 +60,7 @@ object ReachSystemAnalysisIOUtils {
     val rowFilesInCurrentPaper = currentPaperDir.listFiles()
     val aggrRowsInCurrent = rowFilesInCurrentPaper.map(x => ContextFeatureUtils.readAggRowFromFile(x))
     val aggrRowSpecsInCurrent = rowFilesInCurrentPaper.map(x => ContextFeatureUtils.createAggRowSpecsFromFile(x))
+    val allContextLabelsInPaper = aggrRowSpecsInCurrent.map(_._3)
 
     if(currentPaperID == "PMC2156142")
       {
@@ -67,7 +68,7 @@ object ReachSystemAnalysisIOUtils {
         println(annotationsInPaper)
         println(s"Number of rows in paper without filtering")
         println(aggrRowSpecsInCurrent.size)
-        println(s"Checking if ${aggrRowSpecsInCurrent.contains(("PMC2156142","in15from0to16","taxonomy:7262"))} is contained over all the event-context pairs or not")
+        println(s"Checking truth value : ${allContextLabelsInPaper.contains("taxonomy:7262")} of whether (PMC2156142,in15from0to16,taxonomy:7262) is contained over all the event-context pairs or not")
         for(sp <- aggrRowSpecsInCurrent) {
           if(annotationsInPaper.contains(sp))
             println(sp)
