@@ -68,12 +68,9 @@ object ReachSystemAnalysisIOUtils {
 
     for(paperDir <- papersDirs){
       val paperID = paperDir.getName
-      print("Inside annotation reader function")
-      print(s"Current paper id: ${paperID}")
       val annotationsFile = paperDir.listFiles()(0)
       val source = Source.fromFile(annotationsFile)
       val lines = source.getLines()
-      print(s"This paper has ${lines.size} annotations")
       for(l<-lines){
         val eventID = l.split(",")(0)
         val contextID = l.split(",")(1)
