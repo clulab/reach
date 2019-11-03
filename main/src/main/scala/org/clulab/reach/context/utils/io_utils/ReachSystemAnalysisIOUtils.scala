@@ -54,12 +54,14 @@ object ReachSystemAnalysisIOUtils {
     val currentPaperDir = dirInstance.listFiles().filter(x => x.isDirectory && x.getName.contains(currentPaperID))(0)
     val allManualAnnotations = getTransferredAnnotationsFromReach2016(matchingAnnotationsRootDirPath)
     print(s"Total number of manual annotations found: ${allManualAnnotations.size}")
+    val annotationsInPaper = allManualAnnotations.filter(_._1 == currentPaperID)
+    println(s"The current paper ${currentPaperID} has ${annotationsInPaper.size} annotations")
     val matchingRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val rowFilesInCurrentPaper = currentPaperDir.listFiles()
     for (rowAsFileInstance <- rowFilesInCurrentPaper) {
       val row = ContextFeatureUtils.readAggRowFromFile(rowAsFileInstance)
       val specs = ContextFeatureUtils.createAggRowSpecsFromFile(rowAsFileInstance)
-      if(allManualAnnotations.contains(specs))
+      if(annotationsInPaper.contains(specs))
         matchingRows += row
     }
     matchingRows.size
