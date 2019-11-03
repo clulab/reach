@@ -66,35 +66,34 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
               case (evt, ctx) =>
                 Math.abs(evt.sentence - ctx.sentence) <= bound
             }
-          //case None => pairs
-          case None =>
-            {
-              // this None case is only for checking the feature values of the matching event-context pairs, i.e. the event-context pairs that matched between Reach 2019 and Reach 2016.
-              val parentDirForManualAnnotations = config.getString("svmContext.transferredAnnotationsParentDir")
-              val manualAnnotations = ReachSystemAnalysisIOUtils.getTransferredAnnotationsFromReach2016(parentDirForManualAnnotations)
-              print(manualAnnotations)
-              val matchingPairs = collection.mutable.ListBuffer[Pair]()
-              for(p <- pairs) {
-                val paperID = p._1.document.id match {
-                  case Some(id) => s"PMC${id.split("_")(0)}"
-                  case None => "unknown_paper_id"
-                }
-                val eventID = ContextFeatureUtils.extractEvtId(p._1)
-                val contextID = p._2.nsId()
-                val rowID = (paperID,eventID,contextID)
-                print(rowID)
-                if(manualAnnotations.contains(rowID))
-
-                    matchingPairs += p
-
-
-              }
-              matchingPairs
-            }
+          case None => pairs
+//          case None =>
+//            {
+//              // this None case is only for checking the feature values of the matching event-context pairs, i.e. the event-context pairs that matched between Reach 2019 and Reach 2016.
+//              val parentDirForManualAnnotations = config.getString("svmContext.transferredAnnotationsParentDir")
+//              val manualAnnotations = ReachSystemAnalysisIOUtils.getTransferredAnnotationsFromReach2016(parentDirForManualAnnotations)
+//
+//              val matchingPairs = collection.mutable.ListBuffer[Pair]()
+//              for(p <- pairs) {
+//                val paperID = p._1.document.id match {
+//                  case Some(id) => s"PMC${id.split("_")(0)}"
+//                  case None => "unknown_paper_id"
+//                }
+//                val eventID = ContextFeatureUtils.extractEvtId(p._1)
+//                val contextID = p._2.nsId()
+//                val rowID = (paperID,eventID,contextID)
+//
+//                if(manualAnnotations.contains(rowID))
+//
+//                    matchingPairs += p
+//
+//
+//              }
+//              matchingPairs
+//            }
 
         }
-        println(s"Current document ID of current paper: ${ctxMentions(0).document.id}")
-        println(s"We are going to use ${filteredPairs.size} pairs for feature extraction")
+
 
 
         // The filteredPairs, as the name suggests, contains the subset of the context-event pairs, filtered based on the sentence distance window.
