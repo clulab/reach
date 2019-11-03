@@ -84,6 +84,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 val rowID = (paperID,eventID,contextID)
                 if(manualAnnotations.contains(rowID))
                   matchingPairs += p
+                println(s"Intermediate number of matching pairs: ${matchingPairs.size}")
               }
               matchingPairs
             }
