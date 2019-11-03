@@ -67,6 +67,7 @@ object ReachSystemAnalysisIOUtils {
         println(annotationsInPaper)
         println(s"Number of rows in paper without filtering")
         println(aggrRowSpecsInCurrent.size)
+        println(s"Checking if ${aggrRowSpecsInCurrent.contains(("PMC2156142","in15from0to16","taxonomy:7262"))} is contained over all the event-context pairs or not")
         for(sp <- aggrRowSpecsInCurrent) {
           if(annotationsInPaper.contains(sp))
             println(sp)
