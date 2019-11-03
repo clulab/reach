@@ -73,18 +73,15 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
               val parentDirForManualAnnotations = config.getString("svmContext.transferredAnnotationsParentDir")
               val manualAnnotations = ReachSystemAnalysisIOUtils.getTransferredAnnotationsFromReach2016(parentDirForManualAnnotations)
               println(s"The number of manual annotations we have: ${manualAnnotations.size}")
-              val matchingPairs = collection.mutable.ListBuffer[Pair]()
-              for (p <- pairs) {
+              val matchingPairs = pairs.filter(p => {
                 val paperID = p._1.document.id match {
                   case Some(x) => s"PMC${x.split("_")(0)}"
-                  case None => "unknown paper id"
+                  case None =>"unknown"
                 }
-                println(s"Current paper: ${paperID}")
                 val eventID = ContextFeatureUtils.extractEvtId(p._1)
                 val contextID = p._2.nsId()
-                if(manualAnnotations.contains((paperID, eventID,contextID)))
-                  matchingPairs += p
-              }
+                manualAnnotations.contains((paperID, eventID,contextID)))
+              })
               matchingPairs
             }
 
