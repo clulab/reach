@@ -63,8 +63,14 @@ object ReachSystemAnalysisIOUtils {
 
     if(currentPaperID == "PMC2156142")
       {
+        println("Matching annotations from file read")
         println(annotationsInPaper)
-        println(aggrRowSpecsInCurrent)
+        println(s"Number of rows in paper without filtering")
+        println(aggrRowSpecsInCurrent.size)
+        for(sp <- aggrRowSpecsInCurrent) {
+          if(annotationsInPaper.contains(sp))
+            println(sp)
+        }
       }
 
     for (rowAsFileInstance <- rowFilesInCurrentPaper) {
