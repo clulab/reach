@@ -56,11 +56,12 @@ object ReachSystemAnalysisIOUtils {
     val manualAnnotationsInCurrentPaper = allManualAnnotations.filter(_._1.contains(currentPaperID))
     val matchingRows = collection.mutable.ListBuffer[AggregatedContextInstance]()
     val rowFilesInCurrentPaper = currentPaperDir.listFiles()
-    println(s"The paper ${currentPaperID} has ${rowFilesInCurrentPaper.size} rows originally")
-    println(s"According to the manual annotations, we should have ${manualAnnotationsInCurrentPaper.size} rows")
+    println("All annotations: ")
+    println(allManualAnnotations)
     for (rowAsFileInstance <- rowFilesInCurrentPaper) {
       val row = ContextFeatureUtils.readAggRowFromFile(rowAsFileInstance)
       val specs = ContextFeatureUtils.createAggRowSpecsFromFile(rowAsFileInstance)
+      println(s"Current row spec: ${specs}")
       if(allManualAnnotations.contains(specs))
         matchingRows += row
     }
