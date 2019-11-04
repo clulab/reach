@@ -298,9 +298,10 @@ object RegulationHandler {
     val chemDisList = ArrayBuffer[Int]()
     // First detect regulation type with 1 keyword
     for ((lemma, lemma_index) <- lemmas.zipWithIndex) {
+      println(lemma_index)
       for (keyword <- keywordKD if lemma.contains(keyword)){
         kdCount += 1
-        kdDisList += lemma_index
+
       }
       for (keyword <- keywordKO if lemma.contains(keyword)){
         koCount += 1
