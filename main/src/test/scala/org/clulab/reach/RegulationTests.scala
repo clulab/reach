@@ -131,10 +131,12 @@ class RegulationTests extends FlatSpec with Matchers{
       val mentions = getBioMentions(sentence).filter{case _:BioEventMention => true
       case _ => false}
       val reg = mentions.find(_.label == regulationPolarity)
+      // The event are all CorefEventMention. Use reg.get to get them
+      // Use reg.get.asInstanceOf to convert them to BioEventMention.
 
-      println("----------------")
-      println(reg.get.getClass)
-      println(reg.get.asInstanceOf[BioEventMention].trigger.text)
+//      println("----------------")
+//      println(reg.get.getClass)
+//      println(reg.get.asInstanceOf[BioEventMention].trigger.text)
 
       regulationType match {
         case "knockdown" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention]) should be("KD")

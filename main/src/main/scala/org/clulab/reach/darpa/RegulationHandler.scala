@@ -281,42 +281,46 @@ object RegulationHandler {
   def regulationClassifierBaseline(mention:BioEventMention):String = {
     val lemmas_raw = mention.sentenceObj.words
     val lemmas = lemmas_raw.map(_.toLowerCase())
-    val trigger_start = mention.trigger
+    val trigger_start = mention.trigger.start
+    val trigger_end = mention.trigger.end
+
+    println(trigger_start, trigger_end)
+
     var kdCount = 0
     var koCount = 0
     var dnCount = 0
     var oeCount = 0
     var chemCount = 0
-    val kdPosList = ArrayBuffer[Int]()
-    val koPosList = ArrayBuffer[Int]()
-    val dnPosList = ArrayBuffer[Int]()
-    val oePosList = ArrayBuffer[Int]()
-    val chemPosList = ArrayBuffer[Int]()
+    val kdDisList = ArrayBuffer[Int]()
+    val koDisList = ArrayBuffer[Int]()
+    val dnDisList = ArrayBuffer[Int]()
+    val oeDisList = ArrayBuffer[Int]()
+    val chemDisList = ArrayBuffer[Int]()
     // First detect regulation type with 1 keyword
     for ((lemma, lemma_index) <- lemmas.zipWithIndex) {
       for (keyword <- keywordKD if lemma.contains(keyword)){
         kdCount += 1
-        kdPosList +=lemma_index
+        kdDisList += lemma_index
       }
       for (keyword <- keywordKO if lemma.contains(keyword)){
         koCount += 1
-        koPosList +=lemma_index
+        koDisList +=lemma_index
       }
       for (keyword <- keywordDN if lemma.contains(keyword)){
         dnCount += 1
-        dnPosList +=lemma_index
+        dnDisList +=lemma_index
       }
       for (keyword <- keywordOE if lemma.contains(keyword)) {
         oeCount += 1
-        oePosList +=lemma_index
+        oeDisList +=lemma_index
       }
     }
 
     // Then detect regulation type with a sequence of keywords
     // Hard code these for now. TODO: code these in more general way
-    val dnCount_1 =countSubSeqMatch(lemmas, List("dominant", "negative"), dnPosList)
-    val chemCount_1 =countSubSeqMatch(lemmas, List("chemical", "inhibition", "of"), chemPosList)
-    val chemCount_2 =countSubSeqMatch(lemmas, List("inhibitor", "of"), chemPosList)
+    val dnCount_1 =countSubSeqMatch(lemmas, List("dominant", "negative"), dnDisList)
+    val chemCount_1 =countSubSeqMatch(lemmas, List("chemical", "inhibition", "of"), chemDisList)
+    val chemCount_2 =countSubSeqMatch(lemmas, List("inhibitor", "of"), chemDisList)
 
     var regTokenCounts = Map("KD"-> kdCount, "KO"-> koCount,"DN"-> dnCount,"OE"-> oeCount,"CHEM"-> chemCount)
 
