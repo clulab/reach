@@ -278,24 +278,22 @@ object RegulationHandler {
 //    }
 //  }
 
-  def regulationClassifierBaseline(mention:BioEventMention):String = {
+  def regulationClassifierBaseline(mention:BioEventMention, lineNum:Int):String = {
     val lemmas_raw = mention.sentenceObj.words
     val lemmas = lemmas_raw.map(_.toLowerCase())
     val trigger_start = mention.trigger.start
     val trigger_end = mention.trigger.end
-
-    println(trigger_start, trigger_end)
 
     var kdCount = 0
     var koCount = 0
     var dnCount = 0
     var oeCount = 0
     var chemCount = 0
-    val kdDisList = ArrayBuffer[Int](lemmas_raw.length)
-    val koDisList = ArrayBuffer[Int](lemmas_raw.length)
-    val dnDisList = ArrayBuffer[Int](lemmas_raw.length)
-    val oeDisList = ArrayBuffer[Int](lemmas_raw.length)
-    val chemDisList = ArrayBuffer[Int](lemmas_raw.length)
+    val kdDisList = ArrayBuffer[Int](lemmas.length)
+    val koDisList = ArrayBuffer[Int](lemmas.length)
+    val dnDisList = ArrayBuffer[Int](lemmas.length)
+    val oeDisList = ArrayBuffer[Int](lemmas.length)
+    val chemDisList = ArrayBuffer[Int](lemmas.length)
     // First detect regulation type with 1 keyword
     for ((lemma, lemma_index) <- lemmas.zipWithIndex) {
       for (keyword <- keywordKD if lemma.contains(keyword)){
@@ -335,9 +333,17 @@ object RegulationHandler {
     val regTokenCounts = Map("KD"-> kdCount, "KO"-> koCount,"DN"-> dnCount,"OE"-> oeCount,"CHEM"-> chemCount)
     val regMinDis = Map("KD"-> kdDisList.min, "KO"-> koDisList.min,"DN"-> dnDisList.min,"OE"-> oeDisList.min,"CHEM"-> chemDisList.min)
 
+    println("========")
+    println("line number:", lineNum)
+    println(lemmas.mkString(" "))
+    println(mention.trigger.text, trigger_start, trigger_end)
+    println(regTokenCounts)
+    println(regMinDis)
+
     val maxKWCount = regTokenCounts.maxBy { case (key, value) => value }  // get the pair with the largest count
     val mostPossibleRegByCount = regTokenCounts.filter(e =>e._2== maxKWCount._2)  // get all pairs with the largest count
-    if (mostPossibleRegByCount.size==1){
+
+    val regType = if (mostPossibleRegByCount.size==1){
       mostPossibleRegByCount.keys.head
     }
     else {
@@ -350,6 +356,9 @@ object RegulationHandler {
         mostPossibleReg._1
       }
     }
+
+    println(regType)
+    regType
 
   }
 

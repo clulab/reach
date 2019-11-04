@@ -55,7 +55,7 @@ class RegulationTests extends FlatSpec with Matchers{
   val file: String = relFile.mkString
   val lines: Array[String] = file.split("\n")
 
-  for (line <- lines) {
+  for ((line, lineNum) <- lines.zipWithIndex) {
     val index = lines.indexOf(line).toString
 
     val splitLine = line.split("\t")
@@ -134,16 +134,12 @@ class RegulationTests extends FlatSpec with Matchers{
       // The event are all CorefEventMention. Use reg.get to get them
       // Use reg.get.asInstanceOf to convert them to BioEventMention.
 
-//      println("----------------")
-//      println(reg.get.getClass)
-//      println(reg.get.asInstanceOf[BioEventMention].trigger.text)
-
       regulationType match {
-        case "knockdown" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention]) should be("KD")
-        case "knockout" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention]) should be("KO")
-        case "dominant negative" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention]) should be("DN")
-        case "overexpression" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention]) should be("OE")
-        case "chemical inhibition" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention]) should be("CHEM")
+        case "knockdown" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention], lineNum) should be("KD")
+        case "knockout" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention], lineNum) should be("KO")
+        case "dominant negative" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention], lineNum) should be("DN")
+        case "overexpression" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention], lineNum) should be("OE")
+        case "chemical inhibition" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention], lineNum) should be("CHEM")
         case _ => println("NONE")
       }
     }
