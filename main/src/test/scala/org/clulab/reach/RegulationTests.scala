@@ -128,10 +128,14 @@ class RegulationTests extends FlatSpec with Matchers{
 
     // Baseline 1: regulation classifier, classify the whole sentence by the count of keywords
     index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
-      val mentions = getBioMentions(sentence).filter(_ matches "Event")
-      if (mentions.length>1){
-        println("===================")
-        println(sentence)
+      val mentions = getBioMentions(sentence).filter(_ matches "Event").filter(_.arguments.contains("controller")).filter(_.arguments.contains("controlled"))
+      println("============")
+      println(sentence)
+      for (m<-mentions){
+        println("-------")
+        println(m.text)
+        println(m.arguments("controller").head.text)
+        println(m.arguments("controlled").head.text)
       }
       val lemmas = sentence.toLowerCase().split(" ")
       println(regulationType)

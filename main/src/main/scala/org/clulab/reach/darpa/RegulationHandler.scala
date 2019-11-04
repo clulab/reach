@@ -319,9 +319,9 @@ object RegulationHandler {
     var regTokenCounts = Map("KD"-> kdCount, "KO"-> koCount,"DN"-> dnCount,"OE"-> oeCount,"CHEM"-> chemCount)
 
     val mostPossibleTypeEntry = regTokenCounts.maxBy { case (key, value) => value }
-    println(lemmas)
-    println(regTokenCounts)
-    println("===============")
+//    println(lemmas)
+//    println(regTokenCounts)
+//    println("===============")
 
     if (mostPossibleTypeEntry._2>0){
       mostPossibleTypeEntry._1
