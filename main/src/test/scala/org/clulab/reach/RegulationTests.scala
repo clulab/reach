@@ -134,14 +134,14 @@ class RegulationTests extends FlatSpec with Matchers{
 
       println("----------------")
       println(reg.get.getClass)
-      println(reg.get.asInstanceOf[BioEventMention].trigger)
+      println(reg.get.asInstanceOf[BioEventMention].trigger.text)
 
       regulationType match {
-        case "knockdown" => regulationClassifierBaseline(reg.asInstanceOf[BioEventMention]) should be("KD")
-        case "knockout" => regulationClassifierBaseline(reg.asInstanceOf[BioEventMention]) should be("KO")
-        case "dominant negative" => regulationClassifierBaseline(reg.asInstanceOf[BioEventMention]) should be("DN")
-        case "overexpression" => regulationClassifierBaseline(reg.asInstanceOf[BioEventMention]) should be("OE")
-        case "chemical inhibition" => regulationClassifierBaseline(reg.asInstanceOf[BioEventMention]) should be("CHEM")
+        case "knockdown" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention]) should be("KD")
+        case "knockout" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention]) should be("KO")
+        case "dominant negative" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention]) should be("DN")
+        case "overexpression" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention]) should be("OE")
+        case "chemical inhibition" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention]) should be("CHEM")
         case _ => println("NONE")
       }
     }
