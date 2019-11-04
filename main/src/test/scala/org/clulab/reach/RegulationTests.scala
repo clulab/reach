@@ -128,26 +128,14 @@ class RegulationTests extends FlatSpec with Matchers{
 
     // Baseline 1: regulation classifier, classify the whole sentence by the count of keywords
     index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
-      val mentions = getBioMentions(sentence).filter(_ matches "Event").filter(_.arguments.contains("controller")).filter(_.arguments.contains("controlled"))
-      println("============")
-      println(sentence)
-      for (m<-mentions){
-        println("-------")
-        if (m.arguments("controller").head.arguments("theme").head.text.toLowerCase()==controller.toLowerCase & m.arguments("controlled").head.arguments("theme").head.text.toLowerCase()==controlled.toLowerCase){
-          println(m.text)
-
-        }
-//        println(m.arguments("controller").head.text)
-//        println(m.arguments("controlled").head.text)
-      }
-      val lemmas = sentence.toLowerCase().split(" ")
-      println(regulationType)
+      val mentions = getBioMentions(sentence).filter(_.isInstanceOf[BioEventMention])
+      val reg = mentions.find(_.label == regulationPolarity)
       regulationType match {
-        case "knockdown" => regulationClassifierBaseline(lemmas) should be("KD")
-        case "knockout" => regulationClassifierBaseline(lemmas) should be("KO")
-        case "dominant negative" => regulationClassifierBaseline(lemmas) should be("DN")
-        case "overexpression" => regulationClassifierBaseline(lemmas) should be("OE")
-        case "chemical inhibition" => regulationClassifierBaseline(lemmas) should be("CHEM")
+        case "knockdown" => regulationClassifierBaseline(reg.asInstanceOf[BioEventMention]) should be("KD")
+        case "knockout" => regulationClassifierBaseline(reg.asInstanceOf[BioEventMention]) should be("KO")
+        case "dominant negative" => regulationClassifierBaseline(reg.asInstanceOf[BioEventMention]) should be("DN")
+        case "overexpression" => regulationClassifierBaseline(reg.asInstanceOf[BioEventMention]) should be("OE")
+        case "chemical inhibition" => regulationClassifierBaseline(reg.asInstanceOf[BioEventMention]) should be("CHEM")
         case _ => println("NONE")
       }
     }

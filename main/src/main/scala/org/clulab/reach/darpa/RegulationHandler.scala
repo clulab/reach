@@ -278,8 +278,10 @@ object RegulationHandler {
 //    }
 //  }
 
-  def regulationClassifierBaseline(lemmas:Seq[String]):String = {
-
+  def regulationClassifierBaseline(mention:BioEventMention):String = {
+    val lemmas_raw = mention.sentenceObj.words
+    val lemmas = lemmas_raw.map(_.toLowerCase())
+    val trigger_start = mention.trigger
     var kdCount = 0
     var koCount = 0
     var dnCount = 0
