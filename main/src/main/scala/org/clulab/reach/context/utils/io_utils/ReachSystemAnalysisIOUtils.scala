@@ -93,6 +93,7 @@ object ReachSystemAnalysisIOUtils {
       featureValueFileInstance.createNewFile()
     val printWriter = new PrintWriter(featureValueFileInstance)
     printWriter.write(featureValueStringToWritePerPaper)
+    printWriter.close()
   }
 
   def getTransferredAnnotationsFromReach2016(pathToPredictionsDir:String):Seq[(String,String,String)] = {
