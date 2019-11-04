@@ -370,4 +370,8 @@ object reguTestZ extends App {
   println(list3.contains(3))
   println(list3.contains(4))
 
+
+  val ele = list1.find(_==3)
+  println(ele)
+
 }

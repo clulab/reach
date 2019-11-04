@@ -133,9 +133,12 @@ class RegulationTests extends FlatSpec with Matchers{
       println(sentence)
       for (m<-mentions){
         println("-------")
-        println(m.text)
-        println(m.arguments("controller").head.text)
-        println(m.arguments("controlled").head.text)
+        if (m.arguments("controller").head.arguments("theme").head.text.toLowerCase()==controller.toLowerCase & m.arguments("controlled").head.arguments("theme").head.text.toLowerCase()==controlled.toLowerCase){
+          println(m.text)
+
+        }
+//        println(m.arguments("controller").head.text)
+//        println(m.arguments("controlled").head.text)
       }
       val lemmas = sentence.toLowerCase().split(" ")
       println(regulationType)
