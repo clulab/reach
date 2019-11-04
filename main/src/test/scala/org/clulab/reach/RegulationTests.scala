@@ -128,8 +128,14 @@ class RegulationTests extends FlatSpec with Matchers{
 
     // Baseline 1: regulation classifier, classify the whole sentence by the count of keywords
     index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
-      val mentions = getBioMentions(sentence).filter(_.isInstanceOf[BioEventMention])
+      val mentions = getBioMentions(sentence).filter{case _:BioEventMention => true
+      case _ => false}
       val reg = mentions.find(_.label == regulationPolarity)
+
+      println("----------------")
+      println(reg.getClass)
+      println(reg.asInstanceOf[BioEventMention].trigger)
+
       regulationType match {
         case "knockdown" => regulationClassifierBaseline(reg.asInstanceOf[BioEventMention]) should be("KD")
         case "knockout" => regulationClassifierBaseline(reg.asInstanceOf[BioEventMention]) should be("KO")
