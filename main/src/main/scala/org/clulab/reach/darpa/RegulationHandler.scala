@@ -6,6 +6,8 @@ import org.clulab.odin._
 import org.clulab.reach.mentions._
 import org.clulab.struct.Interval
 
+import scala.collection.mutable.ArrayBuffer
+
 
 object RegulationHandler {
 
@@ -283,27 +285,36 @@ object RegulationHandler {
     var dnCount = 0
     var oeCount = 0
     var chemCount = 0
+    val kdPosList = ArrayBuffer[Int]()
+    val koPosList = ArrayBuffer[Int]()
+    val dnPosList = ArrayBuffer[Int]()
+    val oePosList = ArrayBuffer[Int]()
+    val chemPosList = ArrayBuffer[Int]()
     // First detect regulation type with 1 keyword
-    for (lemma <- lemmas) {
+    for ((lemma, lemma_index) <- lemmas.zipWithIndex) {
       for (keyword <- keywordKD if lemma.contains(keyword)){
         kdCount += 1
+        kdPosList +=lemma_index
       }
       for (keyword <- keywordKO if lemma.contains(keyword)){
         koCount += 1
+        koPosList +=lemma_index
       }
       for (keyword <- keywordDN if lemma.contains(keyword)){
         dnCount += 1
+        dnPosList +=lemma_index
       }
       for (keyword <- keywordOE if lemma.contains(keyword)) {
         oeCount += 1
+        oePosList +=lemma_index
       }
     }
 
     // Then detect regulation type with a sequence of keywords
     // Hard code these for now. TODO: code these in more general way
-    dnCount +=countSubSeqMatch(lemmas, List("dominant", "negative"))
-    chemCount +=countSubSeqMatch(lemmas, List("chemical", "inhibition", "of"))
-    chemCount +=countSubSeqMatch(lemmas, List("inhibitor", "of"))
+    val dnCount_1 =countSubSeqMatch(lemmas, List("dominant", "negative"), dnPosList)
+    val chemCount_1 =countSubSeqMatch(lemmas, List("chemical", "inhibition", "of"), chemPosList)
+    val chemCount_2 =countSubSeqMatch(lemmas, List("inhibitor", "of"), chemPosList)
 
     var regTokenCounts = Map("KD"-> kdCount, "KO"-> koCount,"DN"-> dnCount,"OE"-> oeCount,"CHEM"-> chemCount)
 
@@ -320,14 +331,15 @@ object RegulationHandler {
     }
   }
 
-  def countSubSeqMatch(lemmas:Seq[String], keywords:Seq[String]):Int = {
+  def countSubSeqMatch(lemmas:Seq[String], keywords:Seq[String], posList:ArrayBuffer[Int]):(Int, ArrayBuffer[Int]) = {
     var count = 0
     for (index <- 0 until lemmas.length-keywords.length){
       if (lemmas.slice(index, index+keywords.length)==keywords){
         count+=1
+        posList+=index
       }
     }
-    count
+    (count, posList)
   }
 
 }
