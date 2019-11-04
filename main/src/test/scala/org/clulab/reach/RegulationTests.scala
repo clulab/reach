@@ -133,8 +133,8 @@ class RegulationTests extends FlatSpec with Matchers{
       val reg = mentions.find(_.label == regulationPolarity)
 
       println("----------------")
-      println(reg.getClass)
-      println(reg.asInstanceOf[BioEventMention].trigger)
+      println(reg.get.getClass)
+      println(reg.get.asInstanceOf[BioEventMention].trigger)
 
       regulationType match {
         case "knockdown" => regulationClassifierBaseline(reg.asInstanceOf[BioEventMention]) should be("KD")
