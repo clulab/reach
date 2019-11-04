@@ -88,7 +88,7 @@ object ReachSystemAnalysisIOUtils {
     val numericValuesAsString = featureValueStringPerRow.mkString("\n")
     val featureValueStringToWritePerPaper = featureNamesString.concat(numericValuesAsString)
 
-    val featureValueFileInstance = new File(matchingAnnotationsRootDirPath.concat("/grouped_features_Reach2019.csv"))
+    val featureValueFileInstance = new File(pathToFeatureValueDataframe.concat("/grouped_features_Reach2019.csv"))
     if(!featureValueFileInstance.exists())
       featureValueFileInstance.createNewFile()
     val printWriter = new PrintWriter(featureValueFileInstance)
