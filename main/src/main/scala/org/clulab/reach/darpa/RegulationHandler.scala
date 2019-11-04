@@ -298,30 +298,39 @@ object RegulationHandler {
     val chemDisList = ArrayBuffer[Int]()
     // First detect regulation type with 1 keyword
     for ((lemma, lemma_index) <- lemmas.zipWithIndex) {
-      println(lemma_index)
       for (keyword <- keywordKD if lemma.contains(keyword)){
         kdCount += 1
-
+        val dist = if (trigger_start>lemma_index) trigger_start-lemma_index else if (lemma_index>=trigger_end) lemma_index-trigger_end+1 else 0
+        kdDisList += dist
       }
       for (keyword <- keywordKO if lemma.contains(keyword)){
         koCount += 1
-        koDisList +=lemma_index
+        val dist = if (trigger_start>lemma_index) trigger_start-lemma_index else if (lemma_index>=trigger_end) lemma_index-trigger_end+1 else 0
+        koDisList +=dist
       }
       for (keyword <- keywordDN if lemma.contains(keyword)){
         dnCount += 1
-        dnDisList +=lemma_index
+        val dist = if (trigger_start>lemma_index) trigger_start-lemma_index else if (lemma_index>=trigger_end) lemma_index-trigger_end+1 else 0
+        dnDisList +=dist
       }
       for (keyword <- keywordOE if lemma.contains(keyword)) {
         oeCount += 1
-        oeDisList +=lemma_index
+        val dist = if (trigger_start>lemma_index) trigger_start-lemma_index else if (lemma_index>=trigger_end) lemma_index-trigger_end+1 else 0
+        oeDisList +=dist
       }
     }
 
     // Then detect regulation type with a sequence of keywords
     // Hard code these for now. TODO: code these in more general way
-    val dnCount_1 =countSubSeqMatch(lemmas, List("dominant", "negative"), dnDisList)
-    val chemCount_1 =countSubSeqMatch(lemmas, List("chemical", "inhibition", "of"), chemDisList)
-    val chemCount_2 =countSubSeqMatch(lemmas, List("inhibitor", "of"), chemDisList)
+    val dnCountTuple1 =countSubSeqMatch(lemmas, List("dominant", "negative"), trigger_start, trigger_end)
+    dnCount+=dnCountTuple1._1
+    dnDisList++=dnCountTuple1._2
+    val chemCountTuple1 =countSubSeqMatch(lemmas, List("chemical", "inhibition", "of"), trigger_start, trigger_end)
+    chemCount+=chemCountTuple1._1
+    chemDisList++=chemCountTuple1._2
+    val chemCountTuple2 =countSubSeqMatch(lemmas, List("inhibitor", "of"), trigger_start, trigger_end)
+    chemCount+=chemCountTuple2._1
+    chemDisList++=chemCountTuple2._2
 
     var regTokenCounts = Map("KD"-> kdCount, "KO"-> koCount,"DN"-> dnCount,"OE"-> oeCount,"CHEM"-> chemCount)
 
@@ -338,17 +347,19 @@ object RegulationHandler {
     }
   }
 
-  def countSubSeqMatch(lemmas:Seq[String], keywords:Seq[String], posList:ArrayBuffer[Int]):(Int, ArrayBuffer[Int]) = {
+  def countSubSeqMatch(lemmas:Seq[String], keywords:Seq[String], trigger_start:Int, trigger_end:Int):(Int, ArrayBuffer[Int]) = {
     var count = 0
-    for (index <- 0 until lemmas.length-keywords.length){
-      if (lemmas.slice(index, index+keywords.length)==keywords){
-        count+=1
-        posList+=index
+    val posList = ArrayBuffer[Int]()
+    val kw_span = keywords.length
+    for (index <- 0 until lemmas.length - kw_span) {
+      if (lemmas.slice(index, index + keywords.length) == keywords) {
+        count += 1
+        val dist = if (trigger_start > index + kw_span) trigger_start - (index + kw_span) else if (index >= trigger_end) index - trigger_end + 1 else 0
+        posList += dist
       }
     }
     (count, posList)
   }
-
 }
 
 
