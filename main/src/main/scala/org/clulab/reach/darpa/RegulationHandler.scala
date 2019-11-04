@@ -291,11 +291,11 @@ object RegulationHandler {
     var dnCount = 0
     var oeCount = 0
     var chemCount = 0
-    val kdDisList = ArrayBuffer[Int]()
-    val koDisList = ArrayBuffer[Int]()
-    val dnDisList = ArrayBuffer[Int]()
-    val oeDisList = ArrayBuffer[Int]()
-    val chemDisList = ArrayBuffer[Int]()
+    val kdDisList = ArrayBuffer[Int](lemmas_raw.length)
+    val koDisList = ArrayBuffer[Int](lemmas_raw.length)
+    val dnDisList = ArrayBuffer[Int](lemmas_raw.length)
+    val oeDisList = ArrayBuffer[Int](lemmas_raw.length)
+    val chemDisList = ArrayBuffer[Int](lemmas_raw.length)
     // First detect regulation type with 1 keyword
     for ((lemma, lemma_index) <- lemmas.zipWithIndex) {
       for (keyword <- keywordKD if lemma.contains(keyword)){
@@ -332,19 +332,25 @@ object RegulationHandler {
     chemCount+=chemCountTuple2._1
     chemDisList++=chemCountTuple2._2
 
-    var regTokenCounts = Map("KD"-> kdCount, "KO"-> koCount,"DN"-> dnCount,"OE"-> oeCount,"CHEM"-> chemCount)
+    val regTokenCounts = Map("KD"-> kdCount, "KO"-> koCount,"DN"-> dnCount,"OE"-> oeCount,"CHEM"-> chemCount)
+    val regMinDis = Map("KD"-> kdDisList.min, "KO"-> koDisList.min,"DN"-> dnDisList.min,"OE"-> oeDisList.min,"CHEM"-> chemDisList.min)
 
-    val mostPossibleTypeEntry = regTokenCounts.maxBy { case (key, value) => value }
-//    println(lemmas)
-//    println(regTokenCounts)
-//    println("===============")
+    val maxKWCount = regTokenCounts.maxBy { case (key, value) => value }  // get the pair with the largest count
+    val mostPossibleRegByCount = regTokenCounts.filter(e =>e._2== maxKWCount._2)  // get all pairs with the largest count
+    if (mostPossibleRegByCount.size==1){
+      mostPossibleRegByCount.keys.head
+    }
+    else {
+      if (mostPossibleRegByCount.values.head==0){
+        "None"
+      }
+      else{
+        val mostPossibleRegByDist = regMinDis.filter(e => mostPossibleRegByCount.keysIterator.contains(e._1))
+        val mostPossibleReg = mostPossibleRegByDist.minBy { case (key, value) => value }
+        mostPossibleReg._1
+      }
+    }
 
-    if (mostPossibleTypeEntry._2>0){
-      mostPossibleTypeEntry._1
-    }
-    else{
-      "None"
-    }
   }
 
   def countSubSeqMatch(lemmas:Seq[String], keywords:Seq[String], trigger_start:Int, trigger_end:Int):(Int, ArrayBuffer[Int]) = {
@@ -392,4 +398,7 @@ object reguTestZ extends App {
   val ele = list1.find(_==3)
   println(ele)
 
+
+  val ab1 = ArrayBuffer[Int](1,2)
+  println(ab1)
 }
