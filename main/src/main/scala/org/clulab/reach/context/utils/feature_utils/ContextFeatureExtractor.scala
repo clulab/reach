@@ -77,6 +77,8 @@ class ContextFeatureExtractor(datum:(BioEventMention, BioTextBoundMention), cont
         if(unAggregateFeatureName(featSeq).contains(ctx)) ctxDepFeatures += ctx
       }
     }
+    println("I have found the following number of event dependency features in the feature extractor class")
+    println(evtDepFeatures.size)
 
 
 

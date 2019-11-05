@@ -70,7 +70,7 @@ class ContextFeatureAggregator(instances:Seq[ContextPairInstance], featValLookUp
     val specFeatVal = featureValuePairing(aggregatedSpecVals)
     val ctxFeatVal = featureValuePairing(aggregatedctxDepVals)
     val evtFeatVal = featureValuePairing(aggregatedevtDepVals)
-
+    println(s"In feature aggregator class, the size of feature value pairings of event dependency features is ${evtFeatVal.size}")
     addAggregatedOnce(specFeatVal)
     addAggregatedOnce(ctxFeatVal)
     addAggregatedOnce(evtFeatVal)
