@@ -23,8 +23,6 @@ object ContextFeatureUtils {
       featureExtractor.extractFeaturesToCalcByBestFeatSet()
     }
     val flattenedMap = tempo.flatMap(t=>t).toMap
-    println(s"The number of pairs we are operating on is: ${filteredPairs.size} \n")
-    println(s"The number of input rows we have is ${flattenedMap.size}")
     flattenedMap
   }
 
