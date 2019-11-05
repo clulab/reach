@@ -343,19 +343,29 @@ object RegulationHandler {
     val maxKWCount = regTokenCounts.maxBy { case (key, value) => value }  // get the pair with the largest count
     val mostPossibleRegByCount = regTokenCounts.filter(e =>e._2== maxKWCount._2)  // get all pairs with the largest count
 
-    val regType = if (mostPossibleRegByCount.size==1){
-      mostPossibleRegByCount.keys.head
+    // get regulation type by count and distance
+//    val regType = if (mostPossibleRegByCount.size==1){
+//      mostPossibleRegByCount.keys.head
+//    }
+//    else {
+//      if (mostPossibleRegByCount.values.head==0){
+//        "None"
+//      }
+//      else{
+//        val mostPossibleRegByDist = regMinDis.filter(e => mostPossibleRegByCount.keysIterator.contains(e._1))
+//        val mostPossibleReg = mostPossibleRegByDist.minBy { case (key, value) => value }
+//        mostPossibleReg._1
+//      }
+//    }
+
+    // get regulation type by distance only
+
+    val mostPossibleReg = regMinDis.minBy { case (key, value) => value }
+    val regType = if (mostPossibleReg._2==lemmas.length){
+      "None"
     }
-    else {
-      if (mostPossibleRegByCount.values.head==0){
-        "None"
-      }
-      else{
-        val mostPossibleRegByDist = regMinDis.filter(e => mostPossibleRegByCount.keysIterator.contains(e._1))
-        val mostPossibleReg = mostPossibleRegByDist.minBy { case (key, value) => value }
-        mostPossibleReg._1
-      }
-    }
+    else {mostPossibleReg._1}
+
 
     println(regType)
     regType
