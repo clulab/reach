@@ -159,7 +159,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             val x = a.map {
               case (ctxId, aggregatedFeature) =>
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
-                println(aggregatedFeature.featureGroupNames.mkString(","))
+
 
 
                 val parentDirToWriteAllRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
