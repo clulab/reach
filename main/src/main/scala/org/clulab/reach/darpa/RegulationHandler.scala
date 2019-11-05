@@ -12,12 +12,12 @@ import scala.collection.mutable.ArrayBuffer
 object RegulationHandler {
 
   /** Keywords for each regulation type */
-  val keywordKD: Seq[String] = Seq("sirna", "silencing", "si-", "sh-", "shrna", "knockdown", "knock-down")
+  val keywordKD: Seq[String] = Seq("sirna", "silencing", "silenced", "si-", "sh-", "shrna", "knockdown", "knock-down")//Seq("sirna", "silencing", "si-", "sh-", "shrna", "knockdown", "knock-down")
   val keywordKO: Seq[String] = Seq("knockout", "ko", "-/-")
   val keywordDN: Seq[io.Serializable] = Seq("dn-", "dominant-negative", ("dominant", "negative")) // for dependencies
   val keywordDNuni: Seq[String] = Seq("dn-", "dominant-negative") // for unigram tokens
   val keywordDNmulti: Seq[(String, String)] = Seq(("dominant", "negative")) // for bigram tokens
-  val keywordOE: Seq[String] = Seq("overexpress", "overexpression", "oe")
+  val keywordOE: Seq[String] = Seq("overexpress", "oe")//Seq("overexpress", "overexpression", "oe")
   val keywordCHEM: Seq[Product] = Seq(("chemical", "inhibition", "of"), ("inhibitor", "of"))
 
 
