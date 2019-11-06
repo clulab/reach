@@ -151,6 +151,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         val aggRowsForFileIO = collection.mutable.ListBuffer[((String,String), AggregatedContextInstance)]()
         //val whereToWriteFeatureValue = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsFeatValsToFile.txt")
         //val whereToWriteRow = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsToFile.txt")
+        var aggrRowCount = 0
         val predictions:Map[EventID, Seq[(ContextID, Boolean)]] = {
           val map = collection.mutable.HashMap[EventID, Seq[(ContextID, Boolean)]]()
           for((k,a) <- aggregatedFeatures) {
@@ -184,7 +185,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
 
                 //logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
                 println(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
-
+                aggrRowCount += 1
                 (ctxId, prediction)
             }
 
@@ -194,6 +195,8 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           }
           map.toMap
         }
+
+        println(s"Inside SVM Context engine class, I have found ${aggrRowCount} aggregated rows")
 
 
         // Loop over all the mentions to generate the context dictionary
