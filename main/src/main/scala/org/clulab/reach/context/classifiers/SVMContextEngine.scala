@@ -184,7 +184,8 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                   }
                 }
 
-                logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
+                //logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
+                println(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
 
                 (ctxId, prediction)
             }
@@ -195,8 +196,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           }
           map.toMap
         }
-        println(s"The number of filtered pairs: ${filteredPairs.size}")
-        println(s"The number of aggregated rows: ${numOfAggrRows}")
+
 
         // Loop over all the mentions to generate the context dictionary
         for(mention <- mentions) yield {
