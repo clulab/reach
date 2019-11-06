@@ -15,7 +15,7 @@ class EventContextPairGenerator(mentions:Seq[BioMention], ctxMentions:Seq[BioTex
   println("Inside pair generator class. I have found the following event spans")
   println("********")
   println(s"Current paper ${ctxMentions(0).document.id}")
-  evtMentions.map(println)
+  evtMentions.map(x => println(ContextFeatureUtils.extractEvtId(x)))
 
   // The constructor of this class is supplied with all the mentions and BioTextBoundMentions (i.e. context IDs)
   // Let the given Seq[BioTextBoundMention] be of size m
