@@ -82,8 +82,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 val eventID = ContextFeatureUtils.extractEvtId(p._1)
                 val contextID = p._2.nsId()
                 val rowID = (paperID,eventID,contextID)
-                println("Inside SVM Context engine class")
-                println(rowID)
+
                 if(manualAnnotations.contains(rowID))
 
                     matchingPairs += p
