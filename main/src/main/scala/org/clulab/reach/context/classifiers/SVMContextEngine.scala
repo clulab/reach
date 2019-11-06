@@ -145,6 +145,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
               aggRow}).toSeq
         }
 
+        var numOfAggrRows = 0
 
         // adding the aggregated rows to a list so that I can pass it to the Cross Validator.
         // Please note that this call to the cross validator is to the class CrossValBySentDist.
@@ -171,6 +172,8 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 ContextFeatureUtils.writeAggRowToFile(aggregatedFeature,k.toString, ctxId._2, parentDirToWriteAllRows)
                 //ContextFeatureUtils.writeAggRowToFile(aggregatedFeature, k.toString, ctxId._2,sentWind, whereToWriteRowBySentDist)
                 // Please note that this function writes aggregated rows for each (eventID, contextID) pair. Therefore, you may have a large number of files written to your directory.
+
+                numOfAggrRows += 1
                 val tupToAddForFileIO = ((k.toString, ctxId._2), aggregatedFeature)
                 aggRowsForFileIO += tupToAddForFileIO
                 val prediction = {
@@ -192,6 +195,8 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           }
           map.toMap
         }
+        println(s"The number of filtered pairs: ${filteredPairs.size}")
+        println(s"The number of aggregated rows: ${numOfAggrRows}")
 
         // Loop over all the mentions to generate the context dictionary
         for(mention <- mentions) yield {
