@@ -110,6 +110,8 @@ object ReachSystemAnalysisIOUtils {
         val eventID = l.split(",")(0)
         val contextID = l.split(",")(1)
         val tupleEntry = (paperID, eventID,contextID)
+        println("Inside annotation reader: ")
+        println(tupleEntry)
         annotationsPerPaper += tupleEntry
       }
     }

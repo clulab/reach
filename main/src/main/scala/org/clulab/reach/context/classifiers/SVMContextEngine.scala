@@ -82,7 +82,8 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 val eventID = ContextFeatureUtils.extractEvtId(p._1)
                 val contextID = p._2.nsId()
                 val rowID = (paperID,eventID,contextID)
-
+                println("Inside SVM Context engine class")
+                println(rowID)
                 if(manualAnnotations.contains(rowID))
 
                     matchingPairs += p
@@ -90,12 +91,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
               }
               matchingPairs
             }
-
         }
-
-        println("The following filtered pairs are generated:")
-        println(filteredPairs.mkString(","))
-
 
 
         // The filteredPairs, as the name suggests, contains the subset of the context-event pairs, filtered based on the sentence distance window.
