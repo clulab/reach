@@ -85,7 +85,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 val rowID = (paperID,eventID,contextID)
                 def shouldIPrint(evtString1:String, evtString2: String):Boolean = {
                   val doEventsAlign = AnnotationAlignmentUtils.eventsAlign(evtString1,evtString2) ||
-                    AnnotationAlignmentUtils(evtString2,evtString1)
+                    AnnotationAlignmentUtils.eventsAlign(evtString2,evtString1)
                   val areTheEventsConsistent = evtString1 == evtString2
                   doEventsAlign && !areTheEventsConsistent
                 }
