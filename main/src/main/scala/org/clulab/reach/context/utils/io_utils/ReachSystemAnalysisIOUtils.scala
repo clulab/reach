@@ -97,7 +97,6 @@ object ReachSystemAnalysisIOUtils {
   }
 
   def getTransferredAnnotationsFromReach2016(pathToPredictionsDir:String):Seq[(String,String,String)] = {
-    println(pathToPredictionsDir)
     val annotationsPerPaper = collection.mutable.ListBuffer[(String,String,String)]()
     val parentDirAsFile = new File(pathToPredictionsDir)
     val papersDirs = parentDirAsFile.listFiles().filter(_.isDirectory)
