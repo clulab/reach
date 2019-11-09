@@ -6,6 +6,7 @@ import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.{AggregatedContextInstance, ContextPairInstance}
 import org.clulab.reach.context.ContextEngine
 import org.clulab.reach.context.feature_utils.{ContextFeatureAggregator, ContextFeatureUtils, EventContextPairGenerator}
+import org.clulab.reach.context.utils.annotation_alignment_utils.AnnotationAlignmentUtils
 import org.clulab.reach.context.utils.io_utils.ReachSystemAnalysisIOUtils
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 
@@ -82,6 +83,18 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 val eventID = ContextFeatureUtils.extractEvtId(p._1)
                 val contextID = p._2.nsId()
                 val rowID = (paperID,eventID,contextID)
+                def shouldIPrint(evtString1:String, evtString2: String):Boolean = {
+                  val doEventsAlign = AnnotationAlignmentUtils.eventsAlign(evtString1,evtString2) ||
+                    AnnotationAlignmentUtils(evtString2,evtString1)
+                  val areTheEventsConsistent = evtString1 == evtString2
+                  doEventsAlign && !areTheEventsConsistent
+                }
+                val printableMatchingSpans = manualAnnotations.filter(x => shouldIPrint(x._2,eventID))
+                for(m <- printableMatchingSpans) {
+                  println(s"The current paper is: ${paperID}")
+                  println(s"The current event span from Reach parser is: ${eventID}")
+                  println(s"The current event span from the annotated dataset is: ${m}")
+                }
 
                 if(manualAnnotations.contains(rowID))
 
@@ -184,7 +197,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 }
 
                 //logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
-                println(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
                 aggrRowCount += 1
                 (ctxId, prediction)
             }
@@ -196,7 +208,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           map.toMap
         }
 
-        println(s"Inside SVM Context engine class, I have found ${aggrRowCount} aggregated rows")
 
 
         // Loop over all the mentions to generate the context dictionary
