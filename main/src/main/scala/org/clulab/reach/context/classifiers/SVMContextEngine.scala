@@ -89,14 +89,18 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                   val areTheEventsConsistent = evtString1 == evtString2
                   doEventsAlign && !areTheEventsConsistent
                 }
-                println(paperID)
-                println("current event ID from Reach 2019")
-                println(eventID)
+
 
                 val annotationsInPaper = manualAnnotations.filter(_._1 == paperID)
                 val inconsistentAnnotations = annotationsInPaper.filter(x => shouldIPrint(x._2,eventID)).map(_._2).toSet
-                println("Inconsistent events as read from file: ")
-                println(inconsistentAnnotations.mkString("\n"))
+                if(inconsistentAnnotations.size>0){
+                  println(paperID)
+                  println("current event ID from Reach 2019")
+                  println(eventID)
+                  println("Inconsistent events as read from file: ")
+                  println(inconsistentAnnotations.mkString("\n"))
+                }
+
 
                 if(manualAnnotations.contains(rowID))
 
