@@ -89,7 +89,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                   val areTheEventsConsistent = evtString1 == evtString2
                   doEventsAlign && !areTheEventsConsistent
                 }
-                val printableMatchingSpans = manualAnnotations.filter(x => shouldIPrint(x._2,eventID)).toSet
+                val printableMatchingSpans = manualAnnotations.filter(x => shouldIPrint(x._2,eventID)).map(_._2).toSet
                 for(m <- printableMatchingSpans) {
                   println(s"The current paper is: ${paperID}")
                   println(s"The current event span from Reach parser is: ${eventID}")
