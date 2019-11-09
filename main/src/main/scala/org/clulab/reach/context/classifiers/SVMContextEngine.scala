@@ -95,7 +95,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                   println(s"The current event span from Reach parser is: ${eventID}")
                   println(s"The current event span from the annotated dataset is: ${m}")
                 }
-                println(s"The total number of inconsistent events are: ${printableMatchingSpans.size}")
 
                 if(manualAnnotations.contains(rowID))
 
