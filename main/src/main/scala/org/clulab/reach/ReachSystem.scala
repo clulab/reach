@@ -98,7 +98,7 @@ class ReachSystem(
         case None => nonContextCount += 1
       }
     })
-    logger.info(s"We have $contextCount of context and $nonContextCount of non-context cases. The total is ${contextCount + nonContextCount}")
+    logger.debug(s"We have $contextCount of context and $nonContextCount of non-context cases. The total is ${contextCount + nonContextCount}")
 
     logger.debug(s"${eventsWithContext.size} events after contextEngine.assign: ${display.summarizeMentions(eventsWithContext, doc)}")
     val grounded = grounder(eventsWithContext)
