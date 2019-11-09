@@ -61,7 +61,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         // Generate all the event/ctx mention pairs
         val pairGenerator = new EventContextPairGenerator(mentions, ctxMentions)
         val pairs = pairGenerator.yieldContextEventPairs()
-        val inconsistentEventSpans = collection.mutable.HashMap[String,Seq[String]]()
+        val inconsistentEventSpans = collection.mutable.HashMap[String,(String,String)]()
         val filteredPairs = sentenceWindow match {
           case Some(bound) =>
             pairs.filter {
@@ -95,7 +95,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 val annotationsInPaper = manualAnnotations.filter(_._1 == paperID)
                 val inconsistentAnnotations = annotationsInPaper.filter(x => shouldIPrint(x._2,eventID)).map(_._2).toSet
                 if(inconsistentAnnotations.size>0){
-                  inconsistentEventSpans++=Map(eventID -> inconsistentAnnotations.toSeq)
+                  inconsistentEventSpans++=Map(paperID -> (eventID -> inconsistentAnnotations.toSeq(0)))
                 }
 
 
@@ -108,8 +108,9 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             }
         }
         if(inconsistentEventSpans.size>0) {
-          for((dynamicReachEvent, annotationsFileReachEvent) <- inconsistentEventSpans) {
-            println(s"The event ${dynamicReachEvent} (parsed by Reach on the fly) should have matched with ${annotationsFileReachEvent} (parsed from the annotations data set)")
+          for((paperID,(runningSpan,annotationSpan))<-inconsistentEventSpans) {
+            println(s"Printing the inconsistent event spans from ${paperID}")
+            println(s"The event span ${runningSpan} (parsed on the fly) should have matched with ${annotationSpan} from the annotations dataset")
           }
         }
 
