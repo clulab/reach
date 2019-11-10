@@ -26,8 +26,8 @@ object SVMTrainingIOUtils {
     val listOfSpecificFeatures = SVMTrainingIOUtils.readHardcodedFeaturesFromFile(hardCodedFilePath)
     def allOtherFeatures(headers:Seq[String]): Set[String] = headers.toSet -- (listOfSpecificFeatures ++ Seq(""))
     def indices(headers:Seq[String]): Map[String, Int] = headers.zipWithIndex.toMap
-    val fileInputStream = new FileInputStream(groupedFeaturesFileName)
-    val bufferedStream = new BufferedInputStream(new GZIPInputStream(fileInputStream))
+//    val fileInputStream = new FileInputStream(groupedFeaturesFileName)
+//    val bufferedStream = new BufferedInputStream(new GZIPInputStream(fileInputStream))
     //val source = Source.fromInputStream(bufferedStream)
     val source = Source.fromFile(groupedFeaturesFileName)
     val lines = source.getLines()
