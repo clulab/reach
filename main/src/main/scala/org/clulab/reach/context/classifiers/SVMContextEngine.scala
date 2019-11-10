@@ -74,7 +74,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             {
               // this None case is only for checking the feature values of the matching event-context pairs, i.e. the event-context pairs that matched between Reach 2019 and Reach 2016.
               val parentDirForManualAnnotations = config.getString("svmContext.transferredAnnotationsParentDir")
-              val manualAnnotations = ReachSystemAnalysisIOUtils.getTransferredAnnotationsFromReach2016(parentDirForManualAnnotations)
+              val manualAnnotations = ReachSystemAnalysisIOUtils.getTransferredAnnotationsFromReach2016(parentDirForManualAnnotations,exclude = true)
 
               val matchingPairs = collection.mutable.ListBuffer[Pair]()
               for(p <- pairs) {

@@ -96,11 +96,14 @@ object ReachSystemAnalysisIOUtils {
     printWriter.close()
   }
 
-  def getTransferredAnnotationsFromReach2016(pathToPredictionsDir:String):Seq[(String,String,String)] = {
+  def getTransferredAnnotationsFromReach2016(pathToPredictionsDir:String,exclude:Boolean=false):Seq[(String,String,String)] = {
     val annotationsPerPaper = collection.mutable.ListBuffer[(String,String,String)]()
     val parentDirAsFile = new File(pathToPredictionsDir)
-    val papersDirs = parentDirAsFile.listFiles().filter(_.isDirectory)
-
+    val subsetOfPapersToConsider = List("PMC2743561", "PMC3461631")
+    val papersDirs = exclude match {
+      case true =>  parentDirAsFile.listFiles().filter(x => x.isDirectory && subsetOfPapersToConsider.contains(x.getName))
+      case false =>  parentDirAsFile.listFiles().filter(x => x.isDirectory)
+    }
     for(paperDir <- papersDirs){
       val paperID = paperDir.getName
       val annotationsFile = paperDir.listFiles()(0)
