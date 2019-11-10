@@ -37,7 +37,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.trainedSvmPath")
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
-  val classifierToUse = trainedSVMInstance.classifier match {
+  val classifierToCheckForNull = trainedSVMInstance.classifier match {
     case Some(x) => x
     case None => {
       null
@@ -45,10 +45,10 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
   }
 
 
-  if(classifierToUse == null) throw new NullPointerException("No classifier found on which I can predict. Please make sure the SVMContextEngine class receives a valid Linear SVM classifier.")
+  if(classifierToCheckForNull == null) throw new NullPointerException("No classifier found on which I can predict. Please make sure the SVMContextEngine class receives a valid Linear SVM classifier.")
 
 
-  logger.debug(s"The SVM model has been tuned to the following settings: C: ${classifierToUse.C}, Eps: ${classifierToUse.eps}, Bias: ${classifierToUse.bias}")
+  logger.debug(s"The SVM model has been tuned to the following settings: C: ${classifierToCheckForNull.C}, Eps: ${classifierToCheckForNull.eps}, Bias: ${classifierToCheckForNull.bias}")
 
   override def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
 

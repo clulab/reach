@@ -49,7 +49,7 @@ object SVMTrainingIOUtils {
 
   def rectifyWrongFeatures(headers:Seq[String]): Seq[String] = {
     val result = collection.mutable.ListBuffer[String]()
-    headers.map(h => if(headers.indexOf(h) == 1) result += "PMCID" else result += h)
+    headers.map(h => if(h.contains("MCID")) result += "PMCID" else result += h)
     result
   }
 

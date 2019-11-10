@@ -2,17 +2,27 @@ package org.clulab.reach.context.scripts
 
 
 import com.typesafe.config.ConfigFactory
+import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.reach.context.utils.io_utils.ReachSystemAnalysisIOUtils
 
 object CrossValidationForSVMPerformanceOnNewReach extends App {
   val config = ConfigFactory.load()
 
-  // Loading the AggrRows from file. AggrRows are the output from Reach 2019.
-  val reach2019RootDir = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
-  val parentDirForManualAnnotations = config.getString("svmContext.transferredAnnotationsParentDir")
-  val manualPredictions = ReachSystemAnalysisIOUtils.getTransferredAnnotationsFromReach2016(parentDirForManualAnnotations)
+  val pathToUntrainedSVM = config.getString("svmContext.untrainedSVMPath")
+  val svmWrapper = new LinearSVMContextClassifier()
+  val untrainedInstanceForCV = svmWrapper.loadFrom(pathToUntrainedSVM)
+  val classifierToCheckForNull = untrainedInstanceForCV.classifier match {
+    case Some(x) => x
+    case None => {
+      null
+    }
+  }
 
-  print(s"We have a total of ${manualPredictions.size} annotations")
+
+  if(classifierToCheckForNull == null) throw new NullPointerException("No classifier found on which I can predict. Please make sure the SVMContextEngine class receives a valid Linear SVM classifier.")
+
+  println(s"The SVM model has been tuned to the following settings: C: ${classifierToCheckForNull.C}, Eps: ${classifierToCheckForNull.eps}, Bias: ${classifierToCheckForNull.bias}")
+
 
 
 
