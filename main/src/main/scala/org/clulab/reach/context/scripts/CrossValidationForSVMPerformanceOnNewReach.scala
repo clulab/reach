@@ -61,7 +61,7 @@ object CrossValidationForSVMPerformanceOnNewReach extends App {
   println(s"We have a total of ${microAveragedPredictedLabels.size} predicted labels")
   val microAveragedAccuracy = ScoreMetricsOfClassifier.accuracy(microAveragedTrueLabels, microAveragedPredictedLabels)
   println(s"Micro averaged accuracy: ${microAveragedAccuracy}")
-  val arithmeticMeanAccuracy = totalAccuracy/microAveragedPredictedLabels.size
+  val arithmeticMeanAccuracy = totalAccuracy/papersToUseForCV.size
   println(s"The arithmetic mean accuracy is ${arithmeticMeanAccuracy}")
 
 
