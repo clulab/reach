@@ -27,7 +27,18 @@ object CrossValidationForSVMPerformanceOnNewReach extends App {
   val groupedFeatures = config.getString("svmContext.groupedFeaturesTransferredAnnotations")
   val hardCodedFeaturePath = config.getString("contextEngine.params.hardCodedFeatures")
   val (allFeatures,rows) = SVMTrainingIOUtils.loadAggregatedRowsFromFile(groupedFeatures, hardCodedFeaturePath)
-  println(rows.size)
+  val papersToExcludeFromCV = List("PMC2195994", "PMC2193052", "PMC2156142")
+  val paperIDsetFromAllPapers = rows.map(x => x.PMCID).toSet
+  val papersToUseForCV = paperIDsetFromAllPapers.filter(!papersToExcludeFromCV.contains(_))
+  println(s"Total number of datapoints: ${rows.size}")
+  for(paperID <- papersToUseForCV){
+    val testingRowsFromCurrentPaper = rows.filter(x=>x.PMCID == paperID)
+    println(s"The current paper as test case is: ${paperID}")
+    println(s"The number of rows for testing: ${testingRowsFromCurrentPaper.size}")
+    val trainingRows = rows.filter(x=>x.PMCID!=paperID)
+    println(s"The number of training rows: ${trainingRows.size}")
+
+  }
 
 
 
