@@ -2,8 +2,9 @@ package org.clulab.reach.context.scripts
 
 
 import com.typesafe.config.ConfigFactory
-import org.clulab.context.classifiers.LinearSVMContextClassifier
+import org.clulab.context.classifiers.{DummyClassifier, LinearSVMContextClassifier}
 import org.clulab.reach.context.utils.io_utils.SVMTrainingIOUtils
+import org.clulab.reach.context.utils.score_utils.ScoreMetricsOfClassifier
 
 object CrossValidationForSVMPerformanceOnNewReach extends App {
   val config = ConfigFactory.load()
@@ -31,13 +32,27 @@ object CrossValidationForSVMPerformanceOnNewReach extends App {
   val paperIDsetFromAllPapers = rows.map(x => x.PMCID).toSet
   val papersToUseForCV = paperIDsetFromAllPapers.filter(!papersToExcludeFromCV.contains(_))
   println(s"Total number of datapoints: ${rows.size}")
+  val microAveragedTrueLabels = collection.mutable.ListBuffer[Int]()
+  val microAveragedPredictedLabels = collection.mutable.ListBuffer[Int]()
   for(paperID <- papersToUseForCV){
-    val testingRowsFromCurrentPaper = rows.filter(x=>x.PMCID == paperID)
-    println(s"The current paper as test case is: ${paperID}")
-    println(s"The number of rows for testing: ${testingRowsFromCurrentPaper.size}")
-    val trainingRows = rows.filter(x=>x.PMCID!=paperID)
-    println(s"The number of training rows: ${trainingRows.size}")
 
+    val testingRowsFromCurrentPaper = rows.filter(x=>x.PMCID == paperID)
+    val trainingRows = rows.filter(x=>x.PMCID!=paperID)
+
+    val trainingfeatureValues = untrainedInstanceForCV.constructTupsForRVF(trainingRows)
+    val trainingLabels = DummyClassifier.getLabelsFromDataset(trainingRows)
+    val (trainingDataset,_) = untrainedInstanceForCV.mkRVFDataSet(trainingLabels.toArray,trainingfeatureValues)
+    untrainedInstanceForCV.fit(trainingDataset)
+
+    val testingLabels = DummyClassifier.getLabelsFromDataset(testingRowsFromCurrentPaper)
+    val predictedValuesPerTestFold = untrainedInstanceForCV.predict(testingRowsFromCurrentPaper)
+    microAveragedTrueLabels ++= testingLabels
+    microAveragedPredictedLabels ++= predictedValuesPerTestFold
+    println(s"The number of labels in current test fold: ")
+    println(s"True labels: ${testingLabels.size}, predicted labels: ${predictedValuesPerTestFold.size}")
+    val accuracyPerPaper = ScoreMetricsOfClassifier.accuracy(testingLabels.toArray, predictedValuesPerTestFold)
+    println(s"the current test case is ${paperID}")
+    println(s"The accuracy for this paper is: ${accuracyPerPaper}")
   }
 
 

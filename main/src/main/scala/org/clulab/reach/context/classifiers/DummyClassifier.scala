@@ -27,4 +27,10 @@ object DummyClassifier extends ContextClassifier {
   override def saveModel(fileName: String): Unit = ()
 
   override def loadFrom(fileName: String): LinearSVMContextClassifier = null
+
+  def getLabelsFromDataset(rows:Seq[AggregatedContextInstance]):Seq[Int]={
+    val optionalToBools = convertOptionalToBool(rows)
+    val boolsToInts = convertBooleansToInt(optionalToBools)
+    boolsToInts
+  }
 }
