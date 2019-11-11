@@ -5,7 +5,7 @@ import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.{DummyClassifier, LinearSVMContextClassifier}
 import org.clulab.reach.context.utils.io_utils.SVMTrainingIOUtils
 import org.clulab.reach.context.utils.score_utils.ScoreMetricsOfClassifier
-
+import scala.collection.immutable.ListMap
 object CrossValidationForSVMPerformanceOnNewReach extends App {
   val config = ConfigFactory.load()
 
@@ -35,6 +35,8 @@ object CrossValidationForSVMPerformanceOnNewReach extends App {
   val microAveragedTrueLabels = collection.mutable.ListBuffer[Int]()
   val microAveragedPredictedLabels = collection.mutable.ListBuffer[Int]()
   var totalAccuracy = 0.0
+  val perPaperAccuracyMap = collection.mutable.HashMap[String,Double]()
+
   for(paperID <- papersToUseForCV){
 
     val testingRowsFromCurrentPaper = rows.filter(x=>x.PMCID == paperID)
@@ -55,14 +57,21 @@ object CrossValidationForSVMPerformanceOnNewReach extends App {
     println(s"the current test case is ${paperID}")
     println(s"The accuracy for this paper is: ${accuracyPerPaper}")
     totalAccuracy += accuracyPerPaper
+    perPaperAccuracyMap ++= Map(paperID -> accuracyPerPaper)
   }
 
-  println(s"We have a total of ${microAveragedTrueLabels.size} true labels")
-  println(s"We have a total of ${microAveragedPredictedLabels.size} predicted labels")
+
   val microAveragedAccuracy = ScoreMetricsOfClassifier.accuracy(microAveragedTrueLabels, microAveragedPredictedLabels)
   println(s"Micro averaged accuracy: ${microAveragedAccuracy}")
   val arithmeticMeanAccuracy = totalAccuracy/papersToUseForCV.size
   println(s"The arithmetic mean accuracy is ${arithmeticMeanAccuracy}")
+
+
+  val sortedPerPaperAccuracyMap = ListMap(perPaperAccuracyMap.toSeq.sortWith(_._2>_._2):_*)
+  for((paperID, accuracyInThisPaper) <- sortedPerPaperAccuracyMap) {
+    println(s"The paper ${paperID} has an accuracy of ${accuracyInThisPaper}")
+  }
+
 
 
 
