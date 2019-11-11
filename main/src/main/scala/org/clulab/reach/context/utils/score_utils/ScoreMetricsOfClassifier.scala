@@ -9,27 +9,27 @@ object ScoreMetricsOfClassifier {
     bestK
   }
 
-  def f1(yTrue: Array[Int], yPred: Array[Int]): Double = {
+  def f1(yTrue: Seq[Int], yPred: Seq[Int]): Double = {
     val p = precision(yTrue, yPred)
     val r = recall(yTrue, yPred)
     if (p + r == 0) 0.0
     else ((2 * (p * r))/(p + r))
   }
 
-  def precision(yTrue: Array[Int], yPred: Array[Int]): Double = {
-    val predictsMap = predictCounts(yTrue,yPred)
+  def precision(yTrue: Seq[Int], yPred: Seq[Int]): Double = {
+    val predictsMap = predictCounts(yTrue, yPred)
     if(!(predictsMap("TP").toDouble + predictsMap("FP").toDouble == 0.toDouble)) predictsMap("TP").toDouble / (predictsMap("TP") + predictsMap("FP")).toDouble
     else 0.0
   }
 
-  def recall(yTrue: Array[Int], yPred: Array[Int]): Double = {
-    val predictsMap = predictCounts(yTrue,yPred)
+  def recall(yTrue: Seq[Int], yPred: Seq[Int]): Double = {
+    val predictsMap = predictCounts(yTrue, yPred)
     if (!(predictsMap("TP").toDouble + predictsMap("FN").toDouble == 0)) predictsMap("TP").toDouble/(predictsMap("TP") + predictsMap("FN")).toDouble
     else 0.0
   }
 
-  def accuracy(yTrue: Array[Int], yPred: Array[Int]): Double = {
-    val predictsMap = predictCounts(yTrue,yPred)
+  def accuracy(yTrue: Seq[Int], yPred: Seq[Int]): Double = {
+    val predictsMap = predictCounts(yTrue, yPred)
     if (!((predictsMap("TP") + predictsMap("FP") + predictsMap("FN") + predictsMap("TN").toDouble) == 0)) (predictsMap("TP") + predictsMap("TN")).toDouble/(predictsMap("TP") + predictsMap("TN") + predictsMap("FP") + predictsMap("FN")).toDouble
     else 0.0
   }
@@ -39,7 +39,7 @@ object ScoreMetricsOfClassifier {
     sum/scores.size
   }
 
-  def predictCounts(yTrue: Array[Int], yPred: Array[Int]): Map[String, Int] = {
+  def predictCounts(yTrue: Seq[Int], yPred: Seq[Int]): Map[String, Int] = {
     val indexValuePair = yTrue zip yPred
     var TP = 0; var FP = 0; var TN = 0; var FN = 0
     for((gt,pr) <- indexValuePair) {

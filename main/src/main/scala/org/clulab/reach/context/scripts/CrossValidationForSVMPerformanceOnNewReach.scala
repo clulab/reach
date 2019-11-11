@@ -34,6 +34,7 @@ object CrossValidationForSVMPerformanceOnNewReach extends App {
   println(s"Total number of datapoints: ${rows.size}")
   val microAveragedTrueLabels = collection.mutable.ListBuffer[Int]()
   val microAveragedPredictedLabels = collection.mutable.ListBuffer[Int]()
+  var totalAccuracy = 0.0
   for(paperID <- papersToUseForCV){
 
     val testingRowsFromCurrentPaper = rows.filter(x=>x.PMCID == paperID)
@@ -53,7 +54,15 @@ object CrossValidationForSVMPerformanceOnNewReach extends App {
     val accuracyPerPaper = ScoreMetricsOfClassifier.accuracy(testingLabels.toArray, predictedValuesPerTestFold)
     println(s"the current test case is ${paperID}")
     println(s"The accuracy for this paper is: ${accuracyPerPaper}")
+    totalAccuracy += accuracyPerPaper
   }
+
+  println(s"We have a total of ${microAveragedTrueLabels.size} true labels")
+  println(s"We have a total of ${microAveragedPredictedLabels.size} predicted labels")
+  val microAveragedAccuracy = ScoreMetricsOfClassifier.accuracy(microAveragedTrueLabels, microAveragedPredictedLabels)
+  println(s"Micro averaged accuracy: ${microAveragedAccuracy}")
+  val arithmeticMeanAccuracy = totalAccuracy/microAveragedPredictedLabels.size
+  println(s"The arithmetic mean accuracy is ${arithmeticMeanAccuracy}")
 
 
 
