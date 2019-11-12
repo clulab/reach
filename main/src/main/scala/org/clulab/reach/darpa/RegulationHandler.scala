@@ -21,7 +21,7 @@ object RegulationHandler {
   val keywordCHEM: Seq[Product] = Seq(("chemical", "inhibition", "of"), ("inhibitor", "of"))
 
 
-    def detectRegulations(mentions: Seq[Mention], state:State): Seq[Mention] = {
+  def detectRegulationsLinguistic(mentions: Seq[Mention], state:State): Seq[Mention] = {
     // do something very smart to handle triggers
     // and then return the mentions
 
@@ -278,97 +278,152 @@ object RegulationHandler {
 //    }
 //  }
 
-  def regulationClassifierBaseline(mention:BioEventMention, lineNum:Int):String = {
-    val lemmas_raw = mention.sentenceObj.words
-    val lemmas = lemmas_raw.map(_.toLowerCase())
-    val trigger_start = mention.trigger.start
-    val trigger_end = mention.trigger.end
+  def detectRegulationsBaseline(mentions: Seq[Mention]): Seq[Mention] = {
+    // do something very smart to handle triggers. Use the whole sentence to determine the type of regulation
+    // Count the number of occurrences of keywords. The most occurrences indicates the type.
+    // and then return the mentions
 
-    var kdCount = 0
-    var koCount = 0
-    var dnCount = 0
-    var oeCount = 0
-    var chemCount = 0
-    val kdDisList = ArrayBuffer[Int](lemmas.length)
-    val koDisList = ArrayBuffer[Int](lemmas.length)
-    val dnDisList = ArrayBuffer[Int](lemmas.length)
-    val oeDisList = ArrayBuffer[Int](lemmas.length)
-    val chemDisList = ArrayBuffer[Int](lemmas.length)
-    // First detect regulation type with 1 keyword
-    for ((lemma, lemma_index) <- lemmas.zipWithIndex) {
-      for (keyword <- keywordKD if lemma.contains(keyword)){
-        kdCount += 1
-        val dist = if (trigger_start>lemma_index) trigger_start-lemma_index else if (lemma_index>=trigger_end) lemma_index-trigger_end+1 else 0
-        kdDisList += dist
+    // Iterate over the BioEventMentions
+    mentions foreach {
+      case event:BioEventMention =>
+      val lemmas_raw = event.sentenceObj.words
+      val lemmas = lemmas_raw.map(_.toLowerCase())
+      val trigger_start = event.trigger.start
+      val trigger_end = event.trigger.end
+
+      var kdCount = 0
+      var koCount = 0
+      var dnCount = 0
+      var oeCount = 0
+      var chemCount = 0
+      val kdDisList = ArrayBuffer[Int](lemmas.length)
+      val koDisList = ArrayBuffer[Int](lemmas.length)
+      val dnDisList = ArrayBuffer[Int](lemmas.length)
+      val oeDisList = ArrayBuffer[Int](lemmas.length)
+      val chemDisList = ArrayBuffer[Int](lemmas.length)
+      // First detect regulation type with 1 keyword
+      for ((lemma, lemma_index) <- lemmas.zipWithIndex) {
+        for (keyword <- keywordKD if lemma.contains(keyword)){
+          kdCount += 1
+          val dist = if (trigger_start>lemma_index) trigger_start-lemma_index else if (lemma_index>=trigger_end) lemma_index-trigger_end+1 else 0
+          kdDisList += dist
+        }
+        for (keyword <- keywordKO if lemma.contains(keyword)){
+          koCount += 1
+          val dist = if (trigger_start>lemma_index) trigger_start-lemma_index else if (lemma_index>=trigger_end) lemma_index-trigger_end+1 else 0
+          koDisList +=dist
+        }
+        for (keyword <- keywordDN if lemma.contains(keyword)){
+          dnCount += 1
+          val dist = if (trigger_start>lemma_index) trigger_start-lemma_index else if (lemma_index>=trigger_end) lemma_index-trigger_end+1 else 0
+          dnDisList +=dist
+        }
+        for (keyword <- keywordOE if lemma.contains(keyword)) {
+          oeCount += 1
+          val dist = if (trigger_start>lemma_index) trigger_start-lemma_index else if (lemma_index>=trigger_end) lemma_index-trigger_end+1 else 0
+          oeDisList +=dist
+        }
       }
-      for (keyword <- keywordKO if lemma.contains(keyword)){
-        koCount += 1
-        val dist = if (trigger_start>lemma_index) trigger_start-lemma_index else if (lemma_index>=trigger_end) lemma_index-trigger_end+1 else 0
-        koDisList +=dist
+
+      // Then detect regulation type with a sequence of keywords
+      // Hard code these for now. TODO: code these in more general way
+      val dnCountTuple1 =countSubSeqMatch(lemmas, List("dominant", "negative"), trigger_start, trigger_end)
+      dnCount+=dnCountTuple1._1
+      dnDisList++=dnCountTuple1._2
+      val chemCountTuple1 =countSubSeqMatch(lemmas, List("chemical", "inhibition", "of"), trigger_start, trigger_end)
+      chemCount+=chemCountTuple1._1
+      chemDisList++=chemCountTuple1._2
+      val chemCountTuple2 =countSubSeqMatch(lemmas, List("inhibitor", "of"), trigger_start, trigger_end)
+      chemCount+=chemCountTuple2._1
+      chemDisList++=chemCountTuple2._2
+
+      val regTokenCounts = Map("KD"-> kdCount, "KO"-> koCount,"DN"-> dnCount,"OE"-> oeCount,"CHEM"-> chemCount)
+      val regMinDis = Map("KD"-> kdDisList.min, "KO"-> koDisList.min,"DN"-> dnDisList.min,"OE"-> oeDisList.min,"CHEM"-> chemDisList.min)
+
+      val maxKWCount = regTokenCounts.maxBy { case (key, value) => value }  // get the pair with the largest count
+      val mostPossibleRegByCount = regTokenCounts.filter(e =>e._2== maxKWCount._2)  // get all pairs with the largest count
+
+      // get regulation type by count and distance
+      val regType = if (mostPossibleRegByCount.size==1){
+        mostPossibleRegByCount.keys.head
       }
-      for (keyword <- keywordDN if lemma.contains(keyword)){
-        dnCount += 1
-        val dist = if (trigger_start>lemma_index) trigger_start-lemma_index else if (lemma_index>=trigger_end) lemma_index-trigger_end+1 else 0
-        dnDisList +=dist
+      else {
+        if (mostPossibleRegByCount.values.head==0){
+          "None"
+        }
+        else{
+          val mostPossibleRegByDist = regMinDis.filter(e => mostPossibleRegByCount.keysIterator.contains(e._1))
+          val mostPossibleReg = mostPossibleRegByDist.minBy { case (key, value) => value }
+          mostPossibleReg._1
+        }
       }
-      for (keyword <- keywordOE if lemma.contains(keyword)) {
-        oeCount += 1
-        val dist = if (trigger_start>lemma_index) trigger_start-lemma_index else if (lemma_index>=trigger_end) lemma_index-trigger_end+1 else 0
-        oeDisList +=dist
+
+
+      if (regType=="KD"){
+        event.modifications += KDtrigger(new BioTextBoundMention(
+          Seq("KDtrigger_trigger"),
+          Interval(0), //index of the relevant newly-discovered node?
+          sentence = event.sentence,
+          document = event.document,
+          keep = event.keep,
+          foundBy = event.foundBy
+        ))
       }
-    }
+      else if (regType=="KO"){
+        event.modifications += KOtrigger(new BioTextBoundMention(
+          Seq("KOtrigger_trigger"),
+          Interval(0), //index of the relevant newly-discovered node?
+          sentence = event.sentence,
+          document = event.document,
+          keep = event.keep,
+          foundBy = event.foundBy
+        ))
+      }
+      else if (regType=="DN"){
+        event.modifications += DNtrigger(new BioTextBoundMention(
+          Seq("DNtrigger_trigger"),
+          Interval(0), //index of the relevant newly-discovered node?
+          sentence = event.sentence,
+          document = event.document,
+          keep = event.keep,
+          foundBy = event.foundBy
+        ))
+      }
+      else if (regType=="OE"){
+        event.modifications += OEtrigger(new BioTextBoundMention(
+          Seq("OEtrigger_trigger"),
+          Interval(0),
+          sentence = event.sentence,
+          document = event.document,
+          keep = event.keep,
+          foundBy = event.foundBy
+        ))
+      }
+      else if (regType=="CHEM"){
+        event.modifications += CHEMtrigger(new BioTextBoundMention(
+          Seq("CHEMtrigger_trigger"),
+          Interval(0),
+          sentence = event.sentence,
+          document = event.document,
+          keep = event.keep,
+          foundBy = event.foundBy
+        ))
+      }
 
-    // Then detect regulation type with a sequence of keywords
-    // Hard code these for now. TODO: code these in more general way
-    val dnCountTuple1 =countSubSeqMatch(lemmas, List("dominant", "negative"), trigger_start, trigger_end)
-    dnCount+=dnCountTuple1._1
-    dnDisList++=dnCountTuple1._2
-    val chemCountTuple1 =countSubSeqMatch(lemmas, List("chemical", "inhibition", "of"), trigger_start, trigger_end)
-    chemCount+=chemCountTuple1._1
-    chemDisList++=chemCountTuple1._2
-    val chemCountTuple2 =countSubSeqMatch(lemmas, List("inhibitor", "of"), trigger_start, trigger_end)
-    chemCount+=chemCountTuple2._1
-    chemDisList++=chemCountTuple2._2
-
-    val regTokenCounts = Map("KD"-> kdCount, "KO"-> koCount,"DN"-> dnCount,"OE"-> oeCount,"CHEM"-> chemCount)
-    val regMinDis = Map("KD"-> kdDisList.min, "KO"-> koDisList.min,"DN"-> dnDisList.min,"OE"-> oeDisList.min,"CHEM"-> chemDisList.min)
-
-    println("========")
-    println("line number:", lineNum)
-    println(lemmas.mkString(" "))
-    println(mention.trigger.text, trigger_start, trigger_end)
-    println(regTokenCounts)
-    println(regMinDis)
-
-    val maxKWCount = regTokenCounts.maxBy { case (key, value) => value }  // get the pair with the largest count
-    val mostPossibleRegByCount = regTokenCounts.filter(e =>e._2== maxKWCount._2)  // get all pairs with the largest count
-
-    // get regulation type by count and distance
-//    val regType = if (mostPossibleRegByCount.size==1){
-//      mostPossibleRegByCount.keys.head
-//    }
-//    else {
-//      if (mostPossibleRegByCount.values.head==0){
+//        get regulation type by distance only
+//
+//      val mostPossibleReg = regMinDis.minBy { case (key, value) => value }
+//      val regType = if (mostPossibleReg._2==lemmas.length){
 //        "None"
 //      }
-//      else{
-//        val mostPossibleRegByDist = regMinDis.filter(e => mostPossibleRegByCount.keysIterator.contains(e._1))
-//        val mostPossibleReg = mostPossibleRegByDist.minBy { case (key, value) => value }
-//        mostPossibleReg._1
-//      }
-//    }
+//      else {mostPossibleReg._1}
 
-    // get regulation type by distance only
 
-    val mostPossibleReg = regMinDis.minBy { case (key, value) => value }
-    val regType = if (mostPossibleReg._2==lemmas.length){
-      "None"
+//      println(regType)
+//      regType
+      case _ => ()
     }
-    else {mostPossibleReg._1}
-
-
-    println(regType)
-    regType
+    mentions
 
   }
 
@@ -420,4 +475,11 @@ object reguTestZ extends App {
 
   val ab1 = ArrayBuffer[Int](1,2)
   println(ab1)
+
+
+  list1 foreach {
+    case number:Int =>
+      println("====")
+      println(number)
+  }
 }

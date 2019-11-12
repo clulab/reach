@@ -2,11 +2,10 @@ package org.clulab.reach.darpa
 
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin._
-import org.clulab.polarity.{LinguisticPolarityEngine, PolarityEngine}
+import org.clulab.polarity.PolarityEngine
 import org.clulab.reach._
 import org.clulab.reach.mentions._
 import org.clulab.struct.DirectedGraph
-import org.clulab.utils.DependencyUtils
 
 import scala.annotation.tailrec
 
@@ -353,7 +352,7 @@ class DarpaActions extends Actions with LazyLogging {
     val r1 = siteSniffer(mentions, state)
     val r2 = keepIfValidArgs(r1, state)
     val r3 = NegationHandler.detectNegations(r2, state)
-    val r4 = RegulationHandler.detectRegulations(r3, state)
+    val r4 = RegulationHandler.detectRegulationsBaseline(r3)  // Alternative: detectRegulationsLinguistic(r3, state)
     val r5 = HypothesisHandler.detectHypotheses(r4, state)
     val r6 = splitSimpleEvents(r5, state)
     r6

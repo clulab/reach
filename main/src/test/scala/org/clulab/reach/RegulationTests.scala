@@ -4,7 +4,6 @@ import org.clulab.reach.mentions._
 import org.scalatest.{FlatSpec, Matchers}
 
 import scala.io.{BufferedSource, Source}
-import org.clulab.reach.darpa.RegulationHandler.regulationClassifierBaseline
 import org.clulab.reach.TestUtils.getBioMentions
 
 
@@ -112,37 +111,37 @@ class RegulationTests extends FlatSpec with Matchers{
 //    }
 
 
-//    /** test for regulation modifications */
-//    index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
-//      val mentions = getBioMentions(sentence).filter(_ matches "Event")
-//      val reg = mentions.find(_.label == regulationPolarity)
-//      regulationType match {
-//        case "knockdown" => getKDRegulation(reg.head) should be('nonEmpty)
-//        case "knockout" => getKORegulation(reg.head) should be('nonEmpty)
-//        case "dominant negative" => getDNRegulation(reg.head) should be('nonEmpty)
-//        case "overexpression" => getOERegulation(reg.head) should be('nonEmpty)
-//        case "chemical inhibition" => getCHEMRegulation(reg.head) should be('nonEmpty)
-//        case _ => println("NONE")
-//      }
-//    }
-
-    // Baseline 1: regulation classifier, classify the whole sentence by the count of keywords
+    /** test for regulation modifications */
     index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
-      val mentions = getBioMentions(sentence).filter{case _:BioEventMention => true
-      case _ => false}
+      val mentions = getBioMentions(sentence).filter(_ matches "Event")
       val reg = mentions.find(_.label == regulationPolarity)
-      // The event are all CorefEventMention. Use reg.get to get them
-      // Use reg.get.asInstanceOf to convert them to BioEventMention.
-
       regulationType match {
-        case "knockdown" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention], lineNum) should be("KD")
-        case "knockout" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention], lineNum) should be("KO")
-        case "dominant negative" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention], lineNum) should be("DN")
-        case "overexpression" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention], lineNum) should be("OE")
-        case "chemical inhibition" => regulationClassifierBaseline(reg.get.asInstanceOf[BioEventMention], lineNum) should be("CHEM")
+        case "knockdown" => getKDRegulation(reg.head) should be('nonEmpty)
+        case "knockout" => getKORegulation(reg.head) should be('nonEmpty)
+        case "dominant negative" => getDNRegulation(reg.head) should be('nonEmpty)
+        case "overexpression" => getOERegulation(reg.head) should be('nonEmpty)
+        case "chemical inhibition" => getCHEMRegulation(reg.head) should be('nonEmpty)
         case _ => println("NONE")
       }
     }
+
+    // Baseline 1: regulation classifier, classify the whole sentence by the count of keywords
+//    index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
+//      val mentions = getBioMentions(sentence).filter{case _:BioEventMention => true
+//      case _ => false}
+//      val reg = mentions.find(_.label == regulationPolarity)
+//      // The event are all CorefEventMention. Use reg.get to get them
+//      // Use reg.get.asInstanceOf to convert them to BioEventMention.
+//
+//      regulationType match {
+//        case "knockdown" => detectRegulationBaseline(Seq(reg.get.asInstanceOf[BioEventMention])) should be("KD")
+//        case "knockout" => detectRegulationBaseline(Seq(reg.get.asInstanceOf[BioEventMention])) should be("KO")
+//        case "dominant negative" => detectRegulationBaseline(Seq(reg.get.asInstanceOf[BioEventMention])) should be("DN")
+//        case "overexpression" => detectRegulationBaseline(Seq(reg.get.asInstanceOf[BioEventMention])) should be("OE")
+//        case "chemical inhibition" => detectRegulationBaseline(Seq(reg.get.asInstanceOf[BioEventMention])) should be("CHEM")
+//        case _ => println("NONE")
+//      }
+//    }
 
 
 
