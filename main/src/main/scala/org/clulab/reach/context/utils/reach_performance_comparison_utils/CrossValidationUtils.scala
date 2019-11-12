@@ -1,7 +1,7 @@
 package org.clulab.reach.context.utils.reach_performance_comparison_utils
 
 import org.clulab.context.classifiers.{DummyClassifier, LinearSVMContextClassifier}
-import org.clulab.context.utils.AggregatedContextInstance
+import org.clulab.context.utils.{AggregatedContextInstance, Balancer}
 import org.clulab.reach.context.utils.score_utils.ScoreMetricsOfClassifier
 
 import scala.collection.immutable.ListMap
@@ -40,9 +40,10 @@ object CrossValidationUtils {
 
       val testingRowsFromCurrentPaper = rowsOfAggrRows.filter(x=>x.PMCID == paperID)
       val trainingRows = rowsOfAggrRows.filter(x=>x.PMCID!=paperID)
-
-      val trainingfeatureValues = untrainedInstanceForCV.constructTupsForRVF(trainingRows)
+      val balancedTrainingData = Balancer.balanceByPaperAgg(trainingRows, 1)
+      val trainingfeatureValues = untrainedInstanceForCV.constructTupsForRVF(balancedTrainingData)
       val trainingLabels = DummyClassifier.getLabelsFromDataset(trainingRows)
+
       val (trainingDataset,_) = untrainedInstanceForCV.mkRVFDataSet(trainingLabels.toArray,trainingfeatureValues)
       untrainedInstanceForCV.fit(trainingDataset)
 
