@@ -53,17 +53,14 @@ object PerformanceComparisonOfReachVersions extends App {
   val microRecall = ScoreMetricsOfClassifier.recall(reach2016TrueValues, reach2016PredictedValues)
 
 
-  println("scores from new reach")
-  val microAccuracyReach2019 = ScoreMetricsOfClassifier.accuracy(reach2019TrueValues, reach2019PredictedValues)
-  println(s"micro accuracy from 2019: ${microAccuracyReach2019}")
+  println("scores from Reach 2019")
   val microPrecision2019 = ScoreMetricsOfClassifier.precision(reach2019TrueValues, reach2019PredictedValues)
-  println(s"micro Precision: ${microPrecision2019}")
   val recall2019 = ScoreMetricsOfClassifier.recall(reach2019TrueValues, reach2019PredictedValues)
-  println(s"Recall 2019: ${recall2019}")
   val f12019 = ScoreMetricsOfClassifier.f1(reach2019TrueValues, reach2019PredictedValues)
-  println(s"F1 2019: ${f12019}")
+  val microAccuracyReach2019 = ScoreMetricsOfClassifier.accuracy(reach2019TrueValues, reach2019PredictedValues)
+  println(s"micro accuracy from 2019: ${microAccuracyReach2019}, micro recall: ${recall2019}, micro precision: ${microPrecision2019}, micro f1: ${f12019}")
 
-  println(s"Reach 2016")
+  println(s"scores from Reach 2016")
   println(s"micro accuracy ${microAccuracyReach2016}, micro precision: ${microPrecision}, recall: ${microRecall}, f1: ${microF1}")
 
 //  println(s"Mean accuracy from 2016: ${meanAccuracyReach2016}")
