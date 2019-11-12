@@ -62,10 +62,11 @@ object PerformanceComparisonOfReachVersions extends App {
 
 
 
-  println(s"Printing all features from Reach 2019")
-  println(allFeaturesReach2019.mkString(","))
 
 
+  val featuresMissingFromBestFeatureSet = allFeaturesReach2019.toSet -- bestFeatureSet.toSet
+
+  println(s"${featuresMissingFromBestFeatureSet.mkString(",")}")
 
 
 
