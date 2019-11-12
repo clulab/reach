@@ -1,5 +1,7 @@
 package org.clulab.reach
 
+import java.io.PrintWriter
+
 import org.clulab.reach.mentions._
 import org.scalatest.{FlatSpec, Matchers}
 
@@ -10,11 +12,11 @@ import org.clulab.reach.TestUtils.getBioMentions
 class RegulationTests extends FlatSpec with Matchers{
 
   // split sentences into ir/relevant and passing/failing
-//  val outFilenameIrrelevant = "irrelevantSentences.tsv"
-//  val pwIrr = new PrintWriter(outFilenameIrrelevant)
-//
-//  val outFilenameRelevant = "relevantSentences.tsv"
-//  val pwRel = new PrintWriter(outFilenameRelevant)
+  val outFilenameIrrelevant = "irrelevantSentences.tsv"
+  val pwIrr = new PrintWriter(outFilenameIrrelevant)
+
+  val outFilenameRelevant = "relevantSentences.tsv"
+  val pwRel = new PrintWriter(outFilenameRelevant)
 //
 //  val outFilenameFail = "failingSentences.tsv"
 //  val pwFail = new PrintWriter(outFilenameFail)
@@ -89,26 +91,26 @@ class RegulationTests extends FlatSpec with Matchers{
 
 
     /** used this to preprocess data to get relevant and irrelevant sentences */
-//    val mentions = getBioMentions(sentence).filter(_ matches "Event")
-//    val reg = mentions.find(_.label == regulationPolarity)
-//
-//    val allArguments = if (reg != None) reg.get.arguments else None
-//
-//    val realController = if (allArguments != None) reg.get.arguments("controller").head.text else None
-//    val realControlled = if (allArguments != None) reg.get.arguments("controlled").head.text else None
-//
-//    println(index)
-//    println("IDEAL CONTROLLER:\t"+controller)
-//    println("REAL CONTROLLER:\t"+realController)
-//    println("IDEAL CONTROLLED:\t"+controlled)
-//    println("REAL CONTROLLED:\t"+realControlled)
-//
-//    if (realController.toString.contains(controller) && realControlled.toString.contains(controlled)){
-//      pwRel.write(line)
-//    }
-//    else{
-//      pwIrr.write(line)
-//    }
+    val mentions = getBioMentions(sentence).filter(_ matches "Event")
+    val reg = mentions.find(_.label == regulationPolarity)
+
+    val allArguments = if (reg != None) reg.get.arguments else None
+
+    val realController = if (allArguments != None) reg.get.arguments("controller").head.text else None
+    val realControlled = if (allArguments != None) reg.get.arguments("controlled").head.text else None
+
+    println(index)
+    println("IDEAL CONTROLLER:\t"+controller)
+    println("REAL CONTROLLER:\t"+realController)
+    println("IDEAL CONTROLLED:\t"+controlled)
+    println("REAL CONTROLLED:\t"+realControlled)
+
+    if (realController.toString.contains(controller) && realControlled.toString.contains(controlled)){
+      pwRel.write(line)
+    }
+    else{
+      pwIrr.write(line)
+    }
 
 
     /** test for regulation modifications */
