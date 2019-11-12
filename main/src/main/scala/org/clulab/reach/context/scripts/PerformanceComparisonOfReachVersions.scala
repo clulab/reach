@@ -49,7 +49,7 @@ object PerformanceComparisonOfReachVersions extends App {
 
 
   println(s"Calling CV on old reach")
-  val (reach2016TrueValues, reach2016PredictedValues) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, bestFeatureDatasetReach2016)
+  val (reach2016TrueValues, reach2016PredictedValues) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, bestFeatureDatasetReach2016, Some(papersToExcludeFromCV))
   val microAccuracyReach2016 = ScoreMetricsOfClassifier.accuracy(reach2016TrueValues, reach2016PredictedValues)
   val microF1 = ScoreMetricsOfClassifier.f1(reach2016TrueValues, reach2016PredictedValues)
   val microPrecision = ScoreMetricsOfClassifier.precision(reach2016TrueValues, reach2016PredictedValues)
