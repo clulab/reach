@@ -8,7 +8,7 @@ import scala.collection.immutable.ListMap
 
 object CrossValidationUtils {
 
-  def performCVOnSelectedPapers(pathToUntrainedSVMInstance:String, rowsOfAggrRows:Seq[AggregatedContextInstance], papersToExclude:Option[List[String]]=None):(Seq[Int], Seq[Int])={
+  def performCVOnSelectedPapers(pathToUntrainedSVMInstance:String, rowsOfAggrRows:Seq[AggregatedContextInstance], papersToExclude:Option[List[String]]=None, reachVersion:String="reach2019"):(Seq[Int], Seq[Int])={
 
 
 
@@ -40,7 +40,11 @@ object CrossValidationUtils {
 
       val testingRowsFromCurrentPaper = rowsOfAggrRows.filter(x=>x.PMCID == paperID)
       val trainingRows = rowsOfAggrRows.filter(x=>x.PMCID!=paperID)
-      val balancedTrainingData = Balancer.balanceByPaperAgg(trainingRows, 1)
+      val balancedTrainingData = reachVersion.contains("2016") match {
+        case true => Balancer.balanceByPaperAgg(trainingRows, 1)
+        case false => trainingRows
+      }
+
       val trainingfeatureValues = untrainedInstanceForCV.constructTupsForRVF(balancedTrainingData)
       val trainingLabels = DummyClassifier.getLabelsFromDataset(trainingRows)
 
