@@ -29,9 +29,9 @@ object ML4AIPackageLauncher extends App {
   // baseline results
   // The F1 score seems to have changed, perform debugging. It should be 0.5333
   var scoreDictionary = collection.mutable.Map[String, (String, Double, Double, Double)]()
-  /*val (truthTest, predTest) = FoldMaker.baselineController(foldsFromCSV, rows2)
-  val baselineResults = Utils.scoreMaker("baseline", truthTest, predTest)
-  scoreDictionary ++= baselineResults*/
+  val (truthTest, predTest) = FoldMaker.baselineController(foldsFromCSV, rows2)
+  val baselineResults =ScoreMetricsOfClassifier.scoreMaker("baseline", truthTest, predTest)
+  scoreDictionary ++= baselineResults
   //========================== CONCLUDING BASELINE RESULTS ==========================
 
 
