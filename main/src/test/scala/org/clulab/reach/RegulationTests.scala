@@ -100,11 +100,11 @@ class RegulationTests extends FlatSpec with Matchers{
     val realController = if (allArguments != None) reg.get.arguments("controller").head.text else None
     val realControlled = if (allArguments != None) reg.get.arguments("controlled").head.text else None
 
-    println(index)
-    println("IDEAL CONTROLLER:\t"+controller)
-    println("REAL CONTROLLER:\t"+realController)
-    println("IDEAL CONTROLLED:\t"+controlled)
-    println("REAL CONTROLLED:\t"+realControlled)
+//    println(index)
+//    println("IDEAL CONTROLLER:\t"+controller)
+//    println("REAL CONTROLLER:\t"+realController)
+//    println("IDEAL CONTROLLED:\t"+controlled)
+//    println("REAL CONTROLLED:\t"+realControlled)
 
 //    if (realController.toString.contains(controller) && realControlled.toString.contains(controlled)){
 //      pwRel.write(line)
