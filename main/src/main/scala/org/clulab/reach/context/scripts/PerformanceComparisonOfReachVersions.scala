@@ -33,12 +33,12 @@ object PerformanceComparisonOfReachVersions extends App {
   val (allFeaturesReach2019,rowsFromReach2019) = SVMTrainingIOUtils.loadAggregatedRowsFromFile(pathToReach2019Dataset, hardCodedFeaturePath)
   val bestFeatureSet = CrossValidationUtils.getBestFeatureSet(allFeaturesReach2019)
   val bestFeatureDatasetReach2019 = CrossValidationUtils.extractDataByRelevantFeatures(bestFeatureSet, rowsFromReach2019)
-  val papersToExcludeFromCV = List("PMC2195994", "PMC2193052", "PMC2156142")
+  val papersToExcludeFromCV = List("PMC2195994", "b'PMC2195994'","PMC2193052", "b'PMC2193052'","PMC2156142", "b'PMC2156142'","b'PMC4204162'", "PMC4204162")
 
   val pathToReach2016Dataset = config.getString("svmContext.groupedFeatures")
   val (allFeaturesReach2016,rowsFromReach2016) = SVMTrainingIOUtils.loadAggregatedRowsFromFile(pathToReach2016Dataset, hardCodedFeaturePath)
   val bestFeatureDatasetReach2016 = CrossValidationUtils.extractDataByRelevantFeatures(bestFeatureSet, rowsFromReach2016)
-  val (microAccuracyReach2019, meanAccuracyReach2019, sortedMapReach2019) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, bestFeatureDatasetReach2019, Some(papersToExcludeFromCV))
+  val (microAccuracyReach2019, meanAccuracyReach2019, sortedMapReach2019) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, rowsFromReach2019, Some(papersToExcludeFromCV))
   println(s"micro accuracy from 2019: ${microAccuracyReach2019}")
   println(s"Mean accuracy from 2019: ${meanAccuracyReach2019}")
   println(s"Per paper score map: ${sortedMapReach2019}")
@@ -47,6 +47,13 @@ object PerformanceComparisonOfReachVersions extends App {
   println(s"micro accuracy from 2016: ${microAccuracyReach2016}")
   println(s"Mean accuracy from 2016: ${meanAccuracyReach2016}")
   println(s"Per paper score map: ${sortedMapReach2016}")
+
+
+  println(s"all features from Reach 2019")
+  println(allFeaturesReach2019.mkString(","))
+
+  println(s"best feature set")
+  println(bestFeatureSet)
 
 
 
