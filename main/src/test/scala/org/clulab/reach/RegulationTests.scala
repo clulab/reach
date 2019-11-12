@@ -57,6 +57,8 @@ class RegulationTests extends FlatSpec with Matchers{
   val file: String = originalFile.mkString
   val lines: Array[String] = file.split("\n")
 
+  var n_rel = 0
+  var n_irrel = 0
   for ((line, lineNum) <- lines.zipWithIndex) {
     val index = lines.indexOf(line).toString
 
@@ -108,10 +110,13 @@ class RegulationTests extends FlatSpec with Matchers{
 
     if (realController.toString.contains(controller) && realControlled.toString.contains(controlled)){
       pwRel.write(line)
+      n_rel+=1
     }
     else{
       pwIrr.write(line)
+      n_irrel+=1
     }
+    println("relevant:", n_rel, "  irrel:", n_irrel)
 
 
     /** test for regulation modifications */
