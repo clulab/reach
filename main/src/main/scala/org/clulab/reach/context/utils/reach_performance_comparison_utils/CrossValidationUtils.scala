@@ -44,6 +44,7 @@ object CrossValidationUtils {
         case false => trainingRows
       }
 
+      println(s"Size of training data set for ${reachVersion} when ${paperID} is the test case")
       val trainingfeatureValues = untrainedInstanceForCV.constructTupsForRVF(balancedTrainingData)
       val trainingLabels = DummyClassifier.getLabelsFromDataset(trainingRows)
 
@@ -132,7 +133,6 @@ object CrossValidationUtils {
         case true => Balancer.balanceByPaperAgg(testingRows, 1)
         case false => testingRows
       }
-      println(s"Size of training dataset: ${balancedTrainingData.size}")
       val trueLabels = DummyClassifier.getLabelsFromDataset(balancedTrainingData)
       val sentenceDistMinIndices = testingRows.map(x=>x.featureGroupNames.indexOf("sentenceDistance_min"))
       val sentenceDistMinValues = testingRows.map(x=>{
