@@ -1,22 +1,20 @@
 package org.clulab.reach
 
-import java.io.PrintWriter
-
+import org.clulab.reach.TestUtils.getBioMentions
 import org.clulab.reach.mentions._
 import org.scalatest.{FlatSpec, Matchers}
 
 import scala.io.{BufferedSource, Source}
-import org.clulab.reach.TestUtils.getBioMentions
 
 
 class RegulationTests extends FlatSpec with Matchers{
 
   // split sentences into ir/relevant and passing/failing
-  val outFilenameIrrelevant = "irrelevantSentences.tsv"
-  val pwIrr = new PrintWriter(outFilenameIrrelevant)
-
-  val outFilenameRelevant = "relevantSentences.tsv"
-  val pwRel = new PrintWriter(outFilenameRelevant)
+//  val outFilenameIrrelevant = "irrelevantSentences.tsv"
+//  val pwIrr = new PrintWriter(outFilenameIrrelevant)
+//
+//  val outFilenameRelevant = "relevantSentences.tsv"
+//  val pwRel = new PrintWriter(outFilenameRelevant)
 //
 //  val outFilenameFail = "failingSentences.tsv"
 //  val pwFail = new PrintWriter(outFilenameFail)
@@ -52,9 +50,9 @@ class RegulationTests extends FlatSpec with Matchers{
   val passingFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/regulations/passingSentences.tsv"))
   val failingFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/regulations/failingSentences.tsv"))
   val originalFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/regulations/expt_stmts.tsv"))
-  //val relFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/regulations/relevantSentences.tsv"))
-  //val file: String = relFile.mkString
-  val file: String = originalFile.mkString
+  val relFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/regulations/relevantSentencesLinguistic.tsv"))
+  val file: String = relFile.mkString
+  //val file: String = originalFile.mkString
   val lines: Array[String] = file.split("\n")
 
   var n_rel = 0
@@ -108,49 +106,30 @@ class RegulationTests extends FlatSpec with Matchers{
     println("IDEAL CONTROLLED:\t"+controlled)
     println("REAL CONTROLLED:\t"+realControlled)
 
-    if (realController.toString.contains(controller) && realControlled.toString.contains(controlled)){
-      pwRel.write(line)
-      n_rel+=1
-    }
-    else{
-      pwIrr.write(line)
-      n_irrel+=1
-    }
-    println("relevant:", n_rel, "  irrel:", n_irrel)
+//    if (realController.toString.contains(controller) && realControlled.toString.contains(controlled)){
+//      pwRel.write(line)
+//      n_rel+=1
+//    }
+//    else{
+//      pwIrr.write(line)
+//      n_irrel+=1
+//    }
+//    println("relevant:", n_rel, "  irrel:", n_irrel)
 
 
     /** test for regulation modifications */
-//    index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
-//      val mentions = getBioMentions(sentence).filter(_ matches "Event")
-//      val reg = mentions.find(_.label == regulationPolarity)
-//      regulationType match {
-//        case "knockdown" => getKDRegulation(reg.head) should be('nonEmpty)
-//        case "knockout" => getKORegulation(reg.head) should be('nonEmpty)
-//        case "dominant negative" => getDNRegulation(reg.head) should be('nonEmpty)
-//        case "overexpression" => getOERegulation(reg.head) should be('nonEmpty)
-//        case "chemical inhibition" => getCHEMRegulation(reg.head) should be('nonEmpty)
-//        case _ => println("NONE")
-//      }
-//    }
-
-    // Baseline 1: regulation classifier, classify the whole sentence by the count of keywords
-//    index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
-//      val mentions = getBioMentions(sentence).filter{case _:BioEventMention => true
-//      case _ => false}
-//      val reg = mentions.find(_.label == regulationPolarity)
-//      // The event are all CorefEventMention. Use reg.get to get them
-//      // Use reg.get.asInstanceOf to convert them to BioEventMention.
-//
-//      regulationType match {
-//        case "knockdown" => detectRegulationBaseline(Seq(reg.get.asInstanceOf[BioEventMention])) should be("KD")
-//        case "knockout" => detectRegulationBaseline(Seq(reg.get.asInstanceOf[BioEventMention])) should be("KO")
-//        case "dominant negative" => detectRegulationBaseline(Seq(reg.get.asInstanceOf[BioEventMention])) should be("DN")
-//        case "overexpression" => detectRegulationBaseline(Seq(reg.get.asInstanceOf[BioEventMention])) should be("OE")
-//        case "chemical inhibition" => detectRegulationBaseline(Seq(reg.get.asInstanceOf[BioEventMention])) should be("CHEM")
-//        case _ => println("NONE")
-//      }
-//    }
-
+    index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
+      val mentions = getBioMentions(sentence).filter(_ matches "Event")
+      val reg = mentions.find(_.label == regulationPolarity)
+      regulationType match {
+        case "knockdown" => getKDRegulation(reg.head) should be('nonEmpty)
+        case "knockout" => getKORegulation(reg.head) should be('nonEmpty)
+        case "dominant negative" => getDNRegulation(reg.head) should be('nonEmpty)
+        case "overexpression" => getOERegulation(reg.head) should be('nonEmpty)
+        case "chemical inhibition" => getCHEMRegulation(reg.head) should be('nonEmpty)
+        case _ => println("NONE")
+      }
+    }
 
 
     /** test for controller and controlled ONLY */
