@@ -53,7 +53,8 @@ class RegulationTests extends FlatSpec with Matchers{
   val failingFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/regulations/failingSentences.tsv"))
   val originalFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/regulations/expt_stmts.tsv"))
   val relFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/regulations/relevantSentences.tsv"))
-  val file: String = relFile.mkString
+  //val file: String = relFile.mkString
+  val file: String = originalFile.mkString
   val lines: Array[String] = file.split("\n")
 
   for ((line, lineNum) <- lines.zipWithIndex) {
