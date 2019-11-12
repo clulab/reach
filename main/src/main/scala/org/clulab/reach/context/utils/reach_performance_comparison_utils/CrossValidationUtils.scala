@@ -34,7 +34,8 @@ object CrossValidationUtils {
     val microAveragedPredictedLabels = collection.mutable.ListBuffer[Int]()
     var totalAccuracy = 0.0
     val perPaperAccuracyMap = collection.mutable.HashMap[String,Double]()
-
+    println(s"Papers being used for CV")
+    println(papersToUseForCV.mkString(","))
     for(paperID <- papersToUseForCV){
 
       val testingRowsFromCurrentPaper = rowsOfAggrRows.filter(x=>x.PMCID == paperID)
