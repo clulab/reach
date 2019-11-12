@@ -132,6 +132,7 @@ object CrossValidationUtils {
         case true => Balancer.balanceByPaperAgg(testingRows, 1)
         case false => testingRows
       }
+      println(s"Size of training dataset: ${balancedTrainingData.size}")
       val trueLabels = DummyClassifier.getLabelsFromDataset(balancedTrainingData)
       val sentenceDistMinIndices = testingRows.map(x=>x.featureGroupNames.indexOf("sentenceDistance_min"))
       val sentenceDistMinValues = testingRows.map(x=>{
