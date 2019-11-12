@@ -6,7 +6,9 @@ import org.clulab.odin._
 import org.clulab.reach.mentions._
 import org.clulab.struct.Interval
 
+import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
+import scala.io.{BufferedSource, Source}
 
 
 object RegulationHandler {
@@ -440,6 +442,70 @@ object RegulationHandler {
     }
     (count, posList)
   }
+
+
+  def getRegulationKeywordsIdf():Map[String, Float] = {
+    val relFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/regulations/relevantSentencesLinguistic.tsv"))
+    val file: String = relFile.mkString
+    val lines: Array[String] = file.split("\n")
+
+    // The list stores all of the keywords.
+    val keywordsAll = (keywordKD++keywordKO++keywordDNuni++keywordOE).to[mutable.ArrayBuffer]
+    keywordsAll += "dominant negative"
+    keywordsAll += "chemical inhibition of"
+    keywordsAll += "inhibitor of"
+
+    //Initialize the document frequency map for the keywords
+    val keywordsDF = mutable.Map[String, Int]()
+    for (keyword <- keywordsAll){
+      keywordsDF(keyword)=0
+    }
+    for ((line, lineNum) <- lines.zipWithIndex) {
+      val index = lines.indexOf(line).toString
+
+      val splitLine = line.split("\t")
+      val sentence = splitLine(0).toLowerCase()
+      val lemmas = sentence.split(" ")
+
+      // Initilize a map of flags of keywords. The DF score for a keyword can only be added by 1 in a document.
+      val keywordsFlag = mutable.Map[String, Int]()
+      for (keyword <- keywordsAll){
+        keywordsFlag(keyword)=0
+      }
+
+      // get keyword document frequency for one-word keywords
+      for ((lemma, lemma_index) <- lemmas.zipWithIndex) {
+        for (keyword <- keywordKD++keywordKO++keywordDNuni++keywordOE if lemma.contains(keyword) & keywordsFlag(keyword)==0){
+          keywordsDF(keyword)+=1
+          keywordsFlag(keyword)+=1
+        }
+      }
+
+      // get keyword document frequency for multi-word keywords
+      keywordsDF("negative dominant") = if (countSubSeqMatch(lemmas, Seq("negative", "dominant"), 0, 0)._1>0){
+        keywordsDF("negative dominant")+1
+      } else {
+        keywordsDF("negative dominant")
+      }
+      keywordsDF("chemical inhibition of") = if (countSubSeqMatch(lemmas, Seq("chemical", "inhibition", "of"), 0, 0)._1>0){
+        keywordsDF("chemical inhibition of")+1
+      } else {
+        keywordsDF("chemical inhibition of")
+      }
+      keywordsDF("inhibitor of") = if (countSubSeqMatch(lemmas, Seq("inhibitor", "of"), 0, 0)._1>0){
+        keywordsDF("inhibitor of")+1
+      } else {
+        keywordsDF("inhibitor of")
+      }
+    }
+
+    // Compute the final IDF score for each keyword and return
+    val keywordsIDF = Map[String, Float]()
+    for (keyword <- keywordsAll){
+      keywordsIDF(keyword) = Math.log((lines.length+1/keywordsDF(keyword)+1).toFloat)
+    }
+    keywordsIDF
+  }
 }
 
 
@@ -482,4 +548,15 @@ object reguTestZ extends App {
       println("====")
       println(number)
   }
+
+  val mapA = scala.collection.mutable.Map("A"->0, "B"->1)
+
+  mapA("A")=mapA("A")+1
+  println(mapA)
+
+  println(list1.contains(list2))
+
+  println((list1++list2).to[ArrayBuffer])
+  println(list1)
+
 }
