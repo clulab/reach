@@ -68,6 +68,7 @@ object FoldMaker {
     for((train,test) <- foldsFromCSV) {
       val trainingData = train.collect{case x:Int => rows2(x)}
       val balancedTrainingData = Balancer.balanceByPaperAgg(trainingData, 1)
+      println(s"The size of training data in ICDM cross validation: ${balancedTrainingData.size}")
       val (trainDataSet, _) = svmInstance.dataConverter(balancedTrainingData)
       svmInstance.fit(trainDataSet)
 
