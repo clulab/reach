@@ -114,18 +114,18 @@ class RegulationTests extends FlatSpec with Matchers{
 
 
     /** test for regulation modifications */
-    index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
-      val mentions = getBioMentions(sentence).filter(_ matches "Event")
-      val reg = mentions.find(_.label == regulationPolarity)
-      regulationType match {
-        case "knockdown" => getKDRegulation(reg.head) should be('nonEmpty)
-        case "knockout" => getKORegulation(reg.head) should be('nonEmpty)
-        case "dominant negative" => getDNRegulation(reg.head) should be('nonEmpty)
-        case "overexpression" => getOERegulation(reg.head) should be('nonEmpty)
-        case "chemical inhibition" => getCHEMRegulation(reg.head) should be('nonEmpty)
-        case _ => println("NONE")
-      }
-    }
+//    index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
+//      val mentions = getBioMentions(sentence).filter(_ matches "Event")
+//      val reg = mentions.find(_.label == regulationPolarity)
+//      regulationType match {
+//        case "knockdown" => getKDRegulation(reg.head) should be('nonEmpty)
+//        case "knockout" => getKORegulation(reg.head) should be('nonEmpty)
+//        case "dominant negative" => getDNRegulation(reg.head) should be('nonEmpty)
+//        case "overexpression" => getOERegulation(reg.head) should be('nonEmpty)
+//        case "chemical inhibition" => getCHEMRegulation(reg.head) should be('nonEmpty)
+//        case _ => println("NONE")
+//      }
+//    }
 
     // Baseline 1: regulation classifier, classify the whole sentence by the count of keywords
 //    index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
