@@ -1,4 +1,4 @@
-package org.clulab.reach.context.utils.annotation_alignment_utils
+package org.clulab.reach.context.utils.reach_performance_comparison_utils
 
 import scala.collection.mutable
 import scala.collection.immutable.ListMap

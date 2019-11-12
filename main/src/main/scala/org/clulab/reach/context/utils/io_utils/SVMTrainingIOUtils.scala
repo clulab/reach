@@ -5,7 +5,7 @@ import java.util.zip.GZIPInputStream
 
 import org.clulab.context.utils.AggregatedContextInstance
 
-import scala.io.Source
+import scala.io.{BufferedSource, Source}
 
 object SVMTrainingIOUtils {
   def writeHardcodedFeaturesToFile(fileName: String):Unit = {
@@ -26,10 +26,16 @@ object SVMTrainingIOUtils {
     val listOfSpecificFeatures = SVMTrainingIOUtils.readHardcodedFeaturesFromFile(hardCodedFilePath)
     def allOtherFeatures(headers:Seq[String]): Set[String] = headers.toSet -- (listOfSpecificFeatures ++ Seq(""))
     def indices(headers:Seq[String]): Map[String, Int] = headers.zipWithIndex.toMap
-//    val fileInputStream = new FileInputStream(groupedFeaturesFileName)
-//    val bufferedStream = new BufferedInputStream(new GZIPInputStream(fileInputStream))
-    //val source = Source.fromInputStream(bufferedStream)
-    val source = Source.fromFile(groupedFeaturesFileName)
+    def getSourceBasedOnExtension(fileName:String):BufferedSource = {
+      if(groupedFeaturesFileName.contains(".gz")) {
+        val fileInputStream = new FileInputStream(groupedFeaturesFileName)
+        val bufferedStream = new BufferedInputStream(new GZIPInputStream(fileInputStream))
+        Source.fromInputStream(bufferedStream)
+      }
+      else Source.fromFile(groupedFeaturesFileName)
+    }
+
+    val source = getSourceBasedOnExtension(groupedFeaturesFileName)
     val lines = source.getLines()
     val headers = lines.next() split ","
     val rectifiedHeaders = rectifyWrongFeatures(headers)

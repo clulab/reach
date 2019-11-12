@@ -6,7 +6,7 @@ import org.clulab.context.classifiers.LinearSVMContextClassifier
 import org.clulab.context.utils.{AggregatedContextInstance, ContextPairInstance}
 import org.clulab.reach.context.ContextEngine
 import org.clulab.reach.context.feature_utils.{ContextFeatureAggregator, ContextFeatureUtils, EventContextPairGenerator}
-import org.clulab.reach.context.utils.annotation_alignment_utils.AnnotationAlignmentUtils
+import org.clulab.reach.context.utils.reach_performance_comparison_utils.AnnotationAlignmentUtils
 import org.clulab.reach.context.utils.io_utils.ReachSystemAnalysisIOUtils
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 
