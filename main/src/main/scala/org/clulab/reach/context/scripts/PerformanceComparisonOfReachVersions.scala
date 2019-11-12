@@ -2,12 +2,10 @@ package org.clulab.reach.context.scripts
 
 
 import com.typesafe.config.ConfigFactory
-import org.clulab.context.classifiers.{DummyClassifier, LinearSVMContextClassifier}
+import org.clulab.context.classifiers.{LinearSVMContextClassifier}
 import org.clulab.reach.context.utils.io_utils.SVMTrainingIOUtils
 import org.clulab.reach.context.utils.reach_performance_comparison_utils.CrossValidationUtils
-import org.clulab.reach.context.utils.score_utils.ScoreMetricsOfClassifier
 
-import scala.collection.immutable.ListMap
 object PerformanceComparisonOfReachVersions extends App {
   val config = ConfigFactory.load()
 
@@ -31,15 +29,24 @@ object PerformanceComparisonOfReachVersions extends App {
 
   val pathToReach2019Dataset = config.getString("svmContext.groupedFeaturesTransferredAnnotations")
   val hardCodedFeaturePath = config.getString("contextEngine.params.hardCodedFeatures")
-  val (_,rowsFromReach2019) = SVMTrainingIOUtils.loadAggregatedRowsFromFile(pathToReach2019Dataset, hardCodedFeaturePath)
+
+  val (allFeaturesReach2019,rowsFromReach2019) = SVMTrainingIOUtils.loadAggregatedRowsFromFile(pathToReach2019Dataset, hardCodedFeaturePath)
+  val bestFeatureSet = CrossValidationUtils.getBestFeatureSet(allFeaturesReach2019)
+  val bestFeatureDatasetReach2019 = CrossValidationUtils.extractDataByRelevantFeatures(bestFeatureSet, rowsFromReach2019)
   val papersToExcludeFromCV = List("PMC2195994", "PMC2193052", "PMC2156142")
 
   val pathToReach2016Dataset = config.getString("svmContext.groupedFeatures")
-  val (_,rowsFromReach2016) = SVMTrainingIOUtils.loadAggregatedRowsFromFile(pathToReach2016Dataset, hardCodedFeaturePath)
-  val (microAccuracyReach2019, meanAccuracyReach2019, sortedMapReach2019) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, rowsFromReach2019, "Reach2019", Some(papersToExcludeFromCV))
+  val (allFeaturesReach2016,rowsFromReach2016) = SVMTrainingIOUtils.loadAggregatedRowsFromFile(pathToReach2016Dataset, hardCodedFeaturePath)
+  val bestFeatureDatasetReach2016 = CrossValidationUtils.extractDataByRelevantFeatures(bestFeatureSet, rowsFromReach2016)
+  val (microAccuracyReach2019, meanAccuracyReach2019, sortedMapReach2019) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, bestFeatureDatasetReach2019, Some(papersToExcludeFromCV))
   println(s"micro accuracy from 2019: ${microAccuracyReach2019}")
   println(s"Mean accuracy from 2019: ${meanAccuracyReach2019}")
   println(s"Per paper score map: ${sortedMapReach2019}")
+
+  val (microAccuracyReach2016, meanAccuracyReach2016, sortedMapReach2016) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, bestFeatureDatasetReach2016, Some(papersToExcludeFromCV))
+  println(s"micro accuracy from 2016: ${microAccuracyReach2016}")
+  println(s"Mean accuracy from 2016: ${meanAccuracyReach2016}")
+  println(s"Per paper score map: ${sortedMapReach2016}")
 
 
 
