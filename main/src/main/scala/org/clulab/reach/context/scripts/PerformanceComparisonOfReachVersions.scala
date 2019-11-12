@@ -42,6 +42,8 @@ object PerformanceComparisonOfReachVersions extends App {
   val (reach2019TrueValues, reach2019PredictedValues) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, rowsFromReach2019, Some(papersToExcludeFromCV))
   val microAccuracyReach2019 = ScoreMetricsOfClassifier.accuracy(reach2019TrueValues, reach2019PredictedValues)
   println(s"micro accuracy from 2019: ${microAccuracyReach2019}")
+  val microPrecision2019 = ScoreMetricsOfClassifier.precision(reach2019TrueValues, reach2019PredictedValues)
+  println(s"Precision: ${microPrecision2019}")
 //  println(s"Mean accuracy from 2019: ${meanAccuracyReach2019}")
 //  //println(s"Per paper score map: ${sortedMapReach2019}")
 
@@ -59,6 +61,9 @@ object PerformanceComparisonOfReachVersions extends App {
   //println(s"Per paper score map: ${sortedMapReach2016}")
 
 
+
+  println(s"Printing all features from Reach 2019")
+  println(allFeaturesReach2019.mkString(","))
 
 
 
