@@ -92,13 +92,13 @@ class RegulationTests extends FlatSpec with Matchers{
 
 
     /** used this to preprocess data to get relevant and irrelevant sentences */
-    val mentions = getBioMentions(sentence).filter(_ matches "Event")
-    val reg = mentions.find(_.label == regulationPolarity)
-
-    val allArguments = if (reg != None) reg.get.arguments else None
-
-    val realController = if (allArguments != None) reg.get.arguments("controller").head.text else None
-    val realControlled = if (allArguments != None) reg.get.arguments("controlled").head.text else None
+//    val mentions = getBioMentions(sentence).filter(_ matches "Event")
+//    val reg = mentions.find(_.label == regulationPolarity)
+//
+//    val allArguments = if (reg != None) reg.get.arguments else None
+//
+//    val realController = if (allArguments != None) reg.get.arguments("controller").head.text else None
+//    val realControlled = if (allArguments != None) reg.get.arguments("controlled").head.text else None
 
 //    println(index)
 //    println("IDEAL CONTROLLER:\t"+controller)
