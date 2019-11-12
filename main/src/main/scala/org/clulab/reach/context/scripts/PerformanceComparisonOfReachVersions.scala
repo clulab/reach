@@ -39,7 +39,7 @@ object PerformanceComparisonOfReachVersions extends App {
   val (allFeaturesReach2016,rowsFromReach2016) = SVMTrainingIOUtils.loadAggregatedRowsFromFile(pathToReach2016Dataset, hardCodedFeaturePath)
   val bestFeatureDatasetReach2016 = CrossValidationUtils.extractDataByRelevantFeatures(bestFeatureSet, rowsFromReach2016)
   println(s"Calling CV on new reach")
-  val (reach2019TrueValues, reach2019PredictedValues) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, rowsFromReach2019, Some(papersToExcludeFromCV))
+  val (reach2019TrueValues, reach2019PredictedValues) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, rowsFromReach2019, Some(papersToExcludeFromCV),reachVersion = "reach2019")
   val microAccuracyReach2019 = ScoreMetricsOfClassifier.accuracy(reach2019TrueValues, reach2019PredictedValues)
   println(s"micro accuracy from 2019: ${microAccuracyReach2019}")
   val microPrecision2019 = ScoreMetricsOfClassifier.precision(reach2019TrueValues, reach2019PredictedValues)
@@ -49,7 +49,7 @@ object PerformanceComparisonOfReachVersions extends App {
 
 
   println(s"Calling CV on old reach")
-  val (reach2016TrueValues, reach2016PredictedValues) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, bestFeatureDatasetReach2016, Some(papersToExcludeFromCV))
+  val (reach2016TrueValues, reach2016PredictedValues) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, bestFeatureDatasetReach2016, Some(papersToExcludeFromCV), reachVersion = "reach2016")
   val microAccuracyReach2016 = ScoreMetricsOfClassifier.accuracy(reach2016TrueValues, reach2016PredictedValues)
   val microF1 = ScoreMetricsOfClassifier.f1(reach2016TrueValues, reach2016PredictedValues)
   val microPrecision = ScoreMetricsOfClassifier.precision(reach2016TrueValues, reach2016PredictedValues)
