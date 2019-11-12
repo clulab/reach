@@ -72,8 +72,16 @@ object PerformanceComparisonOfReachVersions extends App {
 
   // Baseline comparison
 
+  val (baselineTrueLabelsReach2019,baselinePredictedLabelsReach2019) = CrossValidationUtils.performBaselineCheck(rowsFromReach2019,Some(papersToExcludeFromCV))
+  val (baselineTrueLabelsReach2016,baselinePredictedLabelsReach2016) = CrossValidationUtils.performBaselineCheck(rowsFromReach2016,Some(papersToExcludeFromCV))
 
 
+//  val accuracy2019 = ScoreMetricsOfClassifier.accuracy(baselineTrueLabelsReach2019,baselinePredictedLabelsReach2019)
+  val f12019 = ScoreMetricsOfClassifier.f1(baselineTrueLabelsReach2019,baselinePredictedLabelsReach2019)
+  println(s"The micro averaged f1 for Reach 2019 is :${f12019}")
+
+  val f12016 = ScoreMetricsOfClassifier.f1(baselineTrueLabelsReach2016,baselinePredictedLabelsReach2016)
+  println(s"The micro averaged f1 for Reach 2016 is: ${f12016}")
 
 
 }

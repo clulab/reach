@@ -34,8 +34,7 @@ object CrossValidationUtils {
     val microAveragedPredictedLabels = collection.mutable.ListBuffer[Int]()
     var totalAccuracy = 0.0
     val perPaperAccuracyMap = collection.mutable.HashMap[String,Double]()
-    println(s"Papers being used for CV")
-    println(papersToUseForCV.mkString(","))
+
     for(paperID <- papersToUseForCV){
 
       val testingRowsFromCurrentPaper = rowsOfAggrRows.filter(x=>x.PMCID == paperID)
@@ -116,5 +115,40 @@ object CrossValidationUtils {
     map += ("NonDep_Event" -> (nonDepFeatures ++ eventDepFeatures.toSet).toSeq)
     map += ("Context_Event" -> (contextDepFeatures.toSet ++ eventDepFeatures.toSet).toSeq)
     map.toMap
+  }
+
+  def performBaselineCheck(rowsOfAggrContInst:Seq[AggregatedContextInstance],papersToExclude:Option[List[String]]=None, reachVersion:String="reach2019"):(Seq[Int], Seq[Int]) = {
+    val microAveragedTruthLabels = collection.mutable.ListBuffer[Int]()
+    val microAveragedPredictedLabels = collection.mutable.ListBuffer[Int]()
+
+    val availablePaperIDs = rowsOfAggrContInst.map(_.PMCID).toSet
+    val papersToTestOn = papersToExclude match {
+      case Some(x) => availablePaperIDs.filter(a => !x.contains(a))
+      case None => availablePaperIDs
+    }
+    for(p<-papersToTestOn){
+      val testingRows = rowsOfAggrContInst.filter(_.PMCID == p)
+      val balancedTrainingData = reachVersion.contains("2016") match {
+        case true => Balancer.balanceByPaperAgg(testingRows, 1)
+        case false => testingRows
+      }
+      val trueLabels = DummyClassifier.getLabelsFromDataset(balancedTrainingData)
+      val sentenceDistMinIndices = testingRows.map(x=>x.featureGroupNames.indexOf("sentenceDistance_min"))
+      val sentenceDistMinValues = testingRows.map(x=>{
+        val currentIndexOfRow = testingRows.indexOf(x)
+        val indexOfSentMin = sentenceDistMinIndices(currentIndexOfRow)
+        val valueAtSentMinIndex = x.featureGroups(indexOfSentMin)
+        valueAtSentMinIndex
+      })
+
+      val predictedLabels = sentenceDistMinValues.map(predictPerRowDeterministic(_,5.0))
+      microAveragedTruthLabels ++= trueLabels
+      microAveragedPredictedLabels ++= predictedLabels
+    }
+    (microAveragedTruthLabels, microAveragedPredictedLabels)
+  }
+
+  def predictPerRowDeterministic(sentenceDistanceMin:Double, kValue:Double):Int={
+    if(sentenceDistanceMin <= kValue) 1 else 0
   }
 }
