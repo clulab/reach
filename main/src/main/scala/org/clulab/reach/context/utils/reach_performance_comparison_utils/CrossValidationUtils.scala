@@ -8,7 +8,7 @@ import scala.collection.immutable.ListMap
 
 object CrossValidationUtils {
 
-  def performCVOnSelectedPapers(pathToUntrainedSVMInstance:String, rowsOfAggrRows:Seq[AggregatedContextInstance], papersToExclude:Option[List[String]]=None):(Double,Double,ListMap[String,Double])={
+  def performCVOnSelectedPapers(pathToUntrainedSVMInstance:String, rowsOfAggrRows:Seq[AggregatedContextInstance], papersToExclude:Option[List[String]]=None):(Seq[Int], Seq[Int])={
 
 
 
@@ -65,7 +65,7 @@ object CrossValidationUtils {
     val sortedPerPaperAccuracyMap = ListMap(perPaperAccuracyMap.toSeq.sortWith(_._2>_._2):_*)
 
 
-    (microAveragedAccuracy, arithmeticMeanAccuracy, sortedPerPaperAccuracyMap)
+    (microAveragedTrueLabels, microAveragedPredictedLabels)
   }
 
   def getBestFeatureSet(allFeatures:Seq[String]):Seq[String] = {
