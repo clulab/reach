@@ -49,11 +49,19 @@ object PerformanceComparisonOfReachVersions extends App {
   println(s"Per paper score map: ${sortedMapReach2016}")
 
 
-  println(s"all features from Reach 2019")
-  println(allFeaturesReach2019.mkString(","))
+  val featsInReach2019NotInBestSet = allFeaturesReach2019.toSet -- bestFeatureSet.toSet
+  println("The following number of features were found in Reach 2019 that were not in the best feature set")
+  println(featsInReach2019NotInBestSet.size)
+  println("These features were:")
+  println(featsInReach2019NotInBestSet.mkString(","))
 
-  println(s"best feature set")
-  println(bestFeatureSet)
+  println(s"The features that were in Reach 2016 but not Reach 2019:")
+  val onlyReach2016Features = allFeaturesReach2016.toSet -- allFeaturesReach2019.toSet
+  println(onlyReach2016Features.mkString(","))
+
+  println(s"The features that were in Reach 2019 but not Reach 2016:")
+  val onlyReach2019Features = allFeaturesReach2019.toSet -- allFeaturesReach2016.toSet
+  println(onlyReach2019Features.mkString(","))
 
 
 
