@@ -141,7 +141,7 @@ object CrossValidationUtils {
         valueAtSentMinIndex
       })
 
-      val predictedLabels = sentenceDistMinValues.map(predictPerRowDeterministic(_,3.0))
+      val predictedLabels = sentenceDistMinValues.map(predictPerRowDeterministic(_,4.0))
       microAveragedTruthLabels ++= trueLabels
       microAveragedPredictedLabels ++= predictedLabels
     }
