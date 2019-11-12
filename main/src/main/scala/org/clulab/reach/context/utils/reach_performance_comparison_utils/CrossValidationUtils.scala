@@ -44,7 +44,7 @@ object CrossValidationUtils {
         case false => trainingRows
       }
 
-      println(s"Size of training data set for ${reachVersion} when ${paperID} is the test case")
+      println(s"Size of training data set for ${reachVersion} when ${paperID} is the test case: ${balancedTrainingData.size}")
       val trainingfeatureValues = untrainedInstanceForCV.constructTupsForRVF(balancedTrainingData)
       val trainingLabels = DummyClassifier.getLabelsFromDataset(trainingRows)
 
