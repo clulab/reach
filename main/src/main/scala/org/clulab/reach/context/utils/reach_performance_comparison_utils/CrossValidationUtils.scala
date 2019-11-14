@@ -40,7 +40,8 @@ object CrossValidationUtils {
       val testingRowsFromCurrentPaper = rowsOfAggrRows.filter(x=>x.PMCID == paperID)
       val trainingRows = rowsOfAggrRows.filter(x=>x.PMCID!=paperID)
       val balancedTrainingData = reachVersion.contains("2016") match {
-        case true => Balancer.balanceByPaperAgg(trainingRows, 1)
+        //case true => Balancer.balanceByPaperAgg(trainingRows, 1)
+        case true => trainingRows
         case false => trainingRows
       }
 
@@ -61,14 +62,6 @@ object CrossValidationUtils {
       totalAccuracy += accuracyPerPaper
       perPaperAccuracyMap ++= Map(paperID -> accuracyPerPaper)
     }
-    val microAveragedAccuracy = ScoreMetricsOfClassifier.accuracy(microAveragedTrueLabels, microAveragedPredictedLabels)
-
-    val arithmeticMeanAccuracy = totalAccuracy/papersToUseForCV.size
-
-
-
-    val sortedPerPaperAccuracyMap = ListMap(perPaperAccuracyMap.toSeq.sortWith(_._2>_._2):_*)
-
 
     (microAveragedTrueLabels, microAveragedPredictedLabels)
   }

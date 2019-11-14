@@ -38,11 +38,12 @@ object PerformanceComparisonOfReachVersions extends App {
   val pathToReach2016Dataset = config.getString("svmContext.groupedFeatures")
   val (allFeaturesReach2016,rowsFromReach2016) = SVMTrainingIOUtils.loadAggregatedRowsFromFile(pathToReach2016Dataset, hardCodedFeaturePath)
   val bestFeatureDatasetReach2016 = CrossValidationUtils.extractDataByRelevantFeatures(bestFeatureSet, rowsFromReach2016)
+
   println(s"Calling CV on Reach 2019")
   val (reach2019TrueValues, reach2019PredictedValues) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, rowsFromReach2019, Some(papersToExcludeFromCV),reachVersion = "reach2019")
 
 
-  println(s"Calling CV on old reach")
+  println(s"Calling CV on Reach 2016")
   val (reach2016TrueValues, reach2016PredictedValues) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, bestFeatureDatasetReach2016, Some(papersToExcludeFromCV), reachVersion = "reach2016")
 
   val reach2019ScoreDict = getScores(reach2019TrueValues,reach2019PredictedValues)
