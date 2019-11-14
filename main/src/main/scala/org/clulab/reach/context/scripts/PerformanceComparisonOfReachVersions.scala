@@ -41,13 +41,15 @@ object PerformanceComparisonOfReachVersions extends App {
   println(s"Calling CV on Reach 2019")
   val (reach2019TrueValues, reach2019PredictedValues) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, rowsFromReach2019, Some(papersToExcludeFromCV),reachVersion = "reach2019")
 
+
+  println(s"Calling CV on old reach")
+  val (reach2016TrueValues, reach2016PredictedValues) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, bestFeatureDatasetReach2016, Some(papersToExcludeFromCV), reachVersion = "reach2016")
+
   val reach2019ScoreDict = getScores(reach2019TrueValues,reach2019PredictedValues)
   println(s"Printing scores from Reach 2019")
   println(reach2019ScoreDict)
 
 
-  println(s"Calling CV on old reach")
-  val (reach2016TrueValues, reach2016PredictedValues) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, bestFeatureDatasetReach2016, Some(papersToExcludeFromCV), reachVersion = "reach2016")
   val reach2016ScoreDict = getScores(reach2016TrueValues,reach2016PredictedValues)
   println(s"Printing scores from Reach 2016")
   println(reach2016ScoreDict)
