@@ -100,12 +100,18 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 }
 
 
+
+
                 if(manualAnnotations.contains(rowID))
                   {
                     matchingPairs += p
                     val index = manualAnnotations.indexOf(rowID)
                     exampleConsistentEventSpans ++= Map(paperID -> (eventID, manualAnnotations(index)._2))
                   }
+                else{
+                  println("missing event spans:")
+                  println(rowID)
+                }
 
 
 
@@ -113,14 +119,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
               matchingPairs
             }
         }
-        if(inconsistentEventSpans.size>0) {
-          for((paperID,(runningSpan,annotationSpan))<-inconsistentEventSpans) {
-            println(s"Printing the inconsistent event spans from ${paperID}")
-            val exampleConsistentSpan = exampleConsistentEventSpans(paperID)
-            println(s"The example event span ${exampleConsistentSpan._1}(parsed on the fly) matches exactly with ${exampleConsistentSpan._2} from the annotations dataset")
-            println(s"The event span ${runningSpan} (parsed on the fly) should have matched with ${annotationSpan} from the annotations dataset")
-          }
-        }
+
 
 
         // The filteredPairs, as the name suggests, contains the subset of the context-event pairs, filtered based on the sentence distance window.
