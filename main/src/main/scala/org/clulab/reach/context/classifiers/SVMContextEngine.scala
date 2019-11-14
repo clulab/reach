@@ -147,7 +147,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
               aggRow}).toSeq
         }
 
-        var numOfAggrRows = 0
+        println(s"We have ${aggregatedFeatures.size} aggregated rows")
 
         // adding the aggregated rows to a list so that I can pass it to the Cross Validator.
         // Please note that this call to the cross validator is to the class CrossValBySentDist.
@@ -155,7 +155,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         val aggRowsForFileIO = collection.mutable.ListBuffer[((String,String), AggregatedContextInstance)]()
         //val whereToWriteFeatureValue = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsFeatValsToFile.txt")
         //val whereToWriteRow = config.getString(("polarityContext.attemptDir")).concat("/AggregRowsToFile.txt")
-        var aggrRowCount = 0
+
         val predictions:Map[EventID, Seq[(ContextID, Boolean)]] = {
           val map = collection.mutable.HashMap[EventID, Seq[(ContextID, Boolean)]]()
           for((k,a) <- aggregatedFeatures) {
@@ -176,7 +176,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 //ContextFeatureUtils.writeAggRowToFile(aggregatedFeature, k.toString, ctxId._2,sentWind, whereToWriteRowBySentDist)
                 // Please note that this function writes aggregated rows for each (eventID, contextID) pair. Therefore, you may have a large number of files written to your directory.
 
-                numOfAggrRows += 1
+
                 val tupToAddForFileIO = ((k.toString, ctxId._2), aggregatedFeature)
                 aggRowsForFileIO += tupToAddForFileIO
                 val prediction = {
@@ -187,8 +187,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                   }
                 }
 
-                //println(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
-                aggrRowCount += 1
+
                 (ctxId, prediction)
             }
 
@@ -199,7 +198,6 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           map.toMap
         }
 
-        println(s"The number of aggregated rows we have is: ${aggrRowCount}")
 
 
 
