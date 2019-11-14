@@ -38,41 +38,19 @@ object PerformanceComparisonOfReachVersions extends App {
   val pathToReach2016Dataset = config.getString("svmContext.groupedFeatures")
   val (allFeaturesReach2016,rowsFromReach2016) = SVMTrainingIOUtils.loadAggregatedRowsFromFile(pathToReach2016Dataset, hardCodedFeaturePath)
   val bestFeatureDatasetReach2016 = CrossValidationUtils.extractDataByRelevantFeatures(bestFeatureSet, rowsFromReach2016)
-  println(s"Calling CV on new reach")
+  println(s"Calling CV on Reach 2019")
   val (reach2019TrueValues, reach2019PredictedValues) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, rowsFromReach2019, Some(papersToExcludeFromCV),reachVersion = "reach2019")
 
-//  println(s"Mean accuracy from 2019: ${meanAccuracyReach2019}")
-//  //println(s"Per paper score map: ${sortedMapReach2019}")
+  val reach2019ScoreDict = getScores(reach2019TrueValues,reach2019PredictedValues)
+  println(s"Printing scores from Reach 2019")
+  println(reach2019ScoreDict)
 
 
   println(s"Calling CV on old reach")
   val (reach2016TrueValues, reach2016PredictedValues) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, bestFeatureDatasetReach2016, Some(papersToExcludeFromCV), reachVersion = "reach2016")
-  val microAccuracyReach2016 = ScoreMetricsOfClassifier.accuracy(reach2016TrueValues, reach2016PredictedValues)
-  val microF1 = ScoreMetricsOfClassifier.f1(reach2016TrueValues, reach2016PredictedValues)
-  val microPrecision = ScoreMetricsOfClassifier.precision(reach2016TrueValues, reach2016PredictedValues)
-  val microRecall = ScoreMetricsOfClassifier.recall(reach2016TrueValues, reach2016PredictedValues)
-
-
-  println("scores from Reach 2019")
-  val microPrecision2019 = ScoreMetricsOfClassifier.precision(reach2019TrueValues, reach2019PredictedValues)
-  val recall2019 = ScoreMetricsOfClassifier.recall(reach2019TrueValues, reach2019PredictedValues)
-  val f12019 = ScoreMetricsOfClassifier.f1(reach2019TrueValues, reach2019PredictedValues)
-  val microAccuracyReach2019 = ScoreMetricsOfClassifier.accuracy(reach2019TrueValues, reach2019PredictedValues)
-  println(s"micro accuracy from 2019: ${microAccuracyReach2019}, micro precision: ${microPrecision2019}, micro recall: ${recall2019},  micro f1: ${f12019}")
-
-  println(s"scores from Reach 2016")
-  println(s"micro accuracy ${microAccuracyReach2016}, micro precision: ${microPrecision}, micro recall: ${microRecall}, micro f1: ${microF1}")
-
-//  println(s"Mean accuracy from 2016: ${meanAccuracyReach2016}")
-  //println(s"Per paper score map: ${sortedMapReach2016}")
-
-
-
-
-
-  val featuresMissingFromBestFeatureSet = allFeaturesReach2019.toSet -- bestFeatureSet.toSet
-
-  println(s"${featuresMissingFromBestFeatureSet.mkString(",")}")
+  val reach2016ScoreDict = getScores(reach2016TrueValues,reach2016PredictedValues)
+  println(s"Printing scores from Reach 2016")
+  println(reach2016ScoreDict)
 
 
 
@@ -81,13 +59,21 @@ object PerformanceComparisonOfReachVersions extends App {
   val (baselineTrueLabelsReach2019,baselinePredictedLabelsReach2019) = CrossValidationUtils.performBaselineCheck(rowsFromReach2019,Some(papersToExcludeFromCV))
   val (baselineTrueLabelsReach2016,baselinePredictedLabelsReach2016) = CrossValidationUtils.performBaselineCheck(rowsFromReach2016,Some(papersToExcludeFromCV))
 
+  val baselineReach2019Score = getScores(baselineTrueLabelsReach2019,baselinePredictedLabelsReach2019)
+  println(s"Printing baseline score from Reach 2019")
+  println(baselineReach2019Score)
 
-//  val accuracy2019 = ScoreMetricsOfClassifier.accuracy(baselineTrueLabelsReach2019,baselinePredictedLabelsReach2019)
-  val f1baseline2019 = ScoreMetricsOfClassifier.accuracy(baselineTrueLabelsReach2019,baselinePredictedLabelsReach2019)
-  println(s"The micro averaged accuracy for baseline  Reach 2019 is :${f1baseline2019}")
+  val baselineReach2016Score = getScores(baselineTrueLabelsReach2016,baselinePredictedLabelsReach2016)
+  println(s"Printing baseline score from Reach 2016")
+  println(baselineReach2016Score)
 
-  val f1baseline2016 = ScoreMetricsOfClassifier.accuracy(baselineTrueLabelsReach2016,baselinePredictedLabelsReach2016)
-  println(s"The micro averaged accuracy for baseline Reach 2016 is: ${f1baseline2016}")
 
+  def getScores(trueValues:Seq[Int],predictedValues:Seq[Int]):Map[String,Double] = {
+    val accuracy = ScoreMetricsOfClassifier.accuracy(trueValues,predictedValues)
+    val precision = ScoreMetricsOfClassifier.precision(trueValues,predictedValues)
+    val recall = ScoreMetricsOfClassifier.recall(trueValues,predictedValues)
+    val f1 = ScoreMetricsOfClassifier.f1(trueValues,predictedValues)
+    Map("f1"->f1,"precision"->precision,"recall"->recall,"accuracy"->accuracy)
+  }
 
 }
