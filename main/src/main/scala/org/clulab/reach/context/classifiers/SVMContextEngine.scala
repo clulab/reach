@@ -61,8 +61,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
         // Generate all the event/ctx mention pairs
         val pairGenerator = new EventContextPairGenerator(mentions, ctxMentions)
         val pairs = pairGenerator.yieldContextEventPairs()
-        val inconsistentEventSpans = collection.mutable.HashMap[String,(String,String)]()
-        val exampleConsistentEventSpans = collection.mutable.HashMap[String,(String,String)]()
+
         val filteredPairs = sentenceWindow match {
           case Some(bound) =>
             pairs.filter {
@@ -82,38 +81,14 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                   case Some(id) => s"PMC${id.split("_")(0)}"
                   case None => "unknown_paper_id"
                 }
-                val eventID = ContextFeatureUtils.extractEvtId(p._1)
-                val contextID = p._2.nsId()
-                val rowID = (paperID,eventID,contextID)
-                def shouldIPrint(evtString1:String, evtString2: String):Boolean = {
-                  val doEventsAlign = AnnotationAlignmentUtils.eventsAlign(evtString1,evtString2) ||
-                    AnnotationAlignmentUtils.eventsAlign(evtString2,evtString1)
-                  val areTheEventsConsistent = evtString1 == evtString2
-                  doEventsAlign && !areTheEventsConsistent
-                }
-
+                val eventIDFromCurrentPair = ContextFeatureUtils.extractEvtId(p._1)
 
                 val annotationsInPaper = manualAnnotations.filter(_._1 == paperID)
-                val inconsistentAnnotations = annotationsInPaper.filter(x => shouldIPrint(x._2,eventID)).map(_._2).toSet
-                if(inconsistentAnnotations.size>0){
-                  inconsistentEventSpans++=Map(paperID -> (eventID -> inconsistentAnnotations.toSeq(0)))
-                }
-
-
-
-
-                if(manualAnnotations.contains(rowID))
-                  {
+                for(a<-annotationsInPaper){
+                  val eventSpanFromAnnotation = a._2
+                  if(AnnotationAlignmentUtils.eventsAlign(eventIDFromCurrentPair, eventSpanFromAnnotation))
                     matchingPairs += p
-                    val index = manualAnnotations.indexOf(rowID)
-                    exampleConsistentEventSpans ++= Map(paperID -> (eventID, manualAnnotations(index)._2))
-                  }
-                else{
-                  println("missing event spans:")
-                  println(rowID)
                 }
-
-
 
               }
               matchingPairs
@@ -212,7 +187,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                   }
                 }
 
-                //logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
+                //println(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
                 aggrRowCount += 1
                 (ctxId, prediction)
             }
@@ -223,6 +198,10 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
           }
           map.toMap
         }
+
+        println(s"The number of aggregated rows we have is: ${aggrRowCount}")
+
+
 
 
 

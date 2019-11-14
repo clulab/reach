@@ -35,15 +35,6 @@ class BoundedPaddingContext(
 
       }
 
-      val evtMentions = mentions collect  {
-        case evt:BioEventMention => evt
-      }
-
-
-      println(m.document.id)
-      for(e <- evtMentions) println(s"in${e.sentence}from${e.tokenInterval.start}to${e.tokenInterval.end}")
-
-
 
       // Assign the context map to the mention
       m.context = if(contextMap != Map.empty) Some(contextMap) else None
