@@ -39,6 +39,8 @@ class BoundedPaddingContext(
         case evt:BioEventMention => evt
       }
 
+
+      println(m.document.id)
       for(e <- evtMentions) println(s"in${e.sentence}from${e.tokenInterval.start}to${e.tokenInterval.end}")
 
 
