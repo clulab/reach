@@ -86,8 +86,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 val annotationsInPaper = manualAnnotations.filter(_._1 == paperID)
                 for(a<-annotationsInPaper){
                   val eventSpanFromAnnotation = a._2
-                  println(s"span from live pair: ${eventIDFromCurrentPair}")
-                  println(s"entry from annotation file: ${a}")
+
                   if(AnnotationAlignmentUtils.eventsAlign(eventIDFromCurrentPair, eventSpanFromAnnotation))
                     matchingPairs += p
                 }
@@ -97,6 +96,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             }
         }
 
+        println(s"Printing the pairs for which we will extract the feature values")
         for(f<-filteredPairs){
           val eventID = ContextFeatureUtils.extractEvtId(f._1)
           println(eventID)
@@ -172,7 +172,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
 
 
-
+                println(s"an aggregated row for ${(k.toString, ctxId._2)} was detected")
                 val parentDirToWriteAllRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaper")
                 //val parentDirToWriteAllRows = config.getString("polarityContext.aggrRowWrittenToFilePerPaperNewAnnotations")
                 //val whereToWriteRowBySentDist = config.getString("policy4Params.mentionsOutputFile")
