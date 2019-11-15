@@ -97,7 +97,10 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             }
         }
 
-        println(filteredPairs.mkString(","))
+        for(f<-filteredPairs){
+          val eventID = ContextFeatureUtils.extractEvtId(f._1)
+          println(eventID)
+        }
 
 
 
