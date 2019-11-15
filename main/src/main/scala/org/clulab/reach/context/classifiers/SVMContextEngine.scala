@@ -84,11 +84,13 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 }
                 val eventIDFromCurrentPair = ContextFeatureUtils.extractEvtId(p._1)
                 val contextSpanFromCurrentPair = p._2.nsId()
-
+                println(s"event span from current live pair: ${eventIDFromCurrentPair}")
+                println(s"context label from current live pair: ${contextSpanFromCurrentPair}")
                 val annotationsInPaper = manualAnnotations.filter(_._1 == paperID)
                 for(a<-annotationsInPaper){
                   val eventSpanFromAnnotation = a._2
                   val contextSpanFromAnnotation = a._3
+                  println(s"Current manual annotation: ${(eventSpanFromAnnotation, contextSpanFromAnnotation)}")
 
 
                   if(AnnotationAlignmentUtils.eventsAlign(eventIDFromCurrentPair, eventSpanFromAnnotation) && contextSpanFromAnnotation == contextSpanFromCurrentPair)
