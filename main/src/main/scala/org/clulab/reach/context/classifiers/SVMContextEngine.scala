@@ -97,6 +97,8 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
             }
         }
 
+        println(filteredPairs.mkString(","))
+
 
 
         // The filteredPairs, as the name suggests, contains the subset of the context-event pairs, filtered based on the sentence distance window.
