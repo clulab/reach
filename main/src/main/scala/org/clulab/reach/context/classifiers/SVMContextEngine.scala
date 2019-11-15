@@ -90,6 +90,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                   val eventSpanFromAnnotation = a._2
                   val contextSpanFromAnnotation = a._3
 
+
                   if(AnnotationAlignmentUtils.eventsAlign(eventIDFromCurrentPair, eventSpanFromAnnotation) && contextSpanFromAnnotation == contextSpanFromCurrentPair)
                     matchingPairs += p
                 }
