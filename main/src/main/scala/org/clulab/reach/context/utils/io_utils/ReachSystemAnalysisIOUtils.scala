@@ -4,6 +4,7 @@ import java.io.{File, PrintWriter}
 
 import org.clulab.context.utils.AggregatedContextInstance
 import org.clulab.reach.context.feature_utils.ContextFeatureUtils
+import org.clulab.reach.context.utils.reach_performance_comparison_utils.AnnotationAlignmentUtils
 
 import scala.io.Source
 
@@ -60,9 +61,13 @@ object ReachSystemAnalysisIOUtils {
     for (rowAsFileInstance <- rowFilesInCurrentPaper) {
       val row = ContextFeatureUtils.readAggRowFromFile(rowAsFileInstance)
       val specs = ContextFeatureUtils.createAggRowSpecsFromFile(rowAsFileInstance)
+      val eventSpanFromLiveAggrRow = specs._2
       specsPerRowMap ++= Map(row -> specs)
-      if(annotationsInPaper.contains(specs))
-        matchingRows += row
+        for(an<-annotationsInPaper){
+          val eventSpanFromDataset = an._2
+          if(AnnotationAlignmentUtils.eventsAlign(eventSpanFromLiveAggrRow, eventSpanFromDataset))
+            matchingRows += row
+        }
     }
 
     val featureValueStringPerRow = collection.mutable.ListBuffer[String]()
