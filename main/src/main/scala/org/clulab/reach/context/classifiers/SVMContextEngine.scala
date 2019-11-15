@@ -86,6 +86,8 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                 val annotationsInPaper = manualAnnotations.filter(_._1 == paperID)
                 for(a<-annotationsInPaper){
                   val eventSpanFromAnnotation = a._2
+                  println(s"span from live pair: ${eventIDFromCurrentPair}")
+                  println(s"entry from annotation file: ${a}")
                   if(AnnotationAlignmentUtils.eventsAlign(eventIDFromCurrentPair, eventSpanFromAnnotation))
                     matchingPairs += p
                 }
