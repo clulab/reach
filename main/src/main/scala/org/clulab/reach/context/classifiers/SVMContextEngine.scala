@@ -76,7 +76,7 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
               val manualAnnotations = ReachSystemAnalysisIOUtils.getTransferredAnnotationsFromReach2016(parentDirForManualAnnotations,exclude = false)
 
               val matchingPairs = collection.mutable.ListBuffer[Pair]()
-              println(s"${pairs(0)._1.document.id}")
+
               for(p <- pairs) {
                 val paperID = p._1.document.id match {
                   case Some(id) => s"PMC${id.split("_")(0)}"
