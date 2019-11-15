@@ -12,6 +12,11 @@ class EventContextPairGenerator(mentions:Seq[BioMention], ctxMentions:Seq[BioTex
     case evt:BioEventMention => evt
   }
 
+  println(s"printing context labels in this paper")
+  for(c<-ctxMentions){
+    println(c.nsId())
+  }
+
 
 
   // The constructor of this class is supplied with all the mentions and BioTextBoundMentions (i.e. context IDs)
