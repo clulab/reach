@@ -62,10 +62,12 @@ object ReachSystemAnalysisIOUtils {
       val row = ContextFeatureUtils.readAggRowFromFile(rowAsFileInstance)
       val specs = ContextFeatureUtils.createAggRowSpecsFromFile(rowAsFileInstance)
       val eventSpanFromLiveAggrRow = specs._2
+      val contextSpanFromLiveAggrRow = specs._3
       specsPerRowMap ++= Map(row -> specs)
         for(an<-annotationsInPaper){
           val eventSpanFromDataset = an._2
-          if(AnnotationAlignmentUtils.eventsAlign(eventSpanFromLiveAggrRow, eventSpanFromDataset))
+          val contextSpanFromDataset = an._3
+          if(AnnotationAlignmentUtils.eventsAlign(eventSpanFromLiveAggrRow, eventSpanFromDataset) && contextSpanFromDataset == contextSpanFromLiveAggrRow)
             matchingRows += row
         }
     }

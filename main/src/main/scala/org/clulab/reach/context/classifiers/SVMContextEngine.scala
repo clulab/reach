@@ -82,12 +82,14 @@ class SVMContextEngine(sentenceWindow:Option[Int] = None) extends ContextEngine 
                   case None => "unknown_paper_id"
                 }
                 val eventIDFromCurrentPair = ContextFeatureUtils.extractEvtId(p._1)
+                val contextSpanFromCurrentPair = p._2.nsId()
 
                 val annotationsInPaper = manualAnnotations.filter(_._1 == paperID)
                 for(a<-annotationsInPaper){
                   val eventSpanFromAnnotation = a._2
+                  val contextSpanFromAnnotation = a._3
 
-                  if(AnnotationAlignmentUtils.eventsAlign(eventIDFromCurrentPair, eventSpanFromAnnotation))
+                  if(AnnotationAlignmentUtils.eventsAlign(eventIDFromCurrentPair, eventSpanFromAnnotation) && contextSpanFromAnnotation == contextSpanFromCurrentPair)
                     matchingPairs += p
                 }
 
