@@ -507,7 +507,7 @@ object RegulationHandler {
     // Compute the final IDF score for each keyword and return
     val keywordsIDF = scala.collection.mutable.Map[String, Float]()
     for (keyword <- keywordsAll){
-      keywordsIDF(keyword) = Math.log((lines.length+1/keywordsDF(keyword)+1).toFloat).toFloat
+      keywordsIDF(keyword) = Math.log(((lines.length+1).toFloat/(keywordsDF(keyword)+1)).toFloat).toFloat
     }
     keywordsIDF
   }
