@@ -478,6 +478,7 @@ object RegulationHandler {
         keywordsFlag(keyword)=0
       }
 
+      println(lemmas)
       // get keyword document frequency for one-word keywords
       for ((lemma, lemma_index) <- lemmas.zipWithIndex) {
         for (keyword <- keywordKD++keywordKO++keywordDNuni++keywordOE){
