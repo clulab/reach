@@ -25,7 +25,7 @@ object RegulationHandler {
 
   val keywordIdf = getRegulationKeywordsIdf
   println(keywordIdf)
-  scala.io.StdIn()
+  scala.io.StdIn.readLine()
 
 
   def detectRegulationsLinguistic(mentions: Seq[Mention], state:State): Seq[Mention] = {
