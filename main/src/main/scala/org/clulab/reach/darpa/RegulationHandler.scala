@@ -23,6 +23,11 @@ object RegulationHandler {
   val keywordCHEM: Seq[Product] = Seq(("chemical", "inhibition", "of"), ("inhibitor", "of"))
 
 
+  val keywordIdf = getRegulationKeywordsIdf
+  println(keywordIdf)
+  scala.io.StdIn()
+
+
   def detectRegulationsLinguistic(mentions: Seq[Mention], state:State): Seq[Mention] = {
     // do something very smart to handle triggers
     // and then return the mentions
