@@ -465,6 +465,7 @@ object RegulationHandler {
     for (keyword <- keywordsAll){
       keywordsDF(keyword)=0
     }
+    println(keywordKD++keywordKO++keywordDNuni++keywordOE)
     for ((line, lineNum) <- lines.zipWithIndex) {
       val index = lines.indexOf(line).toString
 
@@ -478,7 +479,7 @@ object RegulationHandler {
         keywordsFlag(keyword)=0
       }
 
-      println(lemmas)
+      println(lemmas.toList)
       // get keyword document frequency for one-word keywords
       for ((lemma, lemma_index) <- lemmas.zipWithIndex) {
         for (keyword <- keywordKD++keywordKO++keywordDNuni++keywordOE){
