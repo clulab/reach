@@ -449,7 +449,7 @@ object RegulationHandler {
   }
 
 
-  def getRegulationKeywordsIdf():Map[String, Float] = {
+  def getRegulationKeywordsIdf():scala.collection.mutable.Map[String, Float] = {
     val relFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/regulations/relevantSentencesLinguistic.tsv"))
     val file: String = relFile.mkString
     val lines: Array[String] = file.split("\n")
