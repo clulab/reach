@@ -505,9 +505,9 @@ object RegulationHandler {
     }
 
     // Compute the final IDF score for each keyword and return
-    val keywordsIDF = Map[String, Float]()
+    val keywordsIDF = scala.collection.mutable.Map[String, Float]()
     for (keyword <- keywordsAll){
-      keywordsIDF(keyword) = Math.log((lines.length+1/keywordsDF(keyword)+1).toFloat)
+      keywordsIDF(keyword) = Math.log((lines.length+1/keywordsDF(keyword)+1).toFloat).toFloat
     }
     keywordsIDF
   }
@@ -563,5 +563,8 @@ object reguTestZ extends App {
 
   println((list1++list2).to[ArrayBuffer])
   println(list1)
+
+
+
 
 }
