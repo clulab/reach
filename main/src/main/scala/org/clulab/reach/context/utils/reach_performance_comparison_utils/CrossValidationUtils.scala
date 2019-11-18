@@ -42,7 +42,8 @@ object CrossValidationUtils {
       val balancedTrainingData = reachVersion.contains("2016") match {
         case true => Balancer.balanceByPaperAgg(trainingRows, 1)
         //case true => trainingRows
-        case false => trainingRows
+        //case false => trainingRows
+        case false => Balancer.balanceByPaperAgg(trainingRows, 1)
       }
 
       println(s"Size of training data set for ${reachVersion} when ${paperID} is the test case: ${balancedTrainingData.size}")
@@ -125,7 +126,8 @@ object CrossValidationUtils {
       val balancedTrainingData = reachVersion.contains("2016") match {
         case true => Balancer.balanceByPaperAgg(testingRows, 1)
         //case true => testingRows
-        case false => testingRows
+        //case false => testingRows
+        case false => Balancer.balanceByPaperAgg(testingRows, 1)
       }
       val trueLabels = DummyClassifier.getLabelsFromDataset(balancedTrainingData)
       val sentenceDistMinIndices = testingRows.map(x=>x.featureGroupNames.indexOf("sentenceDistance_min"))
@@ -136,7 +138,7 @@ object CrossValidationUtils {
         valueAtSentMinIndex
       })
 
-      val predictedLabels = sentenceDistMinValues.map(predictPerRowDeterministic(_,4.0))
+      val predictedLabels = sentenceDistMinValues.map(predictPerRowDeterministic(_,14.0))
       microAveragedTruthLabels ++= trueLabels
       microAveragedPredictedLabels ++= predictedLabels
     }
