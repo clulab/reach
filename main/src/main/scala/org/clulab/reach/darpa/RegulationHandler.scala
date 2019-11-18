@@ -487,10 +487,10 @@ object RegulationHandler {
       }
 
       // get keyword document frequency for multi-word keywords
-      keywordsDF("negative dominant") = if (countSubSeqMatch(lemmas, Seq("negative", "dominant"), 0, 0)._1>0){
-        keywordsDF("negative dominant")+1
+      keywordsDF("dominant negative") = if (countSubSeqMatch(lemmas, Seq("dominant", "negative"), 0, 0)._1>0){
+        keywordsDF("dominant negative")+1
       } else {
-        keywordsDF("negative dominant")
+        keywordsDF("dominant negative")
       }
       keywordsDF("chemical inhibition of") = if (countSubSeqMatch(lemmas, Seq("chemical", "inhibition", "of"), 0, 0)._1>0){
         keywordsDF("chemical inhibition of")+1
