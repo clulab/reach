@@ -52,10 +52,11 @@ object ScoreMetricsOfClassifier {
   }
 
   def scoreMaker(name: String, truthTest:Array[Int], predTest:Array[Int]):Map[String, (String, Double, Double, Double)] = {
-    val countsTest = ScoreMetricsOfClassifier.predictCounts(truthTest, predTest)
     val precTest = ScoreMetricsOfClassifier.precision(truthTest, predTest)
     val recallTest = ScoreMetricsOfClassifier.recall(truthTest, predTest)
     val f1Test = ScoreMetricsOfClassifier.f1(truthTest, predTest)
+    val accuracy = ScoreMetricsOfClassifier.accuracy(truthTest,predTest)
+    println(s"The accuracy of the original ICDM 2018 dataset is: ${accuracy}")
     val testTup = ("test", precTest, recallTest, f1Test)
     val mapToReturn = Map(name -> testTup)
     mapToReturn
