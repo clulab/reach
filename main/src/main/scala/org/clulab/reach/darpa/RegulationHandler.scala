@@ -470,7 +470,7 @@ object RegulationHandler {
       val index = lines.indexOf(line).toString
 
       val splitLine = line.split("\t")
-      val sentence = splitLine(0).toLowerCase()
+      val sentence = splitLine(6).toLowerCase()
       val lemmas = sentence.split(" ")
 
       // Initilize a map of flags of keywords. The DF score for a keyword can only be added by 1 in a document.
