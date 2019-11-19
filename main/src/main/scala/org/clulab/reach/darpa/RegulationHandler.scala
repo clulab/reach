@@ -296,17 +296,6 @@ object RegulationHandler {
       val trigger_start = event.trigger.start
       val trigger_end = event.trigger.end
 
-//      var kdCount = 0
-//      var koCount = 0
-//      var dnCount = 0
-//      var oeCount = 0
-//      var chemCount = 0
-//      val kdDisList = ArrayBuffer[Int](lemmas.length)
-//      val koDisList = ArrayBuffer[Int](lemmas.length)
-//      val dnDisList = ArrayBuffer[Int](lemmas.length)
-//      val oeDisList = ArrayBuffer[Int](lemmas.length)
-//      val chemDisList = ArrayBuffer[Int](lemmas.length)
-
       val regTypeCount = mutable.Map("KD"->0, "KO"->0, "DN"->0, "OE"->0, "CHEM"->0)
       val regTypeIdf = mutable.Map("KD"->0.0, "KO"->0.0, "DN"->0.0, "OE"->0.0, "CHEM"->0.0)
       val regTypeDist = mutable.Map("KD"->ArrayBuffer[Int](lemmas.length), "KO"->ArrayBuffer[Int](lemmas.length), "DN"->ArrayBuffer[Int](lemmas.length), "OE"->ArrayBuffer[Int](lemmas.length), "CHEM"->ArrayBuffer[Int](lemmas.length))
@@ -315,32 +304,24 @@ object RegulationHandler {
       for ((lemma, lemma_index) <- lemmas.zipWithIndex) {
         for (keyword <- keywordKD if lemma.contains(keyword)){
           val dist = if (trigger_start>lemma_index) trigger_start-lemma_index else if (lemma_index>=trigger_end) lemma_index-trigger_end+1 else 0
-//          kdCount += 1
-//          kdDisList += dist
           regTypeCount("KD")+=1
           regTypeDist("KD") +=dist
           regTypeIdf("KD")+= keywordIdf(keyword)
         }
         for (keyword <- keywordKO if lemma.contains(keyword)){
           val dist = if (trigger_start>lemma_index) trigger_start-lemma_index else if (lemma_index>=trigger_end) lemma_index-trigger_end+1 else 0
-//          koDisList +=dist
-//          koCount += 1
           regTypeCount("KO")+=1
           regTypeDist("KO") +=dist
           regTypeIdf("KO")+= keywordIdf(keyword)
         }
         for (keyword <- keywordDNuni if lemma.contains(keyword)){
           val dist = if (trigger_start>lemma_index) trigger_start-lemma_index else if (lemma_index>=trigger_end) lemma_index-trigger_end+1 else 0
-//          dnCount += 1
-//          dnDisList +=dist
           regTypeCount("DN")+=1
           regTypeDist("DN") +=dist
           regTypeIdf("DN")+= keywordIdf(keyword)
         }
         for (keyword <- keywordOE if lemma.contains(keyword)) {
           val dist = if (trigger_start>lemma_index) trigger_start-lemma_index else if (lemma_index>=trigger_end) lemma_index-trigger_end+1 else 0
-//          oeCount += 1
-//          oeDisList +=dist
           regTypeCount("OE")+=1
           regTypeDist("OE") +=dist
           regTypeIdf("OE")+= keywordIdf(keyword)
@@ -350,29 +331,23 @@ object RegulationHandler {
       // Then detect regulation type with a sequence of keywords
       // Hard code these for now. TODO: code these in more general way
       val dnCountTuple1 =countSubSeqMatch(lemmas, List("dominant", "negative"), trigger_start, trigger_end)
-//      dnCount+=dnCountTuple1._1
-//      dnDisList++=dnCountTuple1._2
       regTypeCount("DN")+=dnCountTuple1._1
       regTypeDist("DN")++=dnCountTuple1._2
       regTypeIdf("DN")+= dnCountTuple1._1 * keywordIdf("dominant negative")
+
       val chemCountTuple1 =countSubSeqMatch(lemmas, List("chemical", "inhibition", "of"), trigger_start, trigger_end)
-//      chemCount+=chemCountTuple1._1
-//      chemDisList++=chemCountTuple1._2
       regTypeCount("CHEM")+=chemCountTuple1._1
       regTypeDist("CHEM")++=chemCountTuple1._2
       regTypeIdf("CHEM")+= chemCountTuple1._1 * keywordIdf("chemical inhibition of")
+
       val chemCountTuple2 =countSubSeqMatch(lemmas, List("inhibitor", "of"), trigger_start, trigger_end)
-//      chemCount+=chemCountTuple2._1
-//      chemDisList++=chemCountTuple2._2
       regTypeCount("CHEM")+=chemCountTuple2._1
       regTypeDist("CHEM")++=chemCountTuple2._2
       regTypeIdf("CHEM")+= chemCountTuple2._1 * keywordIdf("inhibitor of")
 
-      //val regTokenCounts = Map("KD"-> kdCount, "KO"-> koCount,"DN"-> dnCount,"OE"-> oeCount,"CHEM"-> chemCount)
-      //val regMinDis = Map("KD"-> kdDisList.min, "KO"-> koDisList.min,"DN"-> dnDisList.min,"OE"-> oeDisList.min,"CHEM"-> chemDisList.min)
 
-
-      val regTokenCounts = regTypeCount
+      //val regTokenCounts = regTypeCount
+      val regTokenCounts = regTypeIdf
       val regMinDis = Map("KD"-> regTypeDist("KD").min, "KO"-> regTypeDist("KO").min,"DN"-> regTypeDist("DN").min,"OE"-> regTypeDist("OE").min,"CHEM"-> regTypeDist("CHEM").min)
       val maxKWCount = regTokenCounts.maxBy { case (key, value) => value }  // get the pair with the largest count
       val mostPossibleRegByCount = regTokenCounts.filter(e =>e._2== maxKWCount._2)  // get all pairs with the largest count
@@ -391,7 +366,6 @@ object RegulationHandler {
           mostPossibleReg._1
         }
       }
-
 
       if (regType=="KD"){
         event.modifications += KDtrigger(new BioTextBoundMention(
