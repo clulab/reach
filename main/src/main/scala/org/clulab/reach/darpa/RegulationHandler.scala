@@ -488,7 +488,7 @@ object RegulationHandler {
         for (keyword <- keywordKD++keywordKO++keywordDNuni++keywordOE){
           if (lemma.contains(keyword) && keywordsFlag(keyword)==0) {
             keywordsDF(keyword) += 1
-            keywordsFlag(keyword) += 1
+            //keywordsFlag(keyword) += 1
           }
         }
       }
