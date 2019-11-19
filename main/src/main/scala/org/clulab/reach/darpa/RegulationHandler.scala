@@ -366,8 +366,10 @@ object RegulationHandler {
           mostPossibleReg._1
         }
       }
-        println(keywordIdf)
-        println(regTypeIdf)
+      println("=================")
+      println(lemmas.mkString(" "))
+      println(keywordIdf)
+      println(regTypeIdf)
 
       if (regType=="KD"){
         event.modifications += KDtrigger(new BioTextBoundMention(

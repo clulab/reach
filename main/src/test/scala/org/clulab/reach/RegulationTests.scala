@@ -117,8 +117,6 @@ class RegulationTests extends FlatSpec with Matchers{
 //    }
 //    println("relevant:", n_rel, "  irrel:", n_irrel)
 
-    println("=================")
-    println(lineNum)
     /** test for regulation modifications */
     if (ignoredList.contains(lineNum)){
       index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" ignore {
