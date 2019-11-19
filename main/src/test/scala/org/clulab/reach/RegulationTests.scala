@@ -54,7 +54,7 @@ class RegulationTests extends FlatSpec with Matchers{
   val file: String = relFile.mkString
   //val file: String = originalFile.mkString
   val lines: Array[String] = file.split("\n")
-  val ignoredList = Seq(0, 14, 29, 31, 42, 44, 49, 51, 52, 85, 94, 118, 120, 129, 157, 162, 176)
+  val ignoredList = Seq()//Seq(0, 14, 29, 31, 42, 44, 49, 51, 52, 85, 94, 118, 120, 129, 157, 162, 176)
 
   var n_rel = 0
   var n_irrel = 0
