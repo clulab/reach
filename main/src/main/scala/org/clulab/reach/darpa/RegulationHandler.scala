@@ -49,7 +49,7 @@ object RegulationHandler {
         // First detect regulation type with 1 keyword
         for ((lemma, lemma_index) <- lemmas.zipWithIndex) {
           for (regType <- keywordsUni.keys){
-            for (keyword <- keywordsUni(regType) if lemmas.contains(keyword)){
+            for (keyword <- keywordsUni(regType) if lemma.contains(keyword)){
               val dist = if (trigger_start>lemma_index) trigger_start-lemma_index else if (lemma_index>=trigger_end) lemma_index-trigger_end+1 else 0
               keywordCountByType(regType)+=1
               keywordDistByType(regType)+=dist
