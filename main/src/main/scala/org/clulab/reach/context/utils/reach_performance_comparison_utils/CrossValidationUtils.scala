@@ -119,7 +119,6 @@ object CrossValidationUtils {
     for(p<-papersToTestOn){
       val testingRows = rowsOfAggrContInst.filter(_.PMCID == p)
       val balancedTestingData = Balancer.balanceByPaperAgg(testingRows, 1)
-      println(s"The reach version ${reachVersion} has ${balancedTestingData.size} rows in the paper ${p}")
       val trueLabels = DummyClassifier.getLabelsFromDataset(balancedTestingData)
       val sentenceDistMinIndices = testingRows.map(x=>x.featureGroupNames.indexOf("sentenceDistance_min"))
       val sentenceDistMinValues = testingRows.map(x=>{
