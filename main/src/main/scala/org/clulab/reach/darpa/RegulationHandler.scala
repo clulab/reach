@@ -47,7 +47,7 @@ object RegulationHandler {
         for(regType <- keywordsUni.keys){
           println("we get before dist")
           keywordCountByType(regType) = 0
-          keywordDistByType(regType) += lemmas.length
+          keywordDistByType(regType) = ArrayBuffer(lemmas.length)
           println("we get after dist")
         }
 
