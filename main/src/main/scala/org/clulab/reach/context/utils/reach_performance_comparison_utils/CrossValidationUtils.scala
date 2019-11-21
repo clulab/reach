@@ -40,8 +40,8 @@ object CrossValidationUtils {
       val testingRowsFromCurrentPaper = rowsOfAggrRows.filter(x=>x.PMCID == paperID)
       val trainingRows = rowsOfAggrRows.filter(x=>x.PMCID!=paperID)
       val balancedTrainingData = reachVersion.contains("2016") match {
-        case true => Balancer.balanceByPaperAgg(trainingRows, 1)
-        //case true => trainingRows
+        //case true => Balancer.balanceByPaperAgg(trainingRows, 1)
+        case true => trainingRows
         case false => trainingRows
       }
 
@@ -123,8 +123,8 @@ object CrossValidationUtils {
     for(p<-papersToTestOn){
       val testingRows = rowsOfAggrContInst.filter(_.PMCID == p)
       val balancedTestingData = reachVersion.contains("2016") match {
-        case true => Balancer.balanceByPaperAgg(testingRows, 1)
-        //case true => testingRows
+        //case true => Balancer.balanceByPaperAgg(testingRows, 1)
+        case true => testingRows
         case false => testingRows
       }
       val trueLabels = DummyClassifier.getLabelsFromDataset(balancedTestingData)
