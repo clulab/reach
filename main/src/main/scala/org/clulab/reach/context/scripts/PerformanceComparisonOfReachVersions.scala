@@ -47,12 +47,12 @@ object PerformanceComparisonOfReachVersions extends App {
   val (reach2016TrueValues, reach2016PredictedValues) = CrossValidationUtils.performCVOnSelectedPapers(pathToUntrainedSVM, bestFeatureDatasetReach2016, Some(papersToExcludeFromCV), reachVersion = "reach2016")
 
   val reach2019ScoreDict = getScores(reach2019TrueValues,reach2019PredictedValues)
-  println(s"Printing scores from Reach 2019")
+  println(s"Printing cross-validation scores from Reach 2019")
   println(reach2019ScoreDict)
 
 
   val reach2016ScoreDict = getScores(reach2016TrueValues,reach2016PredictedValues)
-  println(s"Printing scores from Reach 2016")
+  println(s"Printing cross-validation scores from Reach 2016")
   println(reach2016ScoreDict)
 
 
