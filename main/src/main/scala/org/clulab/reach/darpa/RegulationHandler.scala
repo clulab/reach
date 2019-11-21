@@ -24,6 +24,9 @@ object RegulationHandler {
   val keywordCHEM: Seq[Product] = Seq(("chemical", "inhibition", "of"), ("inhibitor", "of"))
 
   val (keywordsUni, keywordsMulti) = loadRegulationTypeKeywords()
+  for (regType <- keywordsUni.keys){
+    println(regType)
+  }
 
 
   def detectRegulationsLinguistic(mentions: Seq[Mention], state:State): Seq[Mention] = {
