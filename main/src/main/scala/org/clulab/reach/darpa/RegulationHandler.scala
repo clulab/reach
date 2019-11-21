@@ -28,6 +28,201 @@ object RegulationHandler {
     println(regType)
   }
 
+  def detectRegulationsBaseline(mentions: Seq[Mention]): Seq[Mention] = {
+    // do something very smart to handle triggers. Use the whole sentence to determine the type of regulation
+    // Count the number of occurrences of keywords. The most occurrences indicates the type.
+    // and then return the mentions
+
+    // Iterate over the BioEventMentions
+    mentions foreach {
+      case event:BioEventMention =>
+        val lemmas_raw = event.sentenceObj.words
+        val lemmas = lemmas_raw.map(_.toLowerCase())
+        val trigger_start = event.trigger.start
+        val trigger_end = event.trigger.end
+
+        /* Initialize the count map and the dist map*/
+        val keywordCountByType = mutable.Map[String, Int]()
+        val keywordDistByType = mutable.Map[String, ArrayBuffer[Int]]()
+        for(regType <- keywordsUni.keys){
+          println("we get before dist")
+          keywordCountByType(regType) = 0
+          keywordDistByType(regType) += lemmas.length
+          println("we get after dist")
+        }
+
+        // First detect regulation type with 1 keyword
+        for ((lemma, lemma_index) <- lemmas.zipWithIndex) {
+          for (regType <- keywordsUni.keys){
+            for (keyword <- keywordsUni(regType) if lemmas.contains(keyword)){
+              val dist = if (trigger_start>lemma_index) trigger_start-lemma_index else if (lemma_index>=trigger_end) lemma_index-trigger_end+1 else 0
+              keywordCountByType(regType)+=1
+              keywordDistByType(regType)+=dist
+            }
+          }
+        }
+
+        // Then detect regulation type with a sequence of keywords
+        for (regType <- keywordsMulti.keys)
+        {
+          for(keywordPhrase <- keywordsMulti(regType)){
+            val countTuple =countSubSeqMatch(lemmas, keywordPhrase, trigger_start, trigger_end)
+            keywordCountByType(regType)+=countTuple._1
+            keywordDistByType(regType)++=countTuple._2
+          }
+        }
+
+
+        val regTokenCounts = keywordCountByType
+        val regMinDis = mutable.Map[String, Int]()
+        for (regType <- keywordDistByType.keys){
+          regMinDis(regType) = keywordDistByType(regType).min
+        }
+
+        val maxKWCount = regTokenCounts.maxBy { case (key, value) => value }  // get the pair with the largest count
+      val mostPossibleRegByCount = regTokenCounts.filter(e =>e._2== maxKWCount._2)  // get all pairs with the largest count
+
+        // get regulation type by count and distance
+        val regType = if (mostPossibleRegByCount.size==1){
+          mostPossibleRegByCount.keys.head
+        }
+        else {
+          if (mostPossibleRegByCount.values.head==0){
+            "None"
+          }
+          else{
+            val mostPossibleRegByDist = regMinDis.filter(e => mostPossibleRegByCount.keysIterator.contains(e._1))
+            val mostPossibleReg = mostPossibleRegByDist.minBy { case (key, value) => value }
+            mostPossibleReg._1
+          }
+        }
+
+        // Assign labels for the modifications
+        if (regType=="KD"){
+          event.modifications += KDtrigger(new BioTextBoundMention(
+            Seq("KDtrigger_trigger"),
+            Interval(0), //index of the relevant newly-discovered node?
+            sentence = event.sentence,
+            document = event.document,
+            keep = event.keep,
+            foundBy = event.foundBy
+          ))
+        }
+        else if (regType=="KO"){
+          event.modifications += KOtrigger(new BioTextBoundMention(
+            Seq("KOtrigger_trigger"),
+            Interval(0), //index of the relevant newly-discovered node?
+            sentence = event.sentence,
+            document = event.document,
+            keep = event.keep,
+            foundBy = event.foundBy
+          ))
+        }
+        else if (regType=="DN"){
+          event.modifications += DNtrigger(new BioTextBoundMention(
+            Seq("DNtrigger_trigger"),
+            Interval(0), //index of the relevant newly-discovered node?
+            sentence = event.sentence,
+            document = event.document,
+            keep = event.keep,
+            foundBy = event.foundBy
+          ))
+        }
+        else if (regType=="OE"){
+          event.modifications += OEtrigger(new BioTextBoundMention(
+            Seq("OEtrigger_trigger"),
+            Interval(0),
+            sentence = event.sentence,
+            document = event.document,
+            keep = event.keep,
+            foundBy = event.foundBy
+          ))
+        }
+        else if (regType=="CHEM"){
+          event.modifications += CHEMtrigger(new BioTextBoundMention(
+            Seq("CHEMtrigger_trigger"),
+            Interval(0),
+            sentence = event.sentence,
+            document = event.document,
+            keep = event.keep,
+            foundBy = event.foundBy
+          ))
+        }
+        else if (regType!="None"){
+          event.modifications += UnassignedTrigger(new BioTextBoundMention(
+            Seq("UnassignedTrigger_trigger"),
+            Interval(0),
+            sentence = event.sentence,
+            document = event.document,
+            keep = event.keep,
+            foundBy = event.foundBy
+          ))
+        }
+
+      //        get regulation type by distance only
+      //
+      //      val mostPossibleReg = regMinDis.minBy { case (key, value) => value }
+      //      val regType = if (mostPossibleReg._2==lemmas.length){
+      //        "None"
+      //      }
+      //      else {mostPossibleReg._1}
+
+
+      //      println(regType)
+      //      regType
+      case _ => ()
+    }
+    mentions
+
+  }
+
+  def countSubSeqMatch(lemmas:Seq[String], keywords:Seq[String], trigger_start:Int, trigger_end:Int):(Int, ArrayBuffer[Int]) = {
+    var count = 0
+    val posList = ArrayBuffer[Int]()
+    val kw_span = keywords.length
+    for (index <- 0 until lemmas.length - kw_span) {
+      if (lemmas.slice(index, index + keywords.length) == keywords) {
+        count += 1
+        val dist = if (trigger_start > index + kw_span) trigger_start - (index + kw_span) else if (index >= trigger_end) index - trigger_end + 1 else 0
+        posList += dist
+      }
+    }
+    (count, posList)
+  }
+
+  def loadRegulationTypeKeywords():(mutable.Map[String, mutable.ArrayBuffer[String]], mutable.Map[String, mutable.ArrayBuffer[Seq[String]]]) = {
+    val config = ConfigFactory.load()
+
+    val configPath = "experimentalRegulation"
+
+    val experimentalRegulationKeywordsFile = if(config.hasPath(configPath)) {
+      config.getString(configPath+".keywords")
+    }else {null}
+
+    val regulationKeywordsRaw = Source.fromFile(experimentalRegulationKeywordsFile)
+    val keywordsUni = mutable.Map[String, mutable.ArrayBuffer[String]]()
+    val keywordsMulti = mutable.Map[String, mutable.ArrayBuffer[Seq[String]]]()
+    for (line <- regulationKeywordsRaw.getLines.drop(1)){
+      val cells = line.split(",").map(_.trim)
+
+      val regTypeAbbr = cells(1)
+      keywordsUni(regTypeAbbr) = mutable.ArrayBuffer[String]()
+      keywordsMulti(regTypeAbbr) = mutable.ArrayBuffer[Seq[String]]()
+
+      for (keywordRaw <- cells(2).split(";").map(_.trim)){
+        val keyword = keywordRaw.split(" ")
+        if (keyword.length==1){
+          keywordsUni(regTypeAbbr)+=keyword(0)
+        }
+        else{
+          keywordsMulti(regTypeAbbr) += keyword
+        }
+
+      }
+    }
+    (keywordsUni, keywordsMulti)
+  }
+
 
   def detectRegulationsLinguistic(mentions: Seq[Mention], state:State): Seq[Mention] = {
     // do something very smart to handle triggers
@@ -286,198 +481,6 @@ object RegulationHandler {
 //    }
 //  }
 
-  def detectRegulationsBaseline(mentions: Seq[Mention]): Seq[Mention] = {
-    // do something very smart to handle triggers. Use the whole sentence to determine the type of regulation
-    // Count the number of occurrences of keywords. The most occurrences indicates the type.
-    // and then return the mentions
-
-    // Iterate over the BioEventMentions
-    mentions foreach {
-      case event:BioEventMention =>
-      val lemmas_raw = event.sentenceObj.words
-      val lemmas = lemmas_raw.map(_.toLowerCase())
-      val trigger_start = event.trigger.start
-      val trigger_end = event.trigger.end
-
-      /* Initialize the count map and the dist map*/
-      val keywordCountByType = mutable.Map[String, Int]()
-      val keywordDistByType = mutable.Map[String, ArrayBuffer[Int]]()
-      for(regType <- keywordsUni.keys){
-        keywordCountByType(regType) = 0
-        keywordDistByType(regType) += lemmas.length
-      }
-
-      // First detect regulation type with 1 keyword
-      for ((lemma, lemma_index) <- lemmas.zipWithIndex) {
-        for (regType <- keywordsUni.keys){
-          for (keyword <- keywordsUni(regType) if lemmas.contains(keyword)){
-            val dist = if (trigger_start>lemma_index) trigger_start-lemma_index else if (lemma_index>=trigger_end) lemma_index-trigger_end+1 else 0
-            keywordCountByType(regType)+=1
-            keywordDistByType(regType)+=dist
-          }
-        }
-      }
-
-      // Then detect regulation type with a sequence of keywords
-      for (regType <- keywordsMulti.keys)
-      {
-        for(keywordPhrase <- keywordsMulti(regType)){
-          val countTuple =countSubSeqMatch(lemmas, keywordPhrase, trigger_start, trigger_end)
-          keywordCountByType(regType)+=countTuple._1
-          keywordDistByType(regType)++=countTuple._2
-        }
-      }
-
-
-      val regTokenCounts = keywordCountByType
-      val regMinDis = mutable.Map[String, Int]()
-      for (regType <- keywordDistByType.keys){
-        regMinDis(regType) = keywordDistByType(regType).min
-      }
-
-      val maxKWCount = regTokenCounts.maxBy { case (key, value) => value }  // get the pair with the largest count
-      val mostPossibleRegByCount = regTokenCounts.filter(e =>e._2== maxKWCount._2)  // get all pairs with the largest count
-
-      // get regulation type by count and distance
-      val regType = if (mostPossibleRegByCount.size==1){
-        mostPossibleRegByCount.keys.head
-      }
-      else {
-        if (mostPossibleRegByCount.values.head==0){
-          "None"
-        }
-        else{
-          val mostPossibleRegByDist = regMinDis.filter(e => mostPossibleRegByCount.keysIterator.contains(e._1))
-          val mostPossibleReg = mostPossibleRegByDist.minBy { case (key, value) => value }
-          mostPossibleReg._1
-        }
-      }
-
-      // Assign labels for the modifications
-      if (regType=="KD"){
-        event.modifications += KDtrigger(new BioTextBoundMention(
-          Seq("KDtrigger_trigger"),
-          Interval(0), //index of the relevant newly-discovered node?
-          sentence = event.sentence,
-          document = event.document,
-          keep = event.keep,
-          foundBy = event.foundBy
-        ))
-      }
-      else if (regType=="KO"){
-        event.modifications += KOtrigger(new BioTextBoundMention(
-          Seq("KOtrigger_trigger"),
-          Interval(0), //index of the relevant newly-discovered node?
-          sentence = event.sentence,
-          document = event.document,
-          keep = event.keep,
-          foundBy = event.foundBy
-        ))
-      }
-      else if (regType=="DN"){
-        event.modifications += DNtrigger(new BioTextBoundMention(
-          Seq("DNtrigger_trigger"),
-          Interval(0), //index of the relevant newly-discovered node?
-          sentence = event.sentence,
-          document = event.document,
-          keep = event.keep,
-          foundBy = event.foundBy
-        ))
-      }
-      else if (regType=="OE"){
-        event.modifications += OEtrigger(new BioTextBoundMention(
-          Seq("OEtrigger_trigger"),
-          Interval(0),
-          sentence = event.sentence,
-          document = event.document,
-          keep = event.keep,
-          foundBy = event.foundBy
-        ))
-      }
-      else if (regType=="CHEM"){
-        event.modifications += CHEMtrigger(new BioTextBoundMention(
-          Seq("CHEMtrigger_trigger"),
-          Interval(0),
-          sentence = event.sentence,
-          document = event.document,
-          keep = event.keep,
-          foundBy = event.foundBy
-        ))
-      }
-      else if (regType!="None"){
-        event.modifications += UnassignedTrigger(new BioTextBoundMention(
-          Seq("UnassignedTrigger_trigger"),
-          Interval(0),
-          sentence = event.sentence,
-          document = event.document,
-          keep = event.keep,
-          foundBy = event.foundBy
-        ))
-      }
-
-//        get regulation type by distance only
-//
-//      val mostPossibleReg = regMinDis.minBy { case (key, value) => value }
-//      val regType = if (mostPossibleReg._2==lemmas.length){
-//        "None"
-//      }
-//      else {mostPossibleReg._1}
-
-
-//      println(regType)
-//      regType
-      case _ => ()
-    }
-    mentions
-
-  }
-
-  def countSubSeqMatch(lemmas:Seq[String], keywords:Seq[String], trigger_start:Int, trigger_end:Int):(Int, ArrayBuffer[Int]) = {
-    var count = 0
-    val posList = ArrayBuffer[Int]()
-    val kw_span = keywords.length
-    for (index <- 0 until lemmas.length - kw_span) {
-      if (lemmas.slice(index, index + keywords.length) == keywords) {
-        count += 1
-        val dist = if (trigger_start > index + kw_span) trigger_start - (index + kw_span) else if (index >= trigger_end) index - trigger_end + 1 else 0
-        posList += dist
-      }
-    }
-    (count, posList)
-  }
-
-  def loadRegulationTypeKeywords():(mutable.Map[String, mutable.ArrayBuffer[String]], mutable.Map[String, mutable.ArrayBuffer[Seq[String]]]) = {
-    val config = ConfigFactory.load()
-
-    val configPath = "experimentalRegulation"
-
-    val experimentalRegulationKeywordsFile = if(config.hasPath(configPath)) {
-      config.getString(configPath+".keywords")
-    }else {null}
-
-    val regulationKeywordsRaw = Source.fromFile(experimentalRegulationKeywordsFile)
-    val keywordsUni = mutable.Map[String, mutable.ArrayBuffer[String]]()
-    val keywordsMulti = mutable.Map[String, mutable.ArrayBuffer[Seq[String]]]()
-    for (line <- regulationKeywordsRaw.getLines.drop(1)){
-      val cells = line.split(",").map(_.trim)
-
-      val regTypeAbbr = cells(1)
-      keywordsUni(regTypeAbbr) = mutable.ArrayBuffer[String]()
-      keywordsMulti(regTypeAbbr) = mutable.ArrayBuffer[Seq[String]]()
-
-      for (keywordRaw <- cells(2).split(";").map(_.trim)){
-        val keyword = keywordRaw.split(" ")
-        if (keyword.length==1){
-          keywordsUni(regTypeAbbr)+=keyword(0)
-        }
-        else{
-          keywordsMulti(regTypeAbbr) += keyword
-        }
-
-      }
-    }
-    (keywordsUni, keywordsMulti)
-  }
 }
 
 
