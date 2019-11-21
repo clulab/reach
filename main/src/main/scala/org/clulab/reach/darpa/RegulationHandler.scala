@@ -24,7 +24,6 @@ object RegulationHandler {
   val keywordCHEM: Seq[Product] = Seq(("chemical", "inhibition", "of"), ("inhibitor", "of"))
 
   val (keywordsUni, keywordsMulti) = loadRegulationTypeKeywords()
-  println(keywordsUni)
 
   def detectRegulationsBaseline(mentions: Seq[Mention]): Seq[Mention] = {
     // do something very smart to handle triggers. Use the whole sentence to determine the type of regulation
@@ -43,10 +42,8 @@ object RegulationHandler {
         val keywordCountByType = mutable.Map[String, Int]()
         val keywordDistByType = mutable.Map[String, ArrayBuffer[Int]]()
         for(regType <- keywordsUni.keys){
-          println("we get before dist")
           keywordCountByType(regType) = 0
           keywordDistByType(regType) = ArrayBuffer(lemmas.length)
-          println("we get after dist")
         }
 
         // First detect regulation type with 1 keyword
@@ -94,6 +91,11 @@ object RegulationHandler {
             mostPossibleReg._1
           }
         }
+
+        println("===============")
+        println(lemmas.toSeq)
+        println(keywordCountByType)
+        println(regType)
 
         // Assign labels for the modifications
         if (regType=="KD"){
