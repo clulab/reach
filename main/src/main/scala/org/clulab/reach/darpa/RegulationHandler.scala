@@ -92,10 +92,6 @@ object RegulationHandler {
           }
         }
 
-        println("===============")
-        println(lemmas.toSeq)
-        println(keywordCountByType)
-        println(regType)
 
         // Assign labels for the modifications
         if (regType=="KD"){
