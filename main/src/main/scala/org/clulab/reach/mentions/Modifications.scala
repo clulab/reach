@@ -75,3 +75,7 @@ case class OEtrigger(evidence: Mention) extends Modification{
 case class CHEMtrigger(evidence: Mention) extends Modification{
   val label = "CHEMtrigger"
 }
+
+case class UnassignedTrigger(evidence: Mention) extends Modification{
+  val label = "UnassignedTrigger"
+}

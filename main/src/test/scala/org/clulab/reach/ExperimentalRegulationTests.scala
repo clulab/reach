@@ -7,7 +7,7 @@ import org.scalatest.{FlatSpec, Matchers}
 import scala.io.{BufferedSource, Source}
 
 
-class RegulationTests extends FlatSpec with Matchers{
+class ExperimentalRegulationTests extends FlatSpec with Matchers{
 
   // split sentences into ir/relevant and passing/failing
 //  val outFilenameIrrelevant = "irrelevantSentences.tsv"
