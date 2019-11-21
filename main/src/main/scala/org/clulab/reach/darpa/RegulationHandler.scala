@@ -24,9 +24,7 @@ object RegulationHandler {
   val keywordCHEM: Seq[Product] = Seq(("chemical", "inhibition", "of"), ("inhibitor", "of"))
 
   val (keywordsUni, keywordsMulti) = loadRegulationTypeKeywords()
-  for (regType <- keywordsUni.keys){
-    println(regType)
-  }
+  println(keywordsUni)
 
   def detectRegulationsBaseline(mentions: Seq[Mention]): Seq[Mention] = {
     // do something very smart to handle triggers. Use the whole sentence to determine the type of regulation
