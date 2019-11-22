@@ -117,7 +117,8 @@ object CrossValidationUtils {
     }
     for(p<-papersToTestOn){
       val testingRows = rowsOfAggrContInst.filter(_.PMCID == p)
-      val balancedTestingData = Balancer.balanceByPaperAgg(testingRows, 1)
+      val balancedTestingData = testingRows
+      //val balancedTestingData = Balancer.balanceByPaperAgg(testingRows, 1)
       println(s"Size of testing data after balancing: ${balancedTestingData.size}")
 
       val trueLabels = DummyClassifier.getLabelsFromDataset(balancedTestingData)
