@@ -1,16 +1,13 @@
 package org.clulab.reach
 
-import java.io.PrintWriter
-
-import org.scalatest.{FlatSpec, Matchers}
+import org.clulab.reach.TestUtils.getBioMentions
 import org.clulab.reach.mentions._
-import TestUtils._
+import org.scalatest.{FlatSpec, Matchers}
 
 import scala.io.{BufferedSource, Source}
 
 
-
-class RegulationTests extends FlatSpec with Matchers{
+class ExperimentalRegulationTests extends FlatSpec with Matchers{
 
   // split sentences into ir/relevant and passing/failing
 //  val outFilenameIrrelevant = "irrelevantSentences.tsv"
@@ -53,11 +50,15 @@ class RegulationTests extends FlatSpec with Matchers{
   val passingFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/regulations/passingSentences.tsv"))
   val failingFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/regulations/failingSentences.tsv"))
   val originalFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/regulations/expt_stmts.tsv"))
-  val relFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/regulations/relevantSentences.tsv"))
+  val relFile: BufferedSource = Source.fromURL(getClass.getResource("/tsv/regulations/relevantSentencesLinguistic.tsv"))
   val file: String = relFile.mkString
+  //val file: String = originalFile.mkString
   val lines: Array[String] = file.split("\n")
+  val ignoredList = Seq(0, 14, 29, 31, 42, 44, 49, 51, 52, 85, 94, 118, 120, 129, 157, 162, 176)
 
-  for (line <- lines) {
+  var n_rel = 0
+  var n_irrel = 0
+  for ((line, lineNum) <- lines.zipWithIndex) {
     val index = lines.indexOf(line).toString
 
     val splitLine = line.split("\t")
@@ -99,32 +100,51 @@ class RegulationTests extends FlatSpec with Matchers{
 //
 //    val realController = if (allArguments != None) reg.get.arguments("controller").head.text else None
 //    val realControlled = if (allArguments != None) reg.get.arguments("controlled").head.text else None
-//
+
 //    println(index)
 //    println("IDEAL CONTROLLER:\t"+controller)
 //    println("REAL CONTROLLER:\t"+realController)
 //    println("IDEAL CONTROLLED:\t"+controlled)
 //    println("REAL CONTROLLED:\t"+realControlled)
-//
+
 //    if (realController.toString.contains(controller) && realControlled.toString.contains(controlled)){
 //      pwRel.write(line)
+//      n_rel+=1
 //    }
 //    else{
 //      pwIrr.write(line)
+//      n_irrel+=1
 //    }
+//    println("relevant:", n_rel, "  irrel:", n_irrel)
 
 
     /** test for regulation modifications */
-    index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" ignore {
-      val mentions = getBioMentions(sentence).filter(_ matches "Event")
-      val reg = mentions.find(_.label == regulationPolarity)
-      regulationType match {
-        case "knockdown" => getKDRegulation(reg.head) should be('nonEmpty)
-        case "knockout" => getKORegulation(reg.head) should be('nonEmpty)
-        case "dominant negative" => getDNRegulation(reg.head) should be('nonEmpty)
-        case "overexpression" => getOERegulation(reg.head) should be('nonEmpty)
-        case "chemical inhibition" => getCHEMRegulation(reg.head) should be('nonEmpty)
-        case _ => println("NONE")
+    if (ignoredList.contains(lineNum)){
+      index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" ignore {
+        val mentions = getBioMentions(sentence).filter(_ matches "Event")
+        val reg = mentions.find(_.label == regulationPolarity)
+        regulationType match {
+          case "knockdown" => getKDRegulation(reg.head) should be('nonEmpty)
+          case "knockout" => getKORegulation(reg.head) should be('nonEmpty)
+          case "dominant negative" => getDNRegulation(reg.head) should be('nonEmpty)
+          case "overexpression" => getOERegulation(reg.head) should be('nonEmpty)
+          case "chemical inhibition" => getCHEMRegulation(reg.head) should be('nonEmpty)
+          case _ => println("NONE")
+        }
+      }
+    }
+    else{
+      index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
+        val mentions = getBioMentions(sentence).filter(_ matches "Event")
+        val reg = mentions.find(_.label == regulationPolarity)
+        regulationType match {
+          case "knockdown" => getKDRegulation(reg.head) should be('nonEmpty)
+          case "knockout" => getKORegulation(reg.head) should be('nonEmpty)
+          case "dominant negative" => getDNRegulation(reg.head) should be('nonEmpty)
+          case "overexpression" => getOERegulation(reg.head) should be('nonEmpty)
+          case "chemical inhibition" => getCHEMRegulation(reg.head) should be('nonEmpty)
+          case _ => println("NONE")
+        }
       }
     }
 
