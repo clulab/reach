@@ -41,6 +41,8 @@ object CrossValidationUtils {
       val trainingRows = rowsOfAggrRows.filter(x=>x.PMCID!=paperID)
       val balancedTrainingData = Balancer.balanceByPaperAgg(trainingRows, 1)
       println(s"Size of training data set for ${reachVersion} when ${paperID} is the test case: ${balancedTrainingData.size}")
+      for(dat<-balancedTrainingData)
+        println(dat.label)
       val trainingfeatureValues = untrainedInstanceForCV.constructTupsForRVF(balancedTrainingData)
       val trainingLabels = DummyClassifier.getLabelsFromDataset(trainingRows)
 
@@ -118,6 +120,9 @@ object CrossValidationUtils {
     for(p<-papersToTestOn){
       val testingRows = rowsOfAggrContInst.filter(_.PMCID == p)
       val balancedTestingData = Balancer.balanceByPaperAgg(testingRows, 1)
+      println(s"Size of testing data after balancing: ${balancedTestingData.size}")
+      for(dat<-balancedTestingData)
+        println(dat.label)
       val trueLabels = DummyClassifier.getLabelsFromDataset(balancedTestingData)
       val sentenceDistMinIndices = testingRows.map(x=>x.featureGroupNames.indexOf("sentenceDistance_min"))
       val sentenceDistMinValues = testingRows.map(x=>{
