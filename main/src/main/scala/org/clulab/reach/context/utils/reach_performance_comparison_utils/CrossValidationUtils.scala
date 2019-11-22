@@ -40,7 +40,6 @@ object CrossValidationUtils {
       val testingRowsFromCurrentPaper = rowsOfAggrRows.filter(x=>x.PMCID == paperID)
       val trainingRows = rowsOfAggrRows.filter(x=>x.PMCID!=paperID)
       val balancedTrainingData = Balancer.balanceByPaperAgg(trainingRows, 1)
-      println(s"Size of training data set for ${reachVersion} when ${paperID} is the test case: ${balancedTrainingData.size}")
       val trainingfeatureValues = untrainedInstanceForCV.constructTupsForRVF(balancedTrainingData)
       val trainingLabels = DummyClassifier.getLabelsFromDataset(trainingRows)
 
