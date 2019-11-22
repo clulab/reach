@@ -1,6 +1,6 @@
 package org.clulab.reach.context.feature_utils
 
-import org.clulab.context.utils.{AggregatedContextInstance, CrossValidationUtils, ContextPairInstance}
+import org.clulab.context.utils.{AggregatedContextInstance, ICDMCrossValidationUtils, ContextPairInstance}
 import org.clulab.reach.context.utils.feature_utils.FeatureNameCruncher
 
 import scala.collection.mutable

@@ -1,6 +1,6 @@
 package org.clulab.context.utils
 
-object CrossValidationUtils {
+object ICDMCrossValidationUtils {
 
 
   def combineTrainVal(folds: Array[(Array[Int], Array[Int], Array[Int])]):Array[(Array[Int], Array[Int])] = {

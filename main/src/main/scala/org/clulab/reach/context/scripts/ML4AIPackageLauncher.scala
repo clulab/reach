@@ -2,7 +2,7 @@ package org.clulab.reach.context.scripts
 
 import com.typesafe.config.ConfigFactory
 import org.clulab.context.classifiers.LinearSVMContextClassifier
-import org.clulab.context.utils.{CrossValidationUtils, FoldMaker}
+import org.clulab.context.utils.{ICDMCrossValidationUtils, FoldMaker}
 import org.clulab.learning.LinearSVMClassifier
 import org.clulab.reach.context.utils.io_utils.{ReachPredictionDataTypeIOUtils, SVMTrainingIOUtils}
 import org.clulab.reach.context.utils.score_utils.ScoreMetricsOfClassifier
@@ -23,7 +23,7 @@ object ML4AIPackageLauncher extends App {
   val rows2 = rows.filter(_.PMCID != "b'PMC4204162'")
   val bufferedFoldIndices = Source.fromFile(foldsPath)
   val foldsFromCSV = FoldMaker.getFoldsPerPaper(bufferedFoldIndices)
-  val trainValCombined = CrossValidationUtils.combineTrainVal(foldsFromCSV)
+  val trainValCombined = ICDMCrossValidationUtils.combineTrainVal(foldsFromCSV)
 
   // =========================== BASELINE RESULTS ===========================
   // baseline results

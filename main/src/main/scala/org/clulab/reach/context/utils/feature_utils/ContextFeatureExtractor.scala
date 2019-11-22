@@ -1,7 +1,7 @@
 package org.clulab.reach.context.feature_utils
 
 import com.typesafe.config.ConfigFactory
-import org.clulab.context.utils.{ContextPairInstance, CrossValidationUtils}
+import org.clulab.context.utils.{ContextPairInstance, ICDMCrossValidationUtils}
 import org.clulab.processors.Document
 import org.clulab.reach.context.ContextEngine
 import org.clulab.reach.context.utils.feature_utils.FeatureNameCruncher
