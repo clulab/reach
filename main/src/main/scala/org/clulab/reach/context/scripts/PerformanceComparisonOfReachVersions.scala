@@ -60,7 +60,7 @@ object PerformanceComparisonOfReachVersions extends App {
   // Baseline comparison
 
   val (baselineTrueLabelsReach2019,baselinePredictedLabelsReach2019) = CrossValidationUtils.performBaselineCheck(rowsFromReach2019,Some(papersToExcludeFromCV))
-  val (baselineTrueLabelsReach2016,baselinePredictedLabelsReach2016) = CrossValidationUtils.performBaselineCheck(rowsFromReach2016,Some(papersToExcludeFromCV))
+  val (baselineTrueLabelsReach2016,baselinePredictedLabelsReach2016) = CrossValidationUtils.performBaselineCheck(rowsFromReach2016,Some(papersToExcludeFromCV),"reach2016")
 
   val baselineReach2019Score = getScores(baselineTrueLabelsReach2019,baselinePredictedLabelsReach2019)
   println(s"Printing baseline score from Reach 2019")

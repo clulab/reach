@@ -114,7 +114,7 @@ object CrossValidationUtils {
       case Some(x) => availablePaperIDs.filter(a => !x.contains(a))
       case None => availablePaperIDs
     }
-    if(reachVersion.contains("old"))
+    if(reachVersion.contains("2016"))
       print(papersToTestOn.size)
     for(p<-papersToTestOn){
       val testingRows = rowsOfAggrContInst.filter(_.PMCID == p)
