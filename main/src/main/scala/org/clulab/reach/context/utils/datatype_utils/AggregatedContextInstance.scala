@@ -22,6 +22,12 @@ object AggregatedContextInstance {
     val featureGroups = new mutable.ListBuffer[Double]
     val featureNames = new mutable.ListBuffer[String]
     println(s"we have ${allOtherFeatures.size} All other features (non-specific dependency features)")
+    for(a <- allOtherFeatures){
+      if(a.contains("evtDep"))
+        println(s"the feature ${a} is an event dependency feature")
+
+      println(s"The feature ${} is not an event dependency feature")
+    }
     allOtherFeatures foreach {
       case evt:String if evt.startsWith("evtDepTail") =>
         if(rowData(indices(evt)) != "0.0")
