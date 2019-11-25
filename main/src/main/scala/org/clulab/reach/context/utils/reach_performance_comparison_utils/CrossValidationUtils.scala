@@ -41,13 +41,14 @@ object CrossValidationUtils {
       val trainingRows = rowsOfAggrRows.filter(x=>x.PMCID!=paperID)
       val balancedTrainingData = Balancer.balanceByPaperAgg(trainingRows, 1)
       val trainingfeatureValues = untrainedInstanceForCV.constructTupsForRVF(balancedTrainingData)
-      val trainingLabels = DummyClassifier.getLabelsFromDataset(trainingRows)
+      val trainingLabels = DummyClassifier.getLabelsFromDataset(balancedTrainingData)
 
       val (trainingDataset,_) = untrainedInstanceForCV.mkRVFDataSet(trainingLabels.toArray,trainingfeatureValues)
+
+
+
       untrainedInstanceForCV.fit(trainingDataset)
-      println(s"Reach version: ${reachVersion}")
-      println(s"Current test case: ${paperID}")
-      println(s"The size of the testing data is: ${testingRowsFromCurrentPaper.size}")
+
       val testingLabels = DummyClassifier.getLabelsFromDataset(testingRowsFromCurrentPaper)
       val predictedValuesPerTestFold = untrainedInstanceForCV.predict(testingRowsFromCurrentPaper)
       microAveragedTrueLabels ++= testingLabels

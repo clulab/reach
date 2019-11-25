@@ -55,6 +55,8 @@ object AggregatedContextInstance {
     featureGroups ++= ctx_dependencyTails
     featureNames ++= evt_dependencyFeatures
     featureNames ++= ctx_dependencyFeatures
+    println(s"in aggregated row creator class, this row has ${featureNames.size} features and they are:")
+    println(featureNames.mkString(","))
     AggregatedContextInstance(sentencePos, pmcid, evt, ctx, Some(label.toBoolean), featureGroups.toArray, featureNames.toArray)
   }
 }
