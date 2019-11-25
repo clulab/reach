@@ -21,6 +21,7 @@ object AggregatedContextInstance {
     var ctx_dependencyFeatures = new mutable.ListBuffer[String]
     val featureGroups = new mutable.ListBuffer[Double]
     val featureNames = new mutable.ListBuffer[String]
+    println(s"we have ${allOtherFeatures.size} All other features (non-specific dependency features)")
     allOtherFeatures foreach {
       case evt:String if evt.startsWith("evtDepTail") =>
         if(rowData(indices(evt)) != "0.0")

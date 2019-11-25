@@ -41,16 +41,10 @@ object SVMTrainingIOUtils {
 
     val rectifiedHeaders = rectifyWrongFeatures(headers)
 
-    println(s"There are totally ${rectifiedHeaders.size} features in the headers list")
     val features = allOtherFeatures(rectifiedHeaders)
 
     val ixs = indices(rectifiedHeaders)
-    println(s"In the cross validation utils function, we have indices for ${ixs.size} features")
     val ret = lines.map(l => AggregatedContextInstance(l, rectifiedHeaders, features, ixs, listOfSpecificFeatures)).toList
-    println("printing feature names in the resulting aggregated row: ")
-    for(r <- ret) {
-      println(s"in the current row, there are ${r.featureGroupNames.size} features")
-    }
     source.close()
     (rectifiedHeaders, ret)
   }

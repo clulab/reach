@@ -45,7 +45,10 @@ object CrossValidationUtils {
 
       val (trainingDataset,_) = untrainedInstanceForCV.mkRVFDataSet(trainingLabels.toArray,trainingfeatureValues)
 
-
+      println("inside cross validation utils function, I am testing the number of features in the training dataset")
+      for(bt <- balancedTrainingData) {
+        println(s"The current aggregated row has ${bt.featureGroupNames.size} features")
+      }
 
       untrainedInstanceForCV.fit(trainingDataset)
 
