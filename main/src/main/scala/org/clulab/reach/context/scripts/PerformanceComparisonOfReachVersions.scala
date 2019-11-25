@@ -35,8 +35,8 @@ object PerformanceComparisonOfReachVersions extends App {
   val bestFeatureSet = CrossValidationUtils.getBestFeatureSet(allFeaturesReach2019)
   val papersToExcludeFromCV = List("PMC2195994", "b'PMC2195994'","PMC2193052", "b'PMC2193052'","PMC2156142", "b'PMC2156142'","b'PMC4204162'", "PMC4204162")
 
-  //val pathToReach2016Dataset = config.getString("svmContext.groupedFeaturesMatchingAnnotationsReach2016")
-  val pathToReach2016Dataset = config.getString("svmContext.groupedFeatures")
+  val pathToReach2016Dataset = config.getString("svmContext.groupedFeaturesMatchingAnnotationsReach2016")
+  //val pathToReach2016Dataset = config.getString("svmContext.groupedFeatures")
   val (allFeaturesReach2016,rowsFromReach2016) = SVMTrainingIOUtils.loadAggregatedRowsFromFile(pathToReach2016Dataset, hardCodedFeaturePath)
   val bestFeatureDatasetReach2016 = CrossValidationUtils.extractDataByRelevantFeatures(bestFeatureSet, rowsFromReach2016)
 

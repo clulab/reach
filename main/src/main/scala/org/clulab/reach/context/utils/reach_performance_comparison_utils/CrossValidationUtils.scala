@@ -45,7 +45,9 @@ object CrossValidationUtils {
 
       val (trainingDataset,_) = untrainedInstanceForCV.mkRVFDataSet(trainingLabels.toArray,trainingfeatureValues)
       untrainedInstanceForCV.fit(trainingDataset)
-
+      println(s"Reach version: ${reachVersion}")
+      println(s"Current test case: ${paperID}")
+      println(s"The size of the testing data is: ${testingRowsFromCurrentPaper.size}")
       val testingLabels = DummyClassifier.getLabelsFromDataset(testingRowsFromCurrentPaper)
       val predictedValuesPerTestFold = untrainedInstanceForCV.predict(testingRowsFromCurrentPaper)
       microAveragedTrueLabels ++= testingLabels
@@ -117,29 +119,22 @@ object CrossValidationUtils {
     if(reachVersion.contains("2016"))
       print(papersToTestOn.size)
     for(p<-papersToTestOn){
-      println(s"Current paper for baseline : ${p}")
       val testingRows = rowsOfAggrContInst.filter(_.PMCID == p)
-      for(t<-testingRows){
-        println(s"${t.PMCID}, ${t.EvtID}, ${t.CtxID}, ${t.label}")
-      }
       val balancedTestingData = testingRows
-      //val balancedTestingData = Balancer.balanceByPaperAgg(testingRows, 1)
-      println(reachVersion)
-      println(s"Size of testing data after balancing: ${balancedTestingData.size}")
+      println(s"current reach version: ${reachVersion}")
+      println(s"current test case: ${p}")
+      println(s"Size of testing data: ${balancedTestingData.size}")
 
       val trueLabels = DummyClassifier.getLabelsFromDataset(balancedTestingData)
-      val sentenceDistMinIndices = testingRows.map(x=>x.featureGroupNames.indexOf("sentenceDistance_min"))
-      val sentenceDistMinValues = testingRows.map(x=>{
-        val currentIndexOfRow = testingRows.indexOf(x)
+      val sentenceDistMinIndices = balancedTestingData.map(x=>x.featureGroupNames.indexOf("sentenceDistance_min"))
+      val sentenceDistMinValues = balancedTestingData.map(x=>{
+        val currentIndexOfRow = balancedTestingData.indexOf(x)
         val indexOfSentMin = sentenceDistMinIndices(currentIndexOfRow)
         val valueAtSentMinIndex = x.featureGroups(indexOfSentMin)
         valueAtSentMinIndex
       })
 
       val predictedLabels = sentenceDistMinValues.map(predictPerRowDeterministic(_,14.0))
-
-      println(s"size of true labels: ${trueLabels.size}")
-      println(s"size of predicted labels: ${predictedLabels.size}")
       microAveragedTruthLabels ++= trueLabels
       microAveragedPredictedLabels ++= predictedLabels
     }
