@@ -38,14 +38,22 @@ object SVMTrainingIOUtils {
     val source = getSourceBasedOnExtension(groupedFeaturesFileName)
     val lines = source.getLines()
     val headers = lines.next() split ","
+
+    val rectifiedHeaders = rectifyWrongFeatures(headers)
     println("printing headers from load aggregated row function")
-    for(h <- headers) {
+    for(h <-rectifiedHeaders) {
       println(h)
     }
-    val rectifiedHeaders = rectifyWrongFeatures(headers)
+    println(s"There are totally ${headers.size} features in the headers list")
     val features = allOtherFeatures(rectifiedHeaders)
+
     val ixs = indices(rectifiedHeaders)
     val ret = lines.map(l => AggregatedContextInstance(l, rectifiedHeaders, features, ixs, listOfSpecificFeatures)).toList
+    println("printing feature names in the resulting aggregated row: ")
+    for(r <- ret) {
+      println(r.featureGroupNames.size)
+      println(s"in the current row, there are ${r.featureGroupNames.size} features")
+    }
     source.close()
     (rectifiedHeaders, ret)
   }
