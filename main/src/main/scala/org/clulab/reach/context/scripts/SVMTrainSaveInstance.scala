@@ -20,6 +20,7 @@ object SVMTrainSaveInstance extends App {
   val nonNumericFeatures = Seq("PMCID", "label", "EvtID", "CtxID", "")
   val numericFeatures = allFeatures.toSet -- nonNumericFeatures.toSet
   val featureDict = CrossValidationUtils.createFeaturesLists(numericFeatures.toSeq)
+  //val bestFeatureSet = featureDict("NonDep_Context")
   val bestFeatureSet = featureDict("NonDep_Context")
   val trainingDataPrior = rows.filter(_.PMCID != "b'PMC4204162'")
   val trainingData = CrossValidationUtils.extractDataByRelevantFeatures(bestFeatureSet, trainingDataPrior)

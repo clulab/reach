@@ -44,8 +44,9 @@ object SVMTrainingIOUtils {
     for(h <-rectifiedHeaders) {
       println(h)
     }
-    println(s"There are totally ${headers.size} features in the headers list")
+    println(s"There are totally ${rectifiedHeaders.size} features in the headers list")
     val features = allOtherFeatures(rectifiedHeaders)
+    println(s"there are ${features.size} non-specific features")
 
     val ixs = indices(rectifiedHeaders)
     val ret = lines.map(l => AggregatedContextInstance(l, rectifiedHeaders, features, ixs, listOfSpecificFeatures)).toList
