@@ -38,6 +38,10 @@ object SVMTrainingIOUtils {
     val source = getSourceBasedOnExtension(groupedFeaturesFileName)
     val lines = source.getLines()
     val headers = lines.next() split ","
+    println("printing headers from load aggregated row function")
+    for(h <- headers) {
+      println(h)
+    }
     val rectifiedHeaders = rectifyWrongFeatures(headers)
     val features = allOtherFeatures(rectifiedHeaders)
     val ixs = indices(rectifiedHeaders)
