@@ -117,7 +117,11 @@ object CrossValidationUtils {
     if(reachVersion.contains("2016"))
       print(papersToTestOn.size)
     for(p<-papersToTestOn){
+      println(s"Current paper for baseline : ${p}")
       val testingRows = rowsOfAggrContInst.filter(_.PMCID == p)
+      for(t<-testingRows){
+        println(s"${t.PMCID}, ${t.EvtID}, ${t.CtxID}, ${t.label}")
+      }
       val balancedTestingData = testingRows
       //val balancedTestingData = Balancer.balanceByPaperAgg(testingRows, 1)
       println(reachVersion)
@@ -133,6 +137,9 @@ object CrossValidationUtils {
       })
 
       val predictedLabels = sentenceDistMinValues.map(predictPerRowDeterministic(_,14.0))
+
+      println(s"size of true labels: ${trueLabels.size}")
+      println(s"size of predicted labels: ${predictedLabels.size}")
       microAveragedTruthLabels ++= trueLabels
       microAveragedPredictedLabels ++= predictedLabels
     }
