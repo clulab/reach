@@ -67,7 +67,7 @@ object FoldMaker {
     val giantPredTestLabel = new mutable.ArrayBuffer[Int]()
     for((train,test) <- foldsFromCSV) {
       val trainingData = train.collect{case x:Int => rows2(x)}
-      println(trainingData(0).featureGroupNames.mkString(","))
+      println(trainingData(0).featureGroupNames.mkString("\n"))
       val balancedTrainingData = Balancer.balanceByPaperAgg(trainingData, 1)
       val (trainDataSet, _) = svmInstance.dataConverter(balancedTrainingData)
       svmInstance.fit(trainDataSet)
