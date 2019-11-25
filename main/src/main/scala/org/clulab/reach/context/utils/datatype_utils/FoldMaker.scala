@@ -74,7 +74,9 @@ object FoldMaker {
         println(s"current train row: ${(trainRow.PMCID,trainRow.EvtID,trainRow.CtxID)}")
         println("feature names in current train row:")
         println(trainRow.featureGroupNames.mkString(","))
+        println(s"Number of features in training: ${trainRow.featureGroupNames.size}")
       }
+
       val (trainDataSet, _) = svmInstance.dataConverter(balancedTrainingData)
       svmInstance.fit(trainDataSet)
 
@@ -84,6 +86,7 @@ object FoldMaker {
         println(s"current train row: ${(testRow.PMCID,testRow.EvtID,testRow.CtxID)}")
         println("feature names in current test row:")
         println(testRow.featureGroupNames.mkString(","))
+        println(s"No. of features in testing: ${testRow.featureGroupNames.size}")
       }
       val testLabelsTruth = svmInstance.createLabels(testingData)
       giantTruthTestLabel ++= testLabelsTruth
