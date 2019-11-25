@@ -45,7 +45,10 @@ object ML4AIPackageLauncher extends App {
   val loadedModelWrapper = svmInstance.loadFrom(fileName)
   // the loadedModel variable is an instance of LinearSVMWrapper. If you want access to the LinearSVMClassifier instance,
   // you need to just call loadedModel.classifier.
-
+  println("checking the number of features in the dataset that is getting sent for cross validation")
+  for(r <- rows2) {
+    println(s"The number of features in ${(r.PMCID,r.EvtID,r.CtxID)} are: ${r.featureGroupNames.size}")
+  }
   val (truthTestSVM, predTestSVM) = FoldMaker.svmControllerLinearSVM(loadedModelWrapper, trainValCombined, rows2)
   val svmResult = ScoreMetricsOfClassifier.scoreMaker("Linear SVM", truthTestSVM, predTestSVM)
   scoreDictionary ++= svmResult
