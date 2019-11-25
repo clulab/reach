@@ -67,12 +67,24 @@ object FoldMaker {
     val giantPredTestLabel = new mutable.ArrayBuffer[Int]()
     for((train,test) <- foldsFromCSV) {
       val trainingData = train.collect{case x:Int => rows2(x)}
-      println(trainingData(0).featureGroupNames.mkString("\n"))
+
       val balancedTrainingData = Balancer.balanceByPaperAgg(trainingData, 1)
+      println("checking features of training data")
+      for(trainRow <- balancedTrainingData) {
+        println(s"current train row: ${(trainRow.PMCID,trainRow.EvtID,trainRow.CtxID)}")
+        println("feature names in current train row:")
+        println(trainRow.featureGroupNames.mkString(","))
+      }
       val (trainDataSet, _) = svmInstance.dataConverter(balancedTrainingData)
       svmInstance.fit(trainDataSet)
 
       val testingData = test.collect{case t: Int => rows2(t)}
+      println("checking features of testing data")
+      for(testRow <- testingData) {
+        println(s"current train row: ${(testRow.PMCID,testRow.EvtID,testRow.CtxID)}")
+        println("feature names in current test row:")
+        println(testRow.featureGroupNames.mkString(","))
+      }
       val testLabelsTruth = svmInstance.createLabels(testingData)
       giantTruthTestLabel ++= testLabelsTruth
       val testLabelsPred = svmInstance.predict(testingData)
