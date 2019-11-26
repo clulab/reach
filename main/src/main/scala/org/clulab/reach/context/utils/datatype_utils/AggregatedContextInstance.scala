@@ -21,13 +21,6 @@ object AggregatedContextInstance {
     var ctx_dependencyFeatures = new mutable.ListBuffer[String]
     val featureGroups = new mutable.ListBuffer[Double]
     val featureNames = new mutable.ListBuffer[String]
-    println(s"we have ${allOtherFeatures.size} All other features (non-specific dependency features)")
-    for(a <- allOtherFeatures){
-      if(a.contains("evtDep"))
-        println(s"the feature ${a} is an event dependency feature")
-
-      println(s"The feature ${} is not an event dependency feature")
-    }
     allOtherFeatures foreach {
       case evt:String if evt.startsWith("evtDepTail") =>
         if(rowData(indices(evt)) != "0.0")
@@ -62,8 +55,6 @@ object AggregatedContextInstance {
     featureGroups ++= ctx_dependencyTails
     featureNames ++= evt_dependencyFeatures
     featureNames ++= ctx_dependencyFeatures
-    println(s"in aggregated row creator class, this row has ${featureNames.size} features and they are:")
-    println(featureNames.mkString(","))
     AggregatedContextInstance(sentencePos, pmcid, evt, ctx, Some(label.toBoolean), featureGroups.toArray, featureNames.toArray)
   }
 }
