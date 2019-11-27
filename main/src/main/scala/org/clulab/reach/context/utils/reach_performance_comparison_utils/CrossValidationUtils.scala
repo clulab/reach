@@ -45,11 +45,6 @@ object CrossValidationUtils {
 
       val (trainingDataset,_) = untrainedInstanceForCV.mkRVFDataSet(trainingLabels.toArray,trainingfeatureValues)
 
-      println("inside cross validation utils function, I am testing the number of features in the training dataset")
-      for(bt <- balancedTrainingData) {
-        println(s"The current aggregated row has ${bt.featureGroupNames.size} features")
-      }
-
       untrainedInstanceForCV.fit(trainingDataset)
 
       val testingLabels = DummyClassifier.getLabelsFromDataset(testingRowsFromCurrentPaper)
@@ -125,9 +120,6 @@ object CrossValidationUtils {
     for(p<-papersToTestOn){
       val testingRows = rowsOfAggrContInst.filter(_.PMCID == p)
       val balancedTestingData = testingRows
-      println(s"current reach version: ${reachVersion}")
-      println(s"current test case: ${p}")
-      println(s"Size of testing data: ${balancedTestingData.size}")
 
       val trueLabels = DummyClassifier.getLabelsFromDataset(balancedTestingData)
       val sentenceDistMinIndices = balancedTestingData.map(x=>x.featureGroupNames.indexOf("sentenceDistance_min"))
