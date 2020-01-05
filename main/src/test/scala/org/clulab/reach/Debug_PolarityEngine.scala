@@ -22,8 +22,7 @@ class Debug_PolarityEngine extends FlatSpec with Matchers{
           val lemmas_masked = maskEvent(lemmas, mention.asInstanceOf[BioEventMention], "tag")
           println("\t--------------------------------")
           println("\tevent:", mention.text)
-          println("\texpanded masked event:", lemmas_masked.toSeq.mkString)
-        }
+          println("\texpanded masked event:", lemmas_masked.toSeq.mkString(" "))
       }
     }
   }
