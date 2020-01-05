@@ -16,7 +16,7 @@ class Debug_PolarityEngine extends FlatSpec with Matchers{
     val mentions = getBioMentions(sent, false)
     for (mention <-mentions){
 
-      if (mention matches "BioEventMention") {
+      if (mention matches "ComplexEvent") {
         var lemmas = mention.sentenceObj.words.clone()
         val lemmas_masked = maskEvent(lemmas, mention.asInstanceOf[BioEventMention], "tag")
         println("\t--------------------------------")
@@ -26,7 +26,7 @@ class Debug_PolarityEngine extends FlatSpec with Matchers{
     }
   }
 
-  def maskEvent(lemmas_raw:Array[String], event:BioEventMention,  maskOption:String): Array[String] ={
+  def maskEvent(lemmas_raw:Array[String], event:BioMention,  maskOption:String): Array[String] ={
     // filter out the edge cases where event has no controller or controlled.
     var lemmas = lemmas_raw.clone()
     if (event.arguments.contains(CONTROLLER) && event.arguments.contains(CONTROLLED)){
@@ -112,7 +112,7 @@ class Debug_PolarityEngine extends FlatSpec with Matchers{
     lemmas
   }
 
-  def getExpandBound(event:BioEventMention, controller_start:Int, controlled_start:Int):(Int, Int) = {
+  def getExpandBound(event:BioMention, controller_start:Int, controlled_start:Int):(Int, Int) = {
     val event_start = event.start
     val event_end = event.end
 
