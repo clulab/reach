@@ -2,9 +2,10 @@ package org.clulab.reach
 import org.clulab.reach.mentions._
 import TestUtils._
 import org.clulab.odin.{EventMention, Mention, RelationMention, TextBoundMention}
+import org.scalatest.{FlatSpec, Matchers}
 
 
-class Debug_PolarityEngine {
+class Debug_PolarityEngine extends FlatSpec with Matchers{
   val CONTROLLER = "__controller__"
   val CONTROLLED = "__controlled__"
   val THEME = "theme"
