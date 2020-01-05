@@ -17,11 +17,13 @@ class Debug_PolarityEngine extends FlatSpec with Matchers{
     for (mention <-mentions){
 
       if (mention matches "ComplexEvent") {
-        var lemmas = mention.sentenceObj.words.clone()
-        val lemmas_masked = maskEvent(lemmas, mention.asInstanceOf[BioEventMention], "tag")
-        println("\t--------------------------------")
-        println("\tevent:", mention.text)
-        println("\texpanded masked event:", lemmas_masked.toSeq.mkString)
+        if (!mention.isInstanceOf[CorefRelationMention]){
+          var lemmas = mention.sentenceObj.words.clone()
+          val lemmas_masked = maskEvent(lemmas, mention.asInstanceOf[BioEventMention], "tag")
+          println("\t--------------------------------")
+          println("\tevent:", mention.text)
+          println("\texpanded masked event:", lemmas_masked.toSeq.mkString)
+        }
       }
     }
   }
