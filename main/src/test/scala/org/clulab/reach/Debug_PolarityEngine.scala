@@ -16,7 +16,7 @@ class Debug_PolarityEngine extends FlatSpec with Matchers{
     val mentions = getBioMentions(sent, false)
     for (mention <-mentions){
 
-      if (mention matches "ComplexEvent") {
+      if (mention matches "BioEventMention") {
         var lemmas = mention.sentenceObj.words.clone()
         val lemmas_masked = maskEvent(lemmas, mention.asInstanceOf[BioEventMention], "tag")
         println("\t--------------------------------")
