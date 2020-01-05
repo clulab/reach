@@ -6,8 +6,8 @@ import org.scalatest.{FlatSpec, Matchers}
 
 
 class Debug_PolarityEngine extends FlatSpec with Matchers{
-  val CONTROLLER = "__controller__"
-  val CONTROLLED = "__controlled__"
+  val CONTROLLER = "controller"
+  val CONTROLLED = "controlled"
   val THEME = "theme"
 
   def showSenProcessingResult(sent:String): Unit ={
@@ -74,7 +74,6 @@ class Debug_PolarityEngine extends FlatSpec with Matchers{
       lemmas
     }
   }
-
 
   def maskDirect(lemmas:Array[String], maskOption:String, role:String, intervalStart:Int, intervalEnd:Int) : Array[String]= {
     if (role==CONTROLLER){
