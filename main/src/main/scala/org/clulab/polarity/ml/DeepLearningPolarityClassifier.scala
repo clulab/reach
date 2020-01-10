@@ -446,6 +446,10 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 //    this.builderBwd.setDropout(0.2.toFloat)
 //    this.charFwRnnBuilder.setDropout(0.2.toFloat)
 //    this.charBwRnnBuilder.setDropout(0.2.toFloat)
+    this.builderFwd.setDropout(0.0.toFloat)
+    this.builderBwd.setDropout(0.0.toFloat)
+    this.charFwRnnBuilder.setDropout(0.0.toFloat)
+    this.charBwRnnBuilder.setDropout(0.0.toFloat)
 
     var total_loss = 0.toFloat
     for ((instance, label) <- input_sens zip labels) {
