@@ -158,6 +158,11 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   override def predict(event: BioEventMention): Polarity = {
     if (event matches "ComplexEvent") {
 
+      this.builderFwd.disableDropout()
+      this.builderBwd.disableDropout()
+      this.charFwRnnBuilder.disableDropout()
+      this.charBwRnnBuilder.disableDropout()
+
       var lemmas = event.sentenceObj.words.clone()
 
       val rule = event.label
@@ -306,6 +311,11 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   }
 
   def predictManual(event:String, rulePolarity:Int): Unit= {
+    this.builderFwd.disableDropout()
+    this.builderBwd.disableDropout()
+    this.charFwRnnBuilder.disableDropout()
+    this.charBwRnnBuilder.disableDropout()
+
     val words  = event.split(" ")
 
     val y_pred:Expression = this.synchronized{
@@ -432,6 +442,11 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   }
 
   def fitSingleEpoch(input_sens: Seq[(Seq[String],Int)],labels: Seq[Int]): Unit = {
+    this.builderFwd.setDropout(0.2.toFloat)
+    this.builderBwd.setDropout(0.2.toFloat)
+    this.charFwRnnBuilder.setDropout(0.2.toFloat)
+    this.charBwRnnBuilder.setDropout(0.2.toFloat)
+
     var total_loss = 0.toFloat
     for ((instance, label) <- input_sens zip labels) {
 
@@ -457,6 +472,10 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   }
 
   def testSingleEpoch(input_sens: Seq[(Seq[String],Int)],labels: Seq[Int]): Float = {
+    this.builderFwd.disableDropout()
+    this.builderBwd.disableDropout()
+    this.charFwRnnBuilder.disableDropout()
+    this.charBwRnnBuilder.disableDropout()
 
     var total_loss = 0.toFloat
     var correct_count = 0
