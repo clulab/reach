@@ -76,8 +76,8 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   //val p_bv = pc.addParameters(Dim(1))
 
 
-  val builderFwd = new LstmBuilder(NUM_LAYERS, WEM_DIMENSIONS+CEM_DIMENSIONS*2, HIDDEN_SIZE, pc)
-  val builderBwd = new LstmBuilder(NUM_LAYERS, WEM_DIMENSIONS+CEM_DIMENSIONS*2, HIDDEN_SIZE, pc)
+  val builderFwd = new LstmBuilder(NUM_LAYERS, WEM_DIMENSIONS, HIDDEN_SIZE, pc)
+  val builderBwd = new LstmBuilder(NUM_LAYERS, WEM_DIMENSIONS, HIDDEN_SIZE, pc)
   val charFwRnnBuilder = new LstmBuilder(NUM_LAYERS, CEM_DIMENSIONS, CEM_DIMENSIONS, pc)
   val charBwRnnBuilder = new LstmBuilder(NUM_LAYERS, CEM_DIMENSIONS, CEM_DIMENSIONS, pc)
 
@@ -397,7 +397,8 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     val charEmbedding =
       mkCharEmbedding(word)
 
-    concatenate(wordEmbedding, charEmbedding)
+    //concatenate(wordEmbedding, charEmbedding)
+    wordEmbedding
   }
 
   def mkCharEmbedding(word: String): Expression = {
