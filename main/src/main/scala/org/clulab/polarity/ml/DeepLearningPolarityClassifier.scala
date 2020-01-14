@@ -394,8 +394,8 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       }
 
     // biLSTM over character embeddings
-    val charEmbedding =
-      mkCharEmbedding(word)
+//    val charEmbedding =
+//      mkCharEmbedding(word)
 
     //concatenate(wordEmbedding, charEmbedding)
     wordEmbedding
