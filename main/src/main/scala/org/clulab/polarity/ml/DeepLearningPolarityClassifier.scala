@@ -442,14 +442,14 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   }
 
   def fitSingleEpoch(input_sens: Seq[(Seq[String],Int)],labels: Seq[Int]): Unit = {
-//    this.builderFwd.setDropout(0.2.toFloat)
-//    this.builderBwd.setDropout(0.2.toFloat)
-//    this.charFwRnnBuilder.setDropout(0.2.toFloat)
-//    this.charBwRnnBuilder.setDropout(0.2.toFloat)
-    this.builderFwd.setDropout(0.0.toFloat)
-    this.builderBwd.setDropout(0.0.toFloat)
-    this.charFwRnnBuilder.setDropout(0.0.toFloat)
-    this.charBwRnnBuilder.setDropout(0.0.toFloat)
+    this.builderFwd.setDropout(0.2.toFloat)
+    this.builderBwd.setDropout(0.2.toFloat)
+    this.charFwRnnBuilder.setDropout(0.2.toFloat)
+    this.charBwRnnBuilder.setDropout(0.2.toFloat)
+//    this.builderFwd.setDropout(0.0.toFloat)
+//    this.builderBwd.setDropout(0.0.toFloat)
+//    this.charFwRnnBuilder.setDropout(0.0.toFloat)
+//    this.charBwRnnBuilder.setDropout(0.0.toFloat)
 
     var total_loss = 0.toFloat
     for ((instance, label) <- input_sens zip labels) {
@@ -650,6 +650,10 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
         }
       }
     }
+    words += "__controller__"
+    words += "__controller__-kd"
+    words += "__controlled__"
+    words += "__controlled__-kd"
 
     val w2i = words.zipWithIndex.toMap
     val c2i = chars.toList.sorted.zipWithIndex.toMap
