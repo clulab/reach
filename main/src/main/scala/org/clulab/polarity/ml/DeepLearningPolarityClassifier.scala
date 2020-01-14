@@ -88,7 +88,10 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     sgd.clipThreshold = 4.0.toFloat
   }
 
-  val missing_vec = new FloatVector(WEM_DIMENSIONS)
+  //val missing_vec = new FloatVector(WEM_DIMENSIONS)
+  val zeroList = List.fill(WEM_DIMENSIONS)(0.0.toFloat)
+  var missing_vec = new FloatVector(zeroList)
+  //missing_vec = missing_vec(zeroList)
   val missing_charVec = new FloatVector(CEM_DIMENSIONS*2)
 
   private var _isFitted = false
