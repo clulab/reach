@@ -88,9 +88,9 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     sgd.clipThreshold = 4.0.toFloat
   }
 
-  //val missing_vec = new FloatVector(WEM_DIMENSIONS)
-  val zeroList = List.fill(WEM_DIMENSIONS)(0.0.toFloat)
-  var missing_vec = new FloatVector(zeroList)
+  val missing_vec = new FloatVector(WEM_DIMENSIONS)
+  //val zeroList = List.fill(WEM_DIMENSIONS)(0.0.toFloat)
+  //var missing_vec = new FloatVector(zeroList)
   //missing_vec = missing_vec(zeroList)
   val missing_charVec = new FloatVector(CEM_DIMENSIONS*2)
 
@@ -363,7 +363,20 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
 
     // Get the last embedding
-    val selected = concatenate(statesFwd.last, statesBwd.last)
+//    val selected = concatenate(statesFwd.last, statesBwd.last)
+//    val feedForwardInput = concatenate(selected, rulePolarity)
+
+    //val newDim = new Dim(Seq(WEM_DIMENSIONS))
+
+    val statesFwdReshape = for (elem <- statesFwd) yield Expression.reshape(elem, Dim(1, HIDDEN_SIZE))
+    val statesFwdExp = Expression.transpose(concatenate(statesFwdReshape.toVector))
+    val statesFwdMax = Expression.reshape(Expression.kMaxPooling(statesFwdExp, 1), Dim(HIDDEN_SIZE))
+
+    val statesBwdReshape = for (elem <- statesBwd) yield Expression.reshape(elem, Dim(1, HIDDEN_SIZE))
+    val statesBwdExp = Expression.transpose(concatenate(statesBwdReshape.toVector))
+    val statesBwdMax = Expression.reshape(Expression.kMaxPooling(statesBwdExp, 1), Dim(HIDDEN_SIZE))
+
+    val selected = concatenate(statesFwdMax, statesBwdMax)
     val feedForwardInput = concatenate(selected, rulePolarity)
 
     // Run the FF network for classification
@@ -399,8 +412,8 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     // biLSTM over character embeddings
 //    val charEmbedding =
 //      mkCharEmbedding(word)
-
-    //concatenate(wordEmbedding, charEmbedding)
+//
+//    concatenate(wordEmbedding, charEmbedding)
     wordEmbedding
   }
 
