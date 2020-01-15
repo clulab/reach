@@ -151,7 +151,34 @@ class Debug_PolarityEngine extends FlatSpec with Matchers{
   "Unexpectedly co-misexpression of Trbl and Akt in the fat body led to a significant reduction in total FoxO levels (XREF_FIG), suggesting that Trbl and Akt might act combinatorially to direct FoxO turnover.",
   "Negatively regulating IRFs include IRF4 that competitively inhibits IRF5 from binding to TLR, thereby inhibiting inflammatory responses.")
 
-  for (sent<-failed_sentences){
+
+  val failed_sentences_nochar_trial1 = List(
+    "rapamycin blocked the serum-stimulated phosphorylation of ERK",
+    "Note that only K650M and K650E-FGFR3 mutants cause STAT1 phosphorylation",
+    "Note that only K650M, K660M, and K650E-FGFR3 mutants cause STAT1 phosphorylation on Y123 and T546",
+    "Taken together , these data suggest that decreased PTPN13 expression enhances EphrinB1 and Erk1 and phosphorylation in epithelial cells .",
+    "These data are consistent with EphrinB1 being a PTPN13 phosphatase substrate and suggest that decreased PTPN13 expression in BL breast cancer cell lines increases phosphorylation of EphrinB1 .",
+    "Cells expressing ErbB3 show tyrosine phosphorylation in response to RAS inhibition",
+    "Indeed, expression of RARbeta2 has been shown to restore retinoic acid induced apoptosis",
+    "Up-regulation of MKP3 expression by active Ras expression",
+    "ATP reduced GSH depletion",
+    "ATP can deplete GSH in cells",
+    "ATP depletes GSH rapidly in cells",
+    "The suppression of ASPP1 increases the inhibition of ASPP2.",
+    "Figure 2 shows that only the K650M and K650E ASPP1 mutants activated STAT1 in 293T and RCS cells.",
+    "We found that prolonged expression of active Ras resulted in up-regulation of the MKP3 gene.",
+    "We found that prolonged expression of active Ras resulted in up-regulation of the MKP3 gene via the PI3K/Akt pathway.",
+    "EGFR deletion deactivates MAPK1",
+    "AKT1 expression results in subsequent activation of MEK",
+    "AKT1 expression results in subsequent MEK activation",
+    "Of these, 6 involved wortmannin or LY-294002 (inhibitors of phosphoinositide 3-kinase (PI3K)) or rapamycin (an inhibitor of the mammalian target of rapamycin complex 1 (mTORC1)).",
+    "decreased PTPN13 expression increases phosphorylation of EphrinB1",
+    "IL-6 knockdown impaired the function of ASPP2",
+    "all six FGFR3 mutants induced activatory ERK(T202/Y204) dephosphorylation (Fig. 2).",
+    "we found slight STAT1(Y701) dephosphorylation induced by wild-type FGFR3.",
+    "all six FGFR3 mutants induced activatory ERK(T202/Y204) phosphorylation (Fig. 2)."
+  )
+  for (sent<-failed_sentences_nochar_trial1){
     showSenProcessingResult(sent)
   }
 }
