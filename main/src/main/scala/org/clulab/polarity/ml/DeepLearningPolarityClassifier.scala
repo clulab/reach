@@ -597,35 +597,37 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     }
     bufferedSource.close
 
-    val instances = instances_.toList
-    val labels = labels_.toList
-
-
-    logger.info(s"Num. all samples: ${instances.length}")
-    logger.info(s"Num. all labels: ${labels.length}")
+    logger.info(s"Num. all samples: ${instances_.length}")
+    logger.info(s"Num. all labels: ${labels_.length}")
 
 
     val random_1 = new Random(1)
     val random_2 = new Random(1)
 
-    val sens_shuffled = random_1.shuffle(instances)
-    val labels_shuffle = random_2.shuffle(labels)
+    val sens_shuffled = random_1.shuffle(instances_)
+    val labels_shuffled = random_2.shuffle(labels_)
 
     //val sens_shuffled = sentences
     //val labels_shuffle = labels
 
-    val n_training = (labels.length * train_ratio).toInt
+    val n_training = (labels_.length * train_ratio).toInt
 
-    val sens_train = sens_shuffled.slice(0, n_training)
-    val labels_train = labels_shuffle.slice(0, n_training)
-    val sens_test = sens_shuffled.slice(n_training, labels.length)
-    val labels_test = labels_shuffle.slice(n_training, labels.length)
+    var sens_train_ = sens_shuffled.slice(0, n_training)
+    var labels_train_ = labels_shuffled.slice(0, n_training)
+    val sens_test_ = sens_shuffled.slice(n_training, labels_.length)
+    val labels_test_ = labels_shuffled.slice(n_training, labels_.length)
     logger.info("Loading data finished!")
 
+    // manually add curated training data
+    val sens_labels_tuple = addTrainingSampleManually(sens_train_, labels_train_)
+    logger.info("Added manually curated data!")
 
+    val sens_train = sens_labels_tuple._1.toList
+    val labels_train = sens_labels_tuple._2.toList
+    val sens_test = sens_test_.toList
+    val labels_test = labels_test_.toList
 
     (sens_train, labels_train, sens_test, labels_test)
-
 
 
   }
@@ -692,5 +694,43 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     }
     (event_start_new, event_end_new)
   }
+
+  def addTrainingSampleManually(instances:ListBuffer[(Seq[String],Int)], labels:ListBuffer[Int]): (ListBuffer[(Seq[String],Int)], ListBuffer[Int])={
+    instances.append(("__controller__ blocked the serum stimulated phosphorylation of __controlled__".split(" ").toSeq, 0)); labels.append(0)
+    instances.append(("__controller__ mutants cause __controlled__ phosphorylation".split(" ").toSeq, 1)); labels.append(1)
+    instances.append(("__controller__ mutants cause __controlled__ phosphorylation on y123 and t546".split(" ").toSeq, 1)); labels.append(1)
+    instances.append(("__controller__ mutants cause __controlled__ phosphorylation on y123".split(" ").toSeq, 1)); labels.append(1)
+    instances.append(("__controller__ expression enhances ephrinb1 and __controlled__ and phosphorylation".split(" ").toSeq, 1)); labels.append(1)
+    instances.append(("__controller__ expression enhances __controlled__ and erk1 and phosphorylation in epithelial cells".split(" ").toSeq, 1)); labels.append(1)
+    instances.append(("__controller__ expression in bl breast cancer cell lines increases phosphorylation of __controlled__".split(" ").toSeq, 1)); labels.append(1)
+    instances.append(("__controlled__ show tyrosine phosphorylation in response to __controller__ inhibition".split(" ").toSeq, 1)); labels.append(1)
+    instances.append(("expression of __controller__ has been shown to restore retinoic acid induced apoptosis".split(" ").toSeq, 1)); labels.append(1)
+    instances.append(("__controller__ __controller__ induced __controlled__".split(" ").toSeq, 1)); labels.append(1)
+
+    instances.append(("up-regulation of __controlled__ expression by active __controller__ expression".split(" ").toSeq, 1)); labels.append(1)
+    instances.append(("__controller__ reduced __controlled__ depletion".split(" ").toSeq, 0)); labels.append(1)
+    instances.append(("__controller__ can deplete __controlled__".split(" ").toSeq, 0)); labels.append(0)
+    instances.append(("__controller__ depletes __controlled__".split(" ").toSeq, 0)); labels.append(0)
+    instances.append(("suppression of __controller__ increases the inhibition of __controlled__".split(" ").toSeq, 1)); labels.append(1)
+    instances.append(("__controller__ mutants activated __controlled__".split(" ").toSeq, 1)); labels.append(1)
+    instances.append(("prolonged expression of active __controller__ resulted in up-regulation of the __controlled__ gene".split(" ").toSeq, 1)); labels.append(1)
+    instances.append(("__controller__ deletion deactivates __controlled__".split(" ").toSeq, 0)); labels.append(1)
+    instances.append(("__controller__ expression results in subsequent activation of __controlled__".split(" ").toSeq, 1)); labels.append(1)
+    instances.append(("__controller__ expression results in subsequent __controlled__ activation".split(" ").toSeq, 1)); labels.append(1)
+
+    instances.append(("__controller__ expression increases phosphorylation of __controlled__".split(" ").toSeq, 1)); labels.append(1)
+    instances.append(("__controller__ knockdown impaired the function of __controlled__".split(" ").toSeq, 0)); labels.append(1)
+    instances.append(("__controller__ mutants induced activatory __controlled__ ( t202 and y204 ) dephosphorylation".split(" ").toSeq, 1)); labels.append(1)
+    instances.append(("__controlled__ ( y701 ) dephosphorylation induced by wild-type __controller__".split(" ").toSeq, 1)); labels.append(1)
+    instances.append(("__controller__ mutants induced activatory __controlled__ ( t202 and y204 ) phosphorylation".split(" ").toSeq, 1)); labels.append(1)
+//    instances.append(("".split(" ").toSeq, )); labels.append()
+//    instances.append(("".split(" ").toSeq, )); labels.append()
+//    instances.append(("".split(" ").toSeq, )); labels.append()
+//    instances.append(("".split(" ").toSeq, )); labels.append()
+//    instances.append(("".split(" ").toSeq, )); labels.append()
+    (instances, labels)
+  }
 }
+
+
 
