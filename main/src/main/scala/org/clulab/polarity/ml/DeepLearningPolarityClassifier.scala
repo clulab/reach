@@ -81,6 +81,8 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   val charFwRnnBuilder = new LstmBuilder(NUM_LAYERS, CEM_DIMENSIONS, CEM_DIMENSIONS, pc)
   val charBwRnnBuilder = new LstmBuilder(NUM_LAYERS, CEM_DIMENSIONS, CEM_DIMENSIONS, pc)
 
+  val builderFwd2 = new LstmBuilder(NUM_LAYERS, HIDDEN_SIZE*2, HIDDEN_SIZE, pc)
+  val builderBwd2 = new LstmBuilder(NUM_LAYERS, HIDDEN_SIZE*2, HIDDEN_SIZE, pc)
 
   //val sgd = new SimpleSGDTrainer(pc)
   val sgd = new AdamTrainer(pc)
@@ -357,27 +359,33 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     }
     val inputsBwd = inputsFwd.reverse
 
+    val statesFwd = transduce(inputsFwd, builderFwd).toSeq
+    val statesBwd = transduce(inputsBwd, builderBwd).toSeq.reverse
 
-    val statesFwd = transduce(inputsFwd, builderFwd)
-    val statesBwd = transduce(inputsBwd, builderBwd)
+    val inputsFwd2 = for (idx <- statesFwd.indices) yield concatenate(statesFwd(idx), statesBwd(idx))
+    val inputsBwd2 = inputsFwd2.reverse
 
+    val statesFwd2 = transduce(inputsFwd2, builderFwd2)
+    val statesBwd2 = transduce(inputsBwd2, builderBwd2)
+
+    val selected = concatenate(statesFwd2.last, statesBwd2.last)
 
     // Get the last embedding
-//    val selected = concatenate(statesFwd.last, statesBwd.last)
-//    val feedForwardInput = concatenate(selected, rulePolarity)
+    //val selected = concatenate(statesFwd.last, statesBwd.last)
+    val feedForwardInput = concatenate(selected, rulePolarity)
 
     //val newDim = new Dim(Seq(WEM_DIMENSIONS))
 
-    val statesFwdReshape = for (elem <- statesFwd) yield Expression.reshape(elem, Dim(1, HIDDEN_SIZE))
-    val statesFwdExp = Expression.transpose(concatenate(statesFwdReshape.toVector))
-    val statesFwdMax = Expression.reshape(Expression.kMaxPooling(statesFwdExp, 1), Dim(HIDDEN_SIZE))
-
-    val statesBwdReshape = for (elem <- statesBwd) yield Expression.reshape(elem, Dim(1, HIDDEN_SIZE))
-    val statesBwdExp = Expression.transpose(concatenate(statesBwdReshape.toVector))
-    val statesBwdMax = Expression.reshape(Expression.kMaxPooling(statesBwdExp, 1), Dim(HIDDEN_SIZE))
-
-    val selected = concatenate(statesFwdMax, statesBwdMax)
-    val feedForwardInput = concatenate(selected, rulePolarity)
+//    val statesFwdReshape = for (elem <- statesFwd) yield Expression.reshape(elem, Dim(1, HIDDEN_SIZE))
+//    val statesFwdExp = Expression.transpose(concatenate(statesFwdReshape.toVector))
+//    val statesFwdMax = Expression.reshape(Expression.kMaxPooling(statesFwdExp, 1), Dim(HIDDEN_SIZE))
+//
+//    val statesBwdReshape = for (elem <- statesBwd) yield Expression.reshape(elem, Dim(1, HIDDEN_SIZE))
+//    val statesBwdExp = Expression.transpose(concatenate(statesBwdReshape.toVector))
+//    val statesBwdMax = Expression.reshape(Expression.kMaxPooling(statesBwdExp, 1), Dim(HIDDEN_SIZE))
+//
+//    val selected = concatenate(statesFwdMax, statesBwdMax)
+//    val feedForwardInput = concatenate(selected, rulePolarity)
 
     // Run the FF network for classification
     //Expression.logistic(V * Expression.tanh(W * feedForwardInput + bw)+bv)
