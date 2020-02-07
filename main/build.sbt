@@ -15,7 +15,7 @@ libraryDependencies ++= {
     "org.apache.lucene"    %  "lucene-analyzers-common"  % luceVer,
     "org.apache.lucene"    %  "lucene-queryparser"       % luceVer,
     "org.biopax.paxtools"  %  "paxtools-core"            % "4.3.1",
-    "org.clulab"           %  "bioresources"             % "1.1.26",
+    "org.clulab"           %  "bioresources"             % "1.1.28",
     "org.clulab"          %%  "processors-main"          % procVer,
     "org.clulab"          %%  "processors-corenlp"       % procVer,
     "org.clulab"          %%  "processors-modelsmain"    % procVer,
