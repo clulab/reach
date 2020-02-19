@@ -591,7 +591,7 @@ class FriesOutput extends JsonOutputter with LazyLogging {
       f("trigger") = mention.asInstanceOf[BioEventMention].trigger.text
       f("is-direct") = mention.asInstanceOf[BioEventMention].isDirect
     }
-    f("verbose-text") = cleanVerbose(mention.sentenceObj.getSentenceText)
+    f("verbose-text") = sentenceText(mention) // cleanVerbose(mention.sentenceObj.getSentenceText)
     f("found-by") = mention.foundBy
 
     val evType = mkEventType(mention)
@@ -646,6 +646,18 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     eventList += f                          // add new frame to returned list
   }
 
+  private def sentenceText(mention:BioMention): String = {
+    mention.document.text match {
+      case Some(txt) =>
+        val sentStart = mention.sentenceObj.startOffsets.head
+        val sentEnd = mention.sentenceObj.endOffsets.last
+        return txt.substring(sentStart, sentEnd)
+      case None =>
+        // try to reconstruct the original text from raw tokens (old behavior)
+        // this branch should never be used, as we do preserve the document.text
+        return cleanVerbose(mention.sentenceObj.getSentenceText)
+    }
+  }
 
   /** Create and return a single grounding map. */
   private def makeGrounding (grounding:KBResolution): PropMap = {
