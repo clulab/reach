@@ -24,7 +24,6 @@ rules:
       (/${conjunctions}|${dep}|${objects}|${noun_modifiers}|${genitive_case_marker}|${preps_in$_singleton}/){,2}
     controller:${ controllerType } = </${complements}/? (${agents} | ${passive_voice_subject} | /${passive_agents}/ | </${adjective_clause}|${adverbial_clause}/) /${noun_modifiers}|${conjunctions}|${genitive_case_marker}|${preps_in$_singleton}/{,2}
 
-
 - name: Positive_${ ruleType }_syntax_1a_verb #Added by jmculnan
   priority: ${ priority }
   example: "X restores Y"
@@ -253,7 +252,7 @@ rules:
   example: "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
   action: ${ actionFlow }
   pattern: |
-    @controller:${ controllerType } (?<trigger> [word=/(?i)^(${ triggers })/ & !tag=/^JJ/]) @controlled:${ controlledType }
+    @controller:${ controllerType } (?<trigger> [word=/(?i)^(${ triggers })/ & !tag=/^JJ|^NN/]) @controlled:${ controlledType }
 
 - name: Positive_${ ruleType }_token_1b_verb
   priority: ${ priority }

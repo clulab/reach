@@ -340,4 +340,11 @@ class TestActivationEvents extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent47)
     hasPositiveActivation("vemurafenib", " BRAF", mentions) should be (false)
   }
+
+  val sent50 = "the Rac1 activator TIAM1"
+  sent50 should "contain 1 positive activation event" in {
+    val mentions = getBioMentions(sent50)
+    hasPositiveActivation("Rac1", "TIAM1", mentions) should be(false)
+    hasPositiveActivation("TIAM1", "Rac1", mentions) should be(true)
+  }
 }
