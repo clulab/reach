@@ -33,6 +33,11 @@ rules:
       triggerLemma: "amount|level|quantity"
       priority: "7"
 
+  - import: org/clulab/reach/biogrammar/events/secretion_events.yml
+    vars:
+      triggerLemma: "secret|release|exocyt"
+      priority: "7"
+
   - import: org/clulab/reach/biogrammar/events/hydrolysis_events.yml
     vars:
       priority: "7"
