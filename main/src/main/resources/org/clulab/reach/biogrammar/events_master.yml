@@ -17,6 +17,7 @@ vars:
 rules:
   - import: org/clulab/reach/biogrammar/events/bind_events.yml
     vars:
+      excludeObj: "promoter"
       priority: "7"
 
   - import: org/clulab/reach/biogrammar/events/transcription_events.yml
