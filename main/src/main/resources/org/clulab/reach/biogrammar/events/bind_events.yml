@@ -21,7 +21,7 @@ rules:
   pattern: |
     trigger = [lemma=/bind|associate|ligate/ & tag=/^V/]
     theme1:BioChemicalEntity+ = ${adjective_clause} /${conjunctions}/{,2} | ${agents} /${noun_modifiers}|${conjunctions}/{,2} | </${passive_agents}/{,2} ${agents}
-    theme2:BioChemicalEntity+ = ${objects} [!lemma=/promoter/] /${noun_modifiers}|${conjunctions}/{,2} | /${complements}/? /${preps_general}/
+    theme2:BioChemicalEntity+ = ${objects} [!lemma=/${excludeObj}/] /${noun_modifiers}|${conjunctions}/{,2} | /${complements}/? /${preps_general}/
 
 - name: binding1forms
   label: Binding
@@ -258,7 +258,7 @@ rules:
     trigger = [lemma="bind" & tag=/^V/]
     theme1:BioChemicalEntity+ = (${agents}|</${relative_clause}/) /${genitive_case_marker}|${noun_modifiers}|${conjunctions}/{,2} </${conjunctions}/?
     site:Site? = ${agents} | (${objects} /${preps_general}/) # domain-style pattern
-    theme2:BioChemicalEntity+ = ${objects} [!lemma=/promoter/] /${genitive_case_marker}|${preps_general}|${noun_modifiers}|${conjunctions}/{,2}
+    theme2:BioChemicalEntity+ = ${objects} [!lemma=/${excludeObj}/] /${genitive_case_marker}|${preps_general}|${noun_modifiers}|${conjunctions}/{,2}
 
 # possessive
 - name: binding_syntax_24_noun
