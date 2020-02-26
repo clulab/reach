@@ -571,4 +571,10 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label == "Negative_activation") should have size (1)
   }
 
+  val sent63 = "glucose triggers insulin release"
+  sent63 should "recognize as a secretion" in {
+    val mentions = getBioMentions(sent63)
+    mentions.filter(_.label == "Secretion") should have size (1)
+  }
+
 }
