@@ -1,8 +1,8 @@
 package org.clulab.reach.export.apis.open
 
 import org.clulab.odin._
-import org.clulab.processors.{ Document, ProcessorAnnotator }
-import org.clulab.reach.ProcessorAnnotatorFactory
+import org.clulab.processors.bionlp.BioNLPProcessor
+import org.clulab.processors.{Document, Processor}
 
 import scala.util.Try
 
@@ -10,10 +10,10 @@ import scala.util.Try
   * Create a new Open Domain system engine.
   *   Last Modified: Refactor processor client to processor annotator.
   */
-class OpenSystem (processorAnnotator: Option[ProcessorAnnotator] = None) {
+class OpenSystem (processorAnnotator: Option[Processor] = None) {
 
   // Get desired processor annotator
-  val procAnnotator = processorAnnotator.getOrElse(ProcessorAnnotatorFactory())
+  val procAnnotator = new BioNLPProcessor()
 
   // For the demo, Ruler will provide us with our rules
   var cachedRules: String = ""

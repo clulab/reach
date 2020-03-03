@@ -3,7 +3,7 @@ name := "reach-main"
 libraryDependencies ++= {
   val akkaV = "2.5.4"
   val luceVer = "5.3.1"
-  val procVer = "7.5.3"
+  val procVer = "8.0.0-SNAPSHOT"
 
   Seq(
     "ai.lum"              %%  "nxmlreader"  % "0.0.9",
@@ -18,8 +18,6 @@ libraryDependencies ++= {
     "org.clulab"           %  "bioresources"             % "1.1.28",
     "org.clulab"          %%  "processors-main"          % procVer,
     "org.clulab"          %%  "processors-corenlp"       % procVer,
-    "org.clulab"          %%  "processors-modelsmain"    % procVer,
-    "org.clulab"          %%  "processors-modelscorenlp" % procVer,
     "org.clulab"          %%  "processors-odin"          % procVer,
 
     // logging

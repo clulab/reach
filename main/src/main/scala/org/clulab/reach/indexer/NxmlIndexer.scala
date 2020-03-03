@@ -13,11 +13,10 @@ import org.apache.lucene.document.{Document, Field, StoredField, StringField, Te
 import org.apache.lucene.index.{IndexWriter, IndexWriterConfig}
 import org.apache.lucene.store.FSDirectory
 import org.slf4j.LoggerFactory
-import org.clulab.processors.ProcessorAnnotator
-import org.clulab.reach.ProcessorAnnotatorFactory
 import org.clulab.struct.MutableNumber
 import org.clulab.utils.{Files, StringUtils}
 import NxmlIndexer._
+import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.reach.utils.Preprocess
 
 
@@ -54,7 +53,7 @@ class NxmlIndexer {
     val config = new IndexWriterConfig(analyzer)
     val index = FSDirectory.open(Paths.get(indexDir))
     val writer = new IndexWriter(index, config)
-    val procAnnotator = ProcessorAnnotatorFactory()
+    val procAnnotator = new BioNLPProcessor()
     val preproc = new Preprocess
     count = 0
     var nxmlErrors = 0

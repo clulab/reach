@@ -82,11 +82,6 @@ lazy val export = project
   .settings(commonSettings:_*)
   .dependsOn(main % "test->test;compile->compile", causalAssembly % "test;compile") // need access to assembly/src/resources
 
-lazy val webapp = project
-  .enablePlugins(PlayScala)
-  .aggregate(main)
-  .dependsOn(main)
-
 //
 // publishing settings
 //

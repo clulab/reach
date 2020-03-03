@@ -5,7 +5,7 @@ import org.clulab.odin._
 import org.clulab.reach.mentions._
 
 import scala.collection.mutable
-import org.clulab.processors.{Document, ProcessorAnnotator, Sentence}
+import org.clulab.processors.{Document, Processor, Sentence}
 import org.clulab.reach.utils
 import org.clulab.struct.DirectedGraph
 

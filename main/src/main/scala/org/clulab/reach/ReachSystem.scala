@@ -7,20 +7,21 @@ import com.typesafe.scalalogging.LazyLogging
 import org.clulab.coref.Alias
 import org.clulab.coref.Coref
 import org.clulab.odin._
-import org.clulab.processors.{Document, ProcessorAnnotator}
+import org.clulab.processors.{Document, Processor}
 import org.clulab.reach.context._
 import org.clulab.reach.context.ContextEngineFactory.Engine._
 import org.clulab.reach.darpa.{DarpaActions, HyphenHandle, MentionFilter, NegationHandler, RegulationHandler}
 import org.clulab.reach.grounding._
 import org.clulab.reach.mentions._
 import RuleReader.{Rules, readResource}
+import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.reach.utils.Preprocess
 
 // import org.clulab.reach.utils.MentionManager
 
 class ReachSystem(
   rules: Option[Rules] = None,
-  processorAnnotator: Option[ProcessorAnnotator] = None,
+  processorAnnotator: Option[Processor] = None,
   contextEngineType: Engine = Dummy,
   contextParams: Map[String, String] = Map()
 ) extends LazyLogging {
@@ -46,7 +47,7 @@ class ReachSystem(
   val eventEngine = ExtractorEngine(eventRules, actions, actions.cleanupEvents)
   // initialize processor annotator
   val textPreProc = new Preprocess
-  val procAnnotator = processorAnnotator.getOrElse(ProcessorAnnotatorFactory())
+  val procAnnotator = new BioNLPProcessor()
 
   /** returns string with all rules used by the system */
   def allRules: String =

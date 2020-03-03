@@ -1,14 +1,14 @@
 package org.clulab.reach
 
 import java.io.File
+
 import jline.console.ConsoleReader
 import jline.console.history.FileHistory
 
 import scala.collection.immutable.ListMap
-
 import com.typesafe.config.ConfigFactory
-
-import org.clulab.processors.ProcessorAnnotator
+import org.clulab.processors.Processor
+import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.display._
 
@@ -23,7 +23,7 @@ object ReachShell extends App {
   val contextEngineParams: Map[String, String] = context.createContextEngineParams(contextConfig)
 
   // initialize ReachSystem
-  val procAnnotator = ProcessorAnnotatorFactory(config)
+  val procAnnotator = new BioNLPProcessor()
   var reach = new ReachSystem(processorAnnotator = Some(procAnnotator),
                               contextEngineType = contextEngineType,
                               contextParams = contextEngineParams)
@@ -90,7 +90,6 @@ object ReachShell extends App {
   // manual terminal cleanup
   reader.getTerminal().restore()
   reader.shutdown()
-  procAnnotator.shutdownClient
 
   // functions
 
