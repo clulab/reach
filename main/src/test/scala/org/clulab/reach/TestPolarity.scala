@@ -232,4 +232,5 @@ class TestPolarity extends FlatSpec with Matchers{
 
   val sen59 = """Phosphorylation of AKT at S473 was also increased by BRCA1-KD."""
   sen59 should behave like negativeRegulationBehavior(sen59, "BRCA1-KD", "Phosphorylation", Seq("AKT"), ignored = false)
+
 }
