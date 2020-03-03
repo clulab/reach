@@ -171,10 +171,6 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
       val lemmas_masked = maskEvent(lemmas, event, maskOption)
 
-      println("=======================")
-      println(lemmas.toSeq)
-      println(lemmas_masked.toSeq)
-
       val y_pred:Expression =
         this.synchronized{
           ComputationGraph.renew()
