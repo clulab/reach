@@ -84,7 +84,7 @@ class ReachSystem(
     val entities = extractEntitiesFrom(doc)
     contextEngine.infer(entities)
     val entitiesWithContext = contextEngine.assign(entities)
-    displayEntitySummary(entitiesWithContext, "3")
+    //displayEntitySummary(entitiesWithContext, "after context engine")
 
     val unfilteredEvents = extractEventsFrom(doc, entitiesWithContext)
     logger.debug(s"${unfilteredEvents.size} unfilteredEvents: ${display.summarizeMentions(unfilteredEvents,doc)}")
@@ -163,14 +163,15 @@ class ReachSystem(
   def extractEntitiesFrom(doc: Document): Seq[BioMention] = {
     // extract entities
     val entities = entityEngine.extractByType[BioMention](doc)
-    displayEntitySummary(entities, "1")
+    //displayEntitySummary(entities, "after extractByType")
+
     // attach mutations to entities
     // this step must precede alias search to prevent alias overmatching
     val mutationAddedEntities = entities flatMap {
       case m: BioTextBoundMention => mutationsToMentions(m)
       case m => Seq(m)
     }
-    displayEntitySummary(mutationAddedEntities, "1")
+    //displayEntitySummary(mutationAddedEntities, "after mutationToMentions")
 
     // use aliases to find more entities
     // TODO: attach mutations to these entities as well
