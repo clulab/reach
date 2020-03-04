@@ -47,6 +47,10 @@ class DarpaActions extends Actions with LazyLogging {
     * with a NER label sequence.
     */
   def mkNERMentions(mentions: Seq[Mention], state: State): Seq[Mention] = {
+
+    println(s"in mkNERMentions, found ${mentions.size} entity mentions:")
+    mentions.foreach(m => println(s"\t${m.text} with ${m.label}"))
+
     mentions flatMap { m =>
       val candidates = state.mentionsFor(m.sentence, m.tokenInterval)
       // do any candidates overlap the mention?
