@@ -1,0 +1,33 @@
+FROM reach:latest
+
+# Handle arguments for repo branches, with master as default
+ARG bioresources_branch=master
+ARG processors_branch=master
+ARG reach_branch=master
+
+# Build bioresources off a custom branch
+RUN cd bioresources && \
+    git fetch --all && \
+    git checkout origin/$bioresources_branch && \
+    sbt publishLocal
+
+# Build processors off a custom branch
+RUN export BIORESOURCES_VERSION=$(grep -o '".*"' bioresources/version.sbt | sed 's/"//g') && \
+    cd processors && \
+    git fetch --all && \
+    git checkout origin/$processors_branch && \
+    sed -i 's/"bioresources" % ".*"/"bioresources" % "'$BIORESOURCES_VERSION'"/' corenlp/build.sbt && \
+    sbt +publishLocal
+
+# Build reach off a custom branch
+RUN export BIORESOURCES_VERSION=$(grep -o '".*"' bioresources/version.sbt | sed 's/"//g') && \
+    export PROCESSORS_VERSION=$(grep -o '".*"' processors/version.sbt | sed 's/"//g') && \
+    cd reach && \
+    git fetch --all && \
+    git checkout --track origin/$reach_branch && \
+    sed -i 's/procVer = ".*"/procVer = "'$PROCESSORS_VERSION'"/' main/build.sbt && \
+    sed -i 's/"bioresources".*% ".*"/"bioresources" % "'$BIORESOURCES_VERSION'"/' main/build.sbt #&& \
+    sbt publishLocal
+
+WORKDIR reach
+ENTRYPOINT ./runAllTests.sh
