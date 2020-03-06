@@ -21,6 +21,6 @@ RUN apt-get install -y openjdk-8-jdk && \
 RUN git clone https://github.com/clulab/bioresources.git && \
     cd bioresources && sbt publishLocal && cd .. && \
     git clone https://github.com/clulab/processors.git && \
-    cd processors && sbt publishLocal && cd .. && \
+    cd processors && sbt +publishLocal && cd .. && \
     git clone https://github.com/clulab/reach.git && \
     cd reach && sbt publishLocal
