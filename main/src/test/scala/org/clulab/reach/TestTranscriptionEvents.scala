@@ -58,4 +58,10 @@ class TestTranscriptionEvents extends FlatSpec with Matchers {
     mentions filter (_ matches "ActivationEvent") should have size (0)
   }
 
+  val sent9 = "SRF induces TAZ transcription"
+  sent8 should "contain a Regulation of a Transcription with SRF as the cause" in {
+    val mentions = getBioMentions(sent8)
+    hasEventWithArguments("Transcription", List("TAZ"), mentions) should be (true)
+    hasPositiveRegulationByEntity("SRF", "Transcription", Seq("TAZ"), mentions) should be (true)
+  }
 }
