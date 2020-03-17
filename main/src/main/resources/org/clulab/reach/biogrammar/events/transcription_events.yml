@@ -41,8 +41,8 @@ rules:
   label: Transcription
   pattern: |
     trigger = [word=/(?i)transcription/ & tag=/^N/]
-    theme:BioChemicalEntity = </${objects}/ ${agents} /${genitive_case_marker}/? /${conjunctions}/*
-    cause:BioChemicalEntity? = /${noun_modifiers}/{1,2}
+    theme:BioChemicalEntity? = /${noun_modifiers}/{1,2}
+    cause:BioChemicalEntity = </${objects}/ ${agents} /${genitive_case_marker}/? /${conjunctions}/*
 
 
 - name: transcription_1
