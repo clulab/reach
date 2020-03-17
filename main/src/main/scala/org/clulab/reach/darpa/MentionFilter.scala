@@ -26,9 +26,9 @@ object MentionFilter {
     } yield m1
   }
 
-  def argumentsOverlap(m1: Mention, m2: Mention, argName: String): Boolean = {
-    val m1Themes = m1.arguments.getOrElse(argName, Seq.empty[Mention]).map(_.tokenInterval)
-    val m2Themes = m2.arguments.getOrElse(argName, Seq.empty[Mention]).map(_.tokenInterval)
+  def argumentsOverlap(m1: Mention, m2: Mention): Boolean = {
+    val m1Themes = m1.arguments.getOrElse("theme", Seq.empty[Mention]).map(_.tokenInterval)
+    val m2Themes = m2.arguments.getOrElse("theme", Seq.empty[Mention]).map(_.tokenInterval)
     for (interval <- m1Themes) {
       if (m2Themes.exists(interval2 => interval2.overlaps(interval))) {
         return true
@@ -38,7 +38,7 @@ object MentionFilter {
   }
 
   def getOverlappingMentions(m: Mention, ms: Seq[Mention]): Seq[Mention] = {
-    ms.filter(argumentsOverlap(m, _, "theme"))
+    ms.filter(argumentsOverlap(m, _))
   }
 
   // fixme: make a better name
@@ -83,13 +83,13 @@ object MentionFilter {
     } else false
   }
 
-  // checks incoming rel for the given node (token int)
+  //checks incoming rel for the given node (token int)
   def mkPrev(node: Int, sent: Sentence, graph: DirectedGraph[String]): Seq[Int] = {
     val edges = graph.incomingEdges(node)
     edges.map(_._1).distinct
   }
 
-  // check outgoing rel (rel label, e.g., 'appos')
+  //check outgoing rel (rel label, e.g., 'appos')
   def mkOutgoing(node: Int, sent: Sentence, graph: DirectedGraph[String]): Array[String] = {
     val outgoing = graph.outgoingEdges(node)
     outgoing.map(_._2).distinct
@@ -100,11 +100,10 @@ object MentionFilter {
   def pruneMentions(ms: Seq[CorefMention]): Seq[CorefMention] = {
 
     val (events, nonEvents) = ms.partition(_.isInstanceOf[CorefEventMention])
-    // Remove underspecified EventMentions of near-duplicate groupings
+    // We need to remove underspecified EventMentions of near-duplicate groupings
     // (ex. same phospho, but one is missing a site)
-    val mentionGroupings = events
-      .map(_.asInstanceOf[CorefEventMention])
-      .groupBy(m => (m.trigger, m.label))
+    val mentionGroupings =
+    events.map(_.asInstanceOf[CorefEventMention]).groupBy(m => (m.trigger, m.label))
 
     // remove incomplete mentions
     val completeEventMentions =
@@ -114,22 +113,6 @@ object MentionFilter {
         filteredEMs
       }
     nonEvents ++ completeEventMentions.flatten.toSeq
-  }
-
-  /** When two [[Mention]]s are identical except one has a trigger, keep the one with the trigger */
-  def preferEvents(ms: Seq[BioMention]): Seq[BioMention] = {
-    // keep all TextBoundMentions
-    val (tbms, nonTbms) = ms.partition(_.isInstanceOf[BioTextBoundMention])
-    val keepable = nonTbms
-      // equivalency means they have the same label and arguments
-      .groupBy{ m => (m.label, m.arguments) }
-      .flatMap{
-        case (_, mentions) => {
-          val (rms, evms) = mentions.partition(_.isInstanceOf[BioRelationMention])
-          if (evms.nonEmpty) evms else rms
-        }
-      }
-    tbms ++ keepable
   }
 
   // Removal of incomplete Mentions with special care to Regulations
@@ -144,102 +127,7 @@ object MentionFilter {
       child.modifications = other
     }
 
-    // Ensure regulations' controllers are not included in some other complex
-    def filterByController(regulations: Seq[CorefMention]): Seq[CorefMention] = {
-      // collect all regulation events with a Complex as the controller
-      val regulationsWithComplexAsController = regulations.filter { m =>
-        m.arguments.contains("controller") && m.arguments("controller").head.matches("Complex")
-      }
-      // collect the rest of the regulations
-      val remainingRegulations = regulationsWithComplexAsController match {
-        // if there where no regulations with complex controllers
-        // then all the regulations are remaining
-        case Nil => regulations
-        // get all mentions that have no complex controller
-        // and also have no controller included in a complex
-        case events => regulations diff regulationsWithComplexAsController filter { m =>
-          // maybe m doesn't even have a controller
-          m.arguments.contains("controller") &&
-            !regulationsWithComplexAsController.exists { reg =>
-              // m's controller shouldn't be included in a complex
-              val participants = reg.arguments("controller").head.arguments.get("theme")
-              participants.isDefined && participants.get.contains(m.arguments("controller").head)
-            }
-        }
-      }
-      regulationsWithComplexAsController ++ remainingRegulations
-    }
-
-    def preferRegulations(regulations: Seq[BioMention]): Seq[CorefMention] = {
-      val highestOrderControlled = for {
-        r <- regulations.map(_.toCorefMention)
-      } yield {
-        // check if r is redundant
-        // r is redundant if there's some mention m with the same trigger and controller
-        // but whose controlled's controlled is the same as r's controlled
-        val isRedundant = regulations.exists{ m =>
-          val mControlled = m.arguments("controlled").head
-          ( // both are events with the same trigger
-            (m.isInstanceOf[CorefRelationMention] && r.isInstanceOf[CorefRelationMention]) ||
-              (m.isInstanceOf[CorefEventMention] && r.isInstanceOf[CorefEventMention] &&
-                m.asInstanceOf[CorefEventMention].trigger == r.asInstanceOf[CorefEventMention].trigger)) &&
-            // both mentions have a controller
-            m.arguments.get("controller").isDefined && r.arguments.get("controller").isDefined &&
-            // the controllers are the same
-            m.arguments("controller") == r.arguments("controller") &&
-            // m's controlled is itself a regulation
-            mControlled.matches("Regulation") &&
-            // m's *controlled's* controlleds are the same as r's controlleds
-            mControlled.arguments("controlled") == r.arguments("controlled")
-        }
-        if (isRedundant) None else Some(r)
-      }
-      val highestOrder = for {
-        r <- highestOrderControlled.flatten
-        // r has a controller
-        if r.arguments.keySet contains "controller"
-      } yield {
-        // check if r is redundant
-        // r is redundant if there's an event or tbm m with the same trigger and controlled
-        // but whose controller's controller is the same as r's controlled
-        val isRedundant = regulations.filter(_.arguments.get("controller").isDefined).exists{ m =>
-          val mController = m.arguments("controller").head
-          ( // both are events with the same trigger
-            ((m.isInstanceOf[CorefRelationMention] && r.isInstanceOf[CorefRelationMention]) ||
-              (m.isInstanceOf[CorefEventMention] && r.isInstanceOf[CorefEventMention] &&
-                m.asInstanceOf[CorefEventMention].trigger == r.asInstanceOf[CorefEventMention].trigger)
-              ) &&
-              // the mentions have the same controlled arguments
-              m.arguments("controlled") == r.arguments("controlled") &&
-              // m's controller is a regulation
-              mController.matches("Regulation") &&
-              // m's *controller's* controller is the same as r's controlled
-              mController.arguments("controller") == r.arguments("controlled")
-            ) ||
-            // one is a TextBoundMention
-            (m.arguments("controlled") == r.arguments("controlled") &&
-              mController.matches("Regulation") &&
-              // this is specifically for event controllers converted to PTMs
-              ptmEquivalent(
-                mController.arguments("controlled").head.toCorefMention,
-                r.arguments("controller").head.toCorefMention))
-        }
-        if (isRedundant) None else Some(r)
-      }
-      highestOrder.flatten
-    }
-
-    /** Are these mentions equivalent if one is converted to a [[TextBoundMention]] */
-    def ptmEquivalent(a: CorefMention, b: CorefMention): Boolean = {
-      (a,b) match {
-        case (exactA, exactB) if exactA == exactB => true
-        case (ent: CorefTextBoundMention, ev: CorefEventMention) => DarpaActions.convertEventToEntity(ev) == ent
-        case (ev: CorefEventMention, ent: CorefTextBoundMention) => DarpaActions.convertEventToEntity(ev) == ent
-        case different => false
-      }
-    }
-
-    // keep track of what SimpleEvents to remove from the state
+    // We need to keep track of what SimpleEvents to remove from the state
     // whenever another is used to replace it as a "controlled" arg in a Regulation
     var toRemove = mutable.Set[Mention]()
     // Check each Regulation to see if there are any "more complete" Mentions
@@ -325,12 +213,91 @@ object MentionFilter {
       }
     }
 
-    // Remove equivalent but less preferred Mentions
-    val nonRedundantRegs = preferRegulations(correctedRegulations
+    def filterByController(regulations: Seq[CorefMention]): Seq[CorefMention] = {
+      // collect all regulation events with a Complex as the controller
+      val regulationsWithComplexAsController = regulations.filter { m =>
+        m.arguments.contains("controller") && m.arguments("controller").head.matches("Complex")
+      }
+      // collect the rest of the regulations
+      val remainingRegulations = regulationsWithComplexAsController match {
+        // if there where no regulations with complex controllers
+        // then all the regulations are remaining
+        case Nil => regulations
+        // get all mentions that have no complex controller
+        // and also have no controller included in a complex
+        case events => regulations diff regulationsWithComplexAsController filter { m =>
+          m.arguments.contains("controller") && // maybe m doesn't even have a controller
+            !regulationsWithComplexAsController.exists { reg =>
+              // m's controller shouldn't be included in a complex
+              val participants = reg.arguments("controller").head.arguments.get("theme")
+              participants.isDefined && participants.get.contains(m.arguments("controller").head)
+            }
+        }
+      }
+      regulationsWithComplexAsController ++ remainingRegulations
+    }
+
+    def preferRegulations(regulations: Seq[BioMention]): Seq[CorefMention] = {
+      // the purpose of this method *seems* to be to filter out duplicates. Is that the case?
+      // we can do that pretty easily in assembly...maybe this could be retired/rewritten?
+      val highestOrderControlled = for {
+        r <- regulations.map(_.toCorefMention)
+      } yield {
+        val isRedundant = regulations.exists{ m =>
+          val mctrld = m.arguments("controlled").head
+          ((m.isInstanceOf[CorefRelationMention] && r.isInstanceOf[CorefRelationMention]) ||
+            (m.isInstanceOf[CorefEventMention] && r.isInstanceOf[CorefEventMention] &&
+              m.asInstanceOf[CorefEventMention].trigger == r.asInstanceOf[CorefEventMention].trigger)) &&
+            // ensure both mentions have a controller
+            m.arguments.get("controller").isDefined && r.arguments.get("controller").isDefined &&
+            m.arguments("controller") == r.arguments("controller") &&
+            mctrld.matches("Regulation") &&
+            mctrld.arguments("controlled") == r.arguments("controlled")
+        }
+        if (isRedundant) None else Some(r)
+      }
+      val highestOrder = for {
+        r <- highestOrderControlled.flatten
+        // ensure there is a controller
+        if r.arguments.keySet contains "controller"
+      } yield {
+        val isRedundant = regulations.filter(_.arguments.get("controller").isDefined).exists{ m =>
+          val mctrlr = m.arguments("controller").head
+          ( // Both are events w/ same trigger
+            ((m.isInstanceOf[CorefRelationMention] && r.isInstanceOf[CorefRelationMention]) ||
+              (m.isInstanceOf[CorefEventMention] && r.isInstanceOf[CorefEventMention] &&
+                m.asInstanceOf[CorefEventMention].trigger == r.asInstanceOf[CorefEventMention].trigger)
+              ) &&
+              m.arguments("controlled") == r.arguments("controlled") &&
+              mctrlr.matches("Regulation") &&
+              mctrlr.arguments("controller") == r.arguments("controlled")
+            ) ||
+            // One is a TextBoundMention
+            (m.arguments("controlled") == r.arguments("controlled") &&
+              mctrlr.matches("Regulation") &&
+              // This is specifically for event controllers converted to PTMs
+              ptmEquivalent(mctrlr.arguments("controlled").head.toCorefMention, r.arguments("controller").head.toCorefMention))
+        }
+        if (isRedundant) None else Some(r)
+      }
+      highestOrder.flatten
+    }
+
+    def ptmEquivalent(a: CorefMention, b: CorefMention): Boolean = {
+      (a,b) match {
+        case (exactA, exactB) if exactA == exactB => true
+        case (ent: CorefTextBoundMention, ev: CorefEventMention) => DarpaActions.convertEventToEntity(ev) == ent
+        case (ev: CorefEventMention, ent: CorefTextBoundMention) => DarpaActions.convertEventToEntity(ev) == ent
+        case different => false
+      }
+    }
+
+    val correctedRegs = preferRegulations(correctedRegulations
       .flatten)
       .groupBy(_.arguments("controlled"))
       .values
-      .flatMap(filterByController)
+      .map(filterByController)
+      .flatten
       .toSeq
 
     // Remove any "controlled" Mentions we discarded
@@ -340,7 +307,7 @@ object MentionFilter {
         .map(_.toCorefMention))
     // Convert Regulations to BioMentions
     val cleanRegulations =
-      corefDistinct(nonRedundantRegs
+      corefDistinct(correctedRegs
         .map(_.toCorefMention))
     // We don't want to accidentally filter out any SimpleEvents
     // that are valid arguments to the filtered Regs
@@ -366,12 +333,10 @@ object MentionFilter {
     keepMostCompleteMentions(ms, State(ms))
   }
 
-  /** Filter out "incomplete" events */
+  // Filter out "incomplete" events
   def keepMostCompleteMentions(ms: Seq[BioMention], state: State): Seq[CorefMention] = {
-    // Prefer EventMentions over RelationMentions
-    val eventsWhenPossible = preferEvents(ms)
     // Regulations require special attention
-    val (regulations, other) = eventsWhenPossible.partition(_ matches "Regulation")
+    val (regulations, other) = ms.partition(_ matches "Regulation")
     regulations match {
       case someRegs if someRegs.nonEmpty =>
         val moreComplete = filterRegulations(someRegs, other, state)
