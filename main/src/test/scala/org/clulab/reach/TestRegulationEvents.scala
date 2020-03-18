@@ -577,4 +577,13 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label == "Secretion") should have size (1)
   }
 
+  val sent64 = "SRF induces TAZ transcription"
+  sent64 should "contain an EventMention but no RelationMention" in {
+    val mentions = getBioMentions(sent64)
+    mentions.filter(_.isInstanceOf[BioRelationMention]) should have size (0)
+    mentions.filter(_.isInstanceOf[BioEventMention]) should have size (2)
+    mentions.filter(_.label == "Transcription") should have size (1)
+    mentions.filter(_.label.contains("Positive_regulation")) should have size (1)
+  }
+
 }
