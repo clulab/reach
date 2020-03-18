@@ -710,6 +710,10 @@ object DeepLearningPolarityClassifier {
     Source.fromURL(url, utf8)
   }
 
+  // This main is meant for testing.  Add the lines below to build.sbt, use sbt to
+  // perform assembly, and then have java to call this program to test model access.
+  // mainClass in Compile := Some("org.clulab.polarity.ml.DeepLearningPolarityClassifier")
+  // test in assembly := {}
   def main(args: Array[String]): Unit = {
     val classifier = new DeepLearningPolarityClassifier()
     classifier.save("model.sav")
