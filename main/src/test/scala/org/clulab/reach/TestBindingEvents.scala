@@ -473,4 +473,16 @@ class TestBindingEvents extends FlatSpec with Matchers {
     mentions filter (_ matches "Binding") shouldBe empty
   }
 
+  val sent47 = "RB1 binds the BCL2 promoter"
+  sent47 should "not contain binding events" in {
+    val mentions = getBioMentions(sent47)
+    mentions filter (_ matches "Binding") shouldBe empty
+  }
+
+  val sent48 = "RB1 binds the promoter of BCL2"
+  sent48 should "not contain binding events" in {
+    val mentions = getBioMentions(sent48)
+    mentions filter (_ matches "Binding") shouldBe empty
+  }
+
 }

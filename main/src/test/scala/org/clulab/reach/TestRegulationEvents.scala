@@ -14,6 +14,8 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   sent1 should "have an up-regulated phosphorylation" in {
     val doc = testReach.mkDoc(sent1, "testdoc")
     val mentions = testReach extractFrom doc
+
+
     assert(hasPositiveRegulationByEntity("MAPK", "Phosphorylation", Seq("ASPP2", "MAPK"), mentions))
   }
 
@@ -108,6 +110,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   val sent13 = "The inhibition of ASPP1 increases the phosphorylation of ASPP2."
   sent13 should "contain 1 downregulation and NO upregulation events" in {
     val mentions = getBioMentions(sent13)
+
     hasNegativeRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
     hasPositiveRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (false)
   }
@@ -339,6 +342,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   sent36 should "contain 2 negative regulations (not positive)" in {
     val mentions = getBioMentions(sent36)
     // this tests that we capture amods for elements in the paths; necessary to correctly model semantic negatives
+
     mentions.filter(_.label == "Negative_regulation") should have size (2)
   }
 
@@ -565,6 +569,12 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   sent62 should "recognize depletes as a negative activation" in {
     val mentions = getBioMentions(sent62)
     mentions.filter(_.label == "Negative_activation") should have size (1)
+  }
+
+  val sent63 = "glucose triggers insulin release"
+  sent63 should "recognize as a secretion" in {
+    val mentions = getBioMentions(sent63)
+    mentions.filter(_.label == "Secretion") should have size (1)
   }
 
 }

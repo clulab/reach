@@ -55,3 +55,27 @@ case class Negation(evidence: Mention) extends Modification {
 case class Hypothesis(evidence: Mention) extends Modification{
   val label = "Hypothesis"
 }
+
+case class KDtrigger(evidence: Mention) extends Modification{
+  val label = "KDtrigger"
+}
+
+case class KOtrigger(evidence: Mention) extends Modification{
+  val label = "KOtrigger"
+}
+
+case class DNtrigger(evidence: Mention) extends Modification{
+  val label = "DNtrigger"
+}
+
+case class OEtrigger(evidence: Mention) extends Modification{
+  val label = "OEtrigger"
+}
+
+case class CHEMtrigger(evidence: Mention) extends Modification{
+  val label = "CHEMtrigger"
+}
+
+case class UnassignedTrigger(evidence: Mention) extends Modification{
+  val label = "UnassignedTrigger"
+}

@@ -17,6 +17,7 @@ vars:
 rules:
   - import: org/clulab/reach/biogrammar/events/bind_events.yml
     vars:
+      excludeObj: "promoter"
       priority: "7"
 
   - import: org/clulab/reach/biogrammar/events/transcription_events.yml
@@ -31,6 +32,11 @@ rules:
   - import: org/clulab/reach/biogrammar/events/amount_events.yml
     vars:
       triggerLemma: "amount|level|quantity"
+      priority: "7"
+
+  - import: org/clulab/reach/biogrammar/events/secretion_events.yml
+    vars:
+      triggerLemma: "secret|release|exocyt"
       priority: "7"
 
   - import: org/clulab/reach/biogrammar/events/hydrolysis_events.yml

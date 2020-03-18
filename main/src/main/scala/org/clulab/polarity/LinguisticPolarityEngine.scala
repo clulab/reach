@@ -9,7 +9,8 @@ import org.clulab.utils.DependencyUtils
 object LinguisticPolarityEngine extends PolarityEngine with LazyLogging{
 
   // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
-  private val SEMANTIC_NEGATIVE_PATTERN = "(?i)(^(attenu|block|deactiv|decreas|deficien|degrad|delet|deplet|diminish|disrupt|dominant-negative|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|shRNA|siRNA|slow|starv|suppress|supress|turnover|off)|-KD$)".r
+  // since I need to use this list in other methods, I make it public
+  val SEMANTIC_NEGATIVE_PATTERN = "(?i)(^(attenu|block|deactiv|decreas|deficien|degrad|delet|deplet|diminish|disrupt|dominant-negative|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|shRNA|siRNA|slow|starv|suppress|supress|turnover|off)|-KD$)".r
 
   private val MODIFIER_LABELS = "amod".r
 
@@ -26,6 +27,7 @@ object LinguisticPolarityEngine extends PolarityEngine with LazyLogging{
     * @return Positive or Negative polarity instance
     */
   override def computePolarity(evt: BioEventMention): Polarity = {
+
     if(evt matches "ComplexEvent"){
 
       val trigger = evt.trigger
