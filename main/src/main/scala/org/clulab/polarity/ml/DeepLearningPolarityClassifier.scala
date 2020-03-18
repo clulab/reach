@@ -1,10 +1,12 @@
 package org.clulab.polarity.ml
 
-import java.nio.file.{Files, Paths}
+import java.io.FileNotFoundException
+import java.nio.charset.StandardCharsets
 
 import com.typesafe.config.ConfigFactory
 import edu.cmu.dynet.Expression._
 import edu.cmu.dynet._
+import org.clulab.fatdynet.utils.BaseTextModelLoader
 import org.clulab.fatdynet.utils.CloseableModelSaver
 import org.clulab.fatdynet.utils.Closer.AutoCloser
 import org.clulab.odin.{EventMention, Mention, RelationMention, TextBoundMention}
@@ -13,6 +15,7 @@ import org.clulab.reach.mentions.BioEventMention
 
 import scala.collection.mutable
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
+import scala.io.BufferedSource
 import scala.io.Source
 import scala.util.Random
 
@@ -92,25 +95,35 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   val missing_charVec = new FloatVector(CEM_DIMENSIONS*2)
 
   private var _isFitted = false
-  
-  if (Files.exists(Paths.get(savedModelPath))){
+
+  // The model is loaded here, but it is also save()d later in the program.
+  // The original value for savedModelPath (main/wrc/main/resources/...) indicated
+  // a resource, which happens to be available as a file at development time.
+  // It may not be available as such at runtime, depending on how the program is
+  // deployed.  So, the model needs to be loadable from a resource.  However, it
+  // can only be saved to a file and if that happens, it should be reloaded from
+  // that file.  Therefore, the strategy will be to load from a file if it is
+  // available from a previous save and otherwise load from the resource that
+  // is included with the distribution.  The library functions called here
+  // implement this strategy internally.
+  try {
     logger.info(s"Loading saved model $savedModelPath ...")
-    _isFitted=true
-    val modelLoader = new ModelLoader(savedModelPath)
-    modelLoader.populateModel(pc, "/allParams")
+    BaseTextModelLoader.newTextModelLoader(savedModelPath).autoClose { modelLoader =>
+      modelLoader.populateModel(pc, "/allParams")
+      _isFitted = true
+    }
     logger.info("Loading model finished!")
   }
-  else{
-    logger.info("Could not find specified model. ")
+  catch {
+    case throwable: Throwable =>
+      logger.info(s"Could not load specified model: ${throwable.getMessage}")
   }
-  
-  
 
   /**
     * Trains the classifier. This method is meant to have side effects by fitting the parameters
     *
     * @param trainingPath Training data
-    * @param trainingRatio Ratio of training samples in the dataset
+    * @param trainRatio Ratio of training samples in the dataset
     */
   override def fit(trainingPath:String = spreadsheetPath, trainRatio:Float=0.8.toFloat, saveFlag:Boolean=true): Unit = {
     
@@ -507,12 +520,17 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     this.testSingleEpoch(sens_test, labels_test)
   }
 
-  def readFromSpreadsheet(spreadsheet_path:String, train_ratio:Float, mask_option:String="tag_name"): (Seq[(Seq[String], Int)], Seq[Int], Seq[(Seq[String], Int)], Seq[Int]) ={
+  def readFromSpreadsheet(spreadsheetPath:String, train_ratio:Float, mask_option:String="tag_name"): (Seq[(Seq[String], Int)], Seq[Int], Seq[(Seq[String], Int)], Seq[Int]) ={
     logger.info("Loading data from spreadsheet ...")
     val instances_ = ListBuffer[(Seq[String],Int)]()
     val labels_ = ListBuffer[Int]()
 
-    val bufferedSource = Source.fromFile(spreadsheet_path)
+    // This source is only ever read and never written with this program.  The default value of
+    // spreadsheetPath previously placed the data in a resource (main/src/main/resources/...)
+    // which happened to be available as a file in the development environment.  It will not be
+    // available as such after deployment.  At that time only the resource exists, so the code
+    // has changed from .fromFile to .fromResource.
+    val bufferedSource = DeepLearningPolarityClassifier.sourceFromResource(spreadsheetPath)
     for (line <- bufferedSource.getLines.drop(1)) {
 
       val cols = line.split("\t").map(_.trim)
@@ -672,3 +690,28 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   }
 }
 
+object DeepLearningPolarityClassifier {
+  // This code (utf8, newFileNotFoundException, and sourceFromResource) was taken
+  // from org.clulab.wm.eidos.utils.Sourcer.
+  val utf8: String = StandardCharsets.UTF_8.toString
+
+  def newFileNotFoundException(path: String): FileNotFoundException = {
+    val message1 = path + " (The system cannot find the path specified"
+    val message2 = message1 + (if (path.startsWith("~")) ".  Make sure to not use the tilde (~) character in paths in lieu of the home directory." else "")
+    val message3 = message2 + ")"
+
+    new FileNotFoundException(message3)
+  }
+
+  def sourceFromResource(path: String): BufferedSource = {
+    val url = Option(this.getClass.getResource(path))
+        .getOrElse(throw newFileNotFoundException(path))
+
+    Source.fromURL(url, utf8)
+  }
+
+  def main(args: Array[String]): Unit = {
+    val classifier = new DeepLearningPolarityClassifier()
+    classifier.save("model.sav")
+  }
+}
