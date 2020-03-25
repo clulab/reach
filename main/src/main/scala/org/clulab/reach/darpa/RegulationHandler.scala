@@ -4,6 +4,7 @@ import java.io
 
 import com.typesafe.config.ConfigFactory
 import org.clulab.odin._
+import org.clulab.polarity.ml.DeepLearningPolarityClassifier
 import org.clulab.reach.mentions._
 import org.clulab.struct.Interval
 
@@ -195,7 +196,9 @@ object RegulationHandler {
       config.getString(configPath+".keywords")
     }else {null}
 
-    val regulationKeywordsRaw = Source.fromFile(experimentalRegulationKeywordsFile)
+    // experimentalRegulationKeywordsFile usually points to a file in the resource directory, so it needs to be loaded
+    // as such.  DeepLearningPolarityClassifier is a long ways to go for the method, but it beats copy and paste.
+    val regulationKeywordsRaw = DeepLearningPolarityClassifier.sourceFromResource(experimentalRegulationKeywordsFile)
     val keywordsUni = mutable.Map[String, mutable.ArrayBuffer[String]]()
     val keywordsMulti = mutable.Map[String, mutable.ArrayBuffer[Seq[String]]]()
     for (line <- regulationKeywordsRaw.getLines.drop(1)){
@@ -216,6 +219,7 @@ object RegulationHandler {
 
       }
     }
+    regulationKeywordsRaw.close()
     (keywordsUni, keywordsMulti)
   }
 

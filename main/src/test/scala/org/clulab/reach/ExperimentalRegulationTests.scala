@@ -120,7 +120,7 @@ class ExperimentalRegulationTests extends FlatSpec with Matchers{
 
     /** test for regulation modifications */
     if (ignoredList.contains(lineNum)){
-      index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" ignore {
+      s"$index:\t$sentence" should "contain a mention with a " + regulationType + " modification" ignore {
         val mentions = getBioMentions(sentence).filter(_ matches "Event")
         val reg = mentions.find(_.label == regulationPolarity)
         regulationType match {
@@ -134,7 +134,7 @@ class ExperimentalRegulationTests extends FlatSpec with Matchers{
       }
     }
     else{
-      index+":\t"+sentence should "contain a mention with a " + regulationType + " modification" in {
+      s"$index:\t$sentence" should "contain a mention with a " + regulationType + " modification" in {
         val mentions = getBioMentions(sentence).filter(_ matches "Event")
         val reg = mentions.find(_.label == regulationPolarity)
         regulationType match {
