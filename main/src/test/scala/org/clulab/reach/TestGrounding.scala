@@ -42,4 +42,11 @@ class TestGrounding extends FlatSpec with Matchers {
     tbms(1).grounding should be ('defined)
   }
 
+  val grounding4 = "Nav1.8 binds Cav1.2"
+  grounding4 should "have correct groundings" in {
+    val mentions7 = getBioMentions(grounding4)
+    mentions7(0).grounding.get.id == "Q9Y5Y9"
+    mentions7(1).grounding.get.id == "Q13936"
+  }
+
 }
