@@ -32,6 +32,7 @@ object ReachIMKBMentionLookups {
   val StaticDrug = staticDrugKBML
   // val StaticMetabolite = staticMetaboliteKBML    // Replaced by PubChem
   val StaticProtein = staticProteinKBML
+  val StaticGene = staticGeneKBML
   val StaticProteinComplex = staticProteinComplexKBML
   val StaticProteinFamily0 = staticProteinFamily0KBML
   val StaticProteinFamily = staticProteinFamilyKBML
@@ -157,6 +158,20 @@ object ReachIMKBMentionLookups {
     val metaInfo = new IMKBMetaInfo(
       namespace = "uniprot",
       kbFilename = Some(StaticProteinFilename),
+      baseURI = "http://identifiers.org/uniprot/",
+      resourceId = "MIR:00100164",
+      hasSpeciesInfo = true,
+      isProteinKB = true
+    )
+    val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, ProteinAuxKeyTransforms, DefaultKeyTransforms)
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
+  }
+
+  /** KB accessor to resolve human gene names via static KB. */
+  def staticGeneKBML: IMKBMentionLookup = {
+    val metaInfo = new IMKBMetaInfo(
+      namespace = "uniprot",
+      kbFilename = Some(StaticGeneFilename),
       baseURI = "http://identifiers.org/uniprot/",
       resourceId = "MIR:00100164",
       hasSpeciesInfo = true,
