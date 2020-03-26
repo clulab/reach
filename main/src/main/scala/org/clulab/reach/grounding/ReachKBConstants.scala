@@ -66,6 +66,9 @@ object ReachKBConstants {
 
   /** Filename of the static protein file. */
   val StaticProteinFilename = "uniprot-proteins.tsv.gz"
+  
+  /** Filename for the static human gene fine. */
+  val StaticGeneFilename = "hgnc.tsv.gz"
 
   /** Filename of the static protein family file. */
   val StaticProteinFamilyFilename = "PFAM-families.tsv.gz"
