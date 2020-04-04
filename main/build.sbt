@@ -15,10 +15,9 @@ libraryDependencies ++= {
     "org.apache.lucene"    %  "lucene-analyzers-common"  % luceVer,
     "org.apache.lucene"    %  "lucene-queryparser"       % luceVer,
     "org.biopax.paxtools"  %  "paxtools-core"            % "4.3.1",
-    "org.clulab"           %  "bioresources"             % "1.1.28",
-    "org.clulab"          %%  "processors-main"          % procVer,
     "org.clulab"          %%  "processors-corenlp"       % procVer,
     "org.clulab"          %%  "processors-odin"          % procVer,
+    "org.clulab"          %%  "fatdynet"                 % "0.2.5",
 
     // logging
     "com.typesafe.scala-logging"  %%  "scala-logging"    % "3.7.2",
@@ -32,8 +31,7 @@ libraryDependencies ++= {
 
     // testing
     "org.scalatest"       %%  "scalatest"      % "3.0.1"  % "test",
-    "com.typesafe.akka"   %%  "akka-testkit"   % akkaV    % "test",
-    "org.clulab" %% "fatdynet" % "0.2.5"
+    "com.typesafe.akka"   %%  "akka-testkit"   % akkaV    % "test"
   )
 
 }
