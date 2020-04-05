@@ -71,7 +71,6 @@
               - Generic_entity
               - Simple_chemical
               - Equivalable: #TODO: Better name
-                  - FamilyOrComplex
                   - Family
                   - MacroMolecule:
                       - Protein
