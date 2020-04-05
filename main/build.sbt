@@ -1,5 +1,7 @@
 name := "reach-main"
 
+
+
 libraryDependencies ++= {
   val akkaV = "2.5.4"
   val luceVer = "5.3.1"
@@ -15,6 +17,7 @@ libraryDependencies ++= {
     "org.apache.lucene"    %  "lucene-analyzers-common"  % luceVer,
     "org.apache.lucene"    %  "lucene-queryparser"       % luceVer,
     "org.biopax.paxtools"  %  "paxtools-core"            % "4.3.1",
+    "org.clulab"          %%  "processors-main"          % procVer,
     "org.clulab"          %%  "processors-corenlp"       % procVer,
     "org.clulab"          %%  "processors-odin"          % procVer,
     "org.clulab"          %%  "fatdynet"                 % "0.2.5",
@@ -23,11 +26,6 @@ libraryDependencies ++= {
     "com.typesafe.scala-logging"  %%  "scala-logging"    % "3.7.2",
     "ch.qos.logback"               %  "logback-classic"  % "1.0.10",
     "org.slf4j"                    %  "slf4j-api"        % "1.7.10",
-
-    // AKKA
-    "com.typesafe.akka"   %%  "akka-actor"   % akkaV,
-//  "com.typesafe.akka"   %%  "akka-remote"  % akkaV,
-    "com.typesafe.akka"   %%  "akka-slf4j"   % akkaV,
 
     // testing
     "org.scalatest"       %%  "scalatest"      % "3.0.1"  % "test",

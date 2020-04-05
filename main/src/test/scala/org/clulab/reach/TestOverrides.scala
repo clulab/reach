@@ -167,12 +167,12 @@ class TestOverrides extends FlatSpec with Matchers {
       mentions should have size (ids.size)
     }
 
-    it should s"have labeled all mentions as ${label}" in {
+    it should s"have labeled all mentions as $label in the text $text" in {
       mentions.count(_ matches label) should be (ids.size)
     }
 
     if (displayLabel.isDefined) {
-      it should s"have display labeled all mentions as ${displayLabel}" in {
+      it should s"have display labeled all mentions as $displayLabel" in {
         mentions.count(_.displayLabel == displayLabel.get) should be (ids.size)
       }
     }
