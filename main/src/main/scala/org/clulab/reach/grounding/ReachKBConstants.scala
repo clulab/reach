@@ -61,9 +61,6 @@ object ReachKBConstants {
   /** Filename of the static small molecule (metabolite) file. */
   val StaticMetaboliteFilename = "hmdb.tsv.gz"
 
-  /** Filename of the static protein complex file. */
-  val StaticProteinComplexFilename = "BEcomplexes.tsv.gz"
-
   /** Filename of the static protein file. */
   val StaticProteinFilename = "uniprot-proteins.tsv.gz"
   
@@ -76,9 +73,8 @@ object ReachKBConstants {
   /** Filename of the secondary static protein family file. */
   val StaticProteinFamily2Filename = "ProteinFamilies.tsv.gz"
 
-  /** Filename of the override static protein family file. */
-  val StaticProteinFamily0Filename = "BEfamilies.tsv.gz"
-
+  /** Filename of the static protein family or complex file. */
+  val StaticProteinFamilyOrComplexFilename = "famplex.tsv.gz"
 
   /** Filename of the context species file */
   val ContextSpeciesFilename = "Species.tsv.gz"

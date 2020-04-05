@@ -46,6 +46,7 @@ class ReachEntityLookup {
       case "Complex" | "GENE" | "Gene_or_gene_product" | "Protein" =>
         augmentMention(mention, proteinSeq)
       case "Family" =>  augmentMention(mention, familySeq)
+      case "FamilyOrComplex" => augmentMention(mention, familyOrComplexSeq)
       case "Organ" => augmentMention(mention, organSeq)
       case "Simple_chemical" => augmentMention(mention, chemicalSeq)
       case "Site" => augmentMention(mention, siteSeq)
@@ -106,16 +107,19 @@ class ReachEntityLookup {
   )
 
   val familySeq: KBSearchSequence = extraKBs ++ Seq(
-    StaticProteinFamily0,                   // Bioentities families
     StaticProteinFamily,                    // PFAM families
     StaticProteinFamily2,                   // InterPro families
+    ModelGendProteinAndFamily
+  )
+
+  val familyOrComplexSeq: KBSearchSequence = extraKBs ++ Seq(
+    staticProteinFamilyOrComplex,           // FamPlex families and complexes
     ModelGendProteinAndFamily
   )
 
   val organSeq: KBSearchSequence = extraKBs ++ Seq( ContextOrgan )
 
   val proteinSeq: KBSearchSequence = extraKBs ++ Seq(
-    StaticProteinComplex,                   // Bioentities complexes
     StaticProtein,                          // Uniprot proteins
     StaticGene,
     ModelGendProteinAndFamily

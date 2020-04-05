@@ -33,8 +33,8 @@ object ReachIMKBMentionLookups {
   // val StaticMetabolite = staticMetaboliteKBML    // Replaced by PubChem
   val StaticProtein = staticProteinKBML
   val StaticGene = staticGeneKBML
-  val StaticProteinComplex = staticProteinComplexKBML
-  val StaticProteinFamily0 = staticProteinFamily0KBML
+  val staticProteinFamilyOrComplex = staticProteinFamilyOrComplexKBML
+
   val StaticProteinFamily = staticProteinFamilyKBML
   val StaticProteinFamily2 = staticProteinFamily2KBML
 
@@ -181,19 +181,6 @@ object ReachIMKBMentionLookups {
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
-  /** KB accessor to resolve protein complex names via static KB. */
-  def staticProteinComplexKBML: IMKBMentionLookup = {
-    val metaInfo = new IMKBMetaInfo(
-      namespace = "be",
-      kbFilename = Some(StaticProteinComplexFilename),
-      baseURI = "https://github.com/sorgerlab/bioentities",
-      isProteinKB = true                    // treat complexes as a protein KB
-    )
-    val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, ProteinAuxKeyTransforms, DefaultKeyTransforms)
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
-  }
-
-
   //
   // Protein Family Accessors
   //
@@ -235,11 +222,11 @@ object ReachIMKBMentionLookups {
   }
 
   /** KB accessor to resolve protein family names via static KB. */
-  def staticProteinFamily0KBML: IMKBMentionLookup = {
+  def staticProteinFamilyOrComplexKBML: IMKBMentionLookup = {
     val metaInfo = new IMKBMetaInfo(
       namespace = "be",
-      kbFilename = Some(StaticProteinFamily0Filename),
-      baseURI = "https://github.com/sorgerlab/bioentities",
+      kbFilename = Some(StaticProteinFamilyOrComplexFilename),
+      baseURI = "https://identifiers.org/fplx/",
       isFamilyKB = true
     )
     val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, FamilyAuxKeyTransforms, DefaultKeyTransforms)
