@@ -351,9 +351,9 @@ class IPProtFamKBL extends IMKBLookup {
 // Bioentities Protein Family KB using alternate protein family resolutions
 class BEProtFamKBL extends IMKBLookup {
   val meta = new IMKBMetaInfo(
-    kbFilename = Some(StaticProteinFamily0Filename),
+    kbFilename = Some(StaticProteinFamilyOrComplexFilename),
     namespace = "be",
-    baseURI = "https://github.com/sorgerlab/bioentities",
+    baseURI = "https://identifiers.org/fplx/",
     isFamilyKB = true
   )
   // println(s"BE-KB.metaInfo=${memoryKB.metaInfo}")

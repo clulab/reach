@@ -95,13 +95,27 @@ object ReachIMKBLookups {
     val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, ProteinAuxKeyTransforms, DefaultKeyTransforms)
     new IMKBLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
-
-  /** KB accessor to resolve protein complex names via static KBs with alternate lookups. */
-  def staticProteinComplexKBLookup: IMKBLookup = {
+  
+  /** KB accessor to resolve human gene names via static KB. */
+  def staticGeneKBLookup: IMKBLookup = {
     val metaInfo = new IMKBMetaInfo(
-      namespace = "be",
-      kbFilename = Some(StaticProteinComplexFilename),
-      baseURI = "https://github.com/sorgerlab/bioentities",
+      namespace = "uniprot",
+      kbFilename = Some(StaticGeneFilename),
+      baseURI = "http://identifiers.org/uniprot/",
+      resourceId = "MIR:00100164",
+      hasSpeciesInfo = true,
+      isProteinKB = true
+    )
+    val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, ProteinAuxKeyTransforms, DefaultKeyTransforms)
+    new IMKBLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
+  }
+
+  /** KB accessor to resolve protein family and complex names via static KBs with alternate lookups. */
+  def staticFamilyOrComplexKBLookup: IMKBLookup = {
+    val metaInfo = new IMKBMetaInfo(
+      namespace = "fplx",
+      kbFilename = Some(StaticProteinFamilyOrComplexFilename),
+      baseURI = "https://identifiers.org/fplx/",
       isProteinKB = true
     )
     val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, ProteinAuxKeyTransforms, DefaultKeyTransforms)
@@ -134,17 +148,4 @@ object ReachIMKBLookups {
     val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, FamilyAuxKeyTransforms, DefaultKeyTransforms)
     new IMKBLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
-
-  /** KB lookup to resolve protein family names via static KBs with alternate lookups. */
-  def staticProteinFamily0KBLookup: IMKBLookup = {
-    val metaInfo = new IMKBMetaInfo(
-      namespace = "be",
-      kbFilename = Some(StaticProteinFamily0Filename),
-      baseURI = "https://github.com/sorgerlab/bioentities",
-      isFamilyKB = true
-    )
-    val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, FamilyAuxKeyTransforms, DefaultKeyTransforms)
-    new IMKBLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
-  }
-
 }

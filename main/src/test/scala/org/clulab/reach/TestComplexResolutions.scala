@@ -82,9 +82,9 @@ class TestComplexResolutions extends FlatSpec with Matchers {
 // KB for Protein Complexes. Uses alternate protein lookups.
 class TestComplexKBL extends IMKBLookup {
   val meta = new IMKBMetaInfo(
-    kbFilename = Some(StaticProteinComplexFilename),
+    kbFilename = Some(StaticProteinFamilyOrComplexFilename),
     namespace = "be",
-    baseURI = "https://github.com/sorgerlab/bioentities",
+    baseURI = "https://identifiers.org/fplx/",
     isProteinKB = true
   )
   // println(s"BE-KB.metaInfo=${memoryKB.metaInfo}")
