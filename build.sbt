@@ -57,8 +57,8 @@ lazy val commonSettings = Seq(
 
 lazy val root = (project in file("."))
   .settings(commonSettings: _*)
-  .aggregate(main, causalAssembly, export)
-  .dependsOn(main % "test->test;compile", causalAssembly, export) // so that we can import from the console
+  .aggregate(processors, main, causalAssembly, export)
+  .dependsOn(processors, main % "test->test;compile", causalAssembly, export) // so that we can import from the console
   .settings(
     name := "reach-exe",
     aggregate in test := false,
@@ -71,8 +71,13 @@ lazy val root = (project in file("."))
     assemblyJarName in assembly := s"reach-${version.value}-FAT.jar"
   )
 
+// this stores BioNLPProcessor and its models
+lazy val processors = project
+  .settings(commonSettings:_*)
+
 lazy val main = project
   .settings(commonSettings:_*)
+  .dependsOn(processors % "test->test;compile->compile")
 
 lazy val causalAssembly = project.in(file("assembly"))
   .settings(commonSettings:_*)

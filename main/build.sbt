@@ -1,11 +1,7 @@
 name := "reach-main"
 
-
-
 libraryDependencies ++= {
-  val akkaV = "2.5.4"
   val luceVer = "5.3.1"
-  val procVer = "8.0.0-SNAPSHOT"
 
   Seq(
     "ai.lum"              %%  "nxmlreader"  % "0.0.9",
@@ -17,10 +13,6 @@ libraryDependencies ++= {
     "org.apache.lucene"    %  "lucene-analyzers-common"  % luceVer,
     "org.apache.lucene"    %  "lucene-queryparser"       % luceVer,
     "org.biopax.paxtools"  %  "paxtools-core"            % "4.3.1",
-    "org.clulab"          %%  "processors-main"          % procVer,
-    "org.clulab"          %%  "processors-corenlp"       % procVer,
-    "org.clulab"          %%  "processors-odin"          % procVer,
-    "org.clulab"          %%  "fatdynet"                 % "0.2.5",
 
     // logging
     "com.typesafe.scala-logging"  %%  "scala-logging"    % "3.7.2",
@@ -28,8 +20,7 @@ libraryDependencies ++= {
     "org.slf4j"                    %  "slf4j-api"        % "1.7.10",
 
     // testing
-    "org.scalatest"       %%  "scalatest"      % "3.0.1"  % "test",
-    "com.typesafe.akka"   %%  "akka-testkit"   % akkaV    % "test"
+    "org.scalatest"       %%  "scalatest"      % "3.0.1"  % "test"
   )
 
 }
