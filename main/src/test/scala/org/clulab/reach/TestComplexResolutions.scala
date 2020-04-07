@@ -46,6 +46,7 @@ class TestComplexResolutions extends FlatSpec with Matchers {
   }
 
   // these are now families (or other GGPs), so this should fail now
+  // moved to TestFamilyResolutions
   /*
   "BE-PC resolve" should "work for protein complex Bioentities" in {
     (bePC.resolve("9_1_1")) should be (defined) // first entry

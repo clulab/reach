@@ -252,7 +252,7 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
     (bePF.resolve("IKappaB kinase")) should be (defined)
     (bePF.resolve("IkappaB kinase")) should be (defined)
     (bePF.resolve("IKK")) should be (defined)
-    (bePF.resolve("IKK_family")) should be (defined)
+    //(bePF.resolve("IKK_family")) should be (defined)
     (bePF.resolve("inhibin")) should be (defined)
     //(bePF.resolve("Sulfonylurea_receptor")) should be (defined)
     (bePF.resolve("VEGF")) should be (defined)
@@ -300,10 +300,11 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
     (bePF.resolve("erk-1/2 family")) should be (defined)
     (bePF.resolve("IkappaB kinase family")) should be (defined)
     (bePF.resolve("inhibin family")) should be (defined)
-    (bePF.resolve("Sulfonylurea_receptor family")) should be (defined)
+    //(bePF.resolve("Sulfonylurea_receptor family")) should be (defined)
     (bePF.resolve("WNT family")) should be (defined)
   }
 
+  /* // TODO: enable these back when Family and Complex become GGP
   "BE-PF resolve" should "work for protein complexes despite NER override" in {
     // in NER Override only:
     (bePF.resolve("ACOX")) should be (defined)
@@ -313,12 +314,13 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
     (bePF.resolve("COX6A")) should be (defined)
     (bePF.resolve("COX6B")) should be (defined)
     (bePF.resolve("COX8")) should be (defined)
-    (bePF.resolve("CRISP")) should be (defined)
+    //(bePF.resolve("CRISP")) should be (defined)
     (bePF.resolve("MAF")) should be (defined)
-    (bePF.resolve("NOTCH")) should be (defined)
+    //(bePF.resolve("NOTCH")) should be (defined)
     (bePF.resolve("PKI")) should be (defined)
     (bePF.resolve("RAS")) should be (defined)
   }
+  */
 
   "BE-PF family resolve" should "fail for protein complex Bioentities" in {
     // Complexes, not families:
@@ -330,6 +332,15 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
     (bePF.resolve("PI3K")) should be (defined)
   }
 
+  // moved from TestComplexResolutions
+  "BE-PF family resolve" should "work for entities that used to be complexes" in {
+    bePF.resolve("AMPK") should be (defined)
+    bePF.resolve("NF-kappaB") should be (defined)
+    bePF.resolve("NFkappaB") should be (defined)
+    bePF.resolve("PI3-kinase") should be (defined)
+    bePF.resolve("pi3-kinase") should be (defined)
+    bePF.resolve("TORC1") should be (defined)
+  }
 }
 
 
