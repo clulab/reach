@@ -45,6 +45,8 @@ class TestComplexResolutions extends FlatSpec with Matchers {
     (bePC.resolve("zyx-1 family")) should be (empty)
   }
 
+  // these are all families, so this should fail now
+  /*
   "BE-PC resolve" should "work for protein complex Bioentities" in {
     (bePC.resolve("9_1_1")) should be (defined) // first entry
     (bePC.resolve("Activin_A")) should be (defined)
@@ -70,6 +72,7 @@ class TestComplexResolutions extends FlatSpec with Matchers {
     (bePC.resolve("TORC1")) should be (defined) // last entry
     (bePC.resolve("TORC-1")) should be (defined)
   }
+  */
 
   "BE-PC resolve" should "fail for protein complex Bioentities" in {
     (bePC.resolve("AMPK-alpha1")) should be (empty) // GGP
