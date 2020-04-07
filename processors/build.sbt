@@ -1,7 +1,7 @@
 name := "reach-processors"
 
 libraryDependencies ++= {
-  val procVer = "8.0.0-SNAPSHOT"
+  val procVer = "8.0.1"
 
   Seq(
     "com.typesafe"         %  "config"      % "1.3.1",
@@ -9,7 +9,7 @@ libraryDependencies ++= {
     "org.clulab"          %%  "processors-main"          % procVer,
     "org.clulab"          %%  "processors-corenlp"       % procVer,
     "org.clulab"          %%  "processors-odin"          % procVer,
-    "org.clulab"           %  "bioresources"             % "1.1.30-SNAPSHOT", 
+    "org.clulab"           %  "bioresources"             % "1.1.30", 
     "org.clulab"          %%  "fatdynet"                 % "0.2.5",
 
     // logging

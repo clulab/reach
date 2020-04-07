@@ -5,7 +5,7 @@ import java.io.PrintWriter
 import scala.io.Source._
 
 /**
-  * Makes sure that POS tags for parens follow the Treebank conventions (they do
+  * Makes sure that POS tags for parens follow the Treebank conventions
   */
 object CleanParenPOSTags {
   val WORD_POSITION = 0

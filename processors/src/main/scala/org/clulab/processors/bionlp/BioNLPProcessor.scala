@@ -6,7 +6,6 @@ import org.clulab.processors.Document
 import org.clulab.processors.corenlp.CoreNLPProcessor
 import edu.stanford.nlp.ling.CoreAnnotations.{SentencesAnnotation, TokensAnnotation}
 import edu.stanford.nlp.pipeline.Annotation
-import org.clulab.processors.bio.{BioNERPostProcessor, BioTokenizerPostProcessor}
 
 import scala.collection.JavaConverters._
 

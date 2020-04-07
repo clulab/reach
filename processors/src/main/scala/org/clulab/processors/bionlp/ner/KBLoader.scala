@@ -2,12 +2,12 @@ package org.clulab.processors.bionlp.ner
 
 import com.typesafe.config._
 import ai.lum.common.ConfigUtils._
-import org.clulab.processors.bio.{BioLexicalVariations, BioLexiconEntityValidator}
 import org.clulab.sequences.LexiconNER
 import org.slf4j.LoggerFactory
 import java.io._
-import java.util.zip.{GZIPInputStream, GZIPOutputStream}
+import java.util.zip.GZIPOutputStream
 
+import org.clulab.processors.bionlp.{BioLexicalVariations, BioLexiconEntityValidator}
 import org.clulab.utils.Files
 
 class KBLoader

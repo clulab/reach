@@ -1,15 +1,15 @@
-package org.clulab.processors.bio
+package org.clulab.processors.bionlp
 
 import java.util.regex.Pattern
 
 import org.clulab.processors.Sentence
+import org.clulab.processors.bionlp.BioNERPostProcessor._
 import org.clulab.processors.clu.SentencePostProcessor
+import org.clulab.sequences.LexiconNER
 import org.clulab.struct.MutableNumber
 import org.clulab.utils.Files.loadStreamFromClasspath
 
 import scala.collection.mutable
-import BioNERPostProcessor._
-import org.clulab.sequences.LexiconNER
 
 /**
   *

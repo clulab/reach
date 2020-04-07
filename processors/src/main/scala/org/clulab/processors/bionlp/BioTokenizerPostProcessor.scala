@@ -1,8 +1,8 @@
-package org.clulab.processors.bio
+package org.clulab.processors.bionlp
 
 import java.util.regex.Pattern
 
-import BioTokenizerPostProcessor._
+import org.clulab.processors.bionlp.BioTokenizerPostProcessor._
 import org.clulab.processors.clu.tokenizer.{RawToken, TokenizerStep}
 import org.clulab.struct.MutableNumber
 import org.clulab.utils.Files._

@@ -1,8 +1,8 @@
-package org.clulab.processors.bio
+package org.clulab.processors.bionlp
 
 import java.util.regex.Pattern
 
-import org.clulab.processors.bio.BioLexicalVariations._
+import org.clulab.processors.bionlp.BioLexicalVariations._
 import org.clulab.sequences.LexicalVariations
 
 import scala.collection.mutable
