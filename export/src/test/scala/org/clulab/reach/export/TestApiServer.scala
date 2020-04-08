@@ -75,37 +75,6 @@ class TestApiServer extends WordSpec
       }
     }
 
-    "GET text, CSV output" in {
-      Get("/api/text?text=ZZZ4%20phosphorylates%20ATM%20&output=csv") ~> route ~> check {
-        status should equal(StatusCodes.OK)
-        val resp = responseAs[HttpResponse]
-        (resp) should not be (null)
-        val entity = resp.entity
-        // logger.info(s"resp.entity=${entity}") // DEBUGGING
-        (resp.entity) should not be (null)
-        contentType should equal(ContentTypes.`text/csv(UTF-8)`)
-        val entLen = entity.getContentLengthOption.orElse(-1L)
-        // logger.info(s"entity.length=${entLen}") // DEBUGGING
-        (entLen > 200) should be (true)
-      }
-    }
-
-    "GET text, CMU output" in {
-      Get("/api/text?text=ZZZ4%20phosphorylates%20ATM%20&output=cmu") ~> route ~> check {
-        status should equal(StatusCodes.OK)
-        val resp = responseAs[HttpResponse]
-        (resp) should not be (null)
-        val entity = resp.entity
-        // logger.info(s"resp.entity=${entity}") // DEBUGGING
-        (resp.entity) should not be (null)
-        contentType should equal(ContentTypes.`text/csv(UTF-8)`)
-        val entLen = entity.getContentLengthOption.orElse(-1L)
-        // logger.info(s"entity.length=${entLen}") // DEBUGGING
-        (entLen > 200) should be (true)
-      }
-    }
-
-
     "GET HTML file" in {
       Get("/") ~> route ~> check {
         status should equal(StatusCodes.OK)
@@ -163,22 +132,6 @@ class TestApiServer extends WordSpec
       }
     }
 
-    "POST text, csv output" in {
-      Post("/api/text?text=akt1%20dephosphorylates%20mek1&output=csv") ~> route ~> check {
-        status should equal(StatusCodes.OK)
-        val resp = responseAs[HttpResponse]
-        (resp) should not be (null)
-        val entity = resp.entity
-        // logger.info(s"resp.entity=${entity}") // DEBUGGING
-        (resp.entity) should not be (null)
-        contentType should equal(ContentTypes.`text/csv(UTF-8)`)
-        val entLen = entity.getContentLengthOption.orElse(-1L)
-        // logger.info(s"entity.length=${entLen}") // DEBUGGING
-        (entLen > 200) should be (true)
-      }
-    }
-
-
     "POST text, args in body, default output" in {
       Post("/api/textBody",
         FormData(
@@ -196,26 +149,6 @@ class TestApiServer extends WordSpec
         (entLen > 200) should be (true)
       }
     }
-
-    "POST text, args in body, csv output" in {
-      Post("/api/textBody",
-        FormData(
-          "output" -> "csv",
-          "text" -> "The AICAR molecule increases TBC1D1 phosphorylation.")) ~> route ~> check
-      {
-        status should equal(StatusCodes.OK)
-        val resp = responseAs[HttpResponse]
-        (resp) should not be (null)
-        val entity = resp.entity
-        // logger.info(s"resp.entity=${entity}") // DEBUGGING
-        (resp.entity) should not be (null)
-        contentType should equal(ContentTypes.`text/csv(UTF-8)`)
-        val entLen = entity.getContentLengthOption.orElse(-1L)
-        // logger.info(s"entity.length=${entLen}") // DEBUGGING
-        (entLen > 200) should be (true)
-      }
-    }
-
 
     "POST upload text, default output" in {
       val mpForm = Multipart.FormData(
@@ -238,57 +171,6 @@ class TestApiServer extends WordSpec
       }
     }
 
-    "POST upload text, csv output" in {
-      val mpForm = Multipart.FormData(
-        Multipart.FormData.BodyPart.Strict(
-          "file",
-          HttpEntity(ContentTypes.`text/plain(UTF-8)`, "akt1 ubiquitinates mek1"),
-          Map("filename" -> "test.txt")),
-        Multipart.FormData.BodyPart.Strict(
-          "output",
-          HttpEntity(ContentTypes.`text/plain(UTF-8)`, "csv"))
-      )
-
-      Post("/api/uploadFile", mpForm) ~> route ~> check {
-        status should equal(StatusCodes.OK)
-        val resp = responseAs[HttpResponse]
-        (resp) should not be (null)
-        val entity = resp.entity
-        // logger.info(s"resp.entity=${entity}") // DEBUGGING
-        (resp.entity) should not be (null)
-        contentType should equal(ContentTypes.`text/csv(UTF-8)`)
-        val entLen = entity.getContentLengthOption.orElse(-1L)
-        // logger.info(s"entity.length=${entLen}") // DEBUGGING
-        (entLen > 200) should be (true)
-      }
-    }
-
-    "POST upload text, CMU output" in {
-      val mpForm = Multipart.FormData(
-        Multipart.FormData.BodyPart.Strict(
-          "file",
-          HttpEntity(ContentTypes.`text/plain(UTF-8)`, "akt1 ubiquitinates mek1"),
-          Map("filename" -> "test.txt")),
-        Multipart.FormData.BodyPart.Strict(
-          "output",
-          HttpEntity(ContentTypes.`text/plain(UTF-8)`, "cmu"))
-      )
-
-      Post("/api/uploadFile", mpForm) ~> route ~> check {
-        status should equal(StatusCodes.OK)
-        val resp = responseAs[HttpResponse]
-        (resp) should not be (null)
-        val entity = resp.entity
-        // logger.info(s"resp.entity=${entity}") // DEBUGGING
-        (resp.entity) should not be (null)
-        contentType should equal(ContentTypes.`text/csv(UTF-8)`)
-        val entLen = entity.getContentLengthOption.orElse(-1L)
-        // logger.info(s"entity.length=${entLen}") // DEBUGGING
-        (entLen > 200) should be (true)
-      }
-    }
-
-
     "POST upload nxml, default output" in {
       val mpForm = Multipart.FormData(
         Multipart.FormData.BodyPart.Strict(
@@ -308,55 +190,6 @@ class TestApiServer extends WordSpec
         (entLen > 200) should be (true)
       }
     }
-
-    "POST upload nxml, csv output" in {
-      val mpForm = Multipart.FormData(
-        Multipart.FormData.BodyPart.Strict(
-          "file",
-          HttpEntity(ContentTypes.`text/plain(UTF-8)`, nxmlIn),
-          Map("filename" -> "test.nxml")),
-        Multipart.FormData.BodyPart.Strict(
-          "output",
-          HttpEntity(ContentTypes.`text/plain(UTF-8)`, "csv"))
-      )
-
-      Post("/api/uploadFile", mpForm) ~> route ~> check {
-        val resp = responseAs[HttpResponse]
-        (resp) should not be (null)
-        val entity = resp.entity
-        // logger.info(s"resp.entity=${entity}") // DEBUGGING
-        (resp.entity) should not be (null)
-        contentType should equal(ContentTypes.`text/csv(UTF-8)`)
-        val entLen = entity.getContentLengthOption.orElse(-1L)
-        // logger.info(s"entity.length=${entLen}") // DEBUGGING
-        (entLen > 200) should be (true)
-      }
-    }
-
-    "POST upload nxml, CMU output" in {
-      val mpForm = Multipart.FormData(
-        Multipart.FormData.BodyPart.Strict(
-          "file",
-          HttpEntity(ContentTypes.`text/plain(UTF-8)`, nxmlIn),
-          Map("filename" -> "test.nxml")),
-        Multipart.FormData.BodyPart.Strict(
-          "output",
-          HttpEntity(ContentTypes.`text/plain(UTF-8)`, "cmu"))
-      )
-
-      Post("/api/uploadFile", mpForm) ~> route ~> check {
-        val resp = responseAs[HttpResponse]
-        (resp) should not be (null)
-        val entity = resp.entity
-        // logger.info(s"resp.entity=${entity}") // DEBUGGING
-        (resp.entity) should not be (null)
-        contentType should equal(ContentTypes.`text/csv(UTF-8)`)
-        val entLen = entity.getContentLengthOption.orElse(-1L)
-        // logger.info(s"entity.length=${entLen}") // DEBUGGING
-        (entLen > 200) should be (true)
-      }
-    }
-
 
     "POST shutdown" in {
       Post("/shutdown") ~> route ~> check {

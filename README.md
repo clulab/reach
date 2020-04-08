@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/clulab/reach.svg?branch=master)](https://travis-ci.org/clulab/reach)
-[![Gitter](https://badges.gitter.im/clulab/reach.svg)](https://gitter.im/clulab/reach?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.clulab/reach_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.clulab/reach_2.11)
 
 Reach
@@ -108,53 +107,6 @@ runReachShell.sh
 ```
 
 At the shell prompt enter `:help` to get a list of available commands.
-
-## The sieve-based assembly system
-Reach now provides a sieve-based system for assembly of event mentions.  While still under development, the system currently has support for (1) exact deduplication for both entity and event mentions, (2) unification of mentions through coreference resolution, and (3) the reporting of intra and inter-sentence causal precedence relations (ex. A causally precedes B) using linguistic features, and (4) a feature-based classifier for causal precedence.  Future versions will include additional sieves for causal precedence and improved approximate deduplication.
-
-For more details on the sieve-based assembly system, please refer to the following paper:
-
-```
-@inproceedings{GHP+:2016aa,
-  author       = {Gus Hahn-Powell and
-Dane Bell and
-Marco A. Valenzuela-Esc\'{a}rcega and Mihai Surdeanu},
-  title        = {This before That: Causal Precedence in the Biomedical Domain},
-  booktitle    = {Proceedings of the 2016 Workshop on Biomedical Natural Language Processing},
-  organization = {Association for Computational Linguistics}
-  year         = {2016}
-  Note         = {Paper available at \url{https://arxiv.org/abs/1606.08089}}
-}
-```
-
-The sieve-based assembly system can be run over a directory of `.nxml` and/or `.csv` files:
- ```scala
- sbt "runMain org.clulab.reach.RunReachCLI"
- ```
-
-In `src/main/resources/application.conf`, you will need to...
-
-1. set `outputTypes` to `["assembly-tsv"]`
-2. set your input directory of papers via `papersDir`
-3. set your output directory via `outDir`
-
-Currently, two `.tsv` files are produced for assembly results **within** each paper:
-
-1. results meeting [MITRE's (March 2016) requirements](https://github.com/clulab/reach/blob/3d4f82c87f1b4c7299ff2ceae8adc352212bd430/src/main/scala/org/clulab/assembly/AssemblyExporter.scala#L337-L352)
-2. results without MITRE's constraints
-
-Two additional output files are produced for assembly results **across** all papers:
-
-1. results meeting [MITRE's (March 2016) requirements](https://github.com/clulab/reach/blob/3d4f82c87f1b4c7299ff2ceae8adc352212bd430/src/main/scala/org/clulab/assembly/AssemblyExporter.scala#L337-L352)
-2. results without MITRE's constraints
-
-### The interactive Assembly shell
-
-You can run interactively explore assembly output for various snippets of text using the assembly shell:
-
-```scala
-sbt "runMain org.clulab.assembly.AssemblyShell"
-```
 
 # Modifying the code
 Reach builds upon our Odin event extraction framework. If you want to modify event and entity grammars, please refer to [Odin's Wiki](https://github.com/sistanlp/processors/wiki/ODIN-(Open-Domain-INformer)) page for details. Please read the included Odin manual for details on the rule language and the Odin API.
