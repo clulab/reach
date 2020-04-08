@@ -284,7 +284,7 @@ class TestProteinResolutions extends FlatSpec with Matchers {
 
     (imkbP.resolveBySpecies("zyx-1", Set("caenorhabditis elegans", "ant"))) should be (defined)
     (imkbP.resolveBySpecies("zyx-1", Set("ant", "caenorhabditis elegans"))) should be (defined)
-    (imkbP.resolveBySpecies("zyx-1", Set("ant", "caenorhabditis elegans")).get) should have size 2
+    (imkbP.resolveBySpecies("zyx-1", Set("ant", "caenorhabditis elegans")).get) should have size 3
   }
 
   "ProteinKBL resolveBySpecies" should "work via protein domain lookup" in {

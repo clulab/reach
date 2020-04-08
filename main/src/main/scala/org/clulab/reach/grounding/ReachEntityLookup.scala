@@ -106,17 +106,17 @@ class ReachEntityLookup {
   )
 
   val familySeq: KBSearchSequence = extraKBs ++ Seq(
-    StaticProteinFamily0,                   // Bioentities families
     StaticProteinFamily,                    // PFAM families
     StaticProteinFamily2,                   // InterPro families
+    staticProteinFamilyOrComplex,           // FamPlex families and complexes
     ModelGendProteinAndFamily
   )
 
   val organSeq: KBSearchSequence = extraKBs ++ Seq( ContextOrgan )
 
   val proteinSeq: KBSearchSequence = extraKBs ++ Seq(
-    StaticProteinComplex,                   // Bioentities complexes
     StaticProtein,                          // Uniprot proteins
+    StaticGene,
     ModelGendProteinAndFamily
   )
 

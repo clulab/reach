@@ -45,31 +45,35 @@ class TestComplexResolutions extends FlatSpec with Matchers {
     (bePC.resolve("zyx-1 family")) should be (empty)
   }
 
+  // these are now families (or other GGPs), so this should fail now
+  // moved to TestFamilyResolutions
+  /*
   "BE-PC resolve" should "work for protein complex Bioentities" in {
     (bePC.resolve("9_1_1")) should be (defined) // first entry
     (bePC.resolve("Activin_A")) should be (defined)
     (bePC.resolve("activin_a")) should be (defined)
     (bePC.resolve("Activin_AB")) should be (defined)
-    (bePC.resolve("AMPK")) should be (defined)
+    (bePC.resolve("AMPK")) should be (defined) // now family
     (bePC.resolve("AMPK_A2B2G2")) should be (defined)
     (bePC.resolve("COX")) should be (defined)
     (bePC.resolve("Cox")) should be (defined)
     (bePC.resolve("cox")) should be (defined)
-    (bePC.resolve("NF-kappaB")) should be (defined)
+    (bePC.resolve("NF-kappaB")) should be (defined) // now family
     (bePC.resolve("NFkappaB")) should be (defined)
     (bePC.resolve("PI")) should be (defined)
     (bePC.resolve("PI-3")) should be (defined)
     (bePC.resolve("pi-3")) should be (defined)
     (bePC.resolve("PI 3")) should be (defined)
-    (bePC.resolve("PI3-kinase")) should be (defined)
+    (bePC.resolve("PI3-kinase")) should be (defined) // now family
     (bePC.resolve("pi3-kinase")) should be (defined)
     (bePC.resolve("PI3K")) should be (defined)
     (bePC.resolve("PI3Kinase")) should be (defined)
     (bePC.resolve("PI3 kinase")) should be (defined)
     (bePC.resolve("pi3 kinase")) should be (defined)
-    (bePC.resolve("TORC1")) should be (defined) // last entry
+    (bePC.resolve("TORC1")) should be (defined) // last entry // now family
     (bePC.resolve("TORC-1")) should be (defined)
   }
+  */
 
   "BE-PC resolve" should "fail for protein complex Bioentities" in {
     (bePC.resolve("AMPK-alpha1")) should be (empty) // GGP
@@ -82,9 +86,9 @@ class TestComplexResolutions extends FlatSpec with Matchers {
 // KB for Protein Complexes. Uses alternate protein lookups.
 class TestComplexKBL extends IMKBLookup {
   val meta = new IMKBMetaInfo(
-    kbFilename = Some(StaticProteinComplexFilename),
+    kbFilename = Some(StaticProteinFamilyOrComplexFilename),
     namespace = "be",
-    baseURI = "https://github.com/sorgerlab/bioentities",
+    baseURI = "https://identifiers.org/fplx/",
     isProteinKB = true
   )
   // println(s"BE-KB.metaInfo=${memoryKB.metaInfo}")

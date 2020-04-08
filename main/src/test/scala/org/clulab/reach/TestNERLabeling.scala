@@ -44,9 +44,9 @@ class TestNERLabeling extends FlatSpec with Matchers {
   cellLine should "have CellLine label" in {
     val mentions = getBioMentions(cellLine)
     mentions should not be (empty)
-    // printMentions(Try(mentions), true)      // DEBUGGING
+    //printMentions(Try(mentions), true)      // DEBUGGING
     mentions should have size 5
-    mentions.count(_ matches "CellLine") should be (5)
+    mentions.count(_ matches "CellLine") should be (4) // "mast" is a protein
   }
 
   cellType should "have CellType label" in {

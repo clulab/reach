@@ -5,6 +5,7 @@ import java.io.File
 import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
 import org.clulab.odin._
 import org.clulab.processors.Document
+import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.reach.mentions._
 import org.clulab.reach.utils.MentionManager
 
@@ -19,7 +20,7 @@ import scala.util.Try
 object TestUtils {
 
   // get a new or current instance of a processor annotator
-  val procAnnotator = ProcessorAnnotatorFactory()
+  val procAnnotator = new BioNLPProcessor()
 
   // Inner object that contains the annotations to test context
   object Context{

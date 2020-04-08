@@ -12,13 +12,12 @@ import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.FilenameUtils
 import ai.lum.common.FileUtils._
 import org.clulab.odin._
-import org.clulab.processors.ProcessorAnnotator
-import org.clulab.processors.csshare.ProcessorCSController
+import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.utils.{DSVParser, Preprocess}
 import org.clulab.utils.Serializer
 
-object PaperReader extends ProcessorCSController with LazyLogging {
+object PaperReader extends LazyLogging {
 
   type PaperId = String
   type Dataset = Map[PaperId, Vector[Mention]]
@@ -39,7 +38,7 @@ object PaperReader extends ProcessorCSController with LazyLogging {
     context.createContextEngineParams(contextConfig)
 
   // initialize ReachSystem
-  val procAnnotator = ProcessorAnnotatorFactory(config)
+  val procAnnotator = new BioNLPProcessor()
   val preproc = new Preprocess
   lazy val reachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
                                          contextEngineType = contextEngineType,
@@ -48,21 +47,6 @@ object PaperReader extends ProcessorCSController with LazyLogging {
   // systems for reading papers
   val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
   val dsvReader = new DSVParser()
-
-
-  /** Shutdown the processor client used by this object. Ignored if not using a client/server. */
-  override def shutdownClient: Unit = procAnnotator.shutdownClient
-
-  /** Shutdown the processor server AND client. Ignored if not using a client/server. */
-  override def shutdownClientServer: Unit = {
-    this.shutdownServer
-    this.shutdownClient
-  }
-
-  /** Shutdown the processor server remotely: should kill all actors and then the server.
-      Ignored if not using a client/server. */
-  override def shutdownServer: Unit = procAnnotator.shutdownServer
-
 
   /**
    * Produces Dataset from a directory of nxml and csv papers

@@ -319,6 +319,4 @@ object RunReachCLI extends App with LazyLogging {
   )
 
   cli.processPapers(Some(threadLimit), withAssembly)
-
-  PaperReader.shutdownClientServer          // shutdown the client and server
 }
