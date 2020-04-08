@@ -1,11 +1,9 @@
 package org.clulab.reach
 
-import scala.util.Try
 
 import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
 
-import org.clulab.reach.mentions._
 import org.clulab.reach.grounding._
 import org.clulab.reach.grounding.ReachKBConstants._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
@@ -236,7 +234,6 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
     //(bePF.resolve("AMPK alpha")) should be (defined)
     //(bePF.resolve("ampk Alpha")) should be (defined)
     //(bePF.resolve("Death_receptor")) should be (defined)
-    //(bePF.resolve("death receptor")) should be (defined)
     (bePF.resolve("ERK")) should be (defined)
     (bePF.resolve("Erk")) should be (defined)
     (bePF.resolve("erk")) should be (defined)
@@ -340,6 +337,11 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
     bePF.resolve("PI3-kinase") should be (defined)
     bePF.resolve("pi3-kinase") should be (defined)
     bePF.resolve("TORC1") should be (defined)
+  }
+
+  // sanity check
+  it should "resolve family names that are multi words in lower case" in {
+    bePF.resolve("death receptor") should be (defined)
   }
 }
 
