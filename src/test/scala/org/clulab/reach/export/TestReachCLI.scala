@@ -31,14 +31,14 @@ class TestReachCLI extends FlatSpec with Matchers {
   "ReachCLI" should "output TEXT and FRIES correctly on NXML papers without assembly" in {
     println(s"Will output TEXT and FRIES output in directory ${comboDir.getAbsolutePath}")
     val cli = new ReachCLI(papersDir = nxmlDir, outputDir = comboDir, outputFormats = Seq("text", "fries"))
-    val errorCount = cli.processPapers(threadLimit = nThreads, withAssembly = false)
+    val errorCount = cli.processPapers(threadLimit = nThreads)
     errorCount should be (0)
   }
 
 //  it should "output IndexCard correctly on NXML papers" in {
 //    println(s"Will output IndexCard output in directory ${icDir.getAbsolutePath}")
 //    val cli = new ReachCLI(papersDir = nxmlDir, outputDir = icDir, outputFormat = "indexcard")
-//    val errorCount = cli.processPapers(threadLimit = nThreads, withAssembly = false)
+//    val errorCount = cli.processPapers(threadLimit = nThreads)
 //    errorCount should be (0)
 //  }
 
