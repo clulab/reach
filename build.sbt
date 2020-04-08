@@ -4,6 +4,7 @@ lazy val commonSettings = Seq(
 
   organization := "org.clulab",
 
+  // FIXME: cross-build for 2.12!
   scalaVersion := "2.11.11",
 
   scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation"),
@@ -57,8 +58,8 @@ lazy val commonSettings = Seq(
 
 lazy val root = (project in file("."))
   .settings(commonSettings: _*)
-  .aggregate(main, causalAssembly, export)
-  .dependsOn(main % "test->test;compile", causalAssembly, export) // so that we can import from the console
+  .aggregate(main, export)
+  .dependsOn(main % "test->test;compile", export) // so that we can import from the console
   .settings(
     name := "reach-exe",
     aggregate in test := false,
@@ -74,13 +75,9 @@ lazy val root = (project in file("."))
 lazy val main = project
   .settings(commonSettings:_*)
 
-lazy val causalAssembly = project.in(file("assembly"))
-  .settings(commonSettings:_*)
-  .dependsOn(main % "test->test;compile->compile")
-
 lazy val export = project
   .settings(commonSettings:_*)
-  .dependsOn(main % "test->test;compile->compile", causalAssembly % "test;compile") // need access to assembly/src/resources
+  .dependsOn(main % "test->test;compile->compile")
 
 lazy val webapp = project
   .enablePlugins(PlayScala)
@@ -106,13 +103,3 @@ releaseProcess := Seq[ReleaseStep](
   commitNextVersion,
   pushChanges
 )
-
-// settings for building project website
-
-site.settings
-// include documentation
-site.includeScaladoc()
-
-ghpages.settings
-
-git.remoteRepo := "git@github.com:clulab/reach.git"

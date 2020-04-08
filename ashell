@@ -1,2 +1,0 @@
-#!/bin/bash
-sbt 'run-main org.clulab.reach.assembly.AssemblyShell'

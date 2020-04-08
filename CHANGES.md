@@ -1,5 +1,6 @@
 #Changes
 =======
++ **1.5.2** - Removed `assembly` subproject.
 + **1.5.1** - Update to bioresources 1.1.28.
 + **1.5.1** - Updated to processors 7.5.3.
 + **1.5.1** - Event polarity is now detected using a hybrid approach that uses rules for simpler texts, and deep learning for more complex statements.
