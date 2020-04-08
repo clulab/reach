@@ -32,6 +32,7 @@ object ContextEngine extends LazyLogging {
 
     val labels = mention.labels filter (contextMatching.contains(_))
 
+
     (labels.head, id)
   }
 

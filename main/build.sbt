@@ -1,7 +1,7 @@
 name := "reach-main"
-
 libraryDependencies ++= {
   val luceVer = "5.3.1"
+
 
   Seq(
     "ai.lum"              %%  "nxmlreader"  % "0.0.9",

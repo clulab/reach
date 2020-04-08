@@ -8,6 +8,8 @@ core/*.iml
 .DS_Store
 Makefile
 
+output/*
+
 vocab.txt
 w2vvoc.txt
 SavedLSTM_tag_20190806
@@ -16,7 +18,6 @@ SentencesInfo_all_label_final_ExactRecur.txt
 SentencesInfo_all_label_final_ExactRecur_ExpandBound.txt
 SentencesInfo_all_label_final_ExactRecur_ExpandBound_WideSubjObjBound.txt
 SentencesInfo_all_label_final_ExactRecur_train.csv
-
 
 # sbt specific
 dist/*

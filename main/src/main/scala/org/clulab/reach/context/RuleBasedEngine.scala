@@ -7,8 +7,8 @@ import org.clulab.reach.mentions._
 abstract class RuleBasedContextEngine extends ContextEngine {
 
   // Fields
-  // To be overriden in the implementations. Returns a sequence of (Type, Val) features
-  // Feature order should be kept consisting for all return values
+  // To be overridden in the implementations. Returns a sequence of (Type, Val) features
+  // Feature order should be kept consistent for all return values
   var orderedContextMentions:Map[Int, Seq[BioTextBoundMention]] = _
   // This is to keep the default species if necessary
   var defaultContexts:Option[Map[String, String]] = None
@@ -26,7 +26,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
     // Compute default context classes
     // First count the context types
     val contextCounts:Map[(String, String), Int] = contextMentions map ContextEngine.getContextKey groupBy identity mapValues (_.size)
-    // Then gorup them by class
+    // Then group them by class
     val defaultContexts:Map[String, String] = contextCounts.toSeq.groupBy(_._1._1)
       // Sort them in decreasing order by frequency
       .mapValues(_.map(t => (t._1._2, t._2)))

@@ -5,6 +5,8 @@ import scala.io.Source
 /**
  * Utilities to read rule files
  */
+
+
 object RuleReader {
 
 case class Rules(entities: String, modifications: String, events: String, context: String)
