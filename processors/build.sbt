@@ -1,5 +1,9 @@
 name := "reach-processors"
 
+// needed for processors-models, which is linked from processors-main
+resolvers += "Artifactory" at "http://artifactory.cs.arizona.edu:8081/artifactory/sbt-release"
+
+
 libraryDependencies ++= {
   val procVer = "8.0.1"
 
