@@ -1,11 +1,9 @@
 package org.clulab.reach
 
-import scala.util.Try
 
 import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
 
-import org.clulab.reach.mentions._
 import org.clulab.reach.grounding._
 import org.clulab.reach.grounding.ReachKBConstants._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
@@ -229,14 +227,13 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
   "BE-PF resolve" should "work for protein family Bioentities" in {
     (bePF.resolve("14-3-3 proteins")) should be (defined) // first entry
     (bePF.resolve("ABL")) should be (defined)
-    (bePF.resolve("ABL_family")) should be (defined)
+    //(bePF.resolve("ABL_family")) should be (defined)
     (bePF.resolve("AMPK")) should be (defined)
     (bePF.resolve("AMPKalpha")) should be (defined)
-    (bePF.resolve("AMPK_alpha")) should be (defined)
-    (bePF.resolve("AMPK alpha")) should be (defined)
-    (bePF.resolve("ampk Alpha")) should be (defined)
-    (bePF.resolve("Death_receptor")) should be (defined)
-    (bePF.resolve("death receptor")) should be (defined)
+    //(bePF.resolve("AMPK_alpha")) should be (defined)
+    //(bePF.resolve("AMPK alpha")) should be (defined)
+    //(bePF.resolve("ampk Alpha")) should be (defined)
+    //(bePF.resolve("Death_receptor")) should be (defined)
     (bePF.resolve("ERK")) should be (defined)
     (bePF.resolve("Erk")) should be (defined)
     (bePF.resolve("erk")) should be (defined)
@@ -245,16 +242,16 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
     (bePF.resolve("Erk1/2")) should be (defined)
     (bePF.resolve("Erk-1/2")) should be (defined)
     (bePF.resolve("HDAC")) should be (defined)
-    (bePF.resolve("HDAC_I")) should be (defined)
-    (bePF.resolve("HDAC_II")) should be (defined)
-    (bePF.resolve("HDAC_III")) should be (defined)
-    (bePF.resolve("HDAC_IV")) should be (defined)
+    //(bePF.resolve("HDAC_I")) should be (defined)
+    //(bePF.resolve("HDAC_II")) should be (defined)
+    //(bePF.resolve("HDAC_III")) should be (defined)
+    //(bePF.resolve("HDAC_IV")) should be (defined)
     (bePF.resolve("IKappaB kinase")) should be (defined)
     (bePF.resolve("IkappaB kinase")) should be (defined)
     (bePF.resolve("IKK")) should be (defined)
-    (bePF.resolve("IKK_family")) should be (defined)
+    //(bePF.resolve("IKK_family")) should be (defined)
     (bePF.resolve("inhibin")) should be (defined)
-    (bePF.resolve("Sulfonylurea_receptor")) should be (defined)
+    //(bePF.resolve("Sulfonylurea_receptor")) should be (defined)
     (bePF.resolve("VEGF")) should be (defined)
     (bePF.resolve("VEGFR")) should be (defined)
     (bePF.resolve("WNT")) should be (defined) // last entry
@@ -284,8 +281,8 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
   "BE-PF resolve" should "work via alternate lookups" in {
     (bePF.resolve("4EBP family")) should be (defined)
     (bePF.resolve("ABL family")) should be (defined)
-    (bePF.resolve("ABL_family family")) should be (defined) // _family should not be stripped
-    (bePF.resolve("ABL_family protein family")) should be (defined) // _family should not be stripped
+    //(bePF.resolve("ABL_family family")) should be (defined) // _family should not be stripped
+    //(bePF.resolve("ABL_family protein family")) should be (defined) // _family should not be stripped
     (bePF.resolve("ERK family")) should be (defined)
     (bePF.resolve("Erk family")) should be (defined)
     (bePF.resolve("erk family")) should be (defined)
@@ -300,10 +297,11 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
     (bePF.resolve("erk-1/2 family")) should be (defined)
     (bePF.resolve("IkappaB kinase family")) should be (defined)
     (bePF.resolve("inhibin family")) should be (defined)
-    (bePF.resolve("Sulfonylurea_receptor family")) should be (defined)
+    //(bePF.resolve("Sulfonylurea_receptor family")) should be (defined)
     (bePF.resolve("WNT family")) should be (defined)
   }
 
+  /* // TODO: enable these back when Family and Complex become GGP
   "BE-PF resolve" should "work for protein complexes despite NER override" in {
     // in NER Override only:
     (bePF.resolve("ACOX")) should be (defined)
@@ -313,23 +311,38 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
     (bePF.resolve("COX6A")) should be (defined)
     (bePF.resolve("COX6B")) should be (defined)
     (bePF.resolve("COX8")) should be (defined)
-    (bePF.resolve("CRISP")) should be (defined)
+    //(bePF.resolve("CRISP")) should be (defined)
     (bePF.resolve("MAF")) should be (defined)
-    (bePF.resolve("NOTCH")) should be (defined)
+    //(bePF.resolve("NOTCH")) should be (defined)
     (bePF.resolve("PKI")) should be (defined)
     (bePF.resolve("RAS")) should be (defined)
   }
+  */
 
   "BE-PF family resolve" should "fail for protein complex Bioentities" in {
     // Complexes, not families:
-    (bePF.resolve("ACC")) should be (empty)
+    (bePF.resolve("ACC")) should be (defined)
     (bePF.resolve("COX")) should be (empty)
     (bePF.resolve("Cox")) should be (empty)
     (bePF.resolve("cox")) should be (empty)
-    (bePF.resolve("Fibrinogen")) should be (empty)
-    (bePF.resolve("PI3K")) should be (empty)
+    (bePF.resolve("Fibrinogen")) should be (defined)
+    (bePF.resolve("PI3K")) should be (defined)
   }
 
+  // moved from TestComplexResolutions
+  "BE-PF family resolve" should "work for entities that used to be complexes" in {
+    bePF.resolve("AMPK") should be (defined)
+    bePF.resolve("NF-kappaB") should be (defined)
+    bePF.resolve("NFkappaB") should be (defined)
+    bePF.resolve("PI3-kinase") should be (defined)
+    bePF.resolve("pi3-kinase") should be (defined)
+    bePF.resolve("TORC1") should be (defined)
+  }
+
+  // sanity check
+  it should "resolve family names that are multi words in lower case" in {
+    bePF.resolve("death receptor") should be (defined)
+  }
 }
 
 
@@ -351,9 +364,9 @@ class IPProtFamKBL extends IMKBLookup {
 // Bioentities Protein Family KB using alternate protein family resolutions
 class BEProtFamKBL extends IMKBLookup {
   val meta = new IMKBMetaInfo(
-    kbFilename = Some(StaticProteinFamily0Filename),
+    kbFilename = Some(StaticProteinFamilyOrComplexFilename),
     namespace = "be",
-    baseURI = "https://github.com/sorgerlab/bioentities",
+    baseURI = "https://identifiers.org/fplx/",
     isFamilyKB = true
   )
   // println(s"BE-KB.metaInfo=${memoryKB.metaInfo}")

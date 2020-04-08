@@ -72,17 +72,17 @@ lazy val root = (project in file("."))
     assemblyJarName in assembly := s"reach-${version.value}-FAT.jar"
   )
 
+// this stores BioNLPProcessor and its models
+lazy val processors = project
+  .settings(commonSettings:_*)
+
 lazy val main = project
   .settings(commonSettings:_*)
+  .dependsOn(processors % "test->test;compile->compile")
 
 lazy val export = project
   .settings(commonSettings:_*)
   .dependsOn(main % "test->test;compile->compile")
-
-lazy val webapp = project
-  .enablePlugins(PlayScala)
-  .aggregate(main)
-  .dependsOn(main)
 
 //
 // publishing settings

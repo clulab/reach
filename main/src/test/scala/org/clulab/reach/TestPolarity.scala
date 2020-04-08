@@ -109,7 +109,7 @@ class TestPolarity extends FlatSpec with Matchers{
   sen20 should behave like positiveActivationBehavior(sen20, "MTP", "apoB")
 
   val sen21 = """In addition, Knockdown of CDK5 induced growth inhibition and knockdown of TP53 reduced silencing CDK5 mediated growth inhibition in the presence or absence of paclitaxel (XREF_FIG)."""
-  sen21 should behave like positiveActivationBehavior(sen21, "CDK5", "TP53")
+  sen21 should behave like positiveActivationBehavior(sen21, "TP53", "CDK5")
 
 
   // Tests based on Ben's observations from https://docs.google.com/spreadsheets/d/1pqhs8ZX6uByLTSrCMYHOOyEwe5ZCEWjFGR9T4uCExTk/edit#gid=151195583
@@ -232,4 +232,5 @@ class TestPolarity extends FlatSpec with Matchers{
 
   val sen59 = """Phosphorylation of AKT at S473 was also increased by BRCA1-KD."""
   sen59 should behave like negativeRegulationBehavior(sen59, "BRCA1-KD", "Phosphorylation", Seq("AKT"), ignored = false)
+
 }

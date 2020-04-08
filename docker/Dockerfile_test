@@ -20,13 +20,11 @@ RUN export BIORESOURCES_VERSION=$(grep -o '".*"' bioresources/version.sbt | sed 
     sbt +publishLocal
 
 # Build reach off a custom branch
-RUN export BIORESOURCES_VERSION=$(grep -o '".*"' bioresources/version.sbt | sed 's/"//g') && \
-    export PROCESSORS_VERSION=$(grep -o '".*"' processors/version.sbt | sed 's/"//g') && \
+RUN export PROCESSORS_VERSION=$(grep -o '".*"' processors/version.sbt | sed 's/"//g') && \
     cd reach && \
     git fetch --all && \
     git checkout --track origin/$reach_branch && \
     sed -i 's/procVer = ".*"/procVer = "'$PROCESSORS_VERSION'"/' main/build.sbt && \
-    sed -i 's/"bioresources".*% ".*"/"bioresources" % "'$BIORESOURCES_VERSION'"/' main/build.sbt #&& \
     sbt publishLocal
 
 WORKDIR reach

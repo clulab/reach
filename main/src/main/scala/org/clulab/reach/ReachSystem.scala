@@ -7,20 +7,21 @@ import com.typesafe.scalalogging.LazyLogging
 import org.clulab.coref.Alias
 import org.clulab.coref.Coref
 import org.clulab.odin._
-import org.clulab.processors.{Document, ProcessorAnnotator}
+import org.clulab.processors.{Document, Processor}
 import org.clulab.reach.context._
 import org.clulab.reach.context.ContextEngineFactory.Engine._
 import org.clulab.reach.darpa.{DarpaActions, HyphenHandle, MentionFilter, NegationHandler, RegulationHandler}
 import org.clulab.reach.grounding._
 import org.clulab.reach.mentions._
 import RuleReader.{Rules, readResource}
+import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.reach.utils.Preprocess
 
 // import org.clulab.reach.utils.MentionManager
 
 class ReachSystem(
   rules: Option[Rules] = None,
-  processorAnnotator: Option[ProcessorAnnotator] = None,
+  processorAnnotator: Option[Processor] = None,
   contextEngineType: Engine = Dummy,
   contextParams: Map[String, String] = Map()
 ) extends LazyLogging {
@@ -46,7 +47,7 @@ class ReachSystem(
   val eventEngine = ExtractorEngine(eventRules, actions, actions.cleanupEvents)
   // initialize processor annotator
   val textPreProc = new Preprocess
-  val procAnnotator = processorAnnotator.getOrElse(ProcessorAnnotatorFactory())
+  val procAnnotator = new BioNLPProcessor()
 
   /** returns string with all rules used by the system */
   def allRules: String =
@@ -83,6 +84,8 @@ class ReachSystem(
     val entities = extractEntitiesFrom(doc)
     contextEngine.infer(entities)
     val entitiesWithContext = contextEngine.assign(entities)
+    //displayEntitySummary(entitiesWithContext, "after context engine")
+
     val unfilteredEvents = extractEventsFrom(doc, entitiesWithContext)
     logger.debug(s"${unfilteredEvents.size} unfilteredEvents: ${display.summarizeMentions(unfilteredEvents,doc)}")
     val events = MentionFilter.keepMostCompleteMentions(unfilteredEvents, State(unfilteredEvents))
@@ -152,15 +155,24 @@ class ReachSystem(
     extractFrom(doc, None) // no nxml
   }
 
+  def displayEntitySummary(ents: Seq[BioMention], h: String): Unit = {
+    println(s"In [${h}], found ${ents.size} entities:")
+    for(m <- ents) println(s"\t${m.text} with label ${m.label}")
+  }
+
   def extractEntitiesFrom(doc: Document): Seq[BioMention] = {
     // extract entities
     val entities = entityEngine.extractByType[BioMention](doc)
+    //displayEntitySummary(entities, "after extractByType")
+
     // attach mutations to entities
     // this step must precede alias search to prevent alias overmatching
     val mutationAddedEntities = entities flatMap {
       case m: BioTextBoundMention => mutationsToMentions(m)
       case m => Seq(m)
     }
+    //displayEntitySummary(mutationAddedEntities, "after mutationToMentions")
+
     // use aliases to find more entities
     // TODO: attach mutations to these entities as well
     val entitiesWithAliases = Alias.canonizeAliases(mutationAddedEntities, doc)

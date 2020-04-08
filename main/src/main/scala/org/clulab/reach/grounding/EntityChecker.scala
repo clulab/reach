@@ -21,10 +21,9 @@ object EntityChecker extends App with LazyLogging {
   private val idCntr = new IncrementingCounter() // counter sequence class
 
   /** Search sequence for resolving proteins. */
-  protected val proteinSearcher = Seq( staticProteinFamily0KBLookup,
+  protected val proteinSearcher = Seq( staticFamilyOrComplexKBLookup,
                                        staticProteinFamilyKBLookup,
                                        staticProteinFamily2KBLookup,
-                                       staticProteinComplexKBLookup,
                                        staticProteinKBLookup )
 
   /** Search sequence for small molecules. */

@@ -32,8 +32,9 @@ object ReachIMKBMentionLookups {
   val StaticDrug = staticDrugKBML
   // val StaticMetabolite = staticMetaboliteKBML    // Replaced by PubChem
   val StaticProtein = staticProteinKBML
-  val StaticProteinComplex = staticProteinComplexKBML
-  val StaticProteinFamily0 = staticProteinFamily0KBML
+  val StaticGene = staticGeneKBML
+  val staticProteinFamilyOrComplex = staticProteinFamilyOrComplexKBML
+
   val StaticProteinFamily = staticProteinFamilyKBML
   val StaticProteinFamily2 = staticProteinFamily2KBML
 
@@ -166,18 +167,19 @@ object ReachIMKBMentionLookups {
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
-  /** KB accessor to resolve protein complex names via static KB. */
-  def staticProteinComplexKBML: IMKBMentionLookup = {
+  /** KB accessor to resolve human gene names via static KB. */
+  def staticGeneKBML: IMKBMentionLookup = {
     val metaInfo = new IMKBMetaInfo(
-      namespace = "be",
-      kbFilename = Some(StaticProteinComplexFilename),
-      baseURI = "https://github.com/sorgerlab/bioentities",
-      isProteinKB = true                    // treat complexes as a protein KB
+      namespace = "uniprot",
+      kbFilename = Some(StaticGeneFilename),
+      baseURI = "http://identifiers.org/uniprot/",
+      resourceId = "MIR:00100164",
+      hasSpeciesInfo = true,
+      isProteinKB = true
     )
     val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, ProteinAuxKeyTransforms, DefaultKeyTransforms)
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
-
 
   //
   // Protein Family Accessors
@@ -220,11 +222,11 @@ object ReachIMKBMentionLookups {
   }
 
   /** KB accessor to resolve protein family names via static KB. */
-  def staticProteinFamily0KBML: IMKBMentionLookup = {
+  def staticProteinFamilyOrComplexKBML: IMKBMentionLookup = {
     val metaInfo = new IMKBMetaInfo(
       namespace = "be",
-      kbFilename = Some(StaticProteinFamily0Filename),
-      baseURI = "https://github.com/sorgerlab/bioentities",
+      kbFilename = Some(StaticProteinFamilyOrComplexFilename),
+      baseURI = "https://identifiers.org/fplx/",
       isFamilyKB = true
     )
     val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, FamilyAuxKeyTransforms, DefaultKeyTransforms)

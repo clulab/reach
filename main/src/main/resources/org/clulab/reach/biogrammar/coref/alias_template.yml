@@ -21,7 +21,7 @@
     ${ aCapture }
     [tag="-LRB-"]
     ("which" [lemma="be"])?
-    [tag="RB"]?
+    [tag=/RBR?/]?
     "referred" "to" "as"
     ${ bCapture }
     ([word=/^,|\/|or$/]+ ${ bCapture })*?
@@ -37,7 +37,7 @@
     ${ aCapture }
     [tag="-LRB-"]
     ("which" [lemma="be"])?
-    [tag="RB"]?
+    [tag=/RBR?/]?
     [word=/^known|designated$/ & tag="VBN"] "as"?
     ${ bCapture }
     ([word=/^,|\/|or$/]+ ${ bCapture })*?
@@ -53,7 +53,7 @@
     ${ aCapture }
     [tag="-LRB-"]
     ("which" [lemma="be"])?
-    [tag="RB"]?
+    [tag=/RBR?/]?
     [lemma=/^call|term|name$/ & tag="VBN"]
     ${ bCapture }
     ([word=/^,|\/|or$/]+ ${ bCapture })*?
@@ -83,7 +83,7 @@
     ${ aCapture }
     ","
     ("which" [lemma="be"])?
-    [tag="RB"]?
+    [tag=/RBR?/]?
     "referred" "to" "as"
     ${ bCapture }
     ([word=/^,|\/|or$/]+ ${ bCapture })*
@@ -99,7 +99,7 @@
     ${ aCapture }
     ","
     ("which" [lemma="be"])?
-    [tag="RB"]?
+    [tag=/RBR?/]?
     [word=/^known|designated$/ & tag="VBN"] "as"?
     ${ bCapture }
     ([word=/^,|\/|or$/]+ ${ bCapture })*
@@ -115,7 +115,7 @@
     ${ aCapture }
     ","
     ("which" [lemma="be"])?
-    [tag="RB"]?
+    [tag=/RBR?/]?
     [lemma=/^call|term|name$/ & tag="VBN"]
     ${ bCapture }
     ([word=/^,|\/|or$/]+ ${ bCapture })*
