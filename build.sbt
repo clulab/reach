@@ -65,6 +65,10 @@ lazy val root = (project in file("."))
     aggregate in test := false,
     aggregate in assembly := false,
     test in assembly := {},
+    assemblyMergeStrategy in assembly := {
+      case PathList("module-info.class") => MergeStrategy.discard
+      case other => (assemblyMergeStrategy in assembly).value(other)
+    },
     mainClass in assembly := {
       val sysMain = System.getProperty("mainClass")
       Option(if (sysMain != null) sysMain else "org.clulab.reach.RunReachCLI")
