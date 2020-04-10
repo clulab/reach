@@ -66,6 +66,10 @@ lazy val root = (project in file("."))
     aggregate in assembly := false,
     test in assembly := {},
     assemblyMergeStrategy in assembly := {
+      // The following line of code deals with these two conflicting files by thowing both away.
+      // [error] (root/*:assembly) deduplicate: different file contents found in the following:
+      // [error] ~/.ivy2/cache/com.sun.xml.bind/jaxb-impl/jars/jaxb-impl-2.4.0-b180830.0438.jar:module-info.class
+      // [error] ~/.ivy2/cache/javax.xml.bind/jaxb-api/jars/jaxb-api-2.4.0-b180830.0359.jar:module-info.class
       case PathList("module-info.class") => MergeStrategy.discard
       case other => (assemblyMergeStrategy in assembly).value(other)
     },
