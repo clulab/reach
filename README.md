@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/clulab/reach.svg?branch=master)](https://travis-ci.org/clulab/reach)
+[![Build Status](http://jenkins.cs.arizona.edu:8090/buildStatus/icon?job=reach%2Fmaster)](http://jenkins.cs.arizona.edu:8090/job/reach)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.clulab/reach_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.clulab/reach_2.11)
 
 Reach
