@@ -41,7 +41,7 @@ class TestOverrides extends FlatSpec with Matchers {
   val ggp7_ids = Seq("P01112", "P01112", "P01116", "P01116", "P01111", "P01111")
 
   val fam1 = "ERK, ERK1/2, ERK 1/2, Neuregulin, Neuroregulin, and PI3K are Families. "
-  val fam1_ids = Seq("ERK", "ERK", "ERK", "PF02158", "PF02158", "PI3K")
+  val fam1_ids = Seq("ERK", "ERK", "ERK", "NRG", "PF02158", "PI3K") // TODO: change Neuroregulin
 
   val fam2 = "SMAD, SMAD2/3, SMAD 2/3, and TGFB are important Families. "
   val fam2_ids = Seq("SMAD", "SMAD2_3", "SMAD2_3", "IPR015615")
@@ -54,11 +54,11 @@ class TestOverrides extends FlatSpec with Matchers {
                 MAF, NOTCH, PKI, RAS, SAA,
                 and TGFB are unchanged Families."""
   val be1f_ids = Seq(
-    "PF01756", "PF02608", "PF00028", "PF08562", "PF08841",
-    "PF02936", "PF02046", "PF02297", "PF02238", "PF05392",
-    "PF02285", "PF08137", "PF00178", "PF00167", "PF15975",
-    "PF00320", "PF00183", "PF00219", "PF00340", "PF02174",
-    "PF02545", "PF00066", "PF02827", "PF00071", "PF00277",
+    "PF01756", "BMP", "Cadherin", "CRISP", "PF08841",
+    "COX4", "COX6A", "COX6B", "COX7A", "COX7B",
+    "COX8", "DVL", "ETS", "FGF", "PF15975",
+    "GATA", "HSP90", "IGFBP", "PF00340", "IRS",
+    "PF02545", "Notch", "PF02827", "PF00071", "PF00277",
     "IPR015615")
 
   // Override entries added as synonyms for BE complexes:
