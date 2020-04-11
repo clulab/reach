@@ -41,7 +41,7 @@ class TestOverrides extends FlatSpec with Matchers {
   val ggp7_ids = Seq("P01112", "P01112", "P01116", "P01116", "P01111", "P01111")
 
   val fam1 = "ERK, ERK1/2, ERK 1/2, Neuregulin, Neuroregulin, and PI3K are Families. "
-  val fam1_ids = Seq("ERK", "ERK", "ERK", "NRG", "PF02158", "PI3K") // TODO: change Neuroregulin
+  val fam1_ids = Seq("ERK", "ERK", "ERK", "NRG", "NRG", "PI3K") 
 
   val fam2 = "SMAD, SMAD2/3, SMAD 2/3, and TGFB are important Families. "
   val fam2_ids = Seq("SMAD", "SMAD2_3", "SMAD2_3", "IPR015615")
