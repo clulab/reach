@@ -404,7 +404,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     //   GloVe small lowers the case
     //   Our Word2Vec uses Word2Vec.sanitizeWord
     //
-    val sanitized = word // word.toLowerCase() // Word2Vec.sanitizeWord(word)
+    //val sanitized = word // word.toLowerCase() // Word2Vec.sanitizeWord(word)
 
     val wordEmbedding =
       if (w2i.contains(word)){
