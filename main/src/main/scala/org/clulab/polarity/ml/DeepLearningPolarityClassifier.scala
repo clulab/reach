@@ -1,7 +1,10 @@
 package org.clulab.polarity.ml
 
+import java.io
 import java.io.FileNotFoundException
 import java.nio.charset.StandardCharsets
+import java.nio.file.{Paths, Files}
+
 
 import com.typesafe.config.ConfigFactory
 import edu.cmu.dynet.Expression._
@@ -38,6 +41,8 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   var HIDDEN_SIZE = 30
   var MLP_HIDDEN_SIZE = 10
   var N_EPOCH = 5
+  var w2iPath = "lstmPolarityW2i.txt"
+  var c2iPath = "lstmPolarityC2i.txt"
 
   val CONTROLLER = "controller"
   val CONTROLLED = "controlled"
@@ -47,6 +52,8 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     maskOption = config.getString(configPath+".maskOption")
     savedModelPath = config.getString(configPath+".savedModel")+"_"+maskOption
     spreadsheetPath = config.getString(configPath+".spreadsheetPath")
+    w2iPath = config.getString(configPath+".w2i")
+    c2iPath = config.getString(configPath+".c2i")
     VOC_SIZE = config.getInt(configPath+".VOC_SIZE")
     WEM_DIMENSIONS = config.getInt(configPath+".WEM_DIMENSIONS")
     CEM_DIMENSIONS = config.getInt(configPath+".CEM_DIMENSIONS")
@@ -65,7 +72,15 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   //val lines = Source.fromFile(dictPath).getLines().toList
   //val lines2 = Source.fromFile(w2vDictPath).getLines().toList
 
-  val (w2i, c2i) = mkVocabs(spreadsheetPath)
+  val (w2i, c2i) = {
+    if (Files.exists(Paths.get(w2iPath)) & Files.exists(Paths.get(c2iPath))){
+      (readFromCsv2Map(w2iPath), for ((k,v)<-readFromCsv2Map(c2iPath)) yield k.charAt(0)->v)
+    }
+    else{
+      val (w2i_, c2i_) = mkVocabs(spreadsheetPath)
+      (w2i_, c2i_)
+    }
+  }
 
 
   var loss: Float = 0
@@ -117,7 +132,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   catch {
     case throwable: Throwable =>
       logger.info(s"Could not load specified model: ${throwable.getMessage}")
-  }
+  } // Change the info here. It could also be because the index does not match the model.
 
   /**
     * Trains the classifier. This method is meant to have side effects by fitting the parameters
@@ -335,11 +350,14 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     *
     * @param modelPath file path to save the model to.
     */
-  override def save(modelPath: String=savedModelPath): Unit = {
+  override def save(modelPath: String=savedModelPath, w2iPath:String = w2iPath, c2iPath:String = c2iPath): Unit = {
     logger.info("Saving model ...")
     new CloseableModelSaver(modelPath).autoClose { modelSaver =>
       modelSaver.addModel(pc, "/allParams")
     }
+    writeMap2Csv(w2i, w2iPath)
+    writeMap2Csv(for ((k,v) <- c2i) yield k.toString -> v, c2iPath)
+
     logger.info("Saving trained model finished!")
 
   }
@@ -622,11 +640,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     val labels_test = labels_shuffle.slice(n_training, labels.length)
     logger.info("Loading data finished!")
 
-
-
     (sens_train, labels_train, sens_test, labels_test)
-
-
 
   }
 
@@ -687,6 +701,31 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       }
     }
     (event_start_new, event_end_new)
+  }
+
+  def writeMap2Csv(inputMap:Map[String, Int], filename:String):Unit = {
+    val str = for ( (k,v) <- inputMap) yield s"${k}_SEP_${v}"
+
+    // Create file writer
+    val pw = new io.PrintWriter(new io.File(filename))
+
+    // Write each map entry in new line and close
+    try pw.write(str.mkString("\n")) finally pw.close()
+  }
+
+  def readFromCsv2Map(filename:String):Map[String, Int] = {
+
+    val outputMap_ = scala.collection.mutable.HashMap[String,Int]()
+
+    val bufferedSource = scala.io.Source.fromFile(filename)
+    for (line <- bufferedSource.getLines) {
+      val cols = line.split("_SEP_")
+      // do whatever you want with the columns here
+      outputMap_(cols(0)) = cols(1).toInt
+    }
+    bufferedSource.close
+
+    outputMap_.toMap
   }
 }
 
