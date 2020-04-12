@@ -42,6 +42,6 @@ trait PolarityClassifier extends LazyLogging{
     * Saves the model parameter's to a file
     * @param modelPath file path to save the model to.
     */
-  def save(modelPath:String)
+  def save(modelPath:String, w2iPath:String, c2iPath:String)
 }
 

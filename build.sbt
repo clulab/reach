@@ -7,6 +7,8 @@ lazy val commonSettings = Seq(
   // FIXME: cross-build for 2.12!
   scalaVersion := "2.11.11",
 
+  crossScalaVersions := Seq("2.11.11", "2.12.8"),
+
   scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation"),
 
   testOptions in Test += Tests.Argument("-oD"),
@@ -103,7 +105,7 @@ releaseProcess := Seq[ReleaseStep](
   runClean,
   runTest,
   setReleaseVersion,
-  ReleaseStep(action = Command.process("publishSigned", _)),
+  ReleaseStep(action = Command.process("+publishSigned", _)),
   ReleaseStep(action = Command.process("sonatypeReleaseAll", _)),
   commitReleaseVersion,
   tagRelease,
