@@ -46,19 +46,19 @@ class TestOverrides extends FlatSpec with Matchers {
   val fam2 = "SMAD, SMAD2/3, SMAD 2/3, and TGFB are important Families. "
   val fam2_ids = Seq("SMAD", "SMAD2_3", "SMAD2_3", "TGFB")
 
-  // Override family entries which were kept despite clash with BE KBs:
+  // Check that these families are based on overrides
   val be1f = """ACOX, BMP, Cadherin, CRISP,
                 COX4, COX6a, COX6b, COX7a, COX7b,
-                COX8, DVL, ETS, FGF, FLOT,
+                COX8, DVL, ETS, FGF,
                 GATA, HSP90, IGFBP, IL1, IRS,
-                MAF, NOTCH, PKI, RAS, SAA,
+                NOTCH, PKI, RAS, SAA,
                 and TGFB are unchanged Families."""
   val be1f_ids = Seq(
     "ACOX", "BMP", "Cadherin", "CRISP",
     "COX4", "COX6A", "COX6B", "COX7A", "COX7B",
-    "COX8", "DVL", "ETS", "FGF", "FLOT",
-    "GATA", "HSP90", "IGFBP", "PF00340", "IRS",
-    "IL1", "Notch", "PKI", "RAS", "SAA",
+    "COX8", "DVL", "ETS", "FGF",
+    "GATA", "HSP90", "IGFBP", "IL1", "IRS",
+    "Notch", "PKI", "RAS", "SAA",
     "TGFB")
 
   // Override entries added as synonyms for BE complexes:
