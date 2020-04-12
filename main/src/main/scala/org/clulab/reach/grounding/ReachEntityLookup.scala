@@ -106,9 +106,9 @@ class ReachEntityLookup {
   )
 
   val familySeq: KBSearchSequence = extraKBs ++ Seq(
+    staticProteinFamilyOrComplex,           // FamPlex families and complexes
     StaticProteinFamily,                    // PFAM families
     StaticProteinFamily2,                   // InterPro families
-    staticProteinFamilyOrComplex,           // FamPlex families and complexes
     ModelGendProteinAndFamily
   )
 
