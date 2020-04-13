@@ -74,7 +74,7 @@ class TestOverrides extends FlatSpec with Matchers {
                 alpha2beta2gamma1, alpha2beta2gamma2, and alpha2beta2gamma3
                 are important complexes."""
   val be2c_ids = Seq(
-    "Activin_A", "Activin_AB", "IPR002405", "Inhibin_B",
+    "Activin_A", "Activin_AB", "Inhibin_A", "Inhibin_B",
     "AMPK_A1B1G1", "AMPK_A1B1G2", "AMPK_A1B1G3",
     "AMPK_A1B2G1", "AMPK_A1B2G2", "AMPK_A2B1G1",
     "AMPK_A2B2G1", "AMPK_A2B2G2", "AMPK_A2B2G3",
