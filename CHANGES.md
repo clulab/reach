@@ -1,7 +1,7 @@
 #Changes
 =======
 + **1.6.0** - Removed `assembly` subproject.
-+ **1.6.0** - Updated to bioresources 1.1.31, which merges Family and Complex.
++ **1.6.0** - Updated to bioresources 1.1.31, which merges Family and Complex, and updates many ids, including Uniprot and GO.
 + **1.6.0** - Updates to processors 8.0.0; BioNLPProcessor is now included in Reach under reach/processors.
 + **1.5.1** - Update to bioresources 1.1.28.
 + **1.5.1** - Updated to processors 7.5.3.
