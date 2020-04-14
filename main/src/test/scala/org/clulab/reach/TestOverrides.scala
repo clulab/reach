@@ -22,8 +22,8 @@ class TestOverrides extends FlatSpec with Matchers {
   val ggp1 = "ADAM17, AKT1, AKT2, ASPP1, ASPP2 are GGPs."
   val ggp1_ids = Seq("P78536", "P31749", "P31751", "Q96KQ4", "Q13625")
 
-  val ggp2 = "Cas8, EGF, EGFR, ErbB, ERK5, GSK3beta are GGPs."
-  val ggp2_ids = Seq("Q14790", "P01133", "P00533", "P00533", "Q13164", "P49841")
+  val ggp2 = "Casp8, EGF, EGFR, ERK5, GSK3beta are GGPs."
+  val ggp2_ids = Seq("Q14790", "P01133", "P00533", "Q13164", "P49841")
 
   val ggp3 = "HRAS, IGF-1, JNK1, GSK3alpha, KRAS, MAP2K1 are GGPs."
   val ggp3_ids = Seq("P01112", "P05019", "P45983", "P49840", "P01116", "Q02750")
@@ -41,25 +41,25 @@ class TestOverrides extends FlatSpec with Matchers {
   val ggp7_ids = Seq("P01112", "P01112", "P01116", "P01116", "P01111", "P01111")
 
   val fam1 = "ERK, ERK1/2, ERK 1/2, Neuregulin, Neuroregulin, and PI3K are Families. "
-  val fam1_ids = Seq("ERK", "ERK", "ERK", "PF02158", "PF02158", "PI3K")
+  val fam1_ids = Seq("ERK", "ERK", "ERK", "NRG", "NRG", "PI3K") 
 
   val fam2 = "SMAD, SMAD2/3, SMAD 2/3, and TGFB are important Families. "
-  val fam2_ids = Seq("SMAD", "SMAD2_3", "SMAD2_3", "IPR015615")
+  val fam2_ids = Seq("SMAD", "SMAD2_3", "SMAD2_3", "TGFB")
 
-  // Override family entries which were kept despite clash with BE KBs:
-  val be1f = """ACOX, BMP, Cadherin, CRISP, DDR,
+  // Check that these families are based on overrides
+  val be1f = """ACOX, BMP, Cadherin, CRISP,
                 COX4, COX6a, COX6b, COX7a, COX7b,
-                COX8, DVL, ETS, FGF, FLOT,
+                COX8, DVL, ETS, FGF,
                 GATA, HSP90, IGFBP, IL1, IRS,
-                MAF, NOTCH, PKI, RAS, SAA,
+                NOTCH, PKI, RAS, SAA,
                 and TGFB are unchanged Families."""
   val be1f_ids = Seq(
-    "PF01756", "PF02608", "PF00028", "PF08562", "PF08841",
-    "PF02936", "PF02046", "PF02297", "PF02238", "PF05392",
-    "PF02285", "PF08137", "PF00178", "PF00167", "PF15975",
-    "PF00320", "PF00183", "PF00219", "PF00340", "PF02174",
-    "PF02545", "PF00066", "PF02827", "PF00071", "PF00277",
-    "IPR015615")
+    "ACOX", "BMP", "Cadherin", "CRISP",
+    "COX4", "COX6A", "COX6B", "COX7A", "COX7B",
+    "COX8", "DVL", "ETS", "FGF",
+    "GATA", "HSP90", "IGFBP", "IL1", "IRS",
+    "Notch", "PKI", "RAS", "SAA",
+    "TGFB")
 
   // Override entries added as synonyms for BE complexes:
   val be2c = """Activin A, Activin AB, Inhibin A, Inhibin B,
@@ -74,7 +74,7 @@ class TestOverrides extends FlatSpec with Matchers {
                 alpha2beta2gamma1, alpha2beta2gamma2, and alpha2beta2gamma3
                 are important complexes."""
   val be2c_ids = Seq(
-    "Activin_A", "Activin_AB", "IPR002405", "Inhibin_B",
+    "Activin_A", "Activin_AB", "Inhibin_A", "Inhibin_B",
     "AMPK_A1B1G1", "AMPK_A1B1G2", "AMPK_A1B1G3",
     "AMPK_A1B2G1", "AMPK_A1B2G2", "AMPK_A2B1G1",
     "AMPK_A2B2G1", "AMPK_A2B2G2", "AMPK_A2B2G3",

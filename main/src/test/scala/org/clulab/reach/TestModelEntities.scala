@@ -21,7 +21,7 @@ class TestModelEntities extends FlatSpec with Matchers {
   val s4 = "RASA1, RASA2, RASA3, and SOS1 are proteins."
   val s5 = "p110alpha, p110beta, and p110delta are proteins."
   val s6 = "p55gamma, p85alpha, and p85beta are proteins."
-  val s7 = "SAPK is a gene."
+  val s7 = "SAPK is a family."
 
   "s1 entities" should "have GPP label" in {
     val mentions = getBioMentions(s1)
@@ -84,7 +84,7 @@ class TestModelEntities extends FlatSpec with Matchers {
     mentions should not be (empty)
     // printMentions(Try(mentions), true)      // DEBUGGING
     mentions should have size 1
-    mentions.count(_ matches "Gene_or_gene_product") should be (1)
+    mentions.count(_ matches "Family") should be (1)
   }
 
 }

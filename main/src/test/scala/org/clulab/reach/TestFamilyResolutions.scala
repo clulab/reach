@@ -319,18 +319,14 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
   }
   */
 
-  "BE-PF family resolve" should "fail for protein complex Bioentities" in {
-    // Complexes, not families:
+  "BE-PF family resolve" should "work for FamPlex entries" in {
     (bePF.resolve("ACC")) should be (defined)
-    (bePF.resolve("COX")) should be (empty)
-    (bePF.resolve("Cox")) should be (empty)
-    (bePF.resolve("cox")) should be (empty)
+    (bePF.resolve("COX")) should be (defined)
+    (bePF.resolve("Cox")) should be (defined)
+    (bePF.resolve("cox")) should be (defined)
     (bePF.resolve("Fibrinogen")) should be (defined)
     (bePF.resolve("PI3K")) should be (defined)
-  }
-
-  // moved from TestComplexResolutions
-  "BE-PF family resolve" should "work for entities that used to be complexes" in {
+    // moved from TestComplexResolutions
     bePF.resolve("AMPK") should be (defined)
     bePF.resolve("NF-kappaB") should be (defined)
     bePF.resolve("NFkappaB") should be (defined)
