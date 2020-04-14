@@ -13,7 +13,7 @@ libraryDependencies ++= {
     "org.clulab"          %%  "processors-main"          % procVer,
     "org.clulab"          %%  "processors-corenlp"       % procVer,
     "org.clulab"          %%  "processors-odin"          % procVer,
-    "org.clulab"           %  "bioresources"             % "1.1.31-SNAPSHOT", 
+    "org.clulab"           %  "bioresources"             % "1.1.31",
     "org.clulab"          %%  "fatdynet"                 % "0.2.5",
 
     // logging
