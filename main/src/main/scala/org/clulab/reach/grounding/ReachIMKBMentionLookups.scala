@@ -224,7 +224,7 @@ object ReachIMKBMentionLookups {
   /** KB accessor to resolve protein family names via static KB. */
   def staticProteinFamilyOrComplexKBML: IMKBMentionLookup = {
     val metaInfo = new IMKBMetaInfo(
-      namespace = "be",
+      namespace = "fplx",
       kbFilename = Some(StaticProteinFamilyOrComplexFilename),
       baseURI = "https://identifiers.org/fplx/",
       isFamilyKB = true
