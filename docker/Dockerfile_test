@@ -1,4 +1,4 @@
-FROM reach:dev
+FROM reach:latest
 
 # Handle arguments for repo branches, with master as default
 ARG bioresources_branch=master
@@ -6,13 +6,15 @@ ARG processors_branch=master
 ARG reach_branch=master
 
 # Build bioresources off a custom branch
-RUN cd bioresources && \
+RUN git clone https://github.com/clulab/bioresources.git && \
+    cd bioresources && \
     git fetch --all && \
     git checkout origin/$bioresources_branch && \
     sbt publishLocal
 
 # Build processors off a custom branch
-RUN export BIORESOURCES_VERSION=$(grep -o '".*"' bioresources/version.sbt | sed 's/"//g') && \
+RUN git clone https://github.com/clulab/processors.git && \
+    export BIORESOURCES_VERSION=$(grep -o '".*"' bioresources/version.sbt | sed 's/"//g') && \
     cd processors && \
     git fetch --all && \
     git checkout origin/$processors_branch && \
