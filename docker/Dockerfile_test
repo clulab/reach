@@ -5,6 +5,8 @@ ARG bioresources_branch=master
 ARG processors_branch=master
 ARG reach_branch=master
 
+WORKDIR /
+
 # Build bioresources off a custom branch
 RUN git clone https://github.com/clulab/bioresources.git && \
     cd bioresources && \
