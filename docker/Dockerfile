@@ -17,10 +17,11 @@ RUN apt-get install -y openjdk-8-jdk && \
     rm scala-2.11.12.deb && \
     apt-get install -y sbt
 
-# Clone bioresources, processors and reach
-RUN git clone https://github.com/clulab/bioresources.git && \
-    cd bioresources && sbt publishLocal && cd .. && \
-    git clone https://github.com/clulab/processors.git && \
-    cd processors && sbt +publishLocal && cd .. && \
-    git clone https://github.com/clulab/reach.git && \
-    cd reach && sbt publishLocal
+# Clone and pre-build Reach so that the server starts up fast upon launch
+RUN git clone https://github.com/clulab/reach.git && \
+    cd reach && \
+    sed -i 's/host = localhost/host = 0.0.0.0/' export/src/main/resources/reference.conf && \
+    sbt publishLocal
+
+WORKDIR reach
+ENTRYPOINT ["sbt", "run-main org.clulab.reach.export.server.ApiServer"]

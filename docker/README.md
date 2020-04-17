@@ -1,22 +1,27 @@
-Building the base image
------------------------
-The `Dockerfile` installs all necessary dependencies and compiles the latest
-master of `bioresources`, `processors`, and `reach` from source. To build the
-image, run
+Building the production image
+-----------------------------
+The `Dockerfile` builds a production environment for Reach that allows running
+it as a web service. It uses the latest `master` branch of Reach and runs the
+ApiServer on port 8080 as the default entry point. To build this image, use
 
 ```
 docker build --tag reach:latest .
 ```
 
+And run it as:
+```
+docker run -d -it -p 8080:8080 reach:latest
+```
+Note that `-d` runs the container in the background without blocking the
+terminal it was launched from.
+
 Building a test image
 ---------------------
-The `Dockerfile_test` builds on the `reach:latest` base image, and using
+`Dockerfile_test` builds on the `reach:latest` image, and using
 build arguments, allows specifying which branch of `bioresources`,
 `processors` and `reach` to check out and build. It fetches and checks out
 the chosen branches, and sets build configurations to
-build each system against the correct version of its dependencies. The
-rationale behind separating the two Dockerfiles is that the base image can
-take a long time to build but each test build is typically much faster.
+build each system against the correct version of its dependencies. 
 
 To build the test image, run
 ```
@@ -30,8 +35,8 @@ docker build -f Dockerfile_test --build-arg bioresources_branch=test_branch
 --tag reach:test .
 ```
 
-The image also defines a default entrypoint for running all REACH tests as
-follows:
+The image also sets the default entrypoint to run all REACH tests. The
+container to run all the tests can be launched as follows:
 ```
 docker run reach:test
 ```
