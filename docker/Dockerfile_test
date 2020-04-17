@@ -1,4 +1,4 @@
-FROM reach:latest
+FROM reach:dev
 
 # Handle arguments for repo branches, with master as default
 ARG bioresources_branch=master
