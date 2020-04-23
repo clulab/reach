@@ -30,7 +30,7 @@ class TestNERLabeling extends FlatSpec with Matchers {
   val species = "Potato, wheat, Yerba-mate, Danio rerio, zebrafish, Rats, Gallus gallus, and chickens cause cancer"
 
   val drug = "Alvocidib, Anacardic acid, L-779450, Masitinib, and  Withaferin A are known drugs. "
-  val drug_ids = Seq("5287969", "167551", "9950176", "10074640", "265237")
+  val drug_ids = Seq("CHEBI:47344", "167551", "9950176", "CHEBI:63450", "CHEBI:10040")
 
 
   bioProcess should "have BioProcess label" in {
