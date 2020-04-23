@@ -133,7 +133,7 @@ object ReachIMKBMentionLookups {
   def staticChemicalKBMLChebi: IMKBMentionLookup = {
      val metaInfo = new IMKBMetaInfo(
        namespace = "chebi",
-       kbFilename = Some(StaticChemicalFilename),
+       kbFilename = Some(StaticChemicalFilenameChebi),
        baseURI = "http://identifiers.org/chebi/",
        resourceId = "MIR:00100009"
      )
