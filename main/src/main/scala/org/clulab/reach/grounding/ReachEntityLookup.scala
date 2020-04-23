@@ -99,6 +99,7 @@ class ReachEntityLookup {
   )
 
   val chemicalSeq: KBSearchSequence = extraKBs ++ Seq(
+    StaticChemicalChebi,                    // Chebi
     StaticChemical,                         // PubChem
     StaticDrug,                             // HMS LINCS drugs
     // StaticMetabolite,                    // REPLACED by PubChem

@@ -70,17 +70,15 @@ object ReachIMKBLookups {
   }
 
   /** KB lookup to resolve small molecule (chemical) names via static KB. */
-  // def staticChemicalKBLookup: IMKBLookup = {
-  //   val metaInfo = new IMKBMetaInfo(
-  //     namespace = "chebi",
-  //     kbFilename = Some(StaticChemicalFilename),
-  //     baseURI = "http://identifiers.org/chebi/",
-  //     resourceId = "MIR:00100009"
-  //   )
-  //   new IMKBLookup(TsvIMKBFactory.make(metaInfo))
-  // }
-
-
+  def staticChemicalKBLookupChebi: IMKBLookup = {
+     val metaInfo = new IMKBMetaInfo(
+       namespace = "chebi",
+       kbFilename = Some(StaticChemicalFilename),
+       baseURI = "http://identifiers.org/chebi/",
+       resourceId = "MIR:00100009"
+     )
+     new IMKBLookup(TsvIMKBFactory.make(metaInfo))
+   }
 
   /** KB accessor to resolve protein names via static KB. */
   def staticProteinKBLookup: IMKBLookup = {
