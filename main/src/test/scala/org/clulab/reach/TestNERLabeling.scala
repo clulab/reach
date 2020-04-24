@@ -25,12 +25,12 @@ class TestNERLabeling extends FlatSpec with Matchers {
   // this tests overrides simple chemical identifications:
   val manual_chemicals = "Estrone E1, estradiol E2, and estriol E3 do not cause cancer."
   val organ = "Acetabulum, Visceral Pericardium, malleolar bone, Vena cava sinus, and zygopodium cause cancer"
-  val chemical = "endoxifen sulfate, Juvamine, Adenosine-phosphate, Xitix, and Monic acid cause cancer"
+  val chemical = "endoxifen sulfate, Juvamine, Adenosine-phosphate, Xitix, and okadaic acid cause cancer"
   val sites = "ALOG domain, AMIN domain, KIP1-like, KEN domain, and HAS subgroup cause cancer"
   val species = "Potato, wheat, Yerba-mate, Danio rerio, zebrafish, Rats, Gallus gallus, and chickens cause cancer"
 
   val drug = "Alvocidib, Anacardic acid, L-779450, Masitinib, and  Withaferin A are known drugs. "
-  val drug_ids = Seq("CHEBI:47344", "167551", "9950176", "CHEBI:63450", "CHEBI:10040")
+  val drug_ids = Seq("CHEBI:47344", "CHEBI:2696", "9950176", "CHEBI:63450", "CHEBI:69120")
 
 
   bioProcess should "have BioProcess label" in {
