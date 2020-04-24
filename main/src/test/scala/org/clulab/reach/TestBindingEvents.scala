@@ -315,13 +315,15 @@ class TestBindingEvents extends FlatSpec with Matchers {
   }
   */
 
-  val sent27 = "Once bound to the DSB, the DNA-PK holoenzyme facilitates the recruitment..."
+
+  val sent27 = "Once bound to RAD51, the DNA-PK holoenzyme facilitates the recruitment..."
   sent27 should "contain 1 binding event (MARCO)" in {
     val mentions = getBioMentions(sent27)
     // TODO: this should be matched by the binding_oncebound rule, but it doesn't...
-    hasEventWithArguments("Binding", List("DNA-PK holoenzyme", "DSB"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("DNA-PK holoenzyme", "RAD51"), mentions) should be (true)
   }
 
+   */
   val sent28 = "To confirm whether XRCC1 and DNA-PK coexist in a common complex, we carried out co-immunoprecipitation experiments in HeLa nuclear extracts."
   sent28 should "contain 1 binding event" in {
     val mentions = getBioMentions(sent28)
