@@ -542,7 +542,7 @@ class TestCoreference extends FlatSpec with Matchers {
   sent51 should "not apply S135 grounding to diacylglycerol or vice versa" in {
     val mentions = getBioMentions(sent51)
     val entities = mentions filter (m => (m matches "Entity") || (m matches "Site"))
-    entities should have size 2
+    entities should have size 3
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (false)
   }
 

@@ -145,7 +145,7 @@ class TestEntities extends FlatSpec with Matchers {
   // "X
   val sent9a = "Ras inhibitor was added to the solution." // family + inhibitor
   val sent9b = "Akt inhibitor was added to the solution." // protein + inhibitor
-  val sent9c = "Adenylate cyclase inhibitor was added to the solution." // multi-word protein + inhibitor
+  val sent9c = "Adenylate cyclase inhibitor was added to the solution." // Entire phrase available as GO synonym
   val sent9d = "Vascular endothelial cell growth inhibitor was added to solution." // protein (not a simple chemical)
   sent9a should "contain a Simple_chemical and nothing else" in {
     val mentions = getBioMentions(sent9a)
@@ -157,10 +157,10 @@ class TestEntities extends FlatSpec with Matchers {
     mentions.length should be (1)
     mentions.head matches "Simple_chemical" should be (true)
   }
-  sent9c should "contain a Simple_chemical and nothing else" in {
+  sent9c should "contain a BioProcess and nothing else" in {
     val mentions = getBioMentions(sent9c)
     mentions.length should be (1)
-    mentions.head matches "Simple_chemical" should be (true)
+    mentions.head matches "BioProcess" should be (true)
   }
   sent9d should "contain a Gene_or_gene_product and nothing else" in {
     val mentions = getBioMentions(sent9d)
