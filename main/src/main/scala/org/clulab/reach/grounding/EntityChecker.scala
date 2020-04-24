@@ -27,7 +27,9 @@ object EntityChecker extends App with LazyLogging {
                                        staticProteinKBLookup )
 
   /** Search sequence for small molecules. */
-  protected val chemSearcher = Seq( staticChemicalKBLookup, staticDrugKBLookup )
+  protected val chemSearcher = Seq( staticChemicalKBLookupChebi,
+                                    staticChemicalKBLookup,
+                                    staticDrugKBLookup )
 
   /** Search sequence for sub cellular locations terms. */
   protected val cellLocationSearcher = Seq( staticCellLocationKBLookup )

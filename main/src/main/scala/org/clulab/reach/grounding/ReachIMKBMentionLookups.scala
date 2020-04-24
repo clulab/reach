@@ -29,6 +29,7 @@ object ReachIMKBMentionLookups {
   val StaticCellLocation = staticCellLocationKBML   // GO subcellular KB
   val StaticCellLocation2 = staticCellLocation2KBML // Uniprot subcellular KB
   val StaticChemical = staticChemicalKBML
+  val StaticChemicalChebi = staticChemicalKBMLChebi
   val StaticDrug = staticDrugKBML
   // val StaticMetabolite = staticMetaboliteKBML    // Replaced by PubChem
   val StaticProtein = staticProteinKBML
@@ -129,15 +130,15 @@ object ReachIMKBMentionLookups {
   }
 
   /** KB accessor to resolve small molecule (chemical) names via static KB. */
-  // def staticChemicalKBML: IMKBMentionLookup = {
-  //   val metaInfo = new IMKBMetaInfo(
-  //     namespace = "chebi",
-  //     kbFilename = Some(StaticChemicalFilename),
-  //     baseURI = "http://identifiers.org/chebi/",
-  //     resourceId = "MIR:00100009"
-  //   )
-  //   new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
-  // }
+  def staticChemicalKBMLChebi: IMKBMentionLookup = {
+     val metaInfo = new IMKBMetaInfo(
+       namespace = "chebi",
+       kbFilename = Some(StaticChemicalFilenameChebi),
+       baseURI = "http://identifiers.org/chebi/",
+       resourceId = "MIR:00100009"
+     )
+     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
+   }
 
 
   //

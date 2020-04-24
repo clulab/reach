@@ -55,6 +55,9 @@ object ReachKBConstants {
   /** Filename of the static small molecule (chemical) file. */
   val StaticChemicalFilename = "PubChem.tsv.gz"
 
+  /** Filename of the static small molecule (chemical) file from ChEBI. */
+  val StaticChemicalFilenameChebi = "chebi.tsv.gz"
+
   /** Filename of the static small molecule (drug) file. */
   val StaticDrugFilename = "hms-drugs.tsv.gz"
 
