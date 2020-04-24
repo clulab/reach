@@ -323,7 +323,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("DNA-PK holoenzyme", "RAD51"), mentions) should be (true)
   }
 
-   */
+
   val sent28 = "To confirm whether XRCC1 and DNA-PK coexist in a common complex, we carried out co-immunoprecipitation experiments in HeLa nuclear extracts."
   sent28 should "contain 1 binding event" in {
     val mentions = getBioMentions(sent28)
