@@ -73,7 +73,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   //val lines2 = Source.fromFile(w2vDictPath).getLines().toList
 
   val (w2i, c2i) = {
-    if (Files.exists(Paths.get(w2iPath)) & Files.exists(Paths.get(c2iPath))){
+    if (Option(DeepLearningPolarityClassifier.getClass.getResource(w2iPath)).isDefined & Option(DeepLearningPolarityClassifier.getClass.getResource(c2iPath)).isDefined){
       (readFromCsv2Map(w2iPath), for ((k,v)<-readFromCsv2Map(c2iPath)) yield k.charAt(0)->v)
     }
     else{
@@ -717,7 +717,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
     val outputMap_ = scala.collection.mutable.HashMap[String,Int]()
 
-    val bufferedSource = scala.io.Source.fromFile(filename)
+    val bufferedSource = DeepLearningPolarityClassifier.sourceFromResource(filename)
     for (line <- bufferedSource.getLines) {
       val cols = line.split("_SEP_")
       // do whatever you want with the columns here
