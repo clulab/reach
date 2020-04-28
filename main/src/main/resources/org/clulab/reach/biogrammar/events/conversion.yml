@@ -1,3 +1,7 @@
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
 - name: convert_with_controller
   label: Conversion # Refers to the entry in the taxonomy
   action: mkBioMention
@@ -17,9 +21,9 @@
     trigger = [lemma=/catalyze|catalyse/ & tag=/^V/]
     controller:BioChemicalEntity+ = nsubj
     substrate:Simple_chemical+ =
-           dobj | (dobj [lemma=/conversion|synthesis/])? prep_of
+           dobj | (dobj [lemma=/conversion|synthesis/])? nmod_of
     product:Simple_chemical+ =
-           (dobj [lemma=/conversion|synthesis/])? prep_of? prep_to
+           (dobj [lemma=/conversion|synthesis/])? nmod_of? nmod_into
 
 - name: conversion
   label: Conversion
