@@ -10,8 +10,8 @@ rules:
       trigger = [lemma=/convert|rearrange|phosphorylate|deaminate|
                         isomerise|isomerize/ & tag=/^V/]
       controller:BioChemicalEntity*  = nsubj nn?
-      substrate:Simple_chemical+ = dobj | acomp
-      product:Simple_chemical+ = (dobj? prep_to) | (acomp? prep_to)
+      substrate:BioChemicalEntity* = dobj | acomp
+      product:BioChemicalEntity* = (dobj? nmod_into) | (acomp? nmod_into)
 
 - name: catalyze_dobj
   label: Conversion
@@ -20,9 +20,9 @@ rules:
   pattern: |
     trigger = [lemma=/catalyze|catalyse/ & tag=/^V/]
     controller:BioChemicalEntity+ = nsubj
-    substrate:Simple_chemical+ =
+    substrate:BioChemicalEntity* =
            dobj | (dobj [lemma=/conversion|synthesis/])? nmod_of
-    product:Simple_chemical+ =
+    product:BioChemicalEntity* =
            (dobj [lemma=/conversion|synthesis/])? nmod_of? nmod_into
 
 - name: conversion
@@ -31,9 +31,9 @@ rules:
   priority: ${ priority }
   pattern: |
       trigger = [lemma=/conversion/ & tag=/^NN/]
-      controller:BioChemicalEntity* = prep_of? prep_by appos?
-      substrate:Simple_chemical+ = prep_of
-      product:Simple_chemical+ = prep_of? prep_to
+      controller:BioChemicalEntity* = nmod_of? nmod_by appos?
+      substrate:BioChemicalEntity* = nmod_of
+      product:BioChemicalEntity* = nmod_of? nmod_into
 
 - name: conversion_token
   label: Conversion
@@ -42,8 +42,8 @@ rules:
   type: token
   pattern: |
       @controller:BioChemicalEntity (?<trigger> [lemma=convert])
-      @substrate:Simple_chemical/^(in)?to$/
-      @product:Simple_chemical
+      @substrate:BioChemicalEntity/^(in)?to$/
+      @product:BioChemicalEntity*
 
 - name: convert_passive
   label: Conversion # Refers to the entry in the taxonomy
@@ -51,8 +51,8 @@ rules:
   priority: ${ priority }
   pattern: |
       trigger = [lemma=/convert|rearrange/ & tag=/^V/]
-      substrate:Simple_chemical+ = nsubjpass
-      product:Simple_chemical+ = prep_to | prep_into
+      substrate:BioChemicalEntity* = nsubjpass
+      product:BioChemicalEntity* = prep_to | prep_into
       controller:BioChemicalEntity* = prep_by | agent
 
 # Should conversions actually be complex events?
