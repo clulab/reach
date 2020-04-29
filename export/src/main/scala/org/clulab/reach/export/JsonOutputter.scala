@@ -143,6 +143,9 @@ object JsonOutputter {
     if (label == "Complex")
       return "complex-assembly"
 
+    if (label == "Conversion")
+      return "conversion"
+
     if (AMOUNT_EVENTS.contains(label))
       return "amount"
 
