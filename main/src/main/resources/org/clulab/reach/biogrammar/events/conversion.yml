@@ -9,9 +9,9 @@ rules:
   pattern: |
       trigger = [lemma=/convert|rearrange|phosphorylate|deaminate|
                         isomerise|isomerize/ & tag=/^V/]
-      controller:BioChemicalEntity*  = (nsubj|nmod_agent) nn?
-      substrate:BioChemicalEntity* = dobj | acomp | nsubjpass
-      product:BioChemicalEntity* = (dobj? (nmod_into|nmod_to)) | (acomp? (nmod_into|nmod_to))
+      controller:BioChemicalEntity+  = (nsubj|nmod_agent) nn?
+      substrate:BioChemicalEntity+ = dobj | acomp | nsubjpass
+      product:BioChemicalEntity+ = (dobj? (nmod_into|nmod_to)) | (acomp? (nmod_into|nmod_to))
 
 - name: catalyze_dobj
   label: Conversion
@@ -20,9 +20,9 @@ rules:
   pattern: |
     trigger = [lemma=/catalyze|catalyse/ & tag=/^V/]
     controller:BioChemicalEntity+ = nsubj
-    substrate:BioChemicalEntity* =
+    substrate:BioChemicalEntity+ =
            dobj | (dobj [lemma=/conversion|synthesis/])? nmod_of
-    product:BioChemicalEntity* =
+    product:BioChemicalEntity+ =
            (dobj [lemma=/conversion|synthesis/])? nmod_of? nmod_into
 
 - name: conversion
@@ -31,9 +31,9 @@ rules:
   priority: ${ priority }
   pattern: |
       trigger = [lemma=/conversion/ & tag=/^NN/]
-      controller:BioChemicalEntity* = (nmod_of? nmod_by appos?) | (<dobj nsubj)
-      substrate:BioChemicalEntity* = nmod_of
-      product:BioChemicalEntity* = nmod_of? <dobj? (nmod_into|nmod_to)
+      controller:BioChemicalEntity+ = (nmod_of? nmod_by appos?) | (<dobj nsubj)
+      substrate:BioChemicalEntity+ = nmod_of
+      product:BioChemicalEntity+ = nmod_of? <dobj? (nmod_into|nmod_to)
 
 - name: conversion_token
   label: Conversion
@@ -51,9 +51,9 @@ rules:
   priority: ${ priority }
   pattern: |
       trigger = [lemma=/convert|rearrange/ & tag=/^V/]
-      substrate:BioChemicalEntity* = nsubjpass
-      product:BioChemicalEntity* = nmod_to | nmod_into
-      controller:BioChemicalEntity* = nmod_by | nmod_agent
+      substrate:BioChemicalEntity+ = nsubjpass
+      product:BioChemicalEntity+ = nmod_to | nmod_into
+      controller:BioChemicalEntity+ = nmod_by | nmod_agent
 
 # Should conversions actually be complex events?
 # "X synthesis from Y"
