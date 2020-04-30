@@ -71,10 +71,6 @@ trait ApiImpl {
     case "fries"       => ContentTypes.`application/json`
     case "indexcard"   => ContentTypes.`application/json`
     case "serial-json" => ContentTypes.`application/json`
-    case "arizona"     => ContentTypes.`text/csv(UTF-8)`
-    case "cmu"         => ContentTypes.`text/csv(UTF-8)`
-    case "csv"         => ContentTypes.`text/csv(UTF-8)`
-    case "tsv"         => ContentTypes.`text/csv(UTF-8)`
     case _             => ContentTypes.`text/plain(UTF-8)`
   }
 
@@ -83,10 +79,6 @@ trait ApiImpl {
     case "fries"       => "json"
     case "indexcard"   => "json"
     case "serial-json" => "json"
-    case "arizona"     => "tsv"
-    case "cmu"         => "tsv"
-    case "csv"         => "tsv"
-    case "tsv"         => "tsv"
     case _             => "json"
   }
 
