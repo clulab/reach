@@ -13,6 +13,9 @@ directional_preposition: "nmod_(between|through)"
 # preposition relations encoding a source
 source_preposition: "nmod_from"
 
+# preposition relations encoding a target
+to_preposition: "nmod_(to|into)"
+
 # any prepositional noun modifier relation
 any_preposition: "nmod_"
 
