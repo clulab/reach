@@ -44,6 +44,9 @@ class TestConversionEvents extends FlatSpec with Matchers {
                "conversion of β-D-galactose to α-D-galactose since this " +
                "is the active form in the pathway."
 
+  val sent5 = "ACE2 catalyzes the conversion of angiotensin-I into " +
+              "angiotensin-II"
+
   sent1a should "contain conversion patterns" in {
     val mentions = getBioMentions(sent1a)
     mentions.filter(_.label == "Conversion") should have size (1)
@@ -100,6 +103,11 @@ class TestConversionEvents extends FlatSpec with Matchers {
   }
 
   sent4a should "contain catalyze_dobj patterns" in {
+    val mentions = getBioMentions(sent4a)
+    mentions.filter(_.label == "Conversion") should have size (1)
+  }
+
+  sent5 should "contain catalyze_dobj patterns" in {
     val mentions = getBioMentions(sent4a)
     mentions.filter(_.label == "Conversion") should have size (1)
   }
