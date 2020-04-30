@@ -111,7 +111,7 @@
                   <label class="kvKey">Options:</label>
                   <span class="kvValue">
                     The optional <b>form</b> argument <code>output</code> selects an output format:
-                    arizona, cmu, csv, indexcard, serial-json, or fries (the default).
+                    indexcard, serial-json, or fries (the default).
                   </span>
                 </div>
                 <div>
@@ -129,7 +129,7 @@
                       curl 'http://localhost:8080/api/text?text=Akt1+phosphorylates+mek1&output=serial-json'
                     </div>
                     <div class="example">
-                      curl 'http://localhost:8080/api/text?text=Akt1%20phosphorylates%20mek1&output=csv'
+                      curl 'http://localhost:8080/api/text?text=Akt1%20phosphorylates%20mek1&output=fries'
                     </div>
                   </span>
                   </div>
@@ -157,7 +157,7 @@
                   <label class="kvKey">Options:</label>
                   <span class="kvValue">
                     The optional <b>body</b> argument <code>output</code> selects an output format:
-                    arizona, cmu, csv, indexcard, serial-json, or fries (the default).
+                    indexcard, serial-json, or fries (the default).
                   </span>
                 </div>
                 <div>
@@ -172,16 +172,16 @@
                       curl -XPOST -d 'text=Akt1%20phosphorylates%20mek1' 'http://localhost:8080/api/textBody'
                     </div>
                     <div class="example">
-                      curl -XPOST -d 'text=akt1+phosphorylates+mek1&output=csv' 'http://localhost:8080/api/textBody'
+                      curl -XPOST -d 'text=akt1+phosphorylates+mek1&output=fries' 'http://localhost:8080/api/textBody'
                     </div>
                     <div class="example">
-                      curl -XPOST -d 'text=akt1+phosphorylates+mek1' -d 'output=csv' 'http://localhost:8080/api/textBody'
+                      curl -XPOST -d 'text=akt1+phosphorylates+mek1' -d 'output=fries' 'http://localhost:8080/api/textBody'
                     </div>
                     <div class="example">
-                      curl -XPOST -d 'output=cmu' --data 'text=The+inhibition+of+AICAR+suppresses+the+phosphorylation+of+TBC1D1.' 'http://localhost:8080/api/textBody'
+                      curl -XPOST -d 'output=fries' --data 'text=The+inhibition+of+AICAR+suppresses+the+phosphorylation+of+TBC1D1.' 'http://localhost:8080/api/textBody'
                     </div>
                     <div class="example">
-                      curl -XPOST -d 'output=cmu' --data-urlencode 'text=The inhibition of AICAR suppresses the phosphorylation of TBC1D1.' 'http://localhost:8080/api/textBody'
+                      curl -XPOST -d 'output=fries' --data-urlencode 'text=The inhibition of AICAR suppresses the phosphorylation of TBC1D1.' 'http://localhost:8080/api/textBody'
                     </div>
                     <div class="example">
                       curl -XPOST --data-urlencode 'text=TopBP1 promotes the phosphorylation of cyclin-D1 by ATR.' 'http://localhost:8080/api/textBody'
@@ -212,7 +212,7 @@
                   <label class="kvKey">Options:</label>
                   <span class="kvValue">
                     The optional <b>query</b> argument <code>output</code> selects an output format:
-                    arizona, cmu, csv, indexcard, serial-json, or fries (the default).
+                    indexcard, serial-json, or fries (the default).
                   </span>
                 </div>
                 <div>
@@ -224,10 +224,10 @@
                       curl -XPOST -F 'file=@infile.txt' 'http://localhost:8080/api/uploadFile'
                     </div>
                     <div class="example">
-                      curl -XPOST -F 'file=@myFile -F 'output=cmu' 'http://localhost:8080/api/uploadFile'
+                      curl -XPOST -F 'file=@myFile -F 'output=fries' 'http://localhost:8080/api/uploadFile'
                     </div>
                     <div class="example">
-                      curl -XPOST -F 'file=@some.text' -F 'output=csv' 'http://localhost:8080/api/uploadFile'
+                      curl -XPOST -F 'file=@some.text' -F 'output=fries' 'http://localhost:8080/api/uploadFile'
                     </div>
                     <div class="example">
                       curl -XPOST -F 'file=@PMC1240239.nxml' 'http://localhost:8080/api/uploadFile'
@@ -236,7 +236,7 @@
                       curl -XPOST -F 'file=@myFile.xml -F 'output=serial-json' 'http://localhost:8080/api/uploadFile'
                     </div>
                     <div class="example">
-                      curl -XPOST -F 'file=@some.nxml -F 'output=csv' 'http://localhost:8080/api/uploadFile'
+                      curl -XPOST -F 'file=@some.nxml -F 'output=fries' 'http://localhost:8080/api/uploadFile'
                     </div>
                     <div class="example">
                       curl -XPOST -F 'file=@PMCfake.nxml -F 'output=fries' 'http://localhost:8080/api/uploadFile'
