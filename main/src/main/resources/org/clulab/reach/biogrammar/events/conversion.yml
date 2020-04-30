@@ -8,7 +8,7 @@ rules:
   priority: ${ priority }
   pattern: |
       trigger = [lemma=/convert|rearrange|phosphorylate|deaminate|
-                        isomerise|isomerize/ & tag=/^V/]
+                        isomerise|isomerize|epimerize|recycle/ & tag=/^V/]
       controller:BioChemicalEntity*  = (nsubj|nmod_agent) nn?
       substrate:BioChemicalEntity+ = dobj | acomp | nsubjpass
       product:BioChemicalEntity+ = (dobj? (nmod_into|nmod_to)) | (acomp? (nmod_into|nmod_to))
