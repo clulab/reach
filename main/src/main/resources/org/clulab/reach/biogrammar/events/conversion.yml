@@ -1,0 +1,69 @@
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
+- name: conversion_verb
+  label: Conversion
+  action: mkBioMention
+  priority: ${ priority }
+  pattern: |
+      trigger = [lemma=/convert|rearrange|phosphorylate|deaminate|
+                        isomerise|isomerize|epimerize|recycle/ & tag=/^V/]
+      controller:BioChemicalEntity* = nsubj|nmod_agent|nmod_by
+      substrate:BioChemicalEntity+ = dobj|nsubjpass
+      product:BioChemicalEntity+ = /${to_preposition}/
+
+- name: conversion_noun
+  label: Conversion
+  action: mkBioMention
+  priority: ${ priority }
+  pattern: |
+    trigger = [lemma=/conversion/ & tag=/^NN/]
+    controller:BioChemicalEntity* = nmod_of? nmod_by appos?
+    substrate:BioChemicalEntity+ = nmod_of
+    product:BioChemicalEntity+ = nmod_of? <dobj? /${to_preposition}/
+
+
+- name: catalyze_conversion
+  label: Conversion
+  action: mkBioMention
+  priority: ${ priority }
+  pattern: |
+    trigger = [lemma=/catalyze|catalyse/ & tag=/^V/]
+    controller:BioChemicalEntity* = nsubj
+    substrate:BioChemicalEntity+ =
+           dobj | (dobj [lemma=/conversion|synthesis/])? nmod_of
+    product:BioChemicalEntity+ =
+           (dobj [lemma=/conversion|synthesis/])? nmod_of? /${to_preposition}/
+
+
+# This is now handled in conversion_verb
+  #- name: convert_passive
+#  label: Conversion # Refers to the entry in the taxonomy
+#  action: mkBioMention
+#  priority: ${ priority }
+#  pattern: |
+#    trigger = [lemma=/convert|rearrange/ & tag=/^V/]
+#    substrate:BioChemicalEntity+ = nsubjpass
+#    product:BioChemicalEntity+ = nmod_to | nmod_into
+#    controller:BioChemicalEntity* = nmod_by | nmod_agent
+
+# This is handled in conversion_verb
+#- name: conversion_token
+#  label: Conversion
+#  action: mkBioMention
+#  priority: ${ priority }
+#  type: token
+#  pattern: |
+#      @controller:BioChemicalEntity (?<trigger> [lemma=convert])
+#      @substrate:BioChemicalEntity/^(in)?to$/
+#      @product:BioChemicalEntity*
+
+# Should conversions actually be complex events?
+# "X synthesis from Y"
+# "synthesis of X from Y"
+# "the interconversion of X and Y"
+# "A catalyzes the interconversion of X and Y"
+#
+# "A interconverts B with C"
+# "A interconverts B and C"
