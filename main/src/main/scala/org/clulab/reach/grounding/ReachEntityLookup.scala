@@ -85,6 +85,7 @@ class ReachEntityLookup {
 
   // instantiate the various search sequences, each sequence for a different label:
   val bioProcessSeq: KBSearchSequence = extraKBs ++ Seq( StaticBioProcess )
+  val diseaseSeq: KBSearchSequence = extraKBs ++ Seq( StaticDisease )
   val cellTypeSeq: KBSearchSequence = extraKBs ++ Seq( ContextCellType )
 
   val cellLineSeq: KBSearchSequence = extraKBs ++ Seq(

@@ -146,4 +146,15 @@ object ReachIMKBLookups {
     val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, FamilyAuxKeyTransforms, DefaultKeyTransforms)
     new IMKBLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
+
+  /** KB lookup to resolve disease names via static KB. */
+  def staticDiseaseKBLookup: IMKBLookup = {
+    val metaInfo = new IMKBMetaInfo(
+      kbFilename = Some(StaticDiseaseFilename),
+      namespace = "mesh",
+      baseURI = "http://identifiers.org/mesh/",
+      resourceId = "MIR:00000560"
+    )
+    new IMKBLookup(TsvIMKBFactory.make(metaInfo))
+  }
 }

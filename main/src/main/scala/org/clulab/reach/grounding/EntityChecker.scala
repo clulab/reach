@@ -34,6 +34,9 @@ object EntityChecker extends App with LazyLogging {
   /** Search sequence for sub cellular locations terms. */
   protected val cellLocationSearcher = Seq( staticCellLocationKBLookup )
 
+  /** Search sequence for disease terms. */
+  protected val diseaseSearcher = Seq( staticDiseaseKBLookup )
+
 
   /** Read the BioPAX model from the given input stream and check the entities. */
   def readAndCheckBioPax (fis:InputStream) = {
