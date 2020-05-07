@@ -45,6 +45,7 @@ class ReachEntityLookup {
       case "Cellular_component" => augmentMention(mention, cellComponentSeq)
       case "Complex" | "GENE" | "Gene_or_gene_product" | "Protein" =>
         augmentMention(mention, proteinSeq)
+      case "Disease" =>  augmentMention(mention, diseaseSeq)
       case "Family" =>  augmentMention(mention, familySeq)
       case "Organ" => augmentMention(mention, organSeq)
       case "Simple_chemical" => augmentMention(mention, chemicalSeq)

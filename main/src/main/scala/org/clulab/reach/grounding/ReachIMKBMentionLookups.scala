@@ -36,7 +36,6 @@ object ReachIMKBMentionLookups {
   val StaticProtein = staticProteinKBML
   val StaticGene = staticGeneKBML
   val staticProteinFamilyOrComplex = staticProteinFamilyOrComplexKBML
-  val staticDisease = staticDiseaseKBML
 
   val StaticProteinFamily = staticProteinFamilyKBML
   val StaticProteinFamily2 = staticProteinFamily2KBML

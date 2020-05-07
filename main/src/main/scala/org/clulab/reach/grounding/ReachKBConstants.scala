@@ -80,7 +80,7 @@ object ReachKBConstants {
   val StaticProteinFamilyOrComplexFilename = "famplex.tsv.gz"
 
   /** Filename of the static disease file. */
-  val StaticDiseaseFilename = "mesh_disease.tsv.gz"
+  val StaticDiseaseFilename = "mesh-disease.tsv.gz"
 
   /** Filename of the context species file */
   val ContextSpeciesFilename = "Species.tsv.gz"
