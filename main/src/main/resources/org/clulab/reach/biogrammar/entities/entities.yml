@@ -241,6 +241,15 @@
   pattern: |
     [entity='B-BioProcess'] [entity='I-BioProcess']*
 
+- name: ner-disease-entities
+  label: Disease
+  action: mkNERMentions
+  example: "cystic fibrosis"
+  priority: 3
+  type: token
+  pattern: |
+    [entity='B-Disease'] [entity='I-Disease']*
+
 # TODO: Ideally, this should somehow be added to the KB
 - name: missing-simple_chemical
   label: Simple_chemical

@@ -26,6 +26,7 @@ object ReachIMKBMentionLookups {
   val ContextTissueType = contextTissueTypeKBML
 
   val StaticBioProcess = staticBioProcessKBML
+  val StaticDisease = staticDiseaseKBML
   val StaticCellLocation = staticCellLocationKBML   // GO subcellular KB
   val StaticCellLocation2 = staticCellLocation2KBML // Uniprot subcellular KB
   val StaticChemical = staticChemicalKBML
@@ -232,6 +233,17 @@ object ReachIMKBMentionLookups {
     )
     val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, FamilyAuxKeyTransforms, DefaultKeyTransforms)
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
+  }
+
+  /** KB accessor to resolve disease names via static KB. */
+  def staticDiseaseKBML: IMKBMentionLookup = {
+    val metaInfo = new IMKBMetaInfo(
+      namespace = "mesh",
+      kbFilename = Some(StaticDiseaseFilename),
+      baseURI = "http://identifiers.org/mesh/",
+      resourceId = "MIR:00000560"
+    )
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
   }
 
 

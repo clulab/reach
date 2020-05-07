@@ -67,6 +67,7 @@
     - Entity:
       # Any BioEntity may appear as the controlled in an Activation
       - BioEntity:
+          - Disease
           - BioProcess   # ex. "apoptosis"
           - BioChemicalEntity:
               - Generic_entity
