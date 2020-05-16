@@ -26,7 +26,9 @@ import scala.util.Random
 
 class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
-  Initialize.initialize()
+  var IS_DYNET_INITIALIZED = false
+  initializeDyNet(mem = "512,512,512,512")   // if only 1 number is given , it is split to 4 pieces
+  //Initialize.initialize()
 
   val config = ConfigFactory.load()
 
@@ -726,6 +728,22 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     bufferedSource.close
 
     outputMap_.toMap
+  }
+
+  def initializeDyNet(mem: String = ""): Unit = {
+    this.synchronized {
+      if (!IS_DYNET_INITIALIZED) {
+        logger.debug("Initializing DyNet...")
+
+        val params = new mutable.HashMap[String, Any]()
+        params += "random-seed" -> 0L
+        params += "dynet-mem" -> mem
+
+        Initialize.initialize(params.toMap)
+        logger.debug("DyNet initialization complete.")
+        IS_DYNET_INITIALIZED = true
+      }
+    }
   }
 }
 

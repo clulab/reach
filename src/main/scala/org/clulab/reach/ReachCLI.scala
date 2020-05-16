@@ -79,6 +79,7 @@ class ReachCLI (
       if ! skipFiles.contains(filename)
     } yield {
       val error: Int = try {
+        println(s"processing paper ${paperID} ...")   //print paper id here for debugging
         processPaper(file)
         0                                   // no error
       } catch {
@@ -270,5 +271,5 @@ object RunReachCLI extends App with LazyLogging {
     restartFile = if (useRestart) Some(restartFile) else None
   )
 
-  cli.processPapers(Some(threadLimit))
+  cli.processPapers(None)  //Some(threadLimit)  changed for debugging purpose
 }
