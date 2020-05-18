@@ -79,7 +79,6 @@ class ReachCLI (
       if ! skipFiles.contains(filename)
     } yield {
       val error: Int = try {
-        println(s"processing paper ${paperID} ...")   //print paper id here for debugging
         processPaper(file)
         0                                   // no error
       } catch {

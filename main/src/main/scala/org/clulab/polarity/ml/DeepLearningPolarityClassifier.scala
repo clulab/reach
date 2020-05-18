@@ -27,8 +27,6 @@ import scala.util.Random
 class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
   var IS_DYNET_INITIALIZED = false
-  initializeDyNet(mem = "512,512,512,512")   // if only 1 number is given , it is split to 4 pieces
-  //Initialize.initialize()
 
   val config = ConfigFactory.load()
 
@@ -43,6 +41,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   var HIDDEN_SIZE = 30
   var MLP_HIDDEN_SIZE = 10
   var N_EPOCH = 5
+  var dynetBlockMem = "512"  // dynet memory of each block, in MB. The total dynet memory is dynetBlockMem * 4
   var w2iPath = "lstmPolarityW2i.txt"
   var c2iPath = "lstmPolarityC2i.txt"
 
@@ -63,10 +62,15 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     HIDDEN_SIZE = config.getInt(configPath+".HIDDEN_SIZE")
     MLP_HIDDEN_SIZE = config.getInt(configPath+".MLP_HIDDEN_SIZE")
     N_EPOCH = config.getInt(configPath+".N_EPOCH")
+
+    dynetBlockMem = scala.math.min(config.getInt(configPath+".dynetMem")/4, 768).toString // set dynet block memory, max block memory is set to 768 for now.
   }
   else{
     logger.error("Config file doesn't have polarity engine configured. Returning the default engine")
   }
+
+  // set the dynet memory for each block.
+  initializeDyNet(mem = dynetBlockMem+","+dynetBlockMem+","+dynetBlockMem+","+dynetBlockMem)   // if only 1 number is given , it is split to 4 pieces
 
   //val dictPath = "vocab.txt"
   //val w2vDictPath = "w2vvoc.txt"
