@@ -63,7 +63,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     MLP_HIDDEN_SIZE = config.getInt(configPath+".MLP_HIDDEN_SIZE")
     N_EPOCH = config.getInt(configPath+".N_EPOCH")
 
-    dynetBlockMem = scala.math.min(config.getInt(configPath+".dynetMem")/4, 768).toString // set dynet block memory, max block memory is set to 768 for now.
+    dynetBlockMem = scala.math.min(config.getInt(configPath+".dynetMem")/4, 1024).toString // set dynet block memory, max block memory is set to 768 for now.
   }
   else{
     logger.error("Config file doesn't have polarity engine configured. Returning the default engine")
