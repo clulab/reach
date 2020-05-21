@@ -9,7 +9,7 @@ libraryDependencies ++= {
 
   Seq(
     "com.typesafe"         %  "config"      % "1.3.1",
-
+        "ai.lum"          %% "common"                    % "0.1.2",
     "org.clulab"          %%  "processors-main"          % procVer,
     "org.clulab"          %%  "processors-corenlp"       % procVer,
     "org.clulab"          %%  "processors-odin"          % procVer,
