@@ -205,20 +205,19 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
       val lemmas_masked = maskEvent(lemmas, event, maskOption)
 
-      val y_pred:Expression =
-        this.synchronized{
-          ComputationGraph.renew()
-          runInstance(lemmas_masked, rulePolarity)
+      // y.value should be in synchronized.
+      val polarity = this.synchronized{
+        ComputationGraph.renew()
+        val y_pred:Expression =runInstance(lemmas_masked, rulePolarity)
+        if (y_pred.value().toFloat > 0.5) {
+          PositivePolarity
+        }
+        else {
+          NegativePolarity
         }
 
-//      scala.io.StdIn.readLine()
-
-      if (y_pred.value().toFloat > 0.5) {
-        PositivePolarity
       }
-      else {
-        NegativePolarity
-      }
+      polarity
     }
     else {NeutralPolarity}
   }
