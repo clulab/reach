@@ -205,7 +205,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
       val lemmas_masked = maskEvent(lemmas, event, maskOption)
 
-      // y.value should be in synchronized.
+      // y.value should be in synchronized. In general, any expression should be in synchronized.
       val polarity = this.synchronized{
         ComputationGraph.renew()
         val y_pred:Expression =runInstance(lemmas_masked, rulePolarity)
@@ -341,13 +341,14 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   def predictManual(event:String, rulePolarity:Int): Unit= {
     val words  = event.split(" ")
 
-    val y_pred:Expression = this.synchronized{
+    val y_pred_float = this.synchronized {
       ComputationGraph.renew()
-      runInstance(words, rulePolarity)
+      val y_pred: Expression = runInstance(words, rulePolarity)
+      y_pred.value().toFloat()
     }
-    val y_pred_float = y_pred.value().toFloat().toString
 
     println(s"Output:${y_pred_float},  text: ${event}")
+
   }
 
   /**
@@ -501,18 +502,18 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
       val y_value = label
 
-      val (y_pred:Expression, loss:Float) = this.synchronized{
+      val (y_pred_float:Float, loss:Float) = this.synchronized{
         ComputationGraph.renew()
         val y = Expression.input(y_value)
         val y_pred_ = runInstance(instance._1, instance._2)
         val loss_expr = Expression.binaryLogLoss(y_pred_, y)
         val loss_ = ComputationGraph.forward(loss_expr).toFloat
-        (y_pred_, loss_)
+        (y_pred_.value().toFloat, loss_)
       }
 
       total_loss+=loss
 
-      if (y_pred.value().toFloat>0.5){
+      if (y_pred_float>0.5){
         predLabels_.append(1)
         if (label==1) {correct_count+=1}
       }
