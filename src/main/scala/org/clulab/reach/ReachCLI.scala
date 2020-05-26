@@ -270,5 +270,5 @@ object RunReachCLI extends App with LazyLogging {
     restartFile = if (useRestart) Some(restartFile) else None
   )
 
-  cli.processPapers(Some(threadLimit))  //Change this from Some(threadLimit) to None for debugging.
+  cli.processPapers(Some(threadLimit))
 }
