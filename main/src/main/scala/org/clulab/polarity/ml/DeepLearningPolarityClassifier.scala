@@ -26,7 +26,7 @@ import scala.util.Random
 
 class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
-  Initialize.initialize()
+  var IS_DYNET_INITIALIZED = false
 
   val config = ConfigFactory.load()
 
@@ -41,6 +41,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   var HIDDEN_SIZE = 30
   var MLP_HIDDEN_SIZE = 10
   var N_EPOCH = 5
+  var dynetBlockMem = "512"  // dynet memory of each block, in MB. The total dynet memory is dynetBlockMem * 4
   var w2iPath = "lstmPolarityW2i.txt"
   var c2iPath = "lstmPolarityC2i.txt"
 
@@ -61,10 +62,15 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     HIDDEN_SIZE = config.getInt(configPath+".HIDDEN_SIZE")
     MLP_HIDDEN_SIZE = config.getInt(configPath+".MLP_HIDDEN_SIZE")
     N_EPOCH = config.getInt(configPath+".N_EPOCH")
+
+    dynetBlockMem = scala.math.min(config.getInt(configPath+".dynetMem")/4, 768).toString // set dynet block memory, max block memory is set to 768 for now.
   }
   else{
     logger.error("Config file doesn't have polarity engine configured. Returning the default engine")
   }
+
+  // set the dynet memory for each block.
+  initializeDyNet(mem = dynetBlockMem+","+dynetBlockMem+","+dynetBlockMem+","+dynetBlockMem)   // if only 1 number is given , it is split to 4 pieces
 
   //val dictPath = "vocab.txt"
   //val w2vDictPath = "w2vvoc.txt"
@@ -199,20 +205,19 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
       val lemmas_masked = maskEvent(lemmas, event, maskOption)
 
-      val y_pred:Expression =
-        this.synchronized{
-          ComputationGraph.renew()
-          runInstance(lemmas_masked, rulePolarity)
+      // y.value should be in synchronized. In general, any expression should be in synchronized.
+      val polarity = this.synchronized{
+        ComputationGraph.renew()
+        val y_pred:Expression =runInstance(lemmas_masked, rulePolarity)
+        if (y_pred.value().toFloat > 0.5) {
+          PositivePolarity
+        }
+        else {
+          NegativePolarity
         }
 
-//      scala.io.StdIn.readLine()
-
-      if (y_pred.value().toFloat > 0.5) {
-        PositivePolarity
       }
-      else {
-        NegativePolarity
-      }
+      polarity
     }
     else {NeutralPolarity}
   }
@@ -336,13 +341,14 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   def predictManual(event:String, rulePolarity:Int): Unit= {
     val words  = event.split(" ")
 
-    val y_pred:Expression = this.synchronized{
+    val y_pred_float = this.synchronized {
       ComputationGraph.renew()
-      runInstance(words, rulePolarity)
+      val y_pred: Expression = runInstance(words, rulePolarity)
+      y_pred.value().toFloat()
     }
-    val y_pred_float = y_pred.value().toFloat().toString
 
     println(s"Output:${y_pred_float},  text: ${event}")
+
   }
 
   /**
@@ -496,18 +502,18 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
       val y_value = label
 
-      val (y_pred:Expression, loss:Float) = this.synchronized{
+      val (y_pred_float:Float, loss:Float) = this.synchronized{
         ComputationGraph.renew()
         val y = Expression.input(y_value)
         val y_pred_ = runInstance(instance._1, instance._2)
         val loss_expr = Expression.binaryLogLoss(y_pred_, y)
         val loss_ = ComputationGraph.forward(loss_expr).toFloat
-        (y_pred_, loss_)
+        (y_pred_.value().toFloat, loss_)
       }
 
       total_loss+=loss
 
-      if (y_pred.value().toFloat>0.5){
+      if (y_pred_float>0.5){
         predLabels_.append(1)
         if (label==1) {correct_count+=1}
       }
@@ -726,6 +732,22 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     bufferedSource.close
 
     outputMap_.toMap
+  }
+
+  def initializeDyNet(mem: String = ""): Unit = {
+    this.synchronized {
+      if (!IS_DYNET_INITIALIZED) {
+        logger.debug("Initializing DyNet...")
+
+        val params = new mutable.HashMap[String, Any]()
+        params += "random-seed" -> 0L
+        params += "dynet-mem" -> mem
+
+        Initialize.initialize(params.toMap)
+        logger.debug("DyNet initialization complete.")
+        IS_DYNET_INITIALIZED = true
+      }
+    }
   }
 }
 
