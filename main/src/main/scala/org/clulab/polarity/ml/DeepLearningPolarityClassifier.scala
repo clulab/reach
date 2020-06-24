@@ -206,7 +206,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       val lemmas_masked = maskEvent(lemmas, event, maskOption)
 
       // y.value should be in synchronized. In general, any expression should be in synchronized.
-      val polarity = this.synchronized{
+      val polarity = DyNetSync.synchronized{
         ComputationGraph.renew()
         val y_pred:Expression =runInstance(lemmas_masked, rulePolarity)
         if (y_pred.value().toFloat > 0.5) {
@@ -341,7 +341,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   def predictManual(event:String, rulePolarity:Int): Unit= {
     val words  = event.split(" ")
 
-    val y_pred_float = this.synchronized {
+    val y_pred_float = DyNetSync.synchronized {
       ComputationGraph.renew()
       val y_pred: Expression = runInstance(words, rulePolarity)
       y_pred.value().toFloat()
@@ -474,7 +474,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
       val y_value = label
 
-      val loss = this.synchronized{
+      val loss = DyNetSync.synchronized{
         ComputationGraph.renew()
         val y = Expression.input(y_value)
         val y_pred = runInstance(instance._1, instance._2)
@@ -502,7 +502,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
       val y_value = label
 
-      val (y_pred_float:Float, loss:Float) = this.synchronized{
+      val (y_pred_float:Float, loss:Float) = DyNetSync.synchronized{
         ComputationGraph.renew()
         val y = Expression.input(y_value)
         val y_pred_ = runInstance(instance._1, instance._2)
@@ -735,7 +735,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   }
 
   def initializeDyNet(mem: String = ""): Unit = {
-    this.synchronized {
+    DyNetSync.synchronized {
       if (!IS_DYNET_INITIALIZED) {
         logger.debug("Initializing DyNet...")
 
@@ -779,4 +779,8 @@ object DeepLearningPolarityClassifier {
     val classifier = new DeepLearningPolarityClassifier()
     classifier.save("model.sav")
   }
+}
+
+object DyNetSync {
+
 }
