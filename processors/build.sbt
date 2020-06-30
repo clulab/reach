@@ -5,7 +5,7 @@ resolvers += "Artifactory" at "http://artifactory.cs.arizona.edu:8081/artifactor
 
 
 libraryDependencies ++= {
-  val procVer = "8.0.1"
+  val procVer = "8.1.1"
 
   Seq(
     "com.typesafe"         %  "config"      % "1.3.1",

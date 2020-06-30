@@ -15,6 +15,7 @@ import org.clulab.fatdynet.utils.Closer.AutoCloser
 import org.clulab.odin.{EventMention, Mention, RelationMention, TextBoundMention}
 import org.clulab.polarity.{NegativePolarity, NeutralPolarity, Polarity, PositivePolarity}
 import org.clulab.reach.mentions.BioEventMention
+import org.clulab.dynet.DyNetSync
 
 import scala.collection.mutable
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
@@ -781,6 +782,3 @@ object DeepLearningPolarityClassifier {
   }
 }
 
-object DyNetSync {
-
-}
