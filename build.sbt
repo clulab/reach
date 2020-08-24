@@ -60,8 +60,8 @@ lazy val commonSettings = Seq(
 
 lazy val root = (project in file("."))
   .settings(commonSettings: _*)
-  .aggregate(main, export)
-  .dependsOn(main % "test->test;compile", export) // so that we can import from the console
+  .aggregate(main, causalAssembly, export)
+  .dependsOn(main % "test->test;compile", causalAssembly, export) // so that we can import from the console
   .settings(
     name := "reach-exe",
     aggregate in test := false,
@@ -90,9 +90,13 @@ lazy val main = project
   .settings(commonSettings:_*)
   .dependsOn(processors % "test->test;compile->compile")
 
-lazy val export = project
+lazy val causalAssembly = project.in(file("assembly"))
   .settings(commonSettings:_*)
   .dependsOn(main % "test->test;compile->compile")
+
+lazy val export = project
+  .settings(commonSettings:_*)
+  .dependsOn(main % "test->test;compile->compile", causalAssembly % "test;compile") // need access to assembly/src/resources
 
 //
 // publishing settings
