@@ -5,6 +5,10 @@ import java.util.Date
 import com.typesafe.scalalogging.LazyLogging
 import scala.collection.mutable.{HashMap, ListBuffer, Set => MSet}
 import org.json4s.jackson.Serialization
+import org.clulab.reach.assembly.export.{CausalPrecedence, Equivalence}
+import org.clulab.reach.assembly.{Assembler, RoleWithFeatures}
+import org.clulab.reach.assembly.export.AssemblyLink
+import org.clulab.reach.assembly.representations.{PTM => AssemblyPTM}
 import org.clulab.odin._
 import org.clulab.processors.Document
 import org.clulab.reach.FriesEntry
@@ -73,7 +77,7 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     endTime:Date,
     outFilePrefix:String): String = {
 
-    val (sentModel, entityModel, eventModel) =
+    val (sentModel, entityModel, eventModel, _) =
       makeModels(paperId, allMentions, paperPassages, startTime, endTime)
 
     val uniModel:PropMap = new PropMap      // combine models into one
@@ -82,6 +86,28 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     uniModel("events") = eventModel
     writeJsonToString(uniModel)             // write out combined model
   }
+
+
+  /**
+    * Writes the given mentions to output files in Fries JSON format.
+    * Separate output files are written for sentences, entities, and events.
+    * Each output file is prefixed with the given prefix string.
+    */
+  override def writeJSON (paperId:String,
+    allMentions:Seq[Mention],
+    paperPassages:Seq[FriesEntry],
+    startTime:Date,
+    endTime:Date,
+    outFilePrefix:String): Unit = {
+
+    val (sentModel, entityModel, eventModel, _) =
+      makeModels(paperId, allMentions, paperPassages, startTime, endTime)
+
+    writeJsonToFile(sentModel, new File(outFilePrefix + ".uaz.sentences.json"))
+    writeJsonToFile(entityModel, new File(outFilePrefix + ".uaz.entities.json"))
+    writeJsonToFile(eventModel, new File(outFilePrefix + ".uaz.events.json"))
+  }
+
 
   /**
     * Writes the given mentions to output files in Fries JSON format.
@@ -93,24 +119,27 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     paperPassages:Seq[FriesEntry],
     startTime:Date,
     endTime:Date,
-    outFilePrefix:String): Unit = {
+    outFilePrefix:String,
+    assemblyApi: Assembler): Unit = {
 
-    val (sentModel, entityModel, eventModel) =
-      makeModels(paperId, allMentions, paperPassages, startTime, endTime)
+    val (sentModel, entityModel, eventModel, assemblyModel) =
+      makeModels(paperId, allMentions, paperPassages, startTime, endTime, Some(assemblyApi))
 
     writeJsonToFile(sentModel, new File(outFilePrefix + ".uaz.sentences.json"))
     writeJsonToFile(entityModel, new File(outFilePrefix + ".uaz.entities.json"))
     writeJsonToFile(eventModel, new File(outFilePrefix + ".uaz.events.json"))
+    if (assemblyModel.isDefined)
+      writeJsonToFile(assemblyModel.get, new File(outFilePrefix + ".uaz.links.json"))
   }
 
 
-  /** Make and return the Sentence, Entity, and Event. */
-  def makeModels(paperId:String,
+  /** Make and return the Sentence, Entity, Event, and (optionally) Assembly data models. */
+  def makeModels (paperId:String,
     allMentions:Seq[Mention],
     paperPassages:Seq[FriesEntry],
     startTime:Date,
-    endTime:Date
-  ) = {
+    endTime:Date,
+    assemblyApi: Option[Assembler] = None): (PropMap, PropMap, PropMap, Option[PropMap]) = {
     // reset the set of events already output
     eventsDone.clear()
 
@@ -138,9 +167,16 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     // make Event Model
     val eventModel = eventsToModel(paperId, passageMap, entityMap,
       eventMap, contextIdMap, startTime, endTime,
-      otherMetaData)
+      otherMetaData, assemblyApi)
 
-    (sentModel, entityModel, eventModel)
+    // make optional Assembly Model
+    val assemblyModel =
+      if (assemblyApi.isDefined)
+        Some(assemblyToModel(paperId, derefedMentions, passageMap, entityMap,
+          eventMap, startTime, endTime, otherMetaData, assemblyApi.get))
+      else None
+
+    (sentModel, entityModel, eventModel, assemblyModel)
   }
 
 
@@ -171,22 +207,32 @@ class FriesOutput extends JsonOutputter with LazyLogging {
 
 
   /** Return an Assembly Model, representing selected assembly information for this paper. */
-  private def assemblyToModel(
-    paperId: String,
+  private def assemblyToModel (paperId: String,
     mentions: Seq[Mention],
     passageMap: Map[String, FriesEntry],
     entityMap: IDed,
     eventMap: IDed,
     startTime: Date,
     endTime: Date,
-    otherMetaData: Map[String, String]
-  ): PropMap = {
+    otherMetaData: Map[String, String],
+    assemblyApi: Assembler): PropMap = {
     val model:PropMap = new PropMap
     addMetaInfo(model, paperId, startTime, endTime, otherMetaData)
 
     val frames = new FrameList
     model("frames") = frames
 
+    for (mention <- eventMap.keys.toList.sortBy(m => (m.sentence, m.tokenInterval.start))) {
+      val fromId = lookupMentionId(mention, entityMap, eventMap)
+      if (fromId.isDefined) {
+        frames ++= make1toMLinkFrames(paperId, mention, fromId.get,
+          assemblyApi.getEquivalenceLinks(mention),
+          "equivalent-to", passageMap, entityMap, eventMap)
+        frames ++= make1to1LinkFrames(paperId, mention, fromId.get,
+          assemblyApi.getCausalPredecessors(mention),
+          "preceded-by", passageMap, entityMap, eventMap)
+      }
+    }
     model                              // return the constructed assembly model
   }
 
@@ -227,8 +273,8 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     contextIdMap: CtxIDed,
     startTime: Date,
     endTime: Date,
-    otherMetaData: Map[String, String]
-  ): PropMap = {
+    otherMetaData: Map[String, String],
+    assemblyApi: Option[Assembler] = None): PropMap = {
 
     val model:PropMap = new PropMap
     addMetaInfo(model, paperId, startTime, endTime, otherMetaData)
@@ -244,7 +290,7 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     } {
       val passage = getPassageForMention(passageMap, event)
       frames ++= makeEventMention(paperId, passage, event.toBioMention, entityMap,
-        eventMap, contextIdMap)
+        eventMap, contextIdMap, assemblyApi)
     }
 
     model
@@ -322,14 +368,13 @@ class FriesOutput extends JsonOutputter with LazyLogging {
   }
 
 
-  private def makeArgumentFrame(
-    name: String,
+  private def makeArgumentFrame (name: String,
     arg: Mention,
     argIndex: Int,
     parent: Mention,
     entityMap: IDed,
-    eventMap: IDed
-  ): PropMap = {
+    eventMap: IDed,
+    argFeatures:Option[RoleWithFeatures] = None): PropMap = {
     val pm = new PropMap                    // create new argument frame
     pm("object-type") = "argument"
     pm("type") = prettifyLabel(name)
@@ -363,6 +408,13 @@ class FriesOutput extends JsonOutputter with LazyLogging {
           throw new RuntimeException(s"Entity argument [${arg.text} [mods: ${arg.toCorefMention.modifications.map(_.toString).mkString(" ")}]] not in entityMap \nin event [$parent.text] \nin sentence[${arg.document.sentences(arg.sentence).words.mkString(" ")}]:\n" + json.MentionOps(arg).json(pretty = true))
         }
         pm("arg") = entityMap.get(arg).get
+
+        // output any participant features associated with this entity by assembly:
+        if (argFeatures.isDefined) {
+          val features = makeParticipantFeatures(argFeatures.get)
+          if (features.nonEmpty)
+            pm("participant-features") = features
+        }
 
       case "event" =>                       // an Event: fetch its ID from the event map
         if (!eventMap.contains(arg)) {
@@ -523,8 +575,8 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     mention: BioMention,
     entityMap: IDed,
     eventMap: IDed,
-    contextIdMap: CtxIDed
-  ): FrameList = {
+    contextIdMap: CtxIDed,
+    assemblyApi: Option[Assembler] = None): FrameList = {
 
     val eventList = new FrameList
 
@@ -547,6 +599,9 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     if (evType != "complex-assembly")
       f("subtype") = prettifyLabel(mention.label)
 
+    // if using the Assembly subsystem, get all input participant features for this event
+    val inputFeatures = assemblyApi.map(_.getInputFeaturesByParticipants(mention))
+
     // add the argument frames for (already processed) arguments
     mention match {
       case em if isEventOrRelationMention(em) =>
@@ -557,7 +612,11 @@ class FriesOutput extends JsonOutputter with LazyLogging {
           role <- arguments.keys.toList
           (ithArg: Mention, i: Int) <- arguments(role).zipWithIndex
         } {
-          argList += makeArgumentFrame(role, ithArg, i, mention, entityMap, eventMap)
+          val argFeatures = inputFeatures match {
+            case Some(features) => Some(features(ithArg))
+            case None => None
+          }
+          argList += makeArgumentFrame(role, ithArg, i, mention, entityMap, eventMap, argFeatures)
         }
         f("arguments") = argList
 
@@ -641,6 +700,73 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     f
   }
 
+  /** Return a list of link frames made from the given mention and set of assembly links. */
+  private def make1to1LinkFrames [L <: AssemblyLink] (
+    paperId: String,
+    from: Mention,
+    fromId: String,
+    links: Set[L],
+    frameType: String,
+    passageMap: Map[String, FriesEntry],
+    entityMap: IDed,
+    eventMap: IDed
+  ): List[PropMap] = {
+    val frames: ListBuffer[PropMap] = new ListBuffer()
+    val passage = getPassageForMention(passageMap, from)
+    links foreach { link =>
+      val linkId = mkLinkId(paperId, passage, from.sentence) // generate next link ID
+      link match {
+        case CausalPrecedence(before, after, foundBy) =>
+          // validate: from == after, "link should represent predecessors of 'from' Mention"
+          val m2Id = lookupMentionId(before, entityMap, eventMap)
+          if (m2Id.isDefined) {
+            val args = List(makeLinkArgumentFrame(fromId, "after"),
+              makeLinkArgumentFrame(m2Id.get, "before"))
+            frames += makeLinkFrame(linkId, frameType, foundBy, args)
+          }
+        case unknown =>
+          logger.error(s"Cannot create 1-to-1 links for type '${unknown.getClass}'")
+      }
+    }
+    frames.toList
+  }
+
+  /** Return a singleton list of link frame made from the given mention and set of assembly links. */
+  private def make1toMLinkFrames [L <: AssemblyLink] (
+    paperId: String,
+    from: Mention,
+    fromId: String,
+    links: Set[L],
+    frameType: String,
+    passageMap: Map[String, FriesEntry],
+    entityMap: IDed,
+    eventMap: IDed
+  ): List[PropMap] = {
+    val frames: ListBuffer[PropMap] = new ListBuffer()
+    if (links.nonEmpty) {               // ignore empty maps
+    val passage = getPassageForMention(passageMap, from)
+      val linkId = mkLinkId(paperId, passage, from.sentence) // generate single link ID
+
+      val foundBy = links.head.foundBy  // get foundBy from arbitrary element
+      links.head match {
+        case Equivalence(_, m2, _) =>
+          val args: ListBuffer[PropMap] = new ListBuffer()
+          args += makeLinkArgumentFrame(fromId, "from") // add FROM as argument zero
+          args ++= links.zipWithIndex.flatMap { case(link:Equivalence, ndx:Int) =>
+            lookupMentionId(link.m2, entityMap, eventMap).map(m2Id =>
+              makeLinkArgumentFrame(m2Id, s"to${ndx}"))
+          }
+          if (args.size > 1)                  // must have at least one TO argument
+            frames += makeLinkFrame(linkId, frameType, foundBy, args.toList)
+
+        case unknown =>
+          logger.error(s"Cannot create 1-to-M links for type '${unknown.getClass}'")
+      }
+    }
+    frames.toList
+  }
+
+
   /** Create and return a single mutant modification map. */
   private def makeMutant (mutant: Mutant): PropMap = {
     val pm = new PropMap
@@ -649,6 +775,24 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     pm("evidence") = mutant.evidence.text
     pm
   }
+
+
+  /** Return a list of participant features for the given role/argument features object. */
+  private def makeParticipantFeatures (rwfs: RoleWithFeatures): FrameList = {
+    (new FrameList) ++= rwfs.features.map{ f:AssemblyPTM => makeParticipantFeature(f) }
+  }
+
+  /** Return a participant feature map for the given modification object. */
+  private def makeParticipantFeature (ptm: AssemblyPTM): PropMap = {
+    val pm = new PropMap
+    pm("object-type") = "feature"
+    pm("type") = ptm.label
+    pm("negated") = ptm.negated
+    if (ptm.site.isDefined)
+      pm("site") = ptm.site.get
+    pm
+  }
+
 
   /** Create and return a new passage frame. */
   private def makePassage (model: PropMap,

@@ -7,6 +7,7 @@ import org.json4s.jackson.Serialization
 import org.clulab.odin.Mention
 import org.clulab.reach.ReachConstants._
 import ai.lum.nxmlreader.NxmlDocument
+import org.clulab.reach.assembly.Assembler
 import org.clulab.reach.FriesEntry
 import org.clulab.odin.serialization.json._
 
@@ -51,7 +52,8 @@ trait JsonOutputter {
 
 
   /**
-    * Outputs the given mentions to the given output file in some JSON-based format.
+    * Outputs the given mentions to the given output file in some JSON-based format,
+    * including additional information from the assembly process.
     * The processing start and stop date/times are given.
     * The output file is given as a prefix, in case outputters choose to generate
     * multiple output files (e.g., see FriesOutput).
@@ -62,8 +64,23 @@ trait JsonOutputter {
     paperPassages:Seq[FriesEntry],
     startTime:Date,
     endTime:Date,
-    outFilePrefix:String
+    outFilePrefix:String,
+    assemblyAPI: Assembler
   ): Unit = writeJSON(paperId, allMentions, paperPassages, startTime, endTime, outFilePrefix)
+
+  /**
+    * Outputs the given mentions to the given output file in some JSON-based format.
+    * Alternate interface: takes document and extracts passages to output mentions.
+    * The processing start and stop date/times are given.
+    * The output file is given as a prefix, in case outputters choose to generate
+    * multiple output files (e.g., see FriesOutput).
+    */
+  def writeJSON (paperId:String,
+    allMentions:Seq[Mention],
+    paperPassages:Seq[FriesEntry],
+    startTime:Date,
+    endTime:Date,
+    outFilePrefix:String)
 
   def writeJSON(
     paperId: String,
@@ -126,7 +143,7 @@ object JsonOutputter {
   }
 
   /** Select an event-type output string for the given mention label. */
-  def mkEventType(mention: Mention): String = {
+  def mkEventType (mention:Mention): String = {
     val label = mention.label
     if (MODIFICATION_EVENTS.contains(label))
       return "protein-modification"
@@ -142,9 +159,6 @@ object JsonOutputter {
 
     if (label == "Complex")
       return "complex-assembly"
-
-    if (label == "Conversion")
-      return "conversion"
 
     if (AMOUNT_EVENTS.contains(label))
       return "amount"

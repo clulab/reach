@@ -4,6 +4,8 @@ import java.util.{Date, Map => JMap}
 import com.typesafe.config.ConfigFactory
 import org.clulab.odin.Mention
 import org.clulab.reach._
+import org.clulab.reach.export.arizona.ArizonaOutputter
+import org.clulab.reach.export.cmu.CMUExporter
 import org.clulab.reach.export.fries.FriesOutput
 import org.clulab.reach.export.indexcards.IndexCardOutput
 import org.clulab.reach.export.serial.SerialJsonOutput
@@ -76,6 +78,10 @@ object ApiRuler {
       val endTime = new Date()
       val requestId = s"${prefix}${apiRequestCntr.genNextId()}"
       val resultString = outFormat.toLowerCase match {
+        case "arizona" | "csv" | "tsv" =>
+          ArizonaOutputter.tabularOutput(mentions)
+        case "cmu" | "CMU" =>
+          CMUExporter.tabularOutput(mentions)
         case "indexcard" =>
           indexCardOutputter.toJSON(requestId, mentions, nxmlDoc, startTime, endTime, prefix)
         case "serial-json" =>
@@ -100,6 +106,10 @@ object ApiRuler {
       val endTime = new Date()
       val requestId = s"${prefix}${apiRequestCntr.genNextId()}"
       val resultString = outFormat.toLowerCase match {
+        case "arizona" | "csv" | "tsv" =>
+          ArizonaOutputter.tabularOutput(mentions)
+        case "cmu" | "CMU" =>
+          CMUExporter.tabularOutput(mentions)
         case "indexcard" =>
           indexCardOutputter.toJSON(requestId, mentions, entries, startTime, endTime, prefix)
         case "serial-json" =>
