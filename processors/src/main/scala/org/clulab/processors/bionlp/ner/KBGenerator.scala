@@ -76,6 +76,9 @@ object KBGenerator {
   def mkOutputFile(entry:KBEntry, outputDir:String):String =
     outputDir + File.separator + entry.neLabel + ".tsv.gz"
 
+  /**
+    * The entry will be in the format: text-of-entity unique-id species-where-the-entity-is-valid (optional)
+    */
   def convertKB(entry:KBEntry, inputDir:String, outputDir:String): Unit = {
     logger.info(s"Converting ${entry.kbName}...")
     val inputPath = inputDir + File.separator + entry.kbName + ".tsv.gz"
@@ -148,7 +151,7 @@ object KBGenerator {
       return true
 
     // if mentioned, the species must be a token at the correct zero-indexed position.
-    if(entry.validSpecies.contains(tokens(SPECIES_FIELD_NDX)))
+    if(tokens.length < 3 || entry.validSpecies.contains(tokens(SPECIES_FIELD_NDX)))
       return true
 
     false
