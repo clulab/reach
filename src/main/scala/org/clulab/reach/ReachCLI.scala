@@ -10,6 +10,9 @@ import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import java.io.File
 import java.util.Date
 
+import java.nio.charset.Charset
+import java.nio.charset.StandardCharsets.UTF_8
+
 import ai.lum.common.FileUtils._
 import ai.lum.common.ConfigUtils._
 
@@ -33,7 +36,7 @@ class ReachCLI (
   val outputDir: File,
   val outputFormats: Seq[String],
   val statsKeeper: ProcessingStats = new ProcessingStats,
-  val encoding: String = "utf-8",
+  val encoding: Charset = UTF_8,
   val restartFile: Option[File] = None
 ) extends LazyLogging {
 
@@ -42,11 +45,8 @@ class ReachCLI (
   val skipFiles: Set[String] = restartFile match {
     case None => Set.empty[String]
     case Some(f) =>
-      val src = Source.fromFile(f, encoding)
       // get set of nonempty lines
-      val lines: Set[String] = src.getLines().filter(_.nonEmpty).toSet
-      // close the file
-      src.close()
+      val lines: Set[String] = f.readString(encoding).split("\n").filter(_.nonEmpty).toSet
       lines
   }
 
@@ -56,7 +56,12 @@ class ReachCLI (
   /** In the restart log file, record the given file as successfully completed. */
   def fileSucceeded (file: File): Unit = if (restartFile.nonEmpty) {
     restartFileLock.synchronized {
-      restartFile.get.writeString(s"${file.getName}\n", charset = encoding, append = true)
+      restartFile.get.writeString(
+        string = s"${file.getName}\n", 
+        charset = encoding, 
+        append = true,
+        gzipSupport = false
+      )
     }
   }
 
@@ -64,7 +69,7 @@ class ReachCLI (
   def processPapers (threadLimit: Option[Int]): Int = {
     logger.info("Initializing Reach ...")
 
-    val files = papersDir.listFilesByRegex(pattern=ReachInputFilePattern, caseSensitive=false, recursive=true).toVector.par
+    val files = papersDir.listFilesByRegex(pattern=ReachInputFilePattern, caseInsensitive = true, recursive = true).toVector.par
 
     // limit parallelization
     if (threadLimit.nonEmpty) {
@@ -207,7 +212,7 @@ object ReachCLI {
     outputDir: File,
     outputFormat: String,
     statsKeeper: ProcessingStats = new ProcessingStats,
-    encoding: String = "utf-8",
+    encoding: Charset = UTF_8,
     restartFile: Option[File] = None
   ): ReachCLI =
     new ReachCLI(papersDir, outputDir, Seq(outputFormat), statsKeeper, encoding, restartFile)
@@ -266,7 +271,7 @@ object RunReachCLI extends App with LazyLogging {
     papersDir,
     outDir,
     outputTypes,
-    encoding = encoding,
+    encoding = UTF_8,
     restartFile = if (useRestart) Some(restartFile) else None
   )
 

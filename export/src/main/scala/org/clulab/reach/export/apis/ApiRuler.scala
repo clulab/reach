@@ -11,6 +11,8 @@ import org.clulab.reach.utils.IncrementingId
 import ai.lum.nxmlreader._
 import scala.collection.JavaConverters._
 
+import java.nio.charset.StandardCharsets.UTF_8
+
 
 /**
   * External interface class to accept and process text strings and NXML documents,
@@ -39,7 +41,7 @@ object ApiRuler {
 
   val friesOutputter = new FriesOutput         // converts results to JSON in FRIES format
   val indexCardOutputter = new IndexCardOutput // converts results to JSON in Index Card format
-  val serialOutputter = new SerialJsonOutput("utf-8") // converts results to serialized JSON
+  val serialOutputter = new SerialJsonOutput(UTF_8) // converts results to serialized JSON
 
   /** Extracts raw text from given nxml and returns a response with all the mentions. */
   def annotateNxml(nxml: String, outFormat: String): Response = {
