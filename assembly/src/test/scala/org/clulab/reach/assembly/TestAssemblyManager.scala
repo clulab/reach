@@ -2,7 +2,7 @@ package org.clulab.reach.assembly
 
 import org.clulab.reach.assembly.representations._
 import org.scalatest.{FlatSpec, Matchers}
-import org.clulab.reach.TestUtils._
+import org.clulab.reach.TestUtils.{ jsonStringToDocument, getMentionsFromDocument }
 
 
 class TestAssemblyManager extends FlatSpec with Matchers {
@@ -17,14 +17,23 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   val text7 = "ASPP2 is transported from the membrane to the nucleus and cytosol"
 
   // the assembly manager is not intimidated by multiple documents
-  val mentions1 = getMentionsFromText(text1)
-  val mentions2 = getMentionsFromText(text2)
-  val mentions3 = getMentionsFromText(text3)
-  val mentions4 = getMentionsFromText(text4)
-  val mentions5 = getMentionsFromText(text5)
-  val mentions6 = getMentionsFromText(text6)
+  //  val doc = jsonStringToDocument("""  """)
+  //  val mentions = getMentionsFromDocument(doc)
+  val doc1 = jsonStringToDocument(""" {"id":"","text":"Ras is phosphorylated.","sentences":[{"words":["Ras","is","phosphorylated","."],"startOffsets":[0,4,7,21],"endOffsets":[3,6,21,22],"tags":["NN","VBZ","VBN","."],"lemmas":["ra","be","phosphorylate","."],"entities":["B-Family","O","O","O"],"graphs":{"stanford-basic":{"edges":[{"source":2,"destination":0,"relation":"nsubjpass"},{"source":2,"destination":1,"relation":"auxpass"}],"roots":[2]},"stanford-collapsed":{"edges":[{"source":2,"destination":0,"relation":"nsubjpass"},{"source":2,"destination":1,"relation":"auxpass"}],"roots":[2]}}}]} """)
+  val mentions1 = getMentionsFromDocument(doc1)
+  val doc2 = jsonStringToDocument(""" {"id":"","text":"Ras was phosphorylated.","sentences":[{"words":["Ras","was","phosphorylated","."],"startOffsets":[0,4,8,22],"endOffsets":[3,7,22,23],"tags":["NN","VBD","VBN","."],"lemmas":["ra","be","phosphorylate","."],"entities":["B-Family","O","O","O"],"graphs":{"stanford-basic":{"edges":[{"source":2,"destination":0,"relation":"nsubjpass"},{"source":2,"destination":1,"relation":"auxpass"}],"roots":[2]},"stanford-collapsed":{"edges":[{"source":2,"destination":0,"relation":"nsubjpass"},{"source":2,"destination":1,"relation":"auxpass"}],"roots":[2]}}}]} """)
+  val mentions2 = getMentionsFromDocument(doc2)
+  val doc3 = jsonStringToDocument(""" {"id":"","text":"Ras is phosphorylated at Ser123.","sentences":[{"words":["Ras","is","phosphorylated","at","Ser123","."],"startOffsets":[0,4,7,22,25,31],"endOffsets":[3,6,21,24,31,32],"tags":["NN","VBZ","VBN","IN","NN","."],"lemmas":["ra","be","phosphorylate","at","ser123","."],"entities":["B-Family","O","O","O","O","O"],"graphs":{"stanford-basic":{"edges":[{"source":2,"destination":0,"relation":"nsubjpass"},{"source":2,"destination":1,"relation":"auxpass"},{"source":2,"destination":3,"relation":"prep"},{"source":3,"destination":4,"relation":"pobj"}],"roots":[2]},"stanford-collapsed":{"edges":[{"source":2,"destination":0,"relation":"nsubjpass"},{"source":2,"destination":1,"relation":"auxpass"},{"source":2,"destination":4,"relation":"prep_at"}],"roots":[2]}}}]} """)
+  val mentions3 = getMentionsFromDocument(doc3)
+  val doc4 = jsonStringToDocument(""" {"id":"","text":"Ras is phosphorylated by MEK at Ser123.","sentences":[{"words":["Ras","is","phosphorylated","by","MEK","at","Ser123","."],"startOffsets":[0,4,7,22,25,29,32,38],"endOffsets":[3,6,21,24,28,31,38,39],"tags":["NN","VBZ","VBN","IN","NN","IN","NN","."],"lemmas":["ra","be","phosphorylate","by","mek","at","ser123","."],"entities":["B-Family","O","O","O","B-Family","O","O","O"],"graphs":{"stanford-basic":{"edges":[{"source":2,"destination":0,"relation":"nsubjpass"},{"source":2,"destination":1,"relation":"auxpass"},{"source":2,"destination":3,"relation":"prep"},{"source":2,"destination":5,"relation":"prep"},{"source":3,"destination":4,"relation":"pobj"},{"source":5,"destination":6,"relation":"pobj"}],"roots":[2]},"stanford-collapsed":{"edges":[{"source":2,"destination":0,"relation":"nsubjpass"},{"source":2,"destination":1,"relation":"auxpass"},{"source":2,"destination":4,"relation":"agent"},{"source":2,"destination":6,"relation":"prep_at"}],"roots":[2]}}}]} """)
+  val mentions4 = getMentionsFromDocument(doc4)
+  val doc5 = jsonStringToDocument(""" {"id":"","text":"Mek binds with Ras.","sentences":[{"words":["Mek","binds","with","Ras","."],"startOffsets":[0,4,10,15,18],"endOffsets":[3,9,14,18,19],"tags":["NN","VBZ","IN","NN","."],"lemmas":["mek","bind","with","ra","."],"entities":["B-Family","O","O","B-Family","O"],"graphs":{"stanford-basic":{"edges":[{"source":1,"destination":0,"relation":"nsubj"},{"source":1,"destination":2,"relation":"prep"},{"source":2,"destination":3,"relation":"pobj"}],"roots":[1]},"stanford-collapsed":{"edges":[{"source":1,"destination":0,"relation":"nsubj"},{"source":1,"destination":3,"relation":"prep_with"}],"roots":[1]}}}]} """)
+  val mentions5 = getMentionsFromDocument(doc5)
+  val doc6 = jsonStringToDocument(""" {"id":"","text":"Ras binds with MEK.","sentences":[{"words":["Ras","binds","with","MEK","."],"startOffsets":[0,4,10,15,18],"endOffsets":[3,9,14,18,19],"tags":["NN","VBZ","IN","NN","."],"lemmas":["ra","bind","with","mek","."],"entities":["B-Family","O","O","B-Family","O"],"graphs":{"stanford-basic":{"edges":[{"source":1,"destination":0,"relation":"nsubj"},{"source":1,"destination":2,"relation":"prep"},{"source":2,"destination":3,"relation":"pobj"}],"roots":[1]},"stanford-collapsed":{"edges":[{"source":1,"destination":0,"relation":"nsubj"},{"source":1,"destination":3,"relation":"prep_with"}],"roots":[1]}}}]} """)
+  val mentions6 = getMentionsFromDocument(doc6)
   // translocations
-  val mentions7 = getMentionsFromText(text7)
+  val doc7 = jsonStringToDocument(""" {"id":"","text":"ASPP2 is transported from the membrane to the nucleus and cytosol","sentences":[{"words":["ASPP2","is","transported","from","the","membrane","to","the","nucleus","and","cytosol"],"startOffsets":[0,6,9,21,26,30,39,42,46,54,58],"endOffsets":[5,8,20,25,29,38,41,45,53,57,65],"tags":["NN","VBZ","VBN","IN","DT","NN","TO","DT","NN","CC","NN"],"lemmas":["aspp2","be","transport","from","the","membrane","to","the","nucleus","and","cytosol"],"entities":["B-Gene_or_gene_product","O","O","O","O","B-Cellular_component","O","O","B-Cellular_component","O","B-Cellular_component"],"graphs":{"stanford-basic":{"edges":[{"source":2,"destination":0,"relation":"nsubjpass"},{"source":2,"destination":1,"relation":"auxpass"},{"source":2,"destination":3,"relation":"prep"},{"source":2,"destination":6,"relation":"prep"},{"source":3,"destination":5,"relation":"pobj"},{"source":5,"destination":4,"relation":"det"},{"source":6,"destination":8,"relation":"pobj"},{"source":8,"destination":7,"relation":"det"},{"source":8,"destination":9,"relation":"cc"},{"source":8,"destination":10,"relation":"conj"}],"roots":[2]},"stanford-collapsed":{"edges":[{"source":2,"destination":0,"relation":"nsubjpass"},{"source":2,"destination":1,"relation":"auxpass"},{"source":2,"destination":5,"relation":"prep_from"},{"source":2,"destination":8,"relation":"prep_to"},{"source":2,"destination":10,"relation":"prep_to"},{"source":5,"destination":4,"relation":"det"},{"source":8,"destination":7,"relation":"det"},{"source":8,"destination":10,"relation":"conj_and"}],"roots":[2]}}}]} """)
+  val mentions7 = getMentionsFromDocument(doc7)
 
   //
   // SimpleEntity tests
@@ -155,7 +164,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     val complexes = am.getComplexes
 
     val (c1, c2) = (complexes.head, complexes.last)
-    c1 isEquivalentTo c2 should be(true)
+    c1.isEquivalentTo(c2, ignoreMods = false) should be(true)
+    c1.isEquivalentTo(c2, ignoreMods = true) should be(true)
   }
 
   it should "have 2 mentions as evidence" in {
@@ -180,7 +190,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   val dePhos = "Mek was dephosphorylated."
   dePhos should "produce a Dephosphorylation event with a Phosphorylation on the input" in {
 
-    val mentions = getMentionsFromText(dePhos)
+    val doc = jsonStringToDocument(""" {"id":"","text":"Mek was dephosphorylated.","sentences":[{"words":["Mek","was","dephosphorylated","."],"startOffsets":[0,4,8,24],"endOffsets":[3,7,24,25],"tags":["NN","VBD","VBN","."],"lemmas":["mek","be","dephosphorylate","."],"entities":["B-Family","O","O","O"],"graphs":{"stanford-basic":{"edges":[{"source":2,"destination":0,"relation":"nsubjpass"},{"source":2,"destination":1,"relation":"auxpass"}],"roots":[2]},"stanford-collapsed":{"edges":[{"source":2,"destination":0,"relation":"nsubjpass"},{"source":2,"destination":1,"relation":"auxpass"}],"roots":[2]}}}]} """)
+    val mentions = getMentionsFromDocument(doc)
 
     val am = AssemblyManager(mentions)
 
@@ -217,7 +228,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   val regText1 = "AFT is phosphorylated by BEF."
   regText1 should "produce one Regulation representation" in {
 
-    val mentions = getMentionsFromText(regText1)
+    val doc = jsonStringToDocument(""" {"id":"","text":"AFT is phosphorylated by BEF.","sentences":[{"words":["AFT","is","phosphorylated","by","BEF","."],"startOffsets":[0,4,7,22,25,28],"endOffsets":[3,6,21,24,28,29],"tags":["NNP","VBZ","VBN","IN","NN","."],"lemmas":["AFT","be","phosphorylate","by","bef","."],"entities":["B-Gene_or_gene_product","O","O","O","B-Gene_or_gene_product","O"],"graphs":{"stanford-basic":{"edges":[{"source":2,"destination":0,"relation":"nsubjpass"},{"source":2,"destination":1,"relation":"auxpass"},{"source":2,"destination":3,"relation":"prep"},{"source":3,"destination":4,"relation":"pobj"}],"roots":[2]},"stanford-collapsed":{"edges":[{"source":2,"destination":0,"relation":"nsubjpass"},{"source":2,"destination":1,"relation":"auxpass"},{"source":2,"destination":4,"relation":"agent"}],"roots":[2]}}}]} """)
+    val mentions = getMentionsFromDocument(doc)
 
     val am = AssemblyManager(mentions)
 
@@ -228,7 +240,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   val regText2 = "Akt inhibits the phosphorylation of AFT by BEF."
   regText2 should "produce two Regulation representations (one with nesting)" in {
 
-    val mentions = getMentionsFromText(regText2)
+    val doc = jsonStringToDocument(""" {"id":"","text":"Akt inhibits the phosphorylation of AFT by BEF.","sentences":[{"words":["Akt","inhibits","the","phosphorylation","of","AFT","by","BEF","."],"startOffsets":[0,4,13,17,33,36,40,43,46],"endOffsets":[3,12,16,32,35,39,42,46,47],"tags":["NN","VBZ","DT","NN","IN","NN","IN","NN","."],"lemmas":["akt","inhibit","the","phosphorylation","of","aft","by","bef","."],"entities":["B-Gene_or_gene_product","O","O","O","O","B-Gene_or_gene_product","O","B-Gene_or_gene_product","O"],"graphs":{"stanford-basic":{"edges":[{"source":1,"destination":0,"relation":"nsubj"},{"source":1,"destination":3,"relation":"dobj"},{"source":1,"destination":6,"relation":"prep"},{"source":3,"destination":2,"relation":"det"},{"source":3,"destination":4,"relation":"prep"},{"source":4,"destination":5,"relation":"pobj"},{"source":6,"destination":7,"relation":"pobj"}],"roots":[1]},"stanford-collapsed":{"edges":[{"source":1,"destination":0,"relation":"nsubj"},{"source":1,"destination":3,"relation":"dobj"},{"source":1,"destination":7,"relation":"prep_by"},{"source":3,"destination":2,"relation":"det"},{"source":3,"destination":5,"relation":"prep_of"}],"roots":[1]}}}]} """)
+    val mentions = getMentionsFromDocument(doc)
 
     val am = AssemblyManager(mentions)
 
@@ -245,9 +258,10 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   //
 
   val negPhos = "Mek was not phosphorylated."
+  val docNegPhos = jsonStringToDocument(""" {"id":"","text":"Mek was not phosphorylated.","sentences":[{"words":["Mek","was","not","phosphorylated","."],"startOffsets":[0,4,8,12,26],"endOffsets":[3,7,11,26,27],"tags":["NN","VBD","RB","VBN","."],"lemmas":["mek","be","not","phosphorylate","."],"entities":["B-Family","O","O","O","O"],"graphs":{"stanford-basic":{"edges":[{"source":3,"destination":0,"relation":"nsubjpass"},{"source":3,"destination":1,"relation":"auxpass"},{"source":3,"destination":2,"relation":"neg"}],"roots":[3]},"stanford-collapsed":{"edges":[{"source":3,"destination":0,"relation":"nsubjpass"},{"source":3,"destination":1,"relation":"auxpass"},{"source":3,"destination":2,"relation":"neg"}],"roots":[3]}}}]} """)
   negPhos should "have a negated SimpleEvent representation for the Phosphorylation mention" in {
 
-    val mentions = getMentionsFromText(negPhos)
+    val mentions = getMentionsFromDocument(docNegPhos)
 
     val am = AssemblyManager(mentions)
 
@@ -259,9 +273,10 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   }
 
   val negReg = "Mek was not phosphorylated by Ras."
+  val docNegReg = jsonStringToDocument(""" {"id":"","text":"Mek was not phosphorylated by Ras.","sentences":[{"words":["Mek","was","not","phosphorylated","by","Ras","."],"startOffsets":[0,4,8,12,27,30,33],"endOffsets":[3,7,11,26,29,33,34],"tags":["NN","VBD","RB","VBN","IN","NN","."],"lemmas":["mek","be","not","phosphorylate","by","ra","."],"entities":["B-Family","O","O","O","O","B-Family","O"],"graphs":{"stanford-basic":{"edges":[{"source":3,"destination":0,"relation":"nsubjpass"},{"source":3,"destination":1,"relation":"auxpass"},{"source":3,"destination":2,"relation":"neg"},{"source":3,"destination":4,"relation":"prep"},{"source":4,"destination":5,"relation":"pobj"}],"roots":[3]},"stanford-collapsed":{"edges":[{"source":3,"destination":0,"relation":"nsubjpass"},{"source":3,"destination":1,"relation":"auxpass"},{"source":3,"destination":2,"relation":"neg"},{"source":3,"destination":5,"relation":"agent"}],"roots":[3]}}}]} """)
   negReg should "have a negated Regulation representation" in {
 
-    val mentions = getMentionsFromText(negReg)
+    val mentions = getMentionsFromDocument(docNegReg)
 
     val am = AssemblyManager()
 
@@ -276,7 +291,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
   it should "not have a negated SimpleEvent representation for the Phosphorylation" in {
 
-    val mentions = getMentionsFromText(negReg)
+    val mentions = getMentionsFromDocument(docNegReg)
 
     val am = AssemblyManager()
 
@@ -293,7 +308,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
   it should "not have any precedence relations for the phosphorylation" in {
 
-    val mentions =  getMentionsFromText(negReg)
+    val mentions = getMentionsFromDocument(docNegReg)
 
     val am = AssemblyManager()
 
@@ -317,10 +332,10 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   }
 
   val precedenceText = "Ras is phosphorylated by Mek after Mek is bound to p53."
-
   precedenceText should "have a PrecedenceRelation showing the Phosphorylation following the Binding" in {
 
-    val mentions =  getMentionsFromText(precedenceText)
+    val doc = jsonStringToDocument(""" {"id":"","text":"Ras is phosphorylated by Mek after Mek is bound to p53.","sentences":[{"words":["Ras","is","phosphorylated","by","Mek","after","Mek","is","bound","to","p53","."],"startOffsets":[0,4,7,22,25,29,35,39,42,48,51,54],"endOffsets":[3,6,21,24,28,34,38,41,47,50,54,55],"tags":["NN","VBZ","VBN","IN","NN","IN","NN","VBZ","VBN","TO","NN","."],"lemmas":["ra","be","phosphorylate","by","mek","after","mek","be","bind","to","p53","."],"entities":["B-Family","O","O","O","B-Family","O","B-Family","O","O","O","B-Gene_or_gene_product","O"],"graphs":{"stanford-basic":{"edges":[{"source":2,"destination":0,"relation":"nsubjpass"},{"source":2,"destination":1,"relation":"auxpass"},{"source":2,"destination":3,"relation":"prep"},{"source":2,"destination":8,"relation":"advcl"},{"source":3,"destination":4,"relation":"pobj"},{"source":8,"destination":5,"relation":"mark"},{"source":8,"destination":6,"relation":"nsubjpass"},{"source":8,"destination":7,"relation":"auxpass"},{"source":8,"destination":9,"relation":"prep"},{"source":9,"destination":10,"relation":"pobj"}],"roots":[2]},"stanford-collapsed":{"edges":[{"source":2,"destination":0,"relation":"nsubjpass"},{"source":2,"destination":1,"relation":"auxpass"},{"source":2,"destination":4,"relation":"agent"},{"source":2,"destination":8,"relation":"advcl"},{"source":8,"destination":5,"relation":"mark"},{"source":8,"destination":6,"relation":"nsubjpass"},{"source":8,"destination":7,"relation":"auxpass"},{"source":8,"destination":10,"relation":"prep_to"}],"roots":[2]}}}]} """)
+    val mentions = getMentionsFromDocument(doc)
 
     val am = AssemblyManager()
 
@@ -383,7 +398,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
   "AssemblyManager" should s"not contain any EERs for '$negPhos' if all EERs referencing Mek are removed" in {
 
-    val mentions =  getMentionsFromText(negPhos)
+    val mentions = getMentionsFromDocument(docNegPhos)
 
     val am = AssemblyManager()
 
@@ -398,19 +413,21 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
   it should "safely handle mentions in any order" in {
     val text = "EHT1864 inhibited AKT phosphorylation induced by LPA and S1P, but not EGF or PDGF"
-    val mentions = getMentionsFromText(text)
+
+    val doc = jsonStringToDocument(""" {"id":"","text":"EHT1864 inhibited AKT phosphorylation induced by LPA and S1P, but not EGF or PDGF","sentences":[{"words":["EHT1864","inhibited","AKT","phosphorylation","induced","by","LPA","and","S1P",",","but","not","EGF","or","PDGF"],"startOffsets":[0,8,18,22,38,46,49,53,57,60,62,66,70,74,77],"endOffsets":[7,17,21,37,45,48,52,56,60,61,65,69,73,76,81],"tags":["NN","VBD","NN","NN","VBN","IN","NN","CC","NN",",","CC","RB","NN","CC","NN"],"lemmas":["eht1864","inhibit","akt","phosphorylation","induce","by","lpa","and","s1p",",","but","not","egf","or","pdgf"],"entities":["B-Simple_chemical","O","B-Gene_or_gene_product","O","O","O","B-Simple_chemical","O","B-Gene_or_gene_product","O","O","O","B-Gene_or_gene_product","O","B-Gene_or_gene_product"],"graphs":{"stanford-basic":{"edges":[{"source":1,"destination":0,"relation":"nsubj"},{"source":1,"destination":3,"relation":"dobj"},{"source":3,"destination":2,"relation":"nn"},{"source":3,"destination":4,"relation":"vmod"},{"source":3,"destination":11,"relation":"cc"},{"source":3,"destination":12,"relation":"conj"},{"source":4,"destination":5,"relation":"prep"},{"source":5,"destination":6,"relation":"pobj"},{"source":6,"destination":7,"relation":"cc"},{"source":6,"destination":8,"relation":"conj"},{"source":11,"destination":10,"relation":"cc"},{"source":12,"destination":13,"relation":"cc"},{"source":12,"destination":14,"relation":"conj"}],"roots":[1]},"stanford-collapsed":{"edges":[{"source":1,"destination":0,"relation":"nsubj"},{"source":1,"destination":3,"relation":"dobj"},{"source":1,"destination":12,"relation":"dobj"},{"source":3,"destination":2,"relation":"nn"},{"source":3,"destination":4,"relation":"vmod"},{"source":3,"destination":12,"relation":"conj_negcc"},{"source":3,"destination":14,"relation":"conj_negcc"},{"source":4,"destination":6,"relation":"agent"},{"source":4,"destination":8,"relation":"agent"},{"source":6,"destination":8,"relation":"conj_and"},{"source":12,"destination":14,"relation":"conj_or"}],"roots":[1]}}}]} """)
+    val mentions = getMentionsFromDocument(doc)
 
     val am1 = AssemblyManager(mentions)
     val am2 = AssemblyManager(mentions.sortBy(_.label))
     val am3 = AssemblyManager(mentions.sortBy(_.label).reverse)
 
     def hasEquivalentEERs(manager1: AssemblyManager, manager2: AssemblyManager): Boolean = {
-      val eers1 = manager1.distinctEERs.map(_.equivalenceHash)
-      val eers2 = manager2.distinctEERs.map(_.equivalenceHash)
-      val entities1 = manager1.distinctEntities.map(_.equivalenceHash)
-      val entities2 = manager2.distinctEntities.map(_.equivalenceHash)
-      val events1 = manager1.distinctEvents.map(_.equivalenceHash)
-      val events2 = manager2.distinctEvents.map(_.equivalenceHash)
+      val eers1 = manager1.distinctEERs.map(_.equivalenceHash(ignoreMods = false))
+      val eers2 = manager2.distinctEERs.map(_.equivalenceHash(ignoreMods = false))
+      val entities1 = manager1.distinctEntities.map(_.equivalenceHash(ignoreMods = false))
+      val entities2 = manager2.distinctEntities.map(_.equivalenceHash(ignoreMods = false))
+      val events1 = manager1.distinctEvents.map(_.equivalenceHash(ignoreMods = false))
+      val events2 = manager2.distinctEvents.map(_.equivalenceHash(ignoreMods = false))
 
       ((eers1 intersect eers2).size == (eers1 union eers2).size) &&
         ((entities1 intersect entities2).size == (entities1 union entities2).size) &&

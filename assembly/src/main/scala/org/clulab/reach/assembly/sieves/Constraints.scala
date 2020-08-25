@@ -14,6 +14,21 @@ object Constraints {
   val beforeRole = "before"
   val afterRole = "after"
 
+  def isNegated(m: Mention): Boolean = {
+    val am = AssemblyManager(Seq(m))
+    am.getEER(m).negated
+  }
+
+  def hasMultipleInputs(m: Mention): Boolean = {
+    val am = AssemblyManager(Seq(m))
+    val input = am.getEER(m) match {
+      case event: Event => event.I
+      case complex: Complex => complex.members
+      case entity: Entity => Set(entity)
+    }
+    input.size > 1
+  }
+
   // For a complex event "C", with a controlled "A", do not re-create "A precedes C"
   def notAnExistingComplexEvent(link: Mention):Boolean = {
     val before = link.arguments(beforeRole).head
@@ -25,33 +40,33 @@ object Constraints {
   }
 
   // It's neither the case that x is a predecessor of y nor vice versa
-  def noExistingPrecedence(x: Mention, y: Mention, am:AssemblyManager): Boolean = {
-    noExistingPrecedence(am.getEER(x), am.getEER(y))
+  def noExistingPrecedence(
+    x: Mention,
+    y: Mention,
+    am: AssemblyManager,
+    // strict matching is the default
+    ignoreMods: Boolean = false): Boolean = {
+    noExistingPrecedence(am.getEER(x), am.getEER(y), ignoreMods)
   }
 
   // It's neither the case that x is a predecessor of y nor vice versa
-  def noExistingPrecedence(x: EntityEventRepresentation, y: EntityEventRepresentation): Boolean = {
-    !(x.manager.distinctPredecessorsOf(x).map(_.equivalenceHash) contains y.equivalenceHash) &&
-      !(y.manager.distinctPredecessorsOf(y).map(_.equivalenceHash) contains x.equivalenceHash)
+  def noExistingPrecedence(x: EntityEventRepresentation, y: EntityEventRepresentation, ignoreMods: Boolean): Boolean = {
+    !(x.manager.distinctPredecessorsOf(x).map(_.equivalenceHash(ignoreMods)) contains y.equivalenceHash(ignoreMods)) &&
+      !(y.manager.distinctPredecessorsOf(y).map(_.equivalenceHash(ignoreMods)) contains x.equivalenceHash(ignoreMods))
   }
 
   //
   // Used by relation classifier & relation corpus
   //
 
-  /** Checks if two Mentions share at least one SimpleEntity with the same grounding ID */
-  def shareArg(m1: Mention, m2: Mention): Boolean = {
+  /** Checks if two Mentions have an equivalent EER */
+  def areEquivalent(m1: Mention, m2: Mention, ignoreMods: Boolean): Boolean = {
+    val am = AssemblyManager(Seq(m1, m2))
+    am.getEER(m1).isEquivalentTo(am.getEER(m2), ignoreMods)
+  }
 
-    def getInput(eer: EntityEventRepresentation): Set[Entity] = eer match {
-      case complex: Complex =>
-        // a complex could contain another complex, so flatten
-        // until members are all simple entities
-        // then cast each as Entity for uniformity
-        complex.flattenMembers.map(_.asInstanceOf[Entity])
-      case entity: Entity => Set(entity)
-      case simpleEvent: SimpleEvent => simpleEvent.I
-      case complexEvent: ComplexEvent => complexEvent.I
-    }
+  /** Checks if two Mentions share at least one SimpleEntity with the same grounding ID */
+  def shareEntityGrounding(m1: Mention, m2: Mention): Boolean = {
 
     /** Check if two sets of [[Entity]] have an approximate intersection in terms of [[GroundingID]] */
     def fuzzyIntersects(s1: Set[Entity], s2: Set[Entity]): Boolean = {
@@ -76,8 +91,8 @@ object Constraints {
         val eer1 = mngr.getEER(v1)
         val eer2 = mngr.getEER(v2)
         // get input sets
-        val input1 = getInput(eer1)
-        val input2 = getInput(eer2)
+        val input1 = AssemblyManager.getInputEntities(eer1)
+        val input2 = AssemblyManager.getInputEntities(eer2)
 
         // check if inputs intersect in terms of grounding IDs
         fuzzyIntersects(input1, input2)
@@ -86,19 +101,26 @@ object Constraints {
     }
   }
 
-  /** Use this check to automatically label negative examples **/
-  def shareControlleds(mention1: Mention, mention2: Mention): Boolean = {
+  /** Determine if two mentions share an equivalent controlled/patient **/
+  def shareControlleds(mention1: Mention, mention2: Mention, ignoreMods: Boolean): Boolean = {
     // resolve both event mentions
     val m1 = AssemblyManager.getResolvedForm(mention1)
     val m2 = AssemblyManager.getResolvedForm(mention2)
-    (m1, m2) match {
-      // are the controlleds identical?
-      case (ce1: Mention, ce2: Mention) if (ce1 matches "ComplexEvent") && (ce2 matches "ComplexEvent") =>
-        val c1 = AssemblyManager.getResolvedForm(ce1.arguments("controlled").head)
-        val c2 = AssemblyManager.getResolvedForm(ce2.arguments("controlled").head)
-        c1.text == c2.text
-      case _ => false
+
+    val manager = AssemblyManager(Seq(mention1, mention2))
+
+    def getControlled(m: Mention): Seq[Mention] = m match {
+      case ce if ce matches "ComplexEvent" =>
+        ce.arguments("controlled").map(AssemblyManager.getResolvedForm).flatMap(getControlled)
+      case se if se matches "SimpleEvent" =>
+        se.arguments("theme").map(AssemblyManager.getResolvedForm).flatMap(getControlled)
+      case other => Seq(other)
     }
+
+    val m1controlleds = getControlled(m1).map(manager.getEER).map(_.equivalenceHash(ignoreMods)).toSet
+    val m2controlleds = getControlled(m2).map(manager.getEER).map(_.equivalenceHash(ignoreMods)).toSet
+
+    m1controlleds.intersect(m2controlleds).nonEmpty
   }
 
   /**
@@ -132,8 +154,9 @@ object Constraints {
     // ex: "inhibited" neg-regs "activation". remove interactions between Regulations and their Controlled
     val ceConstraint: Boolean = (m1, m2) match {
 
-      // make sure both mentions can be handled by the AssemblyManager
-      case (p1: Mention, p2: Mention) if !AssemblyManager.isValidMention(p1) || !AssemblyManager.isValidMention(p2) => false
+      // if this is a cross-sentence case, simply check that these mentions can be handled by the manager
+      case (s1: Mention, s2: Mention) if s1.sentence != s2.sentence =>
+        AssemblyManager.isValidMention(s1) && AssemblyManager.isValidMention(s2)
 
       // two complex events should not share their controlled (activation-specific check)
       case (a1: Mention, a2: Mention) if (a1 matches "ActivationEvent") && (a2 matches "ActivationEvent") =>
@@ -155,9 +178,13 @@ object Constraints {
       case (ce: Mention, m: Mention) if ce matches "ComplexEvent" =>
         m.text != ce.arguments("controlled").head.text
 
-      case _ => true
+      // make sure the mentions can be handled by the manager
+      case (o1: Mention, o2: Mention) =>
+        AssemblyManager.isValidMention(o1) && AssemblyManager.isValidMention(o2)
     }
     // text spans should be unique
-    (m1.words != m2.words) && ceConstraint
+    (m1.text != m2.text) && ceConstraint &&
+      // neither mention should be negated
+      !isNegated(m1) && !isNegated(m2)
   }
 }

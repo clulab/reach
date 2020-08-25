@@ -10,17 +10,16 @@ import scala.collection.parallel.ForkJoinTaskSupport
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import java.io.File
+import org.clulab.reach.assembly.relations.SieveEvaluator
+import org.clulab.reach.assembly.relations.SieveEvaluator.Performance
 
 
 object RunAnnotationEval extends App with LazyLogging {
 
-  import CorpusReader._
-
-  case class Performance (sieve: String, rule: String, p: Double, r: Double, f1: Double, tp: Int, fp: Int, fn: Int) {
-    def mkRow = f"$sieve\t$rule\t$p%1.3f\t$r%1.3f\t$f1%1.3f\t$tp\t$fp\t$fn"
-  }
-
   val config = ConfigFactory.load()
+  val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDir")).instances
+
+  // gather precedence relations corpus
   val evalGoldPath = config.getString("assembly.evalGold")
   val evalMentionsPath = config.getString("assembly.evalMentions")
 
@@ -33,10 +32,10 @@ object RunAnnotationEval extends App with LazyLogging {
       (pg, tm)
     } else {
       logger.info("Serialized files not found")
-      val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.classifier.trainingFile")).instances
+      val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDir")).instances
       // gather precedence relations corpus
-      val precedenceAnnotations = CorpusReader.filterRelations(eps, precedenceRelations)
-      val noneAnnotations = CorpusReader.filterRelations(eps, noRelations ++ subsumptionRelations ++ equivalenceRelations)
+//      val precedenceAnnotations = CorpusReader.filterRelations(eps, precedenceRelations)
+//      val noneAnnotations = CorpusReader.filterRelations(eps, noRelations ++ subsumptionRelations ++ equivalenceRelations)
 
       val (posGoldNested, testMentionsNested) = (for {
         ep <- eps
@@ -59,9 +58,6 @@ object RunAnnotationEval extends App with LazyLogging {
       val pg = posGoldNested.flatten.seq
       val tm = testMentionsNested.flatten.distinct.seq
 
-      Serializer.save[Seq[PrecedenceRelation]](pg, evalGoldPath)
-      Serializer.save[Seq[Mention]](tm, evalMentionsPath)
-
       (pg, tm)
     }
   }
@@ -69,13 +65,13 @@ object RunAnnotationEval extends App with LazyLogging {
   println("sieve\trule\tp\tr\tf1\ttp\tfp\tfn")
 
   for {
-    (lbl, sieveResult) <- Assembler.applyEachSieve(testMentions)
+    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(testMentions)
   } {
     val predicted = sieveResult.getPrecedenceRelations
     val smoothing = 0.00001
-    val tp = predicted.count(p => posGold exists(g => g.isEquivalentTo(p)))
-    val fp = predicted.count(p => ! posGold.exists(g => g.isEquivalentTo(p)))
-    val fn = posGold.count(g => ! predicted.exists(p => p.isEquivalentTo(g)))
+    val tp = predicted.count(p => posGold exists(g => g.isEquivalentTo(p, ignoreMods = false)))
+    val fp = predicted.count(p => ! posGold.exists(g => g.isEquivalentTo(p, ignoreMods = false)))
+    val fn = posGold.count(g => ! predicted.exists(p => p.isEquivalentTo(g, ignoreMods = false)))
 
     // micro performance
     val p = tp / (tp + fp + smoothing)
@@ -87,9 +83,9 @@ object RunAnnotationEval extends App with LazyLogging {
 
     val rulePerformance: Seq[Performance] = {
       val rulePs = predicted.groupBy(pr => (pr.foundBy, pr.evidence.head.foundBy))
-      val allRtp = rulePs.mapValues(_.count(p => posGold exists(g => g.isEquivalentTo(p))))
+      val allRtp = rulePs.mapValues(_.count(p => posGold exists(g => g.isEquivalentTo(p, ignoreMods = false))))
       val allRfp = rulePs.mapValues{_.count{p =>
-        val isFP = ! posGold.exists(g => g.isEquivalentTo(p))
+        val isFP = ! posGold.exists(g => g.isEquivalentTo(p, ignoreMods = false))
         //if(isFP) displayMention(p.evidence.head)
         isFP
       }
@@ -97,7 +93,7 @@ object RunAnnotationEval extends App with LazyLogging {
       val allRfn = {
         val res = for {
           (foundBy, group) <- rulePs
-          gold = posGold.count(g => ! group.exists(p => p.isEquivalentTo(g)))
+          gold = posGold.count(g => ! group.exists(p => p.isEquivalentTo(g, ignoreMods = false)))
         } yield (foundBy, gold)
         res
       }
@@ -129,7 +125,7 @@ object RunAnnotationEval extends App with LazyLogging {
   */
 object SerializePapersToJSON extends App with LazyLogging {
 
-  import org.clulab.reach.mentions.serialization.json._
+  import org.clulab.reach.serialization.json._
 
   val config = ConfigFactory.load()
   val papersDir = new File(config.getString("papersDir"))

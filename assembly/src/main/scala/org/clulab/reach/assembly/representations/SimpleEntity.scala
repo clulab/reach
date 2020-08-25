@@ -27,7 +27,7 @@ class SimpleEntity(
   override val eerString = "assembly.SimpleEntity"
   /**
    * Summary making use of [[grounding]], [[modifications]], [[coref]], and [[manager]].
- *
+   *
    * @return a String summary of the [[SimpleEntity]]
    */
   def summarize: String = {
@@ -46,7 +46,7 @@ class SimpleEntity(
 
   /**
    * Returns the Set of [[representations.PTM]] contained in [[modifications]] matching the given label.
- *
+   *
    * @param label the label used to filter [[representations.PTM]]
    */
   def getPTMs(label: String): Set[representations.PTM] = for {
@@ -58,7 +58,7 @@ class SimpleEntity(
 
   /**
    * Check if SimpleEvent is negated
- *
+   *
    * @return true or false
    */
   override def negated: Boolean = {
@@ -67,26 +67,34 @@ class SimpleEntity(
 
   /**
    * Used by [[isEquivalentTo]] to compare against another [[SimpleEntity]].
- *
+   * @param ignoreMods whether or not to ignore modifications when calculating the equivalenceHash
    * @return a hash (Int) based primarily on the [[grounding]] and [[modsHash]]
    */
-  def equivalenceHash: Int = {
+  def equivalenceHash(ignoreMods: Boolean): Int = {
     // the seed (not counted in the length of finalizeHash)
     // decided to use the class name
     val h0 = stringHash(eerString)
     // a representation of the ID
     val h1 = mix(h0, grounding.hashCode)
-    // a representation of the set of modifications
-    val h2 = mix(h1, modsHash)
-    // whether or not the representation is negated
-    val h3 = mixLast(h2, negated.hashCode)
-    finalizeHash(h3, 3)
+    ignoreMods match {
+      // include the modifications
+      case false =>
+        // a representation of the set of modifications
+        val h2 = mix(h1, modsHash)
+        // whether or not the representation is negated
+        val h3 = mixLast(h2, negated.hashCode)
+        finalizeHash(h3, 3)
+      // ignore the mods
+      case true =>
+        val h2 = mixLast(h1, negated.hashCode)
+        finalizeHash(h2, 2)
+    }
   }
 
   /**
    * Hash representing the [[modifications]]. <br>
    * Used by [[equivalenceHash]] for [[isEquivalentTo]] comparisons.
- *
+   *
    * @return an Int hash based on the hashcodes of the modifications
    */
   def modsHash: Int = {
@@ -99,18 +107,19 @@ class SimpleEntity(
   /**
    * Used to compare against another [[SimpleEntity]]. <br>
    * Based on the equality of [[equivalenceHash]] to that of another [[SimpleEntity]].
- *
+   *
    * @param other the thing to compare against
+   * @param ignoreMods whether or not to ignore modifications when assessing equivalence
    * @return true or false
    */
-  def isEquivalentTo(other: Any): Boolean = other match {
-    case se: SimpleEntity => this.equivalenceHash == se.equivalenceHash
+  def isEquivalentTo(other: Any, ignoreMods: Boolean): Boolean = other match {
+    case se: SimpleEntity => this.equivalenceHash(ignoreMods) == se.equivalenceHash(ignoreMods)
     case _ => false
   }
 
   /**
    * Whether or not the [[SimpleEntity]] contains the provided [[IDPointer]].
- *
+   *
    * @param someID an [[IDPointer]] identifying some [[EntityEventRepresentation]]
    * @return true or false
    */

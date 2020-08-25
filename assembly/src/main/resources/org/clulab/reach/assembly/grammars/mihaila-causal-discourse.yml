@@ -1,0 +1,82 @@
+# rather than duplicate it here, the assembly branch was grafted there
+taxonomy: org/clulab/reach/biogrammar/taxonomy.yml
+
+# vars for assembly sieve
+vars:
+  mylabel: "Precedence"
+  mypriority: "2"
+  myaction: "validatePrecedenceRelations" # "identityAction"
+  # TODO: fix comparison of binding args to ComplexEvent controlleds
+  regverbaltrigger: [lemma=/^(promote)/]
+  # vars for old rules
+  after_type: "Event"
+  before_type: "Event"
+  deprulepriority: "1"
+  surfacerulepriority: "2"
+  beforesurface: "[lemma=/^(before|prior|precede)$/]"
+  aftersurface: "[lemma=/^follow|after$/]"
+
+# rules for assembly sieve
+
+  ########################
+  #
+  # intra-sentence cases
+  #
+  ########################
+
+rules:
+  - name: mihaila-triggers
+    priority: 1
+    label: CausalTrigger
+    type: token
+    pattern: |
+      # taken from Mihaila (Table 4.8)
+      [lemma=suggest] [lemma=that] |
+      [lemma=indicate] [lemma=that] |
+      [lemma=thus] |
+      [lemma=suggest] |
+      [lemma=therefore] |
+      [lemma=these] [lemma=result] [lemma=suggest] [lemma=that] [lemma=indicate] |
+      [lemma=cause] |
+      [lemma=due] [lemma=to] |
+      [lemma=result] [lemma=in] |
+      [lemma=because] |
+      [lemma=demonstrate] [lemma=that] |
+      [lemma=which] [lemma=suggest] [lemma=that] |
+      [lemma=lead] [lemma=to] |
+      [lemma=require] [lemma=for] |
+      [lemma=and] [lemma=thus] |
+      [lemma=confirm] [lemma=that] |
+      [lemma=reveal] [lemma=that] |
+      [lemma=our] [lemma=finding] [lemma=indicate] [lemma=that] |
+      [lemma=the] [lemma=result] [lemma=indicate] [lemma=that] |
+      [lemma=these] [lemma=result] [lemma=indicate] [lemma=that] |
+      [lemma=these] [lemma=observation] [lemma=suggest] [lemma=that]
+
+  - name: mihaila-syntax-1
+    priority: ${mypriority}
+    label: ${mylabel}
+    type: dependency
+    pattern: |
+      trigger = @CausalTrigger
+      before:${before_type} = nsubj
+      after:${after_type} = dobj
+
+  - name: mihaila-surface-1
+    priority: ${mypriority}
+    label: ${mylabel}
+    type: token
+    pattern: |
+      @before:${before_type}
+      @CausalTrigger
+      @after:${after_type}
+
+  - name: mihaila-cross-sentence-1
+    priority: ${mypriority}
+    label: ${mylabel}
+    type: "cross-sentence"
+    right-window: 1
+    pattern: |
+      before:${before_type} = @${before_type}
+      # trigger should begin the sentence
+      after:${after_type} = (?<= ^ @CausalTrigger) @${after_type}

@@ -4,15 +4,15 @@ import org.clulab.processors.Document
 import org.clulab.reach.assembly.relations.classifier.AssemblyRelationClassifier
 import org.clulab.reach.assembly.sieves.Constraints
 import org.clulab.reach.mentions.CorefMention
-import org.clulab.reach.mentions.serialization.json.{MentionJSONOps, REACHMentionSeq, JSONSerializer}
+import org.clulab.reach.serialization.json.{MentionJSONOps, REACHMentionSeq, JSONSerializer}
 import org.clulab.serialization.json.JSONSerialization
-import org.json4s.jackson.JsonMethods._
+import org.json4s.native.JsonMethods._
 import org.json4s.JsonDSL._
 import org.json4s._
 import scala.util.hashing.MurmurHash3._
 import com.typesafe.scalalogging.LazyLogging
+import org.apache.commons.io.FileUtils.forceMkdir
 import ai.lum.common.FileUtils._
-import org.apache.commons.io.FileUtils
 import java.io.File
 
 
@@ -85,7 +85,7 @@ case class EventPair(
     // event 2
     ("e2-id" -> this.e2.id) ~
     ("e2-label" -> this.e2.eventLabel) ~
-    ("e2-sentence-text" -> this.e2.text) ~
+    ("e2-sentence-text" -> this.e2.sentenceText) ~
     ("e2-sentence-index" -> this.e2.sentence) ~
     ("e2-sentence-tokens" -> this.e2.sentenceObj.words.toList) ~
     // can be used to highlight event span in annotation UI
@@ -95,32 +95,31 @@ case class EventPair(
     ("e2-trigger-start" -> this.e2.trigger.start) ~
     ("e2-trigger-end" -> this.e2.trigger.end) ~
     // these will be filled out during annotation
-    ("annotator-id" -> "") ~
+    ("annotator-id" -> this.annotatorID) ~
     ("relation" -> this.relation) ~
     ("confidence" -> confidence) ~
     // additional features
     ("cross-sentence" -> this.isCrossSentence) ~
     ("paper-id" -> this.pmid) ~
     // annotation notes
-    ("notes" -> "")
+    ("notes" -> this.notes.getOrElse(""))
   }
 }
 
 object EventPair {
 
   def apply(mentions: Set[CorefMention]): EventPair = {
-    val before = mentions.toSeq.sortWith((m1, m2) => m1 precedes m2).head
-    val after = mentions.toSeq.sortWith((m1, m2) => m1 precedes m2).last
+    require(mentions.size == 2, "EventPair takes exactly two Mentions")
+    val mns = mentions.toSeq.sortWith((m1, m2) => m1 precedes m2)
+    val before = mns.head
+    val after = mns.last
 
     apply(before, after)
   }
 
   def apply(before: CorefMention, after: CorefMention): EventPair = {
 
-    // if the two event mentions have the same controlled, this is a negative example
-    val rel: String = if (Constraints.shareControlleds(before, after)) AssemblyRelationClassifier.NEG else ""
-
-    EventPair(e1 = before, e2 = after, rel)
+    EventPair(e1 = before, e2 = after, relation = "")
   }
 }
 
@@ -152,15 +151,15 @@ case class Corpus(instances: Seq[EventPair]) extends JSONSerialization {
     val dmLUT: Map[String, Seq[CorefMention]] = mentions.groupBy(m => getPMID(m))
     val mentionDataDir = new File(corpusDir, Corpus.MENTION_DATA)
     // create data dir
-    if (! mentionDataDir.exists) FileUtils.forceMkdir(mentionDataDir)
+    if (! mentionDataDir.exists) forceMkdir(mentionDataDir)
     // for each doc, write doc + mentions to a json file
     for ((paperID, cms) <- dmLUT) {
       val of = new File(mentionDataDir, s"$paperID-mention-data.json")
       of.writeString(cms.json(pretty), java.nio.charset.StandardCharsets.UTF_8)
     }
     // write event pair info to json file
-    val f = new File(corpusDir, s"${Corpus.EVENT_PAIRS}.json")
-    f.writeString(this.json(pretty), java.nio.charset.StandardCharsets.UTF_8)
+    val epf = new File(corpusDir, s"${Corpus.EVENT_PAIRS}.json")
+    epf.writeString(this.json(pretty), java.nio.charset.StandardCharsets.UTF_8)
   }
 }
 

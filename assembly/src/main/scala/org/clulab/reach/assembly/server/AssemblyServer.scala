@@ -1,59 +1,46 @@
 package org.clulab.reach.assembly.server
 
-import scala.concurrent.ExecutionContextExecutor
-import scala.concurrent.duration.FiniteDuration
-
-import com.typesafe.config.{ Config, ConfigValueFactory, ConfigFactory }
-import org.json4s.DefaultFormats
-import org.json4s.jackson.Serialization
-
 import akka.actor.ActorSystem
-import akka.event.{ Logging, LoggingAdapter }
+import akka.event.Logging
 import akka.http.scaladsl.Http
-import akka.http.scaladsl.server.Directives._
-import akka.stream.{ ActorMaterializer, Materializer }
-
-
-trait Service {
-  implicit val serialization = Serialization
-  implicit val formats = DefaultFormats
-  implicit val system: ActorSystem
-  implicit def executionContext: ExecutionContextExecutor
-  implicit val materializer: Materializer
-
-  val logger: LoggingAdapter
-
-  val static = "org/clulab/reach/assembly/server/static"
-  val routes = {
-    logRequestResult("reach-assembly") {    // wrapper to log all results
-      path("") {                            // index page
-        getFromResource(s"$static/index.html")
-      } ~
-      path("annotate") {                    // annotation UI
-        getFromResource(s"$static/annotate.html")
-      } ~
-      path("model") {                       // model UI
-        getFromResource(s"$static/model.html")
-      }
-    }
-  }
-}
+import akka.stream.ActorMaterializer
+import com.typesafe.config.{ ConfigValueFactory, ConfigFactory }
 
 
 object AssemblyServer extends App with Service {
 
-  val argMap = buildServerArgMap(args.toList)
-  val akkaServerConfig = new AkkaServerConfig(argMap, Some("ReachAssemblyServer"))
-  val config = akkaServerConfig.config
-  val host = akkaServerConfig.host
-  val port = akkaServerConfig.port
+  val argMap = buildArgMap(ServerConfig.defaults, args.toList)
+
+  val p: Int = argMap(ServerConfig.port).toInt
+  val h: String = argMap(ServerConfig.host)
+
+  // Update config with values from command line
+  val config = ServerConfig.defaultConfig
+    .withValue(ServerConfig.defaultHostName, ConfigValueFactory.fromAnyRef(h))
+    .withValue(ServerConfig.defaultPort, ConfigValueFactory.fromAnyRef(p))
 
   override implicit val system: ActorSystem = ActorSystem("reach-assembly", config)
   override implicit val executionContext = system.dispatcher
   override implicit val materializer = ActorMaterializer()
   override val logger = Logging(system, getClass)
 
-  val bindingFuture =  Http().bindAndHandle(handler= routes, interface = host, port = port)
+  val bindingFuture =  Http().bindAndHandle(handler = routes, interface = h, port = p)
 
-  logger.info(s"Server online at http://${host}:${port}")
+  logger.info(s"Server online at http://$h:$p")
+}
+
+/**
+  * Server configuration
+  */
+object ServerConfig {
+
+  val defaultConfig = ConfigFactory.load()
+  val port = "port"
+  val host = "host"
+  val defaultPort = defaultConfig.getString("akka.http.server.port")
+  val defaultHostName = defaultConfig.getString("akka.http.server.host")
+  val defaults = Map(
+    port -> defaultPort,
+    host -> defaultHostName
+  )
 }

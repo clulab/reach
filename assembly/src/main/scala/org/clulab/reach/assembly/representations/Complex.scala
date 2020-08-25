@@ -43,37 +43,38 @@ class Complex(
    * Uses [[Entity.isEquivalentTo]] to check if an [[Entity]] is contained in the Set of [[members]].
  *
    * @param other the thing to compare against
+   * @param ignoreMods whether or not to ignore modifications when determining containment
    * @return true or false
    */
-  def contains(other: Any): Boolean = other match {
-    case e: Entity => this.members exists(_.equivalenceHash == e.equivalenceHash)
+  def contains(other: Any, ignoreMods: Boolean): Boolean = other match {
+    case e: Entity => this.members exists(_.equivalenceHash(ignoreMods) == e.equivalenceHash(ignoreMods))
     case _ => false
   }
 
   /**
    * Hash representing the [[members]]. <br>
    * Used by [[equivalenceHash]] for [[isEquivalentTo]] comparisons.
- *
+   * @param ignoreMods whether or not to ignore modifications when calculating the membersHash
    * @return an Int hash based on the [[Entity.equivalenceHash]] of each member
    */
-  def membersHash: Int = {
+  def membersHash(ignoreMods: Boolean): Int = {
     val h0 = stringHash(s"$eerString.members")
-    val hs = members.map(_.equivalenceHash)
+    val hs = members.map(_.equivalenceHash(ignoreMods))
     val h = mixLast(h0, unorderedHash(hs))
     finalizeHash(h, members.size)
   }
 
   /**
    * Used by [[isEquivalentTo]] to compare against another [[Complex]].
- *
+   * @param ignoreMods whether or not to ignore modifications when calculating the equivalenceHash
    * @return a hash (Int) based primarily on the [[membersHash]]
    */
-  def equivalenceHash: Int = {
+  def equivalenceHash(ignoreMods: Boolean): Int = {
     // the seed (not counted in the length of finalizeHash)
     // decided to use the class name
     val h0 = stringHash(eerString)
     // comprised of the equiv. hash of members
-    val h1 = mix(h0, membersHash)
+    val h1 = mix(h0, membersHash(ignoreMods))
     // whether or not the representation is negated
     val h2 = mixLast(h1, negated.hashCode)
     finalizeHash(h2, 2)
@@ -82,12 +83,12 @@ class Complex(
   /**
    * Used to compare against another [[Complex]]. <br>
    * Based on the equality of [[equivalenceHash]] to that of another [[Complex]].
- *
+   * @param ignoreMods whether or not to ignore modifications when assessing equivalence
    * @param other the thing to compare against
    * @return true or false
    */
-  def isEquivalentTo(other: Any): Boolean = other match {
-    case complex: Complex => this.equivalenceHash == complex.equivalenceHash
+  def isEquivalentTo(other: Any, ignoreMods: Boolean): Boolean = other match {
+    case complex: Complex => this.equivalenceHash(ignoreMods) == complex.equivalenceHash(ignoreMods)
     case _ => false
   }
 

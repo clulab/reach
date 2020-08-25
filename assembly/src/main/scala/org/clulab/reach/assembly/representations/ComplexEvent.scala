@@ -50,12 +50,12 @@ trait ComplexEvent extends Event {
   /**
    * Hash representing the [[controller]]. <br>
    * Used by [[equivalenceHash]] for [[isEquivalentTo]] comparisons.
- *
+   * @param ignoreMods whether or not to ignore modifications when calculating the controllerHash
    * @return an Int hash based on the [[EntityEventRepresentation.equivalenceHash]] of each element in the [[controller]]
    */
-  def controllerHash: Int = {
+  def controllerHash(ignoreMods: Boolean): Int = {
     val h0 = stringHash(s"$eerString.controller")
-    val hs = controller.map(_.equivalenceHash)
+    val hs = controller.map(_.equivalenceHash(ignoreMods))
     val h = mixLast(h0, unorderedHash(hs))
     finalizeHash(h, controller.size)
   }
@@ -63,31 +63,31 @@ trait ComplexEvent extends Event {
   /**
    * Hash representing the [[controlled]]. <br>
    * Used by [[equivalenceHash]] for [[isEquivalentTo]] comparisons.
- *
+   * @param ignoreMods whether or not to ignore modifications when calculating the controlledHash
    * @return an Int hash based on the [[EntityEventRepresentation.equivalenceHash]] of each element in the [[controlled]]
    */
-  def controlledHash: Int = {
+  def controlledHash(ignoreMods: Boolean): Int = {
     val h0 = stringHash(s"$eerString.controlled")
-    val hs = controlled.map(_.equivalenceHash)
+    val hs = controlled.map(_.equivalenceHash(ignoreMods))
     val h = mixLast(h0, unorderedHash(hs))
     finalizeHash(h, controlled.size)
   }
 
   /**
    * Used by [[isEquivalentTo]] to compare against another [[ComplexEvent]].
- *
+   * @param ignoreMods whether or not to ignore modifications when calculating the controlledHash
    * @return an Int hash based on the [[polarity]], [[controllerHash]], [[controlledHash]], and [[negated.hashCode]]
    */
-  def equivalenceHash: Int = {
+  def equivalenceHash(ignoreMods: Boolean): Int = {
     // the seed (not counted in the length of finalizeHash)
     // decided to use the class name
     val h0 = stringHash(eerString)
     // the polarity of the Regulation
     val h1 = mix(h0, stringHash(polarity))
     // controller
-    val h2 = mix(h1, controllerHash)
+    val h2 = mix(h1, controllerHash(ignoreMods))
     // controlled
-    val h3 = mix(h2, controlledHash)
+    val h3 = mix(h2, controlledHash(ignoreMods))
     // whether or not the representation is negated
     val h4 = mixLast(h3, negated.hashCode)
     finalizeHash(h4, 4)
@@ -96,19 +96,19 @@ trait ComplexEvent extends Event {
   /**
    * Used to compare against another [[ComplexEvent]]. <br>
    * Based on the equality of [[equivalenceHash]] to that of another [[ComplexEvent]].
- *
+   * @param ignoreMods whether or not to ignore modifications when assessing equivalence
    * @param other the thing to compare against
    * @return true or false
    */
-  def isEquivalentTo(other: Any): Boolean = other match {
+  def isEquivalentTo(other: Any, ignoreMods: Boolean): Boolean = other match {
     // controller and controlled must be the same
-    case ce: ComplexEvent => this.equivalenceHash == ce.equivalenceHash
+    case ce: ComplexEvent => this.equivalenceHash(ignoreMods) == ce.equivalenceHash(ignoreMods)
     case _ => false
   }
 
   /**
    * Whether or not the [[ComplexEvent]] contains the provided [[IDPointer]].
- *
+   *
    * @param someID an [[IDPointer]] identifying some [[EntityEventRepresentation]]
    * @return true or false
    */
@@ -129,9 +129,11 @@ trait ComplexEvent extends Event {
   // FIXME: should these include a modification (ex. Activated)?
   def O: Set[Entity] = I
 
-  def hasExactArgument(arg: EntityEventRepresentation): Boolean = {
-    controller ++ controlled exists ( _.isEquivalentTo(arg) )
+  def hasArgument(arg: EntityEventRepresentation, ignoreMods: Boolean): Boolean = {
+    controller ++ controlled exists ( _.isEquivalentTo(arg, ignoreMods) )
   }
+
+  def hasExactArgument(arg: EntityEventRepresentation): Boolean = hasArgument(arg, ignoreMods = false)
 
   def hasApproximateArgument(arg: SimpleEntity): Boolean = I.exists {
     // are the grounding ids the same?

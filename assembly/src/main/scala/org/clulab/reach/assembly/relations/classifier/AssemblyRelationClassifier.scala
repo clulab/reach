@@ -47,7 +47,7 @@ object AssemblyRelationClassifier extends LazyLogging {
   val NEG = "None"
   val UNKNOWN = "unknown"
   // reach system (makes use of context parameters specified in config)
-  lazy val rs = PaperReader.reachSystem
+  lazy val rs = PaperReader.rs
 
   // convenience map for plugging in different classifiers
   def getModel(txt: String): Classifier[String, String] = txt match {

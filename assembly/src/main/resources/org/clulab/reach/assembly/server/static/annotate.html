@@ -77,6 +77,9 @@
           // the maximum number of suggested annotations
           var annoMaxSize = 900;
 
+          var HIGH = 1.0;
+          var LOW = 0.3;
+
           $("#load-annotations").on('change', function () {
             //Get first file in files Array
             var annoFile = $("#load-annotations").prop('files')[0];
@@ -244,6 +247,12 @@
             anno["relation"] = $("#relation").text();
             anno["annotator-id"] = $("#annotator-id").val();
             anno["notes"] = $("#notes").val();
+            var condidence = $("#confidence").val();
+            if (condidence === "HIGH") {
+              anno["confidence"] = HIGH;
+            } else if (condidence === "LOW") {
+              anno["confidence"] = LOW;
+            }
           }
 
           function getPaperLink(anno) {
@@ -324,6 +333,13 @@
               // update displayed information
               var total = annotations.length;
               $("#total").text(current + 1 + " / " + total);
+              // update confidence
+              var confidence = anno["confidence"];
+              if (confidence > 0.5) {
+                $("#confidence").val("HIGH").change();
+              } else {
+                $("#confidence").val("LOW").change();
+              }
             }
           }
 
@@ -645,6 +661,16 @@
           <label class="control-label col-sm-2 h4" for="relation">Relation:</label>
           <div class="col-sm-3">
             <div id="relation"></div>
+          </div>
+        </div>
+        <!-- confidence -->
+        <div class="form-group row">
+          <label class="control-label col-sm-2 h4" for="confidence">Confidence:</label>
+          <div class="col-sm-3">
+            <select class="form-control" id="confidence">
+              <option>HIGH</option>
+              <option>LOW</option>
+            </select>
           </div>
         </div>
         <!-- paper -->

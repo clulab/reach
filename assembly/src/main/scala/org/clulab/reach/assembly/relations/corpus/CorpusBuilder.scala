@@ -4,12 +4,14 @@ import org.clulab.reach.mentions._
 import org.clulab.reach.assembly.AssemblyManager
 import org.clulab.reach.assembly.sieves.Constraints
 import org.clulab.odin._
-import scala.util.Try
+import ai.lum.common.ConfigUtils._
+import ai.lum.common.FileUtils._
 import collection.JavaConversions._
-import org.apache.commons.io.FileUtils
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import java.io.File
+import org.clulab.reach.serialization.json.{ JSONSerializer => ReachJSONSerializer }
+import scala.collection.parallel.ForkJoinTaskSupport
 
 
 /**
@@ -23,7 +25,7 @@ import java.io.File
 /**
   * Utility functions for building the assembly relation corpus
   */
-object CorpusBuilder {
+object CorpusBuilder extends LazyLogging {
 
   val config = ConfigFactory.load()
   val kWindow = config.getInt("assembly.windowSize")
@@ -67,7 +69,7 @@ object CorpusBuilder {
 
     val sentences = for {
       i <- start to end
-    } yield doc.sentences(i).getSentenceText
+    } yield doc.sentences(i).getSentenceText()
 
     sentences.mkString("  ")
   }
@@ -106,6 +108,9 @@ object CorpusBuilder {
       m2 <- candidates
       // the mentions should be distinct
       if m1 != m2
+      // are these events of interest?
+      if validLabels.exists(label => m1 matches label)
+      if validLabels.exists(label => m2 matches label)
       // the mentions must be within the acceptable sentential window
       if Constraints.withinWindow(m1, m2, kWindow)
       // check if mention pair meets corpus constraints
@@ -113,23 +118,46 @@ object CorpusBuilder {
       // could be SimpleEvent, Reg, or Activation...
       if Constraints.isValidRelationPair(m1, m2)
       // EERs must share at least one arg
-      if Constraints.shareArg(m1, m2)
+      if Constraints.shareEntityGrounding(m1, m2)
       // create training instance
       ep = EventPair(Set(m1, m2))
       // triggers should not be the same
       if ep.e1.trigger != ep.e2.trigger
     } yield ep
 
-    eps.toSeq
+    distinctEventPairs(eps.toSeq)
   }
 
   def distinctEventPairs(eps: Seq[EventPair]): Seq[EventPair] = {
-    val distinctEPs: Seq[EventPair] = eps
-      .groupBy(ti => (ti.e1.eventLabel, ti.e1.trigger, ti.e2.eventLabel, ti.e2.trigger))
-      .values.map(_.head)
-      .toSet.toSeq
-    // sort
-    distinctEPs.sortBy{ ep => (ep.doc.id.getOrElse(""), ep.sentenceIndices.head) }
+    eps.distinct.groupBy(ep =>
+      // distinct by...
+      (ep.e1.sentence, ep.e2.trigger, ep.e1.label, ep.e1.text, ep.e2.sentence, ep.e2.trigger, ep.e2.label, ep.e2.text)
+    ).values.map(_.head) // get one value for each key
+      .toSeq
+      .sortBy{ ep => (ep.doc.id.getOrElse(""), ep.sentenceIndices.head) }
+  }
+
+  def findRedundantEPs(eps: Seq[EventPair], minSeen:Int = 2): Seq[EventPair] = {
+
+    val am = AssemblyManager(eps.flatMap(ep => Seq(ep.e1, ep.e2)))
+    def countEquivalentEPs(ep: EventPair): Int = {
+      eps.count{ other =>
+        // relaxed equivalence (modifications may differ)
+        ( am.getEER(other.e1).isEquivalentTo(am.getEER(ep.e1), ignoreMods = true) &&
+          am.getEER(other.e2).isEquivalentTo(am.getEER(ep.e2), ignoreMods = true)
+        ) ||
+        // an equivalent pair may not necessarily appear in the same order
+        ( am.getEER(other.e1).isEquivalentTo(am.getEER(ep.e2), ignoreMods = true) &&
+          am.getEER(other.e2).isEquivalentTo(am.getEER(ep.e1), ignoreMods = true)
+        )
+      }
+    }
+
+    // filter pairs
+    for {
+      ep <- eps
+      if countEquivalentEPs(ep) >= minSeen
+    } yield ep
   }
 }
 
@@ -153,12 +181,68 @@ object BuildCorpus extends App with LazyLogging {
     ep <- selectEventPairs(mentions)
   } yield ep
 
-  // distinct and sort
-  val distincteps: Seq[EventPair] = distinctEventPairs(eps)
-  logger.info(s"Found ${distincteps.size} examples for relation corpus ...")
+  logger.info(s"Found ${eps.size} examples for relation corpus ...")
 
   val outDir = new File(config.getString("assembly.corpus.corpusDir"))
   // create corpus and write to file
-  val corpus = Corpus(distincteps)
+  val corpus = Corpus(eps)
+  corpus.writeJSON(outDir, pretty = false)
+}
+
+/**
+  * Builds a relation corpus from a serialized dataset. <br>
+  * Corpus is written as json
+  */
+object BuildCorpusWithRedundancies extends App with LazyLogging {
+
+  import CorpusBuilder._
+
+  // corpus constraints
+  val skip: Set[String] = config[List[String]]("assembly.corpus.constraints.skip").toSet
+  val minSeen = config[Int]("assembly.corpus.constraints.minSeen")
+
+  val jsonFiles: Seq[File] = new File(config.getString("assembly.corpus.jsonDir")).listFiles.toSeq
+
+  import ai.lum.common.RandomUtils._
+
+  val random = RandomWrapper(new java.util.Random(42L))
+
+  val sampleSize = 1000
+
+  val threadLimit: Int = config[Int]("threadLimit")
+
+  logger.info(s"skipping ${skip.size} files")
+  logger.info(s"minSeen:\t$minSeen")
+  logger.info(s"Using $threadLimit threads")
+  logger.info(s"Valid labels: $validLabels")
+  logger.info(s"Sample size: $sampleSize")
+
+
+  val sampledFiles = random.sampleWithoutReplacement[File, Seq](jsonFiles, sampleSize).par
+  // prepare corpus
+  logger.info(s"Loading dataset ...")
+
+  sampledFiles.tasksupport =
+    new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
+
+  val eps: Seq[EventPair] = sampledFiles.flatMap{ f =>
+    val cms = ReachJSONSerializer.toCorefMentions(f)
+    val paperID = getPMID(cms.head)
+    // should this paper be skipped?
+    skip.contains(paperID) match {
+      case false =>
+        val candidateEPs = selectEventPairs(cms)
+        val validPairs = findRedundantEPs(candidateEPs, minSeen)
+        if (validPairs.nonEmpty) logger.info(s"Found ${validPairs.size} valid pairs in $paperID")
+        validPairs
+      case true => Nil
+    }
+  }.seq
+
+  logger.info(s"Found ${eps.size} examples for relation corpus ...")
+
+  val outDir: File = config[File]("assembly.corpus.corpusDir")
+  // create corpus and write to file
+  val corpus = Corpus(eps)
   corpus.writeJSON(outDir, pretty = false)
 }

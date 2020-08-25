@@ -364,7 +364,8 @@ object FeatureExtractor {
             // check if equiv to one of e2's entities
             val entity = end2entity(i)
             val eer = AssemblyManager(Seq(entity)).getEER(entity)
-            val sharedArgs = supportManager.getEquivalentEERs(eer.equivalenceHash)
+            // loose equivalence
+            val sharedArgs = supportManager.getEquivalentEERs(eer, ignoreMods = true)
             if (sharedArgs.nonEmpty) SHARED else end2entity(end).label.toUpperCase
           // fall-through. emit the word if it isn't part of an entity
           case w if ! entities.exists(_.tokenInterval.contains(i)) => toks(w)

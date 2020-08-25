@@ -30,7 +30,7 @@ case class Assembler(am: AssemblyManager) extends LazyLogging {
       pr <- am.getPrecedenceRelationsFor(eer)
       after = pr.after
       // current mention should be the successor
-      if after.equivalenceHash == eer.equivalenceHash
+      if after.equivalenceHash(ignoreMods = false) == eer.equivalenceHash(ignoreMods = false)
       e <- pr.evidence
       // only consider links with well-formed evidence
       if e.arguments.contains("before") && e.arguments.contains("after")
@@ -153,30 +153,5 @@ object Assembler extends LazyLogging {
     val am: AssemblyManager = orderedSieves.apply(mentions)
 
     am
-  }
-
-  /**
-    * Applies each Assembly Sieve to mentions and returns and updated AssemblyManager for each.
-    *
-    * @param mentions a Seq of Odin Mentions
-    * @return an AssemblyManager
-    */
-  def applyEachSieve(mentions: Seq[Mention]): Map[String, AssemblyManager] = {
-
-    val dedup = new DeduplicationSieves()
-    val precedence = new PrecedenceSieves()
-
-    val availableSieves = Map(
-      "intrasententialRBPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.intrasententialRBPrecedence)),
-      "reichenbachPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.reichenbachPrecedence)),
-      "intersententialRBPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.intersententialRBPrecedence))
-    )
-
-    val ams = for {
-      (lbl, s) <- availableSieves.par
-      am = s.apply(mentions)
-    } yield lbl -> am
-
-    ams.seq //++ Map("all" -> applySieves(mentions))
   }
 }

@@ -42,19 +42,20 @@ trait EntityEventRepresentation extends Serializable {
    * A custom equality that ignores [[IDPointer]] information.  Used to compared derived classes of [[EntityEventRepresentation]]. <br>
    * Though not enforced, the implementation should make use of [[equivalenceHash]]. <br>
    * Must be implemented by classes which include the [[EntityEventRepresentation]] trait.
- *
+   *
    * @param other the thing to compare against
+   * @param ignoreMods whether or not to ignore modifications when assessing equivalence
    * @return true or false
    */
-  def isEquivalentTo(other: Any): Boolean
+  def isEquivalentTo(other: Any, ignoreMods: Boolean): Boolean
 
   /**
    * A hash used for equivalency comparisons of derived classes of [[EntityEventRepresentation]]. <br>
    * Must be implemented by classes which include the [[EntityEventRepresentation]] trait.
- *
+   * @param ignoreMods whether or not to ignore modifications when assessing equivalenceHash
    * @return a hash (Int) representing a derived instance of [[EntityEventRepresentation]]
    */
-  def equivalenceHash: Int
+  def equivalenceHash(ignoreMods: Boolean): Int
 
   /**
    * a pointer to the [[AssemblyManager]] instance that produced this [[EntityEventRepresentation]]

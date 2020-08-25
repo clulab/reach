@@ -61,12 +61,12 @@ class SimpleEvent(
   /**
    * Hash representing the [[input]]. <br>
    * Used by [[equivalenceHash]] for [[isEquivalentTo]] comparisons.
- *
+   * @param ignoreMods whether or not to ignore modifications when calculating the inputHash
    * @return an Int hash based on hashes of the keys in the [[input]] and the [[Entity.equivalenceHash]] of each element contained in the corresponding value in the [[input]]
    */
-  def inputHash: Int = {
+  def inputHash(ignoreMods: Boolean): Int = {
     val h0 = stringHash(s"$eerString.input")
-    val hs = output.map(_.equivalenceHash)
+    val hs = output.map(_.equivalenceHash(ignoreMods))
     val h = mixLast(h0, unorderedHash(hs))
     finalizeHash(h, input.size)
   }
@@ -74,31 +74,31 @@ class SimpleEvent(
   /**
    * Hash representing the [[output]]. <br>
    * Used by [[equivalenceHash]] for [[isEquivalentTo]] comparisons.
- *
+   * @param ignoreMods whether or not to ignore modifications when calculating the outputHash
    * @return an Int hash based on the [[Entity.equivalenceHash]] of each element in the [[output]]
    */
-  def outputHash: Int = {
+  def outputHash(ignoreMods: Boolean): Int = {
     val h0 = stringHash(s"$eerString.output")
-    val hs = output.map(_.equivalenceHash)
+    val hs = output.map(_.equivalenceHash(ignoreMods))
     val h = mixLast(h0, unorderedHash(hs))
     finalizeHash(h, output.size)
   }
 
   /**
    * Used by [[isEquivalentTo]] to compare against another [[SimpleEvent]].
- *
+   * @param ignoreMods whether or not to ignore modifications when calculating the equivalenceHash
    * @return an Int hash based primarily on the [[label]], [[inputHash]], and [[outputHash]]
    */
-  def equivalenceHash: Int = {
+  def equivalenceHash(ignoreMods: Boolean): Int = {
     // the seed (not counted in the length of finalizeHash)
     // decided to use the class name
     val h0 = stringHash(eerString)
     // the label of the SimpleEvent
     val h1 = mix(h0, label.hashCode)
     // the input of the SimpleEvent
-    val h2 = mix(h1, inputHash)
+    val h2 = mix(h1, inputHash(ignoreMods))
     // the output of the SimpleEvent
-    val h3 = mix(h2, outputHash)
+    val h3 = mix(h2, outputHash(ignoreMods))
     // whether or not the representation is negated
     val h4 = mixLast(h3, negated.hashCode)
     finalizeHash(h4, 4)
@@ -107,18 +107,24 @@ class SimpleEvent(
   /**
    * Used to compare against another [[SimpleEvent]]. <br>
    * Based on the equality of [[equivalenceHash]] to that of another [[SimpleEvent]].
- *
    * @param other the thing to compare against
+   * @param ignoreMods whether or not to ignore modifications when assessing equivalence
    * @return true or false
    */
-  def isEquivalentTo(other: Any): Boolean = other match {
-    case se: SimpleEvent => this.equivalenceHash == se.equivalenceHash
+  def isEquivalentTo(other: Any, ignoreMods: Boolean): Boolean = other match {
+    case complex: Complex => this.label match {
+      // Binding being compared to a complex
+      case "Binding" => this.outputHash(ignoreMods) == complex.membersHash(ignoreMods)
+      // Complex cannot be equivalent to an event that is not a binding
+      case _ => false
+    }
+    case se: SimpleEvent => this.equivalenceHash(ignoreMods) == se.equivalenceHash(ignoreMods)
     case _ => false
   }
 
   /**
    * Whether or not the [[SimpleEvent]] contains the provided [[IDPointer]]. <br>
- *
+   *
    * @param someID an [[IDPointer]] identifying some [[EntityEventRepresentation]]
    * @return true or false
    */
@@ -129,9 +135,12 @@ class SimpleEvent(
   def I: Set[Entity] = input("theme")
   def O: Set[Entity] = output
 
-  def hasExactArgument(arg: EntityEventRepresentation): Boolean = {
-    input.values.flatten exists ( _.isEquivalentTo(arg) )
+
+  def hasArgument(arg: EntityEventRepresentation, ignoreMods: Boolean): Boolean = {
+    input.values.flatten exists ( _.isEquivalentTo(arg, ignoreMods) )
   }
+
+  def hasExactArgument(arg: EntityEventRepresentation): Boolean = hasArgument(arg, ignoreMods = false)
 
   def hasApproximateArgument(arg: SimpleEntity): Boolean = {
     input.values.flatten exists {

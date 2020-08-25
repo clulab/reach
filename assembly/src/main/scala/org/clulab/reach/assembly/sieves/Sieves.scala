@@ -6,15 +6,16 @@ import org.clulab.reach.assembly.{AssemblyManager, EER}
 import org.clulab.reach.assembly.relations.classifier.AssemblyRelationClassifier
 import org.clulab.reach.RuleReader
 import org.clulab.odin._
-import org.chocosolver.solver.Solver
-import org.chocosolver.solver.cstrs.GraphConstraintFactory
-import org.chocosolver.solver.variables.GraphVarFactory
-import org.chocosolver.util.objects.graphs.DirectedGraph
-import org.chocosolver.util.objects.setDataStructures.SetType
+//import org.chocosolver.solver.Solver
+//import org.chocosolver.solver.cstrs.GraphConstraintFactory
+//import org.chocosolver.solver.variables.GraphVarFactory
+//import org.chocosolver.util.objects.graphs.DirectedGraph
+//import org.chocosolver.util.objects.setDataStructures.SetType
 import scala.annotation.tailrec
 
 
 class Sieves extends LazyLogging {
+
 
 }
 
@@ -48,6 +49,41 @@ class PrecedenceSieves extends Sieves {
   import Constraints._
   import SieveUtils._
 
+
+  private def applyPrecedenceRules(
+    mentions: Seq[Mention],
+    manager: AssemblyManager,
+    sieveName: String,
+    ruleFile: String,
+    actions: Actions = new Actions
+  ): AssemblyManager = {
+
+    // find rule-based PrecedenceRelations
+    for {
+      rel <- assemblyViaRules(ruleFile, mentions, actions)
+      // ignore discourse markers
+      if rel.label == precedenceMentionLabel
+      before = rel.arguments.getOrElse(SieveUtils.beforeRole, Nil)
+      after = rel.arguments.getOrElse(SieveUtils.afterRole, Nil)
+      if before.nonEmpty && after.nonEmpty
+      // both "before" and "after" should have single mentions
+      b = before.head
+      a = after.head
+      // cannot be an existing regulation
+      //if notAnExistingComplexEvent(rel)
+      //if noExistingPrecedence(a, b, manager
+    } {
+//      if (rel.foundBy == "cross-sentence-next-step") {
+//        logger.info(s"cross-sentence-next-step found a precedence relation mention")
+//      }
+      // store the precedence relation
+      // TODO: add score
+      manager.storePrecedenceRelation(b, a, Set(rel), sieveName)
+    }
+
+    manager
+  }
+
   /**
     * Rule-based method for detecting precedence relations within sentences
     *
@@ -61,28 +97,88 @@ class PrecedenceSieves extends Sieves {
 
     logger.debug(s"\tapplying '$name' sieve...")
 
-    val p = "/org/clulab/reach/assembly/grammars/intrasentential.yml"
+    val actions = new AssemblyActions
+    val ruleFile = "/org/clulab/reach/assembly/grammars/intrasentential.yml"
 
-    // find rule-based PrecedenceRelations
-    for {
-      rel <- assemblyViaRules(p, mentions)
-      before = rel.arguments.getOrElse(beforeRole, Nil)
-      after = rel.arguments.getOrElse(afterRole, Nil)
-      if before.nonEmpty && after.nonEmpty
-      // both "before" and "after" should have single mentions
-      b = before.head
-      a = after.head
-      // cannot be an existing regulation
-      if notAnExistingComplexEvent(rel) && noExistingPrecedence(a, b, manager)
-    } {
-      // store the precedence relation
-      // TODO: add score
-      manager.storePrecedenceRelation(b, a, Set(rel), name)
-    }
+    val am2 = applyPrecedenceRules(mentions, manager, name, ruleFile, actions)
 
-    manager
+    am2
   }
 
+  /**
+    * Rule-based method for detecting inter-sentence precedence relations
+    *
+    * @param mentions a sequence of Odin Mentions
+    * @param manager  an AssemblyManager
+    * @return an AssemblyManager
+    */
+  def intersententialRBPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+
+    val name = "intersententialRBPrecedence"
+
+    logger.debug(s"\tapplying '$name' sieve...")
+
+    val actions = new AssemblyActions
+    val ruleFile = "/org/clulab/reach/assembly/grammars/intersentential.yml"
+
+    val am2 = applyPrecedenceRules(mentions, manager, name, ruleFile, actions)
+
+    am2
+  }
+
+  /**
+    * Patterns derived from teh BioDRB corpus
+    *
+    * @param mentions a sequence of Odin Mentions
+    * @param manager  an AssemblyManager
+    * @return an AssemblyManager
+    */
+  def bioDRBpatterns(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+
+    val name = "bioDRBpatterns"
+
+    logger.debug(s"\tapplying '$name' sieve...")
+
+    val actions = new AssemblyActions
+    val ruleFile = "/org/clulab/reach/assembly/grammars/biodrb-patterns.yml"
+
+    val am2 = applyPrecedenceRules(mentions, manager, name, ruleFile, actions)
+
+    am2
+  }
+
+  /**
+    * Rule-based method using discourse features to establish precedence
+    *
+    * @param mentions a sequence of Odin Mentions
+    * @param manager  an AssemblyManager
+    * @return an AssemblyManager
+    */
+  def combinedRBPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+
+    val name = "combinedRBPrecedence"
+
+    logger.debug(s"\tapplying '$name' sieve...")
+
+    //AssemblySieve(bioDRBpatterns) andThen AssemblySieve(intersententialRBPrecedence) andThen AssemblySieve(intrasententialRBPrecedence)
+
+    val actions = new AssemblyActions
+    val intraSententialRules =  "/org/clulab/reach/assembly/grammars/intrasentential.yml"
+    val interSententialRules = "/org/clulab/reach/assembly/grammars/intersentential.yml"
+    val bioDRBRules = "/org/clulab/reach/assembly/grammars/biodrb-patterns.yml"
+    val precedenceMarkerRules = "/org/clulab/reach/assembly/grammars/precedence-markers.yml"
+    // intrasentence patterns
+    val am2 = applyPrecedenceRules(mentions, manager, name, intraSententialRules, actions)
+    // cross-sentence patterns
+    val am3 = applyPrecedenceRules(mentions, am2, name, interSententialRules, actions)
+    // patterns derived from BioDRB paper
+    val am4 = applyPrecedenceRules(mentions, am3, name, bioDRBRules, actions)
+    // check for interceding precedence markers
+    val am5 = applyPrecedenceRules(mentions, am4, name, precedenceMarkerRules, actions)
+
+    am5
+  }
+  
   /**
     * Rule-based method using grammatical tense and aspect to establish precedence
     *
@@ -91,6 +187,9 @@ class PrecedenceSieves extends Sieves {
     * @return an AssemblyManager
     */
   def reichenbachPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+
+    val BEFORE = "before"
+    val AFTER = "after"
 
     val name = "reichenbachPrecedence"
 
@@ -119,31 +218,31 @@ class PrecedenceSieves extends Sieves {
 
     def getReichenbach(e1t: String, e1a: String, e2t: String, e2a: String): String = {
       (e1t, e1a, e2t, e2a) match {
-        case ("PastTense", "none", "PastTense", "Perfective") => "after"
-        case ("PastTense", "none", "FutureTense", "none") => "before"
-        case ("PastTense", "none", "FutureTense", "Perfective") => "before"
+        case ("PastTense", "none", "PastTense", "Perfective") => AFTER
+        case ("PastTense", "none", "FutureTense", "none") => BEFORE
+        case ("PastTense", "none", "FutureTense", "Perfective") => BEFORE
         //
-        case ("PastTense", "Perfective", "PastTense", "none") => "before"
-        case ("PastTense", "Perfective", "PresentTense", "none") => "before"
-        case ("PastTense", "Perfective", "PresentTense", "Perfective") => "before"
-        case ("PastTense", "Perfective", "FutureTense", "none") => "before"
-        case ("PastTense", "Perfective", "FutureTense", "Perfective") => "before"
+        case ("PastTense", "Perfective", "PastTense", "none") => BEFORE
+        case ("PastTense", "Perfective", "PresentTense", "none") => BEFORE
+        case ("PastTense", "Perfective", "PresentTense", "Perfective") => BEFORE
+        case ("PastTense", "Perfective", "FutureTense", "none") => BEFORE
+        case ("PastTense", "Perfective", "FutureTense", "Perfective") => BEFORE
         //
-        case ("PresentTense", "none", "PastTense", "Perfective") => "after"
-        case ("PresentTense", "none", "FutureTense", "none") => "before"
+        case ("PresentTense", "none", "PastTense", "Perfective") => AFTER
+        case ("PresentTense", "none", "FutureTense", "none") => BEFORE
         //
-        case ("PresentTense", "Perfective", "PastTense", "Perfective") => "after"
-        case ("PresentTense", "Perfective", "FutureTense", "none") => "before"
-        case ("PresentTense", "Perfective", "FutureTense", "Perfective") => "before"
+        case ("PresentTense", "Perfective", "PastTense", "Perfective") => AFTER
+        case ("PresentTense", "Perfective", "FutureTense", "none") => BEFORE
+        case ("PresentTense", "Perfective", "FutureTense", "Perfective") => BEFORE
         //
-        case ("FutureTense", "none", "PastTense", "none") => "after"
-        case ("FutureTense", "none", "PastTense", "Perfective") => "after"
-        case ("FutureTense", "none", "PresentTense", "none") => "after"
-        case ("FutureTense", "none", "PresentTense", "Perfective") => "after"
+        case ("FutureTense", "none", "PastTense", "none") => AFTER
+        case ("FutureTense", "none", "PastTense", "Perfective") => AFTER
+        case ("FutureTense", "none", "PresentTense", "none") => AFTER
+        case ("FutureTense", "none", "PresentTense", "Perfective") => AFTER
         //
-        case ("FutureTense", "Perfective", "PastTense", "none") => "after"
-        case ("FutureTense", "Perfective", "PastTense", "Perfective") => "after"
-        case ("FutureTense", "Perfective", "PresentTense", "Perfective") => "after"
+        case ("FutureTense", "Perfective", "PastTense", "none") => AFTER
+        case ("FutureTense", "Perfective", "PastTense", "Perfective") => AFTER
+        case ("FutureTense", "Perfective", "PresentTense", "Perfective") => AFTER
         case _ => "none"
       }
     }
@@ -182,13 +281,13 @@ class PrecedenceSieves extends Sieves {
       val e2aspectMentions: Seq[Mention] = if (e2aspect.nonEmpty) Seq(e2aspect.get) else Seq.empty[Mention]
 
       pr match {
-        case "before" =>
+        case `BEFORE` =>
           // create evidence mention
           val evidence = new RelationMention(
             SieveUtils.precedenceMentionLabel,
             Map(
-              "before" -> Seq(e1),
-              "after" -> Seq(e2),
+              SieveUtils.beforeRole -> Seq(e1),
+              SieveUtils.afterRole -> Seq(e2),
               "e1tense" -> e1tenseMentions,
               "e1aspect" -> e1aspectMentions,
               "e2tense" -> e2tenseMentions,
@@ -201,13 +300,13 @@ class PrecedenceSieves extends Sieves {
           )
           // TODO: add score
           manager.storePrecedenceRelation(before = e1, after = e2, Set[Mention](evidence), name)
-        case "after" =>
+        case `AFTER` =>
           // create evidence mention
           val evidence = new RelationMention(
             SieveUtils.precedenceMentionLabel,
             Map(
-              "before" -> Seq(e2),
-              "after" -> Seq(e1),
+              SieveUtils.beforeRole -> Seq(e2),
+              SieveUtils.afterRole -> Seq(e1),
               "e1tense" -> e1tenseMentions,
               "e1aspect" -> e1aspectMentions,
               "e2tense" -> e2tenseMentions,
@@ -226,56 +325,6 @@ class PrecedenceSieves extends Sieves {
 
     // print the counts of the tam relations
     // relCounts.foreach(tam => println(s"${tam._1}\t${tam._2}"))
-
-    manager
-  }
-
-
-  /**
-    * Rule-based method for detecting inter-sentence precedence relations
-    *
-    * @param mentions a sequence of Odin Mentions
-    * @param manager  an AssemblyManager
-    * @return an AssemblyManager
-    */
-  def intersententialRBPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
-
-    val name = "intersententialRBPrecedence"
-
-    logger.debug(s"\tapplying '$name' sieve...")
-
-    val p = "/org/clulab/reach/assembly/grammars/intersentential.yml"
-
-    // If the full Event is nested within another mention, pull it out
-    def correctScope(m: Mention): Mention = {
-      m match {
-        // arguments will have at most one "event" argument
-        // FIXME: the nesting is no longer limited
-        case nested if nested.arguments contains "event" => nested.arguments("event").head
-        case flat => flat
-      }
-    }
-
-    // find rule-based inter-sentence PrecedenceRelations
-    for {
-      rel <- assemblyViaRules(p, mentions)
-      // TODO: Decide whether to restrict matches more, e.g. to last of prior sentence
-      other <- mentions.filter(m => isEvent(m) && m.document == rel.document && m.sentence == rel.sentence - 1)
-      (before, after) = rel.label match {
-        case "InterAfter" => (Seq(other), rel.arguments("after"))
-        case "InterBefore" => (rel.arguments("before"), Seq(other))
-        case _ => (Nil, Nil)
-      }
-      if before.nonEmpty && after.nonEmpty
-      b = correctScope(before.head)
-      a = correctScope(after.head)
-
-      if isValidRelationPair(a, b) && noExistingPrecedence(a, b, manager)
-    } {
-      // store the precedence relation
-      // TODO: add score
-      manager.storePrecedenceRelation(b, a, Set(rel), name)
-    }
 
     manager
   }
@@ -306,7 +355,7 @@ class PrecedenceSieves extends Sieves {
       // NOTE: this also checks document equality,
       // which is needed because of .precedes check in FeatureExtractor
       Constraints.withinWindow(m1, m2, kWindow) &&
-        Constraints.shareArg(m1, m2) &&
+        Constraints.shareEntityGrounding(m1, m2) &&
         Constraints.isValidRelationPair(m1, m2)
     }
 
@@ -335,76 +384,76 @@ class PrecedenceSieves extends Sieves {
   // Could be selective via voting, textual proximity, etc.
   def extendPredecessorsToEquivalentEERs(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = ???
 
-  def graphCSP(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
-
-    // http://perso.ensta-paristech.fr/~diam/corlab/online/choco/ChocoGraphDoc-20150118.pdf
-
-    val allEvents = manager.getEvents.toSeq.sortBy(_.equivalenceHash)
-
-    val dg = new DirectedGraph(
-      // the maximum number of nodes in the graph (solution)
-      allEvents.size,
-      // use SetType.LINKED_LIST for sparse graphs
-      // SetType.BIPARTITESET has optimal time complexity, but memory usage can be expensive
-      // SetType.BITSET: supposedly a good default (why?)
-      SetType.BIPARTITESET,
-      // whether or not the node set is fixed
-      false
-    )
-
-    val solver = new Solver//("precedence-solver")
-
-    // define graph lower-bound (i.e., what nodes and links must exist in solution?)
-    val GLB = new DirectedGraph(
-      solver,
-      allEvents.size,
-      SetType.BIPARTITESET,
-      // whether or not the node set is fixed
-      // TODO: Should this be false?
-      true
-    )
-
-    // define graph upper-bound (i.e., what nodes and links could possibly exist?)
-    val GUB = new DirectedGraph(
-      solver,
-      allEvents.size,
-      SetType.BIPARTITESET,
-      // whether or not the node set is fixed
-      // TODO: Should this be false?
-      false
-    )
-
-    for {
-      (e1: EER, i: Int) <- allEvents.zipWithIndex
-      (e2: EER, j: Int) <- allEvents.zipWithIndex
-    } {
-
-      // nodes exist in upper-bound
-      GUB.addNode(i)
-      GUB.addNode(j)
-      // TODO: Should this only be allowed if the opposite is not true?
-      GUB.addArc(i, j)
-
-      // check if a required solution
-      (e1, e2) match {
-        // TODO: should this check if any of successors is equiv to succesor?
-        case (pred, successor) if pred.successors contains successor =>
-          // predicted precedence relation, so nodes must exist in
-          GLB.addNode(i)
-          GLB.addNode(j)
-          GLB.addArc(i, j)
-      }
-    }
-
-    val g = GraphVarFactory.directed_graph_var("G", GLB, GUB, solver)
-
-    // make antisymmetric ( if (i,j), then ~(j,i)
-    solver.post(GraphConstraintFactory.antisymmetric(g))
-    // use transitivity
-    solver.post(GraphConstraintFactory.transitivity(g))
-    // solve!
-    ???
-  }
+//  def graphCSP(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+//
+//    // http://perso.ensta-paristech.fr/~diam/corlab/online/choco/ChocoGraphDoc-20150118.pdf
+//
+//    val allEvents = manager.getEvents.toSeq.sortBy(_.equivalenceHash)
+//
+//    val dg = new DirectedGraph(
+//      // the maximum number of nodes in the graph (solution)
+//      allEvents.size,
+//      // use SetType.LINKED_LIST for sparse graphs
+//      // SetType.BIPARTITESET has optimal time complexity, but memory usage can be expensive
+//      // SetType.BITSET: supposedly a good default (why?)
+//      SetType.BIPARTITESET,
+//      // whether or not the node set is fixed
+//      false
+//    )
+//
+//    val solver = new Solver//("precedence-solver")
+//
+//    // define graph lower-bound (i.e., what nodes and links must exist in solution?)
+//    val GLB = new DirectedGraph(
+//      solver,
+//      allEvents.size,
+//      SetType.BIPARTITESET,
+//      // whether or not the node set is fixed
+//      // TODO: Should this be false?
+//      true
+//    )
+//
+//    // define graph upper-bound (i.e., what nodes and links could possibly exist?)
+//    val GUB = new DirectedGraph(
+//      solver,
+//      allEvents.size,
+//      SetType.BIPARTITESET,
+//      // whether or not the node set is fixed
+//      // TODO: Should this be false?
+//      false
+//    )
+//
+//    for {
+//      (e1: EER, i: Int) <- allEvents.zipWithIndex
+//      (e2: EER, j: Int) <- allEvents.zipWithIndex
+//    } {
+//
+//      // nodes exist in upper-bound
+//      GUB.addNode(i)
+//      GUB.addNode(j)
+//      // TODO: Should this only be allowed if the opposite is not true?
+//      GUB.addArc(i, j)
+//
+//      // check if a required solution
+//      (e1, e2) match {
+//        // TODO: should this check if any of successors is equiv to succesor?
+//        case (pred, successor) if pred.successors contains successor =>
+//          // predicted precedence relation, so nodes must exist in
+//          GLB.addNode(i)
+//          GLB.addNode(j)
+//          GLB.addArc(i, j)
+//      }
+//    }
+//
+//    val g = GraphVarFactory.directed_graph_var("G", GLB, GUB, solver)
+//
+//    // make antisymmetric ( if (i,j), then ~(j,i)
+//    solver.post(GraphConstraintFactory.antisymmetric(g))
+//    // use transitivity
+//    solver.post(GraphConstraintFactory.transitivity(g))
+//    // solve!
+//    ???
+//  }
 }
 
 
@@ -423,12 +472,36 @@ object SieveUtils extends LazyLogging {
 
   val E1PrecedesE2 = "E1 precedes E2"
   val E2PrecedesE1 = "E2 precedes E1"
+  // subsumption and equivalence
+  val E1SpecifiesE2 = "E1 specifies E2"
+  val E2SpecifiesE1 = "E2 specifies E1"
+  val Equivalent = "Equivalent"
+  // default label for negative class
+  val NEG = AssemblyRelationClassifier.NEG
+
+  val precedenceRelations =  Set(E1PrecedesE2, E2PrecedesE1)
+  val subsumptionRelations = Set(E1SpecifiesE2, E2SpecifiesE1)
+  val equivalenceRelations = Set(Equivalent)
+  val noRelations = Set(NEG)
 
   // the label used to identify Mentions modelling precedence relations
-  val precedenceMentionLabel = "Precedence"
+  val precedenceMentionLabel = "PrecedenceRelation"
+  val beforeRole = "before"
+  val afterRole = "after"
+
+  val dedup = new DeduplicationSieves()
+  val precedence = new PrecedenceSieves()
+
+  val sieves = Map(
+    "intrasententialRBPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.intrasententialRBPrecedence)),
+    "reichenbachPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.reichenbachPrecedence)),
+    "intersententialRBPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.intersententialRBPrecedence)),
+    "combinedRBPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.combinedRBPrecedence))
+  )
 
   /**
     * Check if mention is a causal precedence candidate
+    *
     * @param m an Odin-style Mention
     * @return true or false
     */
@@ -442,15 +515,15 @@ object SieveUtils extends LazyLogging {
     * Applies a set of assembly rules to provide mentions (existingMentions). <br>
     * Care is taken to apply the rules to each set of mentions from the same Document.
     *
-    * @param rulesPath a path to a rule file (under resources)
+    * @param rules a path to a rule file (assumed to be under resources)
     * @param existingMentions a Seq of Odin Mentions
     * @return a Seq of RelationMentions
     */
-  def assemblyViaRules(rulesPath: String, existingMentions: Seq[Mention]): Seq[Mention] = {
+  def assemblyViaRules(rules: String, existingMentions: Seq[Mention], actions: Actions = new Actions): Seq[Mention] = {
 
     // read rules and initialize state with existing mentions
-    val rules:String = RuleReader.readResource(rulesPath)
-    val ee = ExtractorEngine(rules)
+    val odinRules: String = if (rules.endsWith(".yml")) RuleReader.readResource(rules) else rules
+    val ee = ExtractorEngine(odinRules, actions)
 
     // since we break a paper into sections, we'll need to group the mentions by doc
     // rule set only produces target RelationMentions
@@ -465,10 +538,6 @@ object SieveUtils extends LazyLogging {
         // initialize a state with the subset of mentions
         // belonging to the same doc.
         m <- ee.extractFrom(doc, oldState)
-        // _ = if (m matches precedenceMentionLabel) displayMention(m)
-        // ensure that mention is one related to Assembly
-        // we don't want to return things from the old state
-        if m matches precedenceMentionLabel
       } yield m
 
     assembledMentions
@@ -477,8 +546,9 @@ object SieveUtils extends LazyLogging {
 
   /**
     * Classifies pairs of mentions meeting given criteria using the feature-based precedence classifier
+    *
     * @param validMentions a set of candidate mentions to generate pairs for classification
-    * @param manager
+    * @param manager an [[AssemblyManager]]
     * @param sieveName the name of the sieve applying the classifier (used when storing a precedence relation)
     * @param isValidPair a function that tests whether or not a pair of mentions should be considered for classification
     * @return
@@ -534,6 +604,7 @@ object SieveUtils extends LazyLogging {
 
   /**
     * Create evidence from Causal Precedence relation
+    *
     * @param before an Odin-style Mention preceding 'after'
     * @param after an Odin-style Mention following 'before'
     * @param foundBy the name of the sieve that found the relation
@@ -546,7 +617,7 @@ object SieveUtils extends LazyLogging {
   ): Set[Mention] = {
     val evidence = new RelationMention(
       SieveUtils.precedenceMentionLabel,
-      Map("before" -> Seq(before), "after" -> Seq(after)),
+      Map(beforeRole -> Seq(before), afterRole -> Seq(after)),
       before.sentence,
       before.document,
       true,
