@@ -3,9 +3,9 @@ package org.clulab.reach.assembly.relations.corpus
 import org.clulab.odin.Mention
 import org.clulab.reach.mentions._
 import org.clulab.reach.assembly.AssemblyManager
-import org.clulab.reach.assembly.sieves.{Constraints, SieveUtils}
+import org.clulab.reach.assembly.sieves.{ Constraints, SieveUtils }
 import org.json4s.DefaultFormats
-import org.json4s.native.JsonMethods
+import org.json4s.jackson.JsonMethods
 import org.json4s.JsonAST.JValue
 import com.typesafe.scalalogging.LazyLogging
 import java.io.File

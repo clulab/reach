@@ -4,9 +4,9 @@ import org.clulab.processors.Document
 import org.clulab.reach.assembly.relations.classifier.AssemblyRelationClassifier
 import org.clulab.reach.assembly.sieves.Constraints
 import org.clulab.reach.mentions.CorefMention
-import org.clulab.reach.serialization.json.{MentionJSONOps, REACHMentionSeq, JSONSerializer}
+import org.clulab.reach.mentions.serialization.json.{MentionJSONOps, REACHMentionSeq, JSONSerializer}
 import org.clulab.serialization.json.JSONSerialization
-import org.json4s.native.JsonMethods._
+import org.json4s.jackson.JsonMethods._
 import org.json4s.JsonDSL._
 import org.json4s._
 import scala.util.hashing.MurmurHash3._

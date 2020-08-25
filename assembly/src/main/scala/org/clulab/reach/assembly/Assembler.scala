@@ -1,7 +1,7 @@
 package org.clulab.reach.assembly
 
-import org.clulab.reach.assembly.export.{CausalPrecedence, Equivalence}
-import org.clulab.reach.assembly.sieves.{AssemblySieve, DeduplicationSieves, PrecedenceSieves}
+import org.clulab.reach.assembly.export.{ CausalPrecedence, Equivalence }
+import org.clulab.reach.assembly.sieves.{ AssemblySieve, DeduplicationSieves, PrecedenceSieves }
 import org.clulab.odin.Mention
 import scala.collection.Map
 import com.typesafe.scalalogging.LazyLogging

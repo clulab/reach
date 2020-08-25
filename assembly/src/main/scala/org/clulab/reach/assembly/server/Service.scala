@@ -1,15 +1,14 @@
 package org.clulab.reach.assembly.server
 
 import akka.actor.ActorSystem
-import akka.event.{LoggingAdapter, Logging}
+import akka.event.{ LoggingAdapter, Logging }
 import akka.http.javadsl.model.MediaTypes
 import akka.http.scaladsl.marshallers.xml.ScalaXmlSupport._
-import akka.http.scaladsl.model.{HttpResponse, HttpEntity, ContentTypes}
-//import de.heikoseeberger.akkahttpjson4s.Json4sSupport
+import akka.http.scaladsl.model.{ HttpResponse, HttpEntity, ContentTypes }
 import scala.concurrent.duration._
 import akka.http.scaladsl.server.Directives._
 import akka.stream.Materializer
-import org.json4s.{Formats, DefaultFormats, native}
+import org.json4s.{ Formats, DefaultFormats, jackson }
 import scala.concurrent.duration.FiniteDuration
 import scala.concurrent.ExecutionContextExecutor
 import com.typesafe.config.Config
@@ -18,7 +17,7 @@ import java.io.File
 
 trait Service {
 
-  implicit val serialization = native.Serialization
+  implicit val serialization = jackson.Serialization
   implicit val formats = DefaultFormats
 
   implicit val system: ActorSystem

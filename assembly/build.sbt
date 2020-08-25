@@ -3,23 +3,19 @@ name := "reach-assembly"
 //resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 
 libraryDependencies ++= {
-  val akkaV = "2.4.3"
+  val akkaV = "2.4.20"
+  val akkaHttpV = "10.1.12"
+  val json4sV = "3.6.9"
   Seq(
     "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-    "ai.lum" %% "common" % "0.0.5",
+    "ai.lum" %% "common" % "0.1.4",
+    "org.json4s" %% "json4s-jackson" % json4sV,
     // graph-based CSP
     //"org.choco-solver" % "choco-graph" % "3.3.0",
-    // Twirl
-    //"com.typesafe.play"                  %% "twirl-api"                              % twirlV,
     // AKKA
-    "com.typesafe.akka"                  %%  "akka-actor"                            % akkaV,
-    "com.typesafe.akka"                  %%  "akka-stream"                           % akkaV,
-    "com.typesafe.akka"                  %%  "akka-http-experimental"                % akkaV,
-    "com.typesafe.akka"                  %%  "akka-http-spray-json-experimental"     % akkaV,
-    "com.typesafe.akka"                  %%  "akka-http-testkit"                     % akkaV,
-    "com.typesafe.akka"                  %%  "akka-actor"                            % akkaV,
-    "com.typesafe.akka"                  %%  "akka-testkit"                          % akkaV    % "test",
-    "com.typesafe.akka"                  %%  "akka-slf4j"                            % akkaV,
-    "com.typesafe.akka"                  %%  "akka-http-xml-experimental"            % akkaV
+    "com.typesafe.akka" %% "akka-stream" % akkaV,
+    "com.typesafe.akka" %% "akka-actor" % akkaV,
+    "com.typesafe.akka" %% "akka-http" % akkaHttpV,
+    "com.typesafe.akka" %% "akka-http-xml" % akkaHttpV
   )
 }

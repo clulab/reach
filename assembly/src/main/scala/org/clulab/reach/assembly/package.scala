@@ -2,7 +2,7 @@ package org.clulab.reach
 
 import org.clulab.reach.assembly.representations.EntityEventRepresentation
 import org.clulab.reach.mentions._
-import org.clulab.reach.mentions.{Modification => MentionModification}
+import org.clulab.reach.mentions.{ Modification => MentionModification }
 import org.clulab.odin.Mention
 
 

@@ -5,12 +5,13 @@ import org.clulab.reach.assembly.AssemblyManager
 import org.clulab.reach.assembly.sieves.Constraints
 import org.clulab.odin._
 import ai.lum.common.ConfigUtils._
+import ai.lum.common.RandomUtils._
 import ai.lum.common.FileUtils._
 import collection.JavaConversions._
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import java.io.File
-import org.clulab.reach.serialization.json.{ JSONSerializer => ReachJSONSerializer }
+import org.clulab.reach.mentions.serialization.json.{ JSONSerializer => ReachJSONSerializer }
 import scala.collection.parallel.ForkJoinTaskSupport
 
 
@@ -69,7 +70,7 @@ object CorpusBuilder extends LazyLogging {
 
     val sentences = for {
       i <- start to end
-    } yield doc.sentences(i).getSentenceText()
+    } yield doc.sentences(i).getSentenceText
 
     sentences.mkString("  ")
   }
@@ -205,7 +206,7 @@ object BuildCorpusWithRedundancies extends App with LazyLogging {
 
   import ai.lum.common.RandomUtils._
 
-  val random = RandomWrapper(new java.util.Random(42L))
+  val random = new LumAICommonRandomWrapper(new scala.util.Random(42L))
 
   val sampleSize = 1000
 
@@ -218,7 +219,7 @@ object BuildCorpusWithRedundancies extends App with LazyLogging {
   logger.info(s"Sample size: $sampleSize")
 
 
-  val sampledFiles = random.sampleWithoutReplacement[File, Seq](jsonFiles, sampleSize).par
+  val sampledFiles = random.sample[File, Seq](jsonFiles, sampleSize, withReplacement = false).par
   // prepare corpus
   logger.info(s"Loading dataset ...")
 

@@ -1,10 +1,11 @@
 package org.clulab.reach.assembly
 
 import org.apache.commons.io.FilenameUtils
-import org.clulab.reach.assembly.relations.corpus.{CorpusReader, EventPair}
+import org.clulab.reach.assembly.relations.corpus.{ CorpusReader, EventPair }
 import org.clulab.odin.Mention
 import org.clulab.reach.PaperReader
 import org.clulab.reach.mentions._
+import org.clulab.reach.mentions.serialization.json._
 import org.clulab.utils.Serializer
 import scala.collection.parallel.ForkJoinTaskSupport
 import com.typesafe.config.ConfigFactory
@@ -125,7 +126,7 @@ object RunAnnotationEval extends App with LazyLogging {
   */
 object SerializePapersToJSON extends App with LazyLogging {
 
-  import org.clulab.reach.serialization.json._
+  import org.clulab.reach.mentions.serialization.json._
 
   val config = ConfigFactory.load()
   val papersDir = new File(config.getString("papersDir"))

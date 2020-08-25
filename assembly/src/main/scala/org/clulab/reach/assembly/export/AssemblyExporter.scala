@@ -3,7 +3,7 @@ package org.clulab.reach.assembly.export
 import ai.lum.common.FileUtils._
 import org.clulab.reach.assembly.AssemblyManager
 import org.clulab.reach.assembly.representations._
-import org.clulab.odin.{EventMention, Mention}
+import org.clulab.odin.{ EventMention, Mention }
 import org.clulab.reach.assembly._
 import org.clulab.reach.grounding.ReachKBConstants
 import org.clulab.reach.mentions._
@@ -23,12 +23,14 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
 
   import AssemblyExporter._
 
+  val ignoreMods = false
+
   // distinct EntityEventRepresentations
   val distinctEERS = manager.distinctEERs
 
   // LUT for retrieving IDs to distinct EERs
   // TODO: A better version of this should probably belong to the manager
-  val EERLUT: Map[Int, String] = distinctEERS.map{ eer => (eer.equivalenceHash, mkEventID(eer)) }.toMap
+  val EERLUT: Map[Int, String] = distinctEERS.map{ eer => (eer.equivalenceHash(ignoreMods = ignoreMods), mkEventID(eer)) }.toMap
 
   val grounding2Text: Map[GroundingID, String] = {
     val pairs: Set[(GroundingID, String)] = for {
@@ -123,7 +125,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
     case act: Activation =>
       act.controlled.map {
         // get IDs of any events
-        case event: Event => EERLUT.getOrElse(event.equivalenceHash, reportError(act, event))
+        case event: Event => EERLUT.getOrElse(event.equivalenceHash(ignoreMods = ignoreMods), reportError(act, event))
         // represent entities directly
         case entity: Entity =>
           val activationMod = act.polarity match {
@@ -137,7 +139,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
     // inputs to a regulation are other events
     case reg: Regulation =>
       // get event IDs for each controlled
-      reg.controlled.map(c => EERLUT.getOrElse(c.equivalenceHash, reportError(reg, c))).mkString(", ")
+      reg.controlled.map(c => EERLUT.getOrElse(c.equivalenceHash(ignoreMods = ignoreMods), reportError(reg, c))).mkString(", ")
   }
 
   def createOutput(eer: EntityEventRepresentation, mods: String = ""): String = eer match {
@@ -186,7 +188,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
   def precededBy(eer: EntityEventRepresentation): Set[String] = eer match {
     case entity: Entity => Set.empty[String]
     case event: Event =>
-      event.predecessors.map(se => EERLUT(se.equivalenceHash))
+      event.predecessors.map(se => EERLUT(se.equivalenceHash(ignoreMods = ignoreMods)))
   }
 
   def writeRows(
@@ -232,7 +234,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
           createSource(event),
           createDestination(event),
           createController(event),
-          EERLUT(event.equivalenceHash),
+          EERLUT(event.equivalenceHash(ignoreMods = ignoreMods)),
           getEventLabel(event),
           precededBy(event),
           event.negated,
