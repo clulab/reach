@@ -40,9 +40,11 @@ object PaperReader extends LazyLogging {
   // initialize ReachSystem
   val procAnnotator = new BioNLPProcessor()
   val preproc = new Preprocess
-  lazy val reachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
-                                         contextEngineType = contextEngineType,
-                                         contextParams = contextEngineParams)
+  lazy val reachSystem = new ReachSystem(
+    processorAnnotator = Some(procAnnotator),
+    contextEngineType = contextEngineType,
+    contextParams = contextEngineParams
+  )
 
   // systems for reading papers
   val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
@@ -64,7 +66,7 @@ object PaperReader extends LazyLogging {
     require(dir.isDirectory, s"'${dir.getCanonicalPath}' is not a directory")
     // read papers in parallel
     val files = dir.listFilesByRegex(
-      pattern=ReachInputFilePattern, caseSensitive=false, recursive=true).toArray.par
+      pattern=ReachInputFilePattern, caseInsensitive=true, recursive=true).toArray.par
 
     // limit parallelization
     files.tasksupport =
