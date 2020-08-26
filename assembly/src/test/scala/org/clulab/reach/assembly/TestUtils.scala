@@ -22,6 +22,15 @@ object TestUtils extends LazyLogging {
 
   lazy val reachSystem: ReachSystem = PaperReader.reachSystem
 
+  def getMentionsFromText(text: String): Seq[Mention] = {
+    val doc = reachSystem.mkDoc(text = text, docId = "text", chunkId = "")
+    getMentionsFromDocument(doc)
+  }
+
+  def getBioMentionsFromText(text: String): Seq[BioMention] = for {
+    m <- getMentionsFromText(text)
+  } yield m.toBioMention
+
   def getMentionsFromDocument(doc: Document): Seq[Mention] = reachSystem.extractFrom(doc)
 
   def jsonStringToDocument(jsonstr: String): Document = JSONSerializer.toDocument(parse(jsonstr))
