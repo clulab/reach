@@ -4,7 +4,7 @@ resolvers += Resolver.bintrayRepo("hseeberger", "maven")
 
 libraryDependencies ++= {
   val akkaV = "2.5.4"
-  val akkaHTTPV = "10.1.0"
+  val akkaHTTPV = "10.0.9"
   val json4sV = "3.5.2"
 
   Seq(
