@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:bionic
 
 # Install basic packages
 RUN apt-get update && apt-get install -y git vim wget build-essential \
