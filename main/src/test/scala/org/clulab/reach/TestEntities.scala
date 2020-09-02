@@ -167,4 +167,49 @@ class TestEntities extends FlatSpec with Matchers {
     mentions.length should be (1)
     mentions.head matches "Gene_or_gene_product" should be (true)
   }
+
+  // Protein Ontology tests
+  val sent10a = "ADAMTS18/ClvPrd is a protein fragment"
+  val sent10b = "CCL3L/ClvPrd is a protein fragment"
+  val sent10c = "inactivated P-factor is a protein fragment"
+  val sent10d = "interleukin-1 alpha proteolytic cleavage product is a protein fragment"
+  val sent10e = "Non-structural protein 5 is a protein fragment"
+  val sent10f = "preM is a protein fragment"
+
+  sent10a should "contain a ADAMTS18/ClvPrd and nothing else" in {
+    val mentions = getBioMentions(sent10a)
+    mentions.length should be (1)
+    hasEntity("ADAMTS18/ClvPrd", mentions) should be (true)
+  }
+
+  sent10b should "contain a CCL3L/ClvPrd and nothing else" in {
+    val mentions = getBioMentions(sent10b)
+    mentions.length should be (1)
+    hasEntity("CCL3L/ClvPrd", mentions) should be (true)
+  }
+
+  sent10c should "contain a inactivated P-factor and nothing else" in {
+    val mentions = getBioMentions(sent10c)
+    mentions.length should be (1)
+    hasEntity("inactivated P-factor", mentions) should be (true)
+  }
+
+  sent10d should "contain a interleukin-1 alpha proteolytic cleavage product and nothing else" in {
+    val mentions = getBioMentions(sent10d)
+    mentions.length should be (1)
+    hasEntity("interleukin-1 alpha proteolytic cleavage product", mentions) should be (true)
+  }
+
+  sent10e should "contain a Non-structural protein 5 and nothing else" in {
+    val mentions = getBioMentions(sent10e)
+    mentions.length should be (1)
+    hasEntity("Non-structural protein 5", mentions) should be (true)
+  }
+
+  sent10f should "contain a preM and nothing else" in {
+    val mentions = getBioMentions(sent10f)
+    mentions.length should be (1)
+    hasEntity("preM", mentions) should be (true)
+  }
+
 }
