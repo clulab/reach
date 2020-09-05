@@ -1,33 +1,15 @@
 package org.clulab.reach.assembly
 
 
-import org.clulab.processors.Document
-import org.clulab.reach.assembly.relations.classifier.AssemblyRelationClassifier
-import org.clulab.reach.assembly.sieves.Constraints
-import org.clulab.reach.mentions.CorefMention
-import org.clulab.reach.mentions.serialization.json.{JSONSerializer, MentionJSONOps, REACHMentionSeq}
-import org.clulab.serialization.json.JSONSerialization
 import org.json4s.jackson.JsonMethods._
-import org.json4s.JsonDSL._
 import org.json4s._
 
-import scala.util.hashing.MurmurHash3._
-import com.typesafe.scalalogging.LazyLogging
-import org.apache.commons.io.FileUtils.forceMkdir
-import ai.lum.common.FileUtils._
 import java.io.File
-import java.nio.file.Files
 
 import com.typesafe.config.ConfigFactory
 import org.clulab.processors.bionlp.BioNLPProcessor
-import org.clulab.reach.PaperReader.config
 import org.clulab.reach.{ReachSystem, context}
-import org.clulab.reach.assembly.relations.corpus.Corpus.AssemblyAnnotation
-import org.clulab.reach.assembly.relations.corpus.{Corpus, EventPair, getPMID}
-import org.clulab.reach.context.ContextEngineFactory.Engine
-import org.clulab.reach.utils.Preprocess
 
-import scala.text.DocText
 import ai.lum.common.FileUtils._
 import java.nio.charset.StandardCharsets.UTF_8
 import org.clulab.reach.mentions.serialization.json._
