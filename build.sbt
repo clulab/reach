@@ -5,7 +5,7 @@ lazy val commonSettings = Seq(
   organization := "org.clulab",
 
   // FIXME: cross-build for 2.12!
-  scalaVersion := "2.12.8", // TODO: In order to run on server, change it to 2.12.8 for now. Original was 2.11.12
+  scalaVersion := "2.11.12", // TODO: In order to run on server, change it to 2.12.8 for now. Original was 2.11.12
 
   crossScalaVersions := Seq("2.11.12", "2.12.8"),
 
