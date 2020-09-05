@@ -135,19 +135,19 @@ object RegenerateData extends App {
     var nSkipped = 0
     for (pmid <- allDocIDs){
       println("processing paper ",pmid)
-      //try {
+      try {
         val docText = docTextMap(pmid.toString)
         val mentions = reachSystem.extractFrom(docText.toString, pmid.toString, "")
         writeMentionsToJsons(corpusDirNew, pmid.toString, mentions)
         nDone+=1
-//      }
-//      catch{
-//        case _ => {
-//          nSkipped+=1
-//          println("\tpaper skipped")
-//        }
-//
-//      }
+      }
+      catch{
+        case _ => {
+          nSkipped+=1
+          println("\tpaper skipped")
+        }
+
+      }
     }
     println(s"processing done! N done: ${nDone}, N skipped: ${nSkipped}")
 
