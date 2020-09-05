@@ -221,6 +221,8 @@ package object json {
       case Hypothesis(evidence) =>
         ("modification-type" -> "Hypothesis") ~
         ("evidence" -> mentionToJsonAST(evidence))
+        //TODO: changed this due to serialization requirements in the assmebly project. Maybe we should change back later.
+      case _ => ""
     }
   }
 
