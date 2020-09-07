@@ -79,3 +79,7 @@ case class CHEMtrigger(evidence: Mention) extends Modification{
 case class UnassignedTrigger(evidence: Mention) extends Modification{
   val label = "UnassignedTrigger"
 }
+
+case class DummyMod(text: String) extends Modification {
+  val label  = text
+}

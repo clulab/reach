@@ -280,7 +280,7 @@ object JSONSerializer extends LazyLogging {
       Hypothesis(evidence = getMention("evidence", mjson, docMap).get)
     //case JString("JNothing") => Hypothesis(evidence = getMention("evidence", mjson, docMap).get)
     //case other => throw new Exception(s"unrecognized modification type '${other.toString}'")
-    case other => Hypothesis(evidence = getMention("evidence", mjson, docMap).get)
+    case other => DummyMod("None")
   }
 
   /** Build mention paths from json */
