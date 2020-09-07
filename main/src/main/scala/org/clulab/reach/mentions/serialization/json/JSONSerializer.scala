@@ -48,12 +48,7 @@ object JSONSerializer extends LazyLogging {
   }
 
   def jsonAST(f: File): JValue = {
-    try {
-      parse(scala.io.Source.fromFile(f).getLines.mkString)
-    }
-    catch {
-      case _ => " "
-    }
+    parse(scala.io.Source.fromFile(f).getLines.mkString)
   }
 
   /** Produce a sequence of mentions from a json file */
@@ -257,37 +252,37 @@ object JSONSerializer extends LazyLogging {
 
   private def toModifications(mjson: JValue, docMap: Map[String, Document]): Set[Modification] = mjson \ "modifications" match {
     case mods: JArray =>
-      mods.arr.map { json => toModification(json, docMap) }.toSet
+      mods.arr.map { json => toModification(json, docMap).get }.toSet
     case other => Set.empty[Modification]
   }
 
-  private def toModification(mjson: JValue, docMap: Map[String, Document]): Modification = mjson \ "modification-type" match {
+  private def toModification(mjson: JValue, docMap: Map[String, Document]): Option[Modification] = mjson \ "modification-type" match {
     case JString("PTM") =>
-      PTM(
+      Option(PTM(
         label = (mjson \ "label").extract[String],
         evidence = getMention("evidence", mjson, docMap),
         site = getMention("site", mjson, docMap),
         negated = (mjson \ "negated").extract[Boolean]
-      )
+      ))
     case JString("EventSite") =>
       // site is required
-      EventSite(site = getMention("site", mjson, docMap).get)
+      Option(EventSite(site = getMention("site", mjson, docMap).get))
     case JString("Mutant") =>
       // evidence is required
-      Mutant(
+      Option(Mutant(
         // evidence is required
         evidence = getMention("evidence", mjson, docMap).get,
         foundBy = (mjson \ "foundBy").extract[String]
-      )
+      ))
     case JString("Negation") =>
       // evidence is required
-      Negation(evidence = getMention("evidence", mjson, docMap).get)
+      Option(Negation(evidence = getMention("evidence", mjson, docMap).get))
     case JString("Hypothesis") =>
       // evidence is required
-      Hypothesis(evidence = getMention("evidence", mjson, docMap).get)
+      Option(Hypothesis(evidence = getMention("evidence", mjson, docMap).get))
     //case JString("JNothing") => Hypothesis(evidence = getMention("evidence", mjson, docMap).get)
     //case other => throw new Exception(s"unrecognized modification type '${other.toString}'")
-    case other => DummyMod("None")
+    case other => None
   }
 
   /** Build mention paths from json */
