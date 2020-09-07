@@ -169,23 +169,23 @@ class TestEntities extends FlatSpec with Matchers {
   }
 
   // Protein Ontology tests
-  val sent10a = "ADAMTS18/ClvPrd is a protein fragment"
-  val sent10b = "CCL3L/ClvPrd is a protein fragment"
+  val sent10a = "p13 BID is a protein fragment"
+  val sent10b = "Abeta is a protein fragment"
   val sent10c = "inactivated P-factor is a protein fragment"
   val sent10d = "interleukin-1 alpha proteolytic cleavage product is a protein fragment"
   val sent10e = "Non-structural protein 5 is a protein fragment"
   val sent10f = "preM is a protein fragment"
 
-  sent10a should "contain a ADAMTS18/ClvPrd and nothing else" in {
+  sent10a should "contain a p13 BID and nothing else" in {
     val mentions = getBioMentions(sent10a)
     mentions.length should be (1)
-    hasEntity("ADAMTS18/ClvPrd", mentions) should be (true)
+    hasEntity("p13 BID", mentions) should be (true)
   }
 
-  sent10b should "contain a CCL3L/ClvPrd and nothing else" in {
+  sent10b should "contain a Abeta and nothing else" in {
     val mentions = getBioMentions(sent10b)
     mentions.length should be (1)
-    hasEntity("CCL3L/ClvPrd", mentions) should be (true)
+    hasEntity("Abeta", mentions) should be (true)
   }
 
   sent10c should "contain a inactivated P-factor and nothing else" in {
