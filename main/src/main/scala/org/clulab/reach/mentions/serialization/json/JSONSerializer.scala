@@ -52,7 +52,7 @@ object JSONSerializer extends LazyLogging {
       parse(scala.io.Source.fromFile(f).getLines.mkString)
     }
     catch {
-      _ => JString(" ")
+      case _ => " "
     }
   }
 
