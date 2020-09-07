@@ -17,7 +17,7 @@ import org.clulab.reach.mentions.serialization.json._
 import org.clulab.reach.mentions.BioMention
 
 
-object RegenerateData extends App {
+object RegenerateMention extends App {
 
   /*
   All of the aim of this function is to replace the old event pairs text with the new event pairs text. To do this, we need to
