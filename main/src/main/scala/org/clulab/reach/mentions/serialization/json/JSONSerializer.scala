@@ -47,7 +47,14 @@ object JSONSerializer extends LazyLogging {
     ("documents" -> docMap) ~ ("mentions" -> mentionList)
   }
 
-  def jsonAST(f: File): JValue = parse(scala.io.Source.fromFile(f).getLines.mkString)
+  def jsonAST(f: File): JValue = {
+    try {
+      parse(scala.io.Source.fromFile(f).getLines.mkString)
+    }
+    catch {
+      _ => JString(" ")
+    }
+  }
 
   /** Produce a sequence of mentions from a json file */
   def toBioMentions(file: File): Seq[BioMention] = toBioMentions(jsonAST(file))
