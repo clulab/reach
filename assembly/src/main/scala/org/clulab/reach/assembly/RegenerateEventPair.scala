@@ -40,7 +40,7 @@ object RegenerateEventPair extends App {
     println(s"Loading mention data from ${corpusDir} ...")
     val mentionDataDir = new File(corpusDir, "mention-data")
     val cms: Seq[CorefMention] = mentionDataDir.listFiles.par
-      .flatMap(JSONSerializer.toCorefMentions).seq
+      .flatMap(JSONSerializer.toCorefMentionsFilterEmpty).seq
     // Don't forget to normalize the text before returning it. I think this is already handled by .toLowerCase()
     cms.map{x =>
       (x.id , x.text.toLowerCase().split(" ").toSeq)
