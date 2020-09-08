@@ -18,7 +18,7 @@ import org.clulab.reach.assembly.relations.SieveEvaluator.Performance
 object RunAnnotationEval extends App with LazyLogging {
 
   val config = ConfigFactory.load()
-  val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDir")).instances
+  //val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDir")).instances
 
   // gather precedence relations corpus
   val evalGoldPath = config.getString("assembly.evalGold")

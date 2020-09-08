@@ -176,7 +176,7 @@ object Corpus extends LazyLogging {
     logger.info(s"Deserializing mention-data...")
     // load docs in parallel
     val cms: Seq[CorefMention] = mentionDataDir.listFiles.par
-      .flatMap(JSONSerializer.toCorefMentions).seq
+      .flatMap(JSONSerializer.toCorefMentionsFilterEmpty).seq
     val epsJAST = parse(new File(corpusDir, s"$EVENT_PAIRS.json"))
     logger.info(s"Building event-pairs...")
     Corpus(getEventPairs(epsJAST, cms))
