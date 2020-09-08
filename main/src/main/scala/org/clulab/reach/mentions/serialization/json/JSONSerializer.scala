@@ -53,8 +53,15 @@ object JSONSerializer extends LazyLogging {
     }
     catch {
       case ex:Exception => {
+        val problemChar = scala.io.Source.fromFile(f).getLines.mkString
         println("="*10)
-        println(scala.io.Source.fromFile(f).getLines.mkString)
+        println(problemChar)
+        println(problemChar=="")
+        println(problemChar==" ")
+        println(problemChar=="\n")
+        println(problemChar.contains(""))
+        println(problemChar.contains(" "))
+        println(problemChar.contains("\n"))
         println("-"*10)
         throw ex
       }
