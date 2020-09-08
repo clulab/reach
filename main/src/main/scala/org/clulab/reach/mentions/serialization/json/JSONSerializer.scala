@@ -48,7 +48,9 @@ object JSONSerializer extends LazyLogging {
   }
 
   def jsonAST(f: File): JValue = {
-    parse(scala.io.Source.fromFile(f).getLines.mkString.replace("\n",""))
+    try{parse(scala.io.Source.fromFile(f).getLines.mkString)}
+    catch {case _ => scala.io.Source.fromFile(f).getLines.mkString}
+
   }
 
   /** Produce a sequence of mentions from a json file */
