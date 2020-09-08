@@ -48,23 +48,13 @@ object JSONSerializer extends LazyLogging {
   }
 
   def jsonAST(f: File): JValue = {
-    try {
-      parse(scala.io.Source.fromFile(f).getLines.mkString)
-    }
+    parse(scala.io.Source.fromFile(f).getLines.mkString)
+  }
+
+  def jsonASTOpt(f:File):Option[JValue] = {
+    try {Some(parse(scala.io.Source.fromFile(f).getLines.mkString))}
     catch {
-      case ex:Exception => {
-        val problemChar = scala.io.Source.fromFile(f).getLines.mkString
-        println("="*10)
-        println(problemChar)
-        println(problemChar=="")
-        println(problemChar==" ")
-        println(problemChar=="\n")
-        println(problemChar.contains(""))
-        println(problemChar.contains(" "))
-        println(problemChar.contains("\n"))
-        println("-"*10)
-        throw ex
-      }
+      case ex:Exception => None
     }
   }
 
@@ -162,6 +152,11 @@ object JSONSerializer extends LazyLogging {
     toBioMention(mjson, docsMap)
   }
 
+  def toCorefMentionsFilterEmpty(file:File):Seq[CorefMention] = {
+    val corefMentionJValueOpt = jsonASTOpt(file)
+    if (corefMentionJValueOpt.isDefined){toCorefMentions(corefMentionJValueOpt.get)}
+    else {Seq.empty[CorefMention]}
+  }
   /** Produce a sequence of mentions from a json file */
   def toCorefMentions(file: File): Seq[CorefMention] = toCorefMentions(jsonAST(file))
 
