@@ -252,8 +252,14 @@ object JSONSerializer extends LazyLogging {
 
   private def toModifications(mjson: JValue, docMap: Map[String, Document]): Set[Modification] = mjson \ "modifications" match {
     case mods: JArray => {
-      val returnedMods = mods.arr.map { json => {if (toModification(json, docMap).isDefined) toModification(json, docMap).get} }.toSet
-      if (returnedMods.nonEmpty) {returnedMods.map{x => x.asInstanceOf[Modification]}} else {Set.empty[Modification]}
+      val returnedModsSeq = scala.collection.mutable.ArrayBuffer[Modification]()
+      for (json <- mods.arr){
+        if (toModification(json, docMap).isDefined) {
+          returnedModsSeq.append(toModification(json, docMap).get)
+        }
+      }
+      val returnedMods = returnedModsSeq.toSet
+      if (returnedMods.nonEmpty) {returnedMods} else {Set.empty[Modification]}
     }
     case other => Set.empty[Modification]
   }
