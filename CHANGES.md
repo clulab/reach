@@ -1,5 +1,6 @@
 #Changes
 =======
++ **1.6.1** - Update to processors 8.2.1 with case sensitivity bug fix.
 + **1.6.0** - Bug fix in handling parallelism for DyNet components.
 + **1.6.0** - Removed `assembly` subproject.
 + **1.6.0** - Updated to bioresources 1.1.33, which merges Family and Complex, and updates many ids, including Uniprot and GO.
