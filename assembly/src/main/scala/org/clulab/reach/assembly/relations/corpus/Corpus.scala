@@ -175,15 +175,29 @@ object Corpus extends LazyLogging {
     val mentionDataDir = new File(corpusDir, MENTION_DATA)
     logger.info(s"Deserializing mention-data...")
     // load docs in parallel
-    val cms: Seq[CorefMention] = mentionDataDir.listFiles.par
-      .flatMap(JSONSerializer.toCorefMentions).seq
+    // retain old IDs to avoid conflicts
+    val cms: Map[String, CorefMention] = mentionDataDir.listFiles.par
+      .flatMap(JSONSerializer.toCorefMentionsMap).seq.toMap
     val epsJAST = parse(new File(corpusDir, s"$EVENT_PAIRS.json"))
     logger.info(s"Building event-pairs...")
     Corpus(getEventPairs(epsJAST, cms))
   }
 
-  private def getEventPairs(epsjson: JValue, cms: Seq[CorefMention]): Seq[EventPair] = {
-    val mentionMap = cms.map(m => m.id -> m).toMap
+  /**
+   * eps represents the "old" event pairs 
+   * and cms represents "new" results from Reach for the same paper/doc.
+  */
+  def softAlign(eps: Seq[EventPair], cms: Seq[CorefMention]): Seq[EventPair] = {
+    // consider the following:
+    // 1. edit distance
+    // 2. event/relation label
+    // 3. event/relation args (roles & labels or roles?)
+    // 4. modifications (grounding IDs, PTMs, hedging, etc.)
+    ???
+  }
+
+  private def getEventPairs(epsjson: JValue, cms: Map[String, CorefMention]): Seq[EventPair] = {
+    val mentionMap = cms
     for {
       aa <- epsjson.extract[Seq[AssemblyAnnotation]]
     } yield EventPair(
