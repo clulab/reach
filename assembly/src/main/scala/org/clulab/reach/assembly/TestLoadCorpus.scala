@@ -1,3 +1,5 @@
+package org.clulab.reach.assembly
+
 import com.typesafe.config.ConfigFactory
 import org.clulab.reach.assembly.relations.corpus.{CorpusReader, EventPair}
 
