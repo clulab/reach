@@ -187,7 +187,7 @@ object Corpus extends LazyLogging {
     for {
       aa <- epsjson.extract[Seq[AssemblyAnnotation]]
     } yield EventPair(
-      e1 = mentionMap(aa.`e1-id`),
+      e1 = mentionMap(aa.`e1-id`), //mentionMap.getOrElse(aa.`e1-id`)
       e2 = mentionMap(aa.`e2-id`),
       relation = aa.relation,
       confidence = aa.confidence,
