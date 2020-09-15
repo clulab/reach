@@ -226,7 +226,7 @@ object Corpus extends LazyLogging {
     var nInvalidLabel =0
     val triggerCount = ArrayBuffer[String]()
     val eventPairsUpdated = new ArrayBuffer[EventPair]()
-    for (ep <- eps){
+    for (ep <- eps.seq){
       val e1DocID = ep.e1.document.id.get.split("_")(0)
       val e2DocID = ep.e2.document.id.get.split("_")(0)
         println("!")
