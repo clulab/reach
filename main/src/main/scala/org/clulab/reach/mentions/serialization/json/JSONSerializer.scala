@@ -49,6 +49,27 @@ object JSONSerializer extends LazyLogging {
 
   def jsonAST(f: File): JValue = parse(scala.io.Source.fromFile(f).getLines.mkString)
 
+  // Otherwise it gives me error:
+  // com.fasterxml.jackson.databind.exc.MismatchedInputException: No content to map due to end-of-input
+  //[error]  at [Source: (String)""; line: 1, column: 0]
+  //[error] com.fasterxml.jackson.databind.exc.MismatchedInputException: No content to map due to end-of-input
+  //[error]  at [Source: (String)""; line: 1, column: 0]
+  //[error] 	at com.fasterxml.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:59)
+  //[error] 	at com.fasterxml.jackson.databind.DeserializationContext.reportInputMismatch(DeserializationContext.java:1356)
+  //[error] 	at com.fasterxml.jackson.databind.ObjectReader._initForReading(ObjectReader.java:358)
+  //[error] 	at com.fasterxml.jackson.databind.ObjectReader._bindAndClose(ObjectReader.java:1596)
+  //[error] 	at com.fasterxml.jackson.databind.ObjectReader.readValue(ObjectReader.java:1219)
+  //[error] 	at org.json4s.jackson.JsonMethods$class.parse(JsonMethods.scala:25)
+  //[error] 	at org.json4s.jackson.JsonMethods$.parse(JsonMethods.scala:55)
+  //[error] 	at org.clulab.reach.mentions.serialization.json.JSONSerializer$.jsonAST(JSONSerializer.scala:50)
+  //[error] 	at org.clulab.reach.mentions.serialization.json.JSONSerializer$.toCorefMentionsMap(JSONSerializer.scala:154)
+  def jsonASTOpt(f:File):Option[JValue] = {
+    try {Some(parse(scala.io.Source.fromFile(f).getLines.mkString))}
+    catch {
+      case ex:Exception => None
+    }
+  }
+
   /** Produce a sequence of mentions from a json file */
   def toBioMentions(file: File): Seq[BioMention] = toBioMentions(jsonAST(file))
 
@@ -140,6 +161,12 @@ object JSONSerializer extends LazyLogging {
   def toBioMention(mjson: JValue, doc: Document): BioMention = {
     val docsMap = docsToDocumentMap(Seq(doc))
     toBioMention(mjson, docsMap)
+  }
+
+  def toCorefMentionsMapFilterEmpty(file:File):Map[String, CorefMention] = {
+    val corefMentionJValueOpt = jsonASTOpt(file)
+    if (corefMentionJValueOpt.isDefined){toCorefMentionsMap(corefMentionJValueOpt.get)}
+    else {Map.empty[String, CorefMention]}
   }
 
   /** Produce a sequence of mentions from a json file */

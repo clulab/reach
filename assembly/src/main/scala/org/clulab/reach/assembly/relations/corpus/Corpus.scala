@@ -185,7 +185,7 @@ object Corpus extends LazyLogging {
   def loadMentions(corpusDir:String):Map[String, CorefMention] = {
     val mentionDataDir = new File( new File(corpusDir), MENTION_DATA)
 
-    mentionDataDir.listFiles.par.flatMap(JSONSerializer.toCorefMentionsMap).seq.toMap
+    mentionDataDir.listFiles.par.flatMap(JSONSerializer.toCorefMentionsMapFilterEmpty).seq.toMap
   }
 
   /**
