@@ -9,5 +9,6 @@ object TestLoadNewMentions extends App {
 
   val newMentions = Corpus.loadMentions(config.getString("assembly.corpus.corpusDirNewTrain"))
 
+  println(newMentions)
   println("New mentions loaded!")
 }

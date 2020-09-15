@@ -4,16 +4,19 @@ import org.clulab.processors.Document
 import org.clulab.reach.assembly.relations.classifier.AssemblyRelationClassifier
 import org.clulab.reach.assembly.sieves.Constraints
 import org.clulab.reach.mentions.CorefMention
-import org.clulab.reach.mentions.serialization.json.{MentionJSONOps, REACHMentionSeq, JSONSerializer}
+import org.clulab.reach.mentions.serialization.json.{JSONSerializer, MentionJSONOps, REACHMentionSeq}
 import org.clulab.serialization.json.JSONSerialization
 import org.json4s.jackson.JsonMethods._
 import org.json4s.JsonDSL._
 import org.json4s._
+
 import scala.util.hashing.MurmurHash3._
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.FileUtils.forceMkdir
 import ai.lum.common.FileUtils._
 import java.io.File
+
+import scala.collection.mutable.ArrayBuffer
 
 
 /** Storage class for an event pair (i.e., a single example for the relation corpus) */
@@ -182,11 +185,23 @@ object Corpus extends LazyLogging {
     Corpus(getEventPairs(epsJAST, cms))
   }
 
-  def loadMentions(corpusDir:String):Map[String, CorefMention] = {
+  def loadMentions(corpusDir:String):Map[String, Seq[CorefMention]] = {
     val mentionDataDir = new File( new File(corpusDir), MENTION_DATA)
 
     // TODO: slice 10 examples for debugging. Change this later.
-    mentionDataDir.listFiles.slice(0,10).par.flatMap(JSONSerializer.toCorefMentionsMapFilterEmpty).seq.toMap
+    val newMenionSeq = mentionDataDir.listFiles.slice(0,10).par.flatMap(JSONSerializer.toCorefMentionsMapFilterEmpty).seq.toMap.values.toSeq
+
+    val mentionGroupedByPaperID = scala.collection.mutable.Map[String, Seq[CorefMention]]()
+    for (m <- newMenionSeq){
+      val mentionID = m.document.id.get.split("_")(0)
+      if (!mentionGroupedByPaperID.contains(mentionID)){
+        mentionGroupedByPaperID(mentionID) = ArrayBuffer[CorefMention]()
+      }
+      else{
+        mentionGroupedByPaperID(mentionID).asInstanceOf[ArrayBuffer[CorefMention]].append(m)
+      }
+    }
+    mentionGroupedByPaperID.toMap
   }
 
   /**
