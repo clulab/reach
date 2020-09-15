@@ -208,7 +208,7 @@ object Corpus extends LazyLogging {
    * eps represents the "old" event pairs 
    * and cms represents "new" results from Reach for the same paper/doc.
   */
-  def softAlign(eps: Seq[EventPair], cms: Seq[CorefMention]): Seq[EventPair] = {
+  def softAlign(eps: Seq[EventPair], cms: Map[String, Seq[CorefMention]]): Seq[EventPair] = {
     // consider the following:
     // 1. edit distance
     // 2. event/relation label

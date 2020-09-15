@@ -12,7 +12,7 @@ object TestMatchMention extends App {
   val newMentions = Corpus.loadMentions(config.getString("assembly.corpus.corpusDirNewTrain"))
 
 
-  val X = Corpus.softAlign(eps, newMentions.values.toSeq)
+  val X = Corpus.softAlign(eps, newMentions)
 
 }
 
