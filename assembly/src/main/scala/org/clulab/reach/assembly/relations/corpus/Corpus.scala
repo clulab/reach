@@ -226,7 +226,7 @@ object Corpus extends LazyLogging {
     var nInvalidLabel =0
     val triggerCount = ArrayBuffer[String]()
     val eventPairsUpdated = new ArrayBuffer[EventPair]()
-    for (ep <- eps.seq){
+    for (ep <- eps){
       val e1DocID = ep.e1.document.id.get.split("_")(0)
       val e2DocID = ep.e2.document.id.get.split("_")(0)
         println("!")
@@ -252,6 +252,7 @@ object Corpus extends LazyLogging {
           else{nInvalidLabel+=1}
         }
         else {
+          println(ep.e1.trigger.text, ep.e2.trigger.text)
           nMissingMention+=1
           if (!e1Matched.isDefined) {
             triggerCount.append(ep.e1.trigger.text)
