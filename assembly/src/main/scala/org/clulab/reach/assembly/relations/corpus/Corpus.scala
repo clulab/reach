@@ -229,7 +229,7 @@ object Corpus extends LazyLogging {
     for (ep <- eps){
       val e1DocID = ep.e1.document.id.get.split("_")(0)
       val e2DocID = ep.e2.document.id.get.split("_")(0)
-
+        println("!")
 //      println("-"*20)
 //      println(ep.e1.label)
 //      println(ep.e1.labels)
