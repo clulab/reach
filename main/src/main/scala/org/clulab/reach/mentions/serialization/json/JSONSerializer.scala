@@ -265,34 +265,35 @@ object JSONSerializer extends LazyLogging {
 
   private def toModifications(mjson: JValue, docMap: Map[String, Document]): Set[Modification] = mjson \ "modifications" match {
     case mods: JArray =>
-      mods.arr.map { json => toModification(json, docMap) }.toSet
+      mods.arr.map { json => toModification(json, docMap).get }.toSet
     case other => Set.empty[Modification]
   }
 
-  private def toModification(mjson: JValue, docMap: Map[String, Document]): Modification = mjson \ "modification-type" match {
+  private def toModification(mjson: JValue, docMap: Map[String, Document]): Option[Modification] = mjson \ "modification-type" match {
     case JString("PTM") =>
-      PTM(
+      Some(PTM(
         label = (mjson \ "label").extract[String],
         evidence = getMention("evidence", mjson, docMap),
         site = getMention("site", mjson, docMap),
         negated = (mjson \ "negated").extract[Boolean]
-      )
+      ))
     case JString("EventSite") =>
       // site is required
-      EventSite(site = getMention("site", mjson, docMap).get)
+      Some(EventSite(site = getMention("site", mjson, docMap).get))
     case JString("Mutant") =>
       // evidence is required
-      Mutant(
+      Some(Mutant(
         // evidence is required
         evidence = getMention("evidence", mjson, docMap).get,
         foundBy = (mjson \ "foundBy").extract[String]
-      )
+      ))
     case JString("Negation") =>
       // evidence is required
-      Negation(evidence = getMention("evidence", mjson, docMap).get)
+      Some(Negation(evidence = getMention("evidence", mjson, docMap).get))
     case JString("Hypothesis") =>
       // evidence is required
-      Hypothesis(evidence = getMention("evidence", mjson, docMap).get)
+      Some(Hypothesis(evidence = getMention("evidence", mjson, docMap).get))
+    case JNothing => None
     case other => throw new Exception(s"unrecognized modification type '${other.toString}'")
   }
 
