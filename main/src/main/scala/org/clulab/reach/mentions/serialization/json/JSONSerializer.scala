@@ -182,8 +182,6 @@ object JSONSerializer extends LazyLogging {
   
   /** Produce a Map of id -> mentions from json */
   def toCorefMentionsMap(json: JValue): Map[String, CorefMention] = {
-    println("how many we finish?")
-
     require(json \ "documents" != JNothing, "\"documents\" key missing from json")
     require(json \ "mentions" != JNothing, "\"mentions\" key missing from json")
 
