@@ -186,13 +186,16 @@ object Corpus extends LazyLogging {
   }
 
   def loadMentions(corpusDir:String):Map[String, Seq[CorefMention]] = {
+    logger.info(s"Loading new mentions ...")
     val mentionDataDir = new File( new File(corpusDir), MENTION_DATA)
 
     // TODO: slice 10 examples for debugging. Change this later.
-    val newMenionSeq = mentionDataDir.listFiles.slice(0,10).par.flatMap(JSONSerializer.toCorefMentionsMapFilterEmpty).seq.toMap.values.toSeq
+    val newMentionSeq = mentionDataDir.listFiles.slice(0,10).par.flatMap(JSONSerializer.toCorefMentionsMapFilterEmpty).seq.toMap.values.toSeq
+    logger.info(s"Loading new mentions finished. Total number of mentions: ${newMentionSeq.length}")
 
+    //
     val mentionGroupedByPaperID = scala.collection.mutable.Map[String, Seq[CorefMention]]()
-    for (m <- newMenionSeq){
+    for (m <- newMentionSeq){
       val mentionID = m.document.id.get.slice(3, m.document.id.get.length)
       println(m.label, m.labels)
       if (!mentionGroupedByPaperID.contains(mentionID)){
@@ -216,22 +219,47 @@ object Corpus extends LazyLogging {
     // 3. event/relation args (roles & labels or roles?)
     // 4. modifications (grounding IDs, PTMs, hedging, etc.)
 
+    logger.info(s"Matching old mentions with new mentions ...")
+
     var abnormalCount = 0
+    val eventPairsUpdated = new ArrayBuffer[EventPair]()
     for (ep <- eps){
-      val ep1DocID = ep.e1.document.id.get.split("_")(0)
-      val ep2DocID = ep.e2.document.id.get.split("_")(0)
+      val e1DocID = ep.e1.document.id.get.split("_")(0)
+      val e2DocID = ep.e2.document.id.get.split("_")(0)
 
 //      println("-"*20)
 //      println(ep.e1.label)
 //      println(ep.e1.labels)
-
+      val e1Matched = getMatchedMention(ep.e1, cms(e1DocID), true, true)
+      val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), true, true)
+      if (e1Matched.isDefined && e2Matched.isDefined){
+        eventPairsUpdated.append(
+          new EventPair(
+            e1 = e1Matched.get,
+            e2 = e2Matched.get,
+            relation = ep.relation,
+            confidence = ep.confidence,
+            annotatorID = ep.annotatorID,
+            notes = ep.notes
+          )
+        )
+      }
     }
-    println("abnormal:", abnormalCount)
-    Seq.empty[EventPair]
+    logger.info(s"Matching finished! Total pairs ${eps.length}, matched pairs: ${eventPairsUpdated.length}")
+    eventPairsUpdated
   }
 
   private def getMatchedMention(queryMention:CorefMention, candidateMentions:Seq[CorefMention], exactText:Boolean, exactLabels:Boolean):Option[CorefMention] = {
-    ???
+    val oldMentionTokens = queryMention.text.toLowerCase().split(" ")
+    val candidateMentionsTokens = candidateMentions.map{m =>  m.text.toLowerCase().split(" ")}
+
+    if (candidateMentionsTokens.contains(oldMentionTokens)){
+      Some(candidateMentions(candidateMentionsTokens.indexOf(oldMentionTokens)))
+    }
+    else{
+      None
+    }
+
   }
 
   private def getEventPairs(epsjson: JValue, cms: Map[String, CorefMention]): Seq[EventPair] = {

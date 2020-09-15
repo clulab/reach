@@ -1,16 +1,18 @@
 package org.clulab.reach.assembly
 
 import org.apache.commons.io.FilenameUtils
-import org.clulab.reach.assembly.relations.corpus.{ CorpusReader, EventPair }
+import org.clulab.reach.assembly.relations.corpus.{Corpus, CorpusReader, EventPair}
 import org.clulab.odin.Mention
 import org.clulab.reach.PaperReader
 import org.clulab.reach.mentions._
 import org.clulab.reach.mentions.serialization.json._
 import org.clulab.utils.Serializer
+
 import scala.collection.parallel.ForkJoinTaskSupport
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import java.io.File
+
 import org.clulab.reach.assembly.relations.SieveEvaluator
 import org.clulab.reach.assembly.relations.SieveEvaluator.Performance
 
@@ -18,7 +20,7 @@ import org.clulab.reach.assembly.relations.SieveEvaluator.Performance
 object RunAnnotationEval extends App with LazyLogging {
 
   val config = ConfigFactory.load()
-  val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDir")).instances
+//  val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDir")).instances
 
   // gather precedence relations corpus
   val evalGoldPath = config.getString("assembly.evalGold")
@@ -33,7 +35,9 @@ object RunAnnotationEval extends App with LazyLogging {
       (pg, tm)
     } else {
       logger.info("Serialized files not found")
-      val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDir")).instances
+      val epsOld: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDirOldTrain")).instances
+      val newMentions = Corpus.loadMentions(config.getString("assembly.corpus.corpusDirNewTrain"))
+      val eps = Corpus.softAlign(epsOld, newMentions)
       // gather precedence relations corpus
 //      val precedenceAnnotations = CorpusReader.filterRelations(eps, precedenceRelations)
 //      val noneAnnotations = CorpusReader.filterRelations(eps, noRelations ++ subsumptionRelations ++ equivalenceRelations)
