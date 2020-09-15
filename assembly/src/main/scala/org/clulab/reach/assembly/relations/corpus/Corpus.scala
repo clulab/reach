@@ -218,15 +218,13 @@ object Corpus extends LazyLogging {
 
     var abnormalCount = 0
     for (ep <- eps){
-      val ep1DocID1 = ep.e1.document.id.get.split("_")(0)
-      val ep1DocID2 = ep.e1.document.id.get.split("_")(1)
+      val ep1DocID = ep.e1.document.id.get.split("_")(0)
+      val ep2DocID = ep.e2.document.id.get.split("_")(0)
 
-      val ep2DocID1 = ep.e2.document.id.get.split("_")(0)
-      val ep2DocID2 = ep.e2.document.id.get.split("_")(1)
+      println("-"*20)
+      println(ep.e1.label)
+      println(ep.e1.labels)
 
-      if (ep1DocID1!=ep1DocID2 || ep2DocID1!=ep2DocID2){
-        abnormalCount+=1
-      }
     }
     println("abnormal:", abnormalCount)
     Seq.empty[EventPair]
