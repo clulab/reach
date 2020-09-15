@@ -76,7 +76,7 @@ object CorpusBuilder extends LazyLogging {
     //
     val sentences = for {
       i <- start to end
-    } yield try {doc.sentences(i).getSentenceText} catch { _ => doc.sentences(i).words}
+    } yield try {doc.sentences(i).getSentenceText} catch { case e:Exception => doc.sentences(i).words}
 
     sentences.mkString("  ")
   }
