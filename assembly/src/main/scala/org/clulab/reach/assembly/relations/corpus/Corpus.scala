@@ -237,8 +237,8 @@ object Corpus extends LazyLogging {
 //      println(ep.e1.label)
 //      println(ep.e1.labels)
       if (e1DocID==e2DocID && cms.contains(e1DocID)){
-        val e1Matched = getMatchedMention(ep.e1, cms(e1DocID), "mentionTextAndLabelExactMatch")
-        val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), "mentionTextAndLabelExactMatch")
+        val e1Matched = getMatchedMention(ep.e1, cms(e1DocID), "mentionTextEditDistance")
+        val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), "mentionTextEditDistance")
         if (e1Matched.isDefined && e2Matched.isDefined){
           if (validLabels.contains(e1Matched.get.label) && validLabels.contains(e2Matched.get.label)){
             eventPairsUpdated.append(
