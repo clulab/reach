@@ -260,9 +260,9 @@ object Corpus extends LazyLogging {
     val oldMentionText = queryMention.text.toLowerCase()
     val candidateMentionsText = candidateMentions.map{m =>  m.text.toLowerCase()}
 
-    println("="*20)
-    println(oldMentionText)
-    println(candidateMentionsText)
+//    println("="*20)
+//    println(oldMentionText)
+//    println(candidateMentionsText)
     //scala.io.StdIn.readLine()
 
     if (exactText && !exactLabels){
