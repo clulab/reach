@@ -190,7 +190,7 @@ object Corpus extends LazyLogging {
     val mentionDataDir = new File( new File(corpusDir), MENTION_DATA)
 
     // TODO: slice 10 examples for debugging. Change this later.
-    val newMentionSeq = mentionDataDir.listFiles.slice(0,10).par.flatMap(JSONSerializer.toCorefMentionsMapFilterEmpty).seq.toMap.values.toSeq
+    val newMentionSeq = mentionDataDir.listFiles.par.flatMap(JSONSerializer.toCorefMentionsMapFilterEmpty).seq.toMap.values.toSeq
     logger.info(s"Loading new mentions finished. Total number of mentions: ${newMentionSeq.length}")
 
     //
@@ -231,8 +231,8 @@ object Corpus extends LazyLogging {
 //      println(ep.e1.label)
 //      println(ep.e1.labels)
       if (e1DocID==e2DocID && cms.contains(e1DocID)){
-        val e1Matched = getMatchedMention(ep.e1, cms(e1DocID), "mentionTextAndLabelExactMatch")
-        val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), "mentionTextAndLabelExactMatch")
+        val e1Matched = getMatchedMention(ep.e1, cms(e1DocID), "mentionTextExactMatch")
+        val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), "mentionTextExactMatch")
         if (e1Matched.isDefined && e2Matched.isDefined){
           eventPairsUpdated.append(
             new EventPair(
@@ -277,7 +277,6 @@ object Corpus extends LazyLogging {
       }
       case "mentionTextEditDistance" => {
         val textDistance = candidateMentionsText.map{x => editDistance(oldMentionText, x)}
-        println(s"min edit distance:${textDistance.min}")
         val minDistanceIdx = textDistance.indexOf(textDistance.min)
         if (textDistance.min/oldMentionText.length<0.3){
           Some(candidateMentions(minDistanceIdx))
