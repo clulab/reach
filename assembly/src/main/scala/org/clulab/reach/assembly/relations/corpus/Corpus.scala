@@ -231,8 +231,8 @@ object Corpus extends LazyLogging {
 //      println(ep.e1.label)
 //      println(ep.e1.labels)
       if (e1DocID==e2DocID && cms.contains(e1DocID)){
-        val e1Matched = getMatchedMention(ep.e1, cms(e1DocID), true, true)
-        val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), true, true)
+        val e1Matched = getMatchedMention(ep.e1, cms(e1DocID), true, false)
+        val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), true, false)
         if (e1Matched.isDefined && e2Matched.isDefined){
           eventPairsUpdated.append(
             new EventPair(
@@ -260,12 +260,29 @@ object Corpus extends LazyLogging {
     val oldMentionTokens = queryMention.text.toLowerCase().split(" ")
     val candidateMentionsTokens = candidateMentions.map{m =>  m.text.toLowerCase().split(" ")}
 
-    if (candidateMentionsTokens.contains(oldMentionTokens)){
-      Some(candidateMentions(candidateMentionsTokens.indexOf(oldMentionTokens)))
+    println("="*20)
+    println(oldMentionTokens)
+    println(candidateMentionsTokens)
+    scala.io.StdIn.readLine()
+
+    if (exactText && !exactLabels){
+      if (candidateMentionsTokens.contains(oldMentionTokens)){
+        Some(candidateMentions(candidateMentionsTokens.indexOf(oldMentionTokens)))
+      }
+      else{
+        None
+      }
     }
-    else{
+    else if (!exactText && exactLabels){
       None
     }
+    else if (exactText && exactLabels){
+      None
+    }
+    else {
+      None
+    }
+
 
   }
 
