@@ -224,6 +224,7 @@ object Corpus extends LazyLogging {
     var nMissingPaper = 0
     var nMissingMention = 0
     var nInvalidLabel =0
+    val triggerCount = scala.collection.mutable.Map[String, Int]()
     val eventPairsUpdated = new ArrayBuffer[EventPair]()
     for (ep <- eps){
       val e1DocID = ep.e1.document.id.get.split("_")(0)
@@ -250,10 +251,22 @@ object Corpus extends LazyLogging {
           }
           else{nInvalidLabel+=1}
         }
-        else {nMissingMention+=1}
+        else {
+          nMissingMention+=1
+          if (!e1Matched.isDefined) {
+            if (!triggerCount.contains(ep.e1.trigger.text)){triggerCount(ep.e1.trigger.text)=1}
+            else{triggerCount(ep.e1.trigger.text)+=1}
+          }
+          if (!e2Matched.isDefined) {
+            if (!triggerCount.contains(ep.e2.trigger.text)){triggerCount(ep.e2.trigger.text)=1}
+            else{triggerCount(ep.e2.trigger.text)+=1}
+          }
+        }
       }
       else {nMissingPaper+=1}
     }
+    println(triggerCount.toSeq.sortWith(_._2 > _._2))
+
     logger.info(s"Matching finished! Total pairs ${eps.length}, matched pairs: ${eventPairsUpdated.length}")
     logger.info(s"\tn missing paper: ${nMissingPaper}, n missing mention: ${nMissingMention}, n invalid label: ${nInvalidLabel}")
     eventPairsUpdated
