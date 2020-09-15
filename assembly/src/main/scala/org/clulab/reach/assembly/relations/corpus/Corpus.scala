@@ -197,7 +197,6 @@ object Corpus extends LazyLogging {
     val mentionGroupedByPaperID = scala.collection.mutable.Map[String, Seq[CorefMention]]()
     for (m <- newMentionSeq){
       val mentionID = m.document.id.get.slice(3, m.document.id.get.length)
-      println(m.label, m.labels)
       if (!mentionGroupedByPaperID.contains(mentionID)){
         mentionGroupedByPaperID(mentionID) = ArrayBuffer[CorefMention]()
       }
@@ -230,19 +229,21 @@ object Corpus extends LazyLogging {
 //      println("-"*20)
 //      println(ep.e1.label)
 //      println(ep.e1.labels)
-      val e1Matched = getMatchedMention(ep.e1, cms(e1DocID), true, true)
-      val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), true, true)
-      if (e1Matched.isDefined && e2Matched.isDefined){
-        eventPairsUpdated.append(
-          new EventPair(
-            e1 = e1Matched.get,
-            e2 = e2Matched.get,
-            relation = ep.relation,
-            confidence = ep.confidence,
-            annotatorID = ep.annotatorID,
-            notes = ep.notes
+      if (e1DocID==e2DocID && cms.contains(e1DocID)){
+        val e1Matched = getMatchedMention(ep.e1, cms(e1DocID), true, true)
+        val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), true, true)
+        if (e1Matched.isDefined && e2Matched.isDefined){
+          eventPairsUpdated.append(
+            new EventPair(
+              e1 = e1Matched.get,
+              e2 = e2Matched.get,
+              relation = ep.relation,
+              confidence = ep.confidence,
+              annotatorID = ep.annotatorID,
+              notes = ep.notes
+            )
           )
-        )
+        }
       }
     }
     logger.info(s"Matching finished! Total pairs ${eps.length}, matched pairs: ${eventPairsUpdated.length}")
