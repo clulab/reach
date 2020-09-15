@@ -199,7 +199,11 @@ object Corpus extends LazyLogging {
     // 2. event/relation label
     // 3. event/relation args (roles & labels or roles?)
     // 4. modifications (grounding IDs, PTMs, hedging, etc.)
-    ???
+    for (ep <- eps){
+      val ep1Mention = ep.e1.id
+      println(ep1Mention)
+    }
+    Seq.empty[EventPair]
   }
 
   private def getEventPairs(epsjson: JValue, cms: Map[String, CorefMention]): Seq[EventPair] = {
