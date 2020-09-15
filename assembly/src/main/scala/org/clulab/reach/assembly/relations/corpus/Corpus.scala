@@ -194,7 +194,7 @@ object Corpus extends LazyLogging {
     val mentionGroupedByPaperID = scala.collection.mutable.Map[String, Seq[CorefMention]]()
     for (m <- newMenionSeq){
       val mentionID = m.document.id.get.slice(3, m.document.id.get.length)
-      println(m.document.id.get, mentionID)
+      println(m.label, m.labels)
       if (!mentionGroupedByPaperID.contains(mentionID)){
         mentionGroupedByPaperID(mentionID) = ArrayBuffer[CorefMention]()
       }
@@ -221,13 +221,17 @@ object Corpus extends LazyLogging {
       val ep1DocID = ep.e1.document.id.get.split("_")(0)
       val ep2DocID = ep.e2.document.id.get.split("_")(0)
 
-      println("-"*20)
-      println(ep.e1.label)
-      println(ep.e1.labels)
+//      println("-"*20)
+//      println(ep.e1.label)
+//      println(ep.e1.labels)
 
     }
     println("abnormal:", abnormalCount)
     Seq.empty[EventPair]
+  }
+
+  private def getMatchedMention(queryMention:CorefMention, candidateMentions:Seq[CorefMention], exactText:Boolean, exactLabels:Boolean):Option[CorefMention] = {
+    ???
   }
 
   private def getEventPairs(epsjson: JValue, cms: Map[String, CorefMention]): Seq[EventPair] = {
