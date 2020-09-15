@@ -199,10 +199,20 @@ object Corpus extends LazyLogging {
     // 2. event/relation label
     // 3. event/relation args (roles & labels or roles?)
     // 4. modifications (grounding IDs, PTMs, hedging, etc.)
+
+    var abnormalCount = 0
     for (ep <- eps){
-      val ep1Mention = ep.e1.document.id
-      println(ep1Mention)
+      val ep1DocID1 = ep.e1.document.id.get.split("_")(0)
+      val ep1DocID2 = ep.e1.document.id.get.split("_")(1)
+
+      val ep2DocID1 = ep.e2.document.id.get.split("_")(0)
+      val ep2DocID2 = ep.e2.document.id.get.split("_")(1)
+
+      if (ep1DocID1!=ep1DocID2 || ep2DocID1!=ep2DocID2){
+        abnormalCount+=1
+      }
     }
+    println("abnormal:", abnormalCount)
     Seq.empty[EventPair]
   }
 
