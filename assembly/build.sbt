@@ -10,7 +10,7 @@ libraryDependencies ++= {
   val akkaV = "2.5.4"
   val akkaHttpV = "10.0.9"
   Seq(
-    "org.scalatest" %% "scalatest" % "2.2.4" % "test",
+    "org.scalatest" %% "scalatest" % "3.0.1" % "test", // originally 2.2.4, but has problems.
     "ai.lum" %% "common" % "0.1.4",
     "org.json4s" %% "json4s-jackson" % json4sV,
     // graph-based CSP
