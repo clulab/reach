@@ -255,13 +255,13 @@ object Corpus extends LazyLogging {
           nMissingMention+=1
           if (!e1Matched.isDefined) {
             println("we are here")
-//            val e1Trigger = try {Some(ep.e1.trigger.text)} catch {case _ => None}
-//            if (e1Trigger.isDefined) {triggerCount.append(e1Trigger.get)}
+            val e1Trigger = try {Some(ep.e1.trigger.text)} catch {case _ => None}
+            if (e1Trigger.isDefined) {triggerCount.append(e1Trigger.get)}
           }
           if (!e2Matched.isDefined) {
             println("we are here")
-//            val e2Trigger = try {Some(ep.e2.trigger.text)} catch {case _ => None}
-//            if (e2Trigger.isDefined) {triggerCount.append(e2Trigger.get)}
+            val e2Trigger = try {Some(ep.e2.trigger.text)} catch {case _ => None}
+            if (e2Trigger.isDefined) {triggerCount.append(e2Trigger.get)}
           }
         }
       }
