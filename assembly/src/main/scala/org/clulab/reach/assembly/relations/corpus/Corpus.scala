@@ -194,6 +194,7 @@ object Corpus extends LazyLogging {
     val mentionGroupedByPaperID = scala.collection.mutable.Map[String, Seq[CorefMention]]()
     for (m <- newMenionSeq){
       val mentionID = m.document.id.get.split("_")(0)
+      println(mentionID)
       if (!mentionGroupedByPaperID.contains(mentionID)){
         mentionGroupedByPaperID(mentionID) = ArrayBuffer[CorefMention]()
       }
