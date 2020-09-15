@@ -257,17 +257,17 @@ object Corpus extends LazyLogging {
   }
 
   private def getMatchedMention(queryMention:CorefMention, candidateMentions:Seq[CorefMention], exactText:Boolean, exactLabels:Boolean):Option[CorefMention] = {
-    val oldMentionTokens = queryMention.text.toLowerCase().split(" ")
-    val candidateMentionsTokens = candidateMentions.map{m =>  m.text.toLowerCase().split(" ")}
+    val oldMentionText = queryMention.text.toLowerCase()
+    val candidateMentionsText = candidateMentions.map{m =>  m.text.toLowerCase()}
 
     println("="*20)
-    println(oldMentionTokens.toSeq)
-    println(candidateMentionsTokens.map{x => x.toSeq})
-    scala.io.StdIn.readLine()
+    println(oldMentionText)
+    println(candidateMentionsText)
+    //scala.io.StdIn.readLine()
 
     if (exactText && !exactLabels){
-      if (candidateMentionsTokens.contains(oldMentionTokens)){
-        Some(candidateMentions(candidateMentionsTokens.indexOf(oldMentionTokens)))
+      if (candidateMentionsText.contains(oldMentionText)){
+        Some(candidateMentions(candidateMentionsText.indexOf(oldMentionText)))
       }
       else{
         None
