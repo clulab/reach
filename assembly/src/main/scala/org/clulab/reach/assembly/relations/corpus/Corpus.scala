@@ -261,8 +261,8 @@ object Corpus extends LazyLogging {
     val candidateMentionsTokens = candidateMentions.map{m =>  m.text.toLowerCase().split(" ")}
 
     println("="*20)
-    println(oldMentionTokens)
-    println(candidateMentionsTokens)
+    println(oldMentionTokens.toSeq)
+    println(candidateMentionsTokens.map{x => x.toSeq})
     scala.io.StdIn.readLine()
 
     if (exactText && !exactLabels){
