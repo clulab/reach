@@ -265,7 +265,7 @@ object JSONSerializer extends LazyLogging {
 
   private def toModifications(mjson: JValue, docMap: Map[String, Document]): Set[Modification] = mjson \ "modifications" match {
     case mods: JArray =>
-      mods.arr.map { json => toModification(json, docMap).get }.toSet
+      mods.arr.map { json => toModification(json, docMap).flatten }.toSet
     case other => Set.empty[Modification]
   }
 
