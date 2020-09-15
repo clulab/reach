@@ -217,11 +217,13 @@ object Corpus extends LazyLogging {
     // 2. event/relation label
     // 3. event/relation args (roles & labels or roles?)
     // 4. modifications (grounding IDs, PTMs, hedging, etc.)
+    val validLabels = Seq("ComplexEvent", "Binding")
 
     logger.info(s"Matching old mentions with new mentions ...")
 
     var nMissingPaper = 0
     var nMissingMention = 0
+    var nInvalidLabel =0
     val eventPairsUpdated = new ArrayBuffer[EventPair]()
     for (ep <- eps){
       val e1DocID = ep.e1.document.id.get.split("_")(0)
@@ -234,25 +236,26 @@ object Corpus extends LazyLogging {
         val e1Matched = getMatchedMention(ep.e1, cms(e1DocID), "mentionTextExactMatch")
         val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), "mentionTextExactMatch")
         if (e1Matched.isDefined && e2Matched.isDefined){
-          eventPairsUpdated.append(
-            new EventPair(
-              e1 = e1Matched.get,
-              e2 = e2Matched.get,
-              relation = ep.relation,
-              confidence = ep.confidence,
-              annotatorID = ep.annotatorID,
-              notes = ep.notes
+          if (validLabels.contains(e1Matched.get.label) && validLabels.contains(e2Matched.get.label)){
+            eventPairsUpdated.append(
+              new EventPair(
+                e1 = e1Matched.get,
+                e2 = e2Matched.get,
+                relation = ep.relation,
+                confidence = ep.confidence,
+                annotatorID = ep.annotatorID,
+                notes = ep.notes
+              )
             )
-          )
+          }
+          else{nInvalidLabel+=1}
         }
         else {nMissingMention+=1}
       }
-      else {
-        nMissingPaper+=1
-      }
+      else {nMissingPaper+=1}
     }
     logger.info(s"Matching finished! Total pairs ${eps.length}, matched pairs: ${eventPairsUpdated.length}")
-    logger.info(s"\tn missing paper: ${nMissingPaper}, n missing mention: ${nMissingMention}")
+    logger.info(s"\tn missing paper: ${nMissingPaper}, n missing mention: ${nMissingMention}, n invalid label: ${nInvalidLabel}")
     eventPairsUpdated
   }
 
