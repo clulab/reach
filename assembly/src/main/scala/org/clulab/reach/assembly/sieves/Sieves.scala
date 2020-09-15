@@ -166,7 +166,7 @@ class PrecedenceSieves extends Sieves {
     val intraSententialRules =  "/org/clulab/reach/assembly/grammars/intrasentential.yml"
     val interSententialRules = "/org/clulab/reach/assembly/grammars/intersentential.yml"
     val bioDRBRules = "/org/clulab/reach/assembly/grammars/biodrb-patterns.yml"
-    val precedenceMarkerRules = "/org/clulab/reach/assembly/grammars/precedence-markers.yml"
+    //val precedenceMarkerRules = "/org/clulab/reach/assembly/grammars/precedence-markers.yml"
     // intrasentence patterns
     val am2 = applyPrecedenceRules(mentions, manager, name, intraSententialRules, actions)
     // cross-sentence patterns
@@ -174,9 +174,10 @@ class PrecedenceSieves extends Sieves {
     // patterns derived from BioDRB paper
     val am4 = applyPrecedenceRules(mentions, am3, name, bioDRBRules, actions)
     // check for interceding precedence markers
-    val am5 = applyPrecedenceRules(mentions, am4, name, precedenceMarkerRules, actions)
+    //val am5 = applyPrecedenceRules(mentions, am4, name, precedenceMarkerRules, actions)
 
-    am5
+    //am5
+    am4
   }
   
   /**
