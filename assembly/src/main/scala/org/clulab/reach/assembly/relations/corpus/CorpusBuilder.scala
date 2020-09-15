@@ -68,9 +68,15 @@ object CorpusBuilder extends LazyLogging {
     val start = sentenceIndices.min
     val end = sentenceIndices.max
 
+    // some sentences has errors, so I will write a simple heuristic to overcome this.
+    // java.lang.ArrayIndexOutOfBoundsException: 0
+    //[error] java.lang.ArrayIndexOutOfBoundsException: 0
+    //[error] 	at org.clulab.processors.Sentence$$anonfun$getSentenceFragmentText$1.apply(Sentence.scala:145)
+    //[error] 	at org.clulab.processors.Sentence$$anonfun$getSentenceFragmentText$1.apply(Sentence.scala:137)
+    //
     val sentences = for {
       i <- start to end
-    } yield doc.sentences(i).getSentenceText
+    } yield try {doc.sentences(i).getSentenceText} catch { _ => doc.sentences(i).words}
 
     sentences.mkString("  ")
   }
