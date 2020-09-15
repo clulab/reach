@@ -220,7 +220,8 @@ object Corpus extends LazyLogging {
 
     logger.info(s"Matching old mentions with new mentions ...")
 
-    var abnormalCount = 0
+    var nMissingPaper = 0
+    var nMissingMention = 0
     val eventPairsUpdated = new ArrayBuffer[EventPair]()
     for (ep <- eps){
       val e1DocID = ep.e1.document.id.get.split("_")(0)
@@ -244,9 +245,14 @@ object Corpus extends LazyLogging {
             )
           )
         }
+        else {nMissingMention+=1}
+      }
+      else {
+        nMissingPaper+=1
       }
     }
     logger.info(s"Matching finished! Total pairs ${eps.length}, matched pairs: ${eventPairsUpdated.length}")
+    logger.info(s"\tn missing paper: ${nMissingPaper}, n missing mention: ${nMissingMention}")
     eventPairsUpdated
   }
 
