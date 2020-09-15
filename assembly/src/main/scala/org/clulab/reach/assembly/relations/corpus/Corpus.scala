@@ -231,8 +231,8 @@ object Corpus extends LazyLogging {
 //      println(ep.e1.label)
 //      println(ep.e1.labels)
       if (e1DocID==e2DocID && cms.contains(e1DocID)){
-        val e1Matched = getMatchedMention(ep.e1, cms(e1DocID), true, false)
-        val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), true, false)
+        val e1Matched = getMatchedMention(ep.e1, cms(e1DocID), "mentionTextExactMatch")
+        val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), "mentionTextExactMatch")
         if (e1Matched.isDefined && e2Matched.isDefined){
           eventPairsUpdated.append(
             new EventPair(
@@ -256,7 +256,7 @@ object Corpus extends LazyLogging {
     eventPairsUpdated
   }
 
-  private def getMatchedMention(queryMention:CorefMention, candidateMentions:Seq[CorefMention], exactText:Boolean, exactLabels:Boolean):Option[CorefMention] = {
+  private def getMatchedMention(queryMention:CorefMention, candidateMentions:Seq[CorefMention], matchMethod:String):Option[CorefMention] = {
     val oldMentionText = queryMention.text.toLowerCase()
     val candidateMentionsText = candidateMentions.map{m =>  m.text.toLowerCase()}
 
@@ -265,25 +265,57 @@ object Corpus extends LazyLogging {
 //    println(candidateMentionsText)
     //scala.io.StdIn.readLine()
 
-    if (exactText && !exactLabels){
-      if (candidateMentionsText.contains(oldMentionText)){
-        Some(candidateMentions(candidateMentionsText.indexOf(oldMentionText)))
+    // We would like to test at least the following schemes:
+    // 1, mention text exact match => "mentionTextExactMatch"
+    // 2, mention text edit distance => "mentionTextEditDistance"
+    // 3, mention text exact match + label exact match => "mentionTextAndLabelExactMatch"
+    // 4, mention text edit distance + labels edit distance => "mentionTextAndLabelsEditDistance"
+
+    matchMethod match {
+      case "mentionTextExactMatch" =>{
+        candidateMentions.find(x => x.text.toLowerCase()==oldMentionText)
       }
-      else{
+      case "mentionTextEditDistance" => {
+        val textDistance = candidateMentionsText.map{x => editDistance(oldMentionText, x)}
+        val minDistanceIdx = textDistance.indexOf(textDistance.min)
+        if (textDistance.min/oldMentionText.length<0.3){
+          Some(candidateMentions(minDistanceIdx))
+        }
+        else{
+          None
+        }
+      }
+      case "mentionTextAndLabelExactMatch" => {
+        candidateMentions.find(m => (m.text.toLowerCase()==oldMentionText && m.label == queryMention.label))
+      }
+      case "mentionTextAndLabelsEditDistance" => {
+        ???
+      }
+      case _ => {
+        logger.error(s"No matching method specified")
         None
       }
-    }
-    else if (!exactText && exactLabels){
-      None
-    }
-    else if (exactText && exactLabels){
-      None
-    }
-    else {
-      None
+
     }
 
+  }
 
+  private def editDistance(textSeq1: Seq[Char], textSeq2: Seq[Char]):Int = {
+    //This is found from here: https://www.reddit.com/r/scala/comments/7sqtyf/scala_edit_distance_implementation/
+    // Use simple text cases to verify it:
+    // println(editDistance(Seq("I", "have","a","dream"), Seq("I", "have","a", "good", "dream")))
+    // println(editDistance(Seq("I", "have","a","dream"), Seq("I", "have","a", "very", "good", "dream")))
+    val startRow = (0 to textSeq2.size).toList
+    textSeq1.foldLeft(startRow) { (prevRow, aElem) =>
+      (prevRow.zip(prevRow.tail).zip(textSeq2)).scanLeft(prevRow.head + 1) {
+        case (left, ((diag, up), bElem)) => {
+          val aGapScore = up + 1
+          val bGapScore = left + 1
+          val matchScore = diag + (if (aElem == bElem) 0 else 1)
+          List(aGapScore, bGapScore, matchScore).min
+        }
+      }
+    }.last
   }
 
   private def getEventPairs(epsjson: JValue, cms: Map[String, CorefMention]): Seq[EventPair] = {
