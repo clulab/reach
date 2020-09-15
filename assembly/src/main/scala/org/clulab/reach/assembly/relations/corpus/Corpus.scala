@@ -182,6 +182,12 @@ object Corpus extends LazyLogging {
     Corpus(getEventPairs(epsJAST, cms))
   }
 
+  def loadMentions(corpusDir:String):Map[String, CorefMention] = {
+    val mentionDataDir = new File( new File(corpusDir), MENTION_DATA)
+
+    mentionDataDir.listFiles.par.flatMap(JSONSerializer.toCorefMentionsMap).seq.toMap
+  }
+
   /**
    * eps represents the "old" event pairs 
    * and cms represents "new" results from Reach for the same paper/doc.

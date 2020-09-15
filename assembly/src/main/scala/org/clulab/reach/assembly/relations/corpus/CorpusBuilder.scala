@@ -73,7 +73,7 @@ object CorpusBuilder extends LazyLogging {
     //[error] java.lang.ArrayIndexOutOfBoundsException: 0
     //[error] 	at org.clulab.processors.Sentence$$anonfun$getSentenceFragmentText$1.apply(Sentence.scala:145)
     //[error] 	at org.clulab.processors.Sentence$$anonfun$getSentenceFragmentText$1.apply(Sentence.scala:137)
-    //
+    // ...
     val sentences = for {
       i <- start to end
     } yield try {doc.sentences(i).getSentenceText} catch { case e:Exception => doc.sentences(i).words}
