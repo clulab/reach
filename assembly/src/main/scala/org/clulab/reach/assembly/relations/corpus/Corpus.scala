@@ -221,7 +221,7 @@ object Corpus extends LazyLogging {
 
     logger.info(s"Matching old mentions with new mentions ...")
 
-    val epsJAST = parse(new File(new File("/work/zhengzhongliang/2020_ASKE/20200831/mcc_old/train"), s"$EVENT_PAIRS.json")).extract[Seq[Map[String, String]]]
+    val epsJAST = parse(new File(new File("/work/zhengzhongliang/2020_ASKE/20200831/mcc_old/train"), s"$EVENT_PAIRS.json")).extract[Seq[Map[String, JValue]]]
 
     logger.info(s"They should have the same length ${epsJAST.length}, ${eps.length}")
 
@@ -257,10 +257,10 @@ object Corpus extends LazyLogging {
         else {
           nMissingMention+=1
           if (!e1Matched.isDefined) {
-            if (epsJAST(idx).contains("e1-trigger")){triggerCount.append(epsJAST(idx)("e1-trigger"))}
+            if (epsJAST(idx).contains("e1-trigger")){triggerCount.append(epsJAST(idx)("e1-trigger").toString)}
           }
           if (!e2Matched.isDefined) {
-            if (epsJAST(idx).contains("e2-trigger")){triggerCount.append(epsJAST(idx)("e2-trigger"))}
+            if (epsJAST(idx).contains("e2-trigger")){triggerCount.append(epsJAST(idx)("e2-trigger").toString)}
           }
         }
       }
@@ -349,6 +349,8 @@ object Corpus extends LazyLogging {
       notes = aa.notes
     )
   }
+
+  private case class TriggerAnnotation(`e1-trigger`:String, `e2-trigger`:String)
 
   private case class AssemblyAnnotation(
     id: Int,
