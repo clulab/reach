@@ -200,7 +200,7 @@ object Corpus extends LazyLogging {
     // 3. event/relation args (roles & labels or roles?)
     // 4. modifications (grounding IDs, PTMs, hedging, etc.)
     for (ep <- eps){
-      val ep1Mention = ep.e1.id
+      val ep1Mention = ep.e1.document.id
       println(ep1Mention)
     }
     Seq.empty[EventPair]
