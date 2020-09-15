@@ -253,18 +253,19 @@ object Corpus extends LazyLogging {
         }
         else {
           nMissingMention+=1
-          if (!e1Matched.isDefined) {
-            if (!triggerCount.contains(ep.e1.trigger.text)){triggerCount(ep.e1.trigger.text)=1}
-            else{triggerCount(ep.e1.trigger.text)+=1}
-          }
-          if (!e2Matched.isDefined) {
-            if (!triggerCount.contains(ep.e2.trigger.text)){triggerCount(ep.e2.trigger.text)=1}
-            else{triggerCount(ep.e2.trigger.text)+=1}
-          }
+//          if (!e1Matched.isDefined) {
+//            if (!triggerCount.contains(ep.e1.trigger.text)){triggerCount(ep.e1.trigger.text)=1}
+//            else{triggerCount(ep.e1.trigger.text)+=1}
+//          }
+//          if (!e2Matched.isDefined) {
+//            if (!triggerCount.contains(ep.e2.trigger.text)){triggerCount(ep.e2.trigger.text)=1}
+//            else{triggerCount(ep.e2.trigger.text)+=1}
+//          }
         }
       }
       else {nMissingPaper+=1}
     }
+    println("matching finished")
     println(triggerCount.toSeq.sortWith(_._2 > _._2))
 
     logger.info(s"Matching finished! Total pairs ${eps.length}, matched pairs: ${eventPairsUpdated.length}")
