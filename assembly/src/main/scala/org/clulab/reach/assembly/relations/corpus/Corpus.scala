@@ -221,15 +221,18 @@ object Corpus extends LazyLogging {
 
     logger.info(s"Matching old mentions with new mentions ...")
 
+    val epsJAST = parse(new File(new File("/work/zhengzhongliang/2020_ASKE/20200831/mcc_old/train"), s"$EVENT_PAIRS.json")).extract[Seq[Map[String, String]]]
+
+    logger.info(s"They should have the same length ${epsJAST.length}, ${eps.length}")
+
     var nMissingPaper = 0
     var nMissingMention = 0
     var nInvalidLabel =0
     val triggerCount = new ArrayBuffer[String]()
     val eventPairsUpdated = new ArrayBuffer[EventPair]()
-    for (ep <- eps){
+    for ((ep, idx) <- eps.zipWithIndex){
       val e1DocID = ep.e1.document.id.get.split("_")(0)
       val e2DocID = ep.e2.document.id.get.split("_")(0)
-        println("!")
 //      println("-"*20)
 //      println(ep.e1.label)
 //      println(ep.e1.labels)
@@ -254,14 +257,10 @@ object Corpus extends LazyLogging {
         else {
           nMissingMention+=1
           if (!e1Matched.isDefined) {
-            println("we are here")
-            val e1Trigger = try {Some(ep.e1.trigger.text)} catch {case _ => None}
-            if (e1Trigger.isDefined) {triggerCount.append(e1Trigger.get)}
+            if (epsJAST(idx).contains("e1-trigger")){triggerCount.append(epsJAST(idx)("e1-trigger"))}
           }
           if (!e2Matched.isDefined) {
-            println("we are here")
-            val e2Trigger = try {Some(ep.e2.trigger.text)} catch {case _ => None}
-            if (e2Trigger.isDefined) {triggerCount.append(e2Trigger.get)}
+            if (epsJAST(idx).contains("e2-trigger")){triggerCount.append(epsJAST(idx)("e2-trigger"))}
           }
         }
       }
