@@ -496,16 +496,17 @@ rules:
   # that acts as a surface-level contextual filter on the elements of this rule
   # (ex. "before" should not be preceded by a "," etc.)
   # right now this is all hidden in the action...
-  - name: intrasentence-syntax-binding-binding-2
-    label: ${mylabel}
-    type: dependency
-    action: inspectBindingPair
-    priority: ${deprulepriority}
-    example: "The resulting ATG5 and ATG12 complex interacts with ATG16L"
-    pattern: |
-      before:Binding
-      # ex. complex <- interacts
-      after:Binding = <nsubj (?! advmod [lemma=/(?i)^(concurrently|also)$/])
+  # TODO: the following rules are commented out because Gus suspected it causes the error.
+#  - name: intrasentence-syntax-binding-binding-2
+#    label: ${mylabel}
+#    type: dependency
+#    action: inspectBindingPair
+#    priority: ${deprulepriority}
+#    example: "The resulting ATG5 and ATG12 complex interacts with ATG16L"
+#    pattern: |
+#      before:Binding
+#      # ex. complex <- interacts
+#      after:Binding = <nsubj (?! advmod [lemma=/(?i)^(concurrently|also)$/])
 
   # This needs to be restricted.
   # ex. only consider pairs where one mention span includes the substring " which " or " that " or " and of "?

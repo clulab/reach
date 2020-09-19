@@ -221,6 +221,8 @@ package object json {
       case Hypothesis(evidence) =>
         ("modification-type" -> "Hypothesis") ~
         ("evidence" -> mentionToJsonAST(evidence))
+        //TODO: evaluate additional modifications
+      case _ => JNothing
     }
   }
 
