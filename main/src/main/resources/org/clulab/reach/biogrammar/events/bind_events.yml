@@ -11,7 +11,7 @@ rules:
   action: mkBinding
   priority: ${ priority }
   pattern: |
-    trigger = [lemma=/bind|associate|ligate/ & tag=/^V/ & !outgoing=/${preps_general}|${objects}|${complements}/]
+    trigger = [lemma=/bind|associate|ligate|interact|activate/ & tag=/^V/ & !outgoing=/${preps_general}|${objects}|${complements}/]
     theme1:BioChemicalEntity+ = ${adjective_clause} /${conjunctions}/{,2} | ${agents} /${noun_modifiers}|${conjunctions}/{,2} | </${passive_agents}/{,2} ${agents}
 
 - name: binding1b
@@ -19,7 +19,7 @@ rules:
   action: mkBinding
   priority: ${ priority }
   pattern: |
-    trigger = [lemma=/bind|associate|ligate/ & tag=/^V/]
+    trigger = [lemma=/bind|associate|ligate|interact|activate/ & tag=/^V/]
     theme1:BioChemicalEntity+ = ${adjective_clause} /${conjunctions}/{,2} | ${agents} /${noun_modifiers}|${conjunctions}/{,2} | </${passive_agents}/{,2} ${agents}
     theme2:BioChemicalEntity+ = ${objects} [!lemma=/${excludeObj}/] /${noun_modifiers}|${conjunctions}/{,2} | /${complements}/? /${preps_general}/
 
@@ -78,7 +78,7 @@ rules:
   action: mkBinding
   priority: ${ priority }
   pattern: |
-      trigger = [lemma=/bind|interact|ligate/ & tag=/^V/]
+      trigger = [lemma=/bind|interact|ligate|interact|activate/ & tag=/^V/]
       theme1:BioChemicalEntity+ = (</${noun_modifiers}/ /${noun_modifiers}/{,2} >/${genitive_case_marker}/? >/${conjunctions}/?) | ${agents}
       theme2:BioChemicalEntity+ = /${conjunctions}/? ${objects}
 
@@ -124,7 +124,7 @@ rules:
   action: mkBinding
   priority: ${ priority }
   pattern: |
-      trigger = [lemma=/bind|ligate/ & tag=/^V/]
+      trigger = [lemma=/bind|ligate|interact|activate/ & tag=/^V/]
       theme1:BioChemicalEntity+ = </${adjective_clause}|${adverbial_clause}/ </${preps_general}/?
 
 - name: binding10b
@@ -132,7 +132,7 @@ rules:
   action: mkBinding
   priority: ${ priority }
   pattern: |
-      trigger = [lemma=/bind|ligate/ & tag=/^V/]
+      trigger = [lemma=/bind|ligate|interact|activate/ & tag=/^V/]
       theme1:BioChemicalEntity = </${adjective_clause}|${adverbial_clause}/
       theme2:BioChemicalEntity = /${preps_general}/
 
@@ -200,7 +200,7 @@ rules:
   action: mkBinding
   priority: ${ priority }
   pattern: |
-    trigger = [lemma=/bind|ligate/ & tag=/^V/]
+    trigger = [lemma=/bind|ligate|interact|activate/ & tag=/^V/]
     theme1:BioChemicalEntity+ = (/${passive_voice_subject}/ |</${adjective_clause}/) </${conjunctions}/?
     theme2:BioChemicalEntity+ = /${passive_agents}|${preps_general}/ /${noun_modifiers}/{,2} | ${objects} /${noun_modifiers}/{,2}
 
@@ -359,7 +359,7 @@ rules:
   priority: ${ priority }
   example: "To confirm whether XRCC1 and DNA-PK coexist in a common complex..."
   pattern: |
-      trigger = [lemma=/coexist|present/] in [tag=/DT|JJ/]* [lemma=/complex|dimer|heterodimer/]
+      trigger = [lemma=/coexist|present|interact|activate/] in [tag=/DT|JJ/]* [lemma=/complex|dimer|heterodimer/]
       theme1:BioChemicalEntity+ = ${agents} /${noun_modifiers}/?
 
 - name: binding_oncebound
