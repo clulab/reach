@@ -259,7 +259,7 @@ object SerializePapersToJSONByMentionData extends App with LazyLogging{
     var nSkipped = 0
     for ((paperID, paperText) <- allPapers){
       logger.info(s"processing paper $paperID")
-      try {
+      //try {
         val outFile = new File(s"$corpusDirNew/mention-data/$paperID-mention-data.json")
 
         val mentions = reachSystem.extractFrom(paperText, paperID, "")
@@ -267,14 +267,14 @@ object SerializePapersToJSONByMentionData extends App with LazyLogging{
         cms.saveJSON(outFile, pretty = false)
         logger.info(s"\tsaved json to $outFile")
         nDone+=1
-      }
-      catch{
-        case _ => {
-          nSkipped+=1
-          logger.info("\tpaper skipped")
-        }
-
-      }
+//      }
+//      catch{
+//        case _ => {
+//          nSkipped+=1
+//          logger.info("\tpaper skipped")
+//        }
+//
+//      }
     }
     logger.info(s"processing done! N done: ${nDone}, N skipped: ${nSkipped}")
 
