@@ -190,7 +190,7 @@ object Corpus extends LazyLogging {
     val mentionDataDir = new File( new File(corpusDir), MENTION_DATA)
 
     // TODO: slice 10 examples for debugging. Change this later.
-    val newMentionSeq = mentionDataDir.listFiles.par.flatMap(JSONSerializer.toCorefMentionsMapFilterEmpty).seq.toMap.values.toSeq
+    val newMentionSeq = mentionDataDir.listFiles.slice(0,10).par.flatMap(JSONSerializer.toCorefMentionsMapFilterEmpty).seq.toMap.values.toSeq
     logger.info(s"Loading new mentions finished. Total number of mentions: ${newMentionSeq.length}")
 
     //
@@ -221,6 +221,8 @@ object Corpus extends LazyLogging {
 
     logger.info(s"Matching old mentions with new mentions ...")
 
+    // TODO: This is for the debugging purpose, for printing out the triggers where the mentions are not found.
+    //  because I have problems directly accessing the triggers through the annotated mentions.
     val epsJAST = parse(new File(new File("/work/zhengzhongliang/2020_ASKE/20200831/mcc_old/train"), s"$EVENT_PAIRS.json")).extract[Seq[Map[String, JValue]]]
 
     logger.info(s"They should have the same length ${epsJAST.length}, ${eps.length}")
