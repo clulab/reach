@@ -257,7 +257,7 @@ object SerializePapersToJSONByMentionData extends App with LazyLogging{
 
     var nDone = 0
     var nSkipped = 0
-    for ((paperID, paperText) <- allPapers.slice(0,3)){
+    for ((paperID, paperText) <- allPapers){
       logger.info(s"processing paper $paperID")
       try {
         val outFile = new File(s"$corpusDirNew/mention-data/$paperID-mention-data.json")
