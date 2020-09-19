@@ -88,7 +88,9 @@ object RunAnnotationEval extends App with LazyLogging {
   } {
     val predicted = sieveResult.getPrecedenceRelations
     val smoothing = 0.00001
-    val tp = predicted.count(p => posGold exists(g => g.isEquivalentTo(p, ignoreMods = false)))
+
+    // TODO: check with Gus. The original expression was "posGold exists(...)". Is this equivalent to "posGold.exists(...)"?
+    val tp = predicted.count(p => posGold.exists(g => g.isEquivalentTo(p, ignoreMods = false)))
     val fp = predicted.count(p => ! posGold.exists(g => g.isEquivalentTo(p, ignoreMods = false)))
     val fn = posGold.count(g => ! predicted.exists(p => p.isEquivalentTo(g, ignoreMods = false)))
 
