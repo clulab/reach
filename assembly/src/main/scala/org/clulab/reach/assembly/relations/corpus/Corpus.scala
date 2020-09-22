@@ -240,8 +240,8 @@ object Corpus extends LazyLogging {
 //      println(ep.e1.label)
 //      println(ep.e1.labels)
       if (e1DocID==e2DocID && cms.contains(e1DocID)){
-        val e1Matched = getMatchedMention(ep.e1, cms(e1DocID), "mentionTextEditDistance")
-        val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), "mentionTextEditDistance")
+        val e1Matched = getMatchedMention(ep.e1, cms(e1DocID), "mentionTextExactMatch")
+        val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), "mentionTextExactMatch")
         if (e1Matched.isDefined && e2Matched.isDefined){
           if (validLabels.exists(label => e1Matched.get matches label) && validLabels.exists(label => e2Matched.get matches label)){
             eventPairsUpdated.append(
@@ -310,6 +310,13 @@ object Corpus extends LazyLogging {
         candidateMentions.find(m => (m.text.toLowerCase()==oldMentionText && m.label == queryMention.label))
       }
       case "mentionTextAndLabelsEditDistance" => {
+        ???
+      }
+      case "compositionalFilter" => {
+        // Matching logic:
+        // 1, the labels of the new mention should contain either ComplexEvent or Binding.
+        // 2, TODO: check with Mihai, should we enforce the new mention label to be the same as the old label? How is the label assigned?
+        // 3, Get the mention with the minimum edit distance, and the distance is not too large.
         ???
       }
       case _ => {

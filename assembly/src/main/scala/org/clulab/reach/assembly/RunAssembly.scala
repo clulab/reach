@@ -77,9 +77,7 @@ object RunAnnotationEval extends App with LazyLogging {
 
   println("="*20)
   println(s"num of labels:${posGold.length}")
-  posGold.foreach{x =>
-    println(x)
-  }
+  println("="*20)
 
   println("sieve\trule\tp\tr\tf1\ttp\tfp\tfn")
 
