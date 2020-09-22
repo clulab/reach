@@ -235,6 +235,11 @@ object Corpus extends LazyLogging {
     for ((ep, idx) <- eps.zipWithIndex){
       val e1DocID = ep.e1.document.id.get.split("_")(0)
       val e2DocID = ep.e2.document.id.get.split("_")(0)
+
+      println(ep.e1.label, ep.e1.labels)
+      println(ep.e2.label, ep.e2.labels)
+
+      scala.io.StdIn.readLine()
 //      println("-"*20)
 //      println(ep.e1.label)
 //      println(ep.e1.labels)
