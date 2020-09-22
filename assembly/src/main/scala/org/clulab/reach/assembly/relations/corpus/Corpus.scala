@@ -16,6 +16,8 @@ import org.apache.commons.io.FileUtils.forceMkdir
 import ai.lum.common.FileUtils._
 import java.io.File
 
+import org.clulab.reach.assembly.AssemblyManager
+
 import scala.collection.mutable.ArrayBuffer
 
 
@@ -173,6 +175,8 @@ object Corpus extends LazyLogging {
   private val MENTION_DATA = "mention-data"
   private val EVENT_PAIRS = "event-pairs"
 
+  val validLabels = Seq("ComplexEvent","Binding")
+
   def apply(corpusDir: String): Corpus = apply(new File(corpusDir))
   def apply(corpusDir: File): Corpus = {
     val mentionDataDir = new File(corpusDir, MENTION_DATA)
@@ -243,7 +247,7 @@ object Corpus extends LazyLogging {
         val e1Matched = getMatchedMention(ep.e1, cms(e1DocID), "mentionTextExactMatch")
         val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), "mentionTextExactMatch")
         if (e1Matched.isDefined && e2Matched.isDefined){
-          if (validLabels.exists(label => e1Matched.get matches label) && validLabels.exists(label => e2Matched.get matches label)){
+          if (validLabels.exists(label => e1Matched.get matches label) && validLabels.exists(label => e2Matched.get matches label) && AssemblyManager.isValidMention(e1Matched.get) && AssemblyManager.isValidMention(e2Matched.get)){
             eventPairsUpdated.append(
               new EventPair(
                 e1 = e1Matched.get,
@@ -279,7 +283,6 @@ object Corpus extends LazyLogging {
 
   private def getMatchedMention(queryMention:CorefMention, candidateMentions:Seq[CorefMention], matchMethod:String):Option[CorefMention] = {
     val oldMentionText = queryMention.text.toLowerCase()
-    val candidateMentionsText = candidateMentions.map{m =>  m.text.toLowerCase()}
 
 //    println("="*20)
 //    println(oldMentionText)
@@ -297,7 +300,7 @@ object Corpus extends LazyLogging {
         candidateMentions.find(x => x.text.toLowerCase()==oldMentionText)
       }
       case "mentionTextEditDistance" => {
-        val textDistance = candidateMentionsText.map{x => editDistance(oldMentionText, x)}
+        val textDistance = candidateMentions.map{m => editDistance(oldMentionText, m.text.toLowerCase())}
         val minDistanceIdx = textDistance.indexOf(textDistance.min)
         if (textDistance.min/oldMentionText.length<0.3){
           Some(candidateMentions(minDistanceIdx))
@@ -317,7 +320,15 @@ object Corpus extends LazyLogging {
         // 1, the labels of the new mention should contain either ComplexEvent or Binding.
         // 2, TODO: check with Mihai, should we enforce the new mention label to be the same as the old label? How is the label assigned?
         // 3, Get the mention with the minimum edit distance, and the distance is not too large.
-        ???
+        val candidateMentionsWithValidLabels = candidateMentions.filter(m => validLabels.exists(lb => m matches lb) && AssemblyManager.isValidMention(m))
+        val textDistance = candidateMentionsWithValidLabels.map{m => editDistance(oldMentionText, m.text.toLowerCase())}
+        val minDistanceIdx = textDistance.indexOf(textDistance.min)
+        if (textDistance.min/oldMentionText.length<0.3){
+          Some(candidateMentionsWithValidLabels(minDistanceIdx))
+        }
+        else{
+          None
+        }
       }
       case _ => {
         logger.error(s"No matching method specified")
