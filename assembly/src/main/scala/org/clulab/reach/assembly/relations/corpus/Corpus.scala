@@ -236,10 +236,6 @@ object Corpus extends LazyLogging {
       val e1DocID = ep.e1.document.id.get.split("_")(0)
       val e2DocID = ep.e2.document.id.get.split("_")(0)
 
-      println(ep.e1.label, ep.e1.labels)
-      println(ep.e2.label, ep.e2.labels)
-
-      scala.io.StdIn.readLine()
 //      println("-"*20)
 //      println(ep.e1.label)
 //      println(ep.e1.labels)
@@ -247,7 +243,7 @@ object Corpus extends LazyLogging {
         val e1Matched = getMatchedMention(ep.e1, cms(e1DocID), "mentionTextExactMatch")
         val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), "mentionTextExactMatch")
         if (e1Matched.isDefined && e2Matched.isDefined){
-          if (validLabels.contains(e1Matched.get.label) && validLabels.contains(e2Matched.get.label)){
+          if (validLabels.exists(label => e1Matched.get matches label) && validLabels.exists(label => e2Matched.get matches label)){
             eventPairsUpdated.append(
               new EventPair(
                 e1 = e1Matched.get,
