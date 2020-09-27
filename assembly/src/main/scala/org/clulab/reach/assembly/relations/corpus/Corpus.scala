@@ -248,6 +248,45 @@ object Corpus extends LazyLogging {
         val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), "compositionalFilter")
         if (e1Matched.isDefined && e2Matched.isDefined){
           if (validLabels.exists(label => e1Matched.get matches label) && validLabels.exists(label => e2Matched.get matches label) && AssemblyManager.isValidMention(e1Matched.get) && AssemblyManager.isValidMention(e2Matched.get)){
+            // TODO: debug, check whether the matched event is the true event.
+            println("="*20)
+            println("e1 characteristics")
+            println(s"\te1 text: ${ep.e1.text}, mention bound: (${ep.e1.start},${ep.e1.end})")
+            println(s"\te1 sent idx: ${ep.e1.sentence}, sent words: ${ep.e1.sentenceObj.words}")
+            println(s"\te1 labels:${ep.e1.labels}, e1 trigger:${ep.e1.trigger}")
+            println(s"\te1 arguments")
+            ep.e1.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
+            println(s"\te1 modifications")
+            ep.e1.modifications.foreach{x=> println(s"\t\t${x.label}")}
+            println("\n")
+            println(s"\tmatched text: ${e1Matched.get.text}, mention bound: (${e1Matched.get.start},${e1Matched.get.end})")
+            println(s"\tmatched sent idx: ${e1Matched.get.sentence}, sent words: ${e1Matched.get.sentenceObj.words}")
+            println(s"\tmatched labels:${e1Matched.get.labels}, matched trigger:${e1Matched.get.trigger}")
+            println(s"\tmatched arguments")
+            e1Matched.get.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
+            println(s"\tmatched modifications")
+            e1Matched.get.modifications.foreach{x=> println(s"\t\t${x.label}")}
+
+            println("-"*20)
+            println("e2 characteristics")
+            println(s"\te2 text: ${ep.e2.text}, mention bound: (${ep.e2.start},${ep.e2.end})")
+            println(s"\te2 sent idx: ${ep.e2.sentence}, sent words: ${ep.e2.sentenceObj.words}")
+            println(s"\te2 labels:${ep.e2.labels}, e2 trigger:${ep.e2.trigger}")
+            println(s"\te2 arguments")
+            ep.e2.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
+            println(s"\te2 modifications")
+            ep.e2.modifications.foreach{x=> println(s"\t\t${x.label}")}
+            println("\n")
+            println(s"\tmatched text: ${e2Matched.get.text}, mention bound: (${e2Matched.get.start},${e2Matched.get.end})")
+            println(s"\tmatched sent idx: ${e2Matched.get.sentence}, sent words: ${e2Matched.get.sentenceObj.words}")
+            println(s"\tmatched labels:${e2Matched.get.labels}, matched trigger:${e2Matched.get.trigger}")
+            println(s"\tmatched arguments")
+            e2Matched.get.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
+            println(s"\tmatched modifications")
+            e2Matched.get.modifications.foreach{x=> println(s"\t\t${x.label}")}
+
+            scala.io.StdIn.readLine()
+
             eventPairsUpdated.append(
               new EventPair(
                 e1 = e1Matched.get,
@@ -274,7 +313,7 @@ object Corpus extends LazyLogging {
       else {nMissingPaper+=1}
     }
     println("matching finished")
-    println(triggerCount.groupBy(identity).mapValues(_.size).toSeq.sortWith(_._2 > _._2))
+    //println(triggerCount.groupBy(identity).mapValues(_.size).toSeq.sortWith(_._2 > _._2))
 
     logger.info(s"Matching finished! Total pairs ${eps.length}, matched pairs: ${eventPairsUpdated.length}")
     logger.info(s"\tn missing paper: ${nMissingPaper}, n missing mention: ${nMissingMention}, n invalid label: ${nInvalidLabel}")
