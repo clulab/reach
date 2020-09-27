@@ -253,7 +253,7 @@ object Corpus extends LazyLogging {
             println("e1 characteristics")
             println(s"\te1 text: ${ep.e1.text}, mention bound: (${ep.e1.start},${ep.e1.end})")
             println(s"\te1 sent idx: ${ep.e1.sentence}, sent words: ${ep.e1.sentenceObj.words}")
-            println(s"\te1 labels:${ep.e1.labels}, e1 trigger:${ep.e1.trigger}")
+            println(s"\te1 labels:${ep.e1.labels}") // Trigger is not printed because the function to print trigger is a little problematic.
             println(s"\te1 arguments")
             ep.e1.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
             println(s"\te1 modifications")
@@ -261,7 +261,7 @@ object Corpus extends LazyLogging {
             println("\n")
             println(s"\tmatched text: ${e1Matched.get.text}, mention bound: (${e1Matched.get.start},${e1Matched.get.end})")
             println(s"\tmatched sent idx: ${e1Matched.get.sentence}, sent words: ${e1Matched.get.sentenceObj.words}")
-            println(s"\tmatched labels:${e1Matched.get.labels}, matched trigger:${e1Matched.get.trigger}")
+            println(s"\tmatched labels:${e1Matched.get.labels}")
             println(s"\tmatched arguments")
             e1Matched.get.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
             println(s"\tmatched modifications")
@@ -271,7 +271,7 @@ object Corpus extends LazyLogging {
             println("e2 characteristics")
             println(s"\te2 text: ${ep.e2.text}, mention bound: (${ep.e2.start},${ep.e2.end})")
             println(s"\te2 sent idx: ${ep.e2.sentence}, sent words: ${ep.e2.sentenceObj.words}")
-            println(s"\te2 labels:${ep.e2.labels}, e2 trigger:${ep.e2.trigger}")
+            println(s"\te2 labels:${ep.e2.labels}")
             println(s"\te2 arguments")
             ep.e2.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
             println(s"\te2 modifications")
@@ -279,7 +279,7 @@ object Corpus extends LazyLogging {
             println("\n")
             println(s"\tmatched text: ${e2Matched.get.text}, mention bound: (${e2Matched.get.start},${e2Matched.get.end})")
             println(s"\tmatched sent idx: ${e2Matched.get.sentence}, sent words: ${e2Matched.get.sentenceObj.words}")
-            println(s"\tmatched labels:${e2Matched.get.labels}, matched trigger:${e2Matched.get.trigger}")
+            println(s"\tmatched labels:${e2Matched.get.labels}")
             println(s"\tmatched arguments")
             e2Matched.get.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
             println(s"\tmatched modifications")
