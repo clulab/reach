@@ -249,43 +249,7 @@ object Corpus extends LazyLogging {
         if (e1Matched.isDefined && e2Matched.isDefined){
           if (validLabels.exists(label => e1Matched.get matches label) && validLabels.exists(label => e2Matched.get matches label) && AssemblyManager.isValidMention(e1Matched.get) && AssemblyManager.isValidMention(e2Matched.get)){
             // TODO: debug, check whether the matched event is the true event.
-            println("="*20)
-            println("e1 characteristics")
-            println(s"\te1 text: ${ep.e1.text}, mention bound: (${ep.e1.start},${ep.e1.end})")
-            println(s"\te1 sent idx: ${ep.e1.sentence}, sent words: ${ep.e1.sentenceObj.words.toSeq}")
-            println(s"\te1 labels:${ep.e1.labels}") // Trigger is not printed because the function to print trigger is a little problematic.
-            println(s"\te1 arguments")
-            ep.e1.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
-            println(s"\te1 modifications")
-            ep.e1.modifications.foreach{x=> println(s"\t\t${x.label}")}
-            println("\n")
-            println(s"\tmatched text: ${e1Matched.get.text}, mention bound: (${e1Matched.get.start},${e1Matched.get.end})")
-            println(s"\tmatched sent idx: ${e1Matched.get.sentence}, sent words: ${e1Matched.get.sentenceObj.words.toSeq}")
-            println(s"\tmatched labels:${e1Matched.get.labels}")
-            println(s"\tmatched arguments")
-            e1Matched.get.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
-            println(s"\tmatched modifications")
-            e1Matched.get.modifications.foreach{x=> println(s"\t\t${x.label}")}
-
-            println("-"*20)
-            println("e2 characteristics")
-            println(s"\te2 text: ${ep.e2.text}, mention bound: (${ep.e2.start},${ep.e2.end})")
-            println(s"\te2 sent idx: ${ep.e2.sentence}, sent words: ${ep.e2.sentenceObj.words.toSeq}")
-            println(s"\te2 labels:${ep.e2.labels}")
-            println(s"\te2 arguments")
-            ep.e2.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
-            println(s"\te2 modifications")
-            ep.e2.modifications.foreach{x=> println(s"\t\t${x.label}")}
-            println("\n")
-            println(s"\tmatched text: ${e2Matched.get.text}, mention bound: (${e2Matched.get.start},${e2Matched.get.end})")
-            println(s"\tmatched sent idx: ${e2Matched.get.sentence}, sent words: ${e2Matched.get.sentenceObj.words.toSeq}")
-            println(s"\tmatched labels:${e2Matched.get.labels}")
-            println(s"\tmatched arguments")
-            e2Matched.get.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
-            println(s"\tmatched modifications")
-            e2Matched.get.modifications.foreach{x=> println(s"\t\t${x.label}")}
-
-            scala.io.StdIn.readLine()
+            //debugPrintMentionAttributes(ep, e1Matched, e2Matched)
 
             eventPairsUpdated.append(
               new EventPair(
@@ -318,6 +282,46 @@ object Corpus extends LazyLogging {
     logger.info(s"Matching finished! Total pairs ${eps.length}, matched pairs: ${eventPairsUpdated.length}")
     logger.info(s"\tn missing paper: ${nMissingPaper}, n missing mention: ${nMissingMention}, n invalid label: ${nInvalidLabel}")
     eventPairsUpdated
+  }
+
+  private def debugPrintMentionAttributes(ep: EventPair, e1Matched:Option[CorefMention], e2Matched:Option[CorefMention]):Unit = {
+    println("="*20)
+    println("e1 characteristics")
+    println(s"\te1 text: ${ep.e1.text}, mention bound: (${ep.e1.start},${ep.e1.end})")
+    println(s"\te1 sent idx: ${ep.e1.sentence}, sent words: ${ep.e1.sentenceObj.words.toSeq}")
+    println(s"\te1 labels:${ep.e1.labels}") // Trigger is not printed because the function to print trigger is a little problematic.
+    println(s"\te1 arguments")
+    ep.e1.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
+    println(s"\te1 modifications")
+    ep.e1.modifications.foreach{x=> println(s"\t\t${x.label}")}
+    println("\n")
+    println(s"\tmatched text: ${e1Matched.get.text}, mention bound: (${e1Matched.get.start},${e1Matched.get.end})")
+    println(s"\tmatched sent idx: ${e1Matched.get.sentence}, sent words: ${e1Matched.get.sentenceObj.words.toSeq}")
+    println(s"\tmatched labels:${e1Matched.get.labels}")
+    println(s"\tmatched arguments")
+    e1Matched.get.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
+    println(s"\tmatched modifications")
+    e1Matched.get.modifications.foreach{x=> println(s"\t\t${x.label}")}
+
+    println("-"*20)
+    println("e2 characteristics")
+    println(s"\te2 text: ${ep.e2.text}, mention bound: (${ep.e2.start},${ep.e2.end})")
+    println(s"\te2 sent idx: ${ep.e2.sentence}, sent words: ${ep.e2.sentenceObj.words.toSeq}")
+    println(s"\te2 labels:${ep.e2.labels}")
+    println(s"\te2 arguments")
+    ep.e2.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
+    println(s"\te2 modifications")
+    ep.e2.modifications.foreach{x=> println(s"\t\t${x.label}")}
+    println("\n")
+    println(s"\tmatched text: ${e2Matched.get.text}, mention bound: (${e2Matched.get.start},${e2Matched.get.end})")
+    println(s"\tmatched sent idx: ${e2Matched.get.sentence}, sent words: ${e2Matched.get.sentenceObj.words.toSeq}")
+    println(s"\tmatched labels:${e2Matched.get.labels}")
+    println(s"\tmatched arguments")
+    e2Matched.get.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
+    println(s"\tmatched modifications")
+    e2Matched.get.modifications.foreach{x=> println(s"\t\t${x.label}")}
+
+    scala.io.StdIn.readLine()
   }
 
   private def getMatchedMention(queryMention:CorefMention, candidateMentions:Seq[CorefMention], matchMethod:String):Option[CorefMention] = {
@@ -368,6 +372,9 @@ object Corpus extends LazyLogging {
         else{
           None
         }
+      }
+      case "orderedAlignerSentenceMentionArguments" => {
+        ???
       }
       case _ => {
         logger.error(s"No matching method specified")
