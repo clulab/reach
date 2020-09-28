@@ -37,10 +37,10 @@ object TestMatchMention extends App {
   }
 
   def findSentence(ep:EventPair, candidateMentions:Seq[mentions.CorefMention]):Boolean = {
-    val matchingResultE1 = candidateMentions.map{x => if (ep.e1.sentenceObj.words==x.sentenceObj.words) {x.sentence} else -1}
-    val matchingResultE2 = candidateMentions.map{x => if (ep.e2.sentenceObj.words==x.sentenceObj.words) {x.sentence} else -1}
+    val matchingResultE1 = candidateMentions.map{x => if (ep.e1.sentenceObj.words sameElements x.sentenceObj.words) {x.sentence} else -1}
+    val matchingResultE2 = candidateMentions.map{x => if (ep.e2.sentenceObj.words sameElements x.sentenceObj.words) {x.sentence} else -1}
     println(s"matched results: ${matchingResultE1.toSet}, ${matchingResultE2.toSet}")
-    if (matchingResultE1.toSet.size==1 && matchingResultE2.toSet.size==1){
+    if (matchingResultE1.toSet.size==2 && matchingResultE2.toSet.size==2){
       true
     }
     else{
