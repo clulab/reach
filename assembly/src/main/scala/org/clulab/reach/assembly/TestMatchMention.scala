@@ -8,6 +8,8 @@ import org.clulab.struct.CorefMention
 
 import scala.collection.mutable.ArrayBuffer
 
+
+
 object TestMatchMention extends App {
   val config = ConfigFactory.load()
   val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDirOldTrain")).instances
@@ -15,6 +17,11 @@ object TestMatchMention extends App {
 
   val newMentions = Corpus.loadMentions(config.getString("assembly.corpus.corpusDirNewTrain"))
 
+  var n_pairs_mention_match = 0
+  var n_pairs_mention_not_match = 0
+
+  var n_mention_exact_match = 0
+  var n_mention_soft_match = 0
 
   //val X = Corpus.softAlign(eps, newMentions)
   softAlginPrototype(eps, newMentions)
@@ -23,8 +30,6 @@ object TestMatchMention extends App {
     var n_pairs_due_to_missing_paper = 0
     var n_pairs_due_to_missing_sentence = 0
 
-    var n_pairs_mention_exact_match = 0
-    var n_pairs_mention_soft_match = 0
     for (ep <- eps){
       val docID = ep.e1.document.id.get.split("_")(0)
       if (newMentions.contains(docID)){
@@ -37,10 +42,10 @@ object TestMatchMention extends App {
         Corpus.debugPrintMentionAttributes(ep, e1MatchedMention, e2MatchedMention)
 
         if (e1MatchedMention.isDefined && e2MatchedMention.isDefined){
-          n_pairs_mention_exact_match+=1
+          n_pairs_mention_match+=1
         }
         else{
-          n_pairs_mention_soft_match+=1
+          n_pairs_mention_not_match+=1
         }
       }
       else {
@@ -49,9 +54,11 @@ object TestMatchMention extends App {
 
     }
     println(s"n pairs due to missing paper: ${n_pairs_due_to_missing_paper}")
-    println(s"n pairs exact mention match: ${n_pairs_mention_exact_match}")
-    println(s"n pairs soft mention match: ${n_pairs_mention_soft_match}")
-    println(s"n pairs due to unmatched sentence: ${n_pairs_due_to_missing_sentence}")
+    println(s"n pairs mention match: ${n_pairs_mention_match}")
+    println(s"n pairs mention not match: ${n_pairs_mention_not_match}")
+    println(s"n mention exact match ${n_mention_exact_match}")
+    println(s"n mention soft match ${n_mention_soft_match}")
+    //println(s"n pairs due to unmatched sentence: ${n_pairs_due_to_missing_sentence}")
   }
 
   def matchEventWithinASentence(originalMention:mentions.CorefMention, candidateMentionsFromOneSentence:Seq[mentions.CorefMention]):Option[mentions.CorefMention] = {
@@ -61,10 +68,12 @@ object TestMatchMention extends App {
     // 1, if the mention text and the boundary are exactly the same, return it.
     val exactMatchResult = candidateMentionsFromOneSentence.find(x => x.text==originalMention.text && x.start==originalMention.start && x.end==originalMention.end)
     if (exactMatchResult.isDefined){
+      n_mention_exact_match+=1
       exactMatchResult
     }
     else{
       println("-"*20)
+      n_mention_soft_match+=1
       // 2, if the mention text or boundary are not exactly the same, compute these scores for each candidate mention:
       // 2.1 mention text edit distance; 2.2, boundary difference; 2.3, label jacard distance; 2.4, controller and controlled
       val allMentionScores = ArrayBuffer[Float]()
