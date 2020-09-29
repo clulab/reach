@@ -66,12 +66,12 @@ object TestMatchMention extends App {
       // 2.1 mention text edit distance; 2.2, boundary difference; 2.3, label jacard distance; 2.4, controller and controlled
       val allMentionScores = ArrayBuffer[Float]()
       for (m <- candidateMentionsFromOneSentence){
-        val mentionTextDistance = editDistance(originalMention.text, m.text)/m.text.length.toFloat
-        val mentionBoundDistance = math.min(((originalMention.start-m.start).abs+(originalMention.end-m.end).abs)/(originalMention.end-originalMention.start), 1.0f)
+        val mentionTextDistance = math.min(editDistance(originalMention.text, m.text).toFloat/m.text.length.toFloat, 1.0f)
+        val mentionBoundDistance = math.min(((originalMention.start-m.start).abs.toFloat+(originalMention.end-m.end).abs.toFloat)/(originalMention.end-originalMention.start).toFloat, 1.0f)
         val labelDistance = {
           val originalLabelsSet = originalMention.labels.toSet
-          val candidateLabelSet = m.labels.toSet
-          1.0f-originalLabelsSet.intersect(candidateLabelSet).size/originalLabelsSet.size
+          val candidateLabelsSet = m.labels.toSet
+          1.0f-originalLabelsSet.intersect(candidateLabelsSet).size.toFloat/originalLabelsSet.size.toFloat
         }
 
         println(s"text ${originalMention.text}, ${m.text}")
