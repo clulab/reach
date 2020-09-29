@@ -39,7 +39,7 @@ object TestMatchMention extends App {
         val e1MatchedMention = matchEventWithinASentence(ep.e1, newMentions(docID).filter(x => x.sentence==e1MatchedSentenceIndex))
         val e2MatchedMention = matchEventWithinASentence(ep.e2, newMentions(docID).filter(x => x.sentence==e2MatchedSentenceIndex))
 
-        Corpus.debugPrintMentionAttributes(ep, e1MatchedMention, e2MatchedMention)
+        //Corpus.debugPrintMentionAttributes(ep, e1MatchedMention, e2MatchedMention)
 
         if (e1MatchedMention.isDefined && e2MatchedMention.isDefined){
           n_pairs_mention_match+=1
@@ -96,6 +96,8 @@ object TestMatchMention extends App {
       }
 
       if (allMentionScores.min>0.6){ // I think this hyper parameter is reasonable.
+        debugPrintBestMatchedCandidate(originalMention, candidateMentionsFromOneSentence(allMentionScores.indexOf(allMentionScores.min)))
+
         None
       }
       else{
@@ -170,6 +172,28 @@ object TestMatchMention extends App {
     }.last
   }
 
+
+  private def debugPrintBestMatchedCandidate(originalMention:mentions.CorefMention, bestMatchedMention:mentions.CorefMention):Unit = {
+    println("="*20)
+    println("e1 characteristics")
+    println(s"\toriginal mention text: ${originalMention.text}, mention bound: (${originalMention.start},${originalMention.end})")
+    println(s"\te1 sent idx: ${originalMention.sentence}, sent words: ${originalMention.sentenceObj.words.toSeq}")
+    println(s"\te1 labels:${originalMention.labels}") // Trigger is not printed because the function to print trigger is a little problematic.
+    println(s"\te1 arguments")
+    originalMention.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
+    println(s"\te1 modifications")
+    originalMention.modifications.foreach{x=> println(s"\t\t${x.label}")}
+    println("\n")
+
+    println(s"\tmatched text: ${bestMatchedMention.text}, mention bound: (${bestMatchedMention.start},${bestMatchedMention.end})")
+    println(s"\tmatched sent idx: ${bestMatchedMention.sentence}, sent words: ${bestMatchedMention.sentenceObj.words.toSeq}")
+    println(s"\tmatched labels:${bestMatchedMention.labels}")
+    println(s"\tmatched arguments")
+    bestMatchedMention.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
+    println(s"\tmatched modifications")
+    bestMatchedMention.modifications.foreach{x=> println(s"\t\t${x.label}")}
+
+  }
 }
 
 
