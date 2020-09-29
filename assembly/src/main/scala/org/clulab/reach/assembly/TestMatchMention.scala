@@ -73,6 +73,13 @@ object TestMatchMention extends App {
           val candidateLabelSet = m.labels.toSet
           1.0f-originalLabelsSet.intersect(candidateLabelSet).size/originalLabelsSet.size
         }
+
+        println(s"text ${originalMention.text}, ${m.text}")
+        println(s"bound: (${originalMention.start}, ${originalMention.end}), (${m.start}, ${m.end})")
+        println("labels:", originalMention.labels, m.labels)
+        println(s"scores: ${mentionTextDistance}, ${mentionBoundDistance}, ${labelDistance}")
+        scala.io.StdIn.readLine()
+
         allMentionScores.append(mentionTextDistance+mentionBoundDistance+labelDistance)
       }
 
