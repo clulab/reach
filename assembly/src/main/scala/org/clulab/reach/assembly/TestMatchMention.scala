@@ -62,6 +62,7 @@ object TestMatchMention extends App {
       exactMatchResult
     }
     else{
+      println("-"*20)
       // 2, if the mention text or boundary are not exactly the same, compute these scores for each candidate mention:
       // 2.1 mention text edit distance; 2.2, boundary difference; 2.3, label jacard distance; 2.4, controller and controlled
       val allMentionScores = ArrayBuffer[Float]()
@@ -74,7 +75,7 @@ object TestMatchMention extends App {
           1.0f-originalLabelsSet.intersect(candidateLabelsSet).size.toFloat/originalLabelsSet.size.toFloat
         }
 
-        println(s"text ${originalMention.text}, ${m.text}")
+        println(s"text ${originalMention.text} ||| ${m.text}")
         println(s"bound: (${originalMention.start}, ${originalMention.end}), (${m.start}, ${m.end})")
         println("labels:", originalMention.labels, m.labels)
         println(s"scores: ${mentionTextDistance}, ${mentionBoundDistance}, ${labelDistance}")
