@@ -6,6 +6,8 @@ import org.clulab.reach.assembly.relations.corpus.{Corpus, CorpusReader, EventPa
 import org.clulab.reach.mentions
 import org.clulab.struct.CorefMention
 
+import scala.collection.mutable.ArrayBuffer
+
 object TestMatchMention extends App {
   val config = ConfigFactory.load()
   val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDirOldTrain")).instances
@@ -20,13 +22,24 @@ object TestMatchMention extends App {
   def softAlginPrototype(eps:Seq[EventPair], newMentions: Map[String, Seq[mentions.CorefMention]]):Unit = {
     var n_pairs_due_to_missing_paper = 0
     var n_pairs_due_to_missing_sentence = 0
+
+    var n_pairs_mention_exact_match = 0
+    var n_pairs_mention_soft_match = 0
     for (ep <- eps){
       val docID = ep.e1.document.id.get.split("_")(0)
       if (newMentions.contains(docID)){
-        if (!findSentence(ep, newMentions(docID))){
-          n_pairs_due_to_missing_sentence+=1
-        }
+        val e1MatchedSentenceIndex = findEventSentenceIndex(ep.e1, newMentions(docID))
+        val e2MatchedSentenceIndex = findEventSentenceIndex(ep.e2, newMentions(docID))
 
+        val e1MatchedMention = matchEventWithinASentence(ep.e1, newMentions(docID).filter(x => x.sentence==e1MatchedSentenceIndex))
+        val e2MatchedMention = matchEventWithinASentence(ep.e2, newMentions(docID).filter(x => x.sentence==e2MatchedSentenceIndex))
+
+        if (e1MatchedMention.isDefined && e2MatchedMention.isDefined){
+          n_pairs_mention_exact_match+=1
+        }
+        else{
+          n_pairs_mention_soft_match+=1
+        }
       }
       else {
         n_pairs_due_to_missing_paper+=1
@@ -34,10 +47,60 @@ object TestMatchMention extends App {
 
     }
     println(s"n pairs due to missing paper: ${n_pairs_due_to_missing_paper}")
+    println(s"n pairs exact mention match: ${n_pairs_mention_exact_match}")
+    println(s"n pairs soft mention match: ${n_pairs_mention_soft_match}")
     println(s"n pairs due to unmatched sentence: ${n_pairs_due_to_missing_sentence}")
   }
 
-  def findSentence(ep:EventPair, candidateMentions:Seq[mentions.CorefMention]):Boolean = {
+  def matchEventWithinASentence(originalMention:mentions.CorefMention, candidateMentionsFromOneSentence:Seq[mentions.CorefMention]):Option[mentions.CorefMention] = {
+    // Think about this: how to use different criterions: mention text, mention boundary, mention label, mention arguments.
+    // Should we use these criterion in a sequential manner or in a parallel manner?
+
+    // 1, if the mention text and the boundary are exactly the same, return it.
+    val exactMatchResult = candidateMentionsFromOneSentence.find(x => x.text==originalMention.text && x.start==originalMention.start && x.end==originalMention.end)
+    if (exactMatchResult.isDefined){
+      exactMatchResult
+    }
+    else{
+      // 2, if the mention text or boundary are not exactly the same, compute these scores for each candidate mention:
+      // 2.1 mention text edit distance; 2.2, boundary difference; 2.3, label jacard distance; 2.4, controller and controlled
+      val allMentionScores = ArrayBuffer[Float]()
+      for (m <- candidateMentionsFromOneSentence){
+        val mentionTextDistance = editDistance(originalMention.text, m.text)/m.text.length.toFloat
+        val mentionBoundDistance = math.min(((originalMention.start-m.start).abs+(originalMention.end-m.end).abs)/(originalMention.end-originalMention.start), 1.0f)
+        val labelDistance = {
+          val originalLabelsSet = originalMention.labels.toSet
+          val candidateLabelSet = m.labels.toSet
+          1.0f-originalLabelsSet.intersect(candidateLabelSet).size/originalLabelsSet.size
+        }
+        allMentionScores.append(mentionTextDistance+mentionBoundDistance+labelDistance)
+      }
+
+      if (allMentionScores.min>0.5){
+        None
+      }
+      else{
+        Some(candidateMentionsFromOneSentence(allMentionScores.indexOf(allMentionScores.min)))
+      }
+    }
+  }
+
+  def findEventSentenceIndex(originalMention:mentions.CorefMention, candidateMentions:Seq[mentions.CorefMention]):Int = {
+    val matchedMentionOpt = candidateMentions.find(x => x.sentenceObj.words.mkString("")==originalMention.sentenceObj.words.mkString(""))
+    val matchedSentenceIndex = {
+      if (matchedMentionOpt.isDefined){
+        matchedMentionOpt.get.sentence
+      }
+      else{
+        val sentenceEditDistance = candidateMentions.map{x => editDistance(originalMention.sentenceObj.words.mkString(" "), x.sentenceObj.words.mkString(" "))}
+        candidateMentions(sentenceEditDistance.indexOf(sentenceEditDistance.min)).sentence
+      }
+    }
+
+    matchedSentenceIndex
+  }
+
+  def debugFindSentence(ep:EventPair, candidateMentions:Seq[mentions.CorefMention]):Boolean = {
     val matchingResultE1 = candidateMentions.map{x => if (ep.e1.sentenceObj.words.mkString("") == x.sentenceObj.words.mkString("")) {x.sentence} else -1}.toSet
     val matchingResultE2 = candidateMentions.map{x => if (ep.e2.sentenceObj.words.mkString("") == x.sentenceObj.words.mkString("")) {x.sentence} else -1}.toSet
     println(s"matched results: ${matchingResultE1}, ${matchingResultE2}")
