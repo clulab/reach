@@ -26,6 +26,7 @@ object TestMatchMention extends App {
         if (!findSentence(ep, newMentions(docID))){
           n_pairs_due_to_missing_sentence+=1
         }
+
       }
       else {
         n_pairs_due_to_missing_paper+=1
@@ -37,16 +38,53 @@ object TestMatchMention extends App {
   }
 
   def findSentence(ep:EventPair, candidateMentions:Seq[mentions.CorefMention]):Boolean = {
-    val matchingResultE1 = candidateMentions.map{x => if (ep.e1.sentenceObj.words sameElements x.sentenceObj.words) {x.sentence} else -1}
-    val matchingResultE2 = candidateMentions.map{x => if (ep.e2.sentenceObj.words sameElements x.sentenceObj.words) {x.sentence} else -1}
-    println(s"matched results: ${matchingResultE1.toSet}, ${matchingResultE2.toSet}")
-    if (matchingResultE1.toSet.size==2 && matchingResultE2.toSet.size==2){
+    val matchingResultE1 = candidateMentions.map{x => if (ep.e1.sentenceObj.words sameElements x.sentenceObj.words) {x.sentence} else -1}.toSet
+    val matchingResultE2 = candidateMentions.map{x => if (ep.e2.sentenceObj.words sameElements x.sentenceObj.words) {x.sentence} else -1}.toSet
+    println(s"matched results: ${matchingResultE1}, ${matchingResultE2}")
+    if (matchingResultE1.size==2 && matchingResultE2.size==2){
       true
     }
     else{
+      // print the sentences without exact match:
+      println("="*20)
+      if (matchingResultE1.size!=2){
+        println("e1 characteristics:")
+        println(s"original sentence:${ep.e1.sentenceObj.words.mkString(" ")}")
+        val sentenceEditDistance = candidateMentions.map{x => editDistance(ep.e1.sentenceObj.words.mkString(" "), x.sentenceObj.words.mkString(" "))}
+        val bestMatchedSentence = candidateMentions(sentenceEditDistance.indexOf(sentenceEditDistance.min)).sentenceObj.words.mkString(" ")
+        println(s"best match sentence:${bestMatchedSentence}")
+      }
+      println("-"*20)
+      if (matchingResultE2.size!=2){
+        println("e2 characteristics:")
+        println(s"original sentence:${ep.e2.sentenceObj.words.mkString(" ")}")
+        val sentenceEditDistance = candidateMentions.map{x => editDistance(ep.e2.sentenceObj.words.mkString(" "), x.sentenceObj.words.mkString(" "))}
+        val bestMatchedSentence = candidateMentions(sentenceEditDistance.indexOf(sentenceEditDistance.min)).sentenceObj.words.mkString(" ")
+        println(s"best match sentence:${bestMatchedSentence}")
+      }
+
+
       false
     }
 
+  }
+
+  private def editDistance(textSeq1: Seq[Char], textSeq2: Seq[Char]):Int = {
+    //This is found from here: https://www.reddit.com/r/scala/comments/7sqtyf/scala_edit_distance_implementation/
+    // Use simple text cases to verify it:
+    // println(editDistance(Seq("I", "have","a","dream"), Seq("I", "have","a", "good", "dream")))
+    // println(editDistance(Seq("I", "have","a","dream"), Seq("I", "have","a", "very", "good", "dream")))
+    val startRow = (0 to textSeq2.size).toList
+    textSeq1.foldLeft(startRow) { (prevRow, aElem) =>
+      (prevRow.zip(prevRow.tail).zip(textSeq2)).scanLeft(prevRow.head + 1) {
+        case (left, ((diag, up), bElem)) => {
+          val aGapScore = up + 1
+          val bGapScore = left + 1
+          val matchScore = diag + (if (aElem == bElem) 0 else 1)
+          List(aGapScore, bGapScore, matchScore).min
+        }
+      }
+    }.last
   }
 
 }
