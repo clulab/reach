@@ -34,6 +34,8 @@ object TestMatchMention extends App {
         val e1MatchedMention = matchEventWithinASentence(ep.e1, newMentions(docID).filter(x => x.sentence==e1MatchedSentenceIndex))
         val e2MatchedMention = matchEventWithinASentence(ep.e2, newMentions(docID).filter(x => x.sentence==e2MatchedSentenceIndex))
 
+        Corpus.debugPrintMentionAttributes(ep, e1MatchedMention, e2MatchedMention)
+
         if (e1MatchedMention.isDefined && e2MatchedMention.isDefined){
           n_pairs_mention_exact_match+=1
         }
@@ -75,16 +77,16 @@ object TestMatchMention extends App {
           1.0f-originalLabelsSet.intersect(candidateLabelsSet).size.toFloat/originalLabelsSet.size.toFloat
         }
 
-        println(s"text ${originalMention.text} ||| ${m.text}")
-        println(s"bound: (${originalMention.start}, ${originalMention.end}), (${m.start}, ${m.end})")
-        println("labels:", originalMention.labels, m.labels)
-        println(s"scores: ${mentionTextDistance}, ${mentionBoundDistance}, ${labelDistance}")
-        scala.io.StdIn.readLine()
+//        println(s"text ${originalMention.text} ||| ${m.text}")
+//        println(s"bound: (${originalMention.start}, ${originalMention.end}), (${m.start}, ${m.end})")
+//        println("labels:", originalMention.labels, m.labels)
+//        println(s"scores: ${mentionTextDistance}, ${mentionBoundDistance}, ${labelDistance}")
+//        scala.io.StdIn.readLine()
 
         allMentionScores.append(mentionTextDistance+mentionBoundDistance+labelDistance)
       }
 
-      if (allMentionScores.min>0.5){
+      if (allMentionScores.min>0.6){ // I think this hyper parameter is reasonable.
         None
       }
       else{

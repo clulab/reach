@@ -284,7 +284,7 @@ object Corpus extends LazyLogging {
     eventPairsUpdated
   }
 
-  private def debugPrintMentionAttributes(ep: EventPair, e1Matched:Option[CorefMention], e2Matched:Option[CorefMention]):Unit = {
+  def debugPrintMentionAttributes(ep: EventPair, e1Matched:Option[CorefMention], e2Matched:Option[CorefMention]):Unit = {
     println("="*20)
     println("e1 characteristics")
     println(s"\te1 text: ${ep.e1.text}, mention bound: (${ep.e1.start},${ep.e1.end})")
@@ -295,13 +295,17 @@ object Corpus extends LazyLogging {
     println(s"\te1 modifications")
     ep.e1.modifications.foreach{x=> println(s"\t\t${x.label}")}
     println("\n")
-    println(s"\tmatched text: ${e1Matched.get.text}, mention bound: (${e1Matched.get.start},${e1Matched.get.end})")
-    println(s"\tmatched sent idx: ${e1Matched.get.sentence}, sent words: ${e1Matched.get.sentenceObj.words.toSeq}")
-    println(s"\tmatched labels:${e1Matched.get.labels}")
-    println(s"\tmatched arguments")
-    e1Matched.get.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
-    println(s"\tmatched modifications")
-    e1Matched.get.modifications.foreach{x=> println(s"\t\t${x.label}")}
+    if (e1Matched.isDefined){
+      println(s"\tmatched text: ${e1Matched.get.text}, mention bound: (${e1Matched.get.start},${e1Matched.get.end})")
+      println(s"\tmatched sent idx: ${e1Matched.get.sentence}, sent words: ${e1Matched.get.sentenceObj.words.toSeq}")
+      println(s"\tmatched labels:${e1Matched.get.labels}")
+      println(s"\tmatched arguments")
+      e1Matched.get.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
+      println(s"\tmatched modifications")
+      e1Matched.get.modifications.foreach{x=> println(s"\t\t${x.label}")}
+    }
+    else{ println("no e1 matched")}
+
 
     println("-"*20)
     println("e2 characteristics")
@@ -313,15 +317,19 @@ object Corpus extends LazyLogging {
     println(s"\te2 modifications")
     ep.e2.modifications.foreach{x=> println(s"\t\t${x.label}")}
     println("\n")
-    println(s"\tmatched text: ${e2Matched.get.text}, mention bound: (${e2Matched.get.start},${e2Matched.get.end})")
-    println(s"\tmatched sent idx: ${e2Matched.get.sentence}, sent words: ${e2Matched.get.sentenceObj.words.toSeq}")
-    println(s"\tmatched labels:${e2Matched.get.labels}")
-    println(s"\tmatched arguments")
-    e2Matched.get.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
-    println(s"\tmatched modifications")
-    e2Matched.get.modifications.foreach{x=> println(s"\t\t${x.label}")}
+    if (e2Matched.isDefined){
+      println(s"\tmatched text: ${e2Matched.get.text}, mention bound: (${e2Matched.get.start},${e2Matched.get.end})")
+      println(s"\tmatched sent idx: ${e2Matched.get.sentence}, sent words: ${e2Matched.get.sentenceObj.words.toSeq}")
+      println(s"\tmatched labels:${e2Matched.get.labels}")
+      println(s"\tmatched arguments")
+      e2Matched.get.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
+      println(s"\tmatched modifications")
+      e2Matched.get.modifications.foreach{x=> println(s"\t\t${x.label}")}
+    }
+    else {println("no e2 matched")}
 
-    scala.io.StdIn.readLine()
+
+    //scala.io.StdIn.readLine()
   }
 
   private def getMatchedMention(queryMention:CorefMention, candidateMentions:Seq[CorefMention], matchMethod:String):Option[CorefMention] = {
