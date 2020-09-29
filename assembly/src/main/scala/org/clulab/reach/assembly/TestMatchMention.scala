@@ -73,7 +73,7 @@ object TestMatchMention extends App {
     }
     else{
       println("-"*20)
-      n_mention_soft_match+=1
+
       // 2, if the mention text or boundary are not exactly the same, compute these scores for each candidate mention:
       // 2.1 mention text edit distance; 2.2, boundary difference; 2.3, label jacard distance; 2.4, controller and controlled
       val allMentionScores = ArrayBuffer[Float]()
@@ -99,6 +99,7 @@ object TestMatchMention extends App {
         None
       }
       else{
+        n_mention_soft_match+=1
         Some(candidateMentionsFromOneSentence(allMentionScores.indexOf(allMentionScores.min)))
       }
     }
