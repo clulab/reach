@@ -95,15 +95,27 @@ object TestMatchMention extends App {
         allMentionScores.append(mentionTextDistance+mentionBoundDistance+labelDistance)
       }
 
-      if (allMentionScores.min>0.6){ // I think this hyper parameter is reasonable.
-        debugPrintBestMatchedCandidate(originalMention, candidateMentionsFromOneSentence(allMentionScores.indexOf(allMentionScores.min)))
-
-        None
-      }
-      else{
+      if (allMentionScores.min<=0.6) {
         n_mention_soft_match+=1
+
         Some(candidateMentionsFromOneSentence(allMentionScores.indexOf(allMentionScores.min)))
       }
+
+      else { // I think this hyper parameter is reasonable.
+        val bestMatchedMention = candidateMentionsFromOneSentence(allMentionScores.indexOf(allMentionScores.min))
+        if (bestMatchedMention.text.contains(originalMention.text)) {
+          n_mention_soft_match+=1
+
+          Some(bestMatchedMention)
+        }
+        else{
+
+          debugPrintBestMatchedCandidate(originalMention, bestMatchedMention)
+          None
+        }
+
+      }
+
     }
   }
 
