@@ -12,10 +12,10 @@ import scala.collection.mutable.ArrayBuffer
 
 object TestMatchMention extends App {
   val config = ConfigFactory.load()
-  val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDirOldTrain")).instances
+  val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDirOldEval")).instances
 
 
-  val newMentions = Corpus.loadMentions(config.getString("assembly.corpus.corpusDirNewTrain"))
+  val newMentions = Corpus.loadMentions(config.getString("assembly.corpus.corpusDirNewEval"))
 
   var n_pairs_mention_match = 0
   var n_pairs_mention_not_match = 0
@@ -69,6 +69,11 @@ object TestMatchMention extends App {
     val exactMatchResult = candidateMentionsFromOneSentence.find(x => x.text==originalMention.text && x.start==originalMention.start && x.end==originalMention.end)
     if (exactMatchResult.isDefined){
       n_mention_exact_match+=1
+
+      println("-"*20)
+      println("exact match")
+      debugPrintBestMatchedCandidate(originalMention, exactMatchResult.get)
+
       exactMatchResult
     }
     else{
@@ -95,25 +100,33 @@ object TestMatchMention extends App {
         allMentionScores.append(mentionTextDistance+mentionBoundDistance+labelDistance)
       }
 
+      val bestMatchedMention = candidateMentionsFromOneSentence(allMentionScores.indexOf(allMentionScores.min))
+
       if (allMentionScores.min<=0.6) {
         n_mention_soft_match+=1
 
-        Some(candidateMentionsFromOneSentence(allMentionScores.indexOf(allMentionScores.min)))
+        println("soft matched distance")
+        debugPrintBestMatchedCandidate(originalMention, bestMatchedMention)
+
+        Some(bestMatchedMention)
       }
 
       else { // I think this hyper parameter is reasonable.
        // None
-        val bestMatchedMention = candidateMentionsFromOneSentence(allMentionScores.indexOf(allMentionScores.min))
         //if (bestMatchedMention.text.contains(originalMention.text)) {
 
         if (bestMatchedMention.text.contains(originalMention.text) || originalMention.text.contains(bestMatchedMention.text)) {
           n_mention_soft_match+=1
 
+          println("soft matched containment")
+          debugPrintBestMatchedCandidate(originalMention, bestMatchedMention)
+
           Some(bestMatchedMention)
         }
         else{
 
-          //debugPrintBestMatchedCandidate(originalMention, bestMatchedMention)
+          println("not matched")
+          debugPrintBestMatchedCandidate(originalMention, bestMatchedMention)
 
           None
         }
@@ -208,6 +221,8 @@ object TestMatchMention extends App {
     bestMatchedMention.arguments.toSeq.foreach{x=>println(s"\t\t(${x._1},${x._2.head.text})")}
     println(s"\tmatched modifications")
     bestMatchedMention.modifications.foreach{x=> println(s"\t\t${x.label}")}
+
+    scala.io.StdIn.readLine()
 
   }
 }
