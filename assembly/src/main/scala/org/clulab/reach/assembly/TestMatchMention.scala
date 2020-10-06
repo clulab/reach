@@ -222,7 +222,7 @@ object TestMatchMention extends App {
     println(s"\tmatched modifications")
     bestMatchedMention.modifications.foreach{x=> println(s"\t\t${x.label}")}
 
-    scala.io.StdIn.readLine()
+    //scala.io.StdIn.readLine()
 
   }
 }
