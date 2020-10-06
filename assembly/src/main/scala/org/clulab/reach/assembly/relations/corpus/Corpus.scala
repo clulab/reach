@@ -267,12 +267,12 @@ object Corpus extends LazyLogging {
         }
         else {
           nMissingMention+=1
-          if (!e1Matched.isDefined) {
-            if (epsJAST(idx).contains("e1-trigger")){triggerCount.append(epsJAST(idx)("e1-trigger").toString)}
-          }
-          if (!e2Matched.isDefined) {
-            if (epsJAST(idx).contains("e2-trigger")){triggerCount.append(epsJAST(idx)("e2-trigger").toString)}
-          }
+//          if (!e1Matched.isDefined) {
+//            if (epsJAST(idx).contains("e1-trigger")){triggerCount.append(epsJAST(idx)("e1-trigger").toString)}
+//          }
+//          if (!e2Matched.isDefined) {
+//            if (epsJAST(idx).contains("e2-trigger")){triggerCount.append(epsJAST(idx)("e2-trigger").toString)}
+//          }
         }
       }
       else {nMissingPaper+=1}
