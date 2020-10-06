@@ -102,20 +102,21 @@ object TestMatchMention extends App {
       }
 
       else { // I think this hyper parameter is reasonable.
-        val bestMatchedMention = candidateMentionsFromOneSentence(allMentionScores.indexOf(allMentionScores.min))
-        if (bestMatchedMention.text.contains(originalMention.text)) {
-
-          //if (bestMatchedMention.text.contains(originalMention.text) || originalMention.text.contains(bestMatchedMention.text)) {
-          n_mention_soft_match+=1
-
-          Some(bestMatchedMention)
-        }
-        else{
-
-          //debugPrintBestMatchedCandidate(originalMention, bestMatchedMention)
-
-          None
-        }
+        None
+//        val bestMatchedMention = candidateMentionsFromOneSentence(allMentionScores.indexOf(allMentionScores.min))
+//        if (bestMatchedMention.text.contains(originalMention.text)) {
+//
+//          //if (bestMatchedMention.text.contains(originalMention.text) || originalMention.text.contains(bestMatchedMention.text)) {
+//          n_mention_soft_match+=1
+//
+//          Some(bestMatchedMention)
+//        }
+//        else{
+//
+//          //debugPrintBestMatchedCandidate(originalMention, bestMatchedMention)
+//
+//          None
+//        }
 
       }
 
