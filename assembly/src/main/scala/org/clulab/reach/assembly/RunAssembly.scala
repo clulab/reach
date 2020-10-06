@@ -43,8 +43,8 @@ object RunAnnotationEval extends App with LazyLogging {
       (pg, tm)
     } else {
       logger.info("Serialized files not found")
-      val epsOld: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDirOldTrain")).instances
-      val newMentions = Corpus.loadMentions(config.getString("assembly.corpus.corpusDirNewTrain"))
+      val epsOld: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDirOldEval")).instances
+      val newMentions = Corpus.loadMentions(config.getString("assembly.corpus.corpusDirNewEval"))
       val eps = Corpus.softAlign(epsOld, newMentions)
       // gather precedence relations corpus
 //      val precedenceAnnotations = CorpusReader.filterRelations(eps, precedenceRelations)
