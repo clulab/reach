@@ -105,12 +105,12 @@ object TestMatchMention extends App {
         val bestMatchedMention = candidateMentionsFromOneSentence(allMentionScores.indexOf(allMentionScores.min))
         if (bestMatchedMention.text.contains(originalMention.text) || originalMention.text.contains(bestMatchedMention.text)) {
           n_mention_soft_match+=1
-          debugPrintBestMatchedCandidate(originalMention, bestMatchedMention)
 
           Some(bestMatchedMention)
         }
         else{
 
+          debugPrintBestMatchedCandidate(originalMention, bestMatchedMention)
 
           None
         }
