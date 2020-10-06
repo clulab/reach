@@ -19,6 +19,7 @@ import java.io.File
 import org.clulab.reach.assembly.AssemblyManager
 
 import scala.collection.mutable.ArrayBuffer
+import org.clulab.reach.assembly.TestMatchMention.{matchEventWithinASentence, findEventSentenceIndex}
 
 
 /** Storage class for an event pair (i.e., a single example for the relation corpus) */
@@ -244,8 +245,8 @@ object Corpus extends LazyLogging {
 //      println(ep.e1.label)
 //      println(ep.e1.labels)
       if (e1DocID==e2DocID && cms.contains(e1DocID)){
-        val e1Matched = getMatchedMention(ep.e1, cms(e1DocID), "compositionalFilter")
-        val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), "compositionalFilter")
+        val e1Matched = getMatchedMention(ep.e1, cms(e1DocID), "matchInSentence")
+        val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), "matchInSentence")
         if (e1Matched.isDefined && e2Matched.isDefined){
           if (validLabels.exists(label => e1Matched.get matches label) && validLabels.exists(label => e2Matched.get matches label) && AssemblyManager.isValidMention(e1Matched.get) && AssemblyManager.isValidMention(e2Matched.get)){
             // TODO: debug, check whether the matched event is the true event.
@@ -383,6 +384,10 @@ object Corpus extends LazyLogging {
       }
       case "orderedAlignerSentenceMentionArguments" => {
         ???
+      }
+      case "matchInSentence" => {
+        val matchedSentenceIndex = findEventSentenceIndex(queryMention, candidateMentions)
+        matchEventWithinASentence(queryMention,  candidateMentions.filter(x => x.sentence==matchedSentenceIndex))
       }
       case _ => {
         logger.error(s"No matching method specified")
