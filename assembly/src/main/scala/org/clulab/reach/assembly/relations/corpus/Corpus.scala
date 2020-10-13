@@ -195,7 +195,7 @@ object Corpus extends LazyLogging {
     val mentionDataDir = new File( new File(corpusDir), MENTION_DATA)
 
     // TODO: slice 10 examples for debugging. Change this later.
-    val newMentionSeq = mentionDataDir.listFiles.par.flatMap(JSONSerializer.toCorefMentionsMapFilterEmpty).seq.toMap.values.toSeq
+    val newMentionSeq = mentionDataDir.listFiles.slice(0, 20).par.flatMap(JSONSerializer.toCorefMentionsMapFilterEmpty).seq.toMap.values.toSeq
     logger.info(s"Loading new mentions finished. Total number of mentions: ${newMentionSeq.length}")
 
     //
@@ -235,6 +235,7 @@ object Corpus extends LazyLogging {
     var nMissingPaper = 0
     var nMissingMention = 0
     var nInvalidLabel =0
+    var nOverlap = 0
     val triggerCount = new ArrayBuffer[String]()
     val eventPairsUpdated = new ArrayBuffer[EventPair]()
     for ((ep, idx) <- eps.zipWithIndex){
@@ -249,19 +250,23 @@ object Corpus extends LazyLogging {
         val e2Matched = getMatchedMention(ep.e2, cms(e2DocID), "matchInSentence")
         if (e1Matched.isDefined && e2Matched.isDefined){
           if (validLabels.exists(label => e1Matched.get matches label) && validLabels.exists(label => e2Matched.get matches label) && AssemblyManager.isValidMention(e1Matched.get) && AssemblyManager.isValidMention(e2Matched.get)){
-            // TODO: debug, check whether the matched event is the true event.
             //debugPrintMentionAttributes(ep, e1Matched, e2Matched)
-
-            eventPairsUpdated.append(
-              new EventPair(
-                e1 = e1Matched.get,
-                e2 = e2Matched.get,
-                relation = ep.relation,
-                confidence = ep.confidence,
-                annotatorID = ep.annotatorID,
-                notes = ep.notes
+            if (e1Matched.get.end<=e2Matched.get.start || e2Matched.get.end<=e1Matched.get.start){
+              eventPairsUpdated.append(
+                new EventPair(
+                  e1 = e1Matched.get,
+                  e2 = e2Matched.get,
+                  relation = ep.relation,
+                  confidence = ep.confidence,
+                  annotatorID = ep.annotatorID,
+                  notes = ep.notes
+                )
               )
-            )
+            }
+            else{
+              nOverlap +=1
+            }
+
           }
           else{nInvalidLabel+=1}
         }
@@ -281,7 +286,7 @@ object Corpus extends LazyLogging {
     //println(triggerCount.groupBy(identity).mapValues(_.size).toSeq.sortWith(_._2 > _._2))
 
     logger.info(s"Matching finished! Total pairs ${eps.length}, matched pairs: ${eventPairsUpdated.length}")
-    logger.info(s"\tn missing paper: ${nMissingPaper}, n missing mention: ${nMissingMention}, n invalid label: ${nInvalidLabel}")
+    logger.info(s"\tn missing paper: ${nMissingPaper}, n missing mention: ${nMissingMention}, n invalid label: ${nInvalidLabel}, n overlap: ${nOverlap}")
     eventPairsUpdated
   }
 

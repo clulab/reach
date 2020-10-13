@@ -5,8 +5,28 @@ import org.clulab.reach.assembly.TestLoadNewMentions.config
 import org.clulab.reach.assembly.relations.corpus.{Corpus, CorpusReader, EventPair}
 import org.clulab.reach.mentions
 import org.clulab.struct.CorefMention
+import org.json4s.JsonAST.JValue
 
 import scala.collection.mutable.ArrayBuffer
+
+import org.clulab.processors.Document
+import org.clulab.reach.assembly.relations.classifier.AssemblyRelationClassifier
+import org.clulab.reach.assembly.sieves.Constraints
+import org.clulab.reach.mentions.CorefMention
+import org.clulab.reach.mentions.serialization.json.{JSONSerializer, MentionJSONOps, REACHMentionSeq}
+import org.clulab.serialization.json.JSONSerialization
+import org.json4s.jackson.JsonMethods._
+import org.json4s.JsonDSL._
+import org.json4s._
+
+import scala.util.hashing.MurmurHash3._
+import com.typesafe.scalalogging.LazyLogging
+import org.apache.commons.io.FileUtils.forceMkdir
+import ai.lum.common.FileUtils._
+import java.io.File
+
+import org.clulab.reach.assembly.relations.corpus._
+import org.clulab.serialization.json.stringify
 
 
 
@@ -102,7 +122,7 @@ object TestMatchMention extends App {
 
       val bestMatchedMention = candidateMentionsFromOneSentence(allMentionScores.indexOf(allMentionScores.min))
 
-      if (allMentionScores.min<=0.6) {
+      if (allMentionScores.min<=0.6) { // I think this hyper parameter is reasonable.
         n_mention_soft_match+=1
 
         println("soft matched distance")
@@ -111,25 +131,25 @@ object TestMatchMention extends App {
         Some(bestMatchedMention)
       }
 
-      else { // I think this hyper parameter is reasonable.
-       // None
+      else {
+        None
         //if (bestMatchedMention.text.contains(originalMention.text)) {
 
-        if (bestMatchedMention.text.contains(originalMention.text) || originalMention.text.contains(bestMatchedMention.text)) {
-          n_mention_soft_match+=1
-
-          println("soft matched containment")
-          debugPrintBestMatchedCandidate(originalMention, bestMatchedMention)
-
-          Some(bestMatchedMention)
-        }
-        else{
-
-          println("not matched")
-          debugPrintBestMatchedCandidate(originalMention, bestMatchedMention)
-
-          None
-        }
+//        if (bestMatchedMention.text.contains(originalMention.text) || originalMention.text.contains(bestMatchedMention.text)) {
+//          n_mention_soft_match+=1
+//
+//          println("soft matched containment")
+//          debugPrintBestMatchedCandidate(originalMention, bestMatchedMention)
+//
+//          Some(bestMatchedMention)
+//        }
+//        else{
+//
+//          println("not matched")
+//          debugPrintBestMatchedCandidate(originalMention, bestMatchedMention)
+//
+//          None
+//        }
 
       }
 
@@ -224,6 +244,73 @@ object TestMatchMention extends App {
 
     //scala.io.StdIn.readLine()
 
+  }
+}
+
+
+object WriteUpdatedPairForPython extends App {
+
+
+
+
+  val oldDirTrain  = config.getString("assembly.corpus.corpusDirOldTrain")
+  val newDirTrain = config.getString("assembly.corpus.corpusDirNewTrain")
+
+  val oldDirEval  = config.getString("assembly.corpus.corpusDirOldEval")
+  val newDirEval = config.getString("assembly.corpus.corpusDirNewEval")
+
+  writeUpdatedPair(oldDirTrain, newDirTrain)
+  writeUpdatedPair(oldDirEval, newDirEval)
+
+
+  def writeUpdatedPair(oldDir:String, newDir:String):Unit = {
+
+    val epsOld: Seq[EventPair] = CorpusReader.readCorpus(oldDir).instances
+    val newMentions = Corpus.loadMentions(newDir)
+    val eps = Corpus.softAlign(epsOld, newMentions)
+
+    val epsJAST = eps.map(x => jsonAST(x))
+
+    val epsJsonOutF = new File(newDir, s"event-pairs-python.json")
+    epsJsonOutF.writeString(stringify(epsJAST, pretty = true), java.nio.charset.StandardCharsets.UTF_8)  }
+
+  private def jsonAST(eventPair:EventPair):JValue = {
+    ("id" -> eventPair.equivalenceHash) ~
+      ("text" -> eventPair.text) ~
+      ("coref" -> eventPair.coref) ~
+      // event 1
+      ("e1-id" -> eventPair.e1.id) ~
+      ("e1-label" -> eventPair.e1.eventLabel) ~
+      ("e1-sentence-text" -> eventPair.e1.sentenceText) ~
+      ("e1-sentence-index" -> eventPair.e1.sentence) ~
+      ("e1-sentence-tokens" -> eventPair.e1.sentenceObj.words.toList) ~
+      // can be used to highlight event span in annotation UI
+      ("e1-start" -> eventPair.e1.start) ~
+      ("e1-end" -> eventPair.e1.end) ~
+      ("e1-trigger" -> eventPair.e1.trigger.text) ~
+      ("e1-trigger-start" -> eventPair.e1.trigger.start) ~
+      ("e1-trigger-end" -> eventPair.e1.trigger.end) ~
+      // event 2
+      ("e2-id" -> eventPair.e2.id) ~
+      ("e2-label" -> eventPair.e2.eventLabel) ~
+      ("e2-sentence-text" -> eventPair.e2.sentenceText) ~
+      ("e2-sentence-index" -> eventPair.e2.sentence) ~
+      ("e2-sentence-tokens" -> eventPair.e2.sentenceObj.words.toList) ~
+      // can be used to highlight event span in annotation UI
+      ("e2-start" -> eventPair.e2.start) ~
+      ("e2-end" -> eventPair.e2.end) ~
+      ("e2-trigger" -> eventPair.e2.trigger.text) ~
+      ("e2-trigger-start" -> eventPair.e2.trigger.start) ~
+      ("e2-trigger-end" -> eventPair.e2.trigger.end) ~
+      // these will be filled out during annotation
+      ("annotator-id" -> eventPair.annotatorID) ~
+      ("relation" -> eventPair.relation) ~
+      //("confidence" -> confidence) ~ // TODO: I don't know where is an error. So skip it for now.
+      // additional features
+      ("cross-sentence" -> eventPair.isCrossSentence) ~
+      ("paper-id" -> eventPair.pmid) ~
+      // annotation notes
+      ("notes" -> eventPair.notes.getOrElse(""))
   }
 }
 
