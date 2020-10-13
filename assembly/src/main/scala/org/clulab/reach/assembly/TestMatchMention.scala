@@ -251,7 +251,7 @@ object TestMatchMention extends App {
 object WriteUpdatedPairForPython extends App {
 
 
-
+  val config = ConfigFactory.load()
 
   val oldDirTrain  = config.getString("assembly.corpus.corpusDirOldTrain")
   val newDirTrain = config.getString("assembly.corpus.corpusDirNewTrain")
