@@ -90,9 +90,9 @@ object TestMatchMention extends App {
     if (exactMatchResult.isDefined){
       n_mention_exact_match+=1
 
-      println("-"*20)
-      println("exact match")
-      debugPrintBestMatchedCandidate(originalMention, exactMatchResult.get)
+      //println("-"*20)
+      //println("exact match")
+      //debugPrintBestMatchedCandidate(originalMention, exactMatchResult.get)
 
       exactMatchResult
     }
@@ -125,8 +125,8 @@ object TestMatchMention extends App {
       if (allMentionScores.min<=0.6) { // I think this hyper parameter is reasonable.
         n_mention_soft_match+=1
 
-        println("soft matched distance")
-        debugPrintBestMatchedCandidate(originalMention, bestMatchedMention)
+        //println("soft matched distance")
+        //debugPrintBestMatchedCandidate(originalMention, bestMatchedMention)
 
         Some(bestMatchedMention)
       }
