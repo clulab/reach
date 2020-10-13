@@ -320,6 +320,7 @@ object WriteUpdatedPairForPython extends App {
       //("confidence" -> confidence) ~ // TODO: I don't know where is an error. So skip it for now.
       // additional features
       ("cross-sentence" -> eventPair.isCrossSentence) ~
+      ("inter-sentence-tokens" -> interSentences.asInstanceOf[JValue]) ~
       ("paper-id" -> eventPair.pmid) ~
       // annotation notes
       ("notes" -> eventPair.notes.getOrElse(""))
