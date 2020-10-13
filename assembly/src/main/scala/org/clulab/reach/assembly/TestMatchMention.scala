@@ -269,12 +269,24 @@ object WriteUpdatedPairForPython extends App {
     val newMentions = Corpus.loadMentions(newDir)
     val eps = Corpus.softAlign(epsOld, newMentions)
 
-    val epsJAST = eps.map(x => jsonAST(x))
+    val epsJAST = eps.map{x =>
+
+      val e1SentIdx = x.e1.sentence
+      val e2SentIdx = x.e2.sentence
+
+      if (e1SentIdx==e2SentIdx){
+        jsonAST(x, Seq.empty)
+      }
+      else{
+        val interSentTokenSeq = (e1SentIdx until e2SentIdx).map(idx => x.e1.document.sentences(idx).words)
+        jsonAST(x, interSentTokenSeq)
+      }
+    }
 
     val epsJsonOutF = new File(newDir, s"event-pairs-python.json")
     epsJsonOutF.writeString(stringify(epsJAST, pretty = true), java.nio.charset.StandardCharsets.UTF_8)  }
 
-  private def jsonAST(eventPair:EventPair):JValue = {
+  private def jsonAST(eventPair:EventPair, interSentences:Seq[Any]):JValue = {
     ("id" -> eventPair.equivalenceHash) ~
       ("text" -> eventPair.text) ~
       ("coref" -> eventPair.coref) ~
