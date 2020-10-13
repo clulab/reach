@@ -251,7 +251,24 @@ object Corpus extends LazyLogging {
         if (e1Matched.isDefined && e2Matched.isDefined){
           if (validLabels.exists(label => e1Matched.get matches label) && validLabels.exists(label => e2Matched.get matches label) && AssemblyManager.isValidMention(e1Matched.get) && AssemblyManager.isValidMention(e2Matched.get)){
             //debugPrintMentionAttributes(ep, e1Matched, e2Matched)
-            if (e1Matched.get.end<=e2Matched.get.start || e2Matched.get.end<=e1Matched.get.start){
+            if (ep.e1.sentence==ep.e2.sentence){
+              if (e1Matched.get.end<=e2Matched.get.start || e2Matched.get.end<=e1Matched.get.start){
+                eventPairsUpdated.append(
+                  new EventPair(
+                    e1 = e1Matched.get,
+                    e2 = e2Matched.get,
+                    relation = ep.relation,
+                    confidence = ep.confidence,
+                    annotatorID = ep.annotatorID,
+                    notes = ep.notes
+                  )
+                )
+              }
+              else{
+                nOverlap +=1
+              }
+            }
+            else {
               eventPairsUpdated.append(
                 new EventPair(
                   e1 = e1Matched.get,
@@ -262,9 +279,6 @@ object Corpus extends LazyLogging {
                   notes = ep.notes
                 )
               )
-            }
-            else{
-              nOverlap +=1
             }
 
           }
