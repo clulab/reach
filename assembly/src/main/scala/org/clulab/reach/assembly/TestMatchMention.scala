@@ -275,18 +275,18 @@ object WriteUpdatedPairForPython extends App {
       val e2SentIdx = x.e2.sentence
 
       if (e1SentIdx==e2SentIdx){
-        jsonAST(x, Seq.empty)
+        jsonAST(x, List.empty)
       }
       else{
-        val interSentTokenSeq = (e1SentIdx until e2SentIdx).map(idx => x.e1.document.sentences(idx).words)
-        jsonAST(x, interSentTokenSeq)
+        val interSentTokenSeq = (e1SentIdx until e2SentIdx).map(idx => x.e1.document.sentences(idx).words.toList)
+        jsonAST(x, interSentTokenSeq.toList)
       }
     }
 
     val epsJsonOutF = new File(newDir, s"event-pairs-python.json")
     epsJsonOutF.writeString(stringify(epsJAST, pretty = true), java.nio.charset.StandardCharsets.UTF_8)  }
 
-  private def jsonAST(eventPair:EventPair, interSentences:Seq[Any]):JValue = {
+  private def jsonAST(eventPair:EventPair, interSentences:List[List[String]]):JValue = {
     ("id" -> eventPair.equivalenceHash) ~
       ("text" -> eventPair.text) ~
       ("coref" -> eventPair.coref) ~
@@ -320,7 +320,7 @@ object WriteUpdatedPairForPython extends App {
       //("confidence" -> confidence) ~ // TODO: I don't know where is an error. So skip it for now.
       // additional features
       ("cross-sentence" -> eventPair.isCrossSentence) ~
-      ("inter-sentence-tokens" -> interSentences.asInstanceOf[JValue]) ~
+      ("inter-sentence-tokens" -> interSentences) ~
       ("paper-id" -> eventPair.pmid) ~
       // annotation notes
       ("notes" -> eventPair.notes.getOrElse(""))
