@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-sbt "testOnly org.clulab.reach.PolaritySuite"
+sbt 'testOnly org.clulab.reach.PolaritySuite'
