@@ -14,7 +14,7 @@ import org.clulab.struct.Interval
 
 object Brat extends LazyLogging {
   def readStandOff(input: String): Seq[Annotation] =
-    input.lines.toSeq flatMap parseAnnotation
+    input.split('\n').map(_.trim).flatMap(parseAnnotation) // getLines doesn't work in Java 11.
 
   def readStandOff(input: InputStream): Seq[Annotation] =
     Source.fromInputStream(input).getLines.toSeq flatMap parseAnnotation
