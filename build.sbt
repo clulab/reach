@@ -7,7 +7,7 @@ lazy val commonSettings = Seq(
   // Default to 2.12, but still cross-build for 2.11.
   scalaVersion := "2.12.8",
 
-  crossScalaVersions := Seq("2.11.11", "2.12.8"),
+  crossScalaVersions := Seq("2.11.12", "2.12.8"),
 
   scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation"),
 
