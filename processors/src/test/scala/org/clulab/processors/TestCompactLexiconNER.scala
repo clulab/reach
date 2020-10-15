@@ -2,8 +2,15 @@ package org.clulab.processors
 
 import java.io._
 import java.nio.charset.StandardCharsets
+import java.util.zip.GZIPInputStream
+import java.util.zip.GZIPOutputStream
 
+import org.clulab.processors.bionlp.BioLexicalVariations
+import org.clulab.processors.bionlp.BioLexiconEntityValidator
 import org.clulab.processors.bionlp.BioNLPProcessor
+import org.clulab.processors.bionlp.ner.KBLoader.NER_OVERRIDE_KBS
+import org.clulab.processors.bionlp.ner.KBLoader.RULE_NER_KBS
+import org.clulab.processors.bionlp.ner.KBLoader.ruleNerSingleton
 import org.clulab.sequences.{ColumnsToDocument, LexiconNER, SeparatedLexiconNER}
 import org.clulab.struct.{BooleanHashTrie, DebugBooleanHashTrie}
 import org.clulab.utils.Files
@@ -12,6 +19,41 @@ import org.scalatest.{FlatSpec, Matchers}
 import scala.io.Source
 
 class TestCompactLexiconNER extends FlatSpec with Matchers {
+
+  behavior of "LexiconNER"
+
+  it should "support a round trip" in {
+    val modelFile = "model.ser.gz"
+    val lexiconNER = LexiconNER(
+      RULE_NER_KBS,
+      Some(NER_OVERRIDE_KBS), // allow overriding for some key entities
+      new BioLexiconEntityValidator,
+      new BioLexicalVariations,
+      useLemmasForMatching = false,
+      caseInsensitiveMatching = true
+    )
+    val oos = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(modelFile)))
+    oos.writeObject(lexiconNER)
+    oos.close()
+
+    val ois = new ObjectInputStream(new GZIPInputStream(new FileInputStream(modelFile)))
+    val obj = ois.readObject()
+    ois.close()
+    new File(modelFile).delete
+
+    obj shouldBe a [LexiconNER]
+  }
+
+  behavior of "the bioresources serliazed NER"
+
+  it should "be readable" in {
+    val modelResource = "/org/clulab/reach/kb/ner/model.ser.gz"
+    val ois = new ObjectInputStream(new GZIPInputStream(getClass.getResourceAsStream(modelResource)))
+    val obj = ois.readObject()
+    ois.close()
+
+    obj shouldBe a [LexiconNER]
+  }
 
   val filename = "serialized.dat"
 
