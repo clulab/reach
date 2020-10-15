@@ -20,6 +20,13 @@ import scala.io.Source
 
 class TestCompactLexiconNER extends FlatSpec with Matchers {
 
+  // This code commented out was briefly used to check whether the
+  // serialized NER was compatible across different Scala versions.
+  // It was not and that is one reason it is no longer used.  The
+  // test code will self destruct shortly as the correctness of the
+  // decision is verified.
+  
+/*
   behavior of "LexiconNER"
 
   it should "support a round trip" in {
@@ -44,7 +51,7 @@ class TestCompactLexiconNER extends FlatSpec with Matchers {
     obj shouldBe a [LexiconNER]
   }
 
-  behavior of "the bioresources serliazed NER"
+  behavior of "the bioresources serialized NER"
 
   it should "be readable" in {
     val modelResource = "/org/clulab/reach/kb/ner/model.ser.gz"
@@ -54,7 +61,7 @@ class TestCompactLexiconNER extends FlatSpec with Matchers {
 
     obj shouldBe a [LexiconNER]
   }
-
+*/
   val filename = "serialized.dat"
 
   def fileSave(lexiconNER: Object): Long = {
