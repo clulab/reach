@@ -12,9 +12,9 @@ RUN add-apt-repository -y ppa:openjdk-r/ppa && \
 
 # Install Java, Scala and SBT
 RUN apt-get install -y openjdk-8-jdk && \
-    wget -nv https://www.scala-lang.org/files/archive/scala-2.12.12.deb && \
-    dpkg -i scala-2.12.12.deb && \
-    rm scala-2.12.12.deb && \
+    wget -nv https://www.scala-lang.org/files/archive/scala-2.12.8.deb && \
+    dpkg -i scala-2.12.8.deb && \
+    rm scala-2.12.8.deb && \
     apt-get install -y sbt=1.4.0
 
 # Clone and pre-build Reach so that the server starts up fast upon launch
