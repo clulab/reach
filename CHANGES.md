@@ -1,5 +1,8 @@
 #Changes
 =======
++ **1.6.2** - Update to processors 8.2.2, bioresources 1.1.34
++ **1.6.2** - Update scala, sbt, plugins
++ **1.6.2** - Add protein fragments to grounding
 + **1.6.1** - Update to processors 8.2.1 with case sensitivity bug fix.
 + **1.6.0** - Bug fix in handling parallelism for DyNet components.
 + **1.6.0** - Removed `assembly` subproject.
