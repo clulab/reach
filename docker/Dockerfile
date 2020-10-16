@@ -24,4 +24,4 @@ RUN git clone https://github.com/clulab/reach.git && \
     sbt publishLocal
 
 WORKDIR reach
-ENTRYPOINT ["sbt", "run-main org.clulab.reach.export.server.ApiServer"]
+ENTRYPOINT ["sbt", "runMain org.clulab.reach.export.server.ApiServer"]
