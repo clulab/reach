@@ -112,7 +112,7 @@ releaseProcess := Seq[ReleaseStep](
   tagRelease,
   releaseStepCommandAndRemaining("+publishSigned"),
   setNextVersion,
-  commitNextVersion //,
-  //releaseStepCommandAndRemaining("sonatypeReleaseAll"),
-  //pushChanges
+  commitNextVersion,
+  releaseStepCommandAndRemaining("sonatypeReleaseAll"),
+  pushChanges
 )
