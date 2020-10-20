@@ -228,9 +228,9 @@ object Corpus extends LazyLogging {
 
     // TODO: This is for the debugging purpose, for printing out the triggers where the mentions are not found.
     //  because I have problems directly accessing the triggers through the annotated mentions.
-    val epsJAST = parse(new File(new File("/work/zhengzhongliang/2020_ASKE/20200831/mcc_old/train"), s"$EVENT_PAIRS.json")).extract[Seq[Map[String, JValue]]]
+    //val epsJAST = parse(new File(new File("/work/zhengzhongliang/2020_ASKE/20200831/mcc_old/train"), s"$EVENT_PAIRS.json")).extract[Seq[Map[String, JValue]]]
 
-    logger.info(s"They should have the same length ${epsJAST.length}, ${eps.length}")
+    //logger.info(s"They should have the same length ${epsJAST.length}, ${eps.length}")
 
     var nMissingPaper = 0
     var nMissingMention = 0
@@ -252,7 +252,7 @@ object Corpus extends LazyLogging {
           if (validLabels.exists(label => e1Matched.get matches label) && validLabels.exists(label => e2Matched.get matches label) && AssemblyManager.isValidMention(e1Matched.get) && AssemblyManager.isValidMention(e2Matched.get)){
             //debugPrintMentionAttributes(ep, e1Matched, e2Matched)
             if (ep.e1.sentence==ep.e2.sentence){
-              if (e1Matched.get.end<=e2Matched.get.start || e2Matched.get.end<=e1Matched.get.start){
+              //if (e1Matched.get.end<=e2Matched.get.start || e2Matched.get.end<=e1Matched.get.start){ // According to Gus, the overlap criteria is not needed.
                 eventPairsUpdated.append(
                   new EventPair(
                     e1 = e1Matched.get,
@@ -263,10 +263,10 @@ object Corpus extends LazyLogging {
                     notes = ep.notes
                   )
                 )
-              }
-              else{
-                nOverlap +=1
-              }
+//              }
+//              else{
+//                nOverlap +=1
+//              }
             }
             else {
               eventPairsUpdated.append(
