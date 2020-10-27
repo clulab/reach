@@ -278,7 +278,12 @@ object WriteUpdatedPairForPython extends App {
         jsonAST(x, List.empty)
       }
       else{
-        val interSentTokenSeq = (e1SentIdx until e2SentIdx).map(idx => x.e1.document.sentences(idx).words.toList)
+        val interSentTokenSeq = {
+          if(e1SentIdx<e2SentIdx)
+            {(e1SentIdx until e2SentIdx).map(idx => x.e1.document.sentences(idx).words.toList)}
+          else
+            {(e2SentIdx until e1SentIdx).map(idx => x.e1.document.sentences(idx).words.toList)}
+        }
         jsonAST(x, interSentTokenSeq.toList)
       }
     }
