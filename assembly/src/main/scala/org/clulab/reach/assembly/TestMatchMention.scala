@@ -353,9 +353,9 @@ object WriteEntities extends App {
     for (ep <- eps){
       println("="*20)
       println(ep.e1.entities.toSeq)
-      println(ep.e1.sentenceObj.entities.toSeq)
+      println(ep.e1.sentenceObj.entities.get.toSeq)
       println(ep.e2.entities.toSeq)
-      println(ep.e2.sentenceObj.entities.toSeq)
+      println(ep.e2.sentenceObj.entities.get.toSeq)
       scala.io.StdIn.readLine()
     }
 
