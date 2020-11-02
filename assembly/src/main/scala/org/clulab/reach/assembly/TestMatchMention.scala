@@ -332,4 +332,33 @@ object WriteUpdatedPairForPython extends App {
   }
 }
 
+object WriteEntities extends App {
+
+  val config = ConfigFactory.load()
+
+  val oldDirTrain = config.getString("assembly.corpus.corpusDirOldTrain")
+  val newDirTrain = config.getString("assembly.corpus.corpusDirNewTrain")
+
+  val oldDirEval = config.getString("assembly.corpus.corpusDirOldEval")
+  val newDirEval = config.getString("assembly.corpus.corpusDirNewEval")
+
+  def writeEntityList(oldDir:String, newDir:String):Unit = {
+
+    val epsOld: Seq[EventPair] = CorpusReader.readCorpus(oldDir).instances
+    val newMentions = Corpus.loadMentions(newDir)
+    val eps = Corpus.softAlign(epsOld, newMentions)
+
+    for (ep <- eps){
+      println("="*20)
+      println(ep.e1.entities.toSeq)
+      println(ep.e1.sentenceObj.entities.toSeq)
+      println(ep.e2.entities.toSeq)
+      println(ep.e2.sentenceObj.entities.toSeq)
+      scala.io.StdIn.readLine()
+    }
+
+  }
+
+}
+
 

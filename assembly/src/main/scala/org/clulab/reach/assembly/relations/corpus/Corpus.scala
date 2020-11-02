@@ -195,7 +195,7 @@ object Corpus extends LazyLogging {
     val mentionDataDir = new File( new File(corpusDir), MENTION_DATA)
 
     // TODO: slice 10 examples for debugging. Change this later.
-    val newMentionSeq = mentionDataDir.listFiles.par.flatMap(JSONSerializer.toCorefMentionsMapFilterEmpty).seq.toMap.values.toSeq
+    val newMentionSeq = mentionDataDir.listFiles.slice(0,20).par.flatMap(JSONSerializer.toCorefMentionsMapFilterEmpty).seq.toMap.values.toSeq
     logger.info(s"Loading new mentions finished. Total number of mentions: ${newMentionSeq.length}")
 
     //
