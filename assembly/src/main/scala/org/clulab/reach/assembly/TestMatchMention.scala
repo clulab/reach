@@ -342,6 +342,8 @@ object WriteEntities extends App {
   val oldDirEval = config.getString("assembly.corpus.corpusDirOldEval")
   val newDirEval = config.getString("assembly.corpus.corpusDirNewEval")
 
+  writeEntityList(oldDirTrain, newDirTrain)
+
   def writeEntityList(oldDir:String, newDir:String):Unit = {
 
     val epsOld: Seq[EventPair] = CorpusReader.readCorpus(oldDir).instances
