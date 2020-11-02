@@ -274,8 +274,11 @@ object WriteUpdatedPairForPython extends App {
       val e1SentIdx = x.e1.sentence
       val e2SentIdx = x.e2.sentence
 
+      val e1SentEntities = x.e1.sentenceObj.entities.get.toList
+      val e2SentEntities = x.e2.sentenceObj.entities.get.toList
+
       if (e1SentIdx==e2SentIdx){
-        jsonAST(x, List.empty)
+        jsonAST(x, List.empty, e1SentEntities, e2SentEntities, List.empty)
       }
       else{
         val interSentTokenSeq = {
@@ -284,14 +287,25 @@ object WriteUpdatedPairForPython extends App {
           else
             {(e2SentIdx until e1SentIdx).map(idx => x.e1.document.sentences(idx).words.toList)}
         }
-        jsonAST(x, interSentTokenSeq.toList)
+
+        // Get intersentence entities.
+        val interSentEntities = {
+          if(e1SentIdx<e2SentIdx)
+          {(e1SentIdx until e2SentIdx).map(idx => x.e1.document.sentences(idx).entities.get.toList)}.toList
+          else
+          {(e2SentIdx until e1SentIdx).map(idx => x.e1.document.sentences(idx).entities.get.toList)}.toList
+        }
+
+        jsonAST(x, interSentTokenSeq.toList, e1SentEntities, e2SentEntities, interSentEntities)
       }
     }
 
     val epsJsonOutF = new File(newDir, s"event-pairs-python.json")
     epsJsonOutF.writeString(stringify(epsJAST, pretty = true), java.nio.charset.StandardCharsets.UTF_8)  }
 
-  private def jsonAST(eventPair:EventPair, interSentences:List[List[String]]):JValue = {
+  private def jsonAST(eventPair:EventPair, interSentences:List[List[String]],
+                      e1SentEntities:List[String], e2SentEntities:List[String],
+                      interSentEntities:List[List[String]]):JValue = {
     ("id" -> eventPair.equivalenceHash) ~
       ("text" -> eventPair.text) ~
       ("coref" -> eventPair.coref) ~
@@ -328,7 +342,10 @@ object WriteUpdatedPairForPython extends App {
       ("inter-sentence-tokens" -> interSentences) ~
       ("paper-id" -> eventPair.pmid) ~
       // annotation notes
-      ("notes" -> eventPair.notes.getOrElse(""))
+      ("notes" -> eventPair.notes.getOrElse("")) ~
+      ("e1-sentence-entities" -> e1SentEntities) ~
+      ("e2-sentence-entities" -> e2SentEntities) ~
+      ("inter-sentence-entities" -> interSentEntities)
   }
 }
 
