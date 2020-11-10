@@ -56,6 +56,13 @@ object TestMatchMention extends App {
         val e1MatchedSentenceIndex = findEventSentenceIndex(ep.e1, newMentions(docID))
         val e2MatchedSentenceIndex = findEventSentenceIndex(ep.e2, newMentions(docID))
 
+        if ((e1MatchedSentenceIndex-e2MatchedSentenceIndex).abs>=2){
+          println("="*20)
+          println("original index:", ep.e1.sentence, ep.e2.sentence)
+          println("matched index:", e1MatchedSentenceIndex, e2MatchedSentenceIndex)
+          scala.io.StdIn.readLine()
+        }
+
         val e1MatchedMention = matchEventWithinASentence(ep.e1, newMentions(docID).filter(x => x.sentence==e1MatchedSentenceIndex))
         val e2MatchedMention = matchEventWithinASentence(ep.e2, newMentions(docID).filter(x => x.sentence==e2MatchedSentenceIndex))
 
@@ -277,15 +284,15 @@ object WriteUpdatedPairForPython extends App {
       val e1SentEntities = x.e1.sentenceObj.entities.get.toList
       val e2SentEntities = x.e2.sentenceObj.entities.get.toList
 
-      if (e1SentIdx==e2SentIdx){
+      if ((e1SentIdx-e2SentIdx).abs<=1){
         jsonAST(x, List.empty, e1SentEntities, e2SentEntities, List.empty)
       }
       else{
         val interSentTokenSeq = {
           if(e1SentIdx<e2SentIdx)
-            {(e1SentIdx until e2SentIdx).map(idx => x.e1.document.sentences(idx).words.toList)}
+            {(e1SentIdx+1 until e2SentIdx).map(idx => x.e1.document.sentences(idx).words.toList)}
           else
-            {(e2SentIdx until e1SentIdx).map(idx => x.e1.document.sentences(idx).words.toList)}
+            {(e2SentIdx+1 until e1SentIdx).map(idx => x.e1.document.sentences(idx).words.toList)}
         }
 
         // Get intersentence entities.
