@@ -53,7 +53,7 @@ object TestMatchMention extends App {
     for (ep <- eps){
       val docID = ep.e1.document.id.get.split("_")(0)
       if (newMentions.contains(docID)){
-        println("="*20)
+        //println("="*20)
 
         val e1MatchedSentenceIndex = findEventSentenceIndex(ep.e1, newMentions(docID))
         val e2MatchedSentenceIndex = findEventSentenceIndex(ep.e2, newMentions(docID))
