@@ -53,11 +53,12 @@ object TestMatchMention extends App {
     for (ep <- eps){
       val docID = ep.e1.document.id.get.split("_")(0)
       if (newMentions.contains(docID)){
+        println("="*20)
+
         val e1MatchedSentenceIndex = findEventSentenceIndex(ep.e1, newMentions(docID))
         val e2MatchedSentenceIndex = findEventSentenceIndex(ep.e2, newMentions(docID))
 
         if ((e1MatchedSentenceIndex-e2MatchedSentenceIndex).abs>=2){
-          println("="*20)
           println("original index:", ep.e1.sentence, ep.e2.sentence)
           println("matched index:", e1MatchedSentenceIndex, e2MatchedSentenceIndex)
           scala.io.StdIn.readLine()
@@ -167,9 +168,11 @@ object TestMatchMention extends App {
     val matchedMentionOpt = candidateMentions.find(x => x.sentenceObj.words.mkString("")==originalMention.sentenceObj.words.mkString(""))
     val matchedSentenceIndex = {
       if (matchedMentionOpt.isDefined){
+        println("exact sentence match")
         matchedMentionOpt.get.sentence
       }
       else{
+        println("non exact sentence match")
         val sentenceEditDistance = candidateMentions.map{x => editDistance(originalMention.sentenceObj.words.mkString(" "), x.sentenceObj.words.mkString(" "))}
         candidateMentions(sentenceEditDistance.indexOf(sentenceEditDistance.min)).sentence
       }
