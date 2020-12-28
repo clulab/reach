@@ -140,14 +140,20 @@ object Assembler extends LazyLogging {
     val precedence = new PrecedenceSieves()
 
     val orderedSieves =
-    // track relevant mentions
+      // track relevant mentions
       AssemblySieve(dedup.trackMentions) andThen
-        // find precedence relations using rules
-        AssemblySieve(precedence.intrasententialRBPrecedence) andThen
-        //AssemblySieve(precedence.reichenbachPrecedence) andThen
-        AssemblySieve(precedence.intersententialRBPrecedence) andThen
-        // more conservative application of feature-based classifier
-        AssemblySieve(precedence.featureBasedClassifierWithSharedArgs)
+      // find precedence relations using rules
+      AssemblySieve(precedence.intrasententialRBPrecedence)
+      //AssemblySieve(precedence.reichenbachPrecedence) andThen
+
+      //
+      // the next two sieves removed because
+      // the classifier has not been retrained and the feature extraction process is what made assembly expensive to run (see #299)
+      //
+
+      //AssemblySieve(precedence.intersententialRBPrecedence) andThen
+      // more conservative application of feature-based classifier
+      //AssemblySieve(precedence.featureBasedClassifierWithSharedArgs)
 
     // apply the sieves and return the manager
     val am: AssemblyManager = orderedSieves.apply(mentions)
