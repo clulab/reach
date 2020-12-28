@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# One reason that not all tests are run in one calling of sbt
+# is that we get out of memory errors when doing that.
+
 # uncomment the lines below if processorAnnotator.type = "server"
 # start up the Processors Server for tests to run against:
 #echo 'Starting Processor Server...'

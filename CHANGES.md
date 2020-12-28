@@ -1,6 +1,10 @@
 #Changes
 =======
-+ **1.6.0** - Added the `assembly` subproject back...
++ **1.6.2** - Added the `assembly` subproject back. The `arizona` format is supported again.
++ **1.6.1** - Update to processors 8.2.2, bioresources 1.1.34
++ **1.6.1** - Update scala, sbt, plugins
++ **1.6.1** - Add protein fragments to grounding
++ **1.6.1** - Update to processors 8.2.1 with case sensitivity bug fix.
 + **1.6.0** - Bug fix in handling parallelism for DyNet components.
 + **1.6.0** - Removed `assembly` subproject.
 + **1.6.0** - Updated to bioresources 1.1.33, which merges Family and Complex, and updates many ids, including Uniprot and GO.

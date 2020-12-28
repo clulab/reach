@@ -4,8 +4,11 @@ lazy val commonSettings = Seq(
 
   organization := "org.clulab",
 
-  // FIXME: cross-build for 2.12!
-  scalaVersion := "2.11.12",
+  // Default to 2.12, but still cross-build for 2.11.
+  // 2.12.12 results in an exception when trying to access
+  // a resource through getResource().  There might be a
+  // change related to the leading / or something similar.
+  scalaVersion := "2.12.8",
 
   crossScalaVersions := Seq("2.11.12", "2.12.8"),
 
@@ -109,11 +112,11 @@ releaseProcess := Seq[ReleaseStep](
   runClean,
   runTest,
   setReleaseVersion,
-  ReleaseStep(action = Command.process("+publishSigned", _)),
-  ReleaseStep(action = Command.process("sonatypeReleaseAll", _)),
   commitReleaseVersion,
   tagRelease,
+  releaseStepCommandAndRemaining("+publishSigned"),
   setNextVersion,
   commitNextVersion,
+  releaseStepCommandAndRemaining("sonatypeReleaseAll"),
   pushChanges
 )

@@ -1,2 +1,2 @@
 #!/bin/bash
-sbt 'run-main org.clulab.reach.ReachShell'
+sbt 'runMain org.clulab.reach.ReachShell'

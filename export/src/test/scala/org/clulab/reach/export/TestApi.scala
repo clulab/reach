@@ -119,9 +119,10 @@ class TestApi extends FlatSpec with Matchers {
     hasEntity("ASPP2", results) should be (true)
   }
 
-  it should "return 9 positive activation and 3 phosphorylation results from NXML test" in {
+  it should "return 7 positive activation and 3 phosphorylation results from NXML test" in {
     val results = Api.runOnNxml(nxmlText)
-    results.filter(_.label == "Positive_activation") should have size (9)
+    // This was previously 9 until mM was ruled out.
+    results.filter(_.label == "Positive_activation") should have size (7)
     results.filter(_.label == "Phosphorylation") should have size (3)
   }
 

@@ -76,6 +76,9 @@ object KBGenerator {
   def mkOutputFile(entry:KBEntry, outputDir:String):String =
     outputDir + File.separator + entry.neLabel + ".tsv.gz"
 
+  /**
+    * The entry will be in the format: text-of-entity unique-id species-where-the-entity-is-valid (optional)
+    */
   def convertKB(entry:KBEntry, inputDir:String, outputDir:String): Unit = {
     logger.info(s"Converting ${entry.kbName}...")
     val inputPath = inputDir + File.separator + entry.kbName + ".tsv.gz"
@@ -112,13 +115,16 @@ object KBGenerator {
       new PrintWriter(
         new GZIPOutputStream(
           new FileOutputStream(mkOutputFile(entry, outputDir), true)))
-    if(first) ow.println(s"# Created by ${getClass.getName} on $now.")
+    // Since the created files will be zipped and included in github, it's important that they
+    // are exactly the same no matter what platform the program runs on.  A plain println()
+    // will differ in line ending, so it is avoided here and \n is specified with print().
+    if (first) ow.print(s"# Created by ${getClass.getName} on $now.\n")
     val uniqLines = outputLines
       .filter(_.nonEmpty)
       .sorted
       .distinct
     ow.print(uniqLines.mkString("\n"))
-    ow.println()
+    ow.print("\n")
     ow.close()
 
     logger.info(s"Done. Read $lineCount lines (${uniqLines.size} distinct) from ${entry.kbName}")
@@ -148,7 +154,7 @@ object KBGenerator {
       return true
 
     // if mentioned, the species must be a token at the correct zero-indexed position.
-    if(entry.validSpecies.contains(tokens(SPECIES_FIELD_NDX)))
+    if(tokens.length < 3 || entry.validSpecies.contains(tokens(SPECIES_FIELD_NDX)))
       return true
 
     false

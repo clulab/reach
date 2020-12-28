@@ -118,6 +118,7 @@ class ReachEntityLookup {
   val organSeq: KBSearchSequence = extraKBs ++ Seq( ContextOrgan )
 
   val proteinSeq: KBSearchSequence = extraKBs ++ Seq(
+    StaticProteinFragment, // TODO: for now fragments have higher priority
     StaticProtein,                          // Uniprot proteins
     StaticGene,
     ModelGendProteinAndFamily

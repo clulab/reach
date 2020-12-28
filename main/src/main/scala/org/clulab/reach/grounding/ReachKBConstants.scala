@@ -66,6 +66,9 @@ object ReachKBConstants {
 
   /** Filename of the static protein file. */
   val StaticProteinFilename = "uniprot-proteins.tsv.gz"
+
+  /** Filename containing protein fragments from the Protein Ontology */
+  val StaticProteinFragmentFilename = "protein-ontology-fragments.tsv.gz"
   
   /** Filename for the static human gene fine. */
   val StaticGeneFilename = "hgnc.tsv.gz"
