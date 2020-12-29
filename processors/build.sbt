@@ -16,6 +16,8 @@ libraryDependencies ++= {
     "org.clulab"           %  "bioresources"             % "1.1.34",
     "org.clulab"          %%  "fatdynet"                 % "0.2.5",
 
+    "ai.lum" %% "common" % "0.1.4",
+    
     // logging
     "com.typesafe.scala-logging"  %%  "scala-logging"    % "3.7.2",
     "ch.qos.logback"               %  "logback-classic"  % "1.0.10",

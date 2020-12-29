@@ -147,6 +147,14 @@ object JSONSerializer extends LazyLogging {
 
   /** Produce a Seq[CorefMention] from json */
   def toCorefMentions(json: JValue): Seq[CorefMention] = {
+    toCorefMentionsMap(json: JValue).values.toSeq
+  }
+
+  /** Produce a Map of id -> mentions from a json file */
+  def toCorefMentionsMap(file: File): Map[String, CorefMention] = toCorefMentionsMap(jsonAST(file))
+  
+  /** Produce a Map of id -> mentions from json */
+  def toCorefMentionsMap(json: JValue): Map[String, CorefMention] = {
 
     require(json \ "documents" != JNothing, "\"documents\" key missing from json")
     require(json \ "mentions" != JNothing, "\"mentions\" key missing from json")
@@ -155,14 +163,19 @@ object JSONSerializer extends LazyLogging {
     val docMap = mkDocumentMap(json \ "documents")
     val mmjson = (json \ "mentions").asInstanceOf[JArray]
 
-    mmjson.arr.map(mjson => toCorefMention(mjson, docMap))
+    mmjson.arr.map(mjson => toCorefMentionWithId(mjson, docMap)).toMap
   }
+
   /** Build mention from json of mention and corresponding json map of documents <br>
     * Since a single Document can be quite large and may be shared by multiple mentions,
     * only a reference to the document json is contained within each mention.
     * A map from doc reference to document json is used to avoid redundancies and reduce file size during serialization.
     * */
-  def toCorefMention(mjson: JValue, docMap: Map[String, Document]): CorefMention = {
+  def toCorefMention(mjson: JValue, docMap: Map[String, Document]): CorefMention = { 
+    toCorefMentionWithId(mjson: JValue, docMap: Map[String, Document])._2
+  }
+
+  def toCorefMentionWithId(mjson: JValue, docMap: Map[String, Document]): (String, CorefMention) = {
 
     val tokInterval = getTokenInterval(mjson)
     // elements shared by all Mention types
@@ -176,6 +189,7 @@ object JSONSerializer extends LazyLogging {
     // build CorefMention
     // NOTE: while it would be cleaner to create a Mention and THEN add the needed bio and coref attributes,
     // it would not be easy to transform the arguments & trigger post-hoc using the json...
+    val mentionId: String = (mjson \ "id").extract[String]
     val m = mjson \ "type" match {
       case JString(CorefEventMention.string) =>
         new CorefEventMention(
@@ -230,7 +244,7 @@ object JSONSerializer extends LazyLogging {
 
     // update mods
     m.modifications = toModifications(mjson, docMap)
-    m
+    (mentionId, m)
   }
 
   def toCorefMention(mjson: JValue, doc: Document): CorefMention = {

@@ -5,15 +5,19 @@ import scala.collection.parallel.ForkJoinTaskSupport
 import scala.io.Source
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
+import org.apache.commons.io.{FileUtils, FilenameUtils}
 
-import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import java.io.File
 import java.util.Date
-
+import java.nio.charset.Charset
+import java.nio.charset.StandardCharsets.UTF_8
 import ai.lum.common.FileUtils._
 import ai.lum.common.ConfigUtils._
-
 import org.clulab.odin._
+import org.clulab.reach.`export`.arizona.ArizonaOutputter
+import org.clulab.reach.`export`.cmu.CMUExporter
+import org.clulab.reach.assembly._
+import org.clulab.reach.assembly.export.{AssemblyExporter, AssemblyRow, ExportFilters}
 import org.clulab.reach.export.OutputDegrader
 import org.clulab.reach.export.fries.FriesOutput
 import org.clulab.reach.export.indexcards.IndexCardOutput
@@ -23,17 +27,19 @@ import org.clulab.reach.mentions.serialization.json._
 import org.clulab.reach.utils.MentionManager
 
 /**
-  * Class to run Reach reading and then produce FRIES format output
+  * Class to run Reach reading and assembly and then produce FRIES format output
   * from a group of input files.
   *   Written by: Gus Hahn-Powell and Tom Hicks. 5/9/2016.
-  *   Last Modified: Remove assembly functionality (including output formats relying on assembly).
+  *   Last Modified: 
+  *   - 12/28/2020: Added assembly back: we need causal precedence and the `arizona` format 
+  *   - Remove assembly functionality (including output formats relying on assembly).
   */
 class ReachCLI (
   val papersDir: File,
   val outputDir: File,
   val outputFormats: Seq[String],
   val statsKeeper: ProcessingStats = new ProcessingStats,
-  val encoding: String = "utf-8",
+  val encoding: Charset = UTF_8,
   val restartFile: Option[File] = None
 ) extends LazyLogging {
 
@@ -42,11 +48,8 @@ class ReachCLI (
   val skipFiles: Set[String] = restartFile match {
     case None => Set.empty[String]
     case Some(f) =>
-      val src = Source.fromFile(f, encoding)
       // get set of nonempty lines
-      val lines: Set[String] = src.getLines().filter(_.nonEmpty).toSet
-      // close the file
-      src.close()
+      val lines: Set[String] = f.readString(encoding).split("\n").filter(_.nonEmpty).toSet
       lines
   }
 
@@ -56,15 +59,20 @@ class ReachCLI (
   /** In the restart log file, record the given file as successfully completed. */
   def fileSucceeded (file: File): Unit = if (restartFile.nonEmpty) {
     restartFileLock.synchronized {
-      restartFile.get.writeString(s"${file.getName}\n", charset = encoding, append = true)
+      restartFile.get.writeString(
+        string = s"${file.getName}\n", 
+        charset = encoding, 
+        append = true,
+        gzipSupport = false
+      )
     }
   }
 
   /** Process papers **/
-  def processPapers (threadLimit: Option[Int]): Int = {
+  def processPapers (threadLimit: Option[Int], withAssembly: Boolean): Int = {
     logger.info("Initializing Reach ...")
 
-    val files = papersDir.listFilesByRegex(pattern=ReachInputFilePattern, caseSensitive=false, recursive=true).toVector.par
+    val files = papersDir.listFilesByRegex(pattern=ReachInputFilePattern, caseInsensitive = true, recursive = true).toVector.par
 
     // limit parallelization
     if (threadLimit.nonEmpty) {
@@ -79,7 +87,7 @@ class ReachCLI (
       if ! skipFiles.contains(filename)
     } yield {
       val error: Int = try {
-        processPaper(file)
+        processPaper(file, withAssembly)
         0                                   // no error
       } catch {
         case e: Exception =>
@@ -108,10 +116,14 @@ class ReachCLI (
   }
 
   def prepareMentionsForMITRE (mentions: Seq[Mention]): Seq[CorefMention] = {
+    // NOTE: We're already doing this in the exporter, but the mentions given to the
+    // Assembler probably need to match since flattening results in a loss of information
     OutputDegrader.prepareForOutput(mentions)
   }
 
-  def processPaper (file: File): Unit = {
+  def doAssembly (mns: Seq[Mention]): Assembler = Assembler(mns)
+
+  def processPaper (file: File, withAssembly: Boolean): Unit = {
     val paperId = FilenameUtils.removeExtension(file.getName)
     val startNS = System.nanoTime
     val startTime = ReachCLI.now
@@ -126,7 +138,9 @@ class ReachCLI (
     logger.debug(s"  ${ durationToS(startNS, System.nanoTime) }s: $paperId: finished reading")
 
     // generate outputs
-    outputFormats.foreach(outputFormat => outputMentions(mentions, entry, paperId, startTime, outputDir, outputFormat))
+    // NOTE: Assembly can't be run before calling this method without additional refactoring,
+    // as different output formats apply different filters before running assembly
+    outputFormats.foreach(outputFormat => outputMentions(mentions, entry, paperId, startTime, outputDir, outputFormat, withAssembly))
 
     // elapsed time: processing + writing output
     val endTime = ReachCLI.now
@@ -150,39 +164,72 @@ class ReachCLI (
     paperId: String,
     startTime: Date,
     outputDir: File,
-    outputType: String
+    outputType: String,
+    withAssembly: Boolean
   ) = {
 
 
     val outFile = s"${outputDir.getAbsolutePath}${File.separator}$paperId"
-    outputType.toLowerCase match {
+    (outputType.toLowerCase, withAssembly) match {
 
-      case "text" =>
+      case ("text", _) =>
         val mentionMgr = new MentionManager()
         val lines = mentionMgr.sortMentionsToStrings(mentions)
         val outFile = new File(outputDir, s"$paperId.txt")
         FileUtils.writeLines(outFile, lines.asJavaCollection)
 
-      // Handle FRIES-style output
-      case "fries" =>
+      // Handle FRIES-style output (w/ assembly)
+      case ("fries", true) =>
         val mentionsForOutput = prepareMentionsForMITRE(mentions)
-        // time elapsed
+        val assembler = doAssembly(mentionsForOutput)
+        // time elapsed (w/ assembly)
+        val procTime = ReachCLI.now
+        val outputter = new FriesOutput()
+        outputter.writeJSON(paperId, mentionsForOutput, Seq(entry), startTime, procTime, outFile)
+
+      // Handle FRIES-style output (w/o assembly)
+      case ("fries", false) =>
+        val mentionsForOutput = prepareMentionsForMITRE(mentions)
+        // time elapsed (w/o assembly)
         val procTime = ReachCLI.now
         val outputter = new FriesOutput()
         outputter.writeJSON(paperId, mentionsForOutput, Seq(entry), startTime, procTime, outFile)
 
       // Handle Index cards (NOTE: outdated!)
-      case "indexcard" =>
+      case ("indexcard", _) =>
         // time elapsed
         val procTime = ReachCLI.now
         val outputter = new IndexCardOutput()
         outputter.writeJSON(paperId, mentions, Seq(entry), startTime, procTime, outFile)
 
-      // Handle Serial-JSON output format
-      case "serial-json" =>
+      // Handle Serial-JSON output format (w/o assembly)
+      case ("serial-json", _) =>
         val procTime = ReachCLI.now
         val outputter = new SerialJsonOutput(encoding)
         outputter.writeJSON(paperId, mentions, Seq(entry), startTime, procTime, outFile)
+
+      // assembly output
+      case ("assembly-tsv", _) =>
+        val assembler = doAssembly(mentions)
+        val ae = new AssemblyExporter(assembler.am)
+        val outFile = new File(outputDir, s"$paperId-assembly-out.tsv")
+        val outFile2 = new File(outputDir, s"$paperId-assembly-out-unconstrained.tsv")
+        // MITRE's requirements
+        ae.writeRows(outFile, AssemblyExporter.DEFAULT_COLUMNS, AssemblyExporter.SEP, ExportFilters.MITREfilter)
+        // no filter
+        ae.writeRows(outFile2, AssemblyExporter.DEFAULT_COLUMNS, AssemblyExporter.SEP, (rows: Seq[AssemblyRow]) => rows.filter(_.seen > 0))
+
+      // Arizona's custom tabular output for assembly
+      case ("arizona", _) =>
+        val output = ArizonaOutputter.tabularOutput(mentions)
+        val outFile = new File(outputDir, s"$paperId-arizona-out.tsv")
+        outFile.writeString(output, java.nio.charset.StandardCharsets.UTF_8)
+
+      // CMU's custom tabular output for assembly
+      case ("cmu", _) =>
+        val output = CMUExporter.tabularOutput(mentions)
+        val outFile = new File(outputDir, s"$paperId-cmu-out.tsv")
+        outFile.writeString(output, java.nio.charset.StandardCharsets.UTF_8)
 
       case _ => throw new RuntimeException(s"Output format ${outputType.toLowerCase} not yet supported!")
     }
@@ -207,7 +254,7 @@ object ReachCLI {
     outputDir: File,
     outputFormat: String,
     statsKeeper: ProcessingStats = new ProcessingStats,
-    encoding: String = "utf-8",
+    encoding: Charset = UTF_8,
     restartFile: Option[File] = None
   ): ReachCLI =
     new ReachCLI(papersDir, outputDir, Seq(outputFormat), statsKeeper, encoding, restartFile)
@@ -231,6 +278,10 @@ object RunReachCLI extends App with LazyLogging {
   logger.debug(s"(ReachCLI.init): outputTypes=${outputTypes.mkString(", ")}")
   val encoding: String = config[String]("encoding")
   logger.debug(s"(ReachCLI.init): encoding=${encoding}")
+
+  // should assembly be performed?
+  val withAssembly: Boolean = config[Boolean]("withAssembly")
+  logger.debug(s"(ReachCLI.init): withAssembly=${withAssembly}")
 
   // configure the optional restart capability
   val useRestart: Boolean = config[Boolean]("restart.useRestart")
@@ -266,9 +317,9 @@ object RunReachCLI extends App with LazyLogging {
     papersDir,
     outDir,
     outputTypes,
-    encoding = encoding,
+    encoding = UTF_8,
     restartFile = if (useRestart) Some(restartFile) else None
   )
 
-  cli.processPapers(Some(threadLimit))
+  cli.processPapers(Some(threadLimit), withAssembly)
 }

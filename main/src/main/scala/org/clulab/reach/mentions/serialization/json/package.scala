@@ -4,7 +4,7 @@ import org.clulab.odin
 import org.clulab.odin._
 import org.clulab.odin.serialization.json.{ TextBoundMentionOps, RelationMentionOps, EventMentionOps }
 import org.clulab.odin.serialization.json.{ MentionOps => OdinMentionOps, OdinPathOps }
-import org.clulab.serialization.json.JSONSerialization
+import org.clulab.serialization.json.{ JSONSerialization }
 import org.clulab.reach.mentions.serialization.json.{ JSONSerializer => ReachJSONSerializer }
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding.KBResolution

@@ -1,0 +1,548 @@
+# rather than duplicate it here, the assembly branch was grafted there
+taxonomy: org/clulab/reach/biogrammar/taxonomy.yml
+
+# vars for assembly sieve
+vars:
+  mylabel: "PrecedenceRelation"
+  mypriority: "2"
+  myaction: "validatePrecedenceRelations" # "identityAction"
+  # TODO: fix comparison of binding args to ComplexEvent controlleds
+  regverbaltrigger: [lemma=/^(promote)/]
+  # vars for old rules
+  after_type: "Event"
+  before_type: "Event"
+  deprulepriority: "2"
+  surfacerulepriority: "3"
+  beforesurface: "[lemma=/^(before|prior|precede)$/]"
+  aftersurface: "[lemma=/^follow|after$/]"
+
+# rules for assembly sieve
+
+  ########################
+  #
+  # intra-sentence cases
+  #
+  ########################
+
+rules:
+  # precedence markers
+  #- import: org/clulab/reach/assembly/grammars/precedence-markers.yml
+
+  - name: intrasentence-surface-resulting-in
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    type: token
+    action: ${myaction}
+    example: "Furthermore , AKT phosphorylates and activates pro-survival protein XIAP ( X linked inhibitor of apoptosis protein ) , resulting in an increase of binding of XIAP to caspases 3 , 7 and 9 and inhibition of these caspases , the activities of which are essential for apoptosis induction ."
+    pattern: |
+      @before:Event "," resulting in []*? @after:Event
+
+ # FIXME: find the example
+  - name: intrasentence-surface-as-a-result-of
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    type: token
+    action: ${myaction}
+    example: ""
+    pattern: |
+      @after:Event as a result of @before:Event
+      |
+      [lemma=as] a result of @before:Event ","? @after:Event
+
+ # FIXME: add syntactic variant
+  - name: intrasentence-surface-leading-to
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    type: token
+    action: identityAction
+    example: "AMPK directly phosphorylates Raptor in an LKB1 dependent manner leading to the binding of 14-3-3 proteins to Raptor and subsequent inhibition of mTORC1 ."
+    example: "IKKalpha then phosphorylates the C-terminal region of p100 leading to subsequent processing of the p100 and RelB complex into p52 and RelB and its translocation into the nucleus [ XREF_BIBR ] ."
+    pattern: |
+      @before:ComplexEvent []*? leading to [tag=DT]? "subsequent"? []{0,3} @after:Event
+
+  - name: intrasentence-syntax-leading-to
+    label: ${mylabel}
+    priority: ${deprulepriority}
+    type: dependency
+    action: identityAction
+    example: "AMPK directly phosphorylates Raptor in an LKB1 dependent manner leading to the binding of 14-3-3 proteins to Raptor and subsequent inhibition of mTORC1 ."
+    example: "IKKalpha then phosphorylates the C-terminal region of p100 leading to subsequent processing of the p100 and RelB complex into p52 and RelB and its translocation into the nucleus [ XREF_BIBR ] ."
+    pattern: |
+      trigger = [lemma=lead] to
+      before:ComplexEvent = <vmod
+      after:Event = nmod_to "nmod_of"?
+
+  - name: intrasentence-surface-where-it
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    type: token
+    action: ${myaction}
+    example: "Specifically , FOXO1 phosphorylated by AKT translocates to the cytosol where it is ubiquitinated by Skp2 and subjected to proteasome dependent degradation ( Huang et al. ,     ) ."
+    pattern: |
+      @before:Event []*? where @after:Event
+
+  - name: intrasentence-surface-semicolon
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    type: token
+    action: ${myaction}
+    example: "GTP loaded RAS then triggers the sequential activation of RAF , MEK , and MAPK ; active RAF phosphorylates and activates MEK , which in turn phosphorylates and activates MAPK    ."
+    pattern: |
+      @before:Event []{,3} ";" []{,3} @after:Event
+
+  - name: intrasentence-surface-when-it
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    type: token
+    action: ${myaction}
+    example: "When eIF4E is bound to 4E-BP1 it is prevented from joining the translation initiation complex but upon phosphorylation by mTOR , 4E-BP1 releases eIF4E which is then phosphorylated by p70S6K and can join the active initiation complex   ."
+    pattern: |
+      [lemma=when] @before:Event ","? it []*? @after:Event
+
+  # TODO: write action to expand tok to event
+  - name: intrasentence-surface-which-in-turn
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    type: token
+    action: expandArgs
+    example: "When eIF4E is bound to 4E-BP1 it is prevented from joining the translation initiation complex but upon phosphorylation by mTOR , 4E-BP1 releases eIF4E which is then phosphorylated by p70S6K and can join the active initiation complex   ."
+    example2: "The p53 pathway is generally activated by DNA damage , which results in phosphorylation of p53 by ATM or CHK2 at sites near MDM2 and MDM4 binding ."
+    pattern: |
+      @before:Event []*?
+      (?<! each of) ","? which "then"? (in turn)?
+      (?<after> [mention=Event.trigger]) # this token should be expanded to an Event
+
+
+  # (Old rules) Event rules
+
+  - name: intrasentence-surface-prep-before
+    label: ${mylabel}
+    priority: ${deprulepriority}
+    example: "BEF is ubiquitinated before the phosphorylation of AFT."
+    type: token
+    pattern: |
+      (?<before> ${before_type}) (before | prior to) [tag=/^(DT|CD|JJ)$/]* (?<after> ${after_type})
+
+  - name: intrasentence-syntax-prep-before
+    label: ${mylabel}
+    priority: ${deprulepriority}
+    example: "BEF is ubiquitinated before the phosphorylation of AFT."
+    pattern: |
+      before:${before_type}
+      # before the AFT
+      # TODO: Write surface rule for prior_to relations
+      after:${after_type} = nmod_before
+
+  - name: intrasentence-surface-prep-after
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    example: "AFT is ubiquitinated following the phosphorylation of BEF."
+    type: token
+    pattern: |
+      (?<after> ${after_type}) (after | [lemma=follow]) [tag=/^(DT|CD|JJ)$/]* (?<before> ${before_type})
+
+  - name: intrasentence-syntax-prep-after
+    label: ${mylabel}
+    priority: ${deprulepriority}
+    example: "AFT is ubiquitinated following the phosphorylation of BEF."
+    pattern: |
+      after:${after_type}
+      # after BEF
+      before:${before_type} = /^nmod_(after|following)$/
+
+  - name: intrasentence-syntax-prep-due-to
+    label: ${mylabel}
+    priority: ${deprulepriority}
+    example: "AFT is ubiquitinated due to the phosphorylation of BEF."
+    pattern: |
+      after:${after_type}
+      # due to BEF
+      before:${before_type} = nmod_due_to | nmod_because_of
+
+  - name: intrasentence-surface-prep-due-to
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    example: "AFT is ubiquitinated due to the phosphorylation of BEF."
+    type: token
+    pattern: |
+      (?<after> ${after_type}) (due to | because of) [tag=/^(DT|CD|JJ)$/]* (?<before> ${before_type})
+
+#  - name: assembly-verb-syntax-1
+#    label: DirectConnection
+#    priority: ${deprulepriority}
+#    example: "the ubiquitination of BEF leads to the phosphorylation of AFT."
+#    pattern: |
+#      before:${before_type}
+#      # ... leads to AFT
+#      after:${after_type} = <nsubj [lemma=/^(lead)$/] nmod_to
+
+
+  - name: intrasentence-syntax-precedes
+    label: ${mylabel}
+    priority: ${deprulepriority}
+    example: "The ubiquitination of BEF precedes the phosphorylation of AFT. The ubiquitination of BEF precipitates the phosphorylation of AFT."
+    pattern: |
+      after:${after_type}
+      # BEF precedes ...
+      before:${before_type} =  <dobj [lemma=/^(precede|precipitat)/] nsubj
+
+  - name: intrasentence-surface-precedes
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    example: "The ubiquitination of BEF precedes the phosphorylation of AFT. The ubiquitination of BEF precipitates the phosphorylation of AFT."
+    type: token
+    pattern: |
+      (?<before> ${before_type}) [lemma=/^(precede|precipitat)/] [tag=/^(DT|CD|JJ)$/]* (?<after> ${after_type})
+
+  - name: intrasentence-syntax-result-of
+    example: "AFT ubiquitination is a result of BEF phosphorylation.  AFT ubiquitination results from BEF phosphorylation."
+    label: ${mylabel}
+    priority: ${deprulepriority}
+    pattern: |
+     before:${after_type}
+     # AFT results from BEF
+     after:${before_type} = </(nmod_of|nmod_from)/ [lemma=result] nsubj
+
+  - name: intrasentence-syntax-as-result-of
+    example: "As a result of BEF phosphorylation, AFT is ubiquitinated. AFT is phosphorylated as a result of BEF ubiqutination."
+    label: ${mylabel}
+    priority: ${deprulepriority}
+    pattern: |
+     after:${after_type}
+     before:${before_type} = nmod_as [lemma=result] /nmod_of/
+
+  - name: intrasentence-surface-result-of
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    example: "AFT ubiquitination is a result of BEF phosphorylation."
+    type: token
+    pattern: |
+      (?<after> ${after_type})
+      [lemma=be] [tag=/^(DT|CD|JJ)$/] [lemma=result] of [tag=/^(DT|CD|JJ)$/]*
+      @before:${before_type}
+
+  - name: intrasentence-surface-result-from
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    example: "AFT ubiquitination results from BEF phosphorylation."
+    type: token
+    pattern: |
+      (?<after> ${after_type}) ","? [tag=RB]? [lemma=result & tag=/^VB/] from [tag=/^(DT|CD|JJ)$/]* (?<before> ${before_type})
+
+  - name: intrasentence-syntax-result-from
+    example: "BEF is ubiquitinated, resulting from the phosphorylation of AFT. BEF's ubiquitination resulted from the phosphorylation of AFT."
+    label: ${mylabel}
+    type: dependency
+    priority: ${deprulepriority}
+    pattern: |
+     trigger = [lemma=result] from
+     before:${before_type} = nmod_from
+     after:${after_type} = <xcomp | /nsubj/
+
+  - name: intrasentence-surface-result-in-a
+    example: "BEF is ubiquitinated, resulting in the phosphorylation of AFT."
+    label: ${mylabel}
+    type: token
+    priority: ${surfacerulepriority}
+    pattern: |
+     @before:${before_type} []{,2} [lemma=result] in []{,2} @after:${after_type}
+
+  - name: intrasentence-syntax-result-in
+    example: "BEF is ubiquitinated, resulting in the phosphorylation of AFT. BEF's ubiquitination resulted in the phosphorylation of AFT."
+    label: ${mylabel}
+    type: dependency
+    priority: ${deprulepriority}
+    pattern: |
+     trigger = [lemma=result] in
+     before:${before_type} = <xcomp | /nsubj/
+     after:${after_type} = nmod_in
+
+  - name: intrasentence-syntax-when-a
+    example: "The RBD of PI3KC2B binds HRAS , when HRAS is not bound to GTP . AFT binds HRAS, when BEF in not bound to GTP"
+    label: ${mylabel}
+    priority: ${deprulepriority}
+    pattern: |
+     after:${after_type}
+     # ..., when BEF
+     # use lookaround assertion to check if WH word present
+     before:${before_type} = dobj "acl:relcl" (?= advmod [tag=WRB])
+
+  - name: intrasentence-syntax-when-b
+    label: ${mylabel}
+    priority: ${deprulepriority}
+    example: "The RBD of PI3KC2B binds HRAS , when HRAS is not bound to GTP . AFT binds HRAS, when BEF in not bound to GTP"
+    type: token
+    pattern: |
+      (?<before> ${before_type}) ","? when (?<after> ${after_type})
+
+  # Passives
+  - name: intrasentence-syntax-pass-follow
+    label: ${mylabel}
+    priority: ${deprulepriority}
+    example: "the ubiquitination of BEF is followed by the phosphorylation of AFT."
+    pattern: |
+      before:${before_type}
+      after:${after_type} = <nsubjpass [lemma=/^(precipitate|follow)$/] agent
+
+  - name: intrasentence-syntax-pass-precede
+    label: ${mylabel}
+    priority: ${deprulepriority}
+    example: "the ubiquitination of AFT is preceded by the phosphorylation of BEF."
+    pattern: |
+      after:${after_type}
+      before:${before_type} = <nsubjpass [lemma=/^(precede)$/] agent
+
+  - name: intrasentence-syntax-pass-require
+    label: ${mylabel}
+    priority: ${deprulepriority}
+    example: "the ubiquitination of BEF is required for the phosphorylation of AFT.  The binding of p85 and Gab1 is required for Gab1 mediated activation of PI-3 kinase."
+    pattern: |
+      before:${before_type}
+      # describes a precondition
+      # ... is required for AFT
+      after:${after_type} = <nsubjpass [lemma=require] nmod_for
+
+  - name: intrasentence-syntax-dependent-on
+    label: ${mylabel}
+    priority: ${deprulepriority}
+    example: "Together these data demonstrate that E2-induced SRC-3 phosphorylation is dependent on a direct interaction between SRC-3 and ERα and can occur outside of the nucleus."
+    pattern: |
+      after:${after_type}
+      before:${before_type} = <nsubj dependent nmod_on
+
+  - name: intrasentence-surface-dependent-on
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    example: "Together these data demonstrate that E2-induced SRC-3 phosphorylation is dependent on a direct interaction between SRC-3 and ERα and can occur outside of the nucleus."
+    type: token
+    pattern: |
+      @after:${after_type} [lemma=be] dependent on [tag=/^(DT|CD|JJ)/]* @before:${before_type}
+
+  - name: intrasentence-surface-follow
+    example: "AFT is ubiquitinated following the phosphorylation of BEF. AFT ubiquitination immediately follows the phosphorylation of BEF. AFT is ubiquitinated immediately following the phosphorylation of BEF.  BEF ubiquitination is immediately followed by the phosphorylation of AFT."
+    label: ${mylabel}
+    type: token
+    priority: ${surfacerulepriority}
+    pattern: |
+      # "AFT follows BEF" pattern
+      @after:${after_type} [lemma=be]? ${aftersurface} [tag=IN]? [tag=DT]? @before:${before_type}
+
+  - name: intrasentence-syntax-follow
+    example: "AFT is ubiquitinated following the phosphorylation of BEF. AFT ubiquitination immediately follows the phosphorylation of BEF. AFT is ubiquitinated immediately following the phosphorylation of BEF.  BEF ubiquitination is immediately followed by the phosphorylation of AFT."
+    label: ${mylabel}
+    type: dependency
+    priority: ${deprulepriority}
+    pattern: |
+      after:${after_type}
+      before:${before_type} = nmod_following
+
+  - name: intrasentence-syntax-follow-nominal
+    example: "BEF ubiquitination is immediately followed by the phosphorylation of AFT."
+    label: ${mylabel}
+    type: dependency
+    priority: ${deprulepriority}
+    pattern: |
+      after:${after_type}
+      before:${before_type} = <nsubjpass ${aftersurface} agent
+
+  - name: intrasentence-syntax-follows
+    label: ${mylabel}
+    priority: ${deprulepriority}
+    example: "the ubiquitination of AFT follows the phosphorylation of BEF."
+    pattern: |
+      before:${after_type}
+      # AFT follows ...
+      after:${before_type} =  <dobj [lemma=follow & tag=VBZ] nsubj
+
+  - name: intrasentence-surface-prior-to
+    example: "BEF is ubiquitinated prior to the phosphorylation of AFT."
+    label: ${mylabel}
+    type: token
+    priority: ${surfacerulepriority}
+    pattern: |
+      # "BEF precedes AFT" pattern
+      @before:${before_type} [lemma=be]? ${beforesurface} [tag=IN]? [tag=DT]? @after:${after_type}
+
+  - name: intrasentence-syntax-prior-to
+    example: "Prior to the phosphorylation of AFT, BEF is ubiquitinated. BEF is ubiquitinated prior to the phosphorylation of AFT. BEF ubiquitination is immediately prior to the phosphorylation of AFT."
+    label: ${mylabel}
+    type: dependency
+    priority: ${deprulepriority}
+    pattern: |
+      before:${before_type}
+      after:${after_type} = <nsubj? nmod_prior_to
+
+  - name: intrasentence-surface-response-to
+    example: "AFT is ubiquitinated in response to the phosphorylation of BEF."
+    label: ${mylabel}
+    type: token
+    priority: ${surfacerulepriority}
+    pattern: |
+     @after:${after_type} in response to []{,2} @before:${before_type}
+
+  - name: intrasentence-syntax-response-to
+    example: "AFT is ubiquitinated in response to the phosphorylation of BEF. AFT ubiquitination occurs in response to the phosphorylation of BEF."
+    label: ${mylabel}
+    type: dependency
+    priority: ${deprulepriority}
+    pattern: |
+     trigger = in response to
+     after:${after_type} = <nmod_in nsubj?
+     before:${before_type} = <nmod_in nmod_to
+
+  - name: intrasentence-surface-downstream
+    example: "BEF ubiquitination has downstream effects on the phosphorylation of AFT."
+    label: ${mylabel}
+    type: token
+    priority: ${surfacerulepriority}
+    pattern: |
+     @before:${before_type} [lemma=have] [!lemma=no]{,2} [lemma=effect] on []{,2} @after:${after_type}
+
+  - name: intrasentence-syntax-downstream
+    example: "BEF ubiquitination has downstream effects on the phosphorylation of AFT."
+    label: ${mylabel}
+    type: dependency
+    priority: ${deprulepriority}
+    pattern: |
+     trigger = [lemma=have] [!lemma=no]{,2} [lemma=effect] on
+     before:${before_type} = nsubj
+     after:${after_type} = nmod_on
+
+  - name: intrasentence-surface-thereby
+    example: "BEF is ubiquitinated, thereby increasing the phosphorylation of AFT."
+    label: ${mylabel}
+    type: token
+    priority: ${surfacerulepriority}
+    pattern: |
+     @before:${before_type} []{,2} [lemma=thereby] []{,3} @after:${after_type}
+
+  - name: intrasentence-syntax-thereby
+    example: "BEF is ubiquitinated, thereby increasing the phosphorylation of AFT."
+    label: ${mylabel}
+    type: dependency
+    priority: ${deprulepriority}
+    pattern: |
+     trigger = thereby
+     before:${before_type} = <advmod <ccomp
+     after:${after_type} = <advmod dobj
+
+  - name: intrasentence-surface-since
+    example: "The fact that Tax1 interacts with ATFx adds another level of complexity since this factor represses Tax1 mediated LTR activation [ XREF_BIBR ] ."
+    label: ${mylabel}
+    type: token
+    priority: ${surfacerulepriority}
+    pattern: |
+     @before:${before_type} []{,6} ","? [lemma=since] []{,3} @after:${after_type}
+
+  # FIXME: why isn't this matching?
+  - name: intrasentence-syntax-since
+    example: "The fact that Tax1 interacts with ATFx adds another level of complexity since this factor represses Tax1 mediated LTR activation [ XREF_BIBR ] ."
+    label: ${mylabel}
+    type: dependency
+    priority: ${deprulepriority}
+    pattern: |
+     trigger = since
+     before:${before_type} = <mark <advcl nsubj dep? nsubj
+     after:${after_type} = <mark nsubj
+
+  - name: intrasentence-surface-facilitate-the-NN-of
+    example: "After binding of an agonist , the activated GPCR induces an exchange of GDP to GTP on the Galpha subunit and facilitates the dissociation of GTP bound Gbetagamma and Galpha subunits [ XREF_BIBR ] ."
+    label: ${mylabel}
+    type: token
+    priority: ${surfacerulepriority}
+    pattern: |
+     @before:${before_type} []{,6} ","? "and"? [lemma=facilitate] the [tag=/^N/] of @after:${after_type}
+
+  - name: intrasentence-syntax-facilitate-the-NN-of-1
+    label: ${mylabel}
+    type: dependency
+    priority: ${deprulepriority}
+    example: "After binding of an agonist , the activated GPCR induces an exchange of GDP to GTP on the Galpha subunit and facilitates the dissociation of GTP bound Gbetagamma and Galpha subunits [ XREF_BIBR ] ."
+    pattern: |
+     trigger = [lemma=facilitate] the [tag=/^N/] of
+     before:${before_type} = nsubj
+     after:${after_type} = ccomp #(nsubj nmod_of)?
+
+  - name: intrasentence-syntax-B-to-X
+    label: ${mylabel}
+    type: dependency
+    priority: ${deprulepriority}
+    example: "Lin et al. showed that GSK3beta interacts with DNMT1 to phosphorylate DNMT1 at Ser410 and Ser414 and promotes binding of DNMT1 by betaTrCP leading to proteasomal degradation of DNMT1 ."
+    pattern: |
+     before:${before_type}
+     after:${after_type} = xcomp (?= aux "to")
+
+  - name: intrasentence-surface-bound-binds
+    label: ${mylabel}
+    action: ${myaction}
+    type: token
+    priority: ${surfacerulepriority}
+    example: "GTP bound Ras binds to Raf via interaction of its own effector domain"
+    pattern: |
+      @Entity (?<E1> [mention=Binding.trigger & tag=/^(VBD|NN)$/]) @Entity (?<E2> [mention=Binding.trigger & tag=VBZ])
+
+  - name: intrasentence-syntax-resulting-before_amod-after_nsubj
+    label: ${mylabel}
+    type: dependency
+    #action: ${myaction}
+    priority: ${deprulepriority}
+    example: "The resulting ATG5 and ATG12 complex interacts with ATG16L"
+    pattern: |
+      trigger = [lemma=the] resulting
+      before:${before_type} = <amod
+      after:${after_type} = nsubj
+
+  # Odin feature idea: it would be nice to apply a rule callback
+  # that acts as a surface-level contextual filter on the elements of this rule
+  # (ex. "before" should not be preceded by a "," etc.)
+  # right now this is all hidden in the action...
+  - name: intrasentence-syntax-binding-binding-2
+    label: ${mylabel}
+    type: dependency
+    action: inspectBindingPair
+    priority: ${deprulepriority}
+    example: "The resulting ATG5 and ATG12 complex interacts with ATG16L"
+    pattern: |
+      before:Binding
+      # ex. complex <- interacts
+      after:Binding = <nsubj (?! advmod [lemma=/(?i)^(concurrently|also)$/])
+
+  # This needs to be restricted.
+  # ex. only consider pairs where one mention span includes the substring " which " or " that " or " and of "?
+  # this can't be done with the "comma which" rule, as that trigger sometimes overlaps with the "before" and "after" args
+#  - name: intrasentence-syntax-event-and-event
+#    label: ${mylabel}
+#    type: dependency
+#    action: validateCoordinatedEvents
+#    priority: ${deprulepriority}
+#    example: "SUV39H1 interacts with Tax1 and represses Tax1 mediated transactivation of the LTR [ XREF_BIBR ] ."
+#    example: "The methyltransferase Set7/9 interacts with and methylates SIRT1 at Lys233 , Lys235 , Lys236 , and Lys238 of the N-terminal extension ."
+#    example: "In addition , PI3K interacts with Ras and is directly activated by Ras binding to p110 [ XREF_BIBR-XREF_BIBR ] ."
+#    example: "Bevacizumab binds to VEGF and inhibits VEGF receptor binding"
+#    pattern: |
+#      before:${before_type}
+#      after:${after_type} = conj_and
+
+  - name: intrasentence-syntax-event-xcomp-event
+    label: ${mylabel}
+    type: dependency
+    action: checkOverlap
+    priority: ${deprulepriority}
+    example: "Lin et al. showed that GSK3beta interacts with DNMT1 to phosphorylate DNMT1 at Ser410 and Ser414 and promotes binding of DNMT1 by betaTrCP leading to proteasomal degradation of DNMT1 ."
+    pattern: |
+      before:${before_type}
+      after:${after_type} = xcomp
+
+#  - name: intrasentence-syntax-event-also-V-event
+#    example: "CK2 mediated PML phosphorylation also enhances PML ubiquitination and degradation , thus also allowing control of its abundance ."
+#    label: ${mylabel}
+#    type: dependency
+#    priority: ${deprulepriority}
+#    pattern: |
+#      before:${before_type}
+#      after:${after_type} = <nsubj dobj
+
+#  # import discourse marker rules
+#  - import: org/clulab/reach/assembly/grammars/precedence-markers.yml
+#    vars:
+#      mypriority: "1"

@@ -1,0 +1,177 @@
+taxonomy: org/clulab/reach/biogrammar/taxonomy.yml
+
+# vars for assembly sieve
+vars:
+  mypriority: "1"
+  eventpriority: "2"
+  regverbaltrigger: [lemma=/^(promote)/]
+
+rules:
+  # avoid these elements when establishing precedence relations signaled by DMs
+  - name: contrastive-markers
+    label: ContrastiveMarker
+    priority: ${mypriority}
+    type: token
+    pattern: |
+      [lemma=except] [lemma=for]
+      |
+      [lemma=while]
+      |
+      [lemma=whereas]
+      |
+      [lemma=whether]
+
+  - name: L2R-marker
+    label: E1PrecedesE2Marker
+    priority: ${mypriority}
+    type: token
+    pattern: |
+      and can
+      |
+      and subsequent
+      |
+      can now
+      |
+      now
+      |
+      [tag=VBZ] with and
+      |
+      as well as
+      |
+      then [tag=VBZ]
+      |
+      where it
+      |
+      where they
+      |
+      [lemma=amplify]
+      |
+      [lemma=directly]
+      |
+      [lemma=steadily]
+      |
+      [lemma=release & tag=/^(VBZ|VBG)$/]
+      |
+      [lemma=/^(facilitate|promote)$/ & !tag=VBN]
+      |
+      ";"
+      |
+      "and"? "to"? [lemma=/^(impair|inhibit|generate|form)$/]
+      |
+      [lemma=be] then
+      |
+      [lemma=lead] to
+      |
+      [lemma=result] in
+      |
+      [lemma=further]
+      |
+      [lemma=subsequent]
+      |
+      [lemma=before]
+      |
+      prior to
+      |
+      # ex. following, followed by, follows
+      [lemma=follow & tag=/^(VB[ND])$/] "by"
+      |
+      [lemma=result & tag=VBG] "in"
+      |
+      "and"? ","? [lemma=/^(thereby|thus)$/]
+      |
+      also can
+      |
+      [lemma=precede & tag=VBZ]
+      |
+      and (?= ${regverbaltrigger} | [mention=Event.trgger])
+      |
+      in turn
+      |
+      ","? which in turn
+      |
+      ","? where
+      |
+      # ex. the first of these
+      first
+      |
+      # ex. the second step is
+      second
+      |
+      next
+      #|
+      #and that
+
+  - name: R2L-marker
+    label: E2PrecedesE1Marker
+    priority: ${mypriority}
+    type: token
+    pattern: |
+      attributed to
+      "as"? "a"? [lemma=result] (from|of)
+      |
+      after
+      |
+      due to
+      |
+      ","? when
+      |
+      [lemma=be] dependent on
+      |
+      [lemma=depend] on
+      |
+      that have "been"?
+      |
+      that were
+      |
+      [lemma=/^(facilitate|promote)$/ & tag=VBN]
+      |
+      in response to
+      |
+      "as"? "a" downstream [] of
+      |
+      since
+    # Upon PI3K activation,
+    #[lemma=upon] (@Event | @Entity activation) ","?
+
+
+  # left to right precedence
+  - name: intrasentence-dm-count-lr
+    label: Unknown
+    priority: ${eventpriority}
+    type: "token"
+    # conditionally create a precedence relation based on the interceding discourse markers
+    action: examineIntercedingMarkers
+    pattern: |
+      (?<! @ContrastiveMarker []*?) @E1:Event [!mention=ContrastiveMarker]*? @E1PrecedesE2Marker [!mention=ContrastiveMarker]*? @E2:Event
+
+  # right to left precedence
+  - name: intrasentence-dm-count-rl
+    label: Unknown
+    priority: ${eventpriority}
+    type: "token"
+    # conditionally create a precedence relation based on the interceding discourse markers
+    action: examineIntercedingMarkers
+    pattern: |
+      (?<! @ContrastiveMarker []*?) @E2:Event [!mention=ContrastiveMarker]*? @E2PrecedesE1Marker [!mention=ContrastiveMarker]*? @E1:Event
+
+  - name: cross-sentence-dm-count-1
+    label: Unknown
+    priority: ${eventpriority}
+    type: "cross-sentence"
+    left-window: 1
+    # conditionally create a precedence relation based on the interceding discourse markers
+    action: examineIntercedingMarkers
+    pattern: |
+      E1:Event = @Event (?= []*? @PrecedenceMarker)
+      E2:Event = @Event
+
+  - name: cross-sentence-dm-count-2
+    label: Unknown
+    priority: ${eventpriority}
+    type: "cross-sentence"
+    left-window: 1
+    # conditionally create a precedence relation based on the interceding discourse markers
+    action: examineIntercedingMarkers
+    pattern: |
+      E1:Event = @Event
+      E2:Event = @Event (?= []*? @PrecedenceMarker)

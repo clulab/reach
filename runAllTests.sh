@@ -23,6 +23,7 @@ function runTest {
 runTest "test"
 runTest "processors/test"
 runTest "main/test"
+runTest "causalAssembly/test"
 runTest "export/test"
 
 #echo 'Stopping Processor Server...'

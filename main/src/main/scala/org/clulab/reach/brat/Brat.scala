@@ -13,6 +13,14 @@ import org.clulab.reach.utils.BratUtils
 import org.clulab.struct.Interval
 
 object Brat extends LazyLogging {
+  /* // old version of the readStandoff method
+  def readStandOff(input: String): Seq[Annotation] = {
+    input
+    .split("\n")
+    .toSeq
+    .flatMap{ parseAnnotation(_) }
+  }
+  */
   def readStandOff(input: String): Seq[Annotation] =
     input.split('\n').map(_.trim).flatMap(parseAnnotation) // getLines doesn't work in Java 11.
 
@@ -26,8 +34,12 @@ object Brat extends LazyLogging {
     val chunks = line.trim.split("\t")
     val elems = chunks(1).split(" ")
 
-    def arguments(elems: Seq[String]): Map[String, Seq[String]] =
-      elems map (_.split(":")) groupBy (_(0)) mapValues (_.map(_(1)))
+    def arguments(elems: Seq[String]): Map[String, Seq[String]] = {
+      elems
+      .map(_.split(":"))
+      .groupBy(_(0))
+      .mapValues(_.map(_(1)))
+    }
 
     chunks.head match {
       // text bound annotation

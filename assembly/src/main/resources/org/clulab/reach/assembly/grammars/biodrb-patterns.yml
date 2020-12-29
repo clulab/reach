@@ -1,0 +1,160 @@
+# rather than duplicate it here, the assembly branch was grafted there
+taxonomy: org/clulab/reach/biogrammar/taxonomy.yml
+
+# vars for assembly sieve
+vars:
+  mylabel: "PrecedenceRelation"
+  mypriority: "2"
+  myaction: "validatePrecedenceRelations" # "identityAction"
+  # TODO: fix comparison of binding args to ComplexEvent controlleds
+  regverbaltrigger: [lemma=/^(promote)/]
+  # vars for old rules
+  after_type: "Event"
+  before_type: "Event"
+  deprulepriority: "1"
+  surfacerulepriority: "2"
+  beforesurface: "[lemma=/^(before|prior|precede)$/]"
+  aftersurface: "[lemma=/^follow|after$/]"
+
+# rules for assembly sieve
+
+  ########################
+  #
+  # intra-sentence cases
+  #
+  ########################
+
+rules:
+
+  #############################
+  # intrasentence
+  #############################
+
+  - name: biodrb-intrasentence-causal-result-surface-thereby
+    label: ${mylabel}
+    priority: ${mypriority}
+    type: "token"
+    action: ${myaction}
+    example: "SOCS3 has recently been shown to specifically inhibit STAT3 activation induced by IL-6 but not by IL-10, thereby regulating the divergent action of IL-6 and IL-10 [8,9]."
+    example: "Activated CD4+ T cells stimulate macrophages, synovial fibroblasts, B cells, and osteoclasts through the expression of cell surface molecules and Th1 cytokines, thereby contributing to both the chronic inflammation and the joint destruction."
+    pattern: |
+      @before:Event (?<trigger> ","? thereby) @after:Event
+
+  - name: biodrb-intrasentence-causal-result-syntax-thereby
+    label: ${mylabel}
+    priority: ${mypriority}
+    type: "dependency"
+    action: ${myaction}
+    example: "SOCS3 has recently been shown to specifically inhibit STAT3 activation induced by IL-6 but not by IL-10, thereby regulating the divergent action of IL-6 and IL-10 [8,9]."
+    example: "Activated CD4+ T cells stimulate macrophages, synovial fibroblasts, B cells, and osteoclasts through the expression of cell surface molecules and Th1 cytokines, thereby contributing to both the chronic inflammation and the joint destruction."
+    pattern: |
+      trigger = ","? thereby
+      before:Event = <advmod <xcomp
+      after:Event = <advmod
+
+  - name: biodrb-intrasentence-causal-reason-surface-therefore
+    label: ${mylabel}
+    priority: ${mypriority}
+    type: "token"
+    action: ${myaction}
+    example: "Defective IL-10-induced STAT3 activation therefore appears to be due at least in part to an abundance of SOCS1 in RA CD4+ T cells."
+    pattern: |
+      @after:Event (?<trigger> therefore appears to be due ((at least)? in part | partially) to) @before:Event
+
+  - name: biodrb-intrasentence-causal-reason-syntax-therefore
+    label: ${mylabel}
+    priority: ${mypriority}
+    type: "dependency"
+    action: ${myaction}
+    example: "Defective IL-10-induced STAT3 activation therefore appears to be due at least in part to an abundance of SOCS1 in RA CD4+ T cells."
+    pattern: |
+      trigger = therefore appears to be due ((at least)? in part | partially) to
+      before:Event = prep_to
+      after:Event = nsubj
+
+  - name: biodrb-intrasentence-causal-reason-surface-due-to
+    label: ${mylabel}
+    priority: ${mypriority}
+    type: "token"
+    action: ${myaction}
+    example: "Of these cytokines, IL-6 plays a predominant role in eliciting a systemic reaction such as the acute phase response in active RA, due mainly to its abundance in the blood circulation [27]."
+    example: "Furthermore, dendritic cells from RA synovial fluids are resistant to the immunoregulatory effect of IL-10 due to decreased transport of intracellular IL-10R1 in the presence of proinflammatory cytokine stimuli such as TNF-α, IL-1, and granulocyte–macrophage colony-stimulating factor [15]."
+    pattern: |
+      @after:Event (?<! not) (?<trigger> ","? due "mainly"? to) @before:Event
+
+  - name: biodrb-intrasentence-causal-justification-surface-because
+    label: ${mylabel}
+    priority: ${mypriority}
+    type: "token"
+    action: ${myaction}
+    example: "However, this indirect inhibitory effect is thought to be restricted at the site of T-cell activation in RA, because macrophages in the ST express high levels of cytokines, CD80 and CD86 molecules, and MHC class II antigens [10,18-20]."
+    example: "This direct effect also may be limited in active RA patients, because their PB CD4+ T cells showed a defective IL-10 inhibition of CD28-costimulated production of both IFN-γ and IL-2."
+    pattern: |
+      @after:Event (?<! not) (?<trigger> ","? because) @before:Event
+
+  - name: biodrb-intrasentence-causal-reason-surface-since
+    label: ${mylabel}
+    priority: ${mypriority}
+    type: "token"
+    action: ${myaction}
+    example: "Since BEFORE, AFTER"
+    pattern: |
+      # avoid terms evoking uncertainty, conjecture, etc.
+      ^ Since @before:Event "," [!lemma=/^(suspect|hypothesize)$/]{,3} @after:Event
+
+  #############################
+  # cross-sentence
+  #############################
+
+  - name: biodrb-cross-sentence-causal-result-we-thus
+    label: ${mylabel}
+    priority: ${mypriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "As shown in Fig. 1, IFN-γ production by activated normal CD4+ T cells was mostly inhibited at concentrations as low as 1 ng/ml IL-10. However, RA CD4+ T cells were able to produce significant amounts of IFN-γ in the presence of 1 ng/ml IL-10, and the maximal but not complete inhibition by IL-10 was obtained at 10–100 ng/ml. We thus compared the levels of IFN-γ production by CD4+ T cells after CD3 and CD28 costimulation in the presence of 1 ng/ml IL-10 in RA patients with active disease (multiple inflammatory joints, CRP level ≥ 10 mg/l) and inactive disease (in remission, CRP level < 10 mg/l) [26] and in healthy controls."
+    pattern: |
+      before:Event = @Event
+      after:Event = (?<= ^[lemma=we] thus []{,5}) @Event
+
+  - name: biodrb-cross-sentence-causal-result-as-a-consequence
+    label: ${mylabel}
+    priority: ${mypriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "but the inhibitory effect of IL-10 on IFN-γ production was significantly limited in the active RA group as compared with the inactive RA group and healthy controls (percentage decrease: active RA, 2.9 ± 14.4%; inactive RA, 45.6 ± 14.4%; controls, 65.8 ± 7.9%) (Fig. 2b). As a consequence, CD4+ T cells from active RA patients produced higher levels of IFN-γ in the presence of 1 ng/ml IL-10 than did normal CD4+ T cells (Fig. 2a)."
+    pattern: |
+      before:Event = @Event
+      after:Event = (?<= ^[lemma=as] a []? consequence ","? []{,3}) @Event
+
+  - name: biodrb-cross-sentence-causal-result-as-a-consequence-2
+    label: ${mylabel}
+    priority: ${mypriority}
+    type: "token"
+    right-window: 1
+    action: ${myaction}
+    pattern: |
+      ^[lemma=as] a []? consequence of @before:Event "," @after:Event
+
+  - name: biodrb-cross-sentence-causal-result-consequently-1
+    label: ${mylabel}
+    priority: ${mypriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "In addition, the B-1 cell compartment is absent in Xid-mice. Consequently, the levels of serum IgM and IgG3 are low."
+    pattern: |
+      before:Event = @Event
+      after:Event = (?<= ^[lemma=consequently]",") @Event
+
+  - name: biodrb-cross-sentence-causal-result-consequently-2
+    label: ${mylabel}
+    priority: ${mypriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "BEFORE. X is consequently Y'ed"
+    pattern: |
+      before:Event = @Event
+      after:Event = [mention=Event]+ [mention=Event & lemma=be] [mention=Event & lemma=consequently] [mention=Event]+

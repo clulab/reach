@@ -1,9 +1,13 @@
 package org.clulab.reach.export.serial
 
 import java.io.File
-import java.nio.file.{Files, Paths}
 import java.util.Date
 import java.util.regex.Pattern
+
+import java.nio.charset.Charset
+import java.nio.charset.StandardCharsets.UTF_8
+
+import ai.lum.common.FileUtils._
 
 import com.typesafe.scalalogging.LazyLogging
 
@@ -21,7 +25,7 @@ import org.clulab.reach.mentions.serialization.json._
 class SerialJsonOutput (
 
   /** The character set encoding to use when writing out the JSON to a file. */
-  encoding: String = "utf-8"
+  encoding: Charset = UTF_8
 
 ) extends JsonOutputter with LazyLogging {
 
@@ -50,9 +54,15 @@ class SerialJsonOutput (
     endTime:Date,
     outFilePrefix:String
   ): Unit = {
-    val filename = outFilePrefix + ".json"
+    val f: File = new File(outFilePrefix + ".json")
     val mentions = allMentions.map(_.toCorefMention)
-    Files.write(Paths.get(filename), mentions.json(true).getBytes(encoding))
+
+    f.writeString(
+      string = mentions.json(true), 
+      charset = encoding, 
+      append = false, 
+      gzipSupport = false
+    )
   }
 
 }

@@ -5,6 +5,7 @@ libraryDependencies ++= {
 
   Seq(
     "ai.lum"              %%  "nxmlreader"  % "0.1.2",
+    "ai.lum"              %%  "common"      % "0.1.4",
     "commons-io"           %  "commons-io"  % "2.4",
     "jline"                %  "jline"       % "2.12.1",
     "com.typesafe"         %  "config"      % "1.3.1",
@@ -13,7 +14,7 @@ libraryDependencies ++= {
     "org.apache.lucene"    %  "lucene-analyzers-common"  % luceVer,
     "org.apache.lucene"    %  "lucene-queryparser"       % luceVer,
     "org.biopax.paxtools"  %  "paxtools-core"            % "4.3.1",
-
+    
     // logging
     "com.typesafe.scala-logging"  %%  "scala-logging"    % "3.7.2",
     "ch.qos.logback"               %  "logback-classic"  % "1.0.10",
