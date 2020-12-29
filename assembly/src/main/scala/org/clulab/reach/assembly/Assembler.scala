@@ -143,15 +143,15 @@ object Assembler extends LazyLogging {
       // track relevant mentions
       AssemblySieve(dedup.trackMentions) andThen
       // find precedence relations using rules
-      AssemblySieve(precedence.intrasententialRBPrecedence)
+      AssemblySieve(precedence.intrasententialRBPrecedence) andThen
       //AssemblySieve(precedence.reichenbachPrecedence) andThen
 
+      AssemblySieve(precedence.intersententialRBPrecedence)
+
       //
-      // the next two sieves removed because
+      // the next sieve removed because
       // the classifier has not been retrained and the feature extraction process is what made assembly expensive to run (see #299)
       //
-
-      //AssemblySieve(precedence.intersententialRBPrecedence) andThen
       // more conservative application of feature-based classifier
       //AssemblySieve(precedence.featureBasedClassifierWithSharedArgs)
 
