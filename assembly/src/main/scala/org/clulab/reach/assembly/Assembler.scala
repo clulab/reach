@@ -145,7 +145,6 @@ object Assembler extends LazyLogging {
       // find precedence relations using rules
       AssemblySieve(precedence.intrasententialRBPrecedence) andThen
       //AssemblySieve(precedence.reichenbachPrecedence) andThen
-
       AssemblySieve(precedence.intersententialRBPrecedence)
 
       //

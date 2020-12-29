@@ -186,7 +186,7 @@ class ReachCLI (
         // time elapsed (w/ assembly)
         val procTime = ReachCLI.now
         val outputter = new FriesOutput()
-        outputter.writeJSON(paperId, mentionsForOutput, Seq(entry), startTime, procTime, outFile, assembler)
+        outputter.writeJSON(paperId, mentionsForOutput, Seq(entry), startTime, procTime, outFile)
 
       // Handle FRIES-style output (w/o assembly)
       case ("fries", false) =>
