@@ -101,7 +101,7 @@ class CMUExporter(manager: AssemblyManager) extends AssemblyExporter(manager) {
           createDestination(event),
           createController(event),
           createNestedControllers(event),
-          EERLUT(event.equivalenceHash),
+          EERLUT(event.equivalenceHash(false)), // this means we are ignoring modifications in the equivalenceHash
           AssemblyExporter.getEventLabel(event),
           createMechanismType(event),
           precededBy(event),

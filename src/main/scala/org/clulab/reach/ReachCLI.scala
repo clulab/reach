@@ -5,20 +5,19 @@ import scala.collection.parallel.ForkJoinTaskSupport
 import scala.io.Source
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
+import org.apache.commons.io.{FileUtils, FilenameUtils}
 
-import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import java.io.File
 import java.util.Date
-
 import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets.UTF_8
-
 import ai.lum.common.FileUtils._
 import ai.lum.common.ConfigUtils._
-
 import org.clulab.odin._
+import org.clulab.reach.`export`.arizona.ArizonaOutputter
+import org.clulab.reach.`export`.cmu.CMUExporter
 import org.clulab.reach.assembly._
-import org.clulab.reach.assembly.export.{ AssemblyExporter, AssemblyRow, ExportFilters }
+import org.clulab.reach.assembly.export.{AssemblyExporter, AssemblyRow, ExportFilters}
 import org.clulab.reach.export.OutputDegrader
 import org.clulab.reach.export.fries.FriesOutput
 import org.clulab.reach.export.indexcards.IndexCardOutput
