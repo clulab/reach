@@ -170,6 +170,8 @@ package object display {
         s"""$indent\t\tOverexpression Triggered by \"${evidence.text}\""""
       case CHEMtrigger(evidence) =>
         s"""$indent\t\tChemical Inhibition Triggered by \"${evidence.text}\""""
+      case UnassignedTrigger(evidence) =>
+        s"""$indent\t\tUnassigned Modification Triggered by \"${evidence.text}\""""
 
       case Hypothesis(evidence) =>
         s"""$indent\t\tHypothesis by \"${evidence.text}\""""

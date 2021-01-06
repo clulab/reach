@@ -44,7 +44,7 @@ case class Mutant(evidence: Mention, foundBy: String) extends Modification{
   override def hashCode: Int = evidence.hashCode() * 42 + label.hashCode()
 }
 
-class SimpleModification(val mention: Mention) extends Modification {
+abstract class SimpleModification(val mention: Mention) extends Modification {
 
   def label: String = getClass.getSimpleName
 }
@@ -54,6 +54,7 @@ case class EventSite(site: Mention) extends SimpleModification(site)
 case class Negation(evidence: Mention) extends SimpleModification(evidence)
 
 case class Hypothesis(evidence: Mention) extends SimpleModification(evidence)
+
 
 case class KDtrigger(evidence: Mention) extends SimpleModification(evidence)
 

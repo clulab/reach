@@ -268,31 +268,56 @@ object JSONSerializer extends LazyLogging {
     case other => Set.empty[Modification]
   }
 
-  private def toModification(mjson: JValue, docMap: Map[String, Document]): Modification = mjson \ "modification-type" match {
-    case JString("PTM") =>
-      PTM(
-        label = (mjson \ "label").extract[String],
-        evidence = getMention("evidence", mjson, docMap),
-        site = getMention("site", mjson, docMap),
-        negated = (mjson \ "negated").extract[Boolean]
-      )
-    case JString("EventSite") =>
-      // site is required
-      EventSite(site = getMention("site", mjson, docMap).get)
-    case JString("Mutant") =>
-      // evidence is required
-      Mutant(
+  private def toModification(mjson: JValue, docMap: Map[String, Document]): Modification = {
+
+    def getMentionOpt(key: String): Option[Mention] = this.getMention(key, mjson, docMap)
+
+    def getMention(key: String): Mention = getMentionOpt(key).get
+
+    def getEvidenceMentionOpt(): Option[Mention] = getMentionOpt("evidence")
+
+    def getEvidenceMention(): Mention = getEvidenceMentionOpt().get
+
+    mjson \ "modification-type" match {
+      case JString("PTM") =>
+        PTM(
+          label = (mjson \ "label").extract[String],
+          evidence = getEvidenceMentionOpt(),
+          site = getMentionOpt("site"),
+          negated = (mjson \ "negated").extract[Boolean]
+        )
+      case JString("EventSite") =>
+        // site is required
+        EventSite(site = getMention("site"))
+      case JString("Mutant") =>
         // evidence is required
-        evidence = getMention("evidence", mjson, docMap).get,
-        foundBy = (mjson \ "foundBy").extract[String]
-      )
-    case JString("Negation") =>
-      // evidence is required
-      Negation(evidence = getMention("evidence", mjson, docMap).get)
-    case JString("Hypothesis") =>
-      // evidence is required
-      Hypothesis(evidence = getMention("evidence", mjson, docMap).get)
-    case other => throw new Exception(s"unrecognized modification type '${other.toString}'")
+        Mutant(
+          // evidence is required
+          evidence = getEvidenceMention(),
+          foundBy = (mjson \ "foundBy").extract[String]
+        )
+      case JString("Negation") =>
+        // evidence is required
+        Negation(evidence = getEvidenceMention())
+      case JString("Hypothesis") =>
+        // evidence is required
+        Hypothesis(evidence = getEvidenceMention())
+
+      case JString("KDtrigger") =>
+        KDtrigger(evidence = getEvidenceMention())
+      case JString("KOtrigger") =>
+        KOtrigger(evidence = getEvidenceMention())
+      case JString("DNtrigger") =>
+        DNtrigger(evidence = getEvidenceMention())
+      case JString("OEtrigger") =>
+        OEtrigger(evidence = getEvidenceMention())
+      case JString("CHEMtrigger") =>
+        CHEMtrigger(evidence = getEvidenceMention())
+      case JString("UnassignedTrigger") =>
+        UnassignedTrigger(evidence = getEvidenceMention())
+
+      case other => throw new Exception(s"unrecognized modification type '${other.toString}'")
+    }
   }
 
   /** Build mention paths from json */

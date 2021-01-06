@@ -220,6 +220,20 @@ class MentionManager {
           mStrings += s"${indent}negation: ${evidence.text}"
         case ptm:PTM =>
           mStrings ++= ptmToStrings(ptm, level+1)
+
+        case KDtrigger(evidence) =>
+          mStrings += s"${indent}KD-trigger: ${evidence.text}"
+        case KOtrigger(evidence) =>
+          mStrings += s"${indent}KO-trigger: ${evidence.text}"
+        case DNtrigger(evidence) =>
+          mStrings += s"${indent}DN-trigger: ${evidence.text}"
+        case OEtrigger(evidence) =>
+          mStrings += s"${indent}OE-trigger: ${evidence.text}"
+        case CHEMtrigger(evidence) =>
+          mStrings += s"${indent}CHEM-trigger: ${evidence.text}"
+        case UnassignedTrigger(evidence) =>
+          mStrings += s"${indent}Unassigned-trigger: ${evidence.text}"
+
         case _ => ()
       }
     }
