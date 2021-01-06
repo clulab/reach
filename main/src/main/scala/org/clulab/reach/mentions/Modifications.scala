@@ -36,46 +36,33 @@ case class PTM(
 }
 
 case class Mutant(evidence: Mention, foundBy: String) extends Modification{
-  val label = evidence.label
-  val text = evidence.text
+  val label: String = evidence.label
+  val text: String = evidence.text
 
   def isGeneric: Boolean = evidence.toCorefMention.isGeneric
 
   override def hashCode: Int = evidence.hashCode() * 42 + label.hashCode()
 }
 
-case class EventSite(site: Mention) extends Modification {
-  val label = "EventSite"
+class SimpleModification(val mention: Mention) extends Modification {
+
+  def label: String = getClass.getSimpleName
 }
 
-case class Negation(evidence: Mention) extends Modification {
-  val label = "Negation"
-}
+case class EventSite(site: Mention) extends SimpleModification(site)
 
-case class Hypothesis(evidence: Mention) extends Modification{
-  val label = "Hypothesis"
-}
+case class Negation(evidence: Mention) extends SimpleModification(evidence)
 
-case class KDtrigger(evidence: Mention) extends Modification{
-  val label = "KDtrigger"
-}
+case class Hypothesis(evidence: Mention) extends SimpleModification(evidence)
 
-case class KOtrigger(evidence: Mention) extends Modification{
-  val label = "KOtrigger"
-}
+case class KDtrigger(evidence: Mention) extends SimpleModification(evidence)
 
-case class DNtrigger(evidence: Mention) extends Modification{
-  val label = "DNtrigger"
-}
+case class KOtrigger(evidence: Mention) extends SimpleModification(evidence)
 
-case class OEtrigger(evidence: Mention) extends Modification{
-  val label = "OEtrigger"
-}
+case class DNtrigger(evidence: Mention) extends SimpleModification(evidence)
 
-case class CHEMtrigger(evidence: Mention) extends Modification{
-  val label = "CHEMtrigger"
-}
+case class OEtrigger(evidence: Mention) extends SimpleModification(evidence)
 
-case class UnassignedTrigger(evidence: Mention) extends Modification{
-  val label = "UnassignedTrigger"
-}
+case class CHEMtrigger(evidence: Mention) extends SimpleModification(evidence)
+
+case class UnassignedTrigger(evidence: Mention) extends SimpleModification(evidence)

@@ -212,37 +212,13 @@ package object json {
         ("modification-type" -> "Mutant") ~
         ("evidence" -> mentionToJsonAST(evidence)) ~
         ("foundBy" -> foundBy)
-
-      case EventSite(evidence) =>
-        ("modification-type" -> "EventSite") ~
-        ("site" -> mentionToJsonAST(evidence))
-      case Negation(evidence) =>
-        ("modification-type" -> "Negation") ~
-        ("evidence" -> mentionToJsonAST(evidence))
-      case Hypothesis(evidence) =>
-        ("modification-type" -> "Hypothesis") ~
-        ("evidence" -> mentionToJsonAST(evidence))
-
-      case KDtrigger(evidence) =>
-        ("modification-type" -> "KDtrigger") ~
-        ("evidence" -> mentionToJsonAST(evidence))
-      case KOtrigger(evidence) =>
-        ("modification-type" -> "KOtrigger") ~
-        ("evidence" -> mentionToJsonAST(evidence))
-      case DNtrigger(evidence) =>
-        ("modification-type" -> "DNtrigger") ~
-        ("evidence" -> mentionToJsonAST(evidence))
-      case OEtrigger(evidence) =>
-        ("modification-type" -> "OEtrigger") ~
-        ("evidence" -> mentionToJsonAST(evidence))
-      case CHEMtrigger(evidence) =>
-        ("modification-type" -> "CHEMtrigger") ~
-        ("evidence" -> mentionToJsonAST(evidence))
-
-      case UnassignedTrigger(evidence) =>
-        ("modification-type" -> "UnassignedTrigger") ~
-        ("evidence" -> mentionToJsonAST(evidence))
-
+      case eventSite: EventSite =>
+        // This is an exception because of the "site" label.
+        ("modification-type" -> eventSite.label) ~
+        ("site" -> mentionToJsonAST(eventSite.site))
+      case simpleModification: SimpleModification =>
+        ("modification-type" -> simpleModification.label) ~
+        ("evidence" -> mentionToJsonAST(simpleModification.mention))
       case _: Modification =>
         throw new MatchError(s"Modification type unknown to ModificationOps: ${mod.getClass.getName}")
     }
