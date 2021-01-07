@@ -3,6 +3,8 @@ package org.clulab.reach
 import org.clulab.reach.mentions._
 import org.scalatest._
 import TestUtils._
+import org.clulab.reach.mentions.serialization.json.JSONSerializer
+import org.clulab.reach.mentions.serialization.json.prettify
 
 /**
  * Unit tests to ensure PTM rules are matching correctly
@@ -1182,4 +1184,25 @@ class TestModifications extends FlatSpec with Matchers {
     hasEventWithArguments("Phosphorylation", List("MEK"), mentions) should be (false)
   }
 
+  // This originated in the wild in case you are wondering.
+  val koTriggerTest1 = "Tbet Rag2 mice (Garrett et al., 2010) as well as Bacteroides spp. (Bloom et al., 2011), Helicobacter spp. (Fox et al., 2011), and Bilophila wadsworthia (Devkota et al., 2012) in Il10 have been shown to enhance intestinal inflammation.The acute dextran sulfate sodium"
+  koTriggerTest1 should "contain KOtriggers and be able to (de)serialize them" in {
+
+    def getKOtriggers(bioMentions: Seq[BioMention]) = bioMentions.flatMap { mention => mention.modifications.collect { case koTrigger: KOtrigger => koTrigger } }
+
+    val bioMentions1 = getBioMentions(koTriggerTest1)
+    val koTriggers1 = getKOtriggers(bioMentions1)
+
+    koTriggers1 should not be ('empty)
+
+    val jValue = JSONSerializer.jsonAST(bioMentions1)
+    val json = prettify(jValue)
+
+    json should include ("KOtrigger")
+
+    val bioMentions2 = JSONSerializer.toBioMentions(jValue)
+    val koTriggers2 = getKOtriggers(bioMentions2)
+
+    koTriggers1 should contain theSameElementsInOrderAs (koTriggers2)
+  }
 }
