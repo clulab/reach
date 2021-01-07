@@ -207,32 +207,37 @@ class MentionManager {
     val mStrings:MutableList[String] = MutableList[String]()
     val headIndent = ("  " * level)
     val indent = ("  " * (level+1))
+
+    def addIndentedEvidence(label: String, evidence: Mention): Unit = {
+      mStrings += s"$indent$label: ${evidence.text}"
+    }
+
     if (biomention.isModified) {
       mStrings += s"${headIndent}modifications (${biomention.modifications.size}):"
       biomention.modifications.foreach {
         case EventSite(site) =>
-          mStrings += s"${indent}event-site: ${site.text}"
+          addIndentedEvidence("event-site", site)
         case Hypothesis(evidence) =>
-          mStrings += s"${indent}hypothesis: ${evidence.text}"
+          addIndentedEvidence("hypothesis", evidence)
         case Mutant(evidence, foundBy) =>
-          mStrings += s"${indent}mutant: ${evidence.text}"
+          addIndentedEvidence("mutant", evidence)
         case Negation(evidence) =>
-          mStrings += s"${indent}negation: ${evidence.text}"
+          addIndentedEvidence("negation", evidence)
         case ptm:PTM =>
           mStrings ++= ptmToStrings(ptm, level+1)
 
         case KDtrigger(evidence) =>
-          mStrings += s"${indent}KD-trigger: ${evidence.text}"
+          addIndentedEvidence("KD-trigger", evidence)
         case KOtrigger(evidence) =>
-          mStrings += s"${indent}KO-trigger: ${evidence.text}"
+          addIndentedEvidence("KO-trigger", evidence)
         case DNtrigger(evidence) =>
-          mStrings += s"${indent}DN-trigger: ${evidence.text}"
+          addIndentedEvidence("DN-trigger", evidence)
         case OEtrigger(evidence) =>
-          mStrings += s"${indent}OE-trigger: ${evidence.text}"
+          addIndentedEvidence("OE-trigger", evidence)
         case CHEMtrigger(evidence) =>
-          mStrings += s"${indent}CHEM-trigger: ${evidence.text}"
+          addIndentedEvidence("CHEM-trigger", evidence)
         case UnassignedTrigger(evidence) =>
-          mStrings += s"${indent}Unassigned-trigger: ${evidence.text}"
+          addIndentedEvidence("Unassigned-trigger", evidence)
 
         case _ => ()
       }
