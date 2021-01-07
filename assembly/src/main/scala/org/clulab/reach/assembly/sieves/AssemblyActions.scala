@@ -296,14 +296,8 @@ object AssemblyActions extends LazyLogging {
   }
 
   /** check if position is a blacklisted word */
-  def isBlacklisted(words: Seq[String], idx: Int, blacklisted: Seq[String]): Boolean = idx match {
-    case outOfBounds if outOfBounds == -1 || outOfBounds > words.size => false
-    case i =>
-      val w = words(i)
-      val isBlacklisted = blacklisted.contains(w)
-      //logger.info(s"'$w' isBlacklisted? <$isBlacklisted>")
-      isBlacklisted
-  }
+  def isBlacklisted(words: Seq[String], idx: Int, blacklisted: Seq[String]): Boolean =
+    words.isDefinedAt(idx) && blacklisted.contains(words(idx))
   def notBlacklisted(words: Seq[String], idx: Int, blacklisted: Seq[String]): Boolean = ! isBlacklisted(words, idx, blacklisted)
 
   /** Checks if text spans of mentions overlap in a manner that is unlikely in a case of causal precedence */

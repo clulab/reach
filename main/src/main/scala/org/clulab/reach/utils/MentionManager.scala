@@ -207,19 +207,38 @@ class MentionManager {
     val mStrings:MutableList[String] = MutableList[String]()
     val headIndent = ("  " * level)
     val indent = ("  " * (level+1))
+
+    def addIndentedEvidence(label: String, evidence: Mention): Unit = {
+      mStrings += s"$indent$label: ${evidence.text}"
+    }
+
     if (biomention.isModified) {
       mStrings += s"${headIndent}modifications (${biomention.modifications.size}):"
       biomention.modifications.foreach {
         case EventSite(site) =>
-          mStrings += s"${indent}event-site: ${site.text}"
+          addIndentedEvidence("event-site", site)
         case Hypothesis(evidence) =>
-          mStrings += s"${indent}hypothesis: ${evidence.text}"
+          addIndentedEvidence("hypothesis", evidence)
         case Mutant(evidence, foundBy) =>
-          mStrings += s"${indent}mutant: ${evidence.text}"
+          addIndentedEvidence("mutant", evidence)
         case Negation(evidence) =>
-          mStrings += s"${indent}negation: ${evidence.text}"
+          addIndentedEvidence("negation", evidence)
         case ptm:PTM =>
           mStrings ++= ptmToStrings(ptm, level+1)
+
+        case KDtrigger(evidence) =>
+          addIndentedEvidence("KD-trigger", evidence)
+        case KOtrigger(evidence) =>
+          addIndentedEvidence("KO-trigger", evidence)
+        case DNtrigger(evidence) =>
+          addIndentedEvidence("DN-trigger", evidence)
+        case OEtrigger(evidence) =>
+          addIndentedEvidence("OE-trigger", evidence)
+        case CHEMtrigger(evidence) =>
+          addIndentedEvidence("CHEM-trigger", evidence)
+        case UnassignedTrigger(evidence) =>
+          addIndentedEvidence("Unassigned-trigger", evidence)
+
         case _ => ()
       }
     }

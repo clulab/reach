@@ -213,11 +213,10 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
     validateOutput(rowsForOutput)
     // prepare output
     val header =  s"${cols.mkString("\t")}\n"
-    val text =
-      rowsForOutput
-        .toSeq
-        .sortBy(r => (r.label, -r.docIDs.size, -r.seen))
-        .map(_.toRow(cols, sep))
+    val text = rowsForOutput
+        .map { row => (row.label, -row.docIDs.size, -row.seen, row.toRow(cols, sep)) }
+        .sorted
+        .map(_._4)
         .mkString("\n")
 
     header + text

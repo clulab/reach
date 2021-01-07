@@ -5,7 +5,7 @@ name := "reach-assembly"
 libraryDependencies ++= {
   //val akkaV = "2.4.20"
   //val akkaHttpV = "10.1.12"
-  val json4sV = "3.6.9"
+  val json4sV = "3.5.2" // Coordinate with processors or expect problems.
 
   val akkaV = "2.5.4"
   val akkaHttpV = "10.0.9"
