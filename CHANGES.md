@@ -1,5 +1,6 @@
 #Changes
 =======
++ **1.6.2** - Fix bugs related to OS and library dependency compatibility, bounds checking, serialization of newer Modifications, and output consistency
 + **1.6.2** - Added the `assembly` subproject back. The `arizona` and `cmu` formats are supported again.
 + **1.6.1** - Update to processors 8.2.2, bioresources 1.1.34
 + **1.6.1** - Update scala, sbt, plugins
