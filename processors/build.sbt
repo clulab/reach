@@ -5,7 +5,7 @@ resolvers += ("Artifactory" at "http://artifactory.cs.arizona.edu:8081/artifacto
 
 
 libraryDependencies ++= {
-  val procVer = "8.2.2"
+  val procVer = "8.2.4"
 
   Seq(
     "com.typesafe"         %  "config"      % "1.3.1",
@@ -13,7 +13,7 @@ libraryDependencies ++= {
     "org.clulab"          %%  "processors-main"          % procVer,
     "org.clulab"          %%  "processors-corenlp"       % procVer,
     "org.clulab"          %%  "processors-odin"          % procVer,
-    "org.clulab"           %  "bioresources"             % "1.1.34",
+    "org.clulab"           %  "bioresources"             % "1.1.36",
     "org.clulab"          %%  "fatdynet"                 % "0.2.5",
 
     "ai.lum" %% "common" % "0.1.4",

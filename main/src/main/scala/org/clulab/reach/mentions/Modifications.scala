@@ -44,7 +44,8 @@ case class Mutant(evidence: Mention, foundBy: String) extends Modification{
   override def hashCode: Int = evidence.hashCode() * 42 + label.hashCode()
 }
 
-abstract class SimpleModification(val mention: Mention) extends Modification {
+@SerialVersionUID(100L)
+abstract class SimpleModification(val mention: Mention) extends Modification with Serializable {
 
   def label: String = getClass.getSimpleName
 }
