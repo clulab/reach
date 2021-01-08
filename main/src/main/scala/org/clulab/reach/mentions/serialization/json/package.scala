@@ -219,8 +219,6 @@ package object json {
       case simpleModification: SimpleModification =>
         ("modification-type" -> simpleModification.label) ~
         ("evidence" -> mentionToJsonAST(simpleModification.mention))
-      case _: Modification =>
-        throw new MatchError(s"Modification type unknown to ModificationOps: ${mod.getClass.getName}")
     }
   }
 
