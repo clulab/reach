@@ -72,7 +72,7 @@ The `jar` is available on Maven Central. To use, simply add the following depend
 ```xml
 <dependency>
    <groupId>org.clulab</groupId>
-   <artifactId>reach-main_2.12</artifactId>
+   <artifactId>reach-exe_2.12</artifactId>
    <version>1.6.2</version>
 </dependency>
 ```
@@ -81,7 +81,7 @@ The `jar` is available on Maven Central. To use, simply add the following depend
 
 ```scala
 libraryDependencies ++= Seq(
-    "org.clulab" %% "reach-main" % "1.6.2"
+    "org.clulab" %% "reach-exe" % "1.6.2"
 )
 ```
 
