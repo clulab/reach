@@ -1,5 +1,5 @@
 [![Build Status](http://jenkins.cs.arizona.edu:8090/buildStatus/icon?job=reach%2Fmaster)](http://jenkins.cs.arizona.edu:8090/job/reach)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.clulab/reach_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.clulab/reach_2.11)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.clulab/reach-exe_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.clulab/reach-exe_2.12)
 
 Reach
 =====
@@ -16,8 +16,8 @@ Please scroll down to the bottom of this page for additional resources, includin
 This project is, and will always be, free for *research purposes*. However, starting with version 1.2, we are using a license that restricts its use for *commercial purposes*. Please contact us for details.
 
 # Changes
-+ **1.4.0** - Require separate Processors Server (Reach is the client). Add CLUProcessor type.
-+ **1.4.0** - Update to use Processors 6.1.5 (for refactored Client/Server). Update run scripts.
++ **1.6.2** - Update bioresources to 1.1.36 and processors to 8.2.4.
++ **1.6.2** - Added the `assembly` subproject back. The `arizona` and `cmu` formats are supported again.
 + [much more...](CHANGES.md)
 
 # Authors
@@ -65,15 +65,15 @@ More publications from the Reach project are available [here](https://github.com
 
 # Installation
 
-This software requires Java 1.8, Scala 2.11, and CoreNLP 3.x or higher.
+This software requires Java 1.8 and Scala 2.11 or 2.12.
 
 The `jar` is available on Maven Central. To use, simply add the following dependency to your `pom.xml`:
 
 ```xml
 <dependency>
    <groupId>org.clulab</groupId>
-   <artifactId>reach_2.11</artifactId>
-   <version>1.4.0</version>
+   <artifactId>reach-main_2.12</artifactId>
+   <version>1.6.2</version>
 </dependency>
 ```
 
@@ -81,7 +81,7 @@ The `jar` is available on Maven Central. To use, simply add the following depend
 
 ```scala
 libraryDependencies ++= Seq(
-    "org.clulab" %% "reach" % "1.4.0"
+    "org.clulab" %% "reach-main" % "1.6.2"
 )
 ```
 
