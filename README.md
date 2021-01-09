@@ -87,7 +87,7 @@ libraryDependencies ++= Seq(
 
 # How to compile the source code
 
-This is a standard sbt project, so use the usual commands (i.e. `sbt compile`, `sbt assembly`, etc.) to compile.
+This is a standard sbt project, so use the usual commands (i.e., `sbt compile`, `sbt assembly`, etc.) to compile.
 Add the generated jar files under `target/` to your `$CLASSPATH`, along with the other necessary dependency jars. Take a look at `build.sbt` to see which dependencies are necessary at runtime.
 
 # Running Reach
