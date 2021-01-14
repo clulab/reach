@@ -6,17 +6,18 @@ import java.util.regex.Pattern
 
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
+
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin.Mention
 import org.clulab.reach.ReachConstants._
+import org.clulab.reach.{FriesEntry, display}
 import org.clulab.reach.export.JsonOutputter._
-import org.clulab.reach.utils.MentionManager
+import org.clulab.reach.export.{JsonOutputter, OutputDegrader}
 import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
+import org.clulab.reach.mentions.serialization.json.mentionToJSON
+import org.clulab.reach.utils.MentionManager
 import IndexCardOutput._
-import com.typesafe.scalalogging.LazyLogging
-import org.clulab.reach.{FriesEntry, display}
-import org.clulab.reach.export.{JsonOutputter, OutputDegrader}
-
 
 /**
   * Defines classes and methods used to build and output the index card format.
@@ -150,7 +151,12 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
       case "transcription" => mkSimpleEventIndexCard(mention, "transcribes")
       // FIXME: this isn't a real solution
       case "amount" => mkSimpleEventIndexCard(mention, mention.label)
-      case _ => throw new RuntimeException(s"ERROR: event type $eventType not supported!")
+      case _ =>
+        val json = mentionToJSON(mention, pretty = true)
+        val message = s"""Event type "$eventType" is not supported for indexcard output:\n$json"""
+        // throw new RuntimeException(message)
+        logger.warn(message)
+        None
     }
     if (ex.isDefined) {
       mkHedging(ex.get, mention)

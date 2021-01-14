@@ -3,12 +3,14 @@ package org.clulab.reach.export
 import java.io._
 import java.util.Date
 import scala.collection.mutable
-import org.json4s.jackson.Serialization
-import org.clulab.odin.Mention
-import org.clulab.reach.ReachConstants._
 import ai.lum.nxmlreader.NxmlDocument
+import com.typesafe.scalalogging.Logger
+import org.clulab.odin.Mention
 import org.clulab.reach.FriesEntry
+import org.clulab.reach.ReachConstants._
 import org.clulab.odin.serialization.json._
+import org.json4s.jackson.Serialization
+import org.slf4j.LoggerFactory
 
 
 /**
@@ -97,6 +99,9 @@ object JsonOutputter {
   // required for json output serialization:
   implicit val formats = org.json4s.DefaultFormats
 
+  protected lazy val logger: Logger =
+    Logger(LoggerFactory.getLogger(getClass.getName))
+
   val RUN_ID = "r1"
   val COMPONENT = "Reach"
   val ORGANIZATION = "UAZ"
@@ -129,33 +134,30 @@ object JsonOutputter {
   def mkEventType(mention: Mention): String = {
     val label = mention.label
     if (MODIFICATION_EVENTS.contains(label))
-      return "protein-modification"
-
-    if (label == "Binding")
-      return "complex-assembly"
-
-    if (label == "Transcription")
-      return "transcription"
-
-    if (label == "Translocation")
-      return "translocation"
-
-    if (label == "Complex")
-      return "complex-assembly"
-
-    if (label == "Conversion")
-      return "conversion"
-
-    if (AMOUNT_EVENTS.contains(label))
-      return "amount"
-
-    if (REGULATION_EVENTS.contains(label))
-      return "regulation"
-
-    if (ACTIVATION_EVENTS.contains(label))
-      return "activation"
-
-    throw new RuntimeException("ERROR: unknown event type: " + label + " in event:\n" + mention.json(pretty = true))
+      "protein-modification"
+    else if (label == "Binding")
+      "complex-assembly"
+    else if (label == "Transcription")
+      "transcription"
+    else if (label == "Translocation")
+      "translocation"
+    else if (label == "Complex")
+      "complex-assembly"
+    else if (label == "Conversion")
+      "conversion"
+    else if (AMOUNT_EVENTS.contains(label))
+      "amount"
+    else if (REGULATION_EVENTS.contains(label))
+      "regulation"
+    else if (ACTIVATION_EVENTS.contains(label))
+      "activation"
+    else {
+      val json = mention.json(pretty = true)
+      val message = s"""Unknown event type "$label" in event:\n$json"""
+//       throw new RuntimeException(message)
+      logger.warn(message)
+      "unknown"
+    }
   }
 
   /** Canonicalize the given label string. */

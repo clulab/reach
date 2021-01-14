@@ -214,7 +214,13 @@ object MentionFilter {
               // m's controller is a regulation
               mController.matches("Regulation") &&
               // m's *controller's* controller is the same as r's controlled
-              mController.arguments("controller") == r.arguments("controlled")
+              {
+                val controllersOpt = mController.arguments.get("controller")
+                val controlledsOpt = r.arguments.get("controlled")
+
+                // The == comparison on a Seq may not be appropriate.  Is order significant?
+                controllersOpt.isDefined && controlledsOpt.isDefined && controllersOpt.get == controlledsOpt.get
+              }
             ) ||
             // one is a TextBoundMention
             (m.arguments("controlled") == r.arguments("controlled") &&
