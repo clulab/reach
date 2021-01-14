@@ -152,9 +152,10 @@ object JsonOutputter {
     else if (ACTIVATION_EVENTS.contains(label))
       "activation"
     else {
+      // "Gene_or_gene_product" is another possibility.
       val json = mention.json(pretty = true)
       val message = s"""Unknown event type "$label" in event:\n$json"""
-//       throw new RuntimeException(message)
+      // throw new RuntimeException(message)
       logger.warn(message)
       "unknown"
     }

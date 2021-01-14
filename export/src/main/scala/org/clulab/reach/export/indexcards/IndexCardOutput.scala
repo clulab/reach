@@ -140,8 +140,7 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
   /** Main annotation dispatcher method. */
   def mkIndexCard(mention: CorefMention): Option[PropMap] = {
     val eventType = mkEventType(mention)
-    val f = new PropMap
-    val ex = eventType match {
+    val exOpt = eventType match {
       case "protein-modification" => mkModificationIndexCard(mention)
       case "complex-assembly" => mkBindingIndexCard(mention)
       case "translocation" => mkTranslocationIndexCard(mention)
@@ -151,6 +150,8 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
       case "transcription" => mkSimpleEventIndexCard(mention, "transcribes")
       // FIXME: this isn't a real solution
       case "amount" => mkSimpleEventIndexCard(mention, mention.label)
+      // FIXME: what would this conversion look like?
+      case "conversion" => mkSimpleEventIndexCard(mention, mention.label)
       case _ =>
         val json = mentionToJSON(mention, pretty = true)
         val message = s"""Event type "$eventType" is not supported for indexcard output:\n$json"""
@@ -158,13 +159,10 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
         logger.warn(message)
         None
     }
-    if (ex.isDefined) {
-      mkHedging(ex.get, mention)
-      mkContext(ex.get, mention)
-      f("extracted_information") = ex.get
-      Some(f)
-    } else {
-      None
+    exOpt.map { ex =>
+      mkHedging(ex, mention)
+      mkContext(ex, mention)
+      new PropMap() += ("extracted_information" -> ex)
     }
   }
 
