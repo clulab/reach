@@ -150,9 +150,8 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
       case "transcription" => mkSimpleEventIndexCard(mention, "transcribes")
       // FIXME: this isn't a real solution
       case "amount" => mkSimpleEventIndexCard(mention, mention.label)
-      // FIXME: what would this conversion look like?
-      case "conversion" => mkSimpleEventIndexCard(mention, mention.label)
       case _ =>
+        // "conversion" is one example of an eventType not handled.
         val json = mentionToJSON(mention, pretty = true)
         val message = s"""Event type "$eventType" is not supported for indexcard output:\n$json"""
         // throw new RuntimeException(message)

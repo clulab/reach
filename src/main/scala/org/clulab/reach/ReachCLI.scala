@@ -102,7 +102,7 @@ class ReachCLI (
         new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit.get))
     }
 
-    val errorCount = for {
+    val errorCounts = for {
       file <- files
       filename = file.getName
       if ! skipFiles.contains(filename)
@@ -118,7 +118,15 @@ class ReachCLI (
       }
       error
     }
-    errorCount.sum
+    val paperCount = errorCounts.length
+    val errorCount = errorCounts.sum
+    val message =
+      if (errorCount > 0)
+        s"Reach encountered $errorCount error(s) with the $paperCount paper(s).  Please check the log."
+      else
+        s"Reach encountered no errors with the $paperCount paper(s)."
+    logger.info(message)
+    errorCount
   }
 
   def prepareMentionsForMITRE (mentions: Seq[Mention]): Seq[CorefMention] = {
