@@ -178,6 +178,7 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
       case "entity" => mkSingleArgument(derefArg)
       case "complex" => mkComplexArgument(derefArg)
       case _ => {
+        // "event" is a typical culprit.
         throw new RuntimeException(s"ERROR: argument type '$argType' not supported!")
       }
     }

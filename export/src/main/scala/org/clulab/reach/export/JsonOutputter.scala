@@ -153,6 +153,7 @@ object JsonOutputter {
       "activation"
     else {
       // "Gene_or_gene_product" is another possibility.
+      // Also "Family", "Disease", "Simple_chemical"
       val json = mention.json(pretty = true)
       val message = s"""Unknown event type "$label" in event:\n$json"""
       // throw new RuntimeException(message)
