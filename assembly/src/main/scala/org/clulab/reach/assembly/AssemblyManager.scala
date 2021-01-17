@@ -1362,7 +1362,8 @@ class AssemblyManager(
   }
 
   /**
-    * Returns head of each group returned by [[groupedEERs]].
+    * Returns representative of each group returned by [[groupedEERs]].  This used to simply
+    * be the head, but that is dependent on order, so now the lowest uniqueID is used instead.
     *
     * @return a Set of [[EntityEventRepresentation]]
     */
