@@ -1,6 +1,7 @@
 package org.clulab.reach.grounding
 
 import java.io._
+import java.util.concurrent.atomic.AtomicInteger
 import java.util.zip.GZIPInputStream
 import scala.io.Source
 import org.clulab.reach.mentions._
@@ -110,12 +111,15 @@ object ReachKBUtils {
 
 }
 
-/** Class to implement an incrementing counter for generating unique IDs. */
+/**
+  * Class to implement an incrementing counter for generating unique IDs.
+  * This is used in a multi-threaded environment and therefore should be atomic.
+  * current() doesn't have a well-defined meaning in such an environment and
+  * has therefore been removed.
+  */
 class IncrementingCounter {
-  protected var cntr:Int = 0
-  def current(): Int = { cntr }
-  def next(): Int = {
-    cntr += 1
-    return cntr
-  }
+  protected var counter: AtomicInteger = new AtomicInteger()
+
+  //def current(): Int = counter.get
+  def next(): Int = counter.incrementAndGet
 }
