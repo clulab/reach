@@ -232,10 +232,10 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
       (new File(currentFolderDir)).listFiles.map(_.getName)
     }
     for (paperName <- allPapersFolder) {
-      println("\tpaper name "+paperName)
       if (paperName.startsWith("PMC") && paperName.endsWith("xnml")){
         rawPaperDirs.append(pubmedRootDir +"/" + rawPaperSubFolderDirs(subDirCount) +"/" + paperName)
         paperCount +=1
+        println("\tpaper name: "+paperName, " count:", paperCount)
       }
     }
     subDirCount += 1
