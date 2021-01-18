@@ -7,12 +7,25 @@ import org.clulab.odin._
 import ai.lum.common.ConfigUtils._
 import ai.lum.common.RandomUtils._
 import ai.lum.common.FileUtils._
+
 import collection.JavaConversions._
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import java.io.File
-import org.clulab.reach.mentions.serialization.json.{ JSONSerializer => ReachJSONSerializer }
+
+import ai.lum.nxmlreader.NxmlReader
+import org.apache.commons.io.FilenameUtils
+import org.clulab.reach.PaperReader._
+import org.clulab.reach.mentions.serialization.json.{JSONSerializer => ReachJSONSerializer}
+
+import scala.collection.mutable.ArrayBuffer
 import scala.collection.parallel.ForkJoinTaskSupport
+
+import org.clulab.reach.mentions.serialization.json._
+import org.clulab.utils.Serializer
+import org.json4s.DefaultFormats
+import org.json4s.jackson.JsonMethods._
+import org.json4s._
 
 
 /**
@@ -194,6 +207,75 @@ object BuildCorpus extends App with LazyLogging {
   // create corpus and write to file
   val corpus = Corpus(eps)
   corpus.writeJSON(outDir, pretty = false)
+}
+
+object BuildCorpusFromRawDocs extends App with LazyLogging {
+  import CorpusBuilder._
+
+  // Initialize the needed components for the annotation. Proc, reachSystem and xnml reader are imported from PaperReader
+  val threadLimit = 4
+  val unlabeledExtractionCorpusDir = ""
+
+  // Get 10000 papers with PMC id and in xnml format
+  val rawPaperSubFolderDirs = {
+    (new File("/data/nlp/corpora/pmc_openaccess/pmc_dec2019")).listFiles.filter(_.isDirectory).map(_.getName)
+  }
+
+  var subDirCount = 0
+  var paperCount = 0
+  val rawPaperDirs = new ArrayBuffer[String]()
+  while (paperCount<10000) {
+    val currentFolderDir = rawPaperSubFolderDirs(subDirCount)
+    val allPapersFolder = {
+      (new File(currentFolderDir)).listFiles.map(_.getName)
+    }
+    for (paperName <- allPapersFolder) {
+      if (paperName.startsWith("PMC") && paperName.endsWith("xnml")){
+        rawPaperDirs.append(paperName)
+        paperCount +=1
+      }
+    }
+    subDirCount += 1
+  }
+
+  println("first paper dir:", allPapers.head.toString)
+
+  val allPapers = rawPaperDirs.toSeq.par // allDocs is a Seq of tuple ((id, text), (id, text), (id, text), ...)
+  allPapers.tasksupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
+
+
+  var nDone = 0
+  var nSkipped = 0
+  val allEps = new ArrayBuffer[EventPair]()
+  for (paperDir <- allPapers.slice(0,4)){
+    logger.info(s"processing paper $paperDir")
+    try {
+      val file = new File(paperDir)
+
+      require(file.getName.endsWith(".nxml"), s"Given ${file.getAbsolutePath}, but readNXMLPaper only handles .nxml files!")
+      val paperID = FilenameUtils.removeExtension(file.getName)
+      logger.debug(s"reading paper $paperID ...")
+      val mentions = reachSystem.extractFrom(nxmlReader.read(file)).toVector
+
+      val cms: Seq[CorefMention] = mentions.map(_.toCorefMention)
+      val eventPairs = selectEventPairs(cms)
+      allEps.appendAll(eventPairs)
+      nDone+=1
+    }
+    catch{
+      case _ => {
+        nSkipped+=1
+        logger.info("\tpaper skipped")
+      }
+
+    }
+  }
+  val outDir = new File("/work/zhengzhongliang/2020_ASKE/20210117")
+  // create corpus and write to file
+  val corpus = Corpus(allEps)
+  corpus.writeJSON(outDir, pretty = true) // TODO: in official generation, change this to false
+
+  logger.info(s"processing done! N done: ${nDone}, N skipped: ${nSkipped}")
 }
 
 /**
