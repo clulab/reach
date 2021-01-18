@@ -226,14 +226,15 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
   var subDirCount = 0
   var paperCount = 0
   val rawPaperDirs = new ArrayBuffer[String]()
-  while (paperCount<10000) {
+  while (paperCount<10000 && subDirCount<rawPaperSubFolderDirs.length) {
     val currentFolderDir = pubmedRootDir +"/" + rawPaperSubFolderDirs(subDirCount)
     val allPapersFolder = {
       (new File(currentFolderDir)).listFiles.map(_.getName)
     }
     for (paperName <- allPapersFolder) {
+      println("\tpaper name "+paperName)
       if (paperName.startsWith("PMC") && paperName.endsWith("xnml")){
-        rawPaperDirs.append(paperName)
+        rawPaperDirs.append(pubmedRootDir +"/" + rawPaperSubFolderDirs(subDirCount) +"/" + paperName)
         paperCount +=1
       }
     }
