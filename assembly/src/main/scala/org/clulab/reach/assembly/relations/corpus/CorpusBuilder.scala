@@ -212,12 +212,12 @@ object BuildCorpus extends App with LazyLogging {
 object BuildCorpusFromRawDocs extends App with LazyLogging {
   import CorpusBuilder._
 
-  // Initialize the needed components for the annotation. Proc, reachSystem and xnml reader are imported from PaperReader
+  // Initialize the needed components for the annotation. Proc, reachSystem and nxml reader are imported from PaperReader
   val pubmedRootDir = "/data/nlp/corpora/pmc_openaccess/pmc_dec2019"
   val threadLimit = 4
   val unlabeledExtractionCorpusDir = ""
 
-  // Get 10000 papers with PMC id and in xnml format
+  // Get 10000 papers with PMC id and in nxml format
   val rawPaperSubFolderDirs = {
     (new File(pubmedRootDir)).listFiles.filter(_.isDirectory).map(_.getName)
   }
@@ -232,7 +232,7 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
       (new File(currentFolderDir)).listFiles.map(_.getName)
     }
     for (paperName <- allPapersFolder) {
-      if (paperName.startsWith("PMC") && paperName.endsWith("xnml")){
+      if (paperName.startsWith("PMC") && paperName.endsWith("nxml")){
         rawPaperDirs.append(pubmedRootDir +"/" + rawPaperSubFolderDirs(subDirCount) +"/" + paperName)
         paperCount +=1
         println("\tpaper name: "+paperName, " count:", paperCount)
@@ -241,7 +241,7 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
     subDirCount += 1
   }
 
-  println("first paper dir:", allPapers.head.toString)
+  println("first paper dir:", rawPaperDirs.head.toString)
 
   val allPapers = rawPaperDirs.toSeq.par // allDocs is a Seq of tuple ((id, text), (id, text), (id, text), ...)
   allPapers.tasksupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
