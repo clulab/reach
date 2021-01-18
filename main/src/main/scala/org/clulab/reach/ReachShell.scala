@@ -61,6 +61,9 @@ object ReachShell extends App {
     true
   }
 
+  // TODO: For some reason the prompt and the command disappear from the screen for reach.
+  // This was the case before the menu was used and it doesn't happen for processors or eidos.
+  // It could have to do with the sbt version or the fork setting.
   val lineReader = new CliReader(">>> ", "user.home", ".reachshellhistory")
   val mainMenuItems = Seq(
     new HelpMenuItem(":help", "show commands"),
