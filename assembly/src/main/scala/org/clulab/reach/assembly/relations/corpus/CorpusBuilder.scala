@@ -235,7 +235,6 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
       if (paperName.startsWith("PMC") && paperName.endsWith("nxml")){
         rawPaperDirs.append(pubmedRootDir +"/" + rawPaperSubFolderDirs(subDirCount) +"/" + paperName)
         paperCount +=1
-        println("\tpaper name: "+paperName, " count:", paperCount)
       }
     }
     subDirCount += 1
@@ -250,7 +249,7 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
   var nDone = 0
   var nSkipped = 0
   val allEps = new ArrayBuffer[EventPair]()
-  for (paperDir <- allPapers.slice(0,4)){
+  for (paperDir <- allPapers.slice(0,1000)){
     logger.info(s"processing paper $paperDir")
     try {
       val file = new File(paperDir)
@@ -276,9 +275,10 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
   val outDir = new File("/work/zhengzhongliang/2020_ASKE/20210117")
   // create corpus and write to file
   val corpus = Corpus(allEps)
-  corpus.writeJSON(outDir, pretty = true) // TODO: in official generation, change this to false
+  corpus.writeJSON(outDir, pretty = false) // TODO: in official generation, change this to false
 
   logger.info(s"processing done! N done: ${nDone}, N skipped: ${nSkipped}")
+  logger.info(s"total eps: ${allEps.length}")
 }
 
 /**
