@@ -220,6 +220,7 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
   val rawPaperSubFolderDirs = {
     (new File("/data/nlp/corpora/pmc_openaccess/pmc_dec2019")).listFiles.filter(_.isDirectory).map(_.getName)
   }
+  println("first folder path:", rawPaperSubFolderDirs(0))
 
   var subDirCount = 0
   var paperCount = 0
