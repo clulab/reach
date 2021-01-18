@@ -183,7 +183,7 @@ class BioNERPostProcessor(val stopWordFile:String) extends SentencePostProcessor
 }
 
 object BioNERPostProcessor {
-  private val POTENTIAL_FIGURE_NUMBER = Pattern.compile("[a-z]*\\d+", Pattern.CASE_INSENSITIVE)
+  private val POTENTIAL_FIGURE_NUMBER = Pattern.compile("[a-z]*\\d+[a-z]*", Pattern.CASE_INSENSITIVE)
   private val POTENTIAL_FIGURE_TEXT = Pattern.compile("(figure|figures|fig\\.?|figs\\.?)", Pattern.CASE_INSENSITIVE)
 
   def loadEntityStopList(kb:String):Set[String] = {
