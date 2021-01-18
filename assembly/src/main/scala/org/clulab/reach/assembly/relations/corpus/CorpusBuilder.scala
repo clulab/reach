@@ -213,20 +213,21 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
   import CorpusBuilder._
 
   // Initialize the needed components for the annotation. Proc, reachSystem and xnml reader are imported from PaperReader
+  val pubmedRootDir = "/data/nlp/corpora/pmc_openaccess/pmc_dec2019"
   val threadLimit = 4
   val unlabeledExtractionCorpusDir = ""
 
   // Get 10000 papers with PMC id and in xnml format
   val rawPaperSubFolderDirs = {
-    (new File("/data/nlp/corpora/pmc_openaccess/pmc_dec2019")).listFiles.filter(_.isDirectory).map(_.getName)
+    (new File(pubmedRootDir)).listFiles.filter(_.isDirectory).map(_.getName)
   }
-  println("first folder path:", rawPaperSubFolderDirs(0))
+  println("first folder path:", pubmedRootDir +"/" + rawPaperSubFolderDirs(0))
 
   var subDirCount = 0
   var paperCount = 0
   val rawPaperDirs = new ArrayBuffer[String]()
   while (paperCount<10000) {
-    val currentFolderDir = rawPaperSubFolderDirs(subDirCount)
+    val currentFolderDir = pubmedRootDir +"/" + rawPaperSubFolderDirs(subDirCount)
     val allPapersFolder = {
       (new File(currentFolderDir)).listFiles.map(_.getName)
     }
