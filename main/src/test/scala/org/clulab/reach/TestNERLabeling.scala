@@ -15,8 +15,8 @@ class TestNERLabeling extends FlatSpec with Matchers {
 
   val bioProcess = "apoptosis, autophagic cell death, quiescence, hematopoiesis, or complex assembly cause cancer."
   val cellLine = "MPanc-96, mast, Hyssop, CEM/TART, and ZR75-1 cause cancer."
-  val cellType = "apud cell, AV nodal myocyte, An1 B Cell, xanthoblast, and zygote cause cancer"
-  val cellTypes = "apud cells, AV nodal myocytes, An1 B Cells, xanthoblasts, and zygotes cause cancer"
+  val cellType = "apud cell, AV nodal myocyte, An1 B Cell, xanthoblast, and zygospore cause cancer"
+  val cellTypes = "apud cells, AV nodal myocytes, An1 B Cells, xanthoblasts, and zygospores cause cancer"
   // this tests from Uniprot subcellular location AND GO subcellular location KBs:
   val cellular_comp = "A bands, C zones, F bouton, H zones, I bands, Z lines, CVT vesicles, telomeres, Symplasts, and Host periplasms cause cancer."
   // this tests from PFAM AND InterPro protein family KBs:
