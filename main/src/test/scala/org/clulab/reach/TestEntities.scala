@@ -212,4 +212,49 @@ class TestEntities extends FlatSpec with Matchers {
     hasEntity("preM", mentions) should be (true)
   }
 
+  val sent11a = "Similarly, we showed that wild-type p53 was polyubiquitinated by Pirh2 but not by Pirh2-DN and Pirh2-ΔRING (Fig. 5C, compare lane 3 with lanes 4 and 5)."
+  val sent11b = "In contrast, the levels of IRP2 and TfR1 were increased, whereas the level of FTH1 was decreased, by ectopic mutant p53 (Fig. 4f, compare lanes 3–4 with 1–2, respectively)."
+  val sent11c = "In addition, knockout of IRP2 led to decreased expression of TfR1 and increased expression of FTH1 (Fig. 5a), consistent with previous report [41]."
+  val sent11d = "MG132 treatment rescued the NSC59984-mediated down-regulation of mutant p53 (figure 4A)."
+
+  sent11a should "not contain an entity named Fig. 5C" in {
+    val mentions = getBioMentions(sent11a)
+    hasEntity("Fig. 5C", mentions) should be (false)
+  }
+
+  sent11a should "not contain a site named 5C" in {
+    val mentions = getBioMentions(sent11a)
+    hasEntity("5C", mentions) should be (false)
+  }
+
+  sent11b should "not contain an entity named Fig. 4f" in {
+    val mentions = getBioMentions(sent11b)
+    hasEntity("Fig. 4f", mentions) should be (false)
+  }
+
+  sent11b should "not contain a site named 4f" in {
+    val mentions = getBioMentions(sent11b)
+    hasEntity("4f", mentions) should be (false)
+  }
+
+  sent11c should "not contain an entity named Fig. 5a" in {
+    val mentions = getBioMentions(sent11c)
+    hasEntity("Fig. 5a", mentions) should be (false)
+  }
+
+  sent11c should "not contain a site named 5a" in {
+    val mentions = getBioMentions(sent11c)
+    hasEntity("5a", mentions) should be (false)
+  }
+
+  sent11d should "not contain an entity named figure 4A" in {
+    val mentions = getBioMentions(sent11d)
+    hasEntity("figure 4A", mentions) should be (false)
+  }
+
+  sent11d should "not contain a site named 4A" in {
+    val mentions = getBioMentions(sent11d)
+    hasEntity("4A", mentions) should be (false)
+  }
+
 }

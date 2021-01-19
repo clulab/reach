@@ -35,9 +35,9 @@ class TestReachContextKBLister extends FlatSpec with Matchers {
     // System.err.println(s"CELL-TYPES.size=${ctypes.size}" // DEBUGGING
     ctypes should not be empty
     // ctypes.filter(cg => hasText(cg, "")).foreach(System.err.println(_)) // DEBUGGING
-    (ctypes.count(cg => hasText(cg, "granulocyte"))) should be (22)
+    (ctypes.count(cg => hasText(cg, "granulocyte"))) should be (26)
     (ctypes.count(cg => hasId(cg, "CL:0000557"))) should be (14)
-    (ctypes.count(cg => hasText(cg, "hair"))) should be (50)
+    (ctypes.count(cg => hasText(cg, "hair"))) should be (54)
   }
 
   "Context KBs list" should "have organ entries" in {
