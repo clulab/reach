@@ -8,9 +8,11 @@ import java.io.File
 
 class TestCrashes extends ReachTest {
   val withAssembly = true
+  // TODO: Eventually use the temporary directory.
+  val outputDirname = "./tmpTest"
   val reachCLI = {
     val papersDir = new File("")
-    val outputDir = new File("./tmpTest")
+    val outputDir = new File(outputDirname)
     val outputFormats = Seq.empty[String]
 
     new ReachCLI(papersDir, outputDir, outputFormats)
@@ -21,7 +23,7 @@ class TestCrashes extends ReachTest {
       case "fries" => Seq.empty
       case "serial-json" => Seq.empty
       case "indexcard" => Seq.empty
-      case "cmu" => Seq.empty
+      case "cmu" => Seq(s"$pmcid-cmu-out.tsv")
     }
   }
 
@@ -42,7 +44,8 @@ class TestCrashes extends ReachTest {
       // Try to clean up after yourself.
       val outputFilenames = getOutputFilenames(pmcid, outputFormat)
       outputFilenames.foreach { filename =>
-        new File(filename).delete()
+        val pathname = s"$outputDirname/$filename"
+        new File(pathname).delete()
       }
     }
   }
@@ -62,6 +65,7 @@ class TestCrashes extends ReachTest {
 
     ignore should "not throw an IllegalArgumentException when Controllers of an Activation are not Entities" in {
       val pmcid = "PMC4265014"
+      // Activation.scala:31
 
       test(pmcid)
       println("Test is finished")
@@ -98,13 +102,14 @@ class TestCrashes extends ReachTest {
     behavior of "reading"
 
     ignore should "not throw an InvocationTargetException" in {
+      // This just takes a lot of time.
       val pmcid = "PMC7040422"
 
       test(pmcid)
       println("Test is finished")
     }
 
-    it should "not throw a NoSuchElementException" in {
+    ignore should "not throw a NoSuchElementException" in {
       val key1 = "controlled"
       val pmcid1 = "PMC5504966"
       val text1 = "Bacteria in the human gut can produce hydrogen gas , and hydrogen can be converted to methane in the gut by methane producing bacteria [ 15 ] ."
@@ -131,21 +136,22 @@ class TestCrashes extends ReachTest {
 
     behavior of "indexcard format"
 
-    it should "not throw a RuntimeException when argument type not supported" in {
+    ignore should "not throw a RuntimeException when argument type not supported" in {
       val typ = "event"
       val pmcid = "PMC3822968"
+      // IndexCardOutput.scala:182
 
-      test(pmcid)
+//      test(pmcid)
     }
 
-    it should "not throw a RuntimeException when event type conversion not supported" in {
+    ignore should "not throw a RuntimeException when event type conversion not supported" in {
       val typ = "conversion"
       val pmcid = "PMC3822968"
 
       test(pmcid)
     }
 
-    it should "not throw a RuntimeException when unknown event type in event" in {
+    ignore should "not throw a RuntimeException when unknown event type in event" in {
 
       def runIndexcardTest(text: String) = runTest(text, "indexcard")
 
@@ -175,6 +181,7 @@ class TestCrashes extends ReachTest {
 
     it should "not throw a NoSuchElementException on empty iterator" in {
       val pmcid = "PMC6681624"
+      // At CMUExporter.scala:25 in createMechanismType
 
       test(pmcid)
     }
