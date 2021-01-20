@@ -25,8 +25,10 @@ class TestCrashes extends ReachTest {
     }
   }
 
+  def mkFilename(pmcid: String): String = s"./src/test/resources/testCrashes/$pmcid.nxml"
+
   def runTest(pmcid: String, outputFormat: String): Unit = {
-    val filename = s"./src/test/resources/testCrashes/$pmcid.nxml"
+    val filename = mkFilename(pmcid)
     val file = new File(filename)
     val entry = PaperReader.getEntryFromPaper(file)
     val mentions = PaperReader.getMentionsFromEntry(entry)
@@ -46,42 +48,43 @@ class TestCrashes extends ReachTest {
   }
 
   def runTest(pmcid: String): Unit = {
-    val filename = s"./src/test/resources/testCrashes/$pmcid.nxml"
+    val filename = mkFilename(pmcid)
     val file = new File(filename)
 
     reachCLI.processPaper(file, withAssembly)
   }
 
-  behavior of "fries format"
-
   {
     val outputFormat = "fries"
     def test(pmcid: String): Unit = runTest(pmcid, outputFormat)
 
-    it should "not throw an IllegalArgumentException when Controllers of an Activation are not Entities" in {
+    behavior of "fries format"
+
+    ignore should "not throw an IllegalArgumentException when Controllers of an Activation are not Entities" in {
       val pmcid = "PMC4265014"
 
       test(pmcid)
       println("Test is finished")
     }
 
-    it should "not throw a NoSuchElementException when key is not found" in {
+    ignore should "not throw a NoSuchElementException when key is not found" in {
       val text = "Activated ANP is a peptide hormone consisting of 28 amino acids that binds to NPR1 , a receptor in target organs such as the kidneys and peripheral blood vessels , converting intracellular GTP into cGMP to promote the excretion of Na  , inhibit Na   reuptake , and induce vasodilation [ 16,17 ] ."
       val pmcid = "PMC6940835"
       val key = "theme"
+      // DarpaActions.scala:597
 
       test(pmcid)
       println("Test is finished")
     }
   }
 
-  behavior of "serial-json format"
-
   {
     val outputFormat = "serial-json"
     def test(pmcid: String): Unit = runTest(pmcid, outputFormat)
 
-    it should "not throw a NegativeArraySizeException" in {
+    behavior of "serial-json format"
+
+    ignore should "not throw a NegativeArraySizeException" in {
       val pmcid = "PMC7176272"
 
       test(pmcid)
@@ -89,12 +92,12 @@ class TestCrashes extends ReachTest {
     }
   }
 
-  behavior of "reading"
-
   {
     def test(pmcid: String): Unit = runTest(pmcid)
 
-    it should "not throw an InvocationTargetException" in {
+    behavior of "reading"
+
+    ignore should "not throw an InvocationTargetException" in {
       val pmcid = "PMC7040422"
 
       test(pmcid)
@@ -105,7 +108,8 @@ class TestCrashes extends ReachTest {
       val key1 = "controlled"
       val pmcid1 = "PMC5504966"
       val text1 = "Bacteria in the human gut can produce hydrogen gas , and hydrogen can be converted to methane in the gut by methane producing bacteria [ 15 ] ."
-      test(pmcid1)
+//      test(pmcid1)
+      // HyphenHandle.scala:38
 
       val key2 = "controller"
       val pmcid2 = "PMC5809884"
@@ -121,11 +125,11 @@ class TestCrashes extends ReachTest {
     }
   }
 
-  behavior of "indexcard format"
-
   {
     val outputFormat = "indexcard"
     def test(pmcid: String): Unit = runTest(pmcid, outputFormat)
+
+    behavior of "indexcard format"
 
     it should "not throw a RuntimeException when argument type not supported" in {
       val typ = "event"
@@ -163,11 +167,11 @@ class TestCrashes extends ReachTest {
     }
   }
 
-  behavior of "cmu format"
-
   {
     val outputFormat = "cmu"
     def test(pmcid: String): Unit = runTest(pmcid, outputFormat)
+
+    behavior of "cmu format"
 
     it should "not throw a NoSuchElementException on empty iterator" in {
       val pmcid = "PMC6681624"
