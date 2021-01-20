@@ -28,7 +28,7 @@ class Activation(
 
   override val eerString = "assembly.Activation"
 
-  require(controller.forall(_.isInstanceOf[Entity]), "Controllers of an Activation must be Entities!")
+  require(controller.forall { c => c.isInstanceOf[Entity] || c.isInstanceOf[Regulation] }, "Controllers of an Activation must be Entities or Regulations!")
 
   //TODO: figure out how to override def controller to return Set[Entity]
 }

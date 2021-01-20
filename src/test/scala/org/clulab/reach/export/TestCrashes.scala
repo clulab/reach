@@ -7,6 +7,9 @@ import org.clulab.reach.ReachTest
 import java.io.File
 
 class TestCrashes extends ReachTest {
+
+  val done = ignore
+
   val withAssembly = true
   // TODO: Eventually use the temporary directory.
   val outputDirname = "./tmpTest"
@@ -20,7 +23,7 @@ class TestCrashes extends ReachTest {
 
   def getOutputFilenames(pmcid: String, outputFormat: String): Seq[String] = {
     outputFormat match {
-      case "fries" => Seq.empty
+      case "fries" => Seq(s"$pmcid.uaz.entities.json", s"$pmcid.uaz.events.json", s"$pmcid.uaz.sentences.json")
       case "serial-json" => Seq.empty
       case "indexcard" => Seq.empty
       case "cmu" => Seq(s"$pmcid-cmu-out.tsv")
@@ -45,7 +48,7 @@ class TestCrashes extends ReachTest {
       val outputFilenames = getOutputFilenames(pmcid, outputFormat)
       outputFilenames.foreach { filename =>
         val pathname = s"$outputDirname/$filename"
-        new File(pathname).delete()
+//        new File(pathname).delete()
       }
     }
   }
@@ -63,12 +66,11 @@ class TestCrashes extends ReachTest {
 
     behavior of "fries format"
 
-    ignore should "not throw an IllegalArgumentException when Controllers of an Activation are not Entities" in {
+    it should "not throw an IllegalArgumentException when Controllers of an Activation are not Entities" in {
       val pmcid = "PMC4265014"
-      // Activation.scala:31
+      // At Activation.scala:31 in constructor
 
       test(pmcid)
-      println("Test is finished")
     }
 
     ignore should "not throw a NoSuchElementException when key is not found" in {
@@ -179,7 +181,7 @@ class TestCrashes extends ReachTest {
 
     behavior of "cmu format"
 
-    it should "not throw a NoSuchElementException on empty iterator" in {
+    done should "not throw a NoSuchElementException on empty iterator" in {
       val pmcid = "PMC6681624"
       // At CMUExporter.scala:25 in createMechanismType
 
