@@ -220,17 +220,19 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
   // Get 10000 papers with PMC id and in nxml format
   val rawPaperSubFolderDirs = {
     (new File(pubmedRootDir)).listFiles.filter(_.isDirectory).map(_.getName)
-  }
+  }.sorted
+
   println("first folder path:", pubmedRootDir +"/" + rawPaperSubFolderDirs(0))
+  println("second folder path:", pubmedRootDir +"/" + rawPaperSubFolderDirs(1))
 
   var subDirCount = 0
   var paperCount = 0
   val rawPaperDirs = new ArrayBuffer[String]()
-  while (paperCount<10000 && subDirCount<rawPaperSubFolderDirs.length) {
+  while (subDirCount<rawPaperSubFolderDirs.length) {
     val currentFolderDir = pubmedRootDir +"/" + rawPaperSubFolderDirs(subDirCount)
     val allPapersFolder = {
       (new File(currentFolderDir)).listFiles.map(_.getName)
-    }
+    }.sorted
     for (paperName <- allPapersFolder) {
       if (paperName.startsWith("PMC") && paperName.endsWith("nxml")){
         rawPaperDirs.append(pubmedRootDir +"/" + rawPaperSubFolderDirs(subDirCount) +"/" + paperName)
@@ -241,7 +243,9 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
   }
 
   println("first paper dir:", rawPaperDirs.head.toString)
+  println("second paper dir:", rawPaperDirs(1).toString)
 
+  /*
   val allPapers = rawPaperDirs.toSeq.par // allDocs is a Seq of tuple ((id, text), (id, text), (id, text), ...)
   allPapers.tasksupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
 
@@ -279,6 +283,8 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
 
   logger.info(s"processing done! N done: ${nDone}, N skipped: ${nSkipped}")
   logger.info(s"total eps: ${allEps.length}")
+
+  */
 }
 
 /**
