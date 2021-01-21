@@ -48,7 +48,7 @@ class TestCrashes extends ReachTest {
       val outputFilenames = getOutputFilenames(pmcid, outputFormat)
       outputFilenames.foreach { filename =>
         val pathname = s"$outputDirname/$filename"
-//        new File(pathname).delete()
+        new File(pathname).delete()
       }
     }
   }
@@ -66,21 +66,20 @@ class TestCrashes extends ReachTest {
 
     behavior of "fries format"
 
-    it should "not throw an IllegalArgumentException when Controllers of an Activation are not Entities" in {
+    done should "not throw an IllegalArgumentException when Controllers of an Activation are not Entities" in {
       val pmcid = "PMC4265014"
       // At Activation.scala:31 in constructor
 
       test(pmcid)
     }
 
-    ignore should "not throw a NoSuchElementException when key is not found" in {
+    done should "not throw a NoSuchElementException when key is not found" in {
       val text = "Activated ANP is a peptide hormone consisting of 28 amino acids that binds to NPR1 , a receptor in target organs such as the kidneys and peripheral blood vessels , converting intracellular GTP into cGMP to promote the excretion of Na  , inhibit Na   reuptake , and induce vasodilation [ 16,17 ] ."
-      val pmcid = "PMC6940835"
       val key = "theme"
-      // DarpaActions.scala:597
+      val pmcid = "PMC6940835"
+      // At DarpaActions.scala:597 in convertEventToEntity
 
       test(pmcid)
-      println("Test is finished")
     }
   }
 
@@ -90,7 +89,7 @@ class TestCrashes extends ReachTest {
 
     behavior of "serial-json format"
 
-    ignore should "not throw a NegativeArraySizeException" in {
+    it should "not throw a NegativeArraySizeException" in {
       val pmcid = "PMC7176272"
 
       test(pmcid)
@@ -112,23 +111,16 @@ class TestCrashes extends ReachTest {
     }
 
     ignore should "not throw a NoSuchElementException" in {
+      val text1 = "Bacteria in the human gut can produce hydrogen gas , and hydrogen can be converted to methane in the gut by methane producing bacteria [ 15 ] ."
       val key1 = "controlled"
       val pmcid1 = "PMC5504966"
-      val text1 = "Bacteria in the human gut can produce hydrogen gas , and hydrogen can be converted to methane in the gut by methane producing bacteria [ 15 ] ."
 //      test(pmcid1)
       // HyphenHandle.scala:38
 
+      val text2 = "( 2 ) Noise exposure led to enhanced JNK phosphorylation and IRS1 serine phosphorylation as well as reduced Akt phosphorylation in skeletal muscles in response to exogenous insulin stimulation ."
       val key2 = "controller"
       val pmcid2 = "PMC5809884"
-      val text2 = "( 2 ) Noise exposure led to enhanced JNK phosphorylation and IRS1 serine phosphorylation as well as reduced Akt phosphorylation in skeletal muscles in response to exogenous insulin stimulation ."
-      test(pmcid2)
-
-      val key3 = "theme"
-      val pmcid3 = "PMC6940835"
-      val text3 = "Activated ANP is a peptide hormone consisting of 28 amino acids that binds to NPR1 , a receptor in target organs such as the kidneys and peripheral blood vessels , converting intracellular GTP into cGMP to promote the excretion of Na  , inhibit Na   reuptake , and induce vasodilation [ 16,17 ] ."
-      test(pmcid3)
-
-      println("Test is finished")
+//      test(pmcid2)
     }
   }
 
