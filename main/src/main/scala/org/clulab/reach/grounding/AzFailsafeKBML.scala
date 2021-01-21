@@ -29,7 +29,8 @@ class AzFailsafeKBML extends IMKBMentionLookup {
   val mkRefId: String => String = mkRefIdByContent
 
   // base resolve of text string which does all the work for this class
-  override def resolve (text:String): Resolutions = {
+  // We have a mutable, non-atomic KB here, so synchronization is necessary.
+  override def resolve (text:String): Resolutions = synchronized {
     val resolutions = memoryKB.lookupNoSpecies(text)
     if (resolutions.isDefined)                           // text has been resolved
       resolutions
