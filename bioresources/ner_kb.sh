@@ -6,10 +6,10 @@
 # To avoid rugenerating *all* KBs edit the ner_kb.config file and keep only the modified KBs
 #
 
-cd ../reach
+cd ..
 
 # generate the NER KBs here
-sbt 'runMain org.clulab.processors.bionlp.ner.KBGenerator ../bioresources/ner_kb.config ../bioresources/src/main/resources/org/clulab/reach/kb/ ../bioresources/src/main/resources/org/clulab/reach/kb/ner'
+sbt 'runMain org.clulab.processors.bionlp.ner.KBGenerator bioresources/ner_kb.config bioresources/src/main/resources/org/clulab/reach/kb/ bioresources/src/main/resources/org/clulab/reach/kb/ner'
 
-cd ../bioresources
+cd bioresources
 
