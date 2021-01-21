@@ -2,8 +2,9 @@ package org.clulab.reach.grounding
 
 import org.clulab.odin._
 import org.clulab.reach.grounding.ReachKBConstants._
-import org.clulab.reach.grounding.ReachKBKeyTransforms._
 import org.clulab.reach.grounding.Speciated._
+
+import java.nio.charset.StandardCharsets
 
 /**
   * KB accessor implementation which always resolves each mention with a local, fake ID.
@@ -14,15 +15,28 @@ class AzFailsafeKBML extends IMKBMentionLookup {
 
   private val idCntr = new IncrementingCounter() // counter sequence class
 
+  def mkRefIdByCounter(text: String): String = {
+    "UAZ%05d".format(idCntr.next())
+  }
+
+  def mkRefIdByContent(text: String): String = {
+    text
+        .getBytes(StandardCharsets.UTF_8)
+        .map { byte => String.format("%02X", Byte.box(byte)) }
+        .mkString("UAZ", "", "")
+  }
+
+  val mkRefId: String => String = mkRefIdByContent
+
   // base resolve of text string which does all the work for this class
   override def resolve (text:String): Resolutions = {
     val resolutions = memoryKB.lookupNoSpecies(text)
-    if (resolutions.isDefined)                  // text has been resolved
-      return resolutions
-    else {                                      // else no existing entries for this text
-      val refId = "UAZ%05d".format(idCntr.next) // so create a new reference ID
+    if (resolutions.isDefined)                           // text has been resolved
+      resolutions
+    else {                                               // else no existing entries for this text
+      val refId = mkRefId(text)                          // so create a new reference ID
       memoryKB.addEntries(text, DefaultNamespace, refId) // create new KB entries for this text
-      return memoryKB.lookupNoSpecies(text)     // and return results from repeating lookup
+      memoryKB.lookupNoSpecies(text)                     // and return results from repeating lookup
     }
   }
 
