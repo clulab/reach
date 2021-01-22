@@ -26,6 +26,27 @@ import IndexCardOutput._
   */
 class IndexCardOutput extends JsonOutputter with LazyLogging {
 
+  class PropMapWithParticipants extends PropMap {
+    val participantA = "participant_a"
+    val participantB = "participant_b"
+
+    def addParticipant(key: String, arg: CorefMention): Unit = {
+      // mkArgument is reused from outer class.
+      val valueOpt = mkArgument(arg)
+      valueOpt.foreach { value =>
+        this(key) = value
+      }
+    }
+
+    def addParticipant(key: String, frameList: FrameList): Unit = this(key) = frameList
+
+    def addParticipantA(arg: CorefMention): Unit = addParticipant(participantA, arg)
+
+    def addParticipantB(arg: CorefMention): Unit = addParticipant(participantB, arg)
+
+    def addParticipantB(frameList: FrameList): Unit = addParticipant(participantB, frameList)
+  }
+
   /**
    * Returns the given mentions in the index-card JSON format, as one big string.
    * All index cards are concatenated into a single JSON string.
@@ -292,11 +313,11 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
 
   /** Creates a card for a simple, modification event */
   def mkModificationIndexCard(mention:CorefMention,
-                              positiveModification:Boolean = true):Option[PropMap] = {
-    val f = new PropMap
+                              positiveModification:Boolean = true):Option[PropMapWithParticipants] = {
+    val f = new PropMapWithParticipants
 
     // a modification event will have exactly one theme
-    addArgument(f, "participant_b", mention.themeArgs.get.head.toCorefMention)
+    f.addParticipantB(mention.themeArgs.get.head.toCorefMention)
 
     if (positiveModification)
       f("interaction_type") = "adds_modification"
@@ -319,9 +340,9 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
 
   /** Creates a card for a simple events */
   def mkSimpleEventIndexCard(mention: CorefMention, label: String): Option[PropMap] = {
-    val f = new PropMap
+    val f = new PropMapWithParticipants
     f("interaction_type") = label
-    addArgument(f, "participant_b", mention.themeArgs.get.head.toCorefMention)
+    f.addParticipantB(mention.themeArgs.get.head.toCorefMention)
 
     Some(f)
   }
@@ -349,40 +370,40 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
       case "Negative_regulation" => false
       case _ => throw new RuntimeException(s"ERROR: unknown regulation event ${mention.label}!")
     }
-    val ex = mkModificationIndexCard(controlled, positiveModification = posMod)
 
     // add participant_a from the controller
     val controllers = mention.controllerArgs
     if (controllers.isEmpty)
       throw new RuntimeException("ERROR: an activation event must have a controller argument!")
-    val controller = controllers.get.head.toCorefMention
-    addArgument(ex.get, "participant_a", controller)
+
+    val ex = mkModificationIndexCard(controlled, positiveModification = posMod).get
+    ex.addParticipantA(controllers.get.head.toCorefMention)
 
     // add hedging and context
-    mkHedging(ex.get, mention)
-    mkContext(ex.get, mention)
+    mkHedging(ex, mention)
+    mkContext(ex, mention)
 
     // all this becomes the extracted_information block
     val f = new PropMap
-    f("extracted_information") = ex.get
+    f("extracted_information") = ex
     Some(f)
   }
 
 
   /** Creates a card for an activation event */
   def mkActivationIndexCard(mention:CorefMention):Option[PropMap] = {
-    val f = new PropMap
+    val f = new PropMapWithParticipants
 
     // a modification event must have exactly one controller and one controlled
     val controllers = mention.controllerArgs
     if (controllers.isEmpty)
       throw new RuntimeException("ERROR: an activation event must have a controller argument!")
-    addArgument(f, "participant_a", controllers.get.head.toCorefMention)
+    f.addParticipantA(controllers.get.head.toCorefMention)
 
     val controlleds = mention.controlledArgs
     if (controlleds.isEmpty)
       throw new RuntimeException("ERROR: an activation event must have a controlled argument!")
-    addArgument(f, "participant_b", controlleds.get.head.toCorefMention)
+    f.addParticipantB(controlleds.get.head.toCorefMention)
 
     if (mention.label == "Positive_activation")
       f("interaction_type") = "increases_activity"
@@ -391,27 +412,19 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
     Some(f)
   }
 
-  def addArgument(f: PropMap, key: String, arg: CorefMention): Unit = {
-    val valueOpt = mkArgument(arg)
-    valueOpt.foreach { value =>
-      f(key) = value
-    }
-  }
-
-
   /** Creates a card for a complex-assembly event */
   def mkBindingIndexCard(mention:CorefMention):Option[PropMap] = {
-    val f = new PropMap
+    val f = new PropMapWithParticipants
     f("interaction_type") = "binds"
 
     val participants = mention.themeArgs.get
 
     // a Binding events must have at least 2 arguments
-    addArgument(f,"participant_a", participants.head.toCorefMention)
+    f.addParticipantA(participants.head.toCorefMention)
 
     val participantsTail = participants.tail
     if (participantsTail.size == 1) {
-      addArgument(f, "participant_b", participantsTail.head.toCorefMention)
+      f.addParticipantB(participantsTail.head.toCorefMention)
     }
     else if (participantsTail.size > 1) {
       // store them all as a single complex.
@@ -420,7 +433,7 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
       participantsTail.foreach(part => {
         fl += mkSingleArgument(part.toCorefMention)
       })
-      f("participant_b") = fl
+      f.addParticipantB(fl)
     }
     else {
       throw new RuntimeException("ERROR: A complex assembly event must have at least 2 participants!")
@@ -442,9 +455,9 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
 
   /** Creates a card for a translocation event */
   def mkTranslocationIndexCard(mention:CorefMention):Option[PropMap] = {
-    val f = new PropMap
+    val f = new PropMapWithParticipants
     f("interaction_type") = "translocates"
-    addArgument(f, "participant_b", mention.themeArgs.get.head.toCorefMention)
+    f.addParticipantB(mention.themeArgs.get.head.toCorefMention)
 
     val sources = mention.sourceArgs
     if (sources.isDefined)
@@ -487,7 +500,6 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
   }
 
 }
-
 
 object IndexCardOutput {
   val LETTER_DIGIT_MUTATION = Pattern.compile("^([ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]+)(\\d+)")
