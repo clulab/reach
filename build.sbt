@@ -85,9 +85,13 @@ lazy val root = (project in file("."))
     assemblyJarName in assembly := s"reach-${version.value}-FAT.jar"
   )
 
+lazy val bioresources = project
+  .settings(commonSettings:_*)
+
 // this stores BioNLPProcessor and its models
 lazy val processors = project
   .settings(commonSettings:_*)
+  .dependsOn(bioresources % "test->test;compile->compile")
 
 lazy val main = project
   .settings(commonSettings:_*)
