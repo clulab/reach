@@ -15,12 +15,12 @@ import java.io.File
 
 import ai.lum.nxmlreader.NxmlReader
 import org.apache.commons.io.FilenameUtils
+import org.clulab.reach.PaperReader
 import org.clulab.reach.PaperReader._
 import org.clulab.reach.mentions.serialization.json.{JSONSerializer => ReachJSONSerializer}
 
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.parallel.ForkJoinTaskSupport
-
 import org.clulab.reach.mentions.serialization.json._
 import org.clulab.utils.Serializer
 import org.json4s.DefaultFormats
@@ -222,20 +222,20 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
     (new File(pubmedRootDir)).listFiles.filter(_.isDirectory).map(_.getName)
   }.sorted
 
-  println("first folder path:", pubmedRootDir +"/" + rawPaperSubFolderDirs(0))
-  println("second folder path:", pubmedRootDir +"/" + rawPaperSubFolderDirs(1))
+  logger.info(s"first folder path: ${pubmedRootDir}/${rawPaperSubFolderDirs(0)}")
+  logger.info(s"second folder path: ${pubmedRootDir}/${rawPaperSubFolderDirs(1)}")
 
   var subDirCount = 0
   var paperCount = 0
   val rawPaperDirs = new ArrayBuffer[String]()
   while (subDirCount<rawPaperSubFolderDirs.length) {
-    println(s"processing subdir ${subDirCount}/${rawPaperSubFolderDirs.length}")
+    //println(s"processing subdir ${subDirCount}/${rawPaperSubFolderDirs.length}")
     val currentFolderDir = pubmedRootDir +"/" + rawPaperSubFolderDirs(subDirCount)
     val allPapersFolder = {
       (new File(currentFolderDir)).listFiles.map(_.getName)
     }.sorted
     for (paperName <- allPapersFolder) {
-      if (paperName.startsWith("PMC") && paperName.endsWith("nxml")){
+      if (paperName.startsWith("PMC") && (paperName.endsWith("nxml") || paperName.endsWith("txt")) ){
         rawPaperDirs.append(pubmedRootDir +"/" + rawPaperSubFolderDirs(subDirCount) +"/" + paperName)
         paperCount +=1
       }
@@ -243,49 +243,63 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
     subDirCount += 1
   }
 
-  println("first paper dir:", rawPaperDirs.head.toString)
-  println("second paper dir:", rawPaperDirs(1).toString)
+  logger.info(s"total number of papers:${rawPaperDirs.length}")
+  logger.info(s"first paper dir:${rawPaperDirs.head.toString}")
+  logger.info(s"second paper dir:${rawPaperDirs(1).toString}")
 
-  /*
-  val allPapers = rawPaperDirs.toSeq.par // allDocs is a Seq of tuple ((id, text), (id, text), (id, text), ...)
-  allPapers.tasksupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
+  // First, chunk all papers to 10,000 papers each chunk
+  val nTotalPairsNeeded = 2 // default: 20000
+  val chunkSize = 5  //default: each chunk has 1000 papers, which takes about 4 hours to process when thread limit = 4, yielding ~500 pairs.
+  var continueProcessFlag = true // whether to continue to process the next chunk
+  var chunkNum = 0 // which chunk processing now
+  var totalEps = 0 // total number of eps collected so far
+  while (continueProcessFlag && chunkNum < (rawPaperDirs.length/chunkSize).toInt){
+    logger.info("-"*20)
+    logger.info(s"processing chunk $chunkNum ...")
 
+    val papersToProcess = rawPaperDirs.slice(chunkNum * chunkSize , (chunkNum+1)*chunkSize).par
+    papersToProcess.tasksupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
 
-  var nDone = 0
-  var nSkipped = 0
-  val allEps = new ArrayBuffer[EventPair]()
-  for (paperDir <- allPapers.slice(0,1000)){
-    logger.info(s"processing paper $paperDir")
-    try {
-      val file = new File(paperDir)
+    var nDone = 0
+    var nSkipped = 0
+    val allEps = new ArrayBuffer[EventPair]()
+    for (paperDir <- papersToProcess){
+      logger.info(s"processing paper $paperDir")
+      try {
 
-      require(file.getName.endsWith(".nxml"), s"Given ${file.getAbsolutePath}, but readNXMLPaper only handles .nxml files!")
-      val paperID = FilenameUtils.removeExtension(file.getName)
-      logger.debug(s"reading paper $paperID ...")
-      val mentions = reachSystem.extractFrom(nxmlReader.read(file)).toVector
+        val (paperID, mentions) = PaperReader.readPaper(new File(paperDir))
 
-      val cms: Seq[CorefMention] = mentions.map(_.toCorefMention)
-      val eventPairs = selectEventPairs(cms)
-      allEps.appendAll(eventPairs)
-      nDone+=1
-    }
-    catch{
-      case _ => {
-        nSkipped+=1
-        logger.info("\tpaper skipped")
+        val cms: Seq[CorefMention] = mentions.map(_.toCorefMention)
+        val eventPairs = selectEventPairs(cms)
+        allEps.appendAll(eventPairs)
+        nDone+=1
+
+        totalEps += allEps.length
+        if (totalEps>nTotalPairsNeeded){
+          continueProcessFlag = false
+        }
       }
+      catch{
+        case _ => {
+          nSkipped+=1
+          logger.info("\tpaper skipped")
+        }
 
+      }
     }
+    val outDir = new File("/work/zhengzhongliang/2020_ASKE/20210117/paper_" +
+                            (chunkNum * chunkSize).toString + "_" + ((chunkNum+1)*chunkSize).toString)
+    // create corpus and write to file
+    val corpus = Corpus(allEps)
+    corpus.writeJSON(outDir, pretty = true) // TODO: in official generation, change this to false
+
+    logger.info(s"processing done! N done: ${nDone}, N skipped: ${nSkipped}")
+    logger.info(s"chunk eps: ${allEps.length}")
+    logger.info(s"total eps: ${totalEps}")
+
+    chunkNum += 1
   }
-  val outDir = new File("/work/zhengzhongliang/2020_ASKE/20210117")
-  // create corpus and write to file
-  val corpus = Corpus(allEps)
-  corpus.writeJSON(outDir, pretty = false) // TODO: in official generation, change this to false
 
-  logger.info(s"processing done! N done: ${nDone}, N skipped: ${nSkipped}")
-  logger.info(s"total eps: ${allEps.length}")
-
-  */
 }
 
 /**
