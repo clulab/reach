@@ -247,14 +247,17 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
   logger.info(s"first paper dir:${rawPaperDirs.head.toString}")
   logger.info(s"second paper dir:${rawPaperDirs(1).toString}")
 
+  // 2 things to change after debugging:
+  // nTotalPairsNeeded = 20000, chunkSize = 10000,
+
   // First, chunk all papers to 10,000 papers each chunk
-  val nTotalPairsNeeded = 2 // default: 20000
-  val chunkSize = 5  //default: each chunk has 1000 papers, which takes about 4 hours to process when thread limit = 4, yielding ~500 pairs.
+  val nTotalPairsNeeded = 20000 // default: 20000
+  val chunkSize = 1000  //default: each chunk has 1000 papers, which takes about 4 hours to process when thread limit = 4, yielding ~500 pairs.
   var continueProcessFlag = true // whether to continue to process the next chunk
   var chunkNum = 0 // which chunk processing now
   var totalEps = 0 // total number of eps collected so far
   while (continueProcessFlag && chunkNum < (rawPaperDirs.length/chunkSize).toInt){
-    logger.info("-"*20)
+    logger.info("-"*80)
     logger.info(s"processing chunk $chunkNum ...")
 
     val papersToProcess = rawPaperDirs.slice(chunkNum * chunkSize , (chunkNum+1)*chunkSize).par
