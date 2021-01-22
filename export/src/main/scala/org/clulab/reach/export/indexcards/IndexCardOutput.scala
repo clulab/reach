@@ -171,15 +171,18 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
       f("context") = mention.context.get
   }
 
-  def mkArgument(arg:CorefMention):Any = {
+  def mkArgument(arg:CorefMention): Option[Any] = {
     val derefArg = arg.antecedentOrElse(arg)
     val argType = mkArgType(derefArg)
     argType match {
-      case "entity" => mkSingleArgument(derefArg)
-      case "complex" => mkComplexArgument(derefArg)
+      case "entity" => Some(mkSingleArgument(derefArg)) // PropMap
+      case "complex" => Some(mkComplexArgument(derefArg)) // FrameList
       case _ => {
         // "event" is a typical culprit.
-        throw new RuntimeException(s"ERROR: argument type '$argType' not supported!")
+        val json = mentionToJSON(arg, pretty = true)
+        val message = s"""Argument type "$argType" is not supported for indexcard output:\n$json"""
+        logger.warn(message)
+        None
       }
     }
   }
@@ -293,7 +296,7 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
     val f = new PropMap
 
     // a modification event will have exactly one theme
-    f("participant_b") = mkArgument(mention.themeArgs.get.head.toCorefMention)
+    addArgument(f, "participant_b", mention.themeArgs.get.head.toCorefMention)
 
     if (positiveModification)
       f("interaction_type") = "adds_modification"
@@ -318,7 +321,7 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
   def mkSimpleEventIndexCard(mention: CorefMention, label: String): Option[PropMap] = {
     val f = new PropMap
     f("interaction_type") = label
-    f("participant_b") = mkArgument(mention.themeArgs.get.head.toCorefMention)
+    addArgument(f, "participant_b", mention.themeArgs.get.head.toCorefMention)
 
     Some(f)
   }
@@ -353,7 +356,7 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
     if (controllers.isEmpty)
       throw new RuntimeException("ERROR: an activation event must have a controller argument!")
     val controller = controllers.get.head.toCorefMention
-    ex.get("participant_a") = mkArgument(controller)
+    addArgument(ex.get, "participant_a", controller)
 
     // add hedging and context
     mkHedging(ex.get, mention)
@@ -374,18 +377,25 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
     val controllers = mention.controllerArgs
     if (controllers.isEmpty)
       throw new RuntimeException("ERROR: an activation event must have a controller argument!")
-    f("participant_a") = mkArgument(controllers.get.head.toCorefMention)
+    addArgument(f, "participant_a", controllers.get.head.toCorefMention)
 
     val controlleds = mention.controlledArgs
     if (controlleds.isEmpty)
       throw new RuntimeException("ERROR: an activation event must have a controlled argument!")
-    f("participant_b") = mkArgument(controlleds.get.head.toCorefMention)
+    addArgument(f, "participant_b", controlleds.get.head.toCorefMention)
 
     if (mention.label == "Positive_activation")
       f("interaction_type") = "increases_activity"
     else
       f("interaction_type") = "decreases_activity"
     Some(f)
+  }
+
+  def addArgument(f: PropMap, key: String, arg: CorefMention): Unit = {
+    val valueOpt = mkArgument(arg)
+    valueOpt.foreach { value =>
+      f(key) = value
+    }
   }
 
 
@@ -397,11 +407,11 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
     val participants = mention.themeArgs.get
 
     // a Binding events must have at least 2 arguments
-    f("participant_a") = mkArgument(participants.head.toCorefMention)
+    addArgument(f,"participant_a", participants.head.toCorefMention)
 
     val participantsTail = participants.tail
     if (participantsTail.size == 1) {
-      f("participant_b") = mkArgument(participantsTail.head.toCorefMention)
+      addArgument(f, "participant_b", participantsTail.head.toCorefMention)
     }
     else if (participantsTail.size > 1) {
       // store them all as a single complex.
@@ -434,7 +444,7 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
   def mkTranslocationIndexCard(mention:CorefMention):Option[PropMap] = {
     val f = new PropMap
     f("interaction_type") = "translocates"
-    f("participant_b") = mkArgument(mention.themeArgs.get.head.toCorefMention)
+    addArgument(f, "participant_b", mention.themeArgs.get.head.toCorefMention)
 
     val sources = mention.sourceArgs
     if (sources.isDefined)

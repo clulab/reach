@@ -9,6 +9,7 @@ import java.io.File
 class TestCrashes extends ReachTest {
 
   val done = ignore
+  val corner = ignore
 
   val withAssembly = true
   // TODO: Eventually use the temporary directory.
@@ -89,7 +90,7 @@ class TestCrashes extends ReachTest {
 
     behavior of "serial-json format"
 
-    it should "not throw a NegativeArraySizeException" in {
+    corner should "not throw a NegativeArraySizeException" in {
       val pmcid = "PMC7176272"
 
       test(pmcid)
@@ -130,12 +131,12 @@ class TestCrashes extends ReachTest {
 
     behavior of "indexcard format"
 
-    ignore should "not throw a RuntimeException when argument type not supported" in {
+    it should "not throw a RuntimeException when argument type not supported" in {
       val typ = "event"
       val pmcid = "PMC3822968"
       // IndexCardOutput.scala:182
 
-//      test(pmcid)
+      test(pmcid)
     }
 
     ignore should "not throw a RuntimeException when event type conversion not supported" in {
