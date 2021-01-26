@@ -9,7 +9,7 @@ import java.io.File
 class TestCrashes extends ReachTest {
 
   val short = it
-  val long = it
+  val long = ignore
   val infinite = ignore
 
   val withAssembly = true
