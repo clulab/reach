@@ -2,9 +2,14 @@ package org.clulab.polarity
 
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin.Mention
+import org.clulab.processors.Sentence
 import org.clulab.reach.mentions.BioEventMention
 import org.clulab.struct.DirectedGraph
+import org.clulab.struct.Interval
 import org.clulab.utils.DependencyUtils
+import org.clulab.utils.DependencyUtils.Policy
+import org.clulab.utils.DependencyUtils.defaultPolicy
+import org.clulab.utils.DependencyUtilsException
 
 object LinguisticPolarityEngine extends PolarityEngine with LazyLogging{
 
@@ -76,12 +81,23 @@ object LinguisticPolarityEngine extends PolarityEngine with LazyLogging{
     * between the trigger and the argument.
     */
   private def countSemanticNegatives(trigger: Mention, arg: Mention, excluded: Set[Int]): Seq[Int] = {
+
+    def findHeadStrict(span: Interval, sent: Sentence, chooseWhich: Policy = defaultPolicy): Option[Int] = {
+      // There may not be a reachable head, in which case an exception will be thrown.
+      try {
+        DependencyUtils.findHeadStrict(span, sent)
+      }
+      catch {
+        case _: DependencyUtilsException => None
+      }
+    }
+
     // it is possible for the trigger and the arg to be in different sentences because of coreference
     if (trigger.sentence != arg.sentence) return Nil
     val deps = trigger.sentenceObj.dependencies.get
     // find shortestPath between the trigger head token and the argument head token
     val shortestPath: Option[Seq[Int]] = for {
-      triggerHead <- DependencyUtils.findHeadStrict(trigger.tokenInterval, trigger.sentenceObj)
+      triggerHead <- findHeadStrict(trigger.tokenInterval, trigger.sentenceObj)
       argHead <- DependencyUtils.findHeadStrict(arg.tokenInterval, arg.sentenceObj)
     } yield deps.shortestPath(triggerHead, argHead, ignoreDirection = true)
 

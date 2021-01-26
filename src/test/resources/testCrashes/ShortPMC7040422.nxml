@@ -1,0 +1,177 @@
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD with MathML3 v1.2 20190208//EN" "JATS-archivearticle1-mathml3.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="review-article">
+	<?properties open_access?>
+	<front>
+		<journal-meta>
+			<journal-id journal-id-type="nlm-ta">Evid Based Complement Alternat Med</journal-id>
+			<journal-id journal-id-type="iso-abbrev">Evid Based Complement Alternat Med</journal-id>
+			<journal-id journal-id-type="publisher-id">ECAM</journal-id>
+			<journal-title-group>
+				<journal-title>Evidence-based Complementary and Alternative Medicine : eCAM</journal-title>
+			</journal-title-group>
+			<issn pub-type="ppub">1741-427X</issn>
+			<issn pub-type="epub">1741-4288</issn>
+			<publisher>
+				<publisher-name>Hindawi</publisher-name>
+			</publisher>
+		</journal-meta>
+		<article-meta>
+			<article-id pub-id-type="pmid">32104188</article-id>
+			<article-id pub-id-type="pmc">7040422</article-id>
+			<article-id pub-id-type="doi">10.1155/2020/1021258</article-id>
+			<article-categories>
+				<subj-group subj-group-type="heading">
+					<subject>Review Article</subject>
+				</subj-group>
+			</article-categories>
+			<title-group>
+				<article-title>Use of Natural Products in Asthma Treatment</article-title>
+			</title-group>
+			<contrib-group>
+				<contrib contrib-type="author">
+					<contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-8996-189X</contrib-id>
+					<name>
+						<surname>Amaral-Machado</surname>
+						<given-names>Lucas</given-names>
+					</name>
+					<xref ref-type="aff" rid="I1">
+						<sup>1</sup>
+					</xref>
+					<xref ref-type="aff" rid="I2">
+						<sup>2</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-1564-906X</contrib-id>
+					<name>
+						<surname>Oliveira</surname>
+						<given-names>W&#x000f3;genes N.</given-names>
+					</name>
+					<xref ref-type="aff" rid="I1">
+						<sup>1</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Moreira-Oliveira</surname>
+						<given-names>Susiane S.</given-names>
+					</name>
+					<xref ref-type="aff" rid="I1">
+						<sup>1</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-4374-1947</contrib-id>
+					<name>
+						<surname>Pereira</surname>
+						<given-names>Daniel T.</given-names>
+					</name>
+					<xref ref-type="aff" rid="I1">
+						<sup>1</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-6148-6804</contrib-id>
+					<name>
+						<surname>Alencar</surname>
+						<given-names>&#x000c9;verton N.</given-names>
+					</name>
+					<xref ref-type="aff" rid="I3">
+						<sup>3</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0003-2095-2626</contrib-id>
+					<name>
+						<surname>Tsapis</surname>
+						<given-names>Nicolas</given-names>
+					</name>
+					<xref ref-type="aff" rid="I2">
+						<sup>2</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author" corresp="yes">
+					<contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-2180-3991</contrib-id>
+					<name>
+						<surname>Egito</surname>
+						<given-names>Eryvaldo S&#x000f3;crates T.</given-names>
+					</name>
+					<email>socratesegito@gmail.com</email>
+					<xref ref-type="aff" rid="I1">
+						<sup>1</sup>
+					</xref>
+					<xref ref-type="aff" rid="I3">
+						<sup>3</sup>
+					</xref>
+				</contrib>
+			</contrib-group>
+			<aff id="I1">
+				<sup>1</sup>
+				Graduate Program in Health Sciences, Dispersed System Laboratory (LaSid), Pharmacy Department, Federal University of Rio Grande do Norte (UFRN), Av. General Gustavo de Cordeiro-SN-Petr&#x000f3;polis, Natal 59012-570, Brazil
+			</aff>
+			<aff id="I2">
+				<sup>2</sup>
+				Institut Galien Paris-Sud, CNRS, Univ. Paris-Sud, Universit&#x000e9; Paris-Saclay, 92296 Ch&#x000e2;tenay-Malabry, France
+			</aff>
+			<aff id="I3">
+				<sup>3</sup>
+				Graduate Program in Pharmaceutical Nanotechnology, LaSid, UFRN, Av. General Gustavo de Cordeiro-SN-Petropolis, Natal 59012-570, Brazil
+			</aff>
+			<author-notes>
+				<fn fn-type="other">
+					<p>Academic Editor: Yoshiyuki Kimura</p>
+				</fn>
+			</author-notes>
+			<pub-date pub-type="collection">
+				<year>2020</year>
+			</pub-date>
+			<pub-date pub-type="epub">
+				<day>13</day>
+				<month>2</month>
+				<year>2020</year>
+			</pub-date>
+			<pub-date pub-type="pmc-release">
+				<day>13</day>
+				<month>2</month>
+				<year>2020</year>
+			</pub-date>
+			<!-- PMC Release delay is 0 months and 0 days and was based on the <pub-date pub-type="epub"/>. -->
+			<volume>2020</volume>
+			<elocation-id>1021258</elocation-id>
+			<history>
+				<date date-type="received">
+					<day>10</day>
+					<month>11</month>
+					<year>2019</year>
+				</date>
+				<date date-type="rev-recd">
+					<day>31</day>
+					<month>12</month>
+					<year>2019</year>
+				</date>
+				<date date-type="accepted">
+					<day>6</day>
+					<month>1</month>
+					<year>2020</year>
+				</date>
+			</history>
+			<permissions>
+				<copyright-statement>Copyright &#x000a9; 2020 Lucas Amaral-Machado et al.</copyright-statement>
+				<copyright-year>2020</copyright-year>
+				<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+					<license-p>This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+				</license>
+			</permissions>
+			<abstract/>
+			<funding-group>
+				<award-group>
+					<funding-source>Coordena&#x000e7;&#x000e3;o de Aperfei&#x000e7;oamento de Pessoal de N&#x000ed;vel Superior</funding-source>
+				</award-group>
+				<award-group>
+					<funding-source>Conselho Nacional de Desenvolvimento Cient&#x000ed;fico e Tecnol&#x000f3;gico</funding-source>
+				</award-group>
+			</funding-group>
+		</article-meta>
+	</front>
+	<body>Other mechanisms involved in asthma physiopathology are the inhalation of drugs, as well as respiratory viruses [<xref rid="B8" ref-type="bibr">8</xref>], which promote an immune response mediated by IgG antibodies.</body>
+</article>

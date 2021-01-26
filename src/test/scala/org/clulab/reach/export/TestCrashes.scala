@@ -8,12 +8,12 @@ import java.io.File
 
 class TestCrashes extends ReachTest {
 
-  val done = ignore
-  val corner = ignore
+  val short = it
+  val long = it
+  val infinite = ignore
 
   val withAssembly = true
-  // TODO: Eventually use the temporary directory.
-  val outputDirname = "./tmpTest"
+  val outputDirname = System.getProperty("java.io.tmpdir") // ./tmpTest"
   val reachCLI = {
     val papersDir = new File("")
     val outputDir = new File(outputDirname)
@@ -26,7 +26,7 @@ class TestCrashes extends ReachTest {
     outputFormat match {
       case "fries" => Seq(s"$pmcid.uaz.entities.json", s"$pmcid.uaz.events.json", s"$pmcid.uaz.sentences.json")
       case "serial-json" => Seq.empty
-      case "indexcard" => Seq.empty
+      case "indexcard" => Seq(pmcid)
       case "cmu" => Seq(s"$pmcid-cmu-out.tsv")
     }
   }
@@ -49,7 +49,10 @@ class TestCrashes extends ReachTest {
       val outputFilenames = getOutputFilenames(pmcid, outputFormat)
       outputFilenames.foreach { filename =>
         val pathname = s"$outputDirname/$filename"
-        new File(pathname).delete()
+        val file = new File(pathname)
+        if (file.isDirectory)
+          file.listFiles().map(_.delete)
+        file.delete()
       }
     }
   }
@@ -67,13 +70,13 @@ class TestCrashes extends ReachTest {
 
     behavior of "fries format"
 
-    done should "not throw an IllegalArgumentException when Controllers of an Activation are not Entities" in {
+    long should "not throw an IllegalArgumentException when Controllers of an Activation are not Entities" in {
       val pmcid = "PMC4265014"
       test(pmcid)
     }
 
-    done should "not throw a NoSuchElementException when key is not found" in {
-      val pmcid = "PMC6940835"
+    short should "not throw a NoSuchElementException when key is not found" in {
+      val pmcid = "ShortPMC6940835"
       test(pmcid)
     }
   }
@@ -84,34 +87,9 @@ class TestCrashes extends ReachTest {
 
     behavior of "serial-json format"
 
-    corner should "not throw a NegativeArraySizeException" in {
+    infinite should "not throw a NegativeArraySizeException" in {
       val pmcid = "PMC7176272"
       test(pmcid)
-      println("Test is finished")
-    }
-  }
-
-  {
-    def test(pmcid: String): Unit = runTest(pmcid)
-
-    behavior of "reading"
-
-    ignore should "not throw an InvocationTargetException" in {
-      // This just takes a lot of time.
-      val pmcid = "PMC7040422"
-
-      test(pmcid)
-      println("Test is finished")
-    }
-
-    it should "not throw a NoSuchElementException" in {
-      val pmcid1 = "PMC5504966"
-      test(pmcid1)
-
-      val text2 = "( 2 ) Noise exposure led to enhanced JNK phosphorylation and IRS1 serine phosphorylation as well as reduced Akt phosphorylation in skeletal muscles in response to exogenous insulin stimulation ."
-      val key2 = "controller"
-      val pmcid2 = "PMC5809884"
-//      test(pmcid2)
     }
   }
 
@@ -121,39 +99,28 @@ class TestCrashes extends ReachTest {
 
     behavior of "indexcard format"
 
-    done should "not throw a RuntimeException when argument type not supported" in {
-      val typ = "event"
-      val pmcid = "PMC3822968"
-      // IndexCardOutput.scala:182
-
+    short should "not throw a RuntimeException when argument type 'event' not supported" in {
+      val pmcid = "ShortPMC3822968"
       test(pmcid)
     }
 
-    ignore should "not throw a RuntimeException when event type conversion not supported" in {
-      val typ = "conversion"
-      val pmcid = "PMC3822968"
-
-      test(pmcid)
-    }
-
-    ignore should "not throw a RuntimeException when unknown event type in event" in {
-
-      def runIndexcardTest(text: String) = runTest(text, "indexcard")
-
-      val text1 = "Disease"
-      val pmcid1 = "PMC6539695"
+    short should "not throw a RuntimeException when unknown event type 'Disease' in event" in {
+      val pmcid1 = "ShortPMC6539695"
       test(pmcid1)
+    }
 
-      val text2 = "Family"
-      val pmcid2 = "PMC5327768"
+    short should "not throw a RuntimeException when unknown event type 'Family' in event" in {
+      val pmcid2 = "ShortPMC5327768"
       test(pmcid2)
+    }
 
-      val text3 = "Gene_or_gene_product"
-      val pmcid3 = "PMC5985311"
+    short should "not throw a RuntimeException when unknown event type 'Gene_or_gene_product' in event" in {
+      val pmcid3 = "ShortPMC5985311"
       test(pmcid3)
+    }
 
-      val text4 = "Simple_chemical"
-      val pmcid4 = "PMC6213605"
+    short should "not throw a RuntimeException when unknown event type 'Simple_chemical' in event" in {
+      val pmcid4 = "ShortPMC6213605"
       test(pmcid4)
     }
   }
@@ -164,11 +131,30 @@ class TestCrashes extends ReachTest {
 
     behavior of "cmu format"
 
-    done should "not throw a NoSuchElementException on empty iterator" in {
-      val pmcid = "PMC6681624"
-      // At CMUExporter.scala:25 in createMechanismType
-
+    short should "not throw a NoSuchElementException on empty iterator" in {
+      val pmcid = "ShortPMC6681624"
       test(pmcid)
+    }
+  }
+
+  {
+    def test(pmcid: String): Unit = runTest(pmcid)
+
+    behavior of "reading"
+
+    short should "not throw an InvocationTargetException" in {
+      val pmcid = "ShortPMC7040422"
+      test(pmcid)
+    }
+
+    short should "not throw a NoSuchElementException for 'one'" in {
+      val pmcid1 = "ShortPMC5504966"
+      test(pmcid1)
+    }
+
+    short should "not throw a NoSuchElementException for 'controller'" in {
+      val pmcid1 = "ShortPMC5809884"
+      test(pmcid1)
     }
   }
 }

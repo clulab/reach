@@ -2,6 +2,19 @@
 <article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
 	<?properties open_access?>
 	<front>
+		<journal-meta>
+			<journal-id journal-id-type="nlm-ta">Environ Health Prev Med</journal-id>
+			<journal-id journal-id-type="iso-abbrev">Environ Health Prev Med</journal-id>
+			<journal-title-group>
+				<journal-title>Environmental Health and Preventive Medicine</journal-title>
+			</journal-title-group>
+			<issn pub-type="ppub">1342-078X</issn>
+			<issn pub-type="epub">1347-4715</issn>
+			<publisher>
+				<publisher-name>BioMed Central</publisher-name>
+				<publisher-loc>London</publisher-loc>
+			</publisher>
+		</journal-meta>
 		<article-meta>
 			<article-id pub-id-type="pmid">29433422</article-id>
 			<article-id pub-id-type="pmc">5809884</article-id>
@@ -189,8 +202,7 @@
 					</license-p>
 				</license>
 			</permissions>
-			<abstract id="Abs1">
-			</abstract>
+			<abstract id="Abs1">(2) Noise exposure led to enhanced JNK phosphorylation and IRS1 serine phosphorylation as well as reduced Akt phosphorylation in skeletal muscles in response to exogenous insulin stimulation.</abstract>
 			<kwd-group xml:lang="en">
 				<title>Keywords</title>
 				<kwd>Noise exposure</kwd>
@@ -221,7 +233,5 @@
 			</custom-meta-group>
 		</article-meta>
 	</front>
-	<body>
-		Noise exposure led to enhanced JNK phosphorylation and IRS1 serine phosphorylation as well as reduced Akt phosphorylation in skeletal muscles in response to exogenous insulin stimulation .
-	</body>
+	<body/>
 </article>
