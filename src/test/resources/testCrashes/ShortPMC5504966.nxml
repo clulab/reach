@@ -1,0 +1,167 @@
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.0 20120330//EN" "JATS-archivearticle1.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+	<?properties open_access?>
+	<front>
+		<article-meta>
+			<article-id pub-id-type="pmid">28740568</article-id>
+			<article-id pub-id-type="pmc">5504966</article-id>
+			<article-id pub-id-type="doi">10.1155/2017/2190897</article-id>
+			<article-categories>
+				<subj-group subj-group-type="heading">
+					<subject>Research Article</subject>
+				</subj-group>
+			</article-categories>
+			<title-group>
+				<article-title>Methane Suppresses Microglial Activation Related to Oxidative, Inflammatory, and Apoptotic Injury during Spinal Cord Injury in Rats</article-title>
+			</title-group>
+			<contrib-group>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Wang</surname>
+						<given-names>WeiHeng</given-names>
+					</name>
+					<xref ref-type="aff" rid="I1">
+						<sup>1</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Huang</surname>
+						<given-names>Xiaodong</given-names>
+					</name>
+					<xref ref-type="aff" rid="I1">
+						<sup>1</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Li</surname>
+						<given-names>Jian</given-names>
+					</name>
+					<xref ref-type="aff" rid="I2">
+						<sup>2</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Sun</surname>
+						<given-names>Aijun</given-names>
+					</name>
+					<xref ref-type="aff" rid="I3">
+						<sup>3</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Yu</surname>
+						<given-names>Jiangming</given-names>
+					</name>
+					<xref ref-type="aff" rid="I1">
+						<sup>1</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Xie</surname>
+						<given-names>Ning</given-names>
+					</name>
+					<xref ref-type="aff" rid="I1">
+						<sup>1</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Xi</surname>
+						<given-names>YanHai</given-names>
+					</name>
+					<xref ref-type="aff" rid="I1">
+						<sup>1</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<contrib-id contrib-id-type="orcid" authenticated="false">http://orcid.org/0000-0003-2402-5782</contrib-id>
+					<name>
+						<surname>Ye</surname>
+						<given-names>Xiaojian</given-names>
+					</name>
+					<xref ref-type="aff" rid="I1">
+						<sup>1</sup>
+					</xref>
+					<xref ref-type="corresp" rid="cor1">
+						<sup>*</sup>
+					</xref>
+				</contrib>
+			</contrib-group>
+			<aff id="I1">
+				<sup>1</sup>
+				Department of Orthopaedics, Changzheng Hospital Affiliated to the Second Military Medical University, Shanghai 200003, China
+			</aff>
+			<aff id="I2">
+				<sup>2</sup>
+				Department of Anesthesiology, Changzheng Hospital Affiliated to the Second Military Medical University, Shanghai 200003, China
+			</aff>
+			<aff id="I3">
+				<sup>3</sup>
+				Institute of Biomedical Engineering, Second Military Medical University, Shanghai 200433, China
+			</aff>
+			<author-notes>
+				<corresp id="cor1">*Xiaojian Ye:
+					<email>yespine@163.com</email>
+				</corresp>
+				<fn fn-type="other">
+					<p>Academic Editor: Wei Chen</p>
+				</fn>
+			</author-notes>
+			<pub-date pub-type="ppub">
+				<year>2017</year>
+			</pub-date>
+			<pub-date pub-type="epub">
+				<day>27</day>
+				<month>6</month>
+				<year>2017</year>
+			</pub-date>
+			<volume>2017</volume>
+			<elocation-id>2190897</elocation-id>
+			<history>
+				<date date-type="received">
+					<day>5</day>
+					<month>2</month>
+					<year>2017</year>
+				</date>
+				<date date-type="rev-recd">
+					<day>18</day>
+					<month>3</month>
+					<year>2017</year>
+				</date>
+				<date date-type="accepted">
+					<day>29</day>
+					<month>3</month>
+					<year>2017</year>
+				</date>
+			</history>
+			<permissions>
+				<copyright-statement>Copyright &#x000a9; 2017 WeiHeng Wang et al.</copyright-statement>
+				<copyright-year>2017</copyright-year>
+				<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+					<license-p>This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+				</license>
+			</permissions>
+			<abstract>
+			</abstract>
+			<funding-group>
+				<award-group>
+					<funding-source>National High Technology Research and Development Program of China</funding-source>
+					<award-id>2013AA032203</award-id>
+				</award-group>
+				<award-group>
+					<funding-source>National Natural Science Foundation of China</funding-source>
+					<award-id>81301537</award-id>
+					<award-id>81472071</award-id>
+				</award-group>
+			</funding-group>
+		</article-meta>
+	</front>
+	<body>
+		Bacteria in the human gut can produce hydrogen gas , and hydrogen can be converted to methane in the gut by methane-producing bacteria [ 15 ] .
+	</body>
+</article>

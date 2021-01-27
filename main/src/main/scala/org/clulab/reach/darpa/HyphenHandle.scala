@@ -1,8 +1,26 @@
 package org.clulab.reach.darpa
 
+import org.clulab.odin.Mention
 import org.clulab.reach.mentions.{BioEventMention, BioMention}
 
 object HyphenHandle {
+
+  protected def swapOptionalEntries[A, B](map: Map[A, B], leftKey: A, rightKey: A): Map[A, B] = {
+    // It may be that leftKey and rightKey aren't both populated.
+    // When the keys are swapped, it is necessary to remove those that won't be replaced.
+
+    def addOpt(map: Map[A, B], key: A, valueOpt: Option[B]): Map[A, B] =
+        valueOpt.map { value => map + (key -> value) }.getOrElse(map)
+
+    val leftValueOpt = map.get(leftKey)
+    val rightValueOpt = map.get(rightKey)
+    val mapWithNeither = map - leftKey - rightKey
+    val mapWithOne = addOpt(mapWithNeither, leftKey, rightValueOpt)
+    val mapWithBoth = addOpt(mapWithOne, rightKey, leftValueOpt)
+
+    mapWithBoth
+  }
+
   /**
     * Receives a sequence of BioMentions and flips the role of the arguments
     * when there's a "- ing" pattern
@@ -35,7 +53,7 @@ object HyphenHandle {
               if(text.contains('-') && text.toLowerCase.endsWith("ing")){
                 // Flip the controller and controlled entities to create a new event
                 val args = event.arguments
-                val newArgs = args + ("controller" -> args("controlled")) + ("controlled" -> args("controller"))
+                val newArgs = swapOptionalEntries(args, "controller", "controlled")
 
                 // Create a new event mention as a copy of the original but with that difference
                 new BioEventMention(event.copy(arguments = newArgs))

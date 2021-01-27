@@ -1,0 +1,237 @@
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.0 20120330//EN" "JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
+	<?properties open_access?>
+	<front>
+		<journal-meta>
+			<journal-id journal-id-type="nlm-ta">Environ Health Prev Med</journal-id>
+			<journal-id journal-id-type="iso-abbrev">Environ Health Prev Med</journal-id>
+			<journal-title-group>
+				<journal-title>Environmental Health and Preventive Medicine</journal-title>
+			</journal-title-group>
+			<issn pub-type="ppub">1342-078X</issn>
+			<issn pub-type="epub">1347-4715</issn>
+			<publisher>
+				<publisher-name>BioMed Central</publisher-name>
+				<publisher-loc>London</publisher-loc>
+			</publisher>
+		</journal-meta>
+		<article-meta>
+			<article-id pub-id-type="pmid">29433422</article-id>
+			<article-id pub-id-type="pmc">5809884</article-id>
+			<article-id pub-id-type="publisher-id">694</article-id>
+			<article-id pub-id-type="doi">10.1186/s12199-018-0694-3</article-id>
+			<article-categories>
+				<subj-group subj-group-type="heading">
+					<subject>Research Article</subject>
+				</subj-group>
+			</article-categories>
+			<title-group>
+				<article-title>The effect of noise exposure on insulin sensitivity in mice may be mediated by the JNK/IRS1 pathway</article-title>
+			</title-group>
+			<contrib-group>
+				<contrib contrib-type="author" corresp="yes">
+					<contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-8309-609X</contrib-id>
+					<name>
+						<surname>Liu</surname>
+						<given-names>Lijie</given-names>
+					</name>
+					<address>
+						<phone>+86-138-518-58571</phone>
+						<email>liulijie1973@163.com</email>
+					</address>
+					<xref ref-type="aff" rid="Aff1">1</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Fang</surname>
+						<given-names>Cong</given-names>
+					</name>
+					<address>
+						<email>785586278@qq.com</email>
+					</address>
+					<xref ref-type="aff" rid="Aff2">2</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Yang</surname>
+						<given-names>Jing</given-names>
+					</name>
+					<address>
+						<email>1725196763@qq.com</email>
+					</address>
+					<xref ref-type="aff" rid="Aff2">2</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Zhang</surname>
+						<given-names>Hongyu</given-names>
+					</name>
+					<address>
+						<email>13951023095@163.com</email>
+					</address>
+					<xref ref-type="aff" rid="Aff2">2</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Huang</surname>
+						<given-names>Yi</given-names>
+					</name>
+					<address>
+						<email>2430337219@qq.com</email>
+					</address>
+					<xref ref-type="aff" rid="Aff2">2</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Xuan</surname>
+						<given-names>Chuanying</given-names>
+					</name>
+					<address>
+						<email>15261890791@163.com</email>
+					</address>
+					<xref ref-type="aff" rid="Aff2">2</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Wang</surname>
+						<given-names>Yongfang</given-names>
+					</name>
+					<address>
+						<email>1518770287@qq.com</email>
+					</address>
+					<xref ref-type="aff" rid="Aff1">1</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Li</surname>
+						<given-names>Shengwei</given-names>
+					</name>
+					<address>
+						<email>18561680585@163.com</email>
+					</address>
+					<xref ref-type="aff" rid="Aff1">1</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Sha</surname>
+						<given-names>Jun</given-names>
+					</name>
+					<address>
+						<email>137172940@qq.com</email>
+					</address>
+					<xref ref-type="aff" rid="Aff1">1</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Zha</surname>
+						<given-names>Mingming</given-names>
+					</name>
+					<address>
+						<email>695442325@qq.com</email>
+					</address>
+					<xref ref-type="aff" rid="Aff1">1</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Guo</surname>
+						<given-names>Min</given-names>
+					</name>
+					<address>
+						<email>819638156@qq.com</email>
+					</address>
+					<xref ref-type="aff" rid="Aff1">1</xref>
+				</contrib>
+				<aff id="Aff1">
+					<label>1</label>
+					<institution-wrap>
+						<institution-id institution-id-type="ISNI">0000 0004 1761 0489</institution-id>
+						<institution-id institution-id-type="GRID">grid.263826.b</institution-id>
+						<institution>Medical College,</institution>
+						<institution>Southeast University,</institution>
+					</institution-wrap>
+					No.87, Dingjiaqiao Street, Gulou, Nanjing, China
+				</aff>
+				<aff id="Aff2">
+					<label>2</label>
+					<institution-wrap>
+						<institution-id institution-id-type="ISNI">0000 0004 1761 0489</institution-id>
+						<institution-id institution-id-type="GRID">grid.263826.b</institution-id>
+						<institution>Institute of Life Sciences,</institution>
+						<institution>Southeast University,</institution>
+					</institution-wrap>
+					Nanjing, China
+				</aff>
+			</contrib-group>
+			<pub-date pub-type="epub">
+				<day>12</day>
+				<month>2</month>
+				<year>2018</year>
+			</pub-date>
+			<pub-date pub-type="pmc-release">
+				<day>12</day>
+				<month>2</month>
+				<year>2018</year>
+			</pub-date>
+			<pub-date pub-type="ppub">
+				<year>2018</year>
+			</pub-date>
+			<volume>23</volume>
+			<elocation-id>6</elocation-id>
+			<history>
+				<date date-type="received">
+					<day>6</day>
+					<month>11</month>
+					<year>2017</year>
+				</date>
+				<date date-type="accepted">
+					<day>29</day>
+					<month>1</month>
+					<year>2018</year>
+				</date>
+			</history>
+			<permissions>
+				<copyright-statement>&#x000a9; The Author(s). 2018</copyright-statement>
+				<license license-type="OpenAccess">
+					<license-p>
+						<bold>Open Access</bold>
+						This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (
+						<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>
+						), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (
+						<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>
+						) applies to the data made available in this article, unless otherwise stated.
+					</license-p>
+				</license>
+			</permissions>
+			<abstract id="Abs1">(2) Noise exposure led to enhanced JNK phosphorylation and IRS1 serine phosphorylation as well as reduced Akt phosphorylation in skeletal muscles in response to exogenous insulin stimulation.</abstract>
+			<kwd-group xml:lang="en">
+				<title>Keywords</title>
+				<kwd>Noise exposure</kwd>
+				<kwd>Insulin sensitivity</kwd>
+				<kwd>JNK/IRS1 pathway</kwd>
+				<kwd>Inflammation</kwd>
+				<kwd>Oxidative stress</kwd>
+			</kwd-group>
+			<funding-group>
+				<award-group>
+					<funding-source>
+						<institution-wrap>
+							<institution-id institution-id-type="FundRef">http://dx.doi.org/10.13039/501100001809</institution-id>
+							<institution>National Natural Science Foundation of China</institution>
+						</institution-wrap>
+					</funding-source>
+					<award-id>81670935</award-id>
+					<award-id>81520108015</award-id>
+					<award-id>81100548</award-id>
+					<award-id>81271086</award-id>
+				</award-group>
+			</funding-group>
+			<custom-meta-group>
+				<custom-meta>
+					<meta-name>issue-copyright-statement</meta-name>
+					<meta-value>&#x000a9; The Author(s) 2018</meta-value>
+				</custom-meta>
+			</custom-meta-group>
+		</article-meta>
+	</front>
+	<body/>
+</article>

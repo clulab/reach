@@ -1,0 +1,191 @@
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.0 20120330//EN" "JATS-archivearticle1.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="review-article">
+	<?properties open_access?>
+	<front>
+		<journal-meta>
+			<journal-id journal-id-type="nlm-ta">Can Respir J</journal-id>
+			<journal-id journal-id-type="iso-abbrev">Can. Respir. J</journal-id>
+			<journal-id journal-id-type="publisher-id">CRJ</journal-id>
+			<journal-title-group>
+				<journal-title>Canadian Respiratory Journal</journal-title>
+			</journal-title-group>
+			<issn pub-type="ppub">1198-2241</issn>
+			<issn pub-type="epub">1916-7245</issn>
+			<publisher>
+				<publisher-name>Hindawi Publishing Corporation</publisher-name>
+			</publisher>
+		</journal-meta>
+		<article-meta>
+			<article-id pub-id-type="pmid">28286407</article-id>
+			<article-id pub-id-type="pmc">5327768</article-id>
+			<article-id pub-id-type="doi">10.1155/2017/1430350</article-id>
+			<article-categories>
+				<subj-group subj-group-type="heading">
+					<subject>Review Article</subject>
+				</subj-group>
+			</article-categories>
+			<title-group>
+				<article-title>Pulmonary Hypertension Associated with Idiopathic Pulmonary Fibrosis: Current and Future Perspectives</article-title>
+			</title-group>
+			<contrib-group>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Collum</surname>
+						<given-names>Scott D.</given-names>
+					</name>
+					<xref ref-type="aff" rid="I1">
+						<sup>1</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Amione-Guerra</surname>
+						<given-names>Javier</given-names>
+					</name>
+					<xref ref-type="aff" rid="I2">
+						<sup>2</sup>
+					</xref>
+					<xref ref-type="aff" rid="I3">
+						<sup>3</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Cruz-Solbes</surname>
+						<given-names>Ana S.</given-names>
+					</name>
+					<xref ref-type="aff" rid="I2">
+						<sup>2</sup>
+					</xref>
+					<xref ref-type="aff" rid="I3">
+						<sup>3</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>DiFrancesco</surname>
+						<given-names>Amara</given-names>
+					</name>
+					<xref ref-type="aff" rid="I1">
+						<sup>1</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Hernandez</surname>
+						<given-names>Adriana M.</given-names>
+					</name>
+					<xref ref-type="aff" rid="I1">
+						<sup>1</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Hanmandlu</surname>
+						<given-names>Ankit</given-names>
+					</name>
+					<xref ref-type="aff" rid="I1">
+						<sup>1</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Youker</surname>
+						<given-names>Keith</given-names>
+					</name>
+					<xref ref-type="aff" rid="I2">
+						<sup>2</sup>
+					</xref>
+					<xref ref-type="aff" rid="I3">
+						<sup>3</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Guha</surname>
+						<given-names>Ashrith</given-names>
+					</name>
+					<xref ref-type="aff" rid="I2">
+						<sup>2</sup>
+					</xref>
+					<xref ref-type="aff" rid="I3">
+						<sup>3</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<contrib-id contrib-id-type="orcid" authenticated="false">http://orcid.org/0000-0003-4753-9823</contrib-id>
+					<name>
+						<surname>Karmouty-Quintana</surname>
+						<given-names>Harry</given-names>
+					</name>
+					<xref ref-type="aff" rid="I1">
+						<sup>1</sup>
+					</xref>
+					<xref ref-type="corresp" rid="cor1">
+						<sup>*</sup>
+					</xref>
+				</contrib>
+			</contrib-group>
+			<aff id="I1">
+				<sup>1</sup>
+				Department of Biochemistry and Molecular Biology, University of Texas Medical School at Houston, Houston, TX 77030, USA
+			</aff>
+			<aff id="I2">
+				<sup>2</sup>
+				Methodist DeBakey Heart and Vascular Center, The Methodist Hospital, Houston, TX 77030, USA
+			</aff>
+			<aff id="I3">
+				<sup>3</sup>
+				Methodist J.C. Walter Jr. Transplant Center, The Methodist Hospital, Houston, TX 77030, USA
+			</aff>
+			<author-notes>
+				<corresp id="cor1">*Harry Karmouty-Quintana:
+					<email>harry.karmouty@uth.tmc.edu</email>
+				</corresp>
+				<fn fn-type="other">
+					<p>Academic Editor: Elie El Agha</p>
+				</fn>
+			</author-notes>
+			<pub-date pub-type="ppub">
+				<year>2017</year>
+			</pub-date>
+			<pub-date pub-type="epub">
+				<day>13</day>
+				<month>2</month>
+				<year>2017</year>
+			</pub-date>
+			<volume>2017</volume>
+			<elocation-id>1430350</elocation-id>
+			<history>
+				<date date-type="received">
+					<day>18</day>
+					<month>11</month>
+					<year>2016</year>
+				</date>
+				<date date-type="accepted">
+					<day>19</day>
+					<month>1</month>
+					<year>2017</year>
+				</date>
+			</history>
+			<permissions>
+				<copyright-statement>Copyright &#x000a9; 2017 Scott D. Collum et al.</copyright-statement>
+				<copyright-year>2017</copyright-year>
+				<license xlink:href="https://creativecommons.org/licenses/by/4.0/">
+					<license-p>This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+				</license>
+			</permissions>
+			<abstract/>
+			<funding-group>
+				<award-group>
+					<funding-source>American Heart Association Scientist Development</funding-source>
+					<award-id>14SDG1855003</award-id>
+				</award-group>
+				<award-group>
+					<funding-source>2015 UTHealth Pulmonary Center</funding-source>
+				</award-group>
+			</funding-group>
+		</article-meta>
+	</front>
+	<body>TGF-<italic>&#x003b2;</italic> signaling proceeds through two pathways, canonically through Smad7 to activate the Smad2/3 and Smad4 binding to activate transcription and a Smad independent pathway that proceeds through the p38 MAPK and JNK [<xref rid="B52" ref-type="bibr">52</xref>, <xref rid="B53" ref-type="bibr">53</xref>]. </body>
+</article>

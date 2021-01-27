@@ -1,0 +1,99 @@
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.0 20120330//EN" "JATS-archivearticle1.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="review-article">
+	<?properties open_access?>
+	<front>
+		<journal-meta>
+			<journal-id journal-id-type="nlm-ta">J Cell Mol Med</journal-id>
+			<journal-id journal-id-type="iso-abbrev">J. Cell. Mol. Med</journal-id>
+			<journal-id journal-id-type="publisher-id">jcmm</journal-id>
+			<journal-title-group>
+				<journal-title>Journal of Cellular and Molecular Medicine</journal-title>
+			</journal-title-group>
+			<issn pub-type="ppub">1582-1838</issn>
+			<issn pub-type="epub">1582-4934</issn>
+			<publisher>
+				<publisher-name>Blackwell Publishing Ltd</publisher-name>
+				<publisher-loc>Oxford, UK</publisher-loc>
+			</publisher>
+		</journal-meta>
+		<article-meta>
+			<article-id pub-id-type="pmid">22348535</article-id>
+			<article-id pub-id-type="pmc">3822968</article-id>
+			<article-id pub-id-type="doi">10.1111/j.1582-4934.2012.01552.x</article-id>
+			<article-categories>
+				<subj-group subj-group-type="heading">
+					<subject>Reviews</subject>
+				</subj-group>
+			</article-categories>
+			<title-group>
+				<article-title>Inflammation in atherosclerosis: a cause or a result of vascular disorders?</article-title>
+			</title-group>
+			<contrib-group>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Manduteanu</surname>
+						<given-names>Ileana</given-names>
+					</name>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Simionescu</surname>
+						<given-names>Maya</given-names>
+					</name>
+					<xref ref-type="corresp" rid="cor1">*</xref>
+				</contrib>
+				<aff>
+					<institution>Institute of Cellular Biology and Pathology &#x02018;Nicolae Simionescu&#x02019;, of the Romanian Academy</institution>
+					<addr-line>Bucharest, Romania</addr-line>
+				</aff>
+			</contrib-group>
+			<author-notes>
+				<corresp id="cor1">*Correspondence to: Maya SIMIONESCU, Ph.D., Institute of Cellular Biology and Pathology &#x02018;Nicolae Simionescu&#x02019;, 8 B. P. Hasdeu Street, PO Box 35-14, 050568 &#x02013; Bucharest, Romania. Tel.: +4021 319 45 18/24 Fax: +4021 319 45 19 E-mail:
+					<email>maya.simionescu@icbp.ro</email>
+				</corresp>
+			</author-notes>
+			<pub-date pub-type="ppub">
+				<month>9</month>
+				<year>2012</year>
+			</pub-date>
+			<pub-date pub-type="epub">
+				<day>23</day>
+				<month>8</month>
+				<year>2012</year>
+			</pub-date>
+			<volume>16</volume>
+			<issue>9</issue>
+			<fpage>1978</fpage>
+			<lpage>1990</lpage>
+			<history>
+				<date date-type="received">
+					<day>12</day>
+					<month>10</month>
+					<year>2011</year>
+				</date>
+				<date date-type="accepted">
+					<day>12</day>
+					<month>2</month>
+					<year>2012</year>
+				</date>
+			</history>
+			<permissions>
+				<copyright-statement>Copyright &#x000a9; 2012 Foundation for Cellular and Molecular Medicine/Blackwell Publishing Ltd.</copyright-statement>
+				<copyright-year>2012</copyright-year>
+			</permissions>
+			<abstract>
+			</abstract>
+			<kwd-group>
+				<kwd>inflammation</kwd>
+				<kwd>dyslipidaemia</kwd>
+				<kwd>cardiovascular diseases</kwd>
+				<kwd>atherosclerosis</kwd>
+				<kwd>lipoproteins</kwd>
+				<kwd>endothelial dysfunction</kwd>
+			</kwd-group>
+		</article-meta>
+	</front>
+	<body>
+		The platelet glycoprotein Ib&#x003b1; (GPIb&#x003b1;) and P-selectin glycoprotein ligand (PSGL-1) receptors bind to the endothelial P-selectin initiating platelet rolling, whereas the subsequent firm adhesion is mediated through &#x003b1;IIb&#x003b2;3 integrin and P-selectin.
+	</body>
+</article>

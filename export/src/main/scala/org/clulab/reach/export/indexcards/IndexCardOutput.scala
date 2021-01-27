@@ -6,17 +6,18 @@ import java.util.regex.Pattern
 
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
+
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin.Mention
 import org.clulab.reach.ReachConstants._
+import org.clulab.reach.{FriesEntry, display}
 import org.clulab.reach.export.JsonOutputter._
-import org.clulab.reach.utils.MentionManager
+import org.clulab.reach.export.{JsonOutputter, OutputDegrader}
 import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
+import org.clulab.reach.mentions.serialization.json.mentionToJSON
+import org.clulab.reach.utils.MentionManager
 import IndexCardOutput._
-import com.typesafe.scalalogging.LazyLogging
-import org.clulab.reach.{FriesEntry, display}
-import org.clulab.reach.export.{JsonOutputter, OutputDegrader}
-
 
 /**
   * Defines classes and methods used to build and output the index card format.
@@ -24,6 +25,27 @@ import org.clulab.reach.export.{JsonOutputter, OutputDegrader}
   *   Last Modified: Update for renamed method.
   */
 class IndexCardOutput extends JsonOutputter with LazyLogging {
+
+  class PropMapWithParticipants extends PropMap {
+    val participantA = "participant_a"
+    val participantB = "participant_b"
+
+    def addParticipant(key: String, arg: CorefMention): Unit = {
+      // mkArgument is reused from outer class.
+      val valueOpt = mkArgument(arg)
+      valueOpt.foreach { value =>
+        this(key) = value
+      }
+    }
+
+    def addParticipant(key: String, frameList: FrameList): Unit = this(key) = frameList
+
+    def addParticipantA(arg: CorefMention): Unit = addParticipant(participantA, arg)
+
+    def addParticipantB(arg: CorefMention): Unit = addParticipant(participantB, arg)
+
+    def addParticipantB(frameList: FrameList): Unit = addParticipant(participantB, frameList)
+  }
 
   /**
    * Returns the given mentions in the index-card JSON format, as one big string.
@@ -139,8 +161,7 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
   /** Main annotation dispatcher method. */
   def mkIndexCard(mention: CorefMention): Option[PropMap] = {
     val eventType = mkEventType(mention)
-    val f = new PropMap
-    val ex = eventType match {
+    val exOpt = eventType match {
       case "protein-modification" => mkModificationIndexCard(mention)
       case "complex-assembly" => mkBindingIndexCard(mention)
       case "translocation" => mkTranslocationIndexCard(mention)
@@ -150,15 +171,18 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
       case "transcription" => mkSimpleEventIndexCard(mention, "transcribes")
       // FIXME: this isn't a real solution
       case "amount" => mkSimpleEventIndexCard(mention, mention.label)
-      case _ => throw new RuntimeException(s"ERROR: event type $eventType not supported!")
+      case _ =>
+        // "conversion" is one example of an eventType not handled.
+        val json = mentionToJSON(mention, pretty = true)
+        val message = s"""Event type "$eventType" is not supported for indexcard output:\n$json"""
+        // throw new RuntimeException(message)
+        logger.warn(message)
+        None
     }
-    if (ex.isDefined) {
-      mkHedging(ex.get, mention)
-      mkContext(ex.get, mention)
-      f("extracted_information") = ex.get
-      Some(f)
-    } else {
-      None
+    exOpt.map { ex =>
+      mkHedging(ex, mention)
+      mkContext(ex, mention)
+      new PropMap() += ("extracted_information" -> ex)
     }
   }
 
@@ -168,14 +192,18 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
       f("context") = mention.context.get
   }
 
-  def mkArgument(arg:CorefMention):Any = {
+  def mkArgument(arg:CorefMention): Option[Any] = {
     val derefArg = arg.antecedentOrElse(arg)
     val argType = mkArgType(derefArg)
     argType match {
-      case "entity" => mkSingleArgument(derefArg)
-      case "complex" => mkComplexArgument(derefArg)
+      case "entity" => Some(mkSingleArgument(derefArg)) // PropMap
+      case "complex" => Some(mkComplexArgument(derefArg)) // FrameList
       case _ => {
-        throw new RuntimeException(s"ERROR: argument type '$argType' not supported!")
+        // "event" is a typical culprit.
+        val json = mentionToJSON(arg, pretty = true)
+        val message = s"""Argument type "$argType" is not supported for indexcard output:\n$json"""
+        logger.warn(message)
+        None
       }
     }
   }
@@ -285,11 +313,11 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
 
   /** Creates a card for a simple, modification event */
   def mkModificationIndexCard(mention:CorefMention,
-                              positiveModification:Boolean = true):Option[PropMap] = {
-    val f = new PropMap
+                              positiveModification:Boolean = true):Option[PropMapWithParticipants] = {
+    val f = new PropMapWithParticipants
 
     // a modification event will have exactly one theme
-    f("participant_b") = mkArgument(mention.themeArgs.get.head.toCorefMention)
+    f.addParticipantB(mention.themeArgs.get.head.toCorefMention)
 
     if (positiveModification)
       f("interaction_type") = "adds_modification"
@@ -312,9 +340,9 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
 
   /** Creates a card for a simple events */
   def mkSimpleEventIndexCard(mention: CorefMention, label: String): Option[PropMap] = {
-    val f = new PropMap
+    val f = new PropMapWithParticipants
     f("interaction_type") = label
-    f("participant_b") = mkArgument(mention.themeArgs.get.head.toCorefMention)
+    f.addParticipantB(mention.themeArgs.get.head.toCorefMention)
 
     Some(f)
   }
@@ -342,40 +370,40 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
       case "Negative_regulation" => false
       case _ => throw new RuntimeException(s"ERROR: unknown regulation event ${mention.label}!")
     }
-    val ex = mkModificationIndexCard(controlled, positiveModification = posMod)
 
     // add participant_a from the controller
     val controllers = mention.controllerArgs
     if (controllers.isEmpty)
       throw new RuntimeException("ERROR: an activation event must have a controller argument!")
-    val controller = controllers.get.head.toCorefMention
-    ex.get("participant_a") = mkArgument(controller)
+
+    val ex = mkModificationIndexCard(controlled, positiveModification = posMod).get
+    ex.addParticipantA(controllers.get.head.toCorefMention)
 
     // add hedging and context
-    mkHedging(ex.get, mention)
-    mkContext(ex.get, mention)
+    mkHedging(ex, mention)
+    mkContext(ex, mention)
 
     // all this becomes the extracted_information block
     val f = new PropMap
-    f("extracted_information") = ex.get
+    f("extracted_information") = ex
     Some(f)
   }
 
 
   /** Creates a card for an activation event */
   def mkActivationIndexCard(mention:CorefMention):Option[PropMap] = {
-    val f = new PropMap
+    val f = new PropMapWithParticipants
 
     // a modification event must have exactly one controller and one controlled
     val controllers = mention.controllerArgs
     if (controllers.isEmpty)
       throw new RuntimeException("ERROR: an activation event must have a controller argument!")
-    f("participant_a") = mkArgument(controllers.get.head.toCorefMention)
+    f.addParticipantA(controllers.get.head.toCorefMention)
 
     val controlleds = mention.controlledArgs
     if (controlleds.isEmpty)
       throw new RuntimeException("ERROR: an activation event must have a controlled argument!")
-    f("participant_b") = mkArgument(controlleds.get.head.toCorefMention)
+    f.addParticipantB(controlleds.get.head.toCorefMention)
 
     if (mention.label == "Positive_activation")
       f("interaction_type") = "increases_activity"
@@ -384,20 +412,19 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
     Some(f)
   }
 
-
   /** Creates a card for a complex-assembly event */
   def mkBindingIndexCard(mention:CorefMention):Option[PropMap] = {
-    val f = new PropMap
+    val f = new PropMapWithParticipants
     f("interaction_type") = "binds"
 
     val participants = mention.themeArgs.get
 
     // a Binding events must have at least 2 arguments
-    f("participant_a") = mkArgument(participants.head.toCorefMention)
+    f.addParticipantA(participants.head.toCorefMention)
 
     val participantsTail = participants.tail
     if (participantsTail.size == 1) {
-      f("participant_b") = mkArgument(participantsTail.head.toCorefMention)
+      f.addParticipantB(participantsTail.head.toCorefMention)
     }
     else if (participantsTail.size > 1) {
       // store them all as a single complex.
@@ -406,7 +433,7 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
       participantsTail.foreach(part => {
         fl += mkSingleArgument(part.toCorefMention)
       })
-      f("participant_b") = fl
+      f.addParticipantB(fl)
     }
     else {
       throw new RuntimeException("ERROR: A complex assembly event must have at least 2 participants!")
@@ -428,9 +455,9 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
 
   /** Creates a card for a translocation event */
   def mkTranslocationIndexCard(mention:CorefMention):Option[PropMap] = {
-    val f = new PropMap
+    val f = new PropMapWithParticipants
     f("interaction_type") = "translocates"
-    f("participant_b") = mkArgument(mention.themeArgs.get.head.toCorefMention)
+    f.addParticipantB(mention.themeArgs.get.head.toCorefMention)
 
     val sources = mention.sourceArgs
     if (sources.isDefined)
@@ -473,7 +500,6 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
   }
 
 }
-
 
 object IndexCardOutput {
   val LETTER_DIGIT_MUTATION = Pattern.compile("^([ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]+)(\\d+)")

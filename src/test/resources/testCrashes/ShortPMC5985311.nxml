@@ -1,0 +1,120 @@
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.0 20120330//EN" "JATS-archivearticle1.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="review-article">
+	<?properties open_access?>
+	<front>
+		<journal-meta>
+			<journal-id journal-id-type="nlm-ta">Front Endocrinol (Lausanne)</journal-id>
+			<journal-id journal-id-type="iso-abbrev">Front Endocrinol (Lausanne)</journal-id>
+			<journal-id journal-id-type="publisher-id">Front. Endocrinol.</journal-id>
+			<journal-title-group>
+				<journal-title>Frontiers in Endocrinology</journal-title>
+			</journal-title-group>
+			<issn pub-type="epub">1664-2392</issn>
+			<publisher>
+				<publisher-name>Frontiers Media S.A.</publisher-name>
+			</publisher>
+		</journal-meta>
+		<article-meta>
+			<article-id pub-id-type="pmid">29892269</article-id>
+			<article-id pub-id-type="pmc">5985311</article-id>
+			<article-id pub-id-type="doi">10.3389/fendo.2018.00278</article-id>
+			<article-categories>
+				<subj-group subj-group-type="heading">
+					<subject>Endocrinology</subject>
+					<subj-group>
+						<subject>Review</subject>
+					</subj-group>
+				</subj-group>
+			</article-categories>
+			<title-group>
+				<article-title>Paracrine Effects of FGF23 on the Heart</article-title>
+			</title-group>
+			<contrib-group>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Leifheit-Nestler</surname>
+						<given-names>Maren</given-names>
+					</name>
+					<xref ref-type="corresp" rid="fn001">*</xref>
+					<uri xlink:type="simple" xlink:href="https://frontiersin.org/people/u/161764"/>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Haffner</surname>
+						<given-names>Dieter</given-names>
+					</name>
+				</contrib>
+			</contrib-group>
+			<aff>
+				<institution>Department of Pediatric Kidney, Liver and Metabolic Diseases, Pediatric Research Center, Hannover Medical School</institution>
+				,
+				<addr-line>Hannover</addr-line>
+				,
+				<country>Germany</country>
+			</aff>
+			<author-notes>
+				<fn fn-type="edited-by">
+					<p>Edited by: Reinhold Gottfried Erben, Veterin&#x000e4;rmedizinische Universit&#x000e4;t Wien, Austria</p>
+				</fn>
+				<fn fn-type="edited-by">
+					<p>Reviewed by: Martin De Borst, University Medical Center Groningen, Netherlands; Federica Limana, Universit&#x000e0; telematica San Raffaele, Italy</p>
+				</fn>
+				<corresp id="fn001">*Correspondence: Maren Leifheit-Nestler,
+					<email>leifheit-nestler.maren@mh-hannover.de</email>
+				</corresp>
+				<fn fn-type="other" id="fn002">
+					<p>Specialty section: This article was submitted to Molecular and Structural Endocrinology, a section of the journal Frontiers in Endocrinology</p>
+				</fn>
+			</author-notes>
+			<pub-date pub-type="epub">
+				<day>28</day>
+				<month>5</month>
+				<year>2018</year>
+			</pub-date>
+			<pub-date pub-type="collection">
+				<year>2018</year>
+			</pub-date>
+			<volume>9</volume>
+			<elocation-id>278</elocation-id>
+			<history>
+				<date date-type="received">
+					<day>19</day>
+					<month>12</month>
+					<year>2017</year>
+				</date>
+				<date date-type="accepted">
+					<day>11</day>
+					<month>5</month>
+					<year>2018</year>
+				</date>
+			</history>
+			<permissions>
+				<copyright-statement>Copyright &#x000a9; 2018 Leifheit-Nestler and Haffner.</copyright-statement>
+				<copyright-year>2018</copyright-year>
+				<copyright-holder>Leifheit-Nestler and Haffner</copyright-holder>
+				<license xlink:href="https://creativecommons.org/licenses/by/4.0/">
+					<license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.</license-p>
+				</license>
+			</permissions>
+			<abstract/>
+			<kwd-group>
+				<kwd>fibroblast growth factor 23</kwd>
+				<kwd>cardiac remodeling</kwd>
+				<kwd>left ventricular hypertrophy</kwd>
+				<kwd>cardiac fibrosis</kwd>
+				<kwd>endothelial dysfunction</kwd>
+				<kwd>autocrine</kwd>
+				<kwd>paracrine</kwd>
+			</kwd-group>
+			<counts>
+				<fig-count count="3"/>
+				<table-count count="1"/>
+				<equation-count count="0"/>
+				<ref-count count="112"/>
+				<page-count count="13"/>
+				<word-count count="10559"/>
+			</counts>
+		</article-meta>
+	</front>
+	<body>Inhibition of &#x003b1;-klotho using a neutralizing antibody specifically blocks FGF23-mediated activation of AKT/eNOS and consequently the release of NO.</body>
+</article>
