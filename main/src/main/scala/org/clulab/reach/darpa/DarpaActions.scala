@@ -606,10 +606,7 @@ object DarpaActions extends LazyLogging {
         BioMention.copyAttachments(entity, modifiedEntity)
         modifiedEntity.modifications += PTM(label, evidence = Some(se.trigger), site = siteOption, negated)
         modifiedEntity
-      }.getOrElse {
-        println("Keith was here")
-        se
-      }
+      }.getOrElse(se)
 
     //
     // cases for the generation of output
