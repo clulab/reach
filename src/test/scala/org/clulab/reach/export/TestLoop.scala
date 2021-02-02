@@ -1,19 +1,41 @@
 package org.clulab.reach.`export`
 
 import org.clulab.odin.Mention
+import org.clulab.odin.EventMention
+import org.clulab.odin.RelationMention
+import org.clulab.odin.TextBoundMention
 import org.clulab.reach.PaperReader
 import org.clulab.reach.ReachCLI
 import org.clulab.reach.ReachTest
-import org.clulab.reach.mentions.BioEventMention
-import org.clulab.reach.mentions.BioRelationMention
-import org.clulab.reach.mentions.BioTextBoundMention
-
-import scala.collection.mutable.{Set => MutableSet}
+import org.clulab.reach.mentions.Anaphoric
+import org.clulab.reach.utils.LoopChecker
 
 import java.io.File
-import java.util.IdentityHashMap
 
 class TestLoop extends ReachTest {
+
+  class MentionLoopChecker() extends LoopChecker[Mention] {
+
+    protected def getAntecendents: Seq[Mention] = {
+      Seq.empty
+    }
+
+    override def getChildren(mention: Mention): Seq[Mention] = {
+      val antecedentMentions = Seq(mention).collect {
+        case mention: Anaphoric =>
+          mention.antecedents.toSeq.collect {
+            case mention: Mention => mention
+          }: Seq[Mention]
+      }.flatten
+      val childMentions = mention match {
+        case _: TextBoundMention => Seq.empty
+        case mention: EventMention => mention.trigger +: mention.arguments.values.flatten.toSeq
+        case mention: RelationMention => mention.arguments.values.flatten.toSeq
+        case _: Mention => throw new RuntimeException(s"Unknown mention type: ${mention.getClass.getName}")
+      }
+      antecedentMentions ++ childMentions
+    }
+  }
 
   val infinite = it
 
@@ -26,90 +48,18 @@ class TestLoop extends ReachTest {
 
     new ReachCLI(papersDir, outputDir, outputFormats)
   }
+  val loopChecker = new MentionLoopChecker()
 
   def getOutputFilenames(pmcid: String, outputFormat: String): Seq[String] = {
     outputFormat match {
       case "serial-json" => Seq.empty
+      case "indexcard" => Seq.empty
     }
   }
 
   def mkFilename(pmcid: String): String = s"./src/test/resources/testCrashes/$pmcid.nxml"
 
-  case class MentionRecord(id: Int, parentIds: Set[Int] = MutableSet.empty, childIds: Set[Int] = MutableSet.empty) {
-
-    def addParent(parentId: Int): Unit = parentIds += parentId
-
-    def addChild(childId: Int): Unit = childIds += childId
-  }
-
-  def getChildren(mention: Mention): Seq[Mention] = {
-    mention match {
-      case _: BioTextBoundMention => Seq.empty
-      case bioMention: BioEventMention => bioMention.trigger +: bioMention.arguments.values.flatten.toSeq
-      case bioMention: BioRelationMention => bioMention.arguments.values.flatten.toSeq
-      case _: Mention => throw new RuntimeException(s"Unknown mention type: ${mention.getClass.getName}")
-    }
-  }
-
-  def checkForLoops(mentions: Vector[Mention]): Boolean = {
-    val mentionMap = new IdentityHashMap[Mention, MentionRecord]
-
-    def hasLoops(): Boolean = {
-      true
-    }
-
-    def addMentionAndChildren(parentOpt: Option[Mention], mention: Mention, children: Seq[Mention]): Boolean = {
-      val mentionRecordOpt = Option(mentionMap.get(mention))
-      val isDuplicate = mentionRecordOpt.isDefined
-
-      val mentionRecord = if (isDuplicate) {
-        val mentionRecord = mentionRecordOpt.get
-        val parentIdOpt = parentOpt.map { parent => mentionMap.get(parent).id }
-        // See if need to add the parent
-        if (parentIdOpt.isDefined)
-
-
-        if (mentionRecord.parentIds)
-        // All the children should be known and/or will be added later.
-
-      }
-      else {
-
-      }
-
-      mentionMap.put(mention, mentionRecord)
-      isDuplicate
-    }
-
-    def addMention(mention: Mention): Unit = {
-      if (!mentionMap.containsKey(mention)) {
-        val mentionRecord = MentionRecord(mentionMap.size())
-        mentionMap.put(mention, mentionRecord)
-        val children = getChildren(mention)
-
-        children.foreach(addMention)
-      }
-    }
-
-    def updateParentsAndChildren(mention: Mention): Unit = {
-      val parentMentionRecord = mentionMap.get(mention)
-      val parentId = parentMentionRecord.id
-      val children = getChildren(mention)
-      children.foreach { child =>
-        parentMentionRecord.addChild(childMentionRecord.id)
-        val childMentionRecord = mentionMap.get(child)
-        childMentionRecord.addParent(parentId)
-      }
-    }
-
-    mentions.foreach { mention => addMention(mention) }
-    mentionMap.keySet.forEach { mention: Mention =>
-      updateParentsAndChildren(mention)
-    }
-    hasLoops()
-  }
-
-  def runTest(pmcid: String, outputFormat: String): Unit = {
+  def runTest(pmcid: String, outputFormat: String): Boolean = {
     val filename = mkFilename(pmcid)
     val file = new File(filename)
     val entry = PaperReader.getEntryFromPaper(file)
@@ -118,8 +68,10 @@ class TestLoop extends ReachTest {
     val startTime = ReachCLI.now
 
     try {
-      if (!checkForLoops(mentions))
+      val hasLoops = loopChecker.checkForLoops(mentions)
+      if (!hasLoops)
         reachCLI.outputMentions(mentions, entry, paperId, startTime, reachCLI.outputDir, outputFormat, withAssembly)
+      hasLoops
     }
     finally {
       // Try to clean up after yourself.
@@ -134,22 +86,17 @@ class TestLoop extends ReachTest {
     }
   }
 
-  def runTest(pmcid: String): Unit = {
-    val filename = mkFilename(pmcid)
-    val file = new File(filename)
-
-    reachCLI.processPaper(file, withAssembly)
-  }
-
   {
-    val outputFormat = "serial-json"
-    def test(pmcid: String): Unit = runTest(pmcid, outputFormat)
+//    val outputFormat = "serial-json"
+    val outputFormat = "indexcard"
+    def test(pmcid: String): Boolean = runTest(pmcid, outputFormat)
 
     behavior of "serial-json format"
 
-    infinite should "not throw a NegativeArraySizeException" in {
-      val pmcid = "PMC7176272"
-      test(pmcid)
+    infinite should "not have loops" in {
+//      val pmcid = "PMC7176272"
+      val pmcid = "ShortPMC3822968"
+      test(pmcid) should be (false)
     }
   }
 }
