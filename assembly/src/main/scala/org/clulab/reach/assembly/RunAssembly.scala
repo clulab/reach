@@ -20,10 +20,11 @@ import org.json4s.jackson.JsonMethods._
 import org.json4s._
 import ai.lum.common.FileUtils._
 import java.nio.charset.StandardCharsets.UTF_8
+
 import org.clulab.reach.{ReachSystem, context}
-
-
 import org.clulab.processors.bionlp.BioNLPProcessor
+
+import scala.collection.mutable.ArrayBuffer
 
 object RunAnnotationEval extends App with LazyLogging {
 
@@ -142,7 +143,8 @@ object RunAnnotationEval extends App with LazyLogging {
 object EvalUnlabeldEventPairs extends App with LazyLogging {
 
   val evalMentionsPath = "/work/zhengzhongliang/2020_ASKE/20210117/paper_0_1000/mention-data/"
-  val testMentions = Serializer.load[Seq[Mention]](evalMentionsPath)
+  val testMentions = ArrayBuffer[Mention]()
+  Corpus.loadMentions(evalMentionsPath).foreach{keyValuePair => testMentions.appendAll(keyValuePair._2)}
 
   for {
     (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(testMentions)
