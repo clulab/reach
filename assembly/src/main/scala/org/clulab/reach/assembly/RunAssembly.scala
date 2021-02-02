@@ -141,7 +141,7 @@ object RunAnnotationEval extends App with LazyLogging {
 
 object EvalUnlabeldEventPairs extends App with LazyLogging {
 
-  val evalMentionsPath = ""
+  val evalMentionsPath = "/work/zhengzhongliang/2020_ASKE/20210117/paper_0_1000/mention-data/"
   val testMentions = Serializer.load[Seq[Mention]](evalMentionsPath)
 
   for {
