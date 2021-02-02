@@ -8,6 +8,8 @@ import org.clulab.reach.mentions.BioEventMention
 import org.clulab.reach.mentions.BioRelationMention
 import org.clulab.reach.mentions.BioTextBoundMention
 
+import scala.collection.mutable.{Set => MutableSet}
+
 import java.io.File
 import java.util.IdentityHashMap
 
@@ -33,11 +35,11 @@ class TestLoop extends ReachTest {
 
   def mkFilename(pmcid: String): String = s"./src/test/resources/testCrashes/$pmcid.nxml"
 
-  case class MentionRecord(id: Int, parentIds: Seq[Int] = Seq.empty, childIds: Seq[Int] = Seq.empty) {
+  case class MentionRecord(id: Int, parentIds: Set[Int] = MutableSet.empty, childIds: Set[Int] = MutableSet.empty) {
 
-    def withParent(parentId: Int): MentionRecord = copy(parentIds = parentIds :+ parentId)
+    def addParent(parentId: Int): Unit = parentIds += parentId
 
-    def withChild(childId: Int): MentionRecord = copy(childIds = childIds :+ childId)
+    def addChild(childId: Int): Unit = childIds += childId
   }
 
   def getChildren(mention: Mention): Seq[Mention] = {
@@ -79,17 +81,31 @@ class TestLoop extends ReachTest {
       isDuplicate
     }
 
-    def addMention(parentOpt: Option[Mention], mention: Mention): Unit = {
-      val children = getChildren(mention)
-      val isDuplicate = addMentionAndChildren(parentOpt, mention, children)
+    def addMention(mention: Mention): Unit = {
+      if (!mentionMap.containsKey(mention)) {
+        val mentionRecord = MentionRecord(mentionMap.size())
+        mentionMap.put(mention, mentionRecord)
+        val children = getChildren(mention)
 
-      if (!isDuplicate)
-        children.foreach { child =>
-          addMention(Some(mention), child)
-        }
+        children.foreach(addMention)
+      }
     }
 
-    mentions.foreach { mention => addMention(None, mention) }
+    def updateParentsAndChildren(mention: Mention): Unit = {
+      val parentMentionRecord = mentionMap.get(mention)
+      val parentId = parentMentionRecord.id
+      val children = getChildren(mention)
+      children.foreach { child =>
+        parentMentionRecord.addChild(childMentionRecord.id)
+        val childMentionRecord = mentionMap.get(child)
+        childMentionRecord.addParent(parentId)
+      }
+    }
+
+    mentions.foreach { mention => addMention(mention) }
+    mentionMap.keySet.forEach { mention: Mention =>
+      updateParentsAndChildren(mention)
+    }
     hasLoops()
   }
 
