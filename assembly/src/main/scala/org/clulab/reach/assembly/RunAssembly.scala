@@ -157,6 +157,8 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
     for (precedRel <- predicted){
       println("\t"+"-"*20)
       println("\t"+s"evidence size:${precedRel.evidence.size}")
+      println(s"e1:${precedRel.before.sourceMention.get.text}, e2:${precedRel.before.sourceMention.get.text}")
+
     }
 
     scala.io.StdIn.readLine("waiting for the next sieve")
