@@ -139,6 +139,30 @@ object RunAnnotationEval extends App with LazyLogging {
   }
 }
 
+object EvalUnlabeldEventPairs extends App with LazyLogging {
+
+  val evalMentionsPath = ""
+  val testMentions = Serializer.load[Seq[Mention]](evalMentionsPath)
+
+  for {
+    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(testMentions)
+  } {
+    val predicted = sieveResult.getPrecedenceRelations
+
+    println(s"number of test mentions:${testMentions.length}")
+    println(s"number of precedence relationships:${predicted.size}")
+
+    for (precedRel <- predicted){
+      println("\t"+"-"*20)
+      println("\t"+s"evidence size:${precedRel.evidence.size}")
+    }
+
+    scala.io.StdIn.readLine("waiting for the next sieve")
+  }
+
+
+}
+
 /**
   * Serialize each paper in a directory to json
   */
