@@ -156,8 +156,8 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
 
     for (precedRel <- predicted){
       println("\t"+"-"*20)
-      println("\t"+s"evidence size:${precedRel.evidence.size}")
-      println(s"e1:${precedRel.before.sourceMention.get.text}, e2:${precedRel.before.sourceMention.get.text}")
+      println(s"\te1:${precedRel.before.sourceMention.get.text}")
+      println(s"\te2:${precedRel.before.sourceMention.get.text}")
 
     }
 
