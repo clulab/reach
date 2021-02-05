@@ -9,6 +9,7 @@ import org.clulab.reach.ReachCLI
 import org.clulab.reach.ReachTest
 import org.clulab.reach.mentions.Anaphoric
 import org.clulab.reach.utils.LoopChecker
+import org.clulab.reach.mentions._
 
 import java.io.File
 
@@ -27,21 +28,29 @@ class TestLoop extends ReachTest {
             case mention: Mention => mention
           }: Seq[Mention]
       }.flatten
+      val mutantMentions = Seq(mention).collect {
+        case mention: BioMention =>
+          mention.mutants.map(_.evidence)
+      }.flatten
       val childMentions = mention match {
         case _: TextBoundMention => Seq.empty
         case mention: EventMention => mention.trigger +: mention.arguments.values.flatten.toSeq
         case mention: RelationMention => mention.arguments.values.flatten.toSeq
         case _: Mention => throw new RuntimeException(s"Unknown mention type: ${mention.getClass.getName}")
       }
-      antecedentMentions ++ childMentions
+      val corefAntecedentMentions = antecedentMentions.map(_.toCorefMention)
+      val corefMutantMentions = mutantMentions.map(_.toCorefMention)
+      val corefChildMentions = childMentions.map(_.toCorefMention)
+
+      corefAntecedentMentions ++ corefMutantMentions ++ corefChildMentions
     }
   }
 
-  val infinite = it
+  val infinite: ItWord = it
 
   val withAssembly = true
-  val outputDirname = System.getProperty("java.io.tmpdir") // ./tmpTest"
-  val reachCLI = {
+  val outputDirname: String = System.getProperty("java.io.tmpdir") // ./tmpTest"
+  val reachCLI: ReachCLI = {
     val papersDir = new File("")
     val outputDir = new File(outputDirname)
     val outputFormats = Seq.empty[String]
@@ -52,12 +61,22 @@ class TestLoop extends ReachTest {
 
   def getOutputFilenames(pmcid: String, outputFormat: String): Seq[String] = {
     outputFormat match {
+      // Real test
       case "serial-json" => Seq.empty
+      // Short test
       case "indexcard" => Seq.empty
     }
   }
 
   def mkFilename(pmcid: String): String = s"./src/test/resources/testCrashes/$pmcid.nxml"
+
+  def checkForLoops(outputFormat: String, mentions: Seq[Mention]): Boolean = {
+    val loopMentions = outputFormat match {
+      case "serial-json" => mentions.map(_.toCorefMention)
+      case _ => mentions
+    }
+    loopChecker.checkForLoops(loopMentions)
+  }
 
   def runTest(pmcid: String, outputFormat: String): Boolean = {
     val filename = mkFilename(pmcid)
@@ -68,7 +87,7 @@ class TestLoop extends ReachTest {
     val startTime = ReachCLI.now
 
     try {
-      val hasLoops = loopChecker.checkForLoops(mentions)
+      val hasLoops = checkForLoops(outputFormat, mentions)
       if (!hasLoops)
         reachCLI.outputMentions(mentions, entry, paperId, startTime, reachCLI.outputDir, outputFormat, withAssembly)
       hasLoops
@@ -87,15 +106,19 @@ class TestLoop extends ReachTest {
   }
 
   {
-//    val outputFormat = "serial-json"
-    val outputFormat = "indexcard"
+    // Real test
+    val outputFormat = "serial-json"
+    // Short test
+    // val outputFormat = "indexcard"
     def test(pmcid: String): Boolean = runTest(pmcid, outputFormat)
 
     behavior of "serial-json format"
 
     infinite should "not have loops" in {
-//      val pmcid = "PMC7176272"
-      val pmcid = "ShortPMC3822968"
+      // Real test
+      val pmcid = "PMC7176272"
+      // Short test
+      // val pmcid = "ShortPMC3822968"
       test(pmcid) should be (false)
     }
   }

@@ -2,12 +2,13 @@ package org.clulab.reach.mentions.serialization
 
 import org.clulab.odin
 import org.clulab.odin._
-import org.clulab.odin.serialization.json.{ TextBoundMentionOps, RelationMentionOps, EventMentionOps }
-import org.clulab.odin.serialization.json.{ MentionOps => OdinMentionOps, OdinPathOps }
-import org.clulab.serialization.json.{ JSONSerialization }
-import org.clulab.reach.mentions.serialization.json.{ JSONSerializer => ReachJSONSerializer }
+import org.clulab.odin.serialization.json.{EventMentionOps, RelationMentionOps, TextBoundMentionOps}
+import org.clulab.odin.serialization.json.{OdinPathOps, MentionOps => OdinMentionOps}
+import org.clulab.serialization.json.JSONSerialization
+import org.clulab.reach.mentions.serialization.json.{JSONSerializer => ReachJSONSerializer}
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding.KBResolution
+import org.clulab.serialization.json.stringify
 import org.json4s._
 import org.json4s.JsonDSL._
 import org.json4s.jackson._
@@ -38,8 +39,10 @@ package object json {
   /** For Seq[BioMention], Seq[CorefMention], etc */
   implicit class REACHMentionSeq(mentions: Seq[Mention]) extends JSONSerialization {
 
-    override def jsonAST: JValue = ReachJSONSerializer.jsonAST(mentions)
-
+    override def jsonAST: JValue = {
+      val result = ReachJSONSerializer.jsonAST(mentions)
+      result
+    }
   }
 
   /** generate a json string from the given ast */
@@ -247,8 +250,17 @@ package object json {
   }
 
   implicit class AnaphoricOps(antecedents: Set[Anaphoric]) extends JSONSerialization {
+
+    def countAntecedents(antecedents: Set[Anaphoric]): Int = {
+      antecedents.map { antecedent =>
+        1 + countAntecedents(antecedent.antecedents)
+      }.sum
+    }
+
     def jsonAST: JValue = antecedents match {
-      case hasAntecedents if hasAntecedents.nonEmpty => hasAntecedents.map(m => m.asInstanceOf[CorefMention].jsonAST)
+      case hasAntecedents if hasAntecedents.nonEmpty =>
+        println(s"Antecedent count: ${countAntecedents(antecedents)}")
+        hasAntecedents.map(m => m.asInstanceOf[CorefMention].jsonAST)
       case _ => JNothing
     }
   }

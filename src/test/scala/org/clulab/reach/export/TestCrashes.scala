@@ -8,13 +8,13 @@ import java.io.File
 
 class TestCrashes extends ReachTest {
 
-  val short = it
-  val long = ignore
-  val infinite = ignore
+  val short: ItWord = it
+  val long: IgnoreWord = ignore
+  val infinite: IgnoreWord = ignore
 
   val withAssembly = true
-  val outputDirname = System.getProperty("java.io.tmpdir") // ./tmpTest"
-  val reachCLI = {
+  val outputDirname: String = System.getProperty("java.io.tmpdir") // ./tmpTest"
+  val reachCLI: ReachCLI = {
     val papersDir = new File("")
     val outputDir = new File(outputDirname)
     val outputFormats = Seq.empty[String]
