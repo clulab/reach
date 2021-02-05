@@ -251,8 +251,8 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
   // nTotalPairsNeeded = 20000, chunkSize = 1000,
 
   // First, chunk all papers to 10,000 papers each chunk
-  val nTotalPairsNeeded = 50 // default: 20000
-  val chunkSize = 10  //default: each chunk has 1000 papers, which takes about 4 hours to process when thread limit = 4, yielding ~500 pairs.
+  val nTotalPairsNeeded = 20000 // default: 20000
+  val chunkSize = 1000  //default: each chunk has 1000 papers, which takes about 4 hours to process when thread limit = 4, yielding ~500 pairs.
   var continueProcessFlag = true // whether to continue to process the next chunk
   var chunkNum = 0 // which chunk processing now
   var totalEps = 0 // total number of eps collected so far
@@ -278,10 +278,6 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
         val eventPairs = selectEventPairs(cms)
         allEpsInChunk.appendAll(eventPairs)
         nDone+=1
-
-        if (totalEps>nTotalPairsNeeded){
-          continueProcessFlag = false
-        }
       }
       catch{
         case _ => {
@@ -291,7 +287,12 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
 
       }
     }
+
     totalEps += allEpsInChunk.length
+    if (totalEps>nTotalPairsNeeded){
+      continueProcessFlag = false
+    }
+
     val outDir = new File("/work/zhengzhongliang/2020_ASKE/20210117/paper_" +
                             (chunkNum * chunkSize).toString + "_" + ((chunkNum+1)*chunkSize).toString)
     // create corpus and write to file
