@@ -143,15 +143,17 @@ object RunAnnotationEval extends App with LazyLogging {
 object EvalUnlabeledEventPairs extends App with LazyLogging {
 
   val evalMentionsPath = "/work/zhengzhongliang/2020_ASKE/20210117/"
-  val testMentions = ArrayBuffer[Mention]()
-  Corpus.loadMentions(evalMentionsPath).foreach{keyValuePair => testMentions.appendAll(keyValuePair._2)}
+
+  val testCorpus = Corpus(evalMentionsPath)
+
+  println(s"number of event pairs: ${testCorpus.instances.length}")
 
   for {
-    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(testMentions)
+    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(testCorpus.mentions)
   } {
     val predicted = sieveResult.getPrecedenceRelations
 
-    println(s"number of test mentions:${testMentions.length}")
+    println(s"number of test mentions:${testCorpus.mentions.length}")
     println(s"number of precedence relationships:${predicted.size}")
 
     for (precedRel <- predicted){
