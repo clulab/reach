@@ -148,26 +148,40 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
 
   println(s"number of event pairs: ${testCorpus.instances.length}")
 
+  // building event pair "event hash to index"
+  val hash2IdxMap = scala.collection.mutable.Map[String, Int]()
+  for (idx <- testCorpus.instances.indices){
+    val ep = testCorpus.instances(idx)
+    hash2IdxMap(ep.e1.hashCode().toString +","+ep.e2.hashCode().toString) = idx
+  }
+
   for {
     (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(testCorpus.mentions)
   } {
     val predicted = sieveResult.getPrecedenceRelations
-
-    println(s"number of test mentions:${testCorpus.mentions.length}")
-    println(s"number of precedence relationships:${predicted.size}")
+    val fullPredLabelsListToSave = ArrayBuffer[(Int, Int)]()
 
     for (precedRel <- predicted){
-      println("\t"+"-"*20)
-      println(s"\te1:${precedRel.before.sourceMention.get.text}")
-      println(s"\te2:${precedRel.after.sourceMention.get.text}")
+      // The event in the prediction can be accessed by: precedRel.before.sourceMention.get.text
+      // The event hash can be accessed by: precedRel.before.sourceMention.get.hashCode().toString
+      val e1Hash = precedRel.before.sourceMention.get.hashCode().toString
+      val e2Hash = precedRel.after.sourceMention.get.hashCode().toString
 
-      println(s"\te1 hash:${precedRel.before.sourceMention.get.hashCode().toString}")
-      println(s"\te2 hash:${precedRel.after.sourceMention.get.hashCode().toString}")
+      if (hash2IdxMap.contains(e1Hash+","+e2Hash)){
+        fullPredLabelsListToSave.append((hash2IdxMap(e1Hash+","+e2Hash), 1))  // E1 precedes E2
+      }
+
+      else if (hash2IdxMap.contains(e2Hash+","+e1Hash)) {
+        fullPredLabelsListToSave.append((hash2IdxMap(e2Hash+","+e1Hash), 2))   // E1 precedes E2
+
+      }
 
     }
-
-    scala.io.StdIn.readLine("waiting for the next sieve")
+    println(fullPredLabelsListToSave)
+    scala.io.StdIn.readLine("-"*40)
   }
+
+
 
 
 }
