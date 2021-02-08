@@ -175,6 +175,9 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
         fullPredLabelsListToSave.append((hash2IdxMap(e2Hash+","+e1Hash), 2))   // E1 precedes E2
 
       }
+      else {
+        println("This should not happen!")
+      }
 
     }
     println(fullPredLabelsListToSave)
