@@ -198,8 +198,8 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
   // value is finally read and used.  That's in some other file.  This ensures isolation.
   // See https://stackoverflow.com/questions/3508077/how-to-define-type-disjunction-union-types.
   class PropMapOrFrameList protected(val value: Any) {
-    def this(propMap: PropMap) = this(propMap)
-    def this(frameList: FrameList) = this(frameList)
+    def this(propMap: PropMap) = this(propMap: Any)
+    def this(frameList: FrameList) = this(frameList: Any)
     def get: Any = value
   }
 
