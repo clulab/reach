@@ -1,0 +1,155 @@
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.0 20120330//EN" "JATS-archivearticle1.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="review-article">
+	<?properties open_access?>
+	<front>
+		<article-meta>
+			<article-id pub-id-type="pmid">31428229</article-id>
+			<article-id pub-id-type="pmc">6681624</article-id>
+			<article-id pub-id-type="doi">10.1155/2019/7318796</article-id>
+			<article-categories>
+				<subj-group subj-group-type="heading">
+					<subject>Review Article</subject>
+				</subj-group>
+			</article-categories>
+			<title-group>
+				<article-title>Ankrd2 in Mechanotransduction and Oxidative Stress Response in Skeletal Muscle: New Cues for the Pathogenesis of Muscular Laminopathies</article-title>
+			</title-group>
+			<contrib-group>
+				<contrib contrib-type="author" corresp="yes">
+					<contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0001-8062-1840</contrib-id>
+					<name>
+						<surname>Cenni</surname>
+						<given-names>Vittoria</given-names>
+					</name>
+					<email>vittoria.cenni@cnr.it</email>
+					<xref ref-type="aff" rid="I1">
+						<sup>1</sup>
+					</xref>
+					<xref ref-type="aff" rid="I2">
+						<sup>2</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Kojic</surname>
+						<given-names>Snezana</given-names>
+					</name>
+					<xref ref-type="aff" rid="I3">
+						<sup>3</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Capanni</surname>
+						<given-names>Cristina</given-names>
+					</name>
+					<xref ref-type="aff" rid="I1">
+						<sup>1</sup>
+					</xref>
+					<xref ref-type="aff" rid="I2">
+						<sup>2</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Faulkner</surname>
+						<given-names>Georgine</given-names>
+					</name>
+					<xref ref-type="aff" rid="I4">
+						<sup>4</sup>
+					</xref>
+				</contrib>
+				<contrib contrib-type="author" corresp="yes">
+					<contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-7103-8722</contrib-id>
+					<name>
+						<surname>Lattanzi</surname>
+						<given-names>Giovanna</given-names>
+					</name>
+					<email>giovanna.lattanzi@cnr.it</email>
+					<xref ref-type="aff" rid="I1">
+						<sup>1</sup>
+					</xref>
+					<xref ref-type="aff" rid="I2">
+						<sup>2</sup>
+					</xref>
+				</contrib>
+			</contrib-group>
+			<aff id="I1">
+				<sup>1</sup>
+				CNR National Research Council of Italy, Institute of Molecular Genetics, Unit of Bologna, 40126 Bologna, Italy
+			</aff>
+			<aff id="I2">
+				<sup>2</sup>
+				IRCCS Istituto Ortopedico Rizzoli, 40126 Bologna, Italy
+			</aff>
+			<aff id="I3">
+				<sup>3</sup>
+				Institute of Molecular Genetics and Genetic Engineering University of Belgrade, 11010 Belgrade, Serbia
+			</aff>
+			<aff id="I4">
+				<sup>4</sup>
+				Department of Biology, University of Padua, 35121 Padua, Italy
+			</aff>
+			<author-notes>
+				<fn fn-type="other">
+					<p>Guest Editor: Andrey J. Serra</p>
+				</fn>
+			</author-notes>
+			<pub-date pub-type="collection">
+				<year>2019</year>
+			</pub-date>
+			<pub-date pub-type="epub">
+				<day>24</day>
+				<month>7</month>
+				<year>2019</year>
+			</pub-date>
+			<volume>2019</volume>
+			<elocation-id>7318796</elocation-id>
+			<history>
+				<date date-type="received">
+					<day>4</day>
+					<month>3</month>
+					<year>2019</year>
+				</date>
+				<date date-type="rev-recd">
+					<day>2</day>
+					<month>5</month>
+					<year>2019</year>
+				</date>
+				<date date-type="accepted">
+					<day>19</day>
+					<month>5</month>
+					<year>2019</year>
+				</date>
+			</history>
+			<permissions>
+				<copyright-statement>Copyright &#x000a9; 2019 Vittoria Cenni et al.</copyright-statement>
+				<copyright-year>2019</copyright-year>
+				<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+					<license-p>This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+				</license>
+			</permissions>
+			<abstract>
+			</abstract>
+			<funding-group>
+				<award-group>
+					<funding-source>Ministarstvo Prosvete, Nauke i Tehnolo&#x00161;kog Razvoja</funding-source>
+					<award-id>173008</award-id>
+				</award-group>
+				<award-group>
+					<funding-source>Ministero dell'Istruzione, dell'Universit&#x000e0; e della Ricerca</funding-source>
+					<award-id>2015FBNB5Y</award-id>
+				</award-group>
+				<award-group>
+					<funding-source>Associazione Alessandra Proietti Onlus</funding-source>
+				</award-group>
+				<award-group>
+					<funding-source>Associazione Italiana Distrofia Muscolare di Emery-Dreifuss</funding-source>
+				</award-group>
+			</funding-group>
+		</article-meta>
+	</front>
+	<body>
+		Ankrd2 expression in the heart is potentially regulated by cardiac specific transcription factors Nkx2.5 , Hand2 , and Ankrd1 as demonstrated by their interaction with the ANKRD2 promoter or by dual luciferase assay [ 20 , 21 ] .
+	</body>
+</article>

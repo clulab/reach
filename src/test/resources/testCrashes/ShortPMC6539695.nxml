@@ -1,0 +1,137 @@
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.0 20120330//EN" "JATS-archivearticle1.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="review-article">
+	<?properties open_access?>
+	<front>
+		<journal-meta>
+			<journal-id journal-id-type="nlm-ta">Int J Mol Sci</journal-id>
+			<journal-id journal-id-type="iso-abbrev">Int J Mol Sci</journal-id>
+			<journal-id journal-id-type="publisher-id">ijms</journal-id>
+			<journal-title-group>
+				<journal-title>International Journal of Molecular Sciences</journal-title>
+			</journal-title-group>
+			<issn pub-type="epub">1422-0067</issn>
+			<publisher>
+				<publisher-name>MDPI</publisher-name>
+			</publisher>
+		</journal-meta>
+		<article-meta>
+			<article-id pub-id-type="pmid">31075975</article-id>
+			<article-id pub-id-type="pmc">6539695</article-id>
+			<article-id pub-id-type="doi">10.3390/ijms20092304</article-id>
+			<article-id pub-id-type="publisher-id">ijms-20-02304</article-id>
+			<article-categories>
+				<subj-group subj-group-type="heading">
+					<subject>Review</subject>
+				</subj-group>
+			</article-categories>
+			<title-group>
+				<article-title>Control Mechanisms of the Tumor Suppressor PDCD4: Expression and Functions</article-title>
+			</title-group>
+			<contrib-group>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Matsuhashi</surname>
+						<given-names>Sachiko</given-names>
+					</name>
+					<xref ref-type="aff" rid="af1-ijms-20-02304">1</xref>
+					<xref rid="c1-ijms-20-02304" ref-type="corresp">*</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<contrib-id contrib-id-type="orcid" authenticated="true">https://orcid.org/0000-0003-0912-7369</contrib-id>
+					<name>
+						<surname>Manirujjaman</surname>
+						<given-names>M.</given-names>
+					</name>
+					<xref ref-type="aff" rid="af1-ijms-20-02304">1</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Hamajima</surname>
+						<given-names>Hiroshi</given-names>
+					</name>
+					<xref ref-type="aff" rid="af2-ijms-20-02304">2</xref>
+				</contrib>
+				<contrib contrib-type="author">
+					<contrib-id contrib-id-type="orcid" authenticated="true">https://orcid.org/0000-0001-8542-1434</contrib-id>
+					<name>
+						<surname>Ozaki</surname>
+						<given-names>Iwata</given-names>
+					</name>
+					<xref ref-type="aff" rid="af3-ijms-20-02304">3</xref>
+				</contrib>
+			</contrib-group>
+			<aff id="af1-ijms-20-02304">
+				<label>1</label>
+				Department of Internal Medicine, Saga Medical School, Saga University, 5-1-1 Nabeshima, Saga 849-8501, Japan;
+				<email>monirbio31@gmail.com</email>
+			</aff>
+			<aff id="af2-ijms-20-02304">
+				<label>2</label>
+				Saga Food &#x00026; Cosmetics Laboratory, Division of Food Manufacturing Industry Promotion, SAGA Regional Industry Support Center, 114 Yaemizo, Nabesima-Machi, Saga 849-0932, Japan;
+				<email>hamajimahiroshi@gmail.com</email>
+			</aff>
+			<aff id="af3-ijms-20-02304">
+				<label>3</label>
+				Health Administration Center, Saga Medical School, Saga University, 5-1-1 Nabeshima, Saga 849-8501, Japan;
+				<email>ozaki@cc.saga-u.ac.jp</email>
+			</aff>
+			<author-notes>
+				<corresp id="c1-ijms-20-02304">
+					<label>*</label>
+					Correspondence:
+					<email>matsuha2@cc.saga-u.ac.jp</email>
+					; Tel./Fax: +81-952-34-2362
+				</corresp>
+			</author-notes>
+			<pub-date pub-type="epub">
+				<day>09</day>
+				<month>5</month>
+				<year>2019</year>
+			</pub-date>
+			<pub-date pub-type="collection">
+				<month>5</month>
+				<year>2019</year>
+			</pub-date>
+			<volume>20</volume>
+			<issue>9</issue>
+			<elocation-id>2304</elocation-id>
+			<history>
+				<date date-type="received">
+					<day>01</day>
+					<month>4</month>
+					<year>2019</year>
+				</date>
+				<date date-type="accepted">
+					<day>07</day>
+					<month>5</month>
+					<year>2019</year>
+				</date>
+			</history>
+			<permissions>
+				<copyright-statement>&#x000a9; 2019 by the authors.</copyright-statement>
+				<copyright-year>2019</copyright-year>
+				<license license-type="open-access">
+					<license-p>Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (
+						<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>
+						).
+					</license-p>
+				</license>
+			</permissions>
+			<abstract/>
+			<kwd-group>
+				<kwd>tumor suppressor</kwd>
+				<kwd>
+					<italic>PDCD4</italic>
+				</kwd>
+				<kwd>tumor promotor</kwd>
+				<kwd>EGF</kwd>
+				<kwd>TPA</kwd>
+				<kwd>carcinogenesis</kwd>
+			</kwd-group>
+		</article-meta>
+	</front>
+	<body>Among them, nucleotide anti-mir21 drugs inhibit colon cancer cell metastasis up-regulating PDCD4-protein levels in in vitro experiments [
+		<xref rid="B100-ijms-20-02304" ref-type="bibr">100</xref>
+		].
+	</body>
+</article>

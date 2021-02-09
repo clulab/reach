@@ -68,6 +68,28 @@ class ReachCLI (
     }
   }
 
+  def reportException(file: File, e: Throwable): Unit = {
+    val filename = file.getName
+    val paperID = FilenameUtils.removeExtension(filename)
+    val report =
+      s"""
+         |==========
+         |
+         | ¡¡¡ NxmlReader error !!!
+         |
+         |paper: $paperID
+         |
+         |error:
+         |${e.toString}
+         |
+         |stack trace:
+         |${e.getStackTrace.mkString("\n")}
+         |
+         |==========
+         |""".stripMargin
+    logger.error(report)
+  }
+
   /** Process papers **/
   def processPapers (threadLimit: Option[Int], withAssembly: Boolean): Int = {
     logger.info("Initializing Reach ...")
@@ -80,39 +102,31 @@ class ReachCLI (
         new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit.get))
     }
 
-    val errorCount = for {
+    val errorCounts = for {
       file <- files
       filename = file.getName
-      paperID = FilenameUtils.removeExtension(filename)
       if ! skipFiles.contains(filename)
     } yield {
       val error: Int = try {
-        processPaper(file, withAssembly)
-        0                                   // no error
+        // Count the number of failed files, not failed formats.
+        math.signum(processPaper(file, withAssembly))
       } catch {
         case e: Exception =>
-          val report =
-            s"""
-               |==========
-               |
-            | ¡¡¡ NxmlReader error !!!
-               |
-            |paper: $paperID
-               |
-            |error:
-               |${e.toString}
-               |
-            |stack trace:
-               |${e.getStackTrace.mkString("\n")}
-               |
-            |==========
-               |""".stripMargin
-          logger.error(report)
+          // The reading itself, rather than the format, could have failed.
+          reportException(file, e)
           1
       }
       error
     }
-    errorCount.sum
+    val paperCount = errorCounts.length
+    val errorCount = errorCounts.sum
+    val message =
+      if (errorCount > 0)
+        s"Reach encountered $errorCount error(s) with the $paperCount paper(s).  Please check the log."
+      else
+        s"Reach encountered no errors with the $paperCount paper(s)."
+    logger.info(message)
+    errorCount
   }
 
   def prepareMentionsForMITRE (mentions: Seq[Mention]): Seq[CorefMention] = {
@@ -123,7 +137,8 @@ class ReachCLI (
 
   def doAssembly (mns: Seq[Mention]): Assembler = Assembler(mns)
 
-  def processPaper (file: File, withAssembly: Boolean): Unit = {
+  // Returns count of outputFormats which errored.
+  def processPaper (file: File, withAssembly: Boolean): Int = {
     val paperId = FilenameUtils.removeExtension(file.getName)
     val startNS = System.nanoTime
     val startTime = ReachCLI.now
@@ -140,7 +155,18 @@ class ReachCLI (
     // generate outputs
     // NOTE: Assembly can't be run before calling this method without additional refactoring,
     // as different output formats apply different filters before running assembly
-    outputFormats.foreach(outputFormat => outputMentions(mentions, entry, paperId, startTime, outputDir, outputFormat, withAssembly))
+    val errorCount = outputFormats
+      .map { outputFormat =>
+        try {
+          outputMentions(mentions, entry, paperId, startTime, outputDir, outputFormat, withAssembly)
+          0
+        }
+        catch {
+          case throwable: Throwable =>
+            reportException(file, throwable)
+            1
+        }
+      }.sum
 
     // elapsed time: processing + writing output
     val endTime = ReachCLI.now
@@ -150,11 +176,16 @@ class ReachCLI (
     val avg = statsKeeper.update(duration)
 
     logger.debug(s"  ${duration}s: $paperId: finished writing JSON to ${outputDir.getCanonicalPath}")
-    logger.info(s"$endTime: Finished $paperId successfully (${duration} seconds)")
+    val outcome =
+      if (errorCount == 0) "successfully"
+      else "with errors"
+    logger.info(s"$endTime: Finished $paperId $outcome (${duration} seconds)")
     logger.info(s"$endTime: PapersDone: ${avg(0)}, ElapsedTime: ${elapsed}, Average: ${avg(1)}")
 
-    // record successful processing of input file for possible batch restart
-    fileSucceeded(file)
+    if (errorCount == 0)
+      // record successful processing of input file for possible batch restart
+      fileSucceeded(file)
+    errorCount
   }
 
   /** Write output for mentions originating from a single FriesEntry. */

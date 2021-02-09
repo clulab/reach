@@ -1,0 +1,91 @@
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD with MathML3 v1.2 20190208//EN" "JATS-archivearticle1-mathml3.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+	<?properties open_access?>
+	<front>
+		<article-meta>
+			<article-id pub-id-type="pmid">31817347</article-id>
+			<article-id pub-id-type="pmc">6940835</article-id>
+			<article-id pub-id-type="doi">10.3390/ijms20246128</article-id>
+			<article-id pub-id-type="publisher-id">ijms-20-06128</article-id>
+			<article-categories>
+				<subj-group subj-group-type="heading">
+					<subject>Article</subject>
+				</subj-group>
+			</article-categories>
+			<title-group>
+				<article-title>Expression and Secretion of an Atrial Natriuretic Peptide in Beige-Like 3T3-L1 Adipocytes</article-title>
+			</title-group>
+			<contrib-group>
+				<contrib contrib-type="author">
+					<contrib-id contrib-id-type="orcid" authenticated="true">https://orcid.org/0000-0003-3543-8785</contrib-id>
+					<name>
+						<surname>Bae</surname>
+						<given-names>In-Seon</given-names>
+					</name>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Kim</surname>
+						<given-names>Sang Hoon</given-names>
+					</name>
+					<xref rid="c1-ijms-20-06128" ref-type="corresp">*</xref>
+				</contrib>
+			</contrib-group>
+			<aff id="af1-ijms-20-06128">Department of Biology, College of Sciences, Kyung Hee University, Seoul 02447, Korea;
+				<email>since89_bis@naver.com</email>
+			</aff>
+			<author-notes>
+				<corresp id="c1-ijms-20-06128">
+					<label>*</label>
+					Correspondence:
+					<email>shkim@khu.ac.kr</email>
+					; Tel.: +1-82-2-961-9122
+				</corresp>
+			</author-notes>
+			<pub-date pub-type="epub">
+				<day>05</day>
+				<month>12</month>
+				<year>2019</year>
+			</pub-date>
+			<pub-date pub-type="collection">
+				<month>12</month>
+				<year>2019</year>
+			</pub-date>
+			<volume>20</volume>
+			<issue>24</issue>
+			<elocation-id>6128</elocation-id>
+			<history>
+				<date date-type="received">
+					<day>15</day>
+					<month>11</month>
+					<year>2019</year>
+				</date>
+				<date date-type="accepted">
+					<day>03</day>
+					<month>12</month>
+					<year>2019</year>
+				</date>
+			</history>
+			<permissions>
+				<copyright-statement>&#x000a9; 2019 by the authors.</copyright-statement>
+				<copyright-year>2019</copyright-year>
+				<license license-type="open-access">
+					<license-p>Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (
+						<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>
+						).
+					</license-p>
+				</license>
+			</permissions>
+			<abstract>
+			</abstract>
+			<kwd-group>
+				<kwd>atrial natriuretic peptide</kwd>
+				<kwd>beige adipocytes</kwd>
+				<kwd>docosahexaenoic acids</kwd>
+			</kwd-group>
+		</article-meta>
+	</front>
+	<body>
+		Activated ANP is a peptide hormone consisting of 28 amino acids that binds to NPR1 , a receptor in target organs such as the kidneys and peripheral blood vessels , converting intracellular GTP into cGMP to promote the excretion of Na  , inhibit Na   reuptake, and induce vasodilation [ 16,17 ] .
+	</body>
+</article>

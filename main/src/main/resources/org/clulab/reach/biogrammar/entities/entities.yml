@@ -30,7 +30,7 @@
   type: token
   action: mkBioMention
   pattern: |
-    (?<! [word=/(?i)^(table|figure)/])
+    (?<! [word=/(?i)^(table|figure|fig|tab)/])
     [word=/(?i)^\d+[ACDEFGHIKLMNQRSTVWY]$/ & !mention=/^(Family|Gene_or_gene_product|Simple_chemical)$/]
     (?! ">")
 

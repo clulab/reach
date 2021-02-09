@@ -22,9 +22,9 @@ class CMUExporter(manager: AssemblyManager) extends AssemblyExporter(manager) {
   def createMechanismType(eer: EntityEventRepresentation): String = eer match {
     case ne: Regulation =>
       // FIXME: use all mentions, not just the head (this matters only when we store non-identical mentions in the same EER)
-      val simpleEvent = findSimpleEventControlled(ne.evidence.head)
-      if (simpleEvent.isDefined) simpleEvent.get.label
-      else AssemblyExporter.NONE
+      val evidenceOpt = ne.evidence.headOption
+      val simpleEventOpt = evidenceOpt.flatMap(findSimpleEventControlled)
+      simpleEventOpt.map(_.label).getOrElse(AssemblyExporter.NONE)
     case _ => AssemblyExporter.NONE
   }
 

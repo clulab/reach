@@ -592,18 +592,21 @@ object DarpaActions extends LazyLogging {
     // convert event to PTM on its theme.
     // negate PTM according to current value of "negated"
     // (this SimpleEvent may have been the controlled to some negative ComplexEvent)
-    case se: BioEventMention if se matches "SimpleEvent" =>
-      // get the theme of the event (assume only one theme)
-      val entity = se.arguments("theme").head.toBioMention
-      // get an optional site (assume only one site)
-      val siteOption = se.arguments.get("site").map(_.head)
-      // create new mention for the entity
-      val modifiedEntity = new BioTextBoundMention(entity)
-      // attach a modification based on the event trigger
-      val label = DarpaActions.getModificationLabel(se.label)
-      BioMention.copyAttachments(entity, modifiedEntity)
-      modifiedEntity.modifications += PTM(label, evidence = Some(se.trigger), site = siteOption, negated)
-      modifiedEntity
+    case se: BioEventMention if se.matches("SimpleEvent") =>
+      val themeOpt = se.arguments.get("theme").map(_.head)
+      themeOpt.map { theme =>
+        // get the theme of the event (assume only one theme)
+        val entity = theme.toBioMention
+        // get an optional site (assume only one site)
+        val siteOption = se.arguments.get("site").map(_.head)
+        // create new mention for the entity
+        val modifiedEntity = new BioTextBoundMention(entity)
+        // attach a modification based on the event trigger
+        val label = DarpaActions.getModificationLabel(se.label)
+        BioMention.copyAttachments(entity, modifiedEntity)
+        modifiedEntity.modifications += PTM(label, evidence = Some(se.trigger), site = siteOption, negated)
+        modifiedEntity
+      }.getOrElse(se)
 
     //
     // cases for the generation of output

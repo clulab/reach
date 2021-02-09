@@ -1362,13 +1362,16 @@ class AssemblyManager(
   }
 
   /**
-    * Returns head of each group returned by [[groupedEERs]].
+    * Returns representative of each group returned by [[groupedEERs]].  This used to simply
+    * be the head, but that is dependent on order, so now the lowest uniqueID is used instead.
     *
     * @return a Set of [[EntityEventRepresentation]]
     */
   def distinctEERs: Set[EER] = {
-    groupedEERs.map(_.head)
-      .toSet
+    // Since groupedEERs is a Seq of Sets, head() will not be repeatable between runs.
+    // There needs to be a way to pick the same element each time, independently of order.
+    // Act as if they were sorted by uniqueID and then choose the first.
+    groupedEERs.map(_.minBy(_.uniqueID)).toSet
   }
 
   /**

@@ -65,7 +65,7 @@ More publications from the Reach project are available [here](https://github.com
 
 # Installation
 
-This software requires Java 1.8 and Scala 2.11 or 2.12.
+This software requires Java 8 or 11 and Scala 2.11 or 2.12.
 
 The `jar` is available on Maven Central. To use, simply add the following dependency to your `pom.xml`:
 
