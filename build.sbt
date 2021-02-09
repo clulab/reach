@@ -96,10 +96,16 @@ lazy val processors = project
 lazy val main = project
   .settings(commonSettings:_*)
   .dependsOn(processors % "test->test;compile->compile")
+//  .dependsOn(context  % "test->test;compile->compile")
 
 lazy val causalAssembly = project.in(file("assembly"))
   .settings(commonSettings:_*)
   .dependsOn(main % "test->test;compile->compile")
+
+lazy val context = project.in(file("context"))
+  .settings(commonSettings:_*)
+  .dependsOn(main % "test->test;compile->compile")
+
 
 lazy val export = project
   .settings(commonSettings:_*)
