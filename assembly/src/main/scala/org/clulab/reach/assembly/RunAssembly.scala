@@ -315,6 +315,7 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
   val model = "lin-svm-l1"
 
   val classifier = AssemblyRelationClassifier.getModel(model)
+  println(s"classifier class name:${classifier.getClass.getName}")
 
   for (i <- 0 until precedenceAnnotations.size) {
     val predicted = classifier.classOf(precedenceDataset.mkDatum(i))
