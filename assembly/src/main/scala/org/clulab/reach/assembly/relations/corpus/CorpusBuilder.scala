@@ -214,7 +214,7 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
 
   // Initialize the needed components for the annotation. Proc, reachSystem and nxml reader are imported from PaperReader
   val pubmedRootDir = "/data/nlp/corpora/pmc_openaccess/pmc_dec2019"
-  val threadLimit = 4
+  val threadLimit = 4  // run on amy using 20 thread limits.
   val unlabeledExtractionCorpusDir = ""
 
   // Get 10000 papers with PMC id and in nxml format
@@ -276,13 +276,18 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
 
         val cms: Seq[CorefMention] = mentions.map(_.toCorefMention)
         val eventPairs = selectEventPairs(cms)
-        allEpsInChunk.appendAll(eventPairs)
-        nDone+=1
+
+        this.synchronized {
+          allEpsInChunk.appendAll(eventPairs)
+          nDone += 1
+        }
       }
       catch{
         case _ => {
-          nSkipped+=1
-          logger.info("\tpaper skipped")
+          this.synchronized {
+            nSkipped += 1
+            logger.info("\tpaper skipped")
+          }
         }
 
       }

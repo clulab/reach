@@ -45,7 +45,7 @@ case class PrecedenceRelation(
     * @return a Boolean
     */
   def isEquivalentTo(other: Any, ignoreMods: Boolean): Boolean = other match {
-    case pr: PrecedenceRelation => this.before.isEquivalentTo(pr.before, ignoreMods) || this.after.isEquivalentTo(pr.after, ignoreMods)
+    case pr: PrecedenceRelation => this.before.isEquivalentTo(pr.before, ignoreMods) && this.after.isEquivalentTo(pr.after, ignoreMods)
     case _ => false
   }
 }
