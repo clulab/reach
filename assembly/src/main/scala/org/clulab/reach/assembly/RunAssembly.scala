@@ -155,6 +155,8 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
     val e1Features = ep.e1.document.id.getOrElse("") + "," + ep.e1.sentence.toString + "," + ep.e1.start.toString + "," + ep.e1.end.toString
     val e2Features = ep.e2.document.id.getOrElse("") + "," + ep.e2.sentence.toString + "," + ep.e2.start.toString + "," + ep.e2.end.toString
 
+    println(e1Features +";"+e2Features)
+
     if (hash2IdxMap.contains(e1Features +";"+e2Features)) {
       println("we should not be here")
     }
