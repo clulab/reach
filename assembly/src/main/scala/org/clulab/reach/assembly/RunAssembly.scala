@@ -186,52 +186,52 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
   println(eventPairHashIdxMap.filter{x => x._2>1})
   println(eventPairFeatureIdxMap.filter{x => x._2>1})
 
-  for {
-    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(testCorpus.mentions)
-  } {
-    val predicted = sieveResult.getPrecedenceRelations
-    val fullPredLabelsListToSave = ArrayBuffer[(Int, Int)]()
-
-    var invalidMentionHashCount  = 0
-    var invalidMentionFeatureCount = 0
-
-    for (precedRel <- predicted){
-      // The event in the prediction can be accessed by: precedRel.before.sourceMention.get.text
-      // The event hash can be accessed by: precedRel.before.sourceMention.get.hashCode().toString
-      val e1 = precedRel.before.sourceMention.get
-      val e2 = precedRel.after.sourceMention.get
-      val e1Features = e1.document.id.getOrElse("") + "," + e1.sentence.toString + "," + e1.start.toString + "," + e1.end.toString
-      val e2Features = e2.document.id.getOrElse("") + "," + e2.sentence.toString + "," + e2.start.toString + "," + e2.end.toString
-
-      val e1Hash = e1.hashCode().toString
-      val e2Hash = e2.hashCode().toString
-
-      if (hash2IdxMap.contains(e1Features +";"+e2Features)){
-        fullPredLabelsListToSave.append((hash2IdxMap(e1Features +";"+e2Features), 1))  // E1 precedes E2
-      }
-
-      else if (hash2IdxMap.contains(e2Features +";"+e1Features)) {
-        fullPredLabelsListToSave.append((hash2IdxMap(e2Features +";"+e1Features), 2))   // E2 precedes E1
-
-      }
-      else {
-        println("This should not happen!")
-      }
-
-      if (!mentionHashIdxMap.contains(e1Hash)) {invalidMentionHashCount += 1}
-      if (!mentionHashIdxMap.contains(e2Hash)) {invalidMentionHashCount += 1}
-      if (!mentionFeatureIdxMap.contains(e1Features)) {invalidMentionFeatureCount += 1}
-      if (!mentionFeatureIdxMap.contains(e2Features)) {invalidMentionFeatureCount += 1}
-
-    }
-    println(fullPredLabelsListToSave)
-    println(s"invalid mention hash count ${invalidMentionHashCount}, invalid mention feature count:${invalidMentionFeatureCount}")
-    scala.io.StdIn.readLine("-"*40)
-
-
-    // Tuple to match: paper id, sentence id, text span. label
-    // TODO, print the mention's hash, see if new mentions are predicted (not new event pairs)
-  }
+//  for {
+//    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(testCorpus.mentions)
+//  } {
+//    val predicted = sieveResult.getPrecedenceRelations
+//    val fullPredLabelsListToSave = ArrayBuffer[(Int, Int)]()
+//
+//    var invalidMentionHashCount  = 0
+//    var invalidMentionFeatureCount = 0
+//
+//    for (precedRel <- predicted){
+//      // The event in the prediction can be accessed by: precedRel.before.sourceMention.get.text
+//      // The event hash can be accessed by: precedRel.before.sourceMention.get.hashCode().toString
+//      val e1 = precedRel.before.sourceMention.get
+//      val e2 = precedRel.after.sourceMention.get
+//      val e1Features = e1.document.id.getOrElse("") + "," + e1.sentence.toString + "," + e1.start.toString + "," + e1.end.toString
+//      val e2Features = e2.document.id.getOrElse("") + "," + e2.sentence.toString + "," + e2.start.toString + "," + e2.end.toString
+//
+//      val e1Hash = e1.hashCode().toString
+//      val e2Hash = e2.hashCode().toString
+//
+//      if (hash2IdxMap.contains(e1Features +";"+e2Features)){
+//        fullPredLabelsListToSave.append((hash2IdxMap(e1Features +";"+e2Features), 1))  // E1 precedes E2
+//      }
+//
+//      else if (hash2IdxMap.contains(e2Features +";"+e1Features)) {
+//        fullPredLabelsListToSave.append((hash2IdxMap(e2Features +";"+e1Features), 2))   // E2 precedes E1
+//
+//      }
+//      else {
+//        println("This should not happen!")
+//      }
+//
+//      if (!mentionHashIdxMap.contains(e1Hash)) {invalidMentionHashCount += 1}
+//      if (!mentionHashIdxMap.contains(e2Hash)) {invalidMentionHashCount += 1}
+//      if (!mentionFeatureIdxMap.contains(e1Features)) {invalidMentionFeatureCount += 1}
+//      if (!mentionFeatureIdxMap.contains(e2Features)) {invalidMentionFeatureCount += 1}
+//
+//    }
+//    println(fullPredLabelsListToSave)
+//    println(s"invalid mention hash count ${invalidMentionHashCount}, invalid mention feature count:${invalidMentionFeatureCount}")
+//    scala.io.StdIn.readLine("-"*40)
+//
+//
+//    // Tuple to match: paper id, sentence id, text span. label
+//    // TODO, print the mention's hash, see if new mentions are predicted (not new event pairs)
+//  }
 
 
 }
