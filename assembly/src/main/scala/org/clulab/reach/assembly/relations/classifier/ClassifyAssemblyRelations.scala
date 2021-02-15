@@ -179,7 +179,7 @@ object TrainAssemblyRelationClassifier extends App with LazyLogging {
   val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDir")).instances
 
   // gather precedence relations corpus
-  val precedenceAnnotations = CorpusReader.filterRelations(eps, precedenceRelations)
+  val precedenceAnnotations = CorpusReader.filterRelations(eps, precedenceRelations )
   // train
   logger.info(s"Training classifier using ${precedenceAnnotations.size}")
   val precedenceDataset = AssemblyRelationClassifier.mkRVFDataset(precedenceAnnotations)
