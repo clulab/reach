@@ -11,7 +11,7 @@ import org.clulab.utils.Serializer
 import scala.collection.parallel.ForkJoinTaskSupport
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
-import java.io.File
+import java.io.{File, PrintWriter}
 
 import org.clulab.reach.assembly.relations.SieveEvaluator
 import org.clulab.reach.assembly.relations.SieveEvaluator.Performance
@@ -244,7 +244,7 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
   }
 
   for {
-    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(testCorpus.mentions)
+    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(testCorpus.mentions).slice(0,1) // TODO: use only one classifier for now.
   } {
     val predicted = sieveResult.getPrecedenceRelations
     val fullPredLabelsListToSave = ArrayBuffer[(Int, Int)]()
@@ -280,8 +280,16 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
     println(s"rule based classifier name:${lbl}")
     println(fullPredLabelsListToSave)
     println(s"invalid mention hash count ${invalidMentionHashCount}, invalid event pair count:${invalidEventPairHashCount}")
-    scala.io.StdIn.readLine("-"*40)
 
+
+    val predLabelsSeq2Str = fullPredLabelsListToSave.map{x => x._1 + "," + x._2}.mkString(";")
+    val predLabelSavePath = evalMentionsPath+lbl+"_results.txt"
+
+    val pw = new PrintWriter(new File(predLabelSavePath ))
+    pw.write(predLabelsSeq2Str)
+    pw.close
+
+    println(s"labels saved for classifier ${lbl} to ${predLabelSavePath}!")
 
     // Tuple to match: paper id, sentence id, text span. label
     // TODO, print the mention's hash, see if new mentions are predicted (not new event pairs)
