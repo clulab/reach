@@ -150,8 +150,14 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
 
   // building event pair "event hash to index"
   val hash2IdxMap = scala.collection.mutable.Map[String, Int]()
+  val mentionHashIdxMap = scala.collection.mutable.Map[String, Int]()
+  val mentionFeatureIdxMap = scala.collection.mutable.Map[String, Int]()
   for (idx <- testCorpus.instances.indices){
     val ep = testCorpus.instances(idx)
+
+    val e1Hash = ep.e1.hashCode().toString
+    val e2Hash = ep.e2.hashCode().toString
+
     val e1Features = ep.e1.document.id.getOrElse("") + "," + ep.e1.sentence.toString + "," + ep.e1.start.toString + "," + ep.e1.end.toString
     val e2Features = ep.e2.document.id.getOrElse("") + "," + ep.e2.sentence.toString + "," + ep.e2.start.toString + "," + ep.e2.end.toString
 
@@ -162,6 +168,12 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
       hash2IdxMap(e1Features +";"+e2Features) = idx
     }
 
+    if (mentionHashIdxMap.contains(e1Hash)) {mentionHashIdxMap(e1Hash) +=1 } else {mentionHashIdxMap(e1Hash) = 1}
+    if (mentionHashIdxMap.contains(e2Hash)) {mentionHashIdxMap(e2Hash) +=1 } else {mentionHashIdxMap(e2Hash) = 1}
+
+    if (mentionFeatureIdxMap.contains(e1Features)) {mentionFeatureIdxMap(e1Features) += 1} else {mentionFeatureIdxMap(e1Features) = 1}
+    if (mentionFeatureIdxMap.contains(e2Features)) {mentionFeatureIdxMap(e2Features) += 1} else {mentionFeatureIdxMap(e2Features) = 1}
+
   }
 
   for {
@@ -170,6 +182,9 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
     val predicted = sieveResult.getPrecedenceRelations
     val fullPredLabelsListToSave = ArrayBuffer[(Int, Int)]()
 
+    var invalidMentionHashCount  = 0
+    var invalidMentionFeatureCount = 0
+
     for (precedRel <- predicted){
       // The event in the prediction can be accessed by: precedRel.before.sourceMention.get.text
       // The event hash can be accessed by: precedRel.before.sourceMention.get.hashCode().toString
@@ -177,6 +192,9 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
       val e2 = precedRel.after.sourceMention.get
       val e1Features = e1.document.id.getOrElse("") + "," + e1.sentence.toString + "," + e1.start.toString + "," + e1.end.toString
       val e2Features = e2.document.id.getOrElse("") + "," + e2.sentence.toString + "," + e2.start.toString + "," + e2.end.toString
+
+      val e1Hash = e1.hashCode().toString
+      val e2Hash = e2.hashCode().toString
 
       if (hash2IdxMap.contains(e1Features +";"+e2Features)){
         fullPredLabelsListToSave.append((hash2IdxMap(e1Features +";"+e2Features), 1))  // E1 precedes E2
@@ -190,8 +208,14 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
         println("This should not happen!")
       }
 
+      if (!mentionHashIdxMap.contains(e1Hash)) {invalidMentionHashCount += 1}
+      if (!mentionHashIdxMap.contains(e2Hash)) {invalidMentionHashCount += 1}
+      if (!mentionFeatureIdxMap.contains(e1Features)) {invalidMentionFeatureCount += 1}
+      if (!mentionFeatureIdxMap.contains(e2Features)) {invalidMentionFeatureCount += 1}
+
     }
     println(fullPredLabelsListToSave)
+    println(s"invalid mention hash count ${invalidMentionHashCount}, invalid mention feature count:${invalidMentionFeatureCount}")
     scala.io.StdIn.readLine("-"*40)
 
 
