@@ -23,6 +23,9 @@ import java.nio.charset.StandardCharsets.UTF_8
 
 import org.clulab.reach.{ReachSystem, context}
 import org.clulab.processors.bionlp.BioNLPProcessor
+import org.clulab.reach.assembly.relations.classifier.AssemblyRelationClassifier
+import org.clulab.reach.assembly.relations.classifier.CrossValidateAssemblyRelationClassifier.logger
+import org.clulab.reach.assembly.sieves.SieveUtils.precedenceRelations
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -211,13 +214,12 @@ object TestMentionMatch extends App with LazyLogging {
     println(s"invalid mention hash count ${invalidMentionHashCount}, invalid mention feature count:${invalidMentionFeatureCount}")
     scala.io.StdIn.readLine("-"*40)
 
+    // It turns out that for both methods, there are no invalid mentions
 
-    // Tuple to match: paper id, sentence id, text span. label
-    // TODO, print the mention's hash, see if new mentions are predicted (not new event pairs)
   }
 }
 
-object EvalUnlabeledEventPairs extends App with LazyLogging {
+object EvalUnlabeledEventPairsRuleClassifier extends App with LazyLogging {
 
   val evalMentionsPath = "/work/zhengzhongliang/2020_ASKE/20210117/"
 
@@ -296,6 +298,29 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
   }
 
 
+}
+
+object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
+  val config = ConfigFactory.load()
+  val classifierPath = config.getString("assembly.classifier.model")
+  val results = config.getString("assembly.classifier.results")
+  val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDir")).instances
+
+  // gather precedence relations corpus
+  val precedenceAnnotations = CorpusReader.filterRelations(eps, precedenceRelations)
+  // train
+  logger.info(s"Training classifier using ${precedenceAnnotations.size}")
+  val precedenceDataset = AssemblyRelationClassifier.mkRVFDataset(precedenceAnnotations)
+
+  val model = "lin-svm-l1"
+
+  val classifier = AssemblyRelationClassifier.getModel(model)
+
+  for (i <- 0 until precedenceAnnotations.size) {
+    val predicted = classifier.classOf(precedenceDataset.mkDatum(i))
+    println(s"label pair predicted: ${predicted}")
+
+  }
 }
 
 /**
