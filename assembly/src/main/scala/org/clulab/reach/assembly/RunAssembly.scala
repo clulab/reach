@@ -155,10 +155,8 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
     val e1Features = ep.e1.document.id.getOrElse("") + "," + ep.e1.sentence.toString + "," + ep.e1.start.toString + "," + ep.e1.end.toString
     val e2Features = ep.e2.document.id.getOrElse("") + "," + ep.e2.sentence.toString + "," + ep.e2.start.toString + "," + ep.e2.end.toString
 
-    println(e1Features +";"+e2Features)
-
     if (hash2IdxMap.contains(e1Features +";"+e2Features)) {
-      println("we should not be here")
+      println("repeated event pair encountered when building event pair index!")
     }
     else{
       hash2IdxMap(e1Features +";"+e2Features) = idx
@@ -166,40 +164,40 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
 
   }
 
-//  for {
-//    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(testCorpus.mentions)
-//  } {
-//    val predicted = sieveResult.getPrecedenceRelations
-//    val fullPredLabelsListToSave = ArrayBuffer[(Int, Int)]()
-//
-//    for (precedRel <- predicted){
-//      // The event in the prediction can be accessed by: precedRel.before.sourceMention.get.text
-//      // The event hash can be accessed by: precedRel.before.sourceMention.get.hashCode().toString
-//      val e1Hash = precedRel.before.sourceMention.get.hashCode().toString
-//      val e2Hash = precedRel.after.sourceMention.get.hashCode().toString
-//
-//      if (hash2IdxMap.contains(e1Hash+","+e2Hash)){
-//        fullPredLabelsListToSave.append((hash2IdxMap(e1Hash+","+e2Hash), 1))  // E1 precedes E2
-//      }
-//
-//      else if (hash2IdxMap.contains(e2Hash+","+e1Hash)) {
-//        fullPredLabelsListToSave.append((hash2IdxMap(e2Hash+","+e1Hash), 2))   // E2 precedes E1
-//
-//      }
-//      else {
-//        println("This should not happen!")
-//      }
-//
-//    }
-//    println(fullPredLabelsListToSave)
-//    scala.io.StdIn.readLine("-"*40)
-//
-//
-//    // Tuple to match: paper id, sentence id, text span. label
-//    // TODO, print the mention's hash, see if new mentions are predicted (not new event pairs)
-//  }
+  for {
+    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(testCorpus.mentions)
+  } {
+    val predicted = sieveResult.getPrecedenceRelations
+    val fullPredLabelsListToSave = ArrayBuffer[(Int, Int)]()
+
+    for (precedRel <- predicted){
+      // The event in the prediction can be accessed by: precedRel.before.sourceMention.get.text
+      // The event hash can be accessed by: precedRel.before.sourceMention.get.hashCode().toString
+      val e1 = precedRel.before.sourceMention.get
+      val e2 = precedRel.after.sourceMention.get
+      val e1Features = e1.document.id.getOrElse("") + "," + e1.sentence.toString + "," + e1.start.toString + "," + e1.end.toString
+      val e2Features = e2.document.id.getOrElse("") + "," + e2.sentence.toString + "," + e2.start.toString + "," + e2.end.toString
+
+      if (hash2IdxMap.contains(e1Features +";"+e2Features)){
+        fullPredLabelsListToSave.append((hash2IdxMap(e1Features +";"+e2Features), 1))  // E1 precedes E2
+      }
+
+      else if (hash2IdxMap.contains(e2Features +";"+e1Features)) {
+        fullPredLabelsListToSave.append((hash2IdxMap(e2Features +";"+e1Features), 2))   // E2 precedes E1
+
+      }
+      else {
+        println("This should not happen!")
+      }
+
+    }
+    println(fullPredLabelsListToSave)
+    scala.io.StdIn.readLine("-"*40)
 
 
+    // Tuple to match: paper id, sentence id, text span. label
+    // TODO, print the mention's hash, see if new mentions are predicted (not new event pairs)
+  }
 
 
 }
