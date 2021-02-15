@@ -149,7 +149,8 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
   println(s"number of event pairs: ${testCorpus.instances.length}")
 
   // building event pair "event hash to index"
-  val hash2IdxMap = scala.collection.mutable.Map[String, Int]()
+  val eventPairHashIdxMap = scala.collection.mutable.Map[String, Int]()
+  val eventPairFeatureIdxMap = scala.collection.mutable.Map[String, Int]()
   val mentionHashIdxMap = scala.collection.mutable.Map[String, Int]()
   val mentionFeatureIdxMap = scala.collection.mutable.Map[String, Int]()
   for (idx <- testCorpus.instances.indices){
@@ -161,12 +162,18 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
     val e1Features = ep.e1.document.id.getOrElse("") + "," + ep.e1.sentence.toString + "," + ep.e1.start.toString + "," + ep.e1.end.toString
     val e2Features = ep.e2.document.id.getOrElse("") + "," + ep.e2.sentence.toString + "," + ep.e2.start.toString + "," + ep.e2.end.toString
 
-    if (hash2IdxMap.contains(e1Features +";"+e2Features)) {
-      println("repeated event pair encountered when building event pair index!")
-    }
-    else{
-      hash2IdxMap(e1Features +";"+e2Features) = idx
-    }
+//    if (hash2IdxMap.contains(e1Features +";"+e2Features)) {
+//      println("repeated event pair encountered when building event pair index!")
+//    }
+//    else{
+//      hash2IdxMap(e1Features +";"+e2Features) = idx
+//    }
+
+    if (eventPairHashIdxMap.contains(e1Hash+ "," + e2Hash)) {eventPairHashIdxMap(e1Hash+ "," + e2Hash) += 1}
+    else {eventPairHashIdxMap(e1Hash+ "," + e2Hash) = 1}
+
+    if (eventPairFeatureIdxMap.contains(e1Features+";"+e2Features)) {eventPairFeatureIdxMap(e1Features+";"+e2Features) += 1}
+    else {eventPairFeatureIdxMap(e1Features+";"+e2Features) = 1}
 
     if (mentionHashIdxMap.contains(e1Hash)) {mentionHashIdxMap(e1Hash) +=1 } else {mentionHashIdxMap(e1Hash) = 1}
     if (mentionHashIdxMap.contains(e2Hash)) {mentionHashIdxMap(e2Hash) +=1 } else {mentionHashIdxMap(e2Hash) = 1}
@@ -176,8 +183,8 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
 
   }
 
-  println(mentionHashIdxMap.filter{x => x._2>1})
-  println(mentionFeatureIdxMap.filter{x => x._2>1})
+  println(eventPairHashIdxMap.filter{x => x._2>1})
+  println(eventPairFeatureIdxMap.filter{x => x._2>1})
 
   for {
     (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(testCorpus.mentions)
