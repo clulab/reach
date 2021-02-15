@@ -176,8 +176,8 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
 
   }
 
-  println(mentionHashIdxMap.map{x => x._2>1})
-  println(mentionFeatureIdxMap.map{x => x._2>1})
+  println(mentionHashIdxMap.filter{x => x._2>1})
+  println(mentionFeatureIdxMap.filter{x => x._2>1})
 
   for {
     (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(testCorpus.mentions)
