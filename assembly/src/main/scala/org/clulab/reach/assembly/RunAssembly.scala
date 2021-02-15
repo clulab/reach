@@ -159,8 +159,8 @@ object EvalUnlabeledEventPairs extends App with LazyLogging {
     val e1Hash = ep.e1.hashCode().toString
     val e2Hash = ep.e2.hashCode().toString
 
-    val e1Features = ep.e1.document.id.getOrElse("") + "," + ep.e1.sentence.toString + "," + ep.e1.start.toString + "," + ep.e1.end.toString
-    val e2Features = ep.e2.document.id.getOrElse("") + "," + ep.e2.sentence.toString + "," + ep.e2.start.toString + "," + ep.e2.end.toString
+    val e1Features = ep.e1.document.id.getOrElse("") + "," + ep.e1.sentence.toString + "," + ep.e1.start.toString + "," + ep.e1.end.toString + "," + ep.e1.label
+    val e2Features = ep.e2.document.id.getOrElse("") + "," + ep.e2.sentence.toString + "," + ep.e2.start.toString + "," + ep.e2.end.toString + "," + ep.e2.label
 
 //    if (hash2IdxMap.contains(e1Features +";"+e2Features)) {
 //      println("repeated event pair encountered when building event pair index!")
