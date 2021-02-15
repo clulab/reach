@@ -309,7 +309,7 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
   // gather precedence relations corpus
   val precedenceAnnotations = CorpusReader.filterRelations(eps, precedenceRelations)
   // train
-  logger.info(s"Training classifier using ${precedenceAnnotations.size}")
+  logger.info(s"number of loaded pairs: ${precedenceAnnotations.size}")
   val precedenceDataset = AssemblyRelationClassifier.mkRVFDataset(precedenceAnnotations)
 
   val model = "lin-svm-l1"
@@ -318,7 +318,8 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
   println(s"classifier class name:${classifier.getClass.getName}")
 
   for (i <- 0 until precedenceAnnotations.size) {
-    val predicted = classifier.classOf(precedenceDataset.mkDatum(i))
+    val dataPoint = precedenceDataset.mkDatum(i)
+    val predicted = classifier.classOf(dataPoint)
     println(s"label pair predicted: ${predicted}")
 
   }
