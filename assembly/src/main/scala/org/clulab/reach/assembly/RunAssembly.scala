@@ -140,6 +140,83 @@ object RunAnnotationEval extends App with LazyLogging {
   }
 }
 
+object TestMentionMatch extends App with LazyLogging {
+  val evalMentionsPath = "/work/zhengzhongliang/2020_ASKE/20210117/"
+
+  val testCorpus = Corpus(evalMentionsPath)
+
+  println(s"number of event pairs: ${testCorpus.instances.length}")
+
+  val eventPairHashIdxMap = scala.collection.mutable.Map[String, Int]() // get unique event pairs by hash
+  val eventPairFeatureIdxMap = scala.collection.mutable.Map[String, Int]() // get unique event pairs by features
+  val mentionHashIdxMap = scala.collection.mutable.Map[String, Int]() // get unique mentions by hash
+  val mentionFeatureIdxMap = scala.collection.mutable.Map[String, Int]() // get unique mentions by features
+
+  for (idx <- testCorpus.instances.indices){
+    val ep = testCorpus.instances(idx)
+
+    val e1Hash = ep.e1.hashCode().toString
+    val e2Hash = ep.e2.hashCode().toString
+
+    val e1Features = ep.e1.document.id.getOrElse("") + "," + ep.e1.sentence.toString + "," + ep.e1.start.toString + "," + ep.e1.end.toString + "," + ep.e1.label
+    val e2Features = ep.e2.document.id.getOrElse("") + "," + ep.e2.sentence.toString + "," + ep.e2.start.toString + "," + ep.e2.end.toString + "," + ep.e2.label
+
+    if (eventPairHashIdxMap.contains(e1Hash+ "," + e2Hash)) {eventPairHashIdxMap(e1Hash+ "," + e2Hash) += 1}
+    else {eventPairHashIdxMap(e1Hash+ "," + e2Hash) = 1}
+
+    if (eventPairFeatureIdxMap.contains(e1Features+";"+e2Features)) {eventPairFeatureIdxMap(e1Features+";"+e2Features) += 1}
+    else {eventPairFeatureIdxMap(e1Features+";"+e2Features) = 1}
+
+    if (mentionHashIdxMap.contains(e1Hash)) {mentionHashIdxMap(e1Hash) +=1 } else {mentionHashIdxMap(e1Hash) = 1}
+    if (mentionHashIdxMap.contains(e2Hash)) {mentionHashIdxMap(e2Hash) +=1 } else {mentionHashIdxMap(e2Hash) = 1}
+
+    if (mentionFeatureIdxMap.contains(e1Features)) {mentionFeatureIdxMap(e1Features) += 1} else {mentionFeatureIdxMap(e1Features) = 1}
+    if (mentionFeatureIdxMap.contains(e2Features)) {mentionFeatureIdxMap(e2Features) += 1} else {mentionFeatureIdxMap(e2Features) = 1}
+
+  }
+
+  // check if there are repeated event pairs, identified by mention hash, proved to have no repeated event pairs.
+  println(eventPairHashIdxMap.filter{x => x._2>1})
+
+  // check if there are repeated event pairs, identified by mention features, proved to have some repeated event pairs.
+  println(eventPairFeatureIdxMap.filter{x => x._2>1})
+
+  for {
+    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(testCorpus.mentions)
+  } {
+    val predicted = sieveResult.getPrecedenceRelations
+    val fullPredLabelsListToSave = ArrayBuffer[(Int, Int)]()
+
+    var invalidMentionHashCount  = 0
+    var invalidMentionFeatureCount = 0
+
+    for (precedRel <- predicted){
+      // The event in the prediction can be accessed by: precedRel.before.sourceMention.get.text
+      // The event hash can be accessed by: precedRel.before.sourceMention.get.hashCode().toString
+      val e1 = precedRel.before.sourceMention.get
+      val e2 = precedRel.after.sourceMention.get
+      val e1Features = e1.document.id.getOrElse("") + "," + e1.sentence.toString + "," + e1.start.toString + "," + e1.end.toString + "," + e1.label
+      val e2Features = e2.document.id.getOrElse("") + "," + e2.sentence.toString + "," + e2.start.toString + "," + e2.end.toString + "," + e2.label
+
+      val e1Hash = e1.hashCode().toString
+      val e2Hash = e2.hashCode().toString
+
+      if (!mentionHashIdxMap.contains(e1Hash)) {invalidMentionHashCount += 1}
+      if (!mentionHashIdxMap.contains(e2Hash)) {invalidMentionHashCount += 1}
+      if (!mentionFeatureIdxMap.contains(e1Features)) {invalidMentionFeatureCount += 1}
+      if (!mentionFeatureIdxMap.contains(e2Features)) {invalidMentionFeatureCount += 1}
+
+    }
+    println(fullPredLabelsListToSave)
+    println(s"invalid mention hash count ${invalidMentionHashCount}, invalid mention feature count:${invalidMentionFeatureCount}")
+    scala.io.StdIn.readLine("-"*40)
+
+
+    // Tuple to match: paper id, sentence id, text span. label
+    // TODO, print the mention's hash, see if new mentions are predicted (not new event pairs)
+  }
+}
+
 object EvalUnlabeledEventPairs extends App with LazyLogging {
 
   val evalMentionsPath = "/work/zhengzhongliang/2020_ASKE/20210117/"
