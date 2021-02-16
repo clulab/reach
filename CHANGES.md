@@ -1,5 +1,6 @@
 #Changes
 =======
++ **1.6.3** - Update to processors 8.2.6
 + **1.6.3** - Update to processors 8.2.5
 + **1.6.3** - Bioresources integrated into the codebase as a new subproject
 + **1.6.2** - Update bioresources to 1.1.38
