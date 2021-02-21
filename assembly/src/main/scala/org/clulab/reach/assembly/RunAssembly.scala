@@ -331,7 +331,7 @@ object EvalUnlabeledEventPairsRuleClassifier extends App with LazyLogging {
   */
 object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
   val config = ConfigFactory.load()
-  val classifierPath = config.getString("assembly.classifier.model")
+  val classifierPath = config.getString("assembly.classifier.modelLoad")
   val results = config.getString("assembly.classifier.results")
   val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDirNewTrain")).instances
 

@@ -175,7 +175,7 @@ object ClassifyAssemblyRelations extends App with LazyLogging {
 object TrainAssemblyRelationClassifier extends App with LazyLogging {
   val config = ConfigFactory.load()
   val classifierType = config.getString("assembly.classifier.classifier")
-  val classifierPath = config.getString("assembly.classifier.model")
+  val classifierPath = config.getString("assembly.classifier.modelSave")
   val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDirNewTrain")).instances
 
   // gather precedence relations corpus
