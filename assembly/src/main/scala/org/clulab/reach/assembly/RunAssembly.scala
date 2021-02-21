@@ -30,6 +30,12 @@ import org.clulab.reach.assembly.sieves.SieveUtils.precedenceRelations
 import scala.collection.mutable.ArrayBuffer
 import org.clulab.learning.{Classifier, RVFDatum}
 
+
+/**
+  * Run the sieves on the event pairs and get the predictions of each sieves.
+  * Currently it has only rule-based sieves, but feature-based classifiers can also be included.
+  * Contribution by Gus
+  */
 object RunAnnotationEval extends App with LazyLogging {
 
   val config = ConfigFactory.load()
@@ -144,6 +150,16 @@ object RunAnnotationEval extends App with LazyLogging {
   }
 }
 
+/**
+  * This function is used to match the predictions of the rule/feature based classifier to the existing mentions.
+  * Because the predictions returned by the classifiers are a bunch of precedence relationships. We need to map each
+  * predicted precedence relationship with the original event pair in the event pair list.
+  *
+  * This is only a test function to verify whether the matching works. This is only a debugging function, not intended
+  * to be used in actual matching.
+  *
+  * Contribution by Zhengzhong
+ */
 object TestMentionMatch extends App with LazyLogging {
   val evalMentionsPath = "/work/zhengzhongliang/2020_ASKE/20210117/"
 
@@ -220,6 +236,12 @@ object TestMentionMatch extends App with LazyLogging {
   }
 }
 
+
+/**
+  * Run the rule-based classfier(s) on the unlabeled event pairs, then save the predictions.
+  *
+  * Contribution by Zhengzhong
+  */
 object EvalUnlabeledEventPairsRuleClassifier extends App with LazyLogging {
 
   val evalMentionsPath = "/work/zhengzhongliang/2020_ASKE/20210117/"
@@ -301,6 +323,12 @@ object EvalUnlabeledEventPairsRuleClassifier extends App with LazyLogging {
 
 }
 
+
+/**
+  * Load the trained feature-based classifier and evaluate it on the unlabeled data. Then save the output.
+  *
+  * Contribution by Zhengzhong
+  */
 object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
   val config = ConfigFactory.load()
   val classifierPath = config.getString("assembly.classifier.model")
@@ -336,6 +364,8 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
 
 /**
   * Serialize each paper in a directory to json
+  *
+  * Contribution by Gus.
   */
 object SerializePapersToJSON extends App with LazyLogging {
 
@@ -367,113 +397,3 @@ object SerializePapersToJSON extends App with LazyLogging {
   }
 }
 
-object SerializePapersToJSONByMentionData extends App with LazyLogging{
-  implicit val formats = DefaultFormats
-
-  val config = ConfigFactory.load()
-  val corpusDirOldTrain = config.getString("assembly.corpus.corpusDirOldTrain")
-  val corpusDirOldEval = config.getString("assembly.corpus.corpusDirOldEval")
-  //val jsonDirOldTrain = config.getString("assembly.corpus.jsonDirOldTrain")
-  //val jsonDirOldEval = config.getString("assembly.corpus.jsonDirOldEval")
-
-  val corpusDirNewTrain = config.getString("assembly.corpus.corpusDirNewTrain")
-  val corpusDirNewEval = config.getString("assembly.corpus.corpusDirNewEval")
-  //val jsonDirNewTrain = config.getString("assembly.corpus.jsonDirNewTrain")
-  //val jsonDirNewEval = config.getString("assembly.corpus.jsonDirNewEval")
-
-  val threadLimit = config.getInt("threadLimit")
-
-  val procAnnotator = new BioNLPProcessor()
-  lazy val reachSystem = new ReachSystem(
-    processorAnnotator = Some(procAnnotator)
-  )
-
-  private case class AssemblyAnnotation(
-                                         id: Int,
-                                         text: String,
-                                         relation: String,
-                                         `annotator-id`: String,
-                                         coref: Boolean,
-                                         `e1-id`: String,
-                                         `e2-id`: String,
-                                         confidence: Double,
-                                         `paper-id`: String,
-                                         notes: Option[String]
-                                       )
-
-  private case class PMIDAnnotation(`paper-id`: String) //used to get the paper ID from the event pairs json.
-
-  def readPMIDsFromOldEventPairs(corpusDirOld:String):Seq[String] = {
-    val epsJAST = parse(new File(corpusDirOld, s"event-pairs.json"))
-    val allPMIDs = for {aa <- epsJAST.extract[Seq[PMIDAnnotation]]} yield aa.`paper-id`
-
-    allPMIDs.distinct
-  }
-
-  def readDocumentTextByPMID(corpusDirOld:String):Map[String, String] = {
-    val docDataDir = corpusDirOld+"/mention-data/"
-    val pmids = readPMIDsFromOldEventPairs(corpusDirOld)
-
-    var numHit = 0
-    var numMiss = 0
-    val docTextMap = scala.collection.mutable.Map[String, String]()
-    for (pmid <- pmids) {
-      val docFileName = docDataDir+pmid.toString+"-mention-data.json"
-      if (new File(docFileName).exists()){
-        numHit+=1
-        // TODO: not sure there is a better choice to parse the document json
-        val documentObjRaw = parse(new File(docFileName)).extract[Map[String, Any]]
-        val documentObj = documentObjRaw("documents").asInstanceOf[Map[String, Any]]
-        val paperIDInFile = documentObj.keys.head.toString
-
-        val documentText = documentObj(paperIDInFile).asInstanceOf[Map[String, String]]("text")
-
-        docTextMap(pmid.toString) = documentText.toString
-      }
-      else {numMiss+=1}
-    }
-    println(s"Num paper matched: ${numHit}, Num paper missed: ${numMiss}")
-    docTextMap.toMap
-  }
-
-  def annotateDocumentsAndSaveOutput(corpusDirOld:String, corpusDirNew:String):Unit = {
-    val docTextMap = readDocumentTextByPMID(corpusDirOld)
-
-    //    val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
-    //    val contextConfig = config.getConfig("contextEngine.params").root
-    //    val contextEngineParams: Map[String, String] =
-    //      context.createContextEngineParams(contextConfig)
-    // initialize ReachSystem
-
-    val allPapers = docTextMap.toSeq.par // allDocs is a Seq of tuple ((id, text), (id, text), (id, text), ...)
-    allPapers.tasksupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
-
-    var nDone = 0
-    var nSkipped = 0
-    for ((paperID, paperText) <- allPapers){
-      logger.info(s"processing paper $paperID")
-      try {
-        val outFile = new File(s"$corpusDirNew/mention-data/$paperID-mention-data.json")
-
-        val mentions = reachSystem.extractFrom(paperText, paperID, "")
-        val cms: Seq[CorefMention] = mentions.map(_.toCorefMention)
-        cms.saveJSON(outFile, pretty = false)
-        logger.info(s"\tsaved json to $outFile")
-        nDone+=1
-      }
-      catch{
-        case _ => {
-          nSkipped+=1
-          logger.info("\tpaper skipped")
-        }
-
-      }
-    }
-    logger.info(s"processing done! N done: ${nDone}, N skipped: ${nSkipped}")
-
-    //writeJSON(paperMentionsMap.toMap, corpusDirNew, false) //what does this pretty do?
-  }
-
-  annotateDocumentsAndSaveOutput(corpusDirOldTrain, corpusDirNewTrain)
-  annotateDocumentsAndSaveOutput(corpusDirOldEval, corpusDirNewEval)
-}

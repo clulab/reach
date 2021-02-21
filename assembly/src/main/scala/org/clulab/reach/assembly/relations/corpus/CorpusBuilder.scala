@@ -209,6 +209,13 @@ object BuildCorpus extends App with LazyLogging {
   corpus.writeJSON(outDir, pretty = false)
 }
 
+/**
+  * This function is used to directly read the raw papers from the pubmed folder, then save the event pairs and mentions.
+  * It chunks all papers into 1000-paper chunk, then annotates and saves the events in each chunk.
+  * So that it does not have to start from the beginning after the annotation is interrupted.
+  *
+  * Contribution by Zhengzhong
+  */
 object BuildCorpusFromRawDocs extends App with LazyLogging {
   import CorpusBuilder._
 

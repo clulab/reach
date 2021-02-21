@@ -1,41 +1,172 @@
 package org.clulab.reach.assembly
 
 import com.typesafe.config.ConfigFactory
-import org.clulab.reach.assembly.TestLoadNewMentions.config
 import org.clulab.reach.assembly.relations.corpus.{Corpus, CorpusReader, EventPair}
-import org.clulab.reach.mentions
-import org.clulab.struct.CorefMention
+import org.clulab.reach.{ReachSystem, mentions}
 import org.json4s.JsonAST.JValue
 
 import scala.collection.mutable.ArrayBuffer
 
-import org.clulab.processors.Document
-import org.clulab.reach.assembly.relations.classifier.AssemblyRelationClassifier
-import org.clulab.reach.assembly.sieves.Constraints
-import org.clulab.reach.mentions.CorefMention
 import org.clulab.reach.mentions.serialization.json.{JSONSerializer, MentionJSONOps, REACHMentionSeq}
-import org.clulab.serialization.json.JSONSerialization
-import org.json4s.jackson.JsonMethods._
-import org.json4s.JsonDSL._
-import org.json4s._
 
 import scala.util.hashing.MurmurHash3._
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.FileUtils.forceMkdir
-import ai.lum.common.FileUtils._
+
+import org.clulab.processors.bionlp.BioNLPProcessor
+import org.clulab.reach.assembly.relations.corpus._
+
+import scala.collection.parallel.ForkJoinTaskSupport
+
 import java.io.File
 
-import org.clulab.reach.assembly.relations.corpus._
+
 import org.clulab.serialization.json.stringify
+import org.clulab.serialization.json.JSONSerialization
+import org.json4s.JsonDSL._
+import org.json4s.DefaultFormats
+import org.json4s.jackson.JsonMethods._
+import org.json4s._
+import ai.lum.common.FileUtils._
+import java.nio.charset.StandardCharsets.UTF_8
 
+/**
+  * This is to annotate the mentions of the papers using the latest reach. This is needed because the old reach uses
+  * Different grammars as the new reach, therefore the mentions are in different formats.
+  *
+  * It first reads the papers and mention from the old event pairs, then annotate the document using the new reach.
+  * Finally, it saves the mentions (but not the event pairs) to the mcc_intermediate folder.
+  *
+  * Contribution by Zhengzhong.
+  */
 
+object SerializePapersToJSONByMentionData extends App with LazyLogging{
+  implicit val formats = DefaultFormats
+
+  val config = ConfigFactory.load()
+  val corpusDirOldTrain = config.getString("assembly.corpus.corpusDirOldTrain")
+  val corpusDirOldEval = config.getString("assembly.corpus.corpusDirOldEval")
+  //val jsonDirOldTrain = config.getString("assembly.corpus.jsonDirOldTrain")
+  //val jsonDirOldEval = config.getString("assembly.corpus.jsonDirOldEval")
+
+  val corpusDirInterTrain = config.getString("assembly.corpus.corpusDirInterTrain")
+  val corpusDirInterEval = config.getString("assembly.corpus.corpusDirInterEval")
+  //val jsonDirNewTrain = config.getString("assembly.corpus.jsonDirNewTrain")
+  //val jsonDirNewEval = config.getString("assembly.corpus.jsonDirNewEval")
+
+  val threadLimit = config.getInt("threadLimit")
+
+  val procAnnotator = new BioNLPProcessor()
+  lazy val reachSystem = new ReachSystem(
+    processorAnnotator = Some(procAnnotator)
+  )
+
+  private case class AssemblyAnnotation(
+                                         id: Int,
+                                         text: String,
+                                         relation: String,
+                                         `annotator-id`: String,
+                                         coref: Boolean,
+                                         `e1-id`: String,
+                                         `e2-id`: String,
+                                         confidence: Double,
+                                         `paper-id`: String,
+                                         notes: Option[String]
+                                       )
+
+  private case class PMIDAnnotation(`paper-id`: String) //used to get the paper ID from the event pairs json.
+
+  def readPMIDsFromOldEventPairs(corpusDirOld:String):Seq[String] = {
+    val epsJAST = parse(new File(corpusDirOld, s"event-pairs.json"))
+    val allPMIDs = for {aa <- epsJAST.extract[Seq[PMIDAnnotation]]} yield aa.`paper-id`
+
+    allPMIDs.distinct
+  }
+
+  def readDocumentTextByPMID(corpusDirOld:String):Map[String, String] = {
+    val docDataDir = corpusDirOld+"/mention-data/"
+    val pmids = readPMIDsFromOldEventPairs(corpusDirOld)
+
+    var numHit = 0
+    var numMiss = 0
+    val docTextMap = scala.collection.mutable.Map[String, String]()
+    for (pmid <- pmids) {
+      val docFileName = docDataDir+pmid.toString+"-mention-data.json"
+      if (new File(docFileName).exists()){
+        numHit+=1
+        // TODO: not sure there is a better choice to parse the document json
+        val documentObjRaw = parse(new File(docFileName)).extract[Map[String, Any]]
+        val documentObj = documentObjRaw("documents").asInstanceOf[Map[String, Any]]
+        val paperIDInFile = documentObj.keys.head.toString
+
+        val documentText = documentObj(paperIDInFile).asInstanceOf[Map[String, String]]("text")
+
+        docTextMap(pmid.toString) = documentText.toString
+      }
+      else {numMiss+=1}
+    }
+    println(s"Num paper matched: ${numHit}, Num paper missed: ${numMiss}")
+    docTextMap.toMap
+  }
+
+  def annotateDocumentsAndSaveOutput(corpusDirOld:String, corpusDirNew:String):Unit = {
+    val docTextMap = readDocumentTextByPMID(corpusDirOld)
+
+    //    val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
+    //    val contextConfig = config.getConfig("contextEngine.params").root
+    //    val contextEngineParams: Map[String, String] =
+    //      context.createContextEngineParams(contextConfig)
+    // initialize ReachSystem
+
+    val allPapers = docTextMap.toSeq.par // allDocs is a Seq of tuple ((id, text), (id, text), (id, text), ...)
+    allPapers.tasksupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
+
+    var nDone = 0
+    var nSkipped = 0
+    for ((paperID, paperText) <- allPapers){
+      logger.info(s"processing paper $paperID")
+      try {
+        val outFile = new File(s"$corpusDirNew/mention-data/$paperID-mention-data.json")
+
+        val mentions = reachSystem.extractFrom(paperText, paperID, "")
+        val cms = mentions.map(_.toCorefMention)
+        cms.saveJSON(outFile, pretty = false)
+        logger.info(s"\tsaved json to $outFile")
+        nDone+=1
+      }
+      catch{
+        case _ => {
+          nSkipped+=1
+          logger.info("\tpaper skipped")
+        }
+
+      }
+    }
+    logger.info(s"processing done! N done: ${nDone}, N skipped: ${nSkipped}")
+
+    //writeJSON(paperMentionsMap.toMap, corpusDirNew, false) //what does this pretty do?
+  }
+
+  annotateDocumentsAndSaveOutput(corpusDirOldTrain, corpusDirInterTrain)
+  annotateDocumentsAndSaveOutput(corpusDirOldEval, corpusDirInterEval)
+}
+
+/**
+  * This script is to test the functionality of the alignment function. The alignment function is used to match the
+  * mention annotated by the old reach with the mention annotated by the new reach.
+  *
+  * The [matchEventWithinASentence] and [findEventSentenceIndex] methods are used in the Corpus.softAlign method in the
+  * formal alignment process.
+  *
+  * Contribution by Zhengzhong
+  */
 
 object TestMatchMention extends App {
   val config = ConfigFactory.load()
   val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDirOldEval")).instances
 
 
-  val newMentions = Corpus.loadMentions(config.getString("assembly.corpus.corpusDirNewEval"))
+  val newMentions = Corpus.loadMentions(config.getString("assembly.corpus.corpusDirInterEval"))
 
   var n_pairs_mention_match = 0
   var n_pairs_mention_not_match = 0
@@ -254,25 +385,43 @@ object TestMatchMention extends App {
 }
 
 
+/**
+  * This function is used to write the event pairs for the python neural models.
+  * It first read the old event-pairs.json file, then get the new corresponding mentions for each event pair.
+  * Finally it writes the new event pairs.
+  *
+  * It does not save the new corresponding mentions.
+  *
+  * Contribution by Zhengzhong
+  */
+
 object WriteUpdatedPairForPython extends App {
 
 
   val config = ConfigFactory.load()
 
   val oldDirTrain  = config.getString("assembly.corpus.corpusDirOldTrain")
+  val interDirTrain  = config.getString("assembly.corpus.corpusDirInterTrain")
   val newDirTrain = config.getString("assembly.corpus.corpusDirNewTrain")
 
   val oldDirEval  = config.getString("assembly.corpus.corpusDirOldEval")
+  val interDirEval  = config.getString("assembly.corpus.corpusDirInterEval")
   val newDirEval = config.getString("assembly.corpus.corpusDirNewEval")
 
-  writeUpdatedPair(oldDirTrain, newDirTrain)
-  writeUpdatedPair(oldDirEval, newDirEval)
+  writeUpdatedPair(oldDirTrain, interDirTrain, newDirTrain)
+  writeUpdatedPair(oldDirEval, interDirEval, newDirEval)
 
 
-  def writeUpdatedPair(oldDir:String, newDir:String):Unit = {
+  /**
+    * @param oldDir: where the old mentions and event pairs are saved.
+    * @param interDir: where the newly extracted mentions are saved.
+    * @param newDir: where the new event-pairs.json and the matched mention-data are saved.
+    */
+
+  def writeUpdatedPair(oldDir:String, interDir:String, newDir:String):Unit = {
 
     val epsOld: Seq[EventPair] = CorpusReader.readCorpus(oldDir).instances
-    val newMentions = Corpus.loadMentions(newDir)
+    val newMentions = Corpus.loadMentions(interDir)
     val eps = Corpus.softAlign(epsOld, newMentions)
 
     val epsJAST = eps.map{x =>
@@ -354,6 +503,40 @@ object WriteUpdatedPairForPython extends App {
       ("inter-sentence-entities" -> interSentEntities)
   }
 }
+
+/**
+  *
+  * This is used to write the event-pairs.json with the matched mentions to the mcc_new older.
+  */
+object WriteCorpusWithMatchedMentions extends App with LazyLogging {
+  val config = ConfigFactory.load()
+
+  val oldDirTrain  = config.getString("assembly.corpus.corpusDirOldTrain")
+  val interDirTrain  = config.getString("assembly.corpus.corpusDirInterTrain")
+  val newDirTrain = config.getString("assembly.corpus.corpusDirNewTrain")
+
+  val oldDirEval  = config.getString("assembly.corpus.corpusDirOldEval")
+  val interDirEval  = config.getString("assembly.corpus.corpusDirInterEval")
+  val newDirEval = config.getString("assembly.corpus.corpusDirNewEval")
+
+  def writeCorpus(oldDir:String, interDir:String, newDir:String): Unit ={
+    val epsOld: Seq[EventPair] = CorpusReader.readCorpus(oldDir).instances
+    val newMentions = Corpus.loadMentions(interDir)
+    val eps = Corpus.softAlign(epsOld, newMentions)
+
+    val corpus = Corpus(eps)
+    corpus.writeJSON(newDir, pretty = true)
+  }
+
+  writeCorpus(oldDirTrain, interDirTrain, newDirTrain)
+  writeCorpus(oldDirEval, interDirEval, newDirEval)
+}
+
+/**
+  * This is a debugging function to check how to access the entites in the event pairs.
+  *
+  * Contribution by Zhengzhong
+  */
 
 object WriteEntities extends App {
 
