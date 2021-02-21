@@ -335,6 +335,8 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
   val results = config.getString("assembly.classifier.results")
   val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDirNewTrain")).instances
 
+  logger(s"number of loaded event pairs: ${eps.length}")
+
   // gather precedence relations corpus
   val precedenceAnnotations = CorpusReader.filterRelations(eps, precedenceRelations)
   // train
