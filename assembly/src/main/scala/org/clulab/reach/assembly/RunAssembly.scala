@@ -28,8 +28,7 @@ import org.clulab.reach.assembly.relations.classifier.CrossValidateAssemblyRelat
 import org.clulab.reach.assembly.sieves.SieveUtils.precedenceRelations
 
 import scala.collection.mutable.ArrayBuffer
-
-import org.clulab.learning.Classifier
+import org.clulab.learning.{Classifier, RVFDatum}
 
 object RunAnnotationEval extends App with LazyLogging {
 
@@ -316,7 +315,8 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
 
   val model = "lin-svm-l1"
 
-  val classifier:Classifier[String, String] = AssemblyRelationClassifier.loadFrom(classifierPath).classifier
+  //val classifier:Classifier[String, String] = AssemblyRelationClassifier.loadFrom(classifierPath).classifier
+  val classifier = AssemblyRelationClassifier.loadFrom(classifierPath)
   //val classifier = AssemblyRelationClassifier.loadFrom(classifierPath)
 
   println(s"classifier class name:${classifier.getClass.getName}")
@@ -324,11 +324,16 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
   for (i <- 0 until precedenceAnnotations.size) {
     val dataPoint = precedenceDataset.mkDatum(i)
     // TODO: print the features used here.
-    val predicted = classifier.classOf(dataPoint)
+    // val predicted = classifier.classOf(dataPoint)
+    val predicted = classifier.classify(dataPoint.asInstanceOf[RVFDatum[String, String]]) // TODO
     //val predicted = classifier.classify(dataPoint)
     println(s"label pair predicted: ${predicted}")
 
   }
+
+  // we should swith to the following. 
+  // alternative way to do this: val predicted = classifier.classOf(dataPoint)
+  // clf.classify(datum)
 }
 
 /**
