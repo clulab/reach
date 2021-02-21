@@ -30,6 +30,11 @@ import org.json4s._
 import ai.lum.common.FileUtils._
 import java.nio.charset.StandardCharsets.UTF_8
 
+
+/**
+  * This file contains several functions to process data in order to finish the experiments.
+  */
+
 /**
   * This is to annotate the mentions of the papers using the latest reach. This is needed because the old reach uses
   * Different grammars as the new reach, therefore the mentions are in different formats.
