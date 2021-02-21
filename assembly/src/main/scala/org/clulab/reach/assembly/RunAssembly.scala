@@ -317,7 +317,6 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
 
   //val classifier:Classifier[String, String] = AssemblyRelationClassifier.loadFrom(classifierPath).classifier
   val classifier = AssemblyRelationClassifier.loadFrom(classifierPath)
-  //val classifier = AssemblyRelationClassifier.loadFrom(classifierPath)
 
   println(s"classifier class name:${classifier.getClass.getName}")
 
@@ -326,7 +325,6 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
     // TODO: print the features used here.
     // val predicted = classifier.classOf(dataPoint)
     val predicted = classifier.classify(dataPoint.asInstanceOf[RVFDatum[String, String]]) // TODO
-    //val predicted = classifier.classify(dataPoint)
     println(s"label pair predicted: ${predicted}")
 
   }
