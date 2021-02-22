@@ -96,6 +96,8 @@ object RunAnnotationEval extends App with LazyLogging {
   for {
     (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(testMentions)
   } {
+    println("One rule based classifier!!!")
+
     val predicted = sieveResult.getPrecedenceRelations
     val smoothing = 0.00001
 
