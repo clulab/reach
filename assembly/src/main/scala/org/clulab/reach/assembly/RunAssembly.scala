@@ -456,9 +456,24 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
     val recall = tp/(tp+fn)
     val f1 = precision*recall*2/(precision + recall)
 
-    println(s"${split}, p:${precision}, r:${recall}, f1:${f1}")
+    logger.info(s"${split}, p:${precision}, r:${recall}, f1:${f1}")
 
-    // 3, do the prediction on the unlabele data.
+    // 3, do the prediction on the unlabeled data.
+    val allPreds = new ArrayBuffer[Int]()
+    for (ep <- epsUnlabeled){
+      val pred = classifier.classOf(AssemblyRelationClassifier.mkRVFDatum("placeholder", ep.e1, ep.e2))
+      if (pred == "E1 precedes E2") {allPreds.append(1)}
+      else if (pred == "E2 precedes E1") {allPreds.append(2)}
+      else {allPreds.append(0)}
+    }
+
+    // 4, saved the prediction as text file.
+    val predLabelsSeq2Str = allPreds.map{x => x.toString}.mkString("; ")
+    val predLabelSavePath = "/work/zhengzhongliang/2020_ASKE/20210220/unlabeled_extraction_model_" + model + "_"+split+".txt"
+
+    val pw = new PrintWriter(new File(predLabelSavePath))
+    pw.write(predLabelsSeq2Str)
+    pw.close
   }
 }
 
