@@ -399,7 +399,7 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
     Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/test").instances
 
   logger.info(s"total number of labeled event pairs loaded:${epsLabeled.length}")
-
+  logger.info(s"total number of labeled event pairs in the split:${allSplits("split0")("train").length + allSplits("split0")("test").length}")
   require(epsLabeled.length == allSplits("split0")("train").length + allSplits("split0")("test").length)
 
 
