@@ -389,8 +389,12 @@ object EvalFeatureClassifierOnLabeledData extends App with LazyLogging {
   * Contribution by Zhengzhong
   */
 object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
+  // First load the train/test splits:
+  val splitsJson = parse(new File("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/event_pairs_splits.json"))
+  val allSplits = splitsJson.extract[Map[String, Map[String, Seq[Int]]]]
 
 
+  println(allSplits)
 }
 
 /**
