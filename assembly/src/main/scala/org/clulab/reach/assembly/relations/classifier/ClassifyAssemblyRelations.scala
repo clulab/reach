@@ -197,7 +197,9 @@ object CrossValidateAssemblyRelationClassifier extends App with LazyLogging {
   val config = ConfigFactory.load()
   val classifierPath = config.getString("assembly.classifier.model")
   val results = config.getString("assembly.classifier.results")
-  val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDir")).instances
+  //val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDir")).instances
+  val eps:Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDirNewTrain")).instances ++
+    CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDirNewEval")).instances
 
   // gather precedence relations corpus
   val precedenceAnnotations = CorpusReader.filterRelations(eps, precedenceRelations)
