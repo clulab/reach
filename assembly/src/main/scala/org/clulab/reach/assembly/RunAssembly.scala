@@ -245,18 +245,27 @@ object TestMentionMatch extends App with LazyLogging {
   */
 object EvalUnlabeledEventPairsRuleClassifier extends App with LazyLogging {
 
-  val evalMentionsPath = "/work/zhengzhongliang/2020_ASKE/20210117/"
+  val totalChunkNum = 7
+  val chunkSize = 1000
+  val epsUnlabeled = new ArrayBuffer[EventPair]()
+  val mentionsUnlabeled = new ArrayBuffer[CorefMention]()
 
-  val testCorpus = Corpus(evalMentionsPath)
+  for (chunkNum <- 0 until totalChunkNum){
+    val folderPath = "/work/zhengzhongliang/2020_ASKE/20210117/paper_"+(chunkNum*chunkSize).toString+"_"+((chunkNum+1)*chunkSize).toString+"/"
+    val corpus = Corpus(folderPath)
+    epsUnlabeled.appendAll(corpus.instances)
+    mentionsUnlabeled.appendAll(corpus.mentions)
+  }
 
-  println(s"number of event pairs: ${testCorpus.instances.length}")
+  logger.info(s"total number of unlabeled event pairs loaded:${epsUnlabeled.length}")
+  logger.info(s"total number of mentions loaded: ${mentionsUnlabeled.length}")
 
   // building event pair "event hash to index"
   val eventPairHashIdxMap = scala.collection.mutable.Map[String, Int]()
   val mentionHashIdxMap = scala.collection.mutable.Map[String, Int]()
 
-  for (idx <- testCorpus.instances.indices){
-    val ep = testCorpus.instances(idx)
+  for (idx <- epsUnlabeled.indices){
+    val ep = epsUnlabeled(idx)
 
     val e1Hash = ep.e1.hashCode().toString
     val e2Hash = ep.e2.hashCode().toString
@@ -270,7 +279,7 @@ object EvalUnlabeledEventPairsRuleClassifier extends App with LazyLogging {
   }
 
   for {
-    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(testCorpus.mentions).slice(0,1) // TODO: use only one classifier for now.
+    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(mentionsUnlabeled).slice(0,1) // TODO: use only one classifier for now.
   } {
     val predicted = sieveResult.getPrecedenceRelations
     val fullPredLabelsListToSave = ArrayBuffer[(Int, Int)]()
@@ -309,9 +318,9 @@ object EvalUnlabeledEventPairsRuleClassifier extends App with LazyLogging {
 
 
     val predLabelsSeq2Str = fullPredLabelsListToSave.map{x => x._1 + "," + x._2}.mkString(";")
-    val predLabelSavePath = evalMentionsPath+lbl+"_results.txt"
+    val predLabelSavePath ="/work/zhengzhongliang/2020_ASKE/20210220/unlabeled_extraction_model_rule.txt"
 
-    val pw = new PrintWriter(new File(predLabelSavePath ))
+    val pw = new PrintWriter(new File(predLabelSavePath))
     pw.write(predLabelsSeq2Str)
     pw.close
 
