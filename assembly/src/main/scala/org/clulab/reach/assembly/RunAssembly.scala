@@ -279,8 +279,10 @@ object EvalUnlabeledEventPairsRuleClassifier extends App with LazyLogging {
   }
 
   for {
-    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(mentionsUnlabeled).slice(0,1) // TODO: use only one classifier for now.
+    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(mentionsUnlabeled).slice(8,9) // TODO: use only one classifier for now.
   } {
+    logger.info(s"showing results for classifier ${lbl}.")
+
     val predicted = sieveResult.getPrecedenceRelations
     val fullPredLabelsListToSave = ArrayBuffer[(Int, Int)]()
 
