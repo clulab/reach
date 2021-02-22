@@ -358,7 +358,7 @@ object EvalFeatureClassifierOnLabeledData extends App with LazyLogging {
     val dataPoint = precedenceDataset.mkDatum(i)
     // TODO: print the features used here.
     val predicted = classifier.classify(dataPoint.asInstanceOf[RVFDatum[String, String]])
-    println(s"label pair predicted: ${predicted}, ${predicted=="None"}")
+    //println(s"label pair predicted: ${predicted}, ${predicted=="None"}")
 
     allPreds.append(predicted)
 
@@ -371,7 +371,7 @@ object EvalFeatureClassifierOnLabeledData extends App with LazyLogging {
   var fn = 0f
   for (idx <- eps.indices){
     val label = eps(idx).relation
-
+    println(s"predict:${allPreds(idx)}, label:${label}, equal?${allPreds(idx)==label}")
     if (allPreds(idx) != "None" && allPreds(idx)==label ){tp +=1}
     if (allPreds(idx)!="None" && allPreds(idx)!=label ){fp +=1}
     if (allPreds(idx)=="None" && allPreds(idx)!=label) {fn+=1}
@@ -380,7 +380,7 @@ object EvalFeatureClassifierOnLabeledData extends App with LazyLogging {
   val recall = tp/(tp+fn)
   val f1 = precision*recall*2/(precision + recall)
 
-  println(s"precision${precision}, recall:${recall}, f1${f1}")
+  println(s"precision${precision}, recall:${recall}, f1:${f1}")
 
 }
 
