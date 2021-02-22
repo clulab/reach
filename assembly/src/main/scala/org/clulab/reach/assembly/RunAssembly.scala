@@ -29,6 +29,7 @@ import org.clulab.reach.assembly.sieves.SieveUtils.precedenceRelations
 
 import scala.collection.mutable.ArrayBuffer
 import org.clulab.learning.{Classifier, RVFDatum}
+import org.clulab.reach.assembly.EvalFeatureClassifierOnLabeledData.allPreds
 
 
 /**
@@ -323,17 +324,18 @@ object EvalUnlabeledEventPairsRuleClassifier extends App with LazyLogging {
 
 }
 
-
 /**
-  * Load the trained feature-based classifier and evaluate it on the unlabeled data. Then save the output.
+  * This function loads a trained feature-based classifier and evaluate on the labeled evaluation set.
+  * It reports the precision, recall and F1 score. This is used for testing whether the feature-based classifier works correctly.
+  * k-fold cross validation is not implemented in this function.
   *
-  * Contribution by Zhengzhong
+  * Contribution: Zhengzhong
   */
-object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
+object EvalFeatureClassifierOnLabeledData extends App with LazyLogging {
   val config = ConfigFactory.load()
   val classifierPath = config.getString("assembly.classifier.model")
   val results = config.getString("assembly.classifier.results")
-  val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDirNewTrain")).instances
+  val eps: Seq[EventPair] = CorpusReader.readCorpus(config.getString("assembly.corpus.corpusDirNewEval")).instances
 
   logger.info(s"number of loaded raw event pairs: ${eps.length}")
 
@@ -350,18 +352,45 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
 
   println(s"classifier class name:${classifier.getClass.getName}")
 
+  val allPreds = new ArrayBuffer[String]()
   for (i <- 0 until precedenceAnnotations.size) {
     val dataPoint = precedenceDataset.mkDatum(i)
     // TODO: print the features used here.
-    // val predicted = classifier.classOf(dataPoint)
-    val predicted = classifier.classify(dataPoint.asInstanceOf[RVFDatum[String, String]]) // TODO
-    println(s"label pair predicted: ${predicted}")
+    val predicted = classifier.classify(dataPoint.asInstanceOf[RVFDatum[String, String]])
+    println(s"label pair predicted: ${predicted}, ${predicted=="None"}")
+
+    allPreds.append(predicted)
 
   }
 
-  // we should swith to the following. 
-  // alternative way to do this: val predicted = classifier.classOf(dataPoint)
-  // clf.classify(datum)
+  require(allPreds.length == eps.length)
+
+  var tp = 0f
+  var fp = 0f
+  var fn = 0f
+  for (idx <- eps.indices){
+    val label = eps(idx).relation
+
+    if (allPreds(idx) != "None" && allPreds(idx)==label ){tp +=1}
+    if (allPreds(idx)!="None" && allPreds(idx)!=label ){fp +=1}
+    if (allPreds(idx)=="None" && allPreds(idx)!=label) {fn+=1}
+  }
+  val precision = tp/(tp+fp)
+  val recall = tp/(tp+fn)
+  val f1 = precision*recall*2/(precision + recall)
+
+  println(s"precision${precision}, recall:${recall}, f1${f1}")
+
+}
+
+/**
+  * Load the trained feature-based classifier and evaluate it on the unlabeled data. Then save the output.
+  *
+  * Contribution by Zhengzhong
+  */
+object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
+
+
 }
 
 /**
