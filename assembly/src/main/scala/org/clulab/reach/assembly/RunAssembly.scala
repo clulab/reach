@@ -389,11 +389,19 @@ object EvalFeatureClassifierOnLabeledData extends App with LazyLogging {
   * Contribution by Zhengzhong
   */
 object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
-  // First load the train/test splits:
+  // 1, load the train/test splits:
   val splitsJson = parse(new File("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/event_pairs_splits.json"))
   val allSplits = splitsJson.extract[Map[String, Map[String, Seq[Int]]]]
 
-  // Then read all unlabeled event pairs:
+
+  // 2, load all labeled event pairs
+  val epsLabeled = Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/train").instances ++
+    Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/test").instances
+
+  logger.info(s"total number of labeled event pairs loaded:${epsLabeled.length}")
+
+
+  // 3, load all unlabeled event pairs:
   val totalChunkNum = 7
   val chunkSize = 1000
   val epsUnlabeled = new ArrayBuffer[EventPair]()
