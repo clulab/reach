@@ -353,7 +353,7 @@ object EvalFeatureClassifierOnLabeledData extends App with LazyLogging {
   println(s"classifier class name:${classifier.getClass.getName}")
 
   val allPreds = new ArrayBuffer[String]()
-  for (i <- eps.indices) {
+  for (i <- precedenceAnnotations.indices) {
     val dataPoint = precedenceDataset.mkDatum(i)
     // TODO: print the features used here.
     val predicted = classifier.classify(dataPoint.asInstanceOf[RVFDatum[String, String]])
