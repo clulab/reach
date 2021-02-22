@@ -395,6 +395,8 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
 
 
   // 2, load all labeled event pairs
+  // note that the constraint of the sentence distance should be imposed, and this constraint should be the same as
+  // implemented in the python file.
   val epsLabeled = (Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/train").instances ++
     Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/test").instances)
     .filter(x => (x.e2.sentence - x.e1.sentence).abs <= 1)
@@ -415,6 +417,49 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
   }
 
   logger.info(s"total number of unlabeled event pairs loaded:${epsUnlabeled.length}")
+
+  // 4, train the feature-based classifier on each split and annotate the unlabeled data.
+  val kFolds = 5
+  val model = "lin-svm-l1"
+  val randomSeed:Int = 42
+  for (split <- 0 until kFolds){
+    val train_index = allSplits("split"+split.toString)("train")
+    val test_index = allSplits("split"+split.toString)("test")
+
+    val epsTrain = for {idx <- train_index} yield epsLabeled(idx)
+    val epsTest = for {idx <- test_index} yield epsLabeled(idx)
+
+
+    val precedenceDatasetTrain = AssemblyRelationClassifier.mkRVFDataset(CorpusReader.filterRelations(epsTrain, precedenceRelations))
+    val precedenceAnnotationsTest = CorpusReader.filterRelations(epsTest, precedenceRelations)
+
+    // 1, train the model
+    val classifier = AssemblyRelationClassifier.getModel(model)
+
+    AssemblyRelationClassifier.train(precedenceDatasetTrain, classifier)
+
+
+    // 2, evaluate the model
+    var tp = 0f
+    var fp = 0f
+    var fn = 0f
+    for (idx <- precedenceAnnotationsTest.indices){
+      val ep = precedenceAnnotationsTest(idx)
+      val label = ep.relation
+      val pred = classifier.classOf(AssemblyRelationClassifier.mkRVFDatum(label, ep.e1, ep.e2))
+
+      if (pred != "None" && pred == label){tp +=1}
+      if (pred !="None" && pred!=label){fp +=1}
+      if (pred =="None" && pred!=label) {fn+=1}
+    }
+    val precision = tp/(tp+fp)
+    val recall = tp/(tp+fn)
+    val f1 = precision*recall*2/(precision + recall)
+
+    println(s"${split}, p:${precision}, r:${recall}, f1:${f1}")
+
+    // 3, do the prediction on the unlabele data.
+  }
 }
 
 /**
