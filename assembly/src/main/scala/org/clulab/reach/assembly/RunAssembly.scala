@@ -340,11 +340,10 @@ object EvalFeatureClassifierOnLabeledData extends App with LazyLogging {
   logger.info(s"number of loaded raw event pairs: ${eps.length}")
 
   // gather precedence relations corpus
-  //val precedenceAnnotations = CorpusReader.filterRelations(eps, precedenceRelations)
+  val precedenceAnnotations = CorpusReader.filterRelations(eps, precedenceRelations)
   // train
-  //logger.info(s"number of loaded pairs: ${precedenceAnnotations.size}")
-  //val precedenceDataset = AssemblyRelationClassifier.mkRVFDataset(precedenceAnnotations)
-  val precedenceDataset = AssemblyRelationClassifier.mkRVFDataset(eps)
+  logger.info(s"number of loaded pairs after filtering: ${precedenceAnnotations.size}")
+  val precedenceDataset = AssemblyRelationClassifier.mkRVFDataset(precedenceAnnotations)
 
   val model = "lin-svm-l1"
 
@@ -364,13 +363,13 @@ object EvalFeatureClassifierOnLabeledData extends App with LazyLogging {
 
   }
 
-  require(allPreds.length == eps.length)
+  require(allPreds.length == precedenceAnnotations.length)
 
   var tp = 0f
   var fp = 0f
   var fn = 0f
-  for (idx <- eps.indices){
-    val label = eps(idx).relation
+  for (idx <- precedenceAnnotations.indices){
+    val label = precedenceAnnotations(idx).relation
     println(s"predict:${allPreds(idx)}, label:${label}, equal?${allPreds(idx)==label}")
     if (allPreds(idx) != "None" && allPreds(idx)==label ){tp +=1}
     if (allPreds(idx)!="None" && allPreds(idx)!=label ){fp +=1}
