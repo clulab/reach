@@ -399,7 +399,7 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
   val epsUnlabeled = new ArrayBuffer[EventPair]()
 
   for (chunkNum <- 0 until totalChunkNum){
-    val folderPath = "paper_"+(chunkNum*chunkSize).toString+"_"+((chunkNum+1)*chunkSize).toString+"/"
+    val folderPath = "/work/zhengzhongliang/2020_ASKE/20210117/paper_"+(chunkNum*chunkSize).toString+"_"+((chunkNum+1)*chunkSize).toString+"/"
     epsUnlabeled.appendAll(Corpus(folderPath).instances)
   }
 
