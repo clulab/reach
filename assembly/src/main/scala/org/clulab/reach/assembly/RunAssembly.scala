@@ -340,10 +340,11 @@ object EvalFeatureClassifierOnLabeledData extends App with LazyLogging {
   logger.info(s"number of loaded raw event pairs: ${eps.length}")
 
   // gather precedence relations corpus
-  val precedenceAnnotations = CorpusReader.filterRelations(eps, precedenceRelations)
+  //val precedenceAnnotations = CorpusReader.filterRelations(eps, precedenceRelations)
   // train
-  logger.info(s"number of loaded pairs: ${precedenceAnnotations.size}")
-  val precedenceDataset = AssemblyRelationClassifier.mkRVFDataset(precedenceAnnotations)
+  //logger.info(s"number of loaded pairs: ${precedenceAnnotations.size}")
+  //val precedenceDataset = AssemblyRelationClassifier.mkRVFDataset(precedenceAnnotations)
+  val precedenceDataset = AssemblyRelationClassifier.mkRVFDataset(eps)
 
   val model = "lin-svm-l1"
 
@@ -353,7 +354,7 @@ object EvalFeatureClassifierOnLabeledData extends App with LazyLogging {
   println(s"classifier class name:${classifier.getClass.getName}")
 
   val allPreds = new ArrayBuffer[String]()
-  for (i <- 0 until precedenceAnnotations.size) {
+  for (i <- eps.indices) {
     val dataPoint = precedenceDataset.mkDatum(i)
     // TODO: print the features used here.
     val predicted = classifier.classify(dataPoint.asInstanceOf[RVFDatum[String, String]])
@@ -368,8 +369,8 @@ object EvalFeatureClassifierOnLabeledData extends App with LazyLogging {
   var tp = 0f
   var fp = 0f
   var fn = 0f
-  for (idx <- precedenceAnnotations.indices){
-    val label = precedenceAnnotations(idx).relation
+  for (idx <- eps.indices){
+    val label = eps(idx).relation
 
     if (allPreds(idx) != "None" && allPreds(idx)==label ){tp +=1}
     if (allPreds(idx)!="None" && allPreds(idx)!=label ){fp +=1}
