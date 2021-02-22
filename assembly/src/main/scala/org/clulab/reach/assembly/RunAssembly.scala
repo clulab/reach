@@ -368,8 +368,8 @@ object EvalFeatureClassifierOnLabeledData extends App with LazyLogging {
   var tp = 0f
   var fp = 0f
   var fn = 0f
-  for (idx <- eps.indices){
-    val label = eps(idx).relation
+  for (idx <- precedenceAnnotations.indices){
+    val label = precedenceAnnotations(idx).relation
 
     if (allPreds(idx) != "None" && allPreds(idx)==label ){tp +=1}
     if (allPreds(idx)!="None" && allPreds(idx)!=label ){fp +=1}
