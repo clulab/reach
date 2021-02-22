@@ -400,6 +400,8 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
 
   logger.info(s"total number of labeled event pairs loaded:${epsLabeled.length}")
 
+  require(epsLabeled.length == allSplits("split0")("train").length + allSplits("split0")("test").length)
+
 
   // 3, load all unlabeled event pairs:
   val totalChunkNum = 7
