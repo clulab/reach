@@ -395,8 +395,9 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
 
 
   // 2, load all labeled event pairs
-  val epsLabeled = Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/train").instances ++
-    Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/test").instances
+  val epsLabeled = (Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/train").instances ++
+    Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/test").instances)
+    .filter(x => x.e2.sentence - x.e1.sentence <= 1)
 
   logger.info(s"total number of labeled event pairs loaded:${epsLabeled.length}")
   logger.info(s"total number of labeled event pairs in the split:${allSplits("split0")("train").length + allSplits("split0")("test").length}")
