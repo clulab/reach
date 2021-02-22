@@ -393,8 +393,17 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
   val splitsJson = parse(new File("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/event_pairs_splits.json"))
   val allSplits = splitsJson.extract[Map[String, Map[String, Seq[Int]]]]
 
+  // Then read all unlabeled event pairs:
+  val totalChunkNum = 7
+  val chunkSize = 1000
+  val epsUnlabeled = new ArrayBuffer[EventPair]()
 
-  println(allSplits)
+  for (chunkNum <- 0 until totalChunkNum){
+    val folderPath = "paper_"+(chunkNum*chunkSize).toString+"_"+((chunkNum+1)*chunkSize).toString+"/"
+    epsUnlabeled.appendAll(Corpus(folderPath).instances)
+  }
+
+  logger.info(s"total number of unlabeled event pairs loaded:${epsUnlabeled.length}")
 }
 
 /**
