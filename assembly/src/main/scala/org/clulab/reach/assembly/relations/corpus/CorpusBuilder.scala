@@ -148,6 +148,20 @@ object CorpusBuilder extends LazyLogging {
     distinctEventPairs(eps.toSeq)
   }
 
+  /**
+    * this function is to debug the mention selection process.
+    * TODO: this is only for debugging purpose, and should be changed back after debugging
+    */
+  def selectEventPairsDebugging(cms: Seq[CorefMention]):Unit = {
+    for ((doc, corefmentions) <- cms.groupBy(m => m.document)) {
+      val candidates = findValidMentions(corefmentions)
+
+      println(s"num coref mentions: ${corefmentions.length}, n valid candidates:${candidates.length}")
+
+    }
+  }
+
+
   def distinctEventPairs(eps: Seq[EventPair]): Seq[EventPair] = {
     eps.distinct.groupBy(ep =>
       // distinct by...
@@ -221,7 +235,7 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
 
   // Initialize the needed components for the annotation. Proc, reachSystem and nxml reader are imported from PaperReader
   val pubmedRootDir = "/data/nlp/corpora/pmc_openaccess/pmc_dec2019"
-  val threadLimit = 4  // run on amy using 20 thread limits.
+  val threadLimit = 20  // run on amy using 20 thread limits.
   val unlabeledExtractionCorpusDir = ""
 
   // Get 10000 papers with PMC id and in nxml format
@@ -269,8 +283,11 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
     logger.info("-"*80)
     logger.info(s"processing chunk $chunkNum ...")
 
-    val papersToProcess = rawPaperDirs.slice(chunkNum * chunkSize , (chunkNum+1)*chunkSize).par
-    papersToProcess.tasksupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
+    // TODO: temporarily commented out for debugging. Change this back in formal extraction.
+//    val papersToProcess = rawPaperDirs.slice(chunkNum * chunkSize , (chunkNum+1)*chunkSize).par
+//    papersToProcess.tasksupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
+
+    val papersToProcess = rawPaperDirs.slice(chunkNum * chunkSize , (chunkNum+1)*chunkSize)
 
     var nDone = 0
     var nSkipped = 0
@@ -282,7 +299,11 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
         val (paperID, mentions) = PaperReader.readPaper(new File(paperDir))
 
         val cms: Seq[CorefMention] = mentions.map(_.toCorefMention)
+
+        selectEventPairsDebugging(cms)
         val eventPairs = selectEventPairs(cms)
+        println(s"final harvested event pairs: ${eventPairs.length}")
+        scala.io.StdIn.readLine("waiting for the next paper ......")
 
         this.synchronized {
           allEpsInChunk.appendAll(eventPairs)
@@ -305,11 +326,15 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
       continueProcessFlag = false
     }
 
+    // TODO: commented this out temporarily for debugging. Should change this back after debugging.
+    /*
     val outDir = new File("/work/zhengzhongliang/2020_ASKE/20210117/paper_" +
                             (chunkNum * chunkSize).toString + "_" + ((chunkNum+1)*chunkSize).toString)
     // create corpus and write to file
     val corpus = Corpus(allEpsInChunk)
     corpus.writeJSON(outDir, pretty = true) // TODO: in official generation, change this to false
+
+    */
 
     logger.info(s"processing done! N done: ${nDone}, N skipped: ${nSkipped}")
     logger.info(s"chunk eps: ${allEpsInChunk.length}")

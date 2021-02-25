@@ -96,8 +96,6 @@ object RunAnnotationEval extends App with LazyLogging {
   for {
     (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(testMentions)
   } {
-    println("One rule based classifier!!!")
-
     val predicted = sieveResult.getPrecedenceRelations
     val smoothing = 0.00001
 
@@ -281,9 +279,11 @@ object EvalUnlabeledEventPairsRuleClassifier extends App with LazyLogging {
   }
 
   for {
-    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(mentionsUnlabeled).slice(8,9) // TODO: use only one classifier for now.
+    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(mentionsUnlabeled).slice(0,1 ) // TODO: use only one classifier for now.
   } {
     logger.info(s"showing results for classifier ${lbl}.")
+    // There are only two precedence classifiers returned from applyEachSieve.
+    // The first is combinedRBPprecedence, the second is bioDRBpatterns.
 
     val predicted = sieveResult.getPrecedenceRelations
     val fullPredLabelsListToSave = ArrayBuffer[(Int, Int)]()
