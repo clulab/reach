@@ -300,10 +300,10 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
 
         val cms: Seq[CorefMention] = mentions.map(_.toCorefMention)
 
+        println("-"*80)
         selectEventPairsDebugging(cms)
         val eventPairs = selectEventPairs(cms)
         println(s"final harvested event pairs: ${eventPairs.length}")
-        scala.io.StdIn.readLine("waiting for the next paper ......")
 
         this.synchronized {
           allEpsInChunk.appendAll(eventPairs)
