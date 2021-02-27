@@ -161,6 +161,41 @@ object CorpusBuilder extends LazyLogging {
     }
   }
 
+  /**
+    *
+    * @param eps
+    * @return
+    */
+  def selectEventPairsDebugging2(cms: Seq[CorefMention]): Seq[EventPair] = {
+    // track mentions
+    val am = AssemblyManager(cms)
+    // select event pairs
+    val eps = for {
+      // iterate over pairs of sentences in each doc
+      (doc, corefmentions) <- cms.groupBy(m => m.document)
+      m1 <- corefmentions
+      m2 <- corefmentions
+      // the mentions should be distinct
+      if m1 != m2
+      // are these events of interest?
+      if validLabels.exists(label => m1 matches label)
+      if validLabels.exists(label => m2 matches label)
+      // the mentions must be within the acceptable sentential window
+      if Constraints.withinWindow(m1, m2, kWindow)
+      // check if mention pair meets corpus constraints
+      // make sure mentions can be handled by AssemblyManager
+      // could be SimpleEvent, Reg, or Activation...
+      if Constraints.isValidRelationPair(m1, m2)
+      // EERs must share at least one arg
+      if Constraints.shareEntityGrounding(m1, m2)
+      // create training instance
+      ep = EventPair(Set(m1, m2))
+      // triggers should not be the same
+      if ep.e1.trigger != ep.e2.trigger
+    } yield ep
+
+    distinctEventPairs(eps.toSeq)
+  }
 
   def distinctEventPairs(eps: Seq[EventPair]): Seq[EventPair] = {
     eps.distinct.groupBy(ep =>
@@ -301,8 +336,9 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
         val cms: Seq[CorefMention] = mentions.map(_.toCorefMention)
 
         println("-"*80)
-        selectEventPairsDebugging(cms)
-        val eventPairs = selectEventPairs(cms)
+        //selectEventPairsDebugging(cms)
+        //val eventPairs = selectEventPairs(cms)
+        val eventPairs = selectEventPairsDebugging2(cms)
         println(s"final harvested event pairs: ${eventPairs.length}")
 
         this.synchronized {
