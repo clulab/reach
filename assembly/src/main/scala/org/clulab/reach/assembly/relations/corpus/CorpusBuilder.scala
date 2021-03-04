@@ -337,9 +337,10 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
 
         println("-"*80)
         //selectEventPairsDebugging(cms)
-        //val eventPairs = selectEventPairs(cms)
-        val eventPairs = selectEventPairsDebugging2(cms)
+        val eventPairs = selectEventPairs(cms)
         println(s"final harvested event pairs: ${eventPairs.length}")
+        val eventPairs2 = selectEventPairsDebugging2(cms)
+        println(s"final harvested event pairs (no validation): ${eventPairs2.length}")
 
         this.synchronized {
           allEpsInChunk.appendAll(eventPairs)
