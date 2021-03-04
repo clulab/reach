@@ -310,7 +310,7 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
   val nTotalPairsNeeded = 20000 // default: 20000
   val chunkSize = 1000  //default: each chunk has 1000 papers, which takes about 4 hours to process when thread limit = 4, yielding ~500 pairs.
   var continueProcessFlag = true // whether to continue to process the next chunk
-  var chunkNum = 0 // which chunk processing now
+  var chunkNum = 7 // which chunk processing now, 7 is where I stopped previously
   var totalEps = 0 // total number of eps collected so far
 
   // Loop over all chunks.
@@ -319,10 +319,8 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
     logger.info(s"processing chunk $chunkNum ...")
 
     // TODO: temporarily commented out for debugging. Change this back in formal extraction.
-//    val papersToProcess = rawPaperDirs.slice(chunkNum * chunkSize , (chunkNum+1)*chunkSize).par
-//    papersToProcess.tasksupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
-
-    val papersToProcess = rawPaperDirs.slice(chunkNum * chunkSize , (chunkNum+1)*chunkSize)
+    val papersToProcess = rawPaperDirs.slice(chunkNum * chunkSize , (chunkNum+1)*chunkSize).par
+    papersToProcess.tasksupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
 
     var nDone = 0
     var nSkipped = 0
@@ -339,8 +337,6 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
         //selectEventPairsDebugging(cms)
         val eventPairs = selectEventPairs(cms)
         println(s"final harvested event pairs: ${eventPairs.length}")
-        val eventPairs2 = selectEventPairsDebugging2(cms)
-        println(s"final harvested event pairs (no validation): ${eventPairs2.length}")
 
         this.synchronized {
           allEpsInChunk.appendAll(eventPairs)
@@ -364,14 +360,14 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
     }
 
     // TODO: commented this out temporarily for debugging. Should change this back after debugging.
-    /*
+
     val outDir = new File("/work/zhengzhongliang/2020_ASKE/20210117/paper_" +
                             (chunkNum * chunkSize).toString + "_" + ((chunkNum+1)*chunkSize).toString)
     // create corpus and write to file
     val corpus = Corpus(allEpsInChunk)
     corpus.writeJSON(outDir, pretty = true) // TODO: in official generation, change this to false
 
-    */
+
 
     logger.info(s"processing done! N done: ${nDone}, N skipped: ${nSkipped}")
     logger.info(s"chunk eps: ${allEpsInChunk.length}")
