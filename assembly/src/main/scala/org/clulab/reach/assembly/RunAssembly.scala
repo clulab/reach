@@ -397,6 +397,87 @@ object EvalFeatureClassifierOnLabeledData extends App with LazyLogging {
 }
 
 /**
+  * This function loads the saved splits of the data, then train and evaluate the SVM classifier on the saved splits.
+  * This function provides the baseline results of the SVM model under the same setting as in the python file.
+  */
+object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
+  // 1, load the train/test splits:
+  val splitsJson = parse(new File("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/event_pairs_splits.json"))
+  val allSplits = splitsJson.extract[Map[String, Map[String, Seq[Int]]]]
+
+
+  // 2, load all labeled event pairs
+  // note that the constraint of the sentence distance should be imposed, and this constraint should be the same as
+  // implemented in the python file.
+  val epsLabeled = (Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/train").instances ++
+    Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/test").instances)
+    .filter(x => (x.e2.sentence - x.e1.sentence).abs <= 1)
+
+  logger.info(s"total number of labeled event pairs loaded:${epsLabeled.length}")
+  logger.info(s"total number of labeled event pairs in the split:${allSplits("split0")("train").length + allSplits("split0")("test").length}")
+  require(epsLabeled.length == allSplits("split0")("train").length + allSplits("split0")("test").length)
+
+
+  // 3, train the feature-based classifier on each split and get the prediction.
+  val kFolds = 5
+  val model = "lin-svm-l1"
+  val randomSeed:Int = 42
+
+  val allLabels = new ArrayBuffer[String]()
+  val allPreds = new ArrayBuffer[String]()
+
+  for (split <- 0 until kFolds){
+    val train_index = allSplits("split"+split.toString)("train")
+    val test_index = allSplits("split"+split.toString)("test")
+
+    val epsTrain = for {idx <- train_index} yield epsLabeled(idx)
+    val epsTest = for {idx <- test_index} yield epsLabeled(idx)
+
+
+    val precedenceDatasetTrain = AssemblyRelationClassifier.mkRVFDataset(CorpusReader.filterRelations(epsTrain, precedenceRelations))
+    val precedenceAnnotationsTest = CorpusReader.filterRelations(epsTest, precedenceRelations)
+
+    // 1, train the model
+    val classifier = AssemblyRelationClassifier.getModel(model)
+
+    AssemblyRelationClassifier.train(precedenceDatasetTrain, classifier)
+
+
+    // 2, evaluate the model and saved the labels + predictions
+    for (idx <- precedenceAnnotationsTest.indices){
+      val ep = precedenceAnnotationsTest(idx)
+      val label = ep.relation
+      val pred = classifier.classOf(AssemblyRelationClassifier.mkRVFDatum(label, ep.e1, ep.e2))
+
+      allLabels.append(label)
+      allPreds.append(pred)
+
+    }
+  }
+
+  var tp = 0f
+  var fp = 0f
+  var fn = 0f
+
+  for (idx <- allLabels.indices){
+    val pred = allPreds(idx)
+    val label = allLabels(idx)
+
+    if (pred != "None" && pred == label){tp +=1}
+    if (pred !="None" && pred!=label){fp +=1}
+    if (pred =="None" && pred!=label) {fn+=1}
+  }
+
+
+  val precision = tp/(tp+fp)
+  val recall = tp/(tp+fn)
+  val f1 = precision*recall*2/(precision + recall)
+
+  logger.info(s"all splits p:${precision}, r:${recall}, f1:${f1}")
+}
+
+
+/**
   * Load the trained feature-based classifier and evaluate it on the unlabeled data. Then save the output.
   *
   * Contribution by Zhengzhong
