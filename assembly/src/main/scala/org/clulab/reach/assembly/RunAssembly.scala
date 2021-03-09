@@ -595,9 +595,9 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
         val epScorePair = epsAndScoresSorted(idx)
         if (idx < 300){
           println("-"*40)
-          println(epScorePair._1.e1.text)
-          println(epScorePair._1.e2.text)
-          println(epScorePair._2)
+          println("e1:",epScorePair._1.e1.text, "\n")
+          println("e2:",epScorePair._1.e2.text, "\n")
+          println(epScorePair._2, "\n")
         }
 
       }
