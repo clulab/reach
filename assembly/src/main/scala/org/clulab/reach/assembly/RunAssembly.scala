@@ -553,21 +553,21 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
     logger.info(s"split:${split}, p:${precision}, r:${recall}, f1:${f1}")
 
     // 3, do the prediction on the unlabeled data.
-    val allScores = new ArrayBuffer[Int]()
+    val allScores = new ArrayBuffer[Seq[(String, Double)]]()
     val allPreds = new ArrayBuffer[Int]()
     for (ep <- epsUnlabeled){
       println("evaluating each unlabeled data")
       val datum = AssemblyRelationClassifier.mkRVFDatum("placeholder", ep.e1, ep.e2)
       val predScore = classifier.scoresOf(datum)
+      // Not sure the format of the returned scores. But roughly in the form [label1:score1, label2:score2, label3:score]
+      // The sum of scores across all classes is 1, so sorting the score of None in the descending order should work.
       val predLabel = predScore.argMax._1
 
       if (predLabel == "E1 precedes E2") {allPreds.append(1)}
       else if (predLabel == "E2 precedes E1") {allPreds.append(2)}
       else {allPreds.append(0)}
 
-      println("-"*40)
-      println(predScore)
-      println(predLabel)
+      allScores.append(predScore.toSeq)
 
     }
 
@@ -584,7 +584,20 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
 //    pw.write(predLabelsSeq2Str)
 //    pw.close
 
-    //def printEpsByConfidenceScore
+    // This is used to check the predictions of SVM on the unlabeled data.
+    // This function prints the
+    def printEpsByConfidenceScore(allScores: ArrayBuffer[Seq[(String, Double)]]):Unit = {
+      val epsAndScores = epsUnlabeled zip allScores
+      val epsAndScoresSorted = epsAndScores.sortBy(-_._2(2)._2)
+
+      for (epScorePair <- epsAndScoresSorted) {
+        println("-"*40)
+        println(epScorePair._1.e1.text)
+        println(epScorePair._1.e2.text)
+        println(epScorePair._2)
+      }
+
+    }
 
   }
 }
