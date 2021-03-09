@@ -553,21 +553,38 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
     logger.info(s"${split}, p:${precision}, r:${recall}, f1:${f1}")
 
     // 3, do the prediction on the unlabeled data.
+    val allScores = new ArrayBuffer[Int]()
     val allPreds = new ArrayBuffer[Int]()
     for (ep <- epsUnlabeled){
-      val pred = classifier.classOf(AssemblyRelationClassifier.mkRVFDatum("placeholder", ep.e1, ep.e2))
-      if (pred == "E1 precedes E2") {allPreds.append(1)}
-      else if (pred == "E2 precedes E1") {allPreds.append(2)}
+      val datum = AssemblyRelationClassifier.mkRVFDatum("placeholder", ep.e1, ep.e2)
+      val predScore = classifier.scoresOf(datum)
+      val predLabel = predScore.argMax._1
+
+      if (predLabel == "E1 precedes E2") {allPreds.append(1)}
+      else if (predLabel == "E2 precedes E1") {allPreds.append(2)}
       else {allPreds.append(0)}
+
+      println("-"*40)
+      println(predScore)
+      println(predLabel)
+
     }
 
-    // 4, saved the prediction as text file.
-    val predLabelsSeq2Str = allPreds.map{x => x.toString}.mkString("; ")
-    val predLabelSavePath = "/work/zhengzhongliang/2020_ASKE/20210220/unlabeled_extraction_model_" + model + "_"+split+".txt"
+    //println(predS)
 
-    val pw = new PrintWriter(new File(predLabelSavePath))
-    pw.write(predLabelsSeq2Str)
-    pw.close
+
+    // 4, saved the prediction as text file.
+
+    // TODO: comment this temporarily for debugging. Uncomment this later.
+//    val predLabelsSeq2Str = allPreds.map{x => x.toString}.mkString("; ")
+//    val predLabelSavePath = "/work/zhengzhongliang/2020_ASKE/20210220/unlabeled_extraction_model_" + model + "_"+split+".txt"
+//
+//    val pw = new PrintWriter(new File(predLabelSavePath))
+//    pw.write(predLabelsSeq2Str)
+//    pw.close
+
+    //def printEpsByConfidenceScore
+
   }
 }
 
