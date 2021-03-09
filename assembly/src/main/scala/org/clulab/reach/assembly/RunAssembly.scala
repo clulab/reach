@@ -550,12 +550,13 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
     val recall = tp/(tp+fn)
     val f1 = precision*recall*2/(precision + recall)
 
-    logger.info(s"${split}, p:${precision}, r:${recall}, f1:${f1}")
+    logger.info(s"split:${split}, p:${precision}, r:${recall}, f1:${f1}")
 
     // 3, do the prediction on the unlabeled data.
     val allScores = new ArrayBuffer[Int]()
     val allPreds = new ArrayBuffer[Int]()
     for (ep <- epsUnlabeled){
+      println("evaluating each unlabeled data")
       val datum = AssemblyRelationClassifier.mkRVFDatum("placeholder", ep.e1, ep.e2)
       val predScore = classifier.scoresOf(datum)
       val predLabel = predScore.argMax._1
