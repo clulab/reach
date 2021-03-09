@@ -591,11 +591,15 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
       val epsAndScores = epsUnlabeled zip allScores
       val epsAndScoresSorted = epsAndScores.sortBy(_._2(2)._2)
 
-      for (epScorePair <- epsAndScoresSorted) {
-        println("-"*40)
-        println(epScorePair._1.e1.text)
-        println(epScorePair._1.e2.text)
-        println(epScorePair._2)
+      for (idx<- epsAndScoresSorted.indices) {
+        val epScorePair = epsAndScoresSorted(idx)
+        if (idx < 300){
+          println("-"*40)
+          println(epScorePair._1.e1.text)
+          println(epScorePair._1.e2.text)
+          println(epScorePair._2)
+        }
+
       }
 
     }
