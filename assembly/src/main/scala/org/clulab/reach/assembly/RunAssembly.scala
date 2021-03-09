@@ -571,7 +571,9 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
 
     }
 
-    //println(predS)
+    //TODO: for debugging only. Comment this out later.
+    printEpsByConfidenceScore(allScores)
+    scala.io.StdIn.readLine("waiting for the next split ...")
 
 
     // 4, saved the prediction as text file.
