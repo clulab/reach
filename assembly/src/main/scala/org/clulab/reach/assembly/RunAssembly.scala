@@ -556,7 +556,6 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
     val allScores = new ArrayBuffer[Seq[(String, Double)]]()
     val allPreds = new ArrayBuffer[Int]()
     for (ep <- epsUnlabeled){
-      println("evaluating each unlabeled data")
       val datum = AssemblyRelationClassifier.mkRVFDatum("placeholder", ep.e1, ep.e2)
       val predScore = classifier.scoresOf(datum)
       // Not sure the format of the returned scores. But roughly in the form [label1:score1, label2:score2, label3:score]
@@ -590,7 +589,7 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
     // This function prints the
     def printEpsByConfidenceScore(allScores: ArrayBuffer[Seq[(String, Double)]]):Unit = {
       val epsAndScores = epsUnlabeled zip allScores
-      val epsAndScoresSorted = epsAndScores.sortBy(-_._2(2)._2)
+      val epsAndScoresSorted = epsAndScores.sortBy(_._2(2)._2)
 
       for (epScorePair <- epsAndScoresSorted) {
         println("-"*40)
