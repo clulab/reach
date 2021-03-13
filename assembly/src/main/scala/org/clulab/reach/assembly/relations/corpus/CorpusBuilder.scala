@@ -310,7 +310,7 @@ object BuildCorpusFromRawDocs extends App with LazyLogging {
   val nTotalPairsNeeded = 20000 // default: 20000
   val chunkSize = 1000  //default: each chunk has 1000 papers, which takes about 4 hours to process when thread limit = 4, yielding ~500 pairs.
   var continueProcessFlag = true // whether to continue to process the next chunk
-  var chunkNum = 7 // which chunk processing now, 7 is where I stopped previously
+  var chunkNum = 25 // which chunk processing now, 25 is where I stopped previously
   var totalEps = 0 // total number of eps collected so far
 
   // Loop over all chunks.
