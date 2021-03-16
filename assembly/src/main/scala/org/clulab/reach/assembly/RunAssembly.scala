@@ -411,7 +411,7 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
   // implemented in the python file.
   val epsLabeled = (Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/train").instances ++
     Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/test").instances)
-    .filter(x => (x.e2.sentence - x.e1.sentence).abs <= 1)
+    .filter(x => (x.e2.sentence - x.e1.sentence).abs <= 1) // TODO: this filter should change
 
   logger.info(s"total number of labeled event pairs loaded:${epsLabeled.length}")
   logger.info(s"total number of labeled event pairs in the split:${allSplits("split0")("train").length + allSplits("split0")("test").length}")
@@ -484,7 +484,8 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
   */
 object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
   // 1, load the train/test splits:
-  val splitsJson = parse(new File("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/event_pairs_splits.json"))
+  //val splitsJson = parse(new File("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/event_pairs_splits.json"))
+  val splitsJson = parse(new File("/work/zhengzhongliang/2020_ASKE/neural_baseline/ASKE_2020_CausalDetection/Experiments/event_pairs_splits.json"))
   val allSplits = splitsJson.extract[Map[String, Map[String, Seq[Int]]]]
 
 
@@ -493,11 +494,12 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
   // implemented in the python file.
   val epsLabeled = (Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/train").instances ++
     Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/test").instances)
-    .filter(x => (x.e2.sentence - x.e1.sentence).abs <= 1)
+    .filter(x => ((x.e2.sentence - x.e1.sentence ==1) || (x.e2.sentence == x.e1.sentence && x.e1.start <= x.e2.start)))
+  // This filter should be consistent with the python script.
 
   logger.info(s"total number of labeled event pairs loaded:${epsLabeled.length}")
-  logger.info(s"total number of labeled event pairs in the split:${allSplits("split0")("train").length + allSplits("split0")("test").length}")
-  require(epsLabeled.length == allSplits("split0")("train").length + allSplits("split0")("test").length)
+  logger.info(s"total number of labeled event pairs in the split:${allSplits("split0")("train").length + allSplits("split0")("dev").length + allSplits("split0")("test").length}")
+  require(epsLabeled.length == allSplits("split0")("train").length + allSplits("split0")("dev").length + allSplits("split0")("test").length)
 
 
   // 3, load all unlabeled event pairs:
@@ -517,7 +519,7 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
   val model = "lin-svm-l1"
   val randomSeed:Int = 42
   for (split <- 0 until kFolds){
-    val train_index = allSplits("split"+split.toString)("train")
+    val train_index = allSplits("split"+split.toString)("train") ++ allSplits("split"+split.toString)("dev")
     val test_index = allSplits("split"+split.toString)("test")
 
     val epsTrain = for {idx <- train_index} yield epsLabeled(idx)
@@ -571,19 +573,19 @@ object EvalUnlabeledEventPairsFeatureClassifier extends App with LazyLogging {
     }
 
     //TODO: for debugging only. Comment this out later.
-    printEpsByConfidenceScore(allScores)
-    scala.io.StdIn.readLine("waiting for the next split ...")
+//    printEpsByConfidenceScore(allScores)
+//    scala.io.StdIn.readLine("waiting for the next split ...")
 
 
     // 4, saved the prediction as text file.
 
     // TODO: comment this temporarily for debugging. Uncomment this later.
-//    val predLabelsSeq2Str = allPreds.map{x => x.toString}.mkString("; ")
-//    val predLabelSavePath = "/work/zhengzhongliang/2020_ASKE/20210220/unlabeled_extraction_model_" + model + "_"+split+".txt"
-//
-//    val pw = new PrintWriter(new File(predLabelSavePath))
-//    pw.write(predLabelsSeq2Str)
-//    pw.close
+    val predLabelsSeq2Str = allPreds.map{x => x.toString}.mkString("; ")
+    val predLabelSavePath = "/work/zhengzhongliang/2020_ASKE/20210220/unlabeled_extraction_model_" + model + "_"+split+".txt"
+
+    val pw = new PrintWriter(new File(predLabelSavePath))
+    pw.write(predLabelsSeq2Str)
+    pw.close
 
     // This is used to check the predictions of SVM on the unlabeled data.
     // This function prints the
@@ -640,5 +642,79 @@ object SerializePapersToJSON extends App with LazyLogging {
     cms.saveJSON(outFile, pretty = true)
     logger.info(s"saved json to $outFile")
   }
+}
+
+/**
+  * This is the entry for the co-training of svm and lstm/bert.
+  * This function should be called from a bash script.
+  *
+  */
+object svmCoTraining extends App with LazyLogging {
+
+  def run(splitNumStr:String): Unit ={
+    val splitNum = splitNumStr.toInt
+    assert(Seq(10,1,2,3,4).contains(splitNum))
+    
+
+    // 1, load the train/test splits:
+    val splitsJson = parse(new File("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/event_pairs_splits.json"))
+    val allSplits = splitsJson.extract[Map[String, Map[String, Seq[Int]]]]
+
+    // 2, load the labeled data
+    val epsLabeled = (Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/train").instances ++
+      Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/test").instances)
+      .filter(x => (x.e2.sentence - x.e1.sentence).abs <= 1)
+    // TODO: this filter should change, this should be in accordance with the python script
+
+    // 3, load the unlabeled data
+    val totalChunkNum = 50
+    val chunkSize = 1000
+    val epsUnlabeled = new ArrayBuffer[EventPair]()
+
+    for (chunkNum <- 0 until totalChunkNum){
+      val folderPath = "/work/zhengzhongliang/2020_ASKE/20210117/paper_"+(chunkNum*chunkSize).toString+"_"+((chunkNum+1)*chunkSize).toString+"/"
+      epsUnlabeled.appendAll(Corpus(folderPath).instances)
+    }
+
+    // 4, load the predictions of lstm/bert on labeled and unlabeled data (but not the test data)
+    // TODO: load the predictions
+    // TODO: assign the labels to those event pairs
+
+    // 5, train the svm using the predictions of lstm/bert
+    // TODO: after the split is fed as part of the input, we need to get the part of the single split for the epsLabeled.
+    val precedenceDatasetTrain = AssemblyRelationClassifier.mkRVFDataset(CorpusReader.filterRelations(epsLabeled++epsUnlabeled, precedenceRelations))
+    val model = "lin-svm-l1"
+    val classifier = AssemblyRelationClassifier.getModel(model)
+    AssemblyRelationClassifier.train(precedenceDatasetTrain, classifier)
+
+    // 6, optionally evaluate the svm on the test partition of the data
+
+
+    // 7, run the svm on those labeled and unlabeled data
+    val allScores = new ArrayBuffer[Seq[(String, Double)]]()
+    val allPreds = new ArrayBuffer[Int]()
+    for (ep <- epsLabeled++epsUnlabeled){  // TODO: not all labeled data should be evaluated. Only the split.
+      val datum = AssemblyRelationClassifier.mkRVFDatum("placeholder", ep.e1, ep.e2)
+      val predScore = classifier.scoresOf(datum)
+      // Not sure the format of the returned scores. But roughly in the form [label1:score1, label2:score2, label3:score]
+      // The sum of scores across all classes is 1, so sorting the score of None in the descending order should work.
+      val predLabel = predScore.argMax._1
+
+      if (predLabel == "E1 precedes E2") {allPreds.append(1)}
+      else if (predLabel == "E2 precedes E1") {allPreds.append(2)}
+      else {allPreds.append(0)}
+
+      allScores.append(predScore.toSeq)
+
+    }
+
+    // 8, save the output of the svm
+
+
+
+  }
+
+
+
 }
 
