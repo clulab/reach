@@ -25,6 +25,7 @@ import org.clulab.reach.export.serial.SerialJsonOutput
 import org.clulab.reach.mentions.CorefMention
 import org.clulab.reach.mentions.serialization.json._
 import org.clulab.reach.utils.MentionManager
+import org.clulab.utils.ThreadUtils
 
 /**
   * Class to run Reach reading and assembly and then produce FRIES format output
@@ -94,14 +95,9 @@ class ReachCLI (
   def processPapers (threadLimit: Option[Int], withAssembly: Boolean): Int = {
     logger.info("Initializing Reach ...")
 
-    val files = papersDir.listFilesByRegex(pattern=ReachInputFilePattern, caseInsensitive = true, recursive = true).toVector.par
-
+    val serFiles = papersDir.listFilesByRegex(pattern=ReachInputFilePattern, caseInsensitive = true, recursive = true).toVector
     // limit parallelization
-    if (threadLimit.nonEmpty) {
-      files.tasksupport =
-        new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit.get))
-    }
-
+    val files = threadLimit.map(ThreadUtils.parallelize(serFiles, _)).getOrElse(serFiles.par)
     val errorCounts = for {
       file <- files
       filename = file.getName

@@ -1,18 +1,21 @@
 package org.clulab.reach.assembly
 
 import org.apache.commons.io.FilenameUtils
-import org.clulab.reach.assembly.relations.corpus.{ CorpusReader, EventPair }
+import org.clulab.reach.assembly.relations.corpus.{CorpusReader, EventPair}
 import org.clulab.odin.Mention
 import org.clulab.reach.PaperReader
 import org.clulab.reach.mentions._
 import org.clulab.reach.mentions.serialization.json._
 import org.clulab.utils.Serializer
+
 import scala.collection.parallel.ForkJoinTaskSupport
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
+
 import java.io.File
 import org.clulab.reach.assembly.relations.SieveEvaluator
 import org.clulab.reach.assembly.relations.SieveEvaluator.Performance
+import org.clulab.utils.ThreadUtils
 
 
 object RunAnnotationEval extends App with LazyLogging {
@@ -137,8 +140,7 @@ object SerializePapersToJSON extends App with LazyLogging {
   logger.info(s"papersDir: ${papersDir.getAbsolutePath}")
   logger.info(s"outDir: ${outDir.getAbsolutePath}")
   logger.info(s"threads: $threadLimit")
-  val papers = papersDir.listFiles.par
-  papers.tasksupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
+  val papers = ThreadUtils.parallelize(papersDir.listFiles, threadLimit)
 
   for {
     paper <- papers

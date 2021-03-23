@@ -7,11 +7,15 @@ import org.clulab.odin._
 import ai.lum.common.ConfigUtils._
 import ai.lum.common.RandomUtils._
 import ai.lum.common.FileUtils._
+
 import collection.JavaConversions._
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
+
 import java.io.File
-import org.clulab.reach.mentions.serialization.json.{ JSONSerializer => ReachJSONSerializer }
+import org.clulab.reach.mentions.serialization.json.{JSONSerializer => ReachJSONSerializer}
+import org.clulab.utils.ThreadUtils
+
 import scala.collection.parallel.ForkJoinTaskSupport
 
 
@@ -219,12 +223,9 @@ object BuildCorpusWithRedundancies extends App with LazyLogging {
   logger.info(s"Sample size: $sampleSize")
 
 
-  val sampledFiles = random.sample[File, Seq](jsonFiles, sampleSize, withReplacement = false).par
+  val sampledFiles = ThreadUtils.parallelize(random.sample[File, Seq](jsonFiles, sampleSize, withReplacement = false), threadLimit)
   // prepare corpus
   logger.info(s"Loading dataset ...")
-
-  sampledFiles.tasksupport =
-    new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
 
   val eps: Seq[EventPair] = sampledFiles.flatMap{ f =>
     val cms = ReachJSONSerializer.toCorefMentions(f)
