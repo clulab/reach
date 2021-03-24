@@ -32,9 +32,9 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
 
     def addParticipant(key: String, arg: CorefMention): Unit = {
       // mkArgument is reused from outer class.
-      val valueOpt = mkArgument(arg)
+      val valueOpt: Option[PropMapOrFrameList] = mkArgument(arg)
       valueOpt.foreach { value =>
-        this(key) = value
+        this(key) = value.get
       }
     }
 
@@ -192,12 +192,23 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
       f("context") = mention.context.get
   }
 
-  def mkArgument(arg:CorefMention): Option[Any] = {
+  // It doesn't seem like a good idea to return Any from a method like mkArgument().
+  // Here is one way around it, which just punts to get(), but PropMap stores an Any anyway
+  // so that it is very difficult to figure out where to account for the actual type when
+  // value is finally read and used.  That's in some other file.  This ensures isolation.
+  // See https://stackoverflow.com/questions/3508077/how-to-define-type-disjunction-union-types.
+  class PropMapOrFrameList protected(val value: Any) {
+    def this(propMap: PropMap) = this(propMap: Any)
+    def this(frameList: FrameList) = this(frameList: Any)
+    def get: Any = value
+  }
+
+  def mkArgument(arg:CorefMention): Option[PropMapOrFrameList] = {
     val derefArg = arg.antecedentOrElse(arg)
     val argType = mkArgType(derefArg)
     argType match {
-      case "entity" => Some(mkSingleArgument(derefArg)) // PropMap
-      case "complex" => Some(mkComplexArgument(derefArg)) // FrameList
+      case "entity" => Some(new PropMapOrFrameList(mkSingleArgument(derefArg))) // PropMap
+      case "complex" => Some(new PropMapOrFrameList(mkComplexArgument(derefArg))) // FrameList
       case _ => {
         // "event" is a typical culprit.
         val json = mentionToJSON(arg, pretty = true)

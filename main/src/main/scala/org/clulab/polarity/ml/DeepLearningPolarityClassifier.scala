@@ -7,15 +7,16 @@ import java.nio.file.{Paths, Files}
 
 
 import com.typesafe.config.ConfigFactory
-import edu.cmu.dynet.Expression._
 import edu.cmu.dynet._
+import edu.cmu.dynet.Expression._
 import org.clulab.fatdynet.utils.BaseTextModelLoader
 import org.clulab.fatdynet.utils.CloseableModelSaver
 import org.clulab.fatdynet.utils.Closer.AutoCloser
+import org.clulab.fatdynet.utils.Initializer
+import org.clulab.fatdynet.utils.Synchronizer
 import org.clulab.odin.{EventMention, Mention, RelationMention, TextBoundMention}
 import org.clulab.polarity.{NegativePolarity, NeutralPolarity, Polarity, PositivePolarity}
 import org.clulab.reach.mentions.BioEventMention
-import org.clulab.dynet.DyNetSync
 
 import scala.collection.mutable
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
@@ -207,8 +208,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
       val lemmas_masked = maskEvent(lemmas, event, maskOption)
 
       // y.value should be in synchronized. In general, any expression should be in synchronized.
-      val polarity = DyNetSync.synchronized{
-        ComputationGraph.renew()
+      val polarity = Synchronizer.withComputationGraph("predict()") {
         val y_pred:Expression =runInstance(lemmas_masked, rulePolarity)
         if (y_pred.value().toFloat > 0.5) {
           PositivePolarity
@@ -342,8 +342,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   def predictManual(event:String, rulePolarity:Int): Unit= {
     val words  = event.split(" ")
 
-    val y_pred_float = DyNetSync.synchronized {
-      ComputationGraph.renew()
+    val y_pred_float = Synchronizer.withComputationGraph("predictManual()") {
       val y_pred: Expression = runInstance(words, rulePolarity)
       y_pred.value().toFloat()
     }
@@ -475,8 +474,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
       val y_value = label
 
-      val loss = DyNetSync.synchronized{
-        ComputationGraph.renew()
+      val loss = Synchronizer.withComputationGraph("fitSingleEpoch()") {
         val y = Expression.input(y_value)
         val y_pred = runInstance(instance._1, instance._2)
         val loss_expr = Expression.binaryLogLoss(y_pred, y)
@@ -503,8 +501,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
 
       val y_value = label
 
-      val (y_pred_float:Float, loss:Float) = DyNetSync.synchronized{
-        ComputationGraph.renew()
+      val (y_pred_float:Float, loss:Float) = Synchronizer.withComputationGraph("testSingleEpoch()") {
         val y = Expression.input(y_value)
         val y_pred_ = runInstance(instance._1, instance._2)
         val loss_expr = Expression.binaryLogLoss(y_pred_, y)
@@ -736,18 +733,16 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   }
 
   def initializeDyNet(mem: String = ""): Unit = {
-    DyNetSync.synchronized {
-      if (!IS_DYNET_INITIALIZED) {
-        logger.debug("Initializing DyNet...")
+    if (!IS_DYNET_INITIALIZED) {
+      logger.debug("Initializing DyNet...")
 
-        val params = new mutable.HashMap[String, Any]()
-        params += "random-seed" -> 0L
-        params += "dynet-mem" -> mem
+      val params = new mutable.HashMap[String, Any]()
+      params += "random-seed" -> 0L
+      params += "dynet-mem" -> mem
 
-        Initialize.initialize(params.toMap)
-        logger.debug("DyNet initialization complete.")
-        IS_DYNET_INITIALIZED = true
-      }
+      Initializer.initialize(params.toMap)
+      logger.debug("DyNet initialization complete.")
+      IS_DYNET_INITIALIZED = true
     }
   }
 }
