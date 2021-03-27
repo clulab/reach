@@ -15,7 +15,7 @@ class TestAssociationEvents extends FlatSpec with Matchers {
 
   sent1 should "contain four association events" in {
     val mentions = getBioMentions(sent1)
-    mentions.filter(_.label == "Association") should have size (4)
+    mentions.filter(_.label == "Association") should have size (6)
   }
 
   sent2 should "contain two association events" in {
@@ -28,18 +28,18 @@ class TestAssociationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label == "Association") should have size (1)
   }
 
-  sent4 should "contain six association events" in {
+  sent4 should "contain four association events" in {
     val mentions = getBioMentions(sent4)
-    mentions.filter(_.label == "Association") should have size (6)
+    mentions.filter(_.label == "Association") should have size (4)
   }
 
   sent5 should "contain four association events" in {
     val mentions = getBioMentions(sent5)
-    mentions.filter(_.label == "Associatoin") should have size(4)
+    mentions.filter(_.label == "Association") should have size(4)
   }
 
-  sent6 should "contain one association event" in {
+  sent6 should "contain two association events" in {
     val mentions = getBioMentions(sent6)
-    mentions.filter(_.label == "Associatoin") should have size(1)
+    mentions.filter(_.label == "Association") should have size(2)
   }
 }
