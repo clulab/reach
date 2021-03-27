@@ -230,6 +230,20 @@ class DarpaActions extends Actions with LazyLogging {
       new BioEventMention(m.copy(arguments = arguments), isDirect = true)
   }
 
+  def mkAssociation(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
+    case m: EventMention if m.matches("Association") =>
+      // themes in a subject position
+      val theme1s = m.arguments.getOrElse("theme1", Nil).map(_.toBioMention)
+      // themes in an object position
+      val theme2s = m.arguments.getOrElse("theme2", Nil).map(_.toBioMention)
+
+      (theme1s, theme2s) match {
+        case (t1s, t2s)  if t1s.size == 1 && t2s.size == 1
+          => Seq(new BioEventMention(m - "theme1" - "theme2" + ("theme" -> Seq(t1s.head, t2s.head))))
+        case _ => Nil
+      }
+  }
+
   def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case m: EventMention if m.matches("Binding") =>
       // themes in a subject position

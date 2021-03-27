@@ -5,7 +5,7 @@ vars:
   auxtriggers: "activ|regul"
   posTriggers: "acceler|accept|activat|aid|allow|augment|cataly|caus|contribut|direct|driv|elev|elicit|enabl|enhanc|increas|induc|initi|interconvert|lead|led|mediat|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactivat|re-express|rescu|restor|retent|signal|stimul|support|synerg|synthes|trigger|underli|up-regul|upregul"
   negTriggers: "attenu|abolish|abrog|antagon|arrest|attenu|block|deactiv|decreas|degrad|deplet|deregul|diminish|disrupt|down-reg|downreg|dysregul|elimin|impair|imped|inactiv|inhibit|knockdown|limit|loss|lower|negat|nullifi|perturb|prevent|reduc|reliev|repress|resist|restrict|revers|sequester|shutdown|slow|starv|suppress|supress"
-
+  assocTriggers: "assoc"
   # For the record: OLD triggers, no longer used
   #posnouns: "acceler|activ|augment|cataly|caus|driv|elev|elicit|enhanc|increas|induc|induct|initi|produc|promot|promot|rais|reactiv|re-express|releas|stimul|trigger|up-regul|upregul"
   #negnouns: "decreas|inhibit|loss|repress|suppress|supress"
@@ -507,4 +507,15 @@ rules:
       actionFlow: "mkActivation"
       priority: "14" # must be 1 + priority of regulations!
       controlledType: "BioEntity"
+      controllerType: "PossibleController"
+
+  # Positive associations, from patterns that apply ONLY to associations
+  - import: org/clulab/reach/biogrammar/events/association-only_template.yml
+    vars:
+      label: "Association"
+      ruleType: "association"
+      triggers: ${assocTriggers}
+      actionFlow: "mkAssociation"
+      priority: "15" # must be 1 + priority of regulations!
+      controlledType: "PossibleController"
       controllerType: "PossibleController"

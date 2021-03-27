@@ -58,6 +58,9 @@ class BioPOSPostProcessor extends SentencePostProcessor {
         case aa if aa == "His" => tags(i) = "NN"
         case aa if aa == "Pro" => tags(i) = "NN"
 
+        // pre-frailty case
+        case pf if pf == "pre-frailty" => tags(i) = "NN"
+
         case _ => ()
       }
 

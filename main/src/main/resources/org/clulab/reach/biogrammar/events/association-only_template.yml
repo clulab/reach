@@ -1,0 +1,53 @@
+#
+# The rules below apply ONLY to activations (not regulations)
+#
+
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
+
+- name: ${ ruleType }_syntax_results_in
+  priority: ${ priority }
+  example: "IL-6 results in subsequent frailty association."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controller:${ controllerType } = </${preps_general}/ [lemma=result] ${agents} /${noun_modifiers}|${conjunctions}/{,2}
+    controlled:${ controlledType } = /${noun_modifiers}|${genitive_case_marker}/
+
+- name: ${ ruleType }_syntax_1
+  priotity: ${ priority }
+  example: "Frailty and pre-frailty were associated with significantly elevated CRP and IL-6 levels."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^${ triggers }/ & tag=/^V/]
+    theme1:${ controllerType } = /${ any_nominal_subject }/
+    theme2:${ controlledType }= nmod_with
+
+- name: ${ ruleType }_syntax_2
+  priotity: ${ priority }
+  example: "A direct association between frailty and elevated levels of inflammation, as marked by elevated interleukin-6 (IL-6)"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^${ triggers }/ & tag=/^N/]
+    theme1:${ controllerType } = /^nmod_between/
+    theme2:${ controlledType } = /^conj_and/ /^nmod_of/?
+
+#- name: "Positive_activation_surface_treated_with"
+#  priority: ${ priority }
+#  example: "We now show that mTOR inhibition induces insulin receptor substrate-1 expression and abrogates feedback inhibition of the pathway , resulting in Akt activation both in cancer cell lines and in patient tumors treated with the rapamycin derivative , RAD001 ."
+#  type: token
+#  label: ${label}
+#  action: ${ actionFlow }
+#  pattern: |
+#    @controlled:BioEntity [lemma=activation]?
+#    # some number of interceding tokens
+#    []{,10}
+#    (?<trigger> treated with)
+#    # determiners, etc.
+#    []{,3}
+#    @controller:BioEntity
