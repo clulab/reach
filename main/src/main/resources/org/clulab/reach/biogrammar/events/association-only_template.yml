@@ -24,8 +24,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^${ triggers }/ & tag=/^V/]
-    theme1:${ controllerType } = /${ any_nominal_subject }/
-    theme2:${ controlledType }= nmod_with
+    theme1:${ controllerType } = /${ any_nominal_subject }/ /nmod_such_as/?
+    theme2:${ controlledType }= /nmod_(with|in|to)/ /(amod|compound)/?
 
 - name: ${ ruleType }_syntax_2
   priotity: ${ priority }
