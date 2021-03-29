@@ -31,6 +31,8 @@ import scala.collection.mutable.ArrayBuffer
 import org.clulab.learning.{Classifier, RVFDatum}
 import org.clulab.reach.assembly.EvalFeatureClassifierOnLabeledData.allPreds
 
+import scala.io.Source
+import org.json4s.jackson.Serialization
 
 /**
   * Run the sieves on the event pairs and get the predictions of each sieves.
@@ -651,49 +653,108 @@ object SerializePapersToJSON extends App with LazyLogging {
   */
 object svmCoTraining extends App with LazyLogging {
 
-  def run(splitNumStr:String): Unit ={
+  // This only handles one epoch and one split.
+  def runEpoch(splitNumStr:String, epochNumStr:String): Unit ={
     val splitNum = splitNumStr.toInt
+    val epochNum = epochNumStr.toInt
     assert(Seq(10,1,2,3,4).contains(splitNum))
-    
 
     // 1, load the train/test splits:
-    val splitsJson = parse(new File("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/event_pairs_splits.json"))
+    //val splitsJson = parse(new File("/work/zhengzhongliang/2020_ASKE/neural_baseline/ASKE_2020_CausalDetection/Experiments/event_pairs_splits.json"))
+    val splitsJson = parse(new File("/home/zhengzhongliang/CLU_Projects/2020_ASKE/ASKE_2020_CausalDetection/Experiments/event_pairs_splits.json"))
     val allSplits = splitsJson.extract[Map[String, Map[String, Seq[Int]]]]
 
     // 2, load the labeled data
-    val epsLabeled = (Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/train").instances ++
-      Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/test").instances)
-      .filter(x => (x.e2.sentence - x.e1.sentence).abs <= 1)
-    // TODO: this filter should change, this should be in accordance with the python script
+//    val epsLabeledAllSplits = (Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/train").instances ++
+//      Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/test").instances)
+//      .filter(x => ((x.e2.sentence - x.e1.sentence ==1) || (x.e2.sentence == x.e1.sentence && x.e1.start <= x.e2.start)))
+    val epsLabeledAllSplits = (Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/train").instances ++
+              Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/test").instances)
+              .filter(x => ((x.e2.sentence - x.e1.sentence ==1) || (x.e2.sentence == x.e1.sentence && x.e1.start <= x.e2.start)))
+    // This filter should be consistent with the python script.
 
-    // 3, load the unlabeled data
-    val totalChunkNum = 50
+    // 3, load the predictions of lstm/bert on labeled and unlabeled data (but not the test data)
+    // We can assume the predictions to be in the (index, label) format. Only label 1 and 2 are saved.
+    // The folder and file name: in the ASKE neural baseline folder.
+    // The prediction file name: model name + teacher name + number of unlabeled data + split + epoch + random seed
+    // The format of the file: index,label;index,label;....
+
+    //    val neuralModelOutputFolderPath = "/work/zhengzhongliang/2020_ASKE/neural_baseline/ASKE_2020_CausalDetection/Experiments/saved_models/20210315/"
+    //    val predFileName = "LSTM1Seg_svm_1700_split_"+splitNumStr+"_epoch_"+epochNumStr+"_seed_0.txt"
+
+    val neuralModelOutputFolderPath = "/home/zhengzhongliang/CLU_Projects/2020_ASKE/ASKE_2020_CausalDetection/Experiments/saved_models/20210319_cotraining/"
+    val predFileName = "unlabeled_preds_LSTM1Seg_svm_split_" + splitNumStr + ".json"
+
+    val neuralModelPredsSeq = {
+      if (epochNum!=0){
+        val neuralResultsJson = parse(new File(neuralModelOutputFolderPath + predFileName))
+        val neuralResultsMap = neuralResultsJson.extract[Map[String, JValue]]
+
+        neuralResultsMap("unlabeled_preds").extract[Seq[Int]]
+      }
+      else {Seq.empty[Int]}
+    }
+
+    // 4, load the unlabeled data and assign labels to them. The labels are from the trained LSTM model.
+    val totalChunkNum = 23
     val chunkSize = 1000
     val epsUnlabeled = new ArrayBuffer[EventPair]()
 
+    val labelNumStringMap = Map(0 -> "None", 1 -> "E1 precedes E2", 2 -> "E2 precedes E1")
+
+    var epUnlabeledIdx = 0
     for (chunkNum <- 0 until totalChunkNum){
-      val folderPath = "/work/zhengzhongliang/2020_ASKE/20210117/paper_"+(chunkNum*chunkSize).toString+"_"+((chunkNum+1)*chunkSize).toString+"/"
-      epsUnlabeled.appendAll(Corpus(folderPath).instances)
+      //val folderPath = "/work/zhengzhongliang/2020_ASKE/20210117/paper_"+(chunkNum*chunkSize).toString+"_"+((chunkNum+1)*chunkSize).toString+"/"
+      val folderPath = "/home/zhengzhongliang/CLU_Projects/2020_ASKE/aske_exts_20210117/20210117/paper_"+(chunkNum*chunkSize).toString+"_"+((chunkNum+1)*chunkSize).toString+"/"
+      if (epochNum==0){
+        epsUnlabeled.appendAll(Corpus(folderPath).instances)
+      }
+      else{
+        for (epUnlabeledRaw <- Corpus(folderPath).instances) {
+
+          val pseudoLabel = neuralModelPredsSeq(epUnlabeledIdx)
+          require(Seq(0, 1, 2).contains(pseudoLabel))
+
+          val epWithPseudoLabel = epUnlabeledRaw.copy(relation =
+            labelNumStringMap(pseudoLabel))
+
+          epsUnlabeled.append(epWithPseudoLabel)
+
+          epUnlabeledIdx += 1
+        }
+      }
+
     }
 
-    // 4, load the predictions of lstm/bert on labeled and unlabeled data (but not the test data)
-    // TODO: load the predictions
-    // TODO: assign the labels to those event pairs
+    if (epochNum == 0) {
+      require(epsUnlabeled.length == neuralModelPredsSeq.length)
+    }
 
     // 5, train the svm using the predictions of lstm/bert
-    // TODO: after the split is fed as part of the input, we need to get the part of the single split for the epsLabeled.
-    val precedenceDatasetTrain = AssemblyRelationClassifier.mkRVFDataset(CorpusReader.filterRelations(epsLabeled++epsUnlabeled, precedenceRelations))
+    val precedenceDatasetTrain = {
+      // If it's the first epoch, only use the labeled data for training.
+      // Starting from the second epoch, use both the labeled and pseudo labeled data for training.
+
+      // This is to get the train+dev instances for this single split of the labeled data.
+      val epsLabeledOneSplit = new ArrayBuffer[EventPair]()
+      (allSplits("split"+splitNumStr)("train")++allSplits("split"+splitNumStr)("dev")).foreach{x => epsLabeledOneSplit.append(epsLabeledAllSplits(x))}
+      if (epochNum==0){
+        AssemblyRelationClassifier.mkRVFDataset(CorpusReader.filterRelations(epsLabeledOneSplit, precedenceRelations))
+      }
+      else {
+        AssemblyRelationClassifier.mkRVFDataset(CorpusReader.filterRelations(epsLabeledOneSplit++epsUnlabeled, precedenceRelations))
+      }
+    }
+
     val model = "lin-svm-l1"
     val classifier = AssemblyRelationClassifier.getModel(model)
     AssemblyRelationClassifier.train(precedenceDatasetTrain, classifier)
 
-    // 6, optionally evaluate the svm on the test partition of the data
 
-
-    // 7, run the svm on those labeled and unlabeled data
+    // 6, run the svm on those unlabeled data
     val allScores = new ArrayBuffer[Seq[(String, Double)]]()
     val allPreds = new ArrayBuffer[Int]()
-    for (ep <- epsLabeled++epsUnlabeled){  // TODO: not all labeled data should be evaluated. Only the split.
+    for (ep <- epsUnlabeled){
       val datum = AssemblyRelationClassifier.mkRVFDatum("placeholder", ep.e1, ep.e2)
       val predScore = classifier.scoresOf(datum)
       // Not sure the format of the returned scores. But roughly in the form [label1:score1, label2:score2, label3:score]
@@ -708,9 +769,46 @@ object svmCoTraining extends App with LazyLogging {
 
     }
 
+    // 7, Evaluate the trained svm on the labeled test partition of this split.
+    val epsLabeledTestOneSplit = new ArrayBuffer[EventPair]()
+    allSplits("split"+splitNumStr)("test").foreach{x => epsLabeledTestOneSplit.append(epsLabeledAllSplits(x))}
+
+    val precedenceAnnotationsTest = CorpusReader.filterRelations(epsLabeledTestOneSplit, precedenceRelations)
+    var tp = 0f
+    var fp = 0f
+    var fn = 0f
+    for (idx <- precedenceAnnotationsTest.indices){
+      val ep = precedenceAnnotationsTest(idx)
+      val label = ep.relation
+      val pred = classifier.classOf(AssemblyRelationClassifier.mkRVFDatum(label, ep.e1, ep.e2))
+
+      if (pred != "None" && pred == label){tp +=1}
+      if (pred !="None" && pred!=label){fp +=1}
+      if (pred =="None" && pred!=label) {fn+=1}
+    }
+    val precision = tp/(tp+fp)
+    val recall = tp/(tp+fn)
+    val f1 = precision*recall*2/(precision + recall)
+
+    logger.info(s"split:${splitNumStr}, epoch:${epochNumStr}, test p:${precision}, r:${recall}, f1:${f1}")
+
+
     // 8, save the output of the svm
+    // file name should specify:
+    //  (1) split number
+    //  (2) epoch number
 
+    // Content that should be saved includes:
+    //  (1) the predictions of the unlabeled data
+    //  (2) the evaluation results
 
+    val resultSVMJson = Serialization.write(Map("unlabeled_preds" -> allPreds, "test_f1" -> f1))
+
+    val predLabelSavePath = neuralModelOutputFolderPath + "unlabeled_preds_svm_split_" + splitNumStr + ".json"
+
+    val pw = new PrintWriter(new File(predLabelSavePath))
+    pw.write(resultSVMJson)
+    pw.close
 
   }
 
