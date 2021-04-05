@@ -661,7 +661,7 @@ object svmCoTraining extends LazyLogging {
 
     val splitNum = splitNumStr.toInt
     val epochNum = epochNumStr.toInt
-    assert(Seq(10,1,2,3,4).contains(splitNum))
+    assert(Seq(0,1,2,3,4).contains(splitNum))
 
     // 1, load the train/test splits:
     //val splitsJson = parse(new File("/work/zhengzhongliang/2020_ASKE/neural_baseline/ASKE_2020_CausalDetection/Experiments/event_pairs_splits.json"))
