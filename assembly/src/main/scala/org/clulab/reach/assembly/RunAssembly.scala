@@ -651,10 +651,14 @@ object SerializePapersToJSON extends App with LazyLogging {
   * This function should be called from a bash script.
   *
   */
-object svmCoTraining extends App with LazyLogging {
+object svmCoTraining extends LazyLogging {
 
   // This only handles one epoch and one split.
-  def runEpoch(splitNumStr:String, epochNumStr:String): Unit ={
+  def main(args:Array[String]): Unit ={
+
+    val splitNumStr = args(0)
+    val epochNumStr = args(1)
+
     val splitNum = splitNumStr.toInt
     val epochNum = epochNumStr.toInt
     assert(Seq(10,1,2,3,4).contains(splitNum))
