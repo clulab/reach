@@ -730,7 +730,7 @@ object svmCoTraining extends LazyLogging {
 
     }
 
-    if (epochNum == 0) {
+    if (epochNum != 0) {
       require(epsUnlabeled.length == neuralModelPredsSeq.length)
     }
 
