@@ -756,6 +756,8 @@ object svmCoTraining extends LazyLogging {
 
 
     // 6, run the svm on those unlabeled data
+    logger.info("starting running trained svm on the unlabeled data. ")
+
     val allScores = new ArrayBuffer[Seq[(String, Double)]]()
     val allPreds = new ArrayBuffer[Int]()
     for (ep <- epsUnlabeled){
