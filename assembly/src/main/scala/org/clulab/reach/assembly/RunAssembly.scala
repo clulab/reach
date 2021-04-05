@@ -700,7 +700,7 @@ object svmCoTraining extends LazyLogging {
     }
 
     // 4, load the unlabeled data and assign labels to them. The labels are from the trained LSTM model.
-    val totalChunkNum = 23
+    val totalChunkNum = 5
     val chunkSize = 1000
     val epsUnlabeled = new ArrayBuffer[EventPair]()
 
