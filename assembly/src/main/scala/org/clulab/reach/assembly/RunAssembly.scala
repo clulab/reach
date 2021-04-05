@@ -816,3 +816,8 @@ object svmCoTraining extends App with LazyLogging {
 
 }
 
+
+object ForAlixEnvironment extends App {
+  println("Alix JDK, scala, sbt all good!")
+}
+
