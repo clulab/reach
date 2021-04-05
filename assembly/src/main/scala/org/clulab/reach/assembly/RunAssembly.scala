@@ -817,10 +817,11 @@ object svmCoTraining extends App with LazyLogging {
 }
 
 
-object ForAlixEnvironment extends App {
+object ForAlixEnvironment {
 
-  def run() : Unit = {
+  def main(aaa:String) : Unit = {
     println("Alix JDK, scala, sbt all good!")
+    println(aaa)
 
   }
 }
