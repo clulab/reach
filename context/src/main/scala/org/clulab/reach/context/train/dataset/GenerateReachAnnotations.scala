@@ -4,6 +4,7 @@ import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.processors.Document
 import org.clulab.processors.bionlp.BioNLPProcessor
+import org.clulab.reach.ReachSystem
 import org.clulab.reach.context.utils.PaperExtraction
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 import org.clulab.utils.Serializer

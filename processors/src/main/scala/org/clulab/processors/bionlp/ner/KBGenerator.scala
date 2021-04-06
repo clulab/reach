@@ -4,7 +4,6 @@ import java.io._
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.zip.{GZIPInputStream, GZIPOutputStream}
-
 import scala.collection.mutable
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 import scala.io.Source
@@ -12,6 +11,8 @@ import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.processors.clu.tokenizer.Tokenizer
 import org.clulab.utils.ScienceUtils
 import org.slf4j.{Logger, LoggerFactory}
+
+import java.io.File
 
 case class KBEntry(kbName:String, neLabel:String, validSpecies:Set[String])
 
@@ -81,11 +82,12 @@ object KBGenerator {
     */
   def convertKB(entry:KBEntry, inputDir:String, outputDir:String): Unit = {
     logger.info(s"Converting ${entry.kbName}...")
-    val inputPath = inputDir + File.separator + entry.kbName + ".tsv.gz"
-    val b = new BufferedReader(
-      new InputStreamReader(
-        new GZIPInputStream(
-          new FileInputStream(inputPath))))
+    val inputPath = inputDir + File.separator + entry.kbName + ".tsv"
+    val b =
+      if(new File(inputPath).exists())
+        new BufferedReader(new InputStreamReader(new FileInputStream(inputPath)))
+      else
+        new BufferedReader(new InputStreamReader(new GZIPInputStream(new FileInputStream(inputPath + ".gz"))))
 
     var done = false
     var lineCount = 0

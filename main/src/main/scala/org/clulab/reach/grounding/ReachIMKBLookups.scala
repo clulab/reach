@@ -94,6 +94,32 @@ object ReachIMKBLookups {
     new IMKBLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
+  def staticProteinKBLookup2: IMKBLookup = {
+    val metaInfo = new IMKBMetaInfo(
+      namespace = "uniprot",
+      kbFilename = Some(StaticProteinFilename2),
+      baseURI = "http://identifiers.org/uniprot/",
+      resourceId = "MIR:00100164",
+      hasSpeciesInfo = true,
+      isProteinKB = true
+    )
+    val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, ProteinAuxKeyTransforms, DefaultKeyTransforms)
+    new IMKBLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
+  }
+
+  def staticProteinKBLookup3: IMKBLookup = {
+    val metaInfo = new IMKBMetaInfo(
+      namespace = "uniprot",
+      kbFilename = Some(StaticProteinFilename3),
+      baseURI = "http://identifiers.org/uniprot/",
+      resourceId = "MIR:00100164",
+      hasSpeciesInfo = true,
+      isProteinKB = true
+    )
+    val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, ProteinAuxKeyTransforms, DefaultKeyTransforms)
+    new IMKBLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
+  }
+
 
   /** KB accessor to resolve protein family and complex names via static KBs with alternate lookups. */
   def staticFamilyOrComplexKBLookup: IMKBLookup = {

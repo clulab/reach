@@ -1,0 +1,480 @@
+Antioxidant Response Element	D061745		mesh	Cellular_component
+Antioxidant Response Elements	D061745		mesh	Cellular_component
+ARE	D061745		mesh	Cellular_component
+AREs	D061745		mesh	Cellular_component
+cell cell contact zone	GO:0044291		go	Cellular_component
+CellCellCon	GO:0044291		go	Cellular_component
+Exosome	GO:0070062		go	Cellular_component
+Exosomes	GO:0070062		go	Cellular_component
+Extracellular Exosome	GO:0070062		go	Cellular_component
+Extracellular Exosomes	GO:0070062		go	Cellular_component
+Mitochondria	GO:0005739		go	Cellular_component
+12D	23644584		pubchem	Simple_chemical
+2-chloroethyl ethyl sulfide	12733		pubchem	Simple_chemical
+4-hydroxyequilenin-o-quinone	10170767		pubchem	Simple_chemical
+Alpelisib	56649450		pubchem	Simple_chemical
+AEW541	11476171		pubchem	Simple_chemical
+AEW-541	11476171		pubchem	Simple_chemical
+ATP	5957		pubchem	Simple_chemical
+ATRA	44795		pubchem	Simple_chemical
+AZD8330	16666708		pubchem	Simple_chemical
+AZD-8330	16666708		pubchem	Simple_chemical
+Binimetinib	10288191		pubchem	Simple_chemical
+BKM120	16654980		pubchem	Simple_chemical
+BKM-120	16654980		pubchem	Simple_chemical
+BYL719	56649450		pubchem	Simple_chemical
+BYL-719	56649450		pubchem	Simple_chemical
+Buparlisib	16654980		pubchem	Simple_chemical
+Ca	271		pubchem	Simple_chemical
+cyclododecane	18529		pubchem	Simple_chemical
+farnesylthiosalicylic	5469318		pubchem	Simple_chemical
+E1	5870		pubchem	Simple_chemical
+E2	5757		pubchem	Simple_chemical
+E3	5756		pubchem	Simple_chemical
+EHT 1864	9938202		pubchem	Simple_chemical
+EHT-1864	9938202		pubchem	Simple_chemical
+EHT1864	9938202		pubchem	Simple_chemical
+estradiol	5757		pubchem	Simple_chemical
+estrone	5870		pubchem	Simple_chemical
+Ethyl Methanesulfonate	6113		pubchem	Simple_chemical
+glucose	HMDB06564		hmdb	Simple_chemical
+GDP	8977		pubchem	Simple_chemical
+GSH	124886		pubchem	Simple_chemical
+GTP	6830		pubchem	Simple_chemical
+hexabromocyclododecane	18529		pubchem	Simple_chemical
+HNHA	16126782		pubchem	Simple_chemical
+hydrogen peroxide	HMDB01377		hmdb	Simple_chemical
+Lactate	HMDB00190		hmdb	Simple_chemical
+LPA	16219586		pubchem	Simple_chemical
+manumycin	6438330		pubchem	Simple_chemical
+manumycin A	6438330		pubchem	Simple_chemical
+Matrine	91466		pubchem	Simple_chemical
+MEK-162	10288191		pubchem	Simple_chemical
+Mubritinib	644692		pubchem	Simple_chemical
+NADPH	22833512		pubchem	Simple_chemical
+Neocarzinostatin	5282473		pubchem	Simple_chemical
+Nutlin	216345		pubchem	Simple_chemical
+oxygen	HMDB01377		hmdb	Simple_chemical
+phenylhydroquinone	14116		pubchem	Simple_chemical
+PIP3	HMDB10147		hmdb	Simple_chemical
+pirinixic acid	5694		pubchem	Simple_chemical
+P6	5494425		pubchem	Simple_chemical
+RO-31-7549	2403		pubchem	Simple_chemical
+ROS	CHEBI:26523		chebi	Simple_chemical
+ROSh2o2	784		pubchem	Simple_chemical
+ROSox	977		pubchem	Simple_chemical
+ROSsox	5359597		pubchem	Simple_chemical
+Salirasib	5469318		pubchem	Simple_chemical
+Sorafenib	216239		pubchem	Simple_chemical
+Stattic	2779853		pubchem	Simple_chemical
+superoxide	HMDB02168		hmdb	Simple_chemical
+Zinostatin	5282473		pubchem	Simple_chemical
+AcidicME	GO:0045851		go	BioProcess
+DNAdsb	GO:1990166		go	BioProcess
+DRsyn	GO:0090592		go	BioProcess
+FocAd	GO:0051894		go	BioProcess
+Focal adhesions	GO:0051894		go	BioProcess
+GrowthPS	GO:0016049		go	BioProcess
+Injury	GO:0090303		go	BioProcess
+OXPHOS	GO:0006119		go	BioProcess
+PPP	GO:0006098		go	BioProcess
+Senescence	D000375		mesh	BioProcess
+TAK-165	644692		pubchem	Simple_chemical
+TAK-733	24963252		pubchem	Simple_chemical
+TCA/Krebs	GO:0006099		go	BioProcess
+ADAM17	P78536		uniprot	Gene_or_gene_product
+AKT1	P31749		uniprot	Gene_or_gene_product
+AMPKa1	Q13131		uniprot	Gene_or_gene_product
+AMPK-a1	Q13131		uniprot	Gene_or_gene_product
+AMPK-alpha1	Q13131		uniprot	Gene_or_gene_product
+AMPK alpha-1	Q13131		uniprot	Gene_or_gene_product
+AMPKa2	P54646		uniprot	Gene_or_gene_product
+AMPK-a2	P54646		uniprot	Gene_or_gene_product
+AMPK-alpha2	P54646		uniprot	Gene_or_gene_product
+AMPK alpha-2	P54646		uniprot	Gene_or_gene_product
+AMPKb1	Q9Y478		uniprot	Gene_or_gene_product
+AMPK-b1	Q9Y478		uniprot	Gene_or_gene_product
+AMPK-beta1	Q9Y478		uniprot	Gene_or_gene_product
+AMPK beta-1	Q9Y478		uniprot	Gene_or_gene_product
+AMPKb2	O43741		uniprot	Gene_or_gene_product
+AMPK-b2	O43741		uniprot	Gene_or_gene_product
+AMPK-beta2	O43741		uniprot	Gene_or_gene_product
+AMPK beta-2	O43741		uniprot	Gene_or_gene_product
+AMPKg1	P54619		uniprot	Gene_or_gene_product
+AMPK-g1	P54619		uniprot	Gene_or_gene_product
+AMPK-gamma1	P54619		uniprot	Gene_or_gene_product
+AMPK gamma-1	P54619		uniprot	Gene_or_gene_product
+AMPKg2	Q9UGJ0		uniprot	Gene_or_gene_product
+AMPK-g2	Q9UGJ0		uniprot	Gene_or_gene_product
+AMPK-gamma2	Q9UGJ0		uniprot	Gene_or_gene_product
+AMPK gamma-2	Q9UGJ0		uniprot	Gene_or_gene_product
+AMPKg3	Q9UGI9		uniprot	Gene_or_gene_product
+AMPK-g3	Q9UGI9		uniprot	Gene_or_gene_product
+AMPK-gamma3	Q9UGI9		uniprot	Gene_or_gene_product
+AMPK gamma-3	Q9UGI9		uniprot	Gene_or_gene_product
+ASK	Q99683		uniprot	Gene_or_gene_product
+ATG4A	Q8WYN0		uniprot	Gene_or_gene_product
+Cysteine protease	Q8WYN0		uniprot	Gene_or_gene_product
+ATM	Q13315		uniprot	Gene_or_gene_product
+BRAF	P15056		uniprot	Gene_or_gene_product
+Bach1	O14867		uniprot	Gene_or_gene_product
+BclXL	Q07817		uniprot	Gene_or_gene_product
+Bcl2	P10415		uniprot	Gene_or_gene_product
+Bcl-2	P10415		uniprot	Gene_or_gene_product
+CCL2	P13500		uniprot	Gene_or_gene_product
+CCR2	P41597		uniprot	Gene_or_gene_product
+CD122	P14784		uniprot	Gene_or_gene_product
+CD132	P31785		uniprot	Gene_or_gene_product
+CD25	P01589		uniprot	Gene_or_gene_product
+CD28	P10747		uniprot	Gene_or_gene_product
+CDN2A	P42771		uniprot	Gene_or_gene_product
+CSF1	P09603		uniprot	Gene_or_gene_product
+CSF1R	P07333		uniprot	Gene_or_gene_product
+Cas8	Q14790		uniprot	Gene_or_gene_product
+Chk2	O96017		uniprot	Gene_or_gene_product
+DUSP13	Q9UII6		uniprot	Gene_or_gene_product
+Dual specificity phosphatase 13	Q9UII6		uniprot	Gene_or_gene_product
+Dual specificity protein phosphatase 13	Q9UII6		uniprot	Gene_or_gene_product
+DUSP13B	Q9UII6		uniprot	Gene_or_gene_product
+Dual specificity phosphatase 13 isoform B	Q9UII6		uniprot	Gene_or_gene_product
+Dual specificity protein phosphatase 13 isoform B	Q9UII6		uniprot	Gene_or_gene_product
+ERK1	P27361		uniprot	Gene_or_gene_product
+ExoCx	Q9NV70		uniprot	Gene_or_gene_product
+Exocyst complex	Q9NV70		uniprot	Gene_or_gene_product
+FGF1	P05230		uniprot	Gene_or_gene_product
+FGFR1	P11362		uniprot	Gene_or_gene_product
+FOXP3	B7ZLG1		uniprot	Gene_or_gene_product
+Fibronectin	P02751		uniprot	Gene_or_gene_product
+GLUT1	P11166		uniprot	Gene_or_gene_product
+GRB2	P62993		uniprot	Gene_or_gene_product
+GSK3alpha	P49840		uniprot	Gene_or_gene_product
+GSK3beta	P49841		uniprot	Gene_or_gene_product
+HIF1a	Q16665		uniprot	Gene_or_gene_product
+HMGB1	P09429		uniprot	Gene_or_gene_product
+HRAS	P01112		uniprot	Gene_or_gene_product
+H-RAS	P01112		uniprot	Gene_or_gene_product
+I10R1	Q13651		uniprot	Gene_or_gene_product
+ICAT	Q9NSA3		uniprot	Gene_or_gene_product
+ICMT	O60725		uniprot	Gene_or_gene_product
+IFNg	P01579		uniprot	Gene_or_gene_product
+IFNgR	P15260		uniprot	Gene_or_gene_product
+IGF1	P05019		uniprot	Gene_or_gene_product
+IGF1R	P08069		uniprot	Gene_or_gene_product
+IL-2	P60568		uniprot	Gene_or_gene_product
+IL1B	P01584		uniprot	Gene_or_gene_product
+IL1R1	P14778		uniprot	Gene_or_gene_product
+IL1R1gene	P14778		uniprot	Gene_or_gene_product
+IL2R	A2N4P8		uniprot	Gene_or_gene_product
+IL6	P05231		uniprot	Gene_or_gene_product
+IL6R	P40189		uniprot	Gene_or_gene_product
+IL6RB	P40189		uniprot	Gene_or_gene_product
+IL6RBgene	P40189		uniprot	Gene_or_gene_product
+IL8	P10145		uniprot	Gene_or_gene_product
+INGR2	P38484		uniprot	Gene_or_gene_product
+Inhibin alpha	P05111		uniprot	Gene_or_gene_product
+Inhibin beta A	P08476		uniprot	Gene_or_gene_product
+Inhibin beta B	P09529		uniprot	Gene_or_gene_product
+Inhibin beta C	P55103		uniprot	Gene_or_gene_product
+Inhibin beta E	P58166		uniprot	Gene_or_gene_product
+Integrin	P08648		uniprot	Gene_or_gene_product
+JAK1	P23458		uniprot	Gene_or_gene_product
+JAK2	O60674		uniprot	Gene_or_gene_product
+JAK3	P52333		uniprot	Gene_or_gene_product
+JNK1	P45983		uniprot	Gene_or_gene_product
+KRAS	P01116		uniprot	Gene_or_gene_product
+K-RAS	P01116		uniprot	Gene_or_gene_product
+LKB1	Q15831		uniprot	Gene_or_gene_product
+LTBP	Q14766		uniprot	Gene_or_gene_product
+MAPK1	P28482		uniprot	Gene_or_gene_product
+MAPK3	P27361		uniprot	Gene_or_gene_product
+MDM2	Q00987		uniprot	Gene_or_gene_product
+MK01	P28482		uniprot	Gene_or_gene_product
+MKK7	O14733		uniprot	Gene_or_gene_product
+MRN	O60934		uniprot	Gene_or_gene_product
+NF1	P21359		uniprot	Gene_or_gene_product
+NFKB1cyto	P19838		uniprot	Gene_or_gene_product
+NFkB	P19838		uniprot	Gene_or_gene_product
+NFkB1nuc	P19838		uniprot	Gene_or_gene_product
+NOx	Q9Y5S8		uniprot	Gene_or_gene_product
+NRAS	P01111		uniprot	Gene_or_gene_product
+N-RAS	P01111		uniprot	Gene_or_gene_product
+Nrf2	Q16236		uniprot	Gene_or_gene_product
+PDCD1	Q15116		uniprot	Gene_or_gene_product
+PDK1	Q15118		uniprot	Gene_or_gene_product
+PDL1L1	Q9NZQ7		uniprot	Gene_or_gene_product
+PDPK1	O55173		uniprot	Gene_or_gene_product
+PKCTHETA	Q04759		uniprot	Gene_or_gene_product
+PKCa	P17252		uniprot	Gene_or_gene_product
+PP2A	P67775		uniprot	Gene_or_gene_product
+PTEN	P60484		uniprot	Gene_or_gene_product
+PTF1A	Q7RTS3		uniprot	Gene_or_gene_product
+Peroxiredoxin	P32119		uniprot	Gene_or_gene_product
+RAGE	Q15109		uniprot	Gene_or_gene_product
+RASA1	P20936		uniprot	Gene_or_gene_product
+RASA2	Q15283		uniprot	Gene_or_gene_product
+RASA3	Q14644		uniprot	Gene_or_gene_product
+RHEB	Q15382		uniprot	Gene_or_gene_product
+RIPK	Q13546		uniprot	Gene_or_gene_product
+RPS6KA1	Q15418		uniprot	Gene_or_gene_product
+Rb	P06400		uniprot	Gene_or_gene_product
+Ref1	P27695		uniprot	Gene_or_gene_product
+RhoC	P08134		uniprot	Gene_or_gene_product
+SAPK	6886		hgnc	Gene_or_gene_product
+SMAD3	P84022		uniprot	Gene_or_gene_product
+SOS1	Q07889		uniprot	Gene_or_gene_product
+STAT1	P42224		uniprot	Gene_or_gene_product
+STAT1gene	P42224		uniprot	Gene_or_gene_product
+STAT1rna	P42224		uniprot	Gene_or_gene_product
+STAT3	P40763		uniprot	Gene_or_gene_product
+TAK1	O43318		uniprot	Gene_or_gene_product
+TCR	P04234		uniprot	Gene_or_gene_product
+TGFb1	P01137		uniprot	Gene_or_gene_product
+TGFbR	P36897		uniprot	Gene_or_gene_product
+TIGAR	Q9NQ88		uniprot	Gene_or_gene_product
+TLR4	O00206		uniprot	Gene_or_gene_product
+TNFAgene	P01375		uniprot	Gene_or_gene_product
+TNFa	P01375		uniprot	Gene_or_gene_product
+TNFaR	P19438		uniprot	Gene_or_gene_product
+TNR1A	P19438		uniprot	Gene_or_gene_product
+TRAF2	Q12933		uniprot	Gene_or_gene_product
+TSC2	P49815		uniprot	Gene_or_gene_product
+Thioredoxin	P10599		uniprot	Gene_or_gene_product
+Trop2	P09758		uniprot	Gene_or_gene_product
+Tyk2	P29597		uniprot	Gene_or_gene_product
+cIAP-1	Q13490		uniprot	Gene_or_gene_product
+mTOR	P42345		uniprot	Gene_or_gene_product
+p21	P38936		uniprot	Gene_or_gene_product
+p55gamma	Q92569		uniprot	Gene_or_gene_product
+p85alpha	P27986		uniprot	Gene_or_gene_product
+p85beta	O00459		uniprot	Gene_or_gene_product
+p110alpha	P42336		uniprot	Gene_or_gene_product
+p110beta	P42338		uniprot	Gene_or_gene_product
+p110delta	O00329		uniprot	Gene_or_gene_product
+pS6	P62753		uniprot	Gene_or_gene_product
+14-3-3	PF00244		pfam	Family
+Acetyl-CoA Synthetase	UAZ-PF-4		uaz	Family
+ACOX	PF01756		pfam	Family
+ACT	PF01842		pfam	Family
+BMP	PF02608		pfam	Family
+Cadherin	PF00028		pfam	Family
+CASP	UAZ-PF-32		uaz	Family
+CCNA	UAZ-PF-34		uaz	Family
+CCND	UAZ-PF-35		uaz	Family
+CCNE	UAZ-PF-36		uaz	Family
+CDH	PF02611		pfam	Family
+Chemokine Receptor	UAZ-PF-43		uaz	Family
+COX4	PF02936		pfam	Family
+COX6A	PF02046		pfam	Family
+COX6B	PF02297		pfam	Family
+COX7A	PF02238		pfam	Family
+COX7B	PF05392		pfam	Family
+COX8	PF02285		pfam	Family
+CRISP	PF08562		pfam	Family
+Cu-Zn SOD	UAZ-PF-217		uaz	Family
+CXCL ELR-Negative	UAZ-PF-61		uaz	Family
+CXCL ELR-Positive	UAZ-PF-62		uaz	Family
+DDR	PF08841		pfam	Family
+DVL	PF08137		pfam	Family
+EGFR Ligand	UAZ-PF-72		uaz	Family
+EGFR/ERBB	UAZ-PF-73		uaz	Family
+Ephrin Receptor	UAZ-PF-79		uaz	Family
+ETS	PF00178		pfam	Family
+FGF	PF00167		pfam	Family
+FLOT	PF15975		pfam	Family
+G protein alpha	PF00503		pfam	Family
+G-protein alpha	PF00503		pfam	Family
+Galpha	PF00503		pfam	Family
+G alpha	PF00503		pfam	Family
+GAS6 Receptor	UAZ-PF-90		uaz	Family
+GATA	PF00320		pfam	Family
+GNA Gq	UAZ-PF-92		uaz	Family
+GNA Gs	UAZ-PF-93		uaz	Family
+GNAI	UAZ-PF-94		uaz	Family
+GNB	UAZ-PF-95		uaz	Family
+GNG	UAZ-PF-96		uaz	Family
+HDAC Class I	UAZ-PF-105		uaz	Family
+HDAC Class II	UAZ-PF-106		uaz	Family
+Histone H1	UAZ-PF-110		uaz	Family
+Histone H2A	UAZ-PF-111		uaz	Family
+Histone H2B	UAZ-PF-112		uaz	Family
+Histone H3	UAZ-PF-113		uaz	Family
+Histone H4	UAZ-PF-114		uaz	Family
+HLA-DR	UAZ-PF-115		uaz	Family
+HSP90	PF00183		pfam	Family
+IGFBP	PF00219		pfam	Family
+IL1	PF00340		pfam	Family
+IRS	PF02174		pfam	Family
+MAF	PF02545		pfam	Family
+MAPK Erk1/3	UAZ-PF-133		uaz	Family
+MAPK JNK	UAZ-PF-134		uaz	Family
+MAPK1/3	UAZ-PF-133		uaz	Family
+MAPK1/MAPK3	UAZ-PF-133		uaz	Family
+MAPK3/MAPK1	UAZ-PF-133		uaz	Family
+neuregulin	PF02158		pfam	Family
+neuroregulin	PF02158		pfam	Family
+NOTCH	PF00066		pfam	Family
+p100	PF00794		pfam	Family
+p160/SRC	UAZ-PF-144		uaz	Family
+PIK3C Class IA	UAZ-PF-168		uaz	Family
+PIK3R Class IA	UAZ-PF-169		uaz	Family
+PKI	PF02827		pfam	Family
+PPP2R Subunit A	UAZ-PF-182		uaz	Family
+PPP2R Subunit B	UAZ-PF-183		uaz	Family
+PRKA	PF06798		pfam	Family
+PRKAA	UAZ-PF-189		uaz	Family
+PRKAB	UAZ-PF-190		uaz	Family
+PRKAG	UAZ-PF-191		uaz	Family
+RAS	PF00071		pfam	Family
+RasGAP	PF00616		pfam	Family
+RasGAPs	PF00616		pfam	Family
+RB domain	PF02196		pfam	Family
+RB-domain	PF02196		pfam	Family
+RBD	PF02196		pfam	Family
+RPS6KA	UAZ-PF-205		uaz	Family
+RPS6KB	UAZ-PF-206		uaz	Family
+SAA	PF00277		pfam	Family
+Sulfonylurea Receptor	UAZ-PF-2		uaz	Family
+TCF/LEF	UAZ-PF-224		uaz	Family
+TGFB	IPR015615		interpro	Family
+Alanine	UAZ-S-001		uaz	Site
+Ala	UAZ-S-001		uaz	Site
+Arginine	UAZ-S-002		uaz	Site
+Arg	UAZ-S-002		uaz	Site
+Asparagine	UAZ-S-003		uaz	Site
+Asn	UAZ-S-003		uaz	Site
+Aspartic acid	UAZ-S-004		uaz	Site
+Aspartate	UAZ-S-004		uaz	Site
+Asp	UAZ-S-004		uaz	Site
+Cysteine	UAZ-S-005		uaz	Site
+Cys	UAZ-S-005		uaz	Site
+Glutamic acid	UAZ-S-006		uaz	Site
+Glutamate	UAZ-S-006		uaz	Site
+Glu	UAZ-S-006		uaz	Site
+Glutamine	UAZ-S-007		uaz	Site
+Gln	UAZ-S-007		uaz	Site
+Glycine	UAZ-S-008		uaz	Site
+Gly	UAZ-S-008		uaz	Site
+Histidine	UAZ-S-009		uaz	Site
+His	UAZ-S-009		uaz	Site
+Isoleucine	UAZ-S-010		uaz	Site
+Ile	UAZ-S-010		uaz	Site
+Leucine	UAZ-S-011		uaz	Site
+Leu	UAZ-S-011		uaz	Site
+Lysine	UAZ-S-012		uaz	Site
+Lys	UAZ-S-012		uaz	Site
+Methionine	UAZ-S-013		uaz	Site
+Met	UAZ-S-013		uaz	Site
+Phenylalanine	UAZ-S-014		uaz	Site
+Phe	UAZ-S-014		uaz	Site
+Proline	UAZ-S-015		uaz	Site
+Pro	UAZ-S-015		uaz	Site
+Serine	UAZ-S-016		uaz	Site
+Ser	UAZ-S-016		uaz	Site
+Threonine	UAZ-S-017		uaz	Site
+Thr	UAZ-S-017		uaz	Site
+Tryptophan	UAZ-S-018		uaz	Site
+Trp	UAZ-S-018		uaz	Site
+Tyrosine	UAZ-S-019		uaz	Site
+Tyr	UAZ-S-019		uaz	Site
+Valine	UAZ-S-020		uaz	Site
+Val	UAZ-S-020		uaz	Site
+Pyrrolysine	UAZ-S-021		uaz	Site
+Pyl	UAZ-S-021		uaz	Site
+Selenocysteine	UAZ-S-022		uaz	Site
+Sec	UAZ-S-022		uaz	Site
+#
+# Entries added by Enrique to match Xia's original annotations
+#
+BMMCs	UA-CLine-100011		uaz	CellLine
+F3 cells	UA-CLine-100101		uaz	CellLine
+GBM	UA-CLine-5317		uaz	CellLine
+HDFs	UA-CLine-100087		uaz	CellLine
+HTc-7	UA-CT-30001		uaz	CellType
+HUVECs	CVCL_9S75		uaz	TissueType
+HepG2-(SBE)4-Lux	UA-CLine-6371		uaz	CellLine
+M307	UA-CLine-100096		uaz	CellLine
+MCF10As	CVCL_0598		uaz	CellLine
+MECs	CVCL_1870		uaz	CellType
+MEFs	CVCL_9115		uaz	CellLine
+MvLu	UA-CT-30009		uaz	CellType
+NIH3T fibroblasts	UA-CLine-100060		uaz	CellLine
+SWA480	UA-CLine-100094		uaz	CellLine
+Shp2 -/- cells	UA-CLine-100111		uaz	CellLine
+TMLC	UA-CLine-100112		uaz	CellLine
+VPC	UA-CLine-100113		uaz	CellLine
+VPCs	UA-CLine-100113		uaz	CellLine
+WI-38 normal HDFs	UA-CLine-100087		uaz	CellLine
+alveolar pneumocyte	UA-CT-200010		uaz	CellType
+circulation	UA-ORG-92		uaz	Organ
+helum	UA-CT-30008		uaz	CellType
+ldlF cells	UA-CLine-100116		uaz	CellLine
+neural precursors	UA-ORG-623		uaz	Organ
+neural progenitors	UA-ORG-623		uaz	Organ
+neuronal growth cone	UA-ORG-623		uaz	Organ
+retinal neurons	UBERON:0001781		uberon	Organ
+vulval precursor cells (VPC)	UA-ORG-1083		uaz	Organ
+wi-38 fibroblasts	UA-CLine-888		uaz	CellLine
+slp-76	UA-CLine-100047		uaz	CellLine
+#
+# Synonyms for BE Complexes and Families (not included by BE):
+#
+Activin A	Activin_A		be	Gene_or_gene_product
+Activin AB	Activin_AB		be	Gene_or_gene_product
+Activin B	Activin_B		be	Gene_or_gene_product
+Inhibin A	Inhibin_A		be	Gene_or_gene_product
+Inhibin B	Inhibin_B		be	Gene_or_gene_product
+AMPK alpha1beta1gamma1	AMPK_A1B1G1		be	Gene_or_gene_product
+AMPK alpha1beta1gamma2	AMPK_A1B1G2		be	Gene_or_gene_product
+AMPK alpha1beta1gamma3	AMPK_A1B1G3		be	Gene_or_gene_product
+AMPK alpha1beta2gamma1	AMPK_A1B2G1		be	Gene_or_gene_product
+AMPK alpha1beta2gamma2	AMPK_A1B2G2		be	Gene_or_gene_product
+AMPK alpha2beta1gamma1	AMPK_A2B1G1		be	Gene_or_gene_product
+AMPK alpha2beta2gamma1	AMPK_A2B2G1		be	Gene_or_gene_product
+AMPK alpha2beta2gamma2	AMPK_A2B2G2		be	Gene_or_gene_product
+AMPK alpha2beta2gamma3	AMPK_A2B2G3		be	Gene_or_gene_product
+AMPK a1b1g1	AMPK_A1B1G1		be	Gene_or_gene_product
+AMPK a1b1g2	AMPK_A1B1G2		be	Gene_or_gene_product
+AMPK a1b1g3	AMPK_A1B1G3		be	Gene_or_gene_product
+AMPK a1b2g1	AMPK_A1B2G1		be	Gene_or_gene_product
+AMPK a1b2g2	AMPK_A1B2G2		be	Gene_or_gene_product
+AMPK a2b1g1	AMPK_A2B1G1		be	Gene_or_gene_product
+AMPK a2b2g1	AMPK_A2B2G1		be	Gene_or_gene_product
+AMPK a2b2g2	AMPK_A2B2G2		be	Gene_or_gene_product
+AMPK a2b2g3	AMPK_A2B2G3		be	Gene_or_gene_product
+alpha1beta1gamma1	AMPK_A1B1G1		be	Gene_or_gene_product
+alpha1beta1gamma2	AMPK_A1B1G2		be	Gene_or_gene_product
+alpha1beta1gamma3	AMPK_A1B1G3		be	Gene_or_gene_product
+alpha1beta2gamma1	AMPK_A1B2G1		be	Gene_or_gene_product
+alpha1beta2gamma2	AMPK_A1B2G2		be	Gene_or_gene_product
+alpha2beta1gamma1	AMPK_A2B1G1		be	Gene_or_gene_product
+alpha2beta2gamma1	AMPK_A2B2G1		be	Gene_or_gene_product
+alpha2beta2gamma2	AMPK_A2B2G2		be	Gene_or_gene_product
+alpha2beta2gamma3	AMPK_A2B2G3		be	Gene_or_gene_product
+BMP Receptor Type I	BMP_receptor_type_I		be	Family
+BMP Receptor Type II	BMP_receptor_type_II		be	Family
+CAMK2	CAMK2_family		be	Family
+MAPK p38	p38		be	Family
+p38 MAPKs	p38		be	Family
+MEK 1/2	MEK		be	Family
+MYL Alkali	MYL_alkali		be	Family
+MYL Regulatory	MYL_regulatory		be	Family
+MYL Slow	MYL_slow		be	Family
+NRG1/2	NRG_1_2		be	Family
+NRG3/4	NRG_3_4		be	Family
+SMAD 2/3	SMAD2_3		be	Family
+#
+# Entries added to give BE families priority over GGP:
+#
+E2F	E2F		be	Family
+ERK	ERK		be	Family
+Fos	FOS_family		be	Family
+GST	GST		be	Family
+INS	INS		be	Family
+p38	p38		be	Family
+p85	PI3K_p85		be	Family
+PDGF	PDGF		be	Family
+PDGFR	PDGFR		be	Family
+RAF	RAF		be	Family
+SRC	SRC		be	Family
+STAT5	STAT5		be	Family
+TSC	TSC		be	Family
