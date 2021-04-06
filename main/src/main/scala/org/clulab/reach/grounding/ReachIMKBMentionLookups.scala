@@ -34,6 +34,8 @@ object ReachIMKBMentionLookups {
   val StaticDrug = staticDrugKBML
   // val StaticMetabolite = staticMetaboliteKBML    // Replaced by PubChem
   val StaticProtein = staticProteinKBML
+  val StaticProtein2 = staticProteinKBML2
+  val StaticProtein3 = staticProteinKBML3
   val StaticProteinFragment = staticProteinFragmentKBML
   val staticProteinFamilyOrComplex = staticProteinFamilyOrComplexKBML
 
@@ -160,6 +162,32 @@ object ReachIMKBMentionLookups {
     val metaInfo = new IMKBMetaInfo(
       namespace = "uniprot",
       kbFilename = Some(StaticProteinFilename),
+      baseURI = "http://identifiers.org/uniprot/",
+      resourceId = "MIR:00100164",
+      hasSpeciesInfo = true,
+      isProteinKB = true
+    )
+    val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, ProteinAuxKeyTransforms, DefaultKeyTransforms)
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
+  }
+
+  def staticProteinKBML2: IMKBMentionLookup = {
+    val metaInfo = new IMKBMetaInfo(
+      namespace = "uniprot",
+      kbFilename = Some(StaticProteinFilename2),
+      baseURI = "http://identifiers.org/uniprot/",
+      resourceId = "MIR:00100164",
+      hasSpeciesInfo = true,
+      isProteinKB = true
+    )
+    val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, ProteinAuxKeyTransforms, DefaultKeyTransforms)
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
+  }
+
+  def staticProteinKBML3: IMKBMentionLookup = {
+    val metaInfo = new IMKBMetaInfo(
+      namespace = "uniprot",
+      kbFilename = Some(StaticProteinFilename3),
       baseURI = "http://identifiers.org/uniprot/",
       resourceId = "MIR:00100164",
       hasSpeciesInfo = true,

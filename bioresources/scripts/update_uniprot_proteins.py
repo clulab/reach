@@ -2,7 +2,6 @@ import os
 import re
 import csv
 import sys
-import gzip
 import tqdm
 import requests
 import itertools
@@ -310,7 +309,3 @@ if __name__ == '__main__':
         writer = csv.writer(fh, delimiter='\t')
         for entry in processed_entries:
             writer.writerow(entry)
-    # And then into a GZ file
-    with open(resource_fname, 'rb') as f1, \
-            gzip.open(resource_fname + '.gz', 'wb') as f2:
-        f2.writelines(f1)
