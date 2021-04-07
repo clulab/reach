@@ -130,3 +130,8 @@ releaseProcess := Seq[ReleaseStep](
   releaseStepCommandAndRemaining("sonatypeReleaseAll"),
   pushChanges
 )
+
+lazy val generateKBs = taskKey[Unit]("Process KB files to incorporate changes into REACH")
+
+generateKBs :=
+  (Compile / runMain).toTask(" org.clulab.processors.bionlp.ner.KBGenerator bioresources/ner_kb.config bioresources/src/main/resources/org/clulab/reach/kb/ bioresources/src/main/resources/org/clulab/reach/kb/ner").value
