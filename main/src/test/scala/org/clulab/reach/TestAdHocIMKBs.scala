@@ -12,7 +12,7 @@ import org.clulab.reach.grounding._
 class TestAdHocIMKBs extends FlatSpec with Matchers {
 
   // Tests of 3-column KB without specific species, so human assumed:
-  val meta = new IMKBMetaInfo(kbFilename = Some("NER-Grounding-Override.tsv.gz"))
+  val meta = new IMKBMetaInfo(kbFilename = Some("NER-Grounding-Override.tsv"))
   val ahkb3 = (new AdHocIMKBFactory).make(meta)
 
   "AdHocKB COL-3" should "lookup on AHKB from COL-3 TSV file" in {
