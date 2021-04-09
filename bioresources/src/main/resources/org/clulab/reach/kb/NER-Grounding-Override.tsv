@@ -30,7 +30,6 @@ cyclododecane	18529		pubchem	Simple_chemical
 farnesylthiosalicylic	5469318		pubchem	Simple_chemical
 E1	5870		pubchem	Simple_chemical
 E2	5757		pubchem	Simple_chemical
-E3	5756		pubchem	Simple_chemical
 EHT 1864	9938202		pubchem	Simple_chemical
 EHT-1864	9938202		pubchem	Simple_chemical
 EHT1864	9938202		pubchem	Simple_chemical
@@ -268,7 +267,6 @@ GNG	G_gamma		fplx	Family
 HDAC Class I	HDAC_I		fplx	Family
 HDAC Class II	HDAC_II		fplx	Family
 Histone H1	Histone_H1		fplx	Family
-Histone H2A	Histone_H2A		fplx	Family
 Histone H2B	Histone_H2B		fplx	Family
 Histone H3	Histone_H3		fplx	Family
 Histone H4	Histone_H4		fplx	Family
@@ -285,13 +283,11 @@ PIK3R Class IA	PIK3R_I		fplx	Family
 PPP2R Subunit A	PPP2R_A		fplx	Family
 PPP2R Subunit B	PPP2R_B		fplx	Family
 PRKA	PRKAC		fplx	Family
-PRKAA	AMPK_alpha		fplx	Family
 PRKAB	AMPK_beta		fplx	Family
 PRKAG	AMPK_gamma		fplx	Family
 RB domain	PF02196		pfam	Family
 RB-domain	PF02196		pfam	Family
 RBD	PF02196		pfam	Family
-RPS6KA	P90RSK		fplx	Family
 RPS6KB	P70S6K		fplx	Family
 Sulfonylurea Receptor	Sulfonylurea_receptor		fplx	Family
 TCF/LEF	TCF_LEF		fplx	Family
@@ -487,7 +483,6 @@ Cox8	COX8		fplx	Family
 Cyclin	Cyclin		fplx	Family
 Cyclin D	Cyclin_D		fplx	Family
 Cyclin-A	Cyclin_A		fplx	Family
-Cyclin-A	Cyclin_A		fplx	Family
 Cyclin-D	Cyclin_D		fplx	Family
 Cyclophilin	Cyclophilin		fplx	Family
 DAG kinase	DGK		fplx	Family
@@ -528,7 +523,6 @@ Fibrinogen	Fibrinogen		fplx	Family
 Fos	FOS_family		fplx	Family
 Fz	FZD		fplx	Family
 G protein	G_protein		fplx	Family
-G-alpha	G_alpha		fplx	Family
 G-alpha	G_alpha		fplx	Family
 G-gamma	G_gamma		fplx	Family
 G12	G_12		fplx	Family
@@ -832,7 +826,6 @@ tilorone	5475		pubchem	Simple_chemical
 CD4+	D015496		mesh	CellType
 CD4 +	D015496		mesh	CellType
 CD4+ T cell	D015496		mesh	CellType
-CD4+ T cells	D015496		mesh	CellType
 CD4 + T cell	D015496		mesh	CellType
 CD4 þ T cells	D015496		mesh	CellType
 CD4 ϩ T cells	D015496		mesh	CellType
@@ -843,7 +836,6 @@ CD4+ T helper cells	D006377		mesh	CellType
 CD8+	D018414		mesh	CellType
 CD8 +	D018414		mesh	CellType
 CD8+ T cell	D018414		mesh	CellType
-CD8+ T cells	D018414		mesh	CellType
 CD8 + T cell	D018414		mesh	CellType
 CD8 þ T cells	D018414		mesh	CellType
 CD8 ϩ T cells	D018414		mesh	CellType
