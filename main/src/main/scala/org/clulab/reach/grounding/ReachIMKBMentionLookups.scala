@@ -1,7 +1,12 @@
 package org.clulab.reach.grounding
 
+import ai.lum.common.ConfigFactory
+import com.typesafe.config.{Config, ConfigObject}
 import org.clulab.reach.grounding.ReachKBConstants._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
+
+import scala.collection.JavaConverters.asScalaBufferConverter
+import scala.collection.convert.ImplicitConversions._
 
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
@@ -45,6 +50,94 @@ object ReachIMKBMentionLookups {
   val ModelGendCellLocation = gendCellLocationKBML
   val ModelGendChemical = gendChemicalKBML
   val ModelGendProteinAndFamily = gendProteinKBML // families included in generated KB
+
+
+  /**
+    * Convenience method to reduce boiler-plate to get the value of a Conf object or a default if not present
+    * @param path to the value to fetch
+    * @param default value to return if path not present
+    * @param obj Implicit instance to Conf object
+    * @tparam T Type of the return value
+    * @return Value from the conf object or default provided
+    */
+  private def getConfValue[T](path:String, default:T)(implicit obj:Config):T = {
+    if(obj.hasPath(path))
+      obj.getAnyRef(path).asInstanceOf[T]
+    else
+      default
+  }
+
+  /**
+    * Builds an IMKBMentionLookup instance from a subsection of a Conf object
+    * @param obj Sub-section of the conf object with the data
+    * @return Tuple containing the configured labels and a reference to the KB instance
+    */
+  def buildKb(obj: Config): (Seq[String], IMKBMentionLookup) = {
+
+    val path = obj.getString("path") // This one must exist in obj
+    implicit val impObj: Config = obj // Make an implicit reference to obj for the implicit method to use
+
+    val namespace = getConfValue("namespace", DefaultNamespace)
+    val baseURI = getConfValue("baseURI", "")
+    val resourceId = getConfValue("resourceId", "")
+    val hasSpeciesInfo = getConfValue("hasSpeciesInfo", false)
+    val isFamilyKB = getConfValue("isFamilyKB", false)
+    val isProteinKB = getConfValue("isProteinKB", false)
+    val isAdHoc = getConfValue("isAdHoc", false)
+    val priority = getConfValue("priority", 1) // Not used yet, might remove later
+
+    // Fetch the labels. Implicit method doesn't work here
+    val labels =
+      if (obj.hasPath("labels")) {
+        obj.getStringList("labels").asScala.toList
+      } else {
+        List("BioEntity")
+      }
+
+
+    // Build metadata object
+    val metaInfo = new IMKBMetaInfo(
+      kbFilename = Some(path),
+      namespace = namespace,
+      baseURI = baseURI,
+      resourceId = resourceId,
+      hasSpeciesInfo = hasSpeciesInfo,
+      isFamilyKB = isFamilyKB,
+      isProteinKB = isProteinKB
+    )
+
+    val kb =
+      if(isAdHoc)
+        AdHocIMKBFactory.make(metaInfo)
+      else
+        TsvIMKBFactory.make(metaInfo)
+
+    // Return the labels assigned to this kb and the actual reference to the kb
+    (labels, new IMKBMentionLookup(kb))
+  }
+
+  // Dynamically load the KBs from the config file, by Enrique
+  lazy val configuredKBML:Map[String, Seq[IMKBMentionLookup]] = {
+    val conf = ConfigFactory.load()
+    val kbConf = conf.getConfig("KnowledgeBases")
+
+    // Load all the KBs specified in the configuraction file of bioresources
+    val loadedKBs =
+      (kbConf.root() flatMap {
+        case (_, obj:ConfigObject) =>
+          val (labels, kb) = buildKb(obj.toConfig)
+          labels map (l => (l, kb))
+        case _ =>
+          throw new RuntimeException("Error in the configuration file of bioresources")
+      }).toSeq
+
+    // Make them a dictionary where the key is label and the value are the references to KBs with this label
+    loadedKBs groupBy {
+      case (label, _) => label
+    } mapValues {
+      y => y.map(_._2)
+    }
+  }
 
 
   //
