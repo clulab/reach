@@ -7,13 +7,14 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 
 import scala.collection.JavaConverters.asScalaBufferConverter
 import scala.collection.convert.ImplicitConversions._
+import scala.collection.mutable
 
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
   *   Written by: Tom Hicks. 10/28/2015.
   *   Last Modified: Revert to using default (canonical) key transforms.
   */
-object ReachIMKBMentionLookups extends App {
+object ReachIMKBMentionLookups {
 
   /** Single factory instance to generate AdHoc IMKB classes. */
   val AdHocIMKBFactory = new AdHocIMKBFactory
@@ -163,15 +164,16 @@ object ReachIMKBMentionLookups extends App {
     val conf = ConfigFactory.load()
     val kbConf = conf.getConfig("KnowledgeBases")
 
+    val loadedKBs = mutable.ListBuffer[(String, IMKBMentionLookup)]()
     // Load all the KBs specified in the configuraction file of bioresources
-    val loadedKBs =
-      (kbConf.root() flatMap {
+    //val loadedKBs =
+      (kbConf.root() foreach  {
         case (_, obj:ConfigObject) =>
           val (labels, kb) = buildKb(obj.toConfig)
-          labels map (l => (l, kb))
+          loadedKBs ++= (labels map (l => (l, kb)))
         case _ =>
           throw new RuntimeException("Error in the configuration file of bioresources")
-      }).toSeq
+      })
 
     // Make them a dictionary where the key is label and the value are the references to KBs with this label
     loadedKBs groupBy {

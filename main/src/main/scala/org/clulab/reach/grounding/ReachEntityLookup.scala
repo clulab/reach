@@ -1,16 +1,14 @@
 package org.clulab.reach.grounding
 
-import scala.collection.JavaConverters._
-import scala.collection.mutable.Map
-
 import com.typesafe.config.{Config, ConfigFactory}
-
-import org.clulab.odin._
-import org.clulab.reach._
-import org.clulab.reach.mentions._
 import org.clulab.reach.grounding.AzFailsafeKBML._
 import org.clulab.reach.grounding.ReachEntityLookup._
+import org.clulab.reach.mentions._
+import org.clulab.reach.grounding.ReachIMKBMentionLookups
 import org.clulab.reach.grounding.ReachIMKBMentionLookups._
+
+import scala.collection.JavaConverters._
+import scala.collection.mutable.Map
 
 /**
   * Class which implements project internal methods to ground entities.
@@ -28,6 +26,7 @@ class ReachEntityLookup {
 
   /** Return a new instance of an AdHoc KBML created using the given config map. */
   private def addAdHocFile (fileDef: Config): Option[IMKBMentionLookup] = {
+    val factory = new AdHocIMKBFactory
     if (fileDef.isEmpty) return None        // sanity check
     val params: Map[String, _ >: String] = fileDef.root.unwrapped.asScala
     params.get("kb").map { fname =>
@@ -39,14 +38,14 @@ class ReachEntityLookup {
   /** Search a sequence of KB accessors, which sequence determined by the main mention label. */
   private def resolveMention (mention: BioMention): BioMention = {
     mention.label match {
-      case "BioProcess" => augmentMention(mention, bioProcessSeq)
+      case "BioProcess" => augmentMention(mention, ReachIMKBMentionLookups.configuredKBML("BioProcess"))
       case "CellLine" => augmentMention(mention, cellLineSeq)
       case "CellType" => augmentMention(mention, cellTypeSeq)
       case "Cellular_component" => augmentMention(mention, cellComponentSeq)
       case "Complex" | "GENE" | "Gene_or_gene_product" | "Protein" =>
         augmentMention(mention, proteinSeq)
       case "Disease" =>  augmentMention(mention, diseaseSeq)
-      case "Family" =>  augmentMention(mention, familySeq)
+      case "Family" =>  augmentMention(mention, ReachIMKBMentionLookups.configuredKBML("Family"))
       case "Organ" => augmentMention(mention, organSeq)
       case "Simple_chemical" => augmentMention(mention, chemicalSeq)
       case "Site" => augmentMention(mention, siteSeq)
