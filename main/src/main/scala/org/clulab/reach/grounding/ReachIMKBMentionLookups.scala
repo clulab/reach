@@ -13,7 +13,7 @@ import scala.collection.convert.ImplicitConversions._
   *   Written by: Tom Hicks. 10/28/2015.
   *   Last Modified: Revert to using default (canonical) key transforms.
   */
-object ReachIMKBMentionLookups {
+object ReachIMKBMentionLookups extends App {
 
   /** Single factory instance to generate AdHoc IMKB classes. */
   val AdHocIMKBFactory = new AdHocIMKBFactory
@@ -53,19 +53,42 @@ object ReachIMKBMentionLookups {
 
 
   /**
-    * Convenience method to reduce boiler-plate to get the value of a Conf object or a default if not present
-    * @param path to the value to fetch
-    * @param default value to return if path not present
-    * @param obj Implicit instance to Conf object
-    * @tparam T Type of the return value
-    * @return Value from the conf object or default provided
+    * Utility class to reduce boilerplate. Extends the Config objects with getters with default values.
+    * Tagged as implicit to be able to use nicely w/o wrapping the objects explicitly
+    * @param obj instance to decorate with the convenience methods
     */
-  private def getConfValue[T](path:String, default:T)(implicit obj:Config):T = {
-    if(obj.hasPath(path))
-      obj.getAnyRef(path).asInstanceOf[T]
-    else
-      default
+  implicit class RichConfig(obj:Config){
+
+    /**
+      * Convenience method to reduce boiler-plate to get the value of a Conf object or a default if not present
+      * @param path to the value to fetch
+      * @param default value to return if path not present
+      * @tparam T Type of the return value
+      * @return Value from the conf object or default provided
+      */
+    def getConfValue[T](path:String, default:T):T = {
+      if(obj.hasPath(path))
+        obj.getAnyRef(path).asInstanceOf[T]
+      else
+        default
+    }
+
+    /**
+      * Convenience method to reduce boiler-plate to get the list of values of a Conf object or a default if not present
+      * @param path to the value to fetch
+      * @param default value to return if path not present
+      * @tparam T Type of the return value
+      * @return Value from the conf object or default provided
+      */
+    def getConfList[T](path:String, default:List[T]):List[T] = {
+      if(obj.hasPath(path))
+        obj.getAnyRefList(path).asScala.toList.map(_.asInstanceOf[T])
+      else
+        default
+    }
   }
+
+
 
   /**
     * Builds an IMKBMentionLookup instance from a subsection of a Conf object
@@ -75,23 +98,41 @@ object ReachIMKBMentionLookups {
   def buildKb(obj: Config): (Seq[String], IMKBMentionLookup) = {
 
     val path = obj.getString("path") // This one must exist in obj
-    implicit val impObj: Config = obj // Make an implicit reference to obj for the implicit method to use
 
-    val namespace = getConfValue("namespace", DefaultNamespace)
-    val baseURI = getConfValue("baseURI", "")
-    val resourceId = getConfValue("resourceId", "")
-    val hasSpeciesInfo = getConfValue("hasSpeciesInfo", false)
-    val isFamilyKB = getConfValue("isFamilyKB", false)
-    val isProteinKB = getConfValue("isProteinKB", false)
-    val isAdHoc = getConfValue("isAdHoc", false)
-    val priority = getConfValue("priority", 1) // Not used yet, might remove later
+    val namespace = obj.getConfValue("namespace", DefaultNamespace)
+    val baseURI = obj.getConfValue("baseURI", "")
+    val resourceId = obj.getConfValue("resourceId", "")
+    val hasSpeciesInfo = obj.getConfValue("hasSpeciesInfo", false)
+    val isFamilyKB = obj.getConfValue("isFamilyKB", false)
+    val isProteinKB = obj.getConfValue("isProteinKB", false)
+    val isAdHoc = obj.getConfValue("isAdHoc", false)
+    val priority = obj.getConfValue("priority", 1) // TODO Not used yet, might remove later
 
-    // Fetch the labels. Implicit method doesn't work here
-    val labels =
-      if (obj.hasPath("labels")) {
-        obj.getStringList("labels").asScala.toList
-      } else {
-        List("BioEntity")
+    // Fetch the labels.
+    val labels = obj.getConfList("labels", List("BioEntity"))
+
+    // Get the transform function names, if specified
+    val transforms = obj.getConfList[String]("keyTransforms", Nil)
+
+    // Map the transform names to the hard-coded properties
+    val transformsGroup =
+      transforms.size match {
+        case 0 => KBKeyTransformsGroup()
+        case _ =>
+          val trs = transforms map {
+            case "DefaultKeyTransforms" => DefaultKeyTransforms
+            case "ProteinAuxKeyTransforms" => ProteinAuxKeyTransforms
+            case "CasedKeyTransforms" => CasedKeyTransforms
+            case "IdentityKeyTransforms" => IdentityKeyTransforms
+            case "FamilyAuxKeyTransforms" => FamilyAuxKeyTransforms
+            case "OrganAuxKeyTransforms" => OrganAuxKeyTransforms
+            case _ => throw new RuntimeException("Unspecified KBTransforms group")
+          }
+
+          assert(trs.size == 3, "There must be only three transforms if specified in the config file")
+
+          KBKeyTransformsGroup(trs.head, trs(1), trs(2))
+
       }
 
 
@@ -106,18 +147,19 @@ object ReachIMKBMentionLookups {
       isProteinKB = isProteinKB
     )
 
+    // Create the KB instance
     val kb =
       if(isAdHoc)
-        AdHocIMKBFactory.make(metaInfo)
+        AdHocIMKBFactory.make(metaInfo, transformsGroup)
       else
-        TsvIMKBFactory.make(metaInfo)
+        TsvIMKBFactory.make(metaInfo, transformsGroup)
 
     // Return the labels assigned to this kb and the actual reference to the kb
     (labels, new IMKBMentionLookup(kb))
   }
 
   // Dynamically load the KBs from the config file, by Enrique
-  lazy val configuredKBML:Map[String, Seq[IMKBMentionLookup]] = {
+  val configuredKBML:Map[String, Seq[IMKBMentionLookup]] = {
     val conf = ConfigFactory.load()
     val kbConf = conf.getConfig("KnowledgeBases")
 
