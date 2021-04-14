@@ -3,9 +3,8 @@ package org.clulab.reach.grounding
 import com.typesafe.config.{Config, ConfigFactory}
 import org.clulab.reach.grounding.AzFailsafeKBML._
 import org.clulab.reach.grounding.ReachEntityLookup._
-import org.clulab.reach.mentions._
-import org.clulab.reach.grounding.ReachIMKBMentionLookups
 import org.clulab.reach.grounding.ReachIMKBMentionLookups._
+import org.clulab.reach.mentions._
 
 import scala.collection.JavaConverters._
 import scala.collection.mutable.Map
@@ -38,19 +37,19 @@ class ReachEntityLookup {
   /** Search a sequence of KB accessors, which sequence determined by the main mention label. */
   private def resolveMention (mention: BioMention): BioMention = {
     mention.label match {
-      case "BioProcess" => augmentMention(mention, ReachIMKBMentionLookups.configuredKBML("BioProcess"))
-      case "CellLine" => augmentMention(mention, cellLineSeq)
-      case "CellType" => augmentMention(mention, cellTypeSeq)
-      case "Cellular_component" => augmentMention(mention, cellComponentSeq)
+      case "BioProcess" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("BioProcess"))
+      case "CellLine" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("CellLine"))
+      case "CellType" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("CellType"))
+      case "Cellular_component" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Cellular_component"))
       case "Complex" | "GENE" | "Gene_or_gene_product" | "Protein" =>
-        augmentMention(mention, proteinSeq)
-      case "Disease" =>  augmentMention(mention, diseaseSeq)
-      case "Family" =>  augmentMention(mention, ReachIMKBMentionLookups.configuredKBML("Family"))
-      case "Organ" => augmentMention(mention, organSeq)
-      case "Simple_chemical" => augmentMention(mention, chemicalSeq)
-      case "Site" => augmentMention(mention, siteSeq)
-      case "Species" => augmentMention(mention, speciesSeq)
-      case "TissueType" => augmentMention(mention, tissueSeq)
+        augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Protein"))
+      case "Disease" =>  augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Disease"))
+      case "Family" =>  augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Family"))
+      case "Organ" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Organ"))
+      case "Simple_chemical" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Simple_chemical"))
+      case "Site" => augmentMention(mention, extraKBs /*++ ReachIMKBMentionLookups.configuredKBML("Site")*/)
+      case "Species" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Species"))
+      case "TissueType" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("TissueType"))
       case _ =>  augmentMention(mention, azFailsafeSeq)
     }
   }
@@ -65,7 +64,7 @@ class ReachEntityLookup {
     }
     // if reach here, we assign a failsafe backup ID:
     mention.nominate(AzFailsafe.resolve(mention))
-    return mention
+    mention
   }
 
   // Reach Grounder Initialization
@@ -83,55 +82,6 @@ class ReachEntityLookup {
   /** KB search sequence to use for Fallback grounding: when all others fail. */
   val azFailsafeSeq: KBSearchSequence = Seq(AzFailsafe)
 
-  // instantiate the various search sequences, each sequence for a different label:
-  val bioProcessSeq: KBSearchSequence = extraKBs ++ Seq( StaticBioProcess )
-  val diseaseSeq: KBSearchSequence = extraKBs ++ Seq( StaticDisease )
-  val cellTypeSeq: KBSearchSequence = extraKBs ++ Seq( ContextCellType )
-
-  val cellLineSeq: KBSearchSequence = extraKBs ++ Seq(
-    ContextCellLine,                        // Cellosaurus
-    ContextCellLine2                        // atcc
-  )
-
-  val cellComponentSeq: KBSearchSequence = extraKBs ++ Seq(
-    StaticCellLocation,                     // GO subcellular KB
-    StaticCellLocation2,                    // Uniprot subcellular KB
-    ModelGendCellLocation
-  )
-
-  val chemicalSeq: KBSearchSequence = extraKBs ++ Seq(
-    StaticChemicalChebi,                    // Chebi
-    StaticChemical,                         // PubChem
-    StaticDrug,                             // HMS LINCS drugs
-    // StaticMetabolite,                    // REPLACED by PubChem
-    ModelGendChemical
-  )
-
-  val familySeq: KBSearchSequence = extraKBs ++ Seq(
-    staticProteinFamilyOrComplex,           // FamPlex families and complexes
-    StaticProteinFamily,                    // PFAM families
-    StaticProteinFamily2,                   // InterPro families
-    ModelGendProteinAndFamily
-  )
-
-  val organSeq: KBSearchSequence = extraKBs ++ Seq( ContextOrgan )
-
-  val proteinSeq: KBSearchSequence = extraKBs ++ Seq(
-    StaticProteinFragment, // TODO: for now fragments have higher priority
-    StaticProtein3,                          // Uniprot proteins
-    StaticProtein2,
-    StaticProtein,
-    ModelGendProteinAndFamily
-  )
-
-  val siteSeq: KBSearchSequence = extraKBs ++ Seq() // nothing to add the extras to
-
-  val speciesSeq: KBSearchSequence = extraKBs ++ Seq( ContextSpecies )
-
-  val tissueSeq: KBSearchSequence = extraKBs ++ Seq(
-    ContextTissueType,
-    ContextOrgan                            // Summer 2016 Eval: use organs as tissue types
-  )
 }
 
 

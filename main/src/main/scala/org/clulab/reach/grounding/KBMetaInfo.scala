@@ -20,7 +20,10 @@ class KBMetaInfo (
   val isFamilyKB: Boolean = false,
 
   /** Flag identifying this KB as containing protein or protein complex entries. */
-  val isProteinKB: Boolean = false
+  val isProteinKB: Boolean = false,
+
+  /** Order number for mention resolution */
+  val priotity: Int = 1
 
 )  extends Serializable {
 
