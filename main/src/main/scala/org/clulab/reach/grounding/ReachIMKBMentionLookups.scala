@@ -22,36 +22,6 @@ object ReachIMKBMentionLookups {
   /** Single factory instance to generate Tsv IMKB classes. */
   val TsvIMKBFactory = new TsvIMKBFactory
 
-  // Singleton instances of the Reach KBs
-
-  val ContextCellLine = contextCellLineKBML
-  val ContextCellLine2 = contextCellLine2KBML
-  val ContextCellType = contextCellTypeKBML
-  val ContextOrgan = contextOrganKBML
-  val ContextSpecies = contextSpeciesKBML
-  val ContextTissueType = contextTissueTypeKBML
-//
-//  val StaticBioProcess = staticBioProcessKBML
-//  val StaticDisease = staticDiseaseKBML
-  val StaticCellLocation = staticCellLocationKBML   // GO subcellular KB
-  val StaticCellLocation2 = staticCellLocation2KBML // Uniprot subcellular KB
-//  val StaticChemical = staticChemicalKBML
-//  val StaticChemicalChebi = staticChemicalKBMLChebi
-//  val StaticDrug = staticDrugKBML
-//  // val StaticMetabolite = staticMetaboliteKBML    // Replaced by PubChem
-//  val StaticProtein = staticProteinKBML
-//  val StaticProtein2 = staticProteinKBML2
-//  val StaticProtein3 = staticProteinKBML3
-//  val StaticProteinFragment = staticProteinFragmentKBML
-//  val staticProteinFamilyOrComplex = staticProteinFamilyOrComplexKBML
-//
-//  val StaticProteinFamily = staticProteinFamilyKBML
-//  val StaticProteinFamily2 = staticProteinFamily2KBML
-//
-  val ModelGendCellLocation = gendCellLocationKBML
-//  val ModelGendChemical = gendChemicalKBML
-//  val ModelGendProteinAndFamily = gendProteinKBML // families included in generated KB
-
 
   /**
     * Utility class to reduce boilerplate. Extends the Config objects with getters with default values.
@@ -161,7 +131,7 @@ object ReachIMKBMentionLookups {
   }
 
   // Dynamically load the KBs from the config file, by Enrique
-  val configuredKBML:Map[String, Seq[IMKBMentionLookup]] = {
+  lazy val configuredKBML:Map[String, Seq[IMKBMentionLookup]] = {
     val conf = ConfigFactory.load()
     val kbConf = conf.getConfig("KnowledgeBases")
 
@@ -180,111 +150,8 @@ object ReachIMKBMentionLookups {
     loadedKBs groupBy {
       case (label, _) => label
     } mapValues {
-      y => y.map(_._2).sortBy(_.metaInfo.priotity).reverse
+      _.map(_._2).sortBy(_.metaInfo.priotity).reverse
     }
-  }
-
-
-  //
-  // Subcellular Location Accessors
-  //
-
-  /** KB accessor to resolve subcellular location names via KBs generated from the BioPax model. */
-  def gendCellLocationKBML: IMKBMentionLookup = {
-    val metaInfo = new IMKBMetaInfo(kbFilename = Some(GendCellLocationFilename))
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
-  }
-
-  /** KB accessor to resolve subcellular location names via static KB. */
-  def staticCellLocationKBML: IMKBMentionLookup = {
-    val metaInfo = new IMKBMetaInfo(
-      namespace = "go",
-      kbFilename = Some(StaticCellLocationFilename),
-      baseURI = "http://identifiers.org/go/",
-      resourceId = "MIR:00000022"
-    )
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
-  }
-
-  /** KB accessor to resolve alternate subcellular location names via static KB. */
-  def staticCellLocation2KBML: IMKBMentionLookup = {
-    val metaInfo = new IMKBMetaInfo(
-      namespace = "uniprot",
-      kbFilename = Some(StaticCellLocation2Filename),
-      baseURI = "http://identifiers.org/uniprot/",
-      resourceId = "MIR:00000005"
-    )
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
-  }
-
-
-  //
-  // Context-related Accessors
-  //
-
-  /** KB accessor to resolve cell lines via a context KB. */
-  def contextCellLineKBML: IMKBMentionLookup = {
-    val metaInfo = new IMKBMetaInfo(
-      namespace = "cellosaurus",
-      kbFilename = Some(ContextCellLineFilename),
-      hasSpeciesInfo = true
-    )
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
-  }
-
-  /** KB accessor to resolve alternate cell lines via a context KB. */
-  def contextCellLine2KBML: IMKBMentionLookup = {
-    val metaInfo = new IMKBMetaInfo(
-      namespace = "atcc",
-      kbFilename = Some(ContextCellLine2Filename)
-    )
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
-  }
-
-  /** KB accessor to resolve cell types via a context KB. */
-  def contextCellTypeKBML: IMKBMentionLookup = {
-    val metaInfo = new IMKBMetaInfo(
-      namespace = "cl",
-      kbFilename = Some(ContextCellTypeFilename),
-      baseURI = "http://identifiers.org/cl/",
-      resourceId = "MIR:00000110"
-    )
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
-  }
-
-  /** KB accessor to resolve organ names via a context KB.
-      Uses alternate key lookups for organ to cell type inference. */
-  def contextOrganKBML: IMKBMentionLookup = {
-    val metaInfo = new IMKBMetaInfo(
-      namespace = "uberon",
-      kbFilename = Some(ContextOrganFilename),
-      baseURI = "http://identifiers.org/uberon/",
-      resourceId = "MIR:00000446"
-    )
-    val keyTransforms = KBKeyTransformsGroup(DefaultKeyTransforms, OrganAuxKeyTransforms, DefaultKeyTransforms)
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
-  }
-
-  /** KB accessor to resolve species names via a context KB. */
-  def contextSpeciesKBML: IMKBMentionLookup = {
-    val metaInfo = new IMKBMetaInfo(
-      namespace = "taxonomy",
-      kbFilename = Some(ContextSpeciesFilename),
-      baseURI = "http://identifiers.org/taxonomy/",
-      resourceId= "MIR:00000006"
-    )
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
-  }
-
-  /** KB accessor to resolve tissue type names via context KB. */
-  def contextTissueTypeKBML: IMKBMentionLookup = {
-    val metaInfo = new IMKBMetaInfo(
-      namespace = "tissuelist",
-      kbFilename = Some(ContextTissueTypeFilename),
-      baseURI= "http://identifiers.org/tissuelist/",
-      resourceId = "MIR:00000360"
-    )
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
   }
 
 }
