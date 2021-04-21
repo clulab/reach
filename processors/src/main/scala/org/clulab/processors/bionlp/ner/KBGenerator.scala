@@ -19,7 +19,7 @@ import org.slf4j.{Logger, LoggerFactory}
 
 import java.io.File
 
-case class KBEntry(kbName:String, neLabel:String, validSpecies:Set[String])
+case class KBEntry(kbName:String, path:String, neLabel:String, validSpecies:Set[String])
 
 /**
   * This is used in bioresources to format the data into a format that is easy to load at runtime
@@ -85,48 +85,28 @@ object KBGenerator {
         (label, paths) <- configuredKBs
         path <- paths
       } yield {
-        val name = path.split("\\.").dropRight(1).mkString("")
-        KBEntry(name, label, Set.empty[String])
+        val name = new File(path).getName.split("\\.").dropRight(1).mkString("")
+        KBEntry(label, path, label, Set.empty[String])
       }
 
     entries.toList
   }
 
-  def processKBFiles(inputDir:String = "bioresources/src/main/resources/org/clulab/reach/kb/"):Map[String, Seq[String]] = {
+  def processKBFiles():Map[String, Seq[String]] = {
 
 //    val entries = loadConfig(configFile)
     val entries = loadFromConf()
     logger.info(s"Will convert a total of ${entries.size} KBs:")
 
     (for(entry <- entries) yield {
-      val processedLines = convertKB(entry, inputDir)
+      val processedLines = convertKB(entry)
       entry.kbName -> processedLines
     }).toMap
   }
 
-  def loadConfig(configFile:String):Seq[KBEntry] = {
-    val entries = new ListBuffer[KBEntry]
-    for(line <- Source.fromFile(configFile).getLines()) {
-      val trimmedLine = line.trim
-      if(! trimmedLine.isEmpty && ! trimmedLine.startsWith("#")) {
-        val tokens = trimmedLine.split("\t")
-        assert(tokens.length >= 2)
-        val kbName = tokens(NAME_FIELD_NDX)
-        val neLabel = tokens(LABEL_FIELD_NDX)
-        val species = new mutable.HashSet[String]()
-        for(i <- 2 until tokens.length) {
-          species += tokens(i)
-        }
-        entries += KBEntry(kbName, neLabel, species.toSet)
-      }
-    }
-    entries.toList
-  }
-
-
-  def convertKB(entry:KBEntry, inputDir:String): Seq[String] = {
+  def convertKB(entry:KBEntry): Seq[String] = {
     logger.info(s"Loading ${entry.kbName}...")
-    val inputPath = inputDir + File.separator + entry.kbName + ".tsv"
+    val inputPath = entry.path//inputDir + File.separator + entry.kbName + ".tsv"
     val b =
       if(new File(inputPath).exists())
         new BufferedReader(new InputStreamReader(new FileInputStream(inputPath)))

@@ -36,20 +36,29 @@ class ReachEntityLookup {
 
   /** Search a sequence of KB accessors, which sequence determined by the main mention label. */
   private def resolveMention (mention: BioMention): BioMention = {
+//    mention.label match {
+//      case "BioProcess" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("BioProcess"))
+//      case "CellLine" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("CellLine"))
+//      case "CellType" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("CellType"))
+//      case "Cellular_component" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Cellular_component"))
+//      case "Complex" | "GENE" | "Gene_or_gene_product" | "Protein" =>
+//        augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Gene_or_gene_product"))
+//      case "Disease" =>  augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Disease"))
+//      case "Family" =>  augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Family"))
+//      case "Organ" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Organ"))
+//      case "Simple_chemical" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Simple_chemical"))
+//      case "Site" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Site"))
+//      case "Species" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Species"))
+//      case "TissueType" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("TissueType"))
+//      case _ =>  augmentMention(mention, azFailsafeSeq)
+//    }
+
     mention.label match {
-      case "BioProcess" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("BioProcess"))
-      case "CellLine" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("CellLine"))
-      case "CellType" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("CellType"))
-      case "Cellular_component" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Cellular_component"))
+
       case "Complex" | "GENE" | "Gene_or_gene_product" | "Protein" =>
-        augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Protein"))
-      case "Disease" =>  augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Disease"))
-      case "Family" =>  augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Family"))
-      case "Organ" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Organ"))
-      case "Simple_chemical" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Simple_chemical"))
-      case "Site" => augmentMention(mention, extraKBs /*++ ReachIMKBMentionLookups.configuredKBML("Site")*/)
-      case "Species" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Species"))
-      case "TissueType" => augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("TissueType"))
+        augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML("Gene_or_gene_product"))
+      case label if ReachIMKBMentionLookups.configuredKBML.contains(label) =>
+        augmentMention(mention, extraKBs ++ ReachIMKBMentionLookups.configuredKBML(label))
       case _ =>  augmentMention(mention, azFailsafeSeq)
     }
   }

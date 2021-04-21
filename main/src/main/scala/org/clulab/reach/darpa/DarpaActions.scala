@@ -5,6 +5,7 @@ import org.clulab.odin._
 import org.clulab.polarity.PolarityEngine
 import org.clulab.reach._
 import org.clulab.reach.mentions._
+import org.clulab.reach.mentions.serialization.json.BioTextBoundMention
 import org.clulab.struct.DirectedGraph
 
 import scala.annotation.tailrec
@@ -57,6 +58,22 @@ class DarpaActions extends Actions with LazyLogging {
       val overlap = candidates.exists(_.tokenInterval.overlaps(m.tokenInterval))
       if (overlap) None else Some(m.toBioMention)
     }
+  }
+
+  /***
+    * Assigns the label directly from the BI tags
+    */
+  def mkGenericNERMentions(mentions: Seq[Mention], state: State): Seq[Mention] = {
+
+    val fixedMentions = mentions map {
+      case m:TextBoundMention if m.label == "BioEntity" =>
+        val newLabel = m.entities.get.head.drop(2)
+        val labels = newLabel :: m.labels.filterNot(_ == "BioEntity").toList
+        new TextBoundMention(labels, m.tokenInterval, m.sentence, m.document, m.keep, m.foundBy)
+      case x => x
+    }
+
+    mkNERMentions(fixedMentions, state)
   }
 
   /** This action gets RelationMentions that represents a PTM,
