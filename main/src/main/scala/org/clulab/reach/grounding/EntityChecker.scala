@@ -1,15 +1,15 @@
 package org.clulab.reach.grounding
 
-import java.io._
-
-import com.typesafe.scalalogging.LazyLogging
-import org.biopax.paxtools.io._
-import org.biopax.paxtools.model._
-import org.biopax.paxtools.model.level3._
-
-import scala.collection.JavaConverters._
-import org.clulab.reach.grounding.ReachIMKBLookups._
-import org.clulab.reach.grounding.ReachKBConstants._
+//import java.io._
+//
+//import com.typesafe.scalalogging.LazyLogging
+//import org.biopax.paxtools.io._
+//import org.biopax.paxtools.model._
+//import org.biopax.paxtools.model.level3._
+//
+//import scala.collection.JavaConverters._
+//import org.clulab.reach.grounding.ReachIMKBLookups._
+//import org.clulab.reach.grounding.ReachKBConstants._
 
 /**
   * Program to lookup/check incoming BioPax model entities against local knowledge bases.
