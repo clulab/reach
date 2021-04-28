@@ -101,7 +101,7 @@ object KBGenerator {
     (for(entry <- entries) yield {
       val processedLines = convertKB(entry)
       entry.kbName -> processedLines
-    }).toMap
+    }).groupBy(_._1).mapValues(_.flatMap(_._2))
   }
 
   def convertKB(entry:KBEntry): Seq[String] = {
@@ -123,6 +123,9 @@ object KBGenerator {
       if(line == null) {
         done = true
       } else {
+        if(line == "BIS\tO95817\tHomo sapiens") {
+          val x = 0
+        }
         val trimmedLine = line.trim
         if(trimmedLine.nonEmpty && ! trimmedLine.startsWith("#")) { // skip comments
           val kbTokens = line.split("\t")
