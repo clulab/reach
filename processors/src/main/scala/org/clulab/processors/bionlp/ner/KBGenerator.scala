@@ -38,11 +38,11 @@ object KBGenerator {
 
   def loadFromConf():Seq[KBEntry] = {
 
-    val configuredKBs:Map[String, Seq[String]] = {
+    val configuredKBs:Map[String, Seq[(String, Set[String])]] = {
       val conf = ConfigFactory.load()
       val kbConf = conf.getConfig("KnowledgeBases")
 
-      val loadedKBs = mutable.ListBuffer[(String, String, Int)]()
+      val loadedKBs = mutable.ListBuffer[(String, String, Int, Set[String])]()
       // Load all the KBs specified in the configuraction file of bioresources
       kbConf.root() foreach  {
         case (_, obj:ConfigObject) =>
@@ -62,31 +62,37 @@ object KBGenerator {
             else
               1
 
-          loadedKBs ++= (labels map (l => (l, fileName, priority)))
+          val species =
+            if(c.hasPath("species"))
+              c.getStringList("species").toSet
+            else
+              Set.empty[String]
+
+          loadedKBs ++= (labels map (l => (l, fileName, priority, species)))
         case _ =>
           throw new RuntimeException("Error in the configuration file of bioresources")
       }
 
       // Make them a dictionary where the key is label and the value are the references to KBs with this label
       loadedKBs groupBy {
-        case (label, _, _) => label
+        case (label, _, _, _) => label
       } mapValues {
         _.sortBy{
-          case (label, path, priority) =>
+          case (label, path, priority, _) =>
             priority
         }.reverse.map{
-          case (_, path, _) => path
+          case (_, path, _, species) => (path, species)
         }.toList
       }
     }
 
     val entries =
       for{
-        (label, paths) <- configuredKBs
-        path <- paths
+        (label, pathsWithSpecies) <- configuredKBs
+        (path, species) <- pathsWithSpecies
       } yield {
         val name = new File(path).getName.split("\\.").dropRight(1).mkString("")
-        KBEntry(label, path, label, Set.empty[String])
+        KBEntry(label, path, label, species)
       }
 
     entries.toList
@@ -123,9 +129,6 @@ object KBGenerator {
       if(line == null) {
         done = true
       } else {
-        if(line == "BIS\tO95817\tHomo sapiens") {
-          val x = 0
-        }
         val trimmedLine = line.trim
         if(trimmedLine.nonEmpty && ! trimmedLine.startsWith("#")) { // skip comments
           val kbTokens = line.split("\t")
@@ -146,7 +149,7 @@ object KBGenerator {
       .sorted
       .distinct
 
-    logger.info(s"Done. Read $lineCount lines (${uniqLines.size} distinct) from ${entry.kbName}")
+    logger.info(s"Done. Read $lineCount lines (${uniqLines.size} distinct) from ${new File(entry.path).getName}")
     uniqLines
   }
 

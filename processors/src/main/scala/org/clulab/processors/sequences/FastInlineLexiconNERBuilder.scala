@@ -31,13 +31,18 @@ class FastInlineLexiconNERBuilder(caseInsensitiveMatching:Boolean) extends FastL
       }
     }
 
-    kbs.foreach { case (label, kb) =>
-      val beforeCount = buildState.getCount
-      kb foreach { line =>
-          addLine(line, label)
-      }
-      var afterCount = buildState.getCount
-      logger.info(s"Loaded matcher for label $label. The number of entries added to the first layer was ${afterCount - beforeCount}.")
+    val order = Seq("Gene_or_gene_product", "Family", "Cellular_component", "Simple_chemical", "Site", "BioProcess", "Disease", "Species", "CellLine", "TissueType", "CellType", "Organ")
+
+//    kbs.foreach { case (label, kb) =>
+    order.foreach{
+      label =>
+        val kb = kbs(label)
+        val beforeCount = buildState.getCount
+        kb foreach { line =>
+            addLine(line, label)
+        }
+        var afterCount = buildState.getCount
+        logger.info(s"Loaded matcher for label $label. The number of entries added to the first layer was ${afterCount - beforeCount}.")
     }
   }
 
