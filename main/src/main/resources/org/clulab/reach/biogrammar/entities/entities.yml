@@ -126,13 +126,13 @@
 # ner rules
 ###################
 
-- name: ner-generic
-  label: BioEntity
-  action: mkGenericNERMentions
-  priority: 4
-  type: token
-  pattern: |
-    [entity=/B-/] [entity=/I-/]*
+#- name: ner-generic
+#  label: BioEntity
+#  action: mkGenericNERMentions
+#  priority: 6
+#  type: token
+#  pattern: |
+#    [entity=/B-/] [entity=/I-/]*
 
 - name: ner-species
   label: Species

@@ -26,7 +26,7 @@ class IMKBMetaInfo (
   isProteinKB: Boolean = false,             // does KB contain protein entries
   priority:Int = 1                          // To keep resolution ordering consistent with the hard-coded sequence
 
-) extends KBMetaInfo (namespace, hasSpeciesInfo, isFamilyKB, isProteinKB) with Serializable {
+) extends KBMetaInfo (namespace, hasSpeciesInfo, isFamilyKB, isProteinKB, priority) with Serializable {
 
   /**
     * Using the given ID string, generate a URI which references an entry

@@ -5,6 +5,7 @@ import com.typesafe.config.{Config, ConfigObject}
 import org.clulab.reach.grounding.ReachKBConstants._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
 
+import java.io.File
 import scala.collection.JavaConverters.asScalaBufferConverter
 import scala.collection.convert.ImplicitConversions._
 import scala.collection.mutable
@@ -109,7 +110,7 @@ object ReachIMKBMentionLookups {
 
     // Build metadata object
     val metaInfo = new IMKBMetaInfo(
-      kbFilename = Some(path),
+      kbFilename = Some(new File(path).getName),
       namespace = namespace,
       baseURI = baseURI,
       resourceId = resourceId,
