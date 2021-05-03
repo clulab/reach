@@ -841,3 +841,23 @@ CD8 þ T cells	D018414		mesh	CellType
 CD8 ϩ T cells	D018414		mesh	CellType
 CD8+ T cells	D018414		mesh	CellType
 CD8 T cells	D018414		mesh	CellType
+frailty	FR00001		frailty	BioProcess
+loss of fat	FR00002		frailty	BioProcess
+loss of skeleton muscle	FR00003		frailty	BioProcess
+sarcopenia	FR00003		frailty	BioProcess
+frailty index	FR00005		frailty	BioProcess
+frailty syndrome	FR00001		frailty	BioProcess
+disrupted muscle mitochondrial homeostasis	FR00004		frailty	BioProcess
+mitochondrial imbalance	FR00006		frailty	BioProcess
+inflammatory dysregulation	FR00007		frailty	BioProcess
+vascular homeostasis	FR00008		frailty	BioProcess
+lipid metabolism	FR00009		frailty	BioProcess
+insulin resistance	FR00010		frailty	BioProcess
+energy imbalance	FR00011		frailty	BioProcess
+decrease in grip strength	FR00012		frailty	BioProcess
+weight loss	FR00013		frailty	BioProcess
+exhaustion	FR00014		frailty	BioProcess
+weakness	FR00015		frailty	BioProcess
+slowness	FR00016		frailty	BioProcess
+reduced physical activity	FR00017		frailty	BioProcess
+pre-frailty	FR00018		frailty	BioProcess
