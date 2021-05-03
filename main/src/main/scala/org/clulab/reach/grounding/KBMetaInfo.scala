@@ -23,7 +23,7 @@ class KBMetaInfo (
   val isProteinKB: Boolean = false,
 
   /** Order number for mention resolution */
-  val priotity: Int = 1
+  val priority: Int = 1
 
 )  extends Serializable {
 

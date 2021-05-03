@@ -151,7 +151,7 @@ object ReachIMKBMentionLookups {
     loadedKBs groupBy {
       case (label, _) => label
     } mapValues {
-      _.map(_._2).sortBy(_.metaInfo.priotity).reverse
+      _.map(_._2).sortBy(_.metaInfo.priority).reverse
     }
   }
 
