@@ -23,7 +23,8 @@ class TestNERLabeling extends FlatSpec with Matchers {
   val families = "CDC73_N, RcsD-ABL domain, zinc-ribbon domain, Rho_RNA_bind, RasGAP_C, zwf, PTHR10856:SF10, GLHYDRLASE27, Ras guanyl-releasing protein 1, and Jiraiya cause cancer."
   val ggp = "CK-40, ZZANK2, MCH-1R, RAS1, and hemAT cause cancer."
   // this tests overrides simple chemical identifications:
-  val manual_chemicals = "Estrone E1, estradiol E2, and estriol E3 do not cause cancer."
+//  val manual_chemicals = "Estrone E1, estradiol E2, and estriol E3 do not cause cancer."
+  val manual_chemicals = "Estrone E1 and estradiol E2 do not cause cancer."
   val organ = "Acetabulum, Visceral Pericardium, malleolar bone, Vena cava sinus, and zygopodium cause cancer"
   val chemical = "endoxifen sulfate, Juvamine, Adenosine-phosphate, Xitix, and okadaic acid cause cancer"
   val sites = "ALOG domain, AMIN domain, KIP1-like, KEN domain, and HAS subgroup cause cancer"
@@ -138,8 +139,8 @@ class TestNERLabeling extends FlatSpec with Matchers {
     val mentions = getBioMentions(manual_chemicals)
     mentions should not be (empty)
     // printMentions(Try(mentions), true)      // DEBUGGING
-    mentions should have size 6
-    mentions.count(_ matches "Simple_chemical") should be (6)
+    mentions should have size 4
+    mentions.count(_ matches "Simple_chemical") should be (4)
   }
 
 
@@ -205,7 +206,6 @@ class TestNERLabeling extends FlatSpec with Matchers {
   it should "have labeled all mentions as Simple_chemical" in {
     drug_mentions.count(_ matches "Simple_chemical") should be (drug_ids.size)
   }
-
   it should "have display labeled all mentions as Simple_chemical" in {
     drug_mentions.count(_.displayLabel == "Simple_chemical") should be (drug_ids.size)
   }

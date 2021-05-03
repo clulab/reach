@@ -23,9 +23,10 @@ class IMKBMetaInfo (
   namespace: String = DefaultNamespace,     // default UAZ namespace
   hasSpeciesInfo: Boolean = false,          // default to KBs without species info
   isFamilyKB: Boolean = false,              // does KB contain protein family entries
-  isProteinKB: Boolean = false              // does KB contain protein entries
+  isProteinKB: Boolean = false,             // does KB contain protein entries
+  priority:Int = 1                          // To keep resolution ordering consistent with the hard-coded sequence
 
-) extends KBMetaInfo (namespace, hasSpeciesInfo, isFamilyKB, isProteinKB) with Serializable {
+) extends KBMetaInfo (namespace, hasSpeciesInfo, isFamilyKB, isProteinKB, priority) with Serializable {
 
   /**
     * Using the given ID string, generate a URI which references an entry

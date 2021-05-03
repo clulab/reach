@@ -1,7 +1,6 @@
 import re
 import os
 import csv
-import gzip
 import pickle
 import obonet
 
@@ -108,7 +107,3 @@ if __name__ == '__main__':
         writer = csv.writer(fh, delimiter="\t", lineterminator='\n')
         for entry in entries:
             writer.writerow(entry)
-    # And then into a GZ file
-    with open(resource_fname, 'rb') as f1, \
-            gzip.open(resource_fname + '.gz', 'wb') as f2:
-        f2.writelines(f1)

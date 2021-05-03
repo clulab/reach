@@ -1,10 +1,14 @@
 package org.clulab.processors.bionlp.ner
 
+import com.typesafe.config.ConfigObject
+import com.typesafe.config.ConfigFactory
+import scala.collection.convert.ImplicitConversions._
+import scala.collection.JavaConverters.asScalaBufferConverter
+
 import java.io._
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.zip.{GZIPInputStream, GZIPOutputStream}
-
 import scala.collection.mutable
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 import scala.io.Source
@@ -13,7 +17,9 @@ import org.clulab.processors.clu.tokenizer.Tokenizer
 import org.clulab.utils.ScienceUtils
 import org.slf4j.{Logger, LoggerFactory}
 
-case class KBEntry(kbName:String, neLabel:String, validSpecies:Set[String])
+import java.io.File
+
+case class KBEntry(kbName:String, path:String, neLabel:String, validSpecies:Set[String])
 
 /**
   * This is used in bioresources to format the data into a format that is easy to load at runtime
@@ -29,63 +35,91 @@ object KBGenerator {
   val LABEL_FIELD_NDX = 1                   // config column containing the type label
   val SPECIES_FIELD_NDX = 2                 // KB column containing the species of the name entity
 
-  /** Minimal processor, used solely for the tokenization of resources */
-  lazy val tokenizer: Tokenizer = (new BioNLPProcessor).tokenizer
 
-  def main (args: Array[String]) {
-    val configFile = args(0)
-    val inputDir = args(1)
-    val outputDir = args(2)
+  def loadFromConf():Seq[KBEntry] = {
 
-    val entries = loadConfig(configFile)
-    logger.info(s"Will convert a total of ${entries.size} KBs:")
-    for(entry <- entries) {
-      logger.info(s"KB:${entry.kbName} to NE:${entry.neLabel} using species:${entry.validSpecies}.")
-      // delete the old output
-      val f = new File(mkOutputFile(entry, outputDir))
-      if(f.exists()) {
-        f.delete()
-        logger.info(s"Deleted old output ${f.getAbsolutePath}.")
+    val configuredKBs:Map[String, Seq[(String, Set[String])]] = {
+      val conf = ConfigFactory.load()
+      val kbConf = conf.getConfig("KnowledgeBases")
+
+      val loadedKBs = mutable.ListBuffer[(String, String, Int, Set[String])]()
+      // Load all the KBs specified in the configuraction file of bioresources
+      kbConf.root() foreach  {
+        case (_, obj:ConfigObject) =>
+          val c = obj.toConfig
+
+          val labels =
+            if(c.hasPath("labels"))
+              c.getStringList("labels").asScala
+            else
+              List("BioEntity")
+
+          val fileName = c.getString("path")
+
+          val priority =
+            if(c.hasPath("priority"))
+              c.getInt("priority")
+            else
+              1
+
+          val species =
+            if(c.hasPath("species"))
+              c.getStringList("species").toSet
+            else
+              Set.empty[String]
+
+          loadedKBs ++= (labels map (l => (l, fileName, priority, species)))
+        case _ =>
+          throw new RuntimeException("Error in the configuration file of bioresources")
+      }
+
+      // Make them a dictionary where the key is label and the value are the references to KBs with this label
+      loadedKBs groupBy {
+        case (label, _, _, _) => label
+      } mapValues {
+        _.sortBy{
+          case (label, path, priority, _) =>
+            priority
+        }.reverse.map{
+          case (_, path, _, species) => (path, species)
+        }.toList
       }
     }
 
-    for(entry <- entries) {
-      convertKB(entry, inputDir, outputDir)
-    }
-  }
-
-  def loadConfig(configFile:String):Seq[KBEntry] = {
-    val entries = new ListBuffer[KBEntry]
-    for(line <- Source.fromFile(configFile).getLines()) {
-      val trimmedLine = line.trim
-      if(! trimmedLine.isEmpty && ! trimmedLine.startsWith("#")) {
-        val tokens = trimmedLine.split("\t")
-        assert(tokens.length >= 2)
-        val kbName = tokens(NAME_FIELD_NDX)
-        val neLabel = tokens(LABEL_FIELD_NDX)
-        val species = new mutable.HashSet[String]()
-        for(i <- 2 until tokens.length) {
-          species += tokens(i)
-        }
-        entries += KBEntry(kbName, neLabel, species.toSet)
+    val entries =
+      for{
+        (label, pathsWithSpecies) <- configuredKBs
+        (path, species) <- pathsWithSpecies
+      } yield {
+        val name = new File(path).getName.split("\\.").dropRight(1).mkString("")
+        KBEntry(label, path, label, species)
       }
-    }
+
     entries.toList
   }
 
-  def mkOutputFile(entry:KBEntry, outputDir:String):String =
-    outputDir + File.separator + entry.neLabel + ".tsv.gz"
+  def processKBFiles():Map[String, Seq[String]] = {
 
-  /**
-    * The entry will be in the format: text-of-entity unique-id species-where-the-entity-is-valid (optional)
-    */
-  def convertKB(entry:KBEntry, inputDir:String, outputDir:String): Unit = {
-    logger.info(s"Converting ${entry.kbName}...")
-    val inputPath = inputDir + File.separator + entry.kbName + ".tsv.gz"
-    val b = new BufferedReader(
-      new InputStreamReader(
-        new GZIPInputStream(
-          new FileInputStream(inputPath))))
+//    val entries = loadConfig(configFile)
+    val entries = loadFromConf()
+    logger.info(s"Will convert a total of ${entries.size} KBs:")
+
+    (for(entry <- entries) yield {
+      val processedLines = convertKB(entry)
+      entry.kbName -> processedLines
+    }).groupBy(_._1).mapValues(_.flatMap(_._2))
+  }
+
+  def convertKB(entry:KBEntry): Seq[String] = {
+    logger.info(s"Loading ${entry.kbName}...")
+    val inputPath = entry.path//inputDir + File.separator + entry.kbName + ".tsv"
+    val b =
+      if(new File(inputPath).exists())
+        new BufferedReader(new InputStreamReader(new FileInputStream(inputPath)))
+      else
+        new BufferedReader(new InputStreamReader(new GZIPInputStream(new FileInputStream(inputPath + ".gz"))))
+
+    val tokenizer: Tokenizer = (new BioNLPProcessor).tokenizer
 
     var done = false
     var lineCount = 0
@@ -96,12 +130,12 @@ object KBGenerator {
         done = true
       } else {
         val trimmedLine = line.trim
-        if(! trimmedLine.isEmpty && ! trimmedLine.startsWith("#")) { // skip comments
+        if(trimmedLine.nonEmpty && ! trimmedLine.startsWith("#")) { // skip comments
           val kbTokens = line.split("\t")
           if(containsValidSpecies(entry, kbTokens)) { // this is a protein from a species we want
             lineCount += 1
             val ne = kbTokens(0) // we enforce that the first token is the actual NE to be considered
-            val tokens = tokenizeResourceLine(ne) // tokenize using BioNLPProcessor
+            val tokens = tokenizeResourceLine(ne, tokenizer) // tokenize using BioNLPProcessor
             outputLines += tokens.mkString(" ")
           }
         }
@@ -109,25 +143,14 @@ object KBGenerator {
     }
     b.close()
 
-    // append to output; we may have multiple KBs using the same NE!
-    val first = ! new File(mkOutputFile(entry, outputDir)).exists()
-    val ow =
-      new PrintWriter(
-        new GZIPOutputStream(
-          new FileOutputStream(mkOutputFile(entry, outputDir), true)))
-    // Since the created files will be zipped and included in github, it's important that they
-    // are exactly the same no matter what platform the program runs on.  A plain println()
-    // will differ in line ending, so it is avoided here and \n is specified with print().
-    if (first) ow.print(s"# Created by ${getClass.getName} on $now.\n")
+
     val uniqLines = outputLines
       .filter(_.nonEmpty)
       .sorted
       .distinct
-    ow.print(uniqLines.mkString("\n"))
-    ow.print("\n")
-    ow.close()
 
-    logger.info(s"Done. Read $lineCount lines (${uniqLines.size} distinct) from ${entry.kbName}")
+    logger.info(s"Done. Read $lineCount lines (${uniqLines.size} distinct) from ${new File(entry.path).getName}")
+    uniqLines
   }
 
   def now:String = {
@@ -143,7 +166,7 @@ object KBGenerator {
     * @param line The KB line
     * @return The tokenized line
     */
-  def tokenizeResourceLine(line:String):Array[String] = {
+  def tokenizeResourceLine(line:String, tokenizer:Tokenizer):Array[String] = {
     val text = su.replaceUnicodeWithAscii(line)
     val origTokens = tokenizer.tokenize(text, sentenceSplit = false).head.words
     origTokens

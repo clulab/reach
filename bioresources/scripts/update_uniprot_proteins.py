@@ -2,7 +2,6 @@ import os
 import re
 import csv
 import sys
-import gzip
 import tqdm
 import requests
 import itertools
@@ -133,8 +132,8 @@ def process_row(row, extra_organism_mappings=None):
             continue
         entries.append((gene, entry, organism))
 
-    chains = _process_feature('CHAIN', chains)
-    peptides = _process_feature('PEPTIDE', peptides)
+    chains = _process_feature('CHAIN', chains, protein_synonyms[0])
+    peptides = _process_feature('PEPTIDE', peptides, protein_synonyms[0])
     for feature in chains + peptides:
         # Skip fragments with no name or the same name as an entry name/synonym
         if not feature.name or feature.name in {entry[0] for entry in entries}:
@@ -267,7 +266,6 @@ if __name__ == '__main__':
     here = os.path.dirname(os.path.abspath(__file__))
     kb_dir = os.path.join(here, os.pardir, 'src', 'main', 'resources', 'org',
                           'clulab', 'reach', 'kb')
-    resource_fname = os.path.join(kb_dir, 'uniprot-proteins.tsv')
 
     # Download the custom UniProt resource file
     print('Downloading from %s' % uniprot_url)
@@ -298,19 +296,22 @@ if __name__ == '__main__':
                                                hgnc_entries)
     processed_entries += hgnc_entries
     # We sort the entries first by the synonym but in a way that special
-    # characters and capitalization is ignored, then sort by ID and then
+    # characters and capitalization are ignored, then sort by ID and then
     # by organism.
     processed_entries = sorted(set(processed_entries),
                                key=lambda x: (re.sub('[^A-Za-z0-9]', '',
                                                      x[0]).lower(), x[1],
                                                      x[2]))
-    # Now dump the entries into an updated TSV file
-    print('Saving processed entries')
-    with open(resource_fname, 'w') as fh:
-        writer = csv.writer(fh, delimiter='\t')
-        for entry in processed_entries:
-            writer.writerow(entry)
-    # And then into a GZ file
-    with open(resource_fname, 'rb') as f1, \
-            gzip.open(resource_fname + '.gz', 'wb') as f2:
-        f2.writelines(f1)
+    boundaries = [('0', 'f'), ('g', 'p'), ('q', 'z')]
+    for begin, end in boundaries:
+        entries = [e for e in processed_entries
+                   if (begin <= (re.sub('[^A-Za-z0-9]', '', e[0])[0].lower())
+                       <= end)]
+        # Now dump the entries into an updated TSV file
+        resource_fname = os.path.join(kb_dir,
+            'uniprot-proteins-%s_%s.tsv' % (begin.upper(), end.upper()))
+        print('Saving processed entries')
+        with open(resource_fname, 'w') as fh:
+            writer = csv.writer(fh, delimiter='\t', lineterminator='\n')
+            for entry in entries:
+                writer.writerow(entry)

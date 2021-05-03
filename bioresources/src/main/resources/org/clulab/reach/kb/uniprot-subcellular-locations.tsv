@@ -1,0 +1,956 @@
+A band	SL-0476
+A bands	SL-0476
+Acidocalcisome	SL-0002
+Acidocalcisomes	SL-0002
+Acidocalcisome lumen	SL-0316
+Acidocalcisome lumens	SL-0316
+Acidocalcisome membrane	SL-0003
+Acidocalcisome membranes	SL-0003
+acrosome	SL-0007
+acrosomes	SL-0007
+acrosome inner membrane	SL-0004
+acrosome inner membranes	SL-0004
+acrosome lumen	SL-0005
+acrosome lumens	SL-0005
+acrosome membrane	SL-0006
+acrosome membranes	SL-0006
+acrosome outer membrane	SL-0447
+acrosome outer membranes	SL-0447
+actin patch	SL-0008
+actin patchs	SL-0008
+adherens junction	SL-0009
+adherens junctions	SL-0009
+aleurone grain	SL-0010
+aleurone grains	SL-0010
+aleurone grain lumen	SL-0317
+aleurone grain lumens	SL-0317
+aleurone grain membrane	SL-0011
+aleurone grain membranes	SL-0011
+amyloplast	SL-0012
+amyloplasts	SL-0012
+amyloplast inner membrane	SL-0013
+amyloplast inner membranes	SL-0013
+amyloplast membrane	SL-0014
+amyloplast membranes	SL-0014
+Apical cell membrane	SL-0015
+Apical cell membranes	SL-0015
+apical lamina	SL-0016
+apical laminas	SL-0016
+Apicolateral cell membrane	SL-0017
+Apicolateral cell membranes	SL-0017
+apicoplast	SL-0018
+apicoplasts	SL-0018
+apoplast	SL-0019
+apoplasts	SL-0019
+Archaeal flagellum	SL-0306
+Archaeal flagellums	SL-0306
+attachment organelle	SL-0020
+attachment organelles	SL-0020
+attachment organelle membrane	SL-0021
+attachment organelle membranes	SL-0021
+autophagosome	SL-0023
+autophagosomes	SL-0023
+autophagosome lumen	SL-0318
+autophagosome lumens	SL-0318
+autophagosome membrane	SL-0022
+autophagosome membranes	SL-0022
+axon	SL-0279
+axons	SL-0279
+Bacterial flagellum	SL-0307
+Bacterial flagellums	SL-0307
+Bacterial flagellum basal body	SL-0142
+Bacterial flagellum basal bodies	SL-0142
+Bacterial flagellum filament	SL-0358
+Bacterial flagellum filaments	SL-0358
+Bacterial flagellum hook	SL-0357
+Bacterial flagellum hooks	SL-0357
+Barrier septum	SL-0454
+Barrier septums	SL-0454
+Basal cell membrane	SL-0024
+Basal cell membranes	SL-0024
+basement membrane	SL-0025
+basement membranes	SL-0025
+Basolateral cell membrane	SL-0026
+Basolateral cell membranes	SL-0026
+bleb	SL-0472
+blebs	SL-0472
+Bud	SL-0027
+Buds	SL-0027
+Bud membrane	SL-0028
+Bud membranes	SL-0028
+Bud neck	SL-0029
+Bud necks	SL-0029
+Bud tip	SL-0030
+Bud tips	SL-0030
+Cajal body	SL-0031
+Cajal bodies	SL-0031
+calyx	SL-0032
+calyxs	SL-0032
+capsule	SL-0033
+capsules	SL-0033
+Carboxysome	SL-0034
+Carboxysomes	SL-0034
+caveola	SL-0035
+caveolas	SL-0035
+cell cortex	SL-0138
+cell cortexs	SL-0138
+Cell envelope	SL-0036
+Cell envelopes	SL-0036
+Cell inner membrane	SL-0037
+Cell inner membranes	SL-0037
+Cell junction	SL-0038
+Cell junctions	SL-0038
+Cell membrane	SL-0039
+Cell membranes	SL-0039
+Cell outer membrane	SL-0040
+Cell outer membranes	SL-0040
+Cell projection	SL-0280
+Cell projections	SL-0280
+Cell septum	SL-0455
+Cell septums	SL-0455
+Cell surface	SL-0310
+Cell surfaces	SL-0310
+Cell tip	SL-0456
+Cell tips	SL-0456
+cell wall	SL-0041
+cell walls	SL-0041
+Cellular chromatophore membrane	SL-0042
+Cellular chromatophore membranes	SL-0042
+Cellular thylakoid	SL-0043
+Cellular thylakoids	SL-0043
+Cellular thylakoid lumen	SL-0044
+Cellular thylakoid lumens	SL-0044
+Cellular thylakoid membrane	SL-0045
+Cellular thylakoid membranes	SL-0045
+centriolar satellite	SL-0485
+centriolar satellites	SL-0485
+centriole	SL-0046
+centrioles	SL-0046
+centromere	SL-0047
+centromeres	SL-0047
+centrosome	SL-0048
+centrosomes	SL-0048
+chloroplast	SL-0049
+chloroplasts	SL-0049
+chloroplast envelope	SL-0050
+chloroplast envelopes	SL-0050
+chloroplast inner membrane	SL-0051
+chloroplast inner membranes	SL-0051
+chloroplast intermembrane space	SL-0052
+chloroplast intermembrane spaces	SL-0052
+chloroplast membrane	SL-0053
+chloroplast membranes	SL-0053
+chloroplast nucleoid	SL-0139
+chloroplast nucleoids	SL-0139
+chloroplast outer membrane	SL-0054
+chloroplast outer membranes	SL-0054
+chloroplast stroma	SL-0055
+chloroplast stromas	SL-0055
+chloroplast thylakoid	SL-0056
+chloroplast thylakoids	SL-0056
+chloroplast thylakoid lumen	SL-0057
+chloroplast thylakoid lumens	SL-0057
+chloroplast thylakoid membrane	SL-0058
+chloroplast thylakoid membranes	SL-0058
+Chlorosome	SL-0059
+Chlorosomes	SL-0059
+chlorosome envelope	SL-0060
+chlorosome envelopes	SL-0060
+chromaffin granule	SL-0061
+chromaffin granules	SL-0061
+chromaffin granule lumen	SL-0349
+chromaffin granule lumens	SL-0349
+chromaffin granule membrane	SL-0062
+chromaffin granule membranes	SL-0062
+chromoplast	SL-0063
+chromoplasts	SL-0063
+chromoplast membrane	SL-0064
+chromoplast membranes	SL-0064
+chromoplast stroma	SL-0065
+chromoplast stromas	SL-0065
+Chromosome	SL-0468
+Chromosomes	SL-0468
+cilium	SL-0066
+ciliums	SL-0066
+cilium axoneme	SL-0304
+cilium axonemes	SL-0304
+cilium basal body	SL-0087
+cilium basal bodies	SL-0087
+cilium membrane	SL-0305
+cilium membranes	SL-0305
+cis-Golgi network	SL-0067
+cis-Golgi networks	SL-0067
+cis-Golgi network membrane	SL-0068
+cis-Golgi network membranes	SL-0068
+clathrin-coated pit	SL-0069
+clathrin-coated pits	SL-0069
+clathrin-coated vesicle	SL-0070
+clathrin-coated vesicles	SL-0070
+clathrin-coated vesicle lumen	SL-0319
+clathrin-coated vesicle lumens	SL-0319
+clathrin-coated vesicle membrane	SL-0071
+clathrin-coated vesicle membranes	SL-0071
+Cleavage furrow	SL-0467
+Cleavage furrows	SL-0467
+coated pit	SL-0072
+coated pits	SL-0072
+Contractile vacuole	SL-0073
+Contractile vacuoles	SL-0073
+Contractile vacuole lumen	SL-0320
+Contractile vacuole lumens	SL-0320
+Contractile vacuole membrane	SL-0074
+Contractile vacuole membranes	SL-0074
+COPI-coated vesicle	SL-0075
+COPI-coated vesicles	SL-0075
+COPI-coated vesicle lumen	SL-0321
+COPI-coated vesicle lumens	SL-0321
+COPI-coated vesicle membrane	SL-0076
+COPI-coated vesicle membranes	SL-0076
+COPII-coated vesicle	SL-0077
+COPII-coated vesicles	SL-0077
+COPII-coated vesicle lumen	SL-0322
+COPII-coated vesicle lumens	SL-0322
+COPII-coated vesicle membrane	SL-0078
+COPII-coated vesicle membranes	SL-0078
+Cornified envelope	SL-0079
+Cornified envelopes	SL-0079
+cvt vesicle	SL-0080
+cvt vesicles	SL-0080
+cvt vesicle lumen	SL-0323
+cvt vesicle lumens	SL-0323
+cvt vesicle membrane	SL-0081
+cvt vesicle membranes	SL-0081
+cyanelle	SL-0082
+cyanelles	SL-0082
+cyanelle envelope	SL-0479
+cyanelle envelopes	SL-0479
+cyanelle inner membrane	SL-0480
+cyanelle inner membranes	SL-0480
+cyanelle intermembrane space	SL-0481
+cyanelle intermembrane spaces	SL-0481
+cyanelle membrane	SL-0083
+cyanelle membranes	SL-0083
+cyanelle outer membrane	SL-0482
+cyanelle outer membranes	SL-0482
+cyanelle stroma	SL-0350
+cyanelle stromas	SL-0350
+cyanelle thylakoid	SL-0277
+cyanelle thylakoids	SL-0277
+cyanelle thylakoid lumen	SL-0084
+cyanelle thylakoid lumens	SL-0084
+cyanelle thylakoid membrane	SL-0085
+cyanelle thylakoid membranes	SL-0085
+Cytoplasm	SL-0086
+Cytoplasms	SL-0086
+Cytoplasmic granule	SL-0281
+Cytoplasmic granules	SL-0281
+Cytoplasmic granule lumen	SL-0324
+Cytoplasmic granule lumens	SL-0324
+Cytoplasmic granule membrane	SL-0282
+Cytoplasmic granule membranes	SL-0282
+Cytoplasmic vesicle	SL-0088
+Cytoplasmic vesicles	SL-0088
+Cytoplasmic vesicle lumen	SL-0325
+Cytoplasmic vesicle lumens	SL-0325
+Cytoplasmic vesicle membrane	SL-0089
+Cytoplasmic vesicle membranes	SL-0089
+cytoskeleton	SL-0090
+cytoskeletons	SL-0090
+cytosol	SL-0091
+cytosols	SL-0091
+dendrite	SL-0283
+dendrites	SL-0283
+dendritic spine	SL-0284
+dendritic spines	SL-0284
+dendritic spine membrane	SL-0285
+dendritic spine membranes	SL-0285
+desmosome	SL-0092
+desmosomes	SL-0092
+Early endosome	SL-0094
+Early endosomes	SL-0094
+Early endosome lumen	SL-0337
+Early endosome lumens	SL-0337
+Early endosome membrane	SL-0093
+Early endosome membranes	SL-0093
+Endomembrane system	SL-0147
+Endomembrane systems	SL-0147
+Endoplasmic reticulum	SL-0095
+Endoplasmic reticulums	SL-0095
+Endoplasmic reticulum lumen	SL-0096
+Endoplasmic reticulum lumens	SL-0096
+Endoplasmic reticulum membrane	SL-0097
+Endoplasmic reticulum membranes	SL-0097
+Endoplasmic reticulum-Golgi intermediate compartment	SL-0098
+Endoplasmic reticulum-Golgi intermediate compartments	SL-0098
+Endoplasmic reticulum-Golgi intermediate compartment lumen	SL-0326
+Endoplasmic reticulum-Golgi intermediate compartment lumens	SL-0326
+Endoplasmic reticulum-Golgi intermediate compartment membrane	SL-0099
+Endoplasmic reticulum-Golgi intermediate compartment membranes	SL-0099
+Endosome	SL-0101
+Endosomes	SL-0101
+Endosome lumen	SL-0327
+Endosome lumens	SL-0327
+Endosome membrane	SL-0100
+Endosome membranes	SL-0100
+esterosome	SL-0109
+esterosomes	SL-0109
+esterosome lumen	SL-0328
+esterosome lumens	SL-0328
+esterosome membrane	SL-0108
+esterosome membranes	SL-0108
+etioplast	SL-0110
+etioplasts	SL-0110
+etioplast membrane	SL-0329
+etioplast membranes	SL-0329
+etioplast stroma	SL-0330
+etioplast stromas	SL-0330
+exosome	SL-0466
+exosomes	SL-0466
+extracellular matrix	SL-0111
+extracellular matrixs	SL-0111
+extracellular space	SL-0112
+extracellular spaces	SL-0112
+filopodium	SL-0286
+filopodiums	SL-0286
+filopodium membrane	SL-0287
+filopodium membranes	SL-0287
+filopodium tip	SL-0470
+filopodium tips	SL-0470
+Fimbrium	SL-0113
+Fimbriums	SL-0113
+Flagellar pocket	SL-0116
+Flagellar pockets	SL-0116
+flagellum	SL-0117
+flagellums	SL-0117
+flagellum axoneme	SL-0114
+flagellum axonemes	SL-0114
+flagellum basal body	SL-0308
+flagellum basal bodies	SL-0308
+flagellum membrane	SL-0115
+flagellum membranes	SL-0115
+focal adhesion	SL-0118
+focal adhesions	SL-0118
+Forespore	SL-0119
+Forespores	SL-0119
+Forespore inner membrane	SL-0120
+Forespore inner membranes	SL-0120
+Forespore intermembrane space	SL-0121
+Forespore intermembrane spaces	SL-0121
+Forespore membrane	SL-0122
+Forespore membranes	SL-0122
+Forespore outer membrane	SL-0123
+Forespore outer membranes	SL-0123
+gap junction	SL-0124
+gap junctions	SL-0124
+gas vesicle	SL-0125
+gas vesicles	SL-0125
+gas vesicle lumen	SL-0331
+gas vesicle lumens	SL-0331
+gas vesicle membrane	SL-0126
+gas vesicle membranes	SL-0126
+gem	SL-0127
+gems	SL-0127
+Glycosome	SL-0129
+Glycosomes	SL-0129
+Glycosome matrix	SL-0332
+Glycosome matrixs	SL-0332
+Glycosome membrane	SL-0128
+Glycosome membranes	SL-0128
+Glyoxysome	SL-0131
+Glyoxysomes	SL-0131
+Glyoxysome matrix	SL-0333
+Glyoxysome matrixs	SL-0333
+Glyoxysome membrane	SL-0130
+Glyoxysome membranes	SL-0130
+Golgi apparatus	SL-0132
+Golgi apparatuses	SL-0132
+Golgi apparatus lumen	SL-0133
+Golgi apparatus lumens	SL-0133
+Golgi apparatus membrane	SL-0134
+Golgi apparatus membranes	SL-0134
+Golgi stack	SL-0135
+Golgi stacks	SL-0135
+Golgi stack lumen	SL-0334
+Golgi stack lumens	SL-0334
+Golgi stack membrane	SL-0136
+Golgi stack membranes	SL-0136
+growth cone	SL-0288
+growth cones	SL-0288
+growth cone membrane	SL-0289
+growth cone membranes	SL-0289
+H zone	SL-0477
+H zones	SL-0477
+hemidesmosome	SL-0137
+hemidesmosomes	SL-0137
+Host	SL-0431
+Hosts	SL-0431
+Host apical cell membrane	SL-0372
+Host apical cell membranes	SL-0372
+Host basolateral cell membrane	SL-0459
+Host basolateral cell membranes	SL-0459
+host caveola	SL-0428
+host caveolas	SL-0428
+Host cell	SL-0427
+Host cells	SL-0427
+Host cell envelope	SL-0421
+Host cell envelopes	SL-0421
+Host cell inner membrane	SL-0373
+Host cell inner membranes	SL-0373
+Host cell junction	SL-0374
+Host cell junctions	SL-0374
+Host cell membrane	SL-0375
+Host cell membranes	SL-0375
+Host cell outer membrane	SL-0376
+Host cell outer membranes	SL-0376
+Host cell projection	SL-0377
+Host cell projections	SL-0377
+Host cell surface	SL-0378
+Host cell surfaces	SL-0378
+Host cell wall	SL-0424
+Host cell walls	SL-0424
+Host cellular thylakoid	SL-0429
+Host cellular thylakoids	SL-0429
+Host cellular thylakoid membrane	SL-0430
+Host cellular thylakoid membranes	SL-0430
+Host chloroplast envelope	SL-0483
+Host chloroplast envelopes	SL-0483
+host cis-Golgi network	SL-0396
+host cis-Golgi networks	SL-0396
+host cis-Golgi network membrane	SL-0397
+host cis-Golgi network membranes	SL-0397
+Host cytoplasm	SL-0381
+Host cytoplasms	SL-0381
+Host cytoplasmic vesicle	SL-0386
+Host cytoplasmic vesicles	SL-0386
+Host cytoplasmic vesicle membrane	SL-0387
+Host cytoplasmic vesicle membranes	SL-0387
+host cytoskeleton	SL-0383
+host cytoskeletons	SL-0383
+host cytosol	SL-0384
+host cytosols	SL-0384
+Host early endosome	SL-0461
+Host early endosomes	SL-0461
+Host early endosome membrane	SL-0462
+Host early endosome membranes	SL-0462
+Host endomembrane system	SL-0398
+Host endomembrane systems	SL-0398
+Host endoplasmic reticulum	SL-0388
+Host endoplasmic reticulums	SL-0388
+Host endoplasmic reticulum lumen	SL-0389
+Host endoplasmic reticulum lumens	SL-0389
+Host endoplasmic reticulum membrane	SL-0390
+Host endoplasmic reticulum membranes	SL-0390
+Host endoplasmic reticulum-Golgi intermediate compartment	SL-0391
+Host endoplasmic reticulum-Golgi intermediate compartments	SL-0391
+Host endoplasmic reticulum-Golgi intermediate compartment membrane	SL-0392
+Host endoplasmic reticulum-Golgi intermediate compartment membranes	SL-0392
+Host endosome	SL-0393
+Host endosomes	SL-0393
+Host endosome membrane	SL-0394
+Host endosome membranes	SL-0394
+Host extracellular space	SL-0425
+Host extracellular spaces	SL-0425
+host filopodium	SL-0379
+host filopodiums	SL-0379
+Host glyoxysome	SL-0474
+Host glyoxysomes	SL-0474
+Host Golgi apparatus	SL-0395
+Host Golgi apparatuses	SL-0395
+Host Golgi apparatus membrane	SL-0426
+Host Golgi apparatus membranes	SL-0426
+Host late endosome	SL-0399
+Host late endosomes	SL-0399
+Host late endosome membrane	SL-0400
+Host late endosome membranes	SL-0400
+Host lipid droplet	SL-0401
+Host lipid droplets	SL-0401
+Host lysosome	SL-0403
+Host lysosomes	SL-0403
+Host lysosome membrane	SL-0404
+Host lysosome membranes	SL-0404
+Host membrane	SL-0380
+Host membranes	SL-0380
+Host microsome	SL-0405
+Host microsomes	SL-0405
+Host microsome membrane	SL-0406
+Host microsome membranes	SL-0406
+Host mitochondrion	SL-0407
+Host mitochondrions	SL-0407
+Host mitochondrion envelope	SL-0408
+Host mitochondrion envelopes	SL-0408
+Host mitochondrion inner membrane	SL-0409
+Host mitochondrion inner membranes	SL-0409
+Host mitochondrion membrane	SL-0410
+Host mitochondrion membranes	SL-0410
+Host mitochondrion outer membrane	SL-0411
+Host mitochondrion outer membranes	SL-0411
+host multivesicular body	SL-0453
+host multivesicular bodies	SL-0453
+host nucleolus	SL-0412
+host nucleoluses	SL-0412
+host nucleoplasm	SL-0413
+host nucleoplasms	SL-0413
+Host nucleus	SL-0414
+Host nucleuses	SL-0414
+Host nucleus envelope	SL-0415
+Host nucleus envelopes	SL-0415
+Host nucleus inner membrane	SL-0419
+Host nucleus inner membranes	SL-0419
+Host nucleus lamina	SL-0416
+Host nucleus laminas	SL-0416
+Host nucleus matrix	SL-0417
+Host nucleus matrixs	SL-0417
+Host nucleus membrane	SL-0418
+Host nucleus membranes	SL-0418
+Host nucleus outer membrane	SL-0446
+Host nucleus outer membranes	SL-0446
+host perinuclear region	SL-0382
+host perinuclear regions	SL-0382
+Host periplasm	SL-0420
+Host periplasms	SL-0420
+Host peroxisome	SL-0475
+Host peroxisomes	SL-0475
+host phagosome	SL-0432
+host phagosomes	SL-0432
+host phagosome membrane	SL-0433
+host phagosome membranes	SL-0433
+host plasmodesma	SL-0385
+host plasmodesmas	SL-0385
+host presynaptic cell membrane	SL-0434
+host presynaptic cell membranes	SL-0434
+Host rough endoplasmic reticulum	SL-0422
+Host rough endoplasmic reticulums	SL-0422
+Host rough endoplasmic reticulum membrane	SL-0423
+Host rough endoplasmic reticulum membranes	SL-0423
+Host smooth endoplasmic reticulum	SL-0444
+Host smooth endoplasmic reticulums	SL-0444
+Host smooth endoplasmic reticulum membrane	SL-0445
+Host smooth endoplasmic reticulum membranes	SL-0445
+host synapse	SL-0435
+host synapses	SL-0435
+Host thylakoid	SL-0449
+Host thylakoids	SL-0449
+host trans-Golgi network	SL-0463
+host trans-Golgi networks	SL-0463
+host trans-Golgi network membrane	SL-0464
+host trans-Golgi network membranes	SL-0464
+hyaline layer	SL-0143
+hyaline layers	SL-0143
+Hydrogenosome	SL-0145
+Hydrogenosomes	SL-0145
+Hydrogenosome lumen	SL-0335
+Hydrogenosome lumens	SL-0335
+Hydrogenosome membrane	SL-0144
+Hydrogenosome membranes	SL-0144
+I band	SL-0478
+I bands	SL-0478
+Inner membrane complex	SL-0362
+Inner membrane complexs	SL-0362
+interphotoreceptor matrix	SL-0146
+interphotoreceptor matrixs	SL-0146
+invadopodium	SL-0148
+invadopodiums	SL-0148
+invadopodium membrane	SL-0290
+invadopodium membranes	SL-0290
+kinetochore	SL-0149
+kinetochores	SL-0149
+kinetoplast	SL-0150
+kinetoplasts	SL-0150
+kinocilium	SL-0460
+kinociliums	SL-0460
+lamellipodium	SL-0291
+lamellipodiums	SL-0291
+lamellipodium membrane	SL-0292
+lamellipodium membranes	SL-0292
+Late endosome	SL-0152
+Late endosomes	SL-0152
+Late endosome lumen	SL-0336
+Late endosome lumens	SL-0336
+Late endosome membrane	SL-0151
+Late endosome membranes	SL-0151
+Lateral cell membrane	SL-0153
+Lateral cell membranes	SL-0153
+Lipid droplet	SL-0154
+Lipid droplets	SL-0154
+Lysosome	SL-0158
+Lysosomes	SL-0158
+Lysosome lumen	SL-0156
+Lysosome lumens	SL-0156
+Lysosome membrane	SL-0157
+Lysosome membranes	SL-0157
+Lytic vacuole	SL-0159
+Lytic vacuoles	SL-0159
+M line	SL-0315
+M lines	SL-0315
+Melanosome	SL-0161
+Melanosomes	SL-0161
+Melanosome lumen	SL-0338
+Melanosome lumens	SL-0338
+Melanosome membrane	SL-0160
+Melanosome membranes	SL-0160
+Membrane	SL-0162
+Membranes	SL-0162
+Membrane raft	SL-0370
+Membrane rafts	SL-0370
+microneme	SL-0163
+micronemes	SL-0163
+microneme lumen	SL-0339
+microneme lumens	SL-0339
+microneme membrane	SL-0164
+microneme membranes	SL-0164
+Microsome	SL-0166
+Microsomes	SL-0166
+Microsome membrane	SL-0165
+Microsome membranes	SL-0165
+microtubule organizing center	SL-0484
+microtubule organizing centers	SL-0484
+microvillus	SL-0293
+microvilluses	SL-0293
+microvillus membrane	SL-0294
+microvillus membranes	SL-0294
+Midbody	SL-0469
+Midbodies	SL-0469
+Mitochondrion	SL-0173
+Mitochondrions	SL-0173
+Mitochondrion envelope	SL-0167
+Mitochondrion envelopes	SL-0167
+Mitochondrion inner membrane	SL-0168
+Mitochondrion inner membranes	SL-0168
+Mitochondrion intermembrane space	SL-0169
+Mitochondrion intermembrane spaces	SL-0169
+Mitochondrion matrix	SL-0170
+Mitochondrion matrixs	SL-0170
+Mitochondrion membrane	SL-0171
+Mitochondrion membranes	SL-0171
+mitochondrion nucleoid	SL-0269
+mitochondrion nucleoids	SL-0269
+Mitochondrion outer membrane	SL-0172
+Mitochondrion outer membranes	SL-0172
+Mitosome	SL-0437
+Mitosomes	SL-0437
+Mitosome envelope	SL-0438
+Mitosome envelopes	SL-0438
+Mitosome inner membrane	SL-0439
+Mitosome inner membranes	SL-0439
+Mitosome intermembrane space	SL-0440
+Mitosome intermembrane spaces	SL-0440
+Mitosome matrix	SL-0441
+Mitosome matrixs	SL-0441
+Mitosome membrane	SL-0442
+Mitosome membranes	SL-0442
+Mitosome outer membrane	SL-0443
+Mitosome outer membranes	SL-0443
+multivesicular body	SL-0174
+multivesicular bodies	SL-0174
+multivesicular body lumen	SL-0340
+multivesicular body lumens	SL-0340
+multivesicular body membrane	SL-0175
+multivesicular body membranes	SL-0175
+Myelin membrane	SL-0176
+Myelin membranes	SL-0176
+myofibril	SL-0312
+myofibrils	SL-0312
+Nematocyst	SL-0177
+Nematocysts	SL-0177
+nuclear pore complex	SL-0185
+nuclear pore complexs	SL-0185
+nucleoid	SL-0187
+nucleoids	SL-0187
+nucleolus	SL-0188
+nucleoluses	SL-0188
+Nucleomorph	SL-0189
+Nucleomorphs	SL-0189
+nucleoplasm	SL-0190
+nucleoplasms	SL-0190
+Nucleus	SL-0191
+Nucleuses	SL-0191
+Nucleus envelope	SL-0178
+Nucleus envelopes	SL-0178
+Nucleus inner membrane	SL-0179
+Nucleus inner membranes	SL-0179
+Nucleus intermembrane space	SL-0184
+Nucleus intermembrane spaces	SL-0184
+Nucleus lamina	SL-0180
+Nucleus laminas	SL-0180
+Nucleus matrix	SL-0181
+Nucleus matrixs	SL-0181
+Nucleus membrane	SL-0182
+Nucleus membranes	SL-0182
+Nucleus outer membrane	SL-0183
+Nucleus outer membranes	SL-0183
+Nucleus speckle	SL-0186
+Nucleus speckles	SL-0186
+organellar chromatophore	SL-0351
+organellar chromatophores	SL-0351
+organellar chromatophore inner membrane	SL-0359
+organellar chromatophore inner membranes	SL-0359
+organellar chromatophore intermembrane space	SL-0360
+organellar chromatophore intermembrane spaces	SL-0360
+organellar chromatophore membrane	SL-0352
+organellar chromatophore membranes	SL-0352
+organellar chromatophore outer membrane	SL-0361
+organellar chromatophore outer membranes	SL-0361
+organellar chromatophore stroma	SL-0353
+organellar chromatophore stromas	SL-0353
+organellar chromatophore thylakoid	SL-0354
+organellar chromatophore thylakoids	SL-0354
+organellar chromatophore thylakoid lumen	SL-0355
+organellar chromatophore thylakoid lumens	SL-0355
+organellar chromatophore thylakoid membrane	SL-0356
+organellar chromatophore thylakoid membranes	SL-0356
+paranodal septate junction	SL-0192
+paranodal septate junctions	SL-0192
+Parasitophorous vacuole	SL-0194
+Parasitophorous vacuoles	SL-0194
+Parasitophorous vacuole lumen	SL-0341
+Parasitophorous vacuole lumens	SL-0341
+Parasitophorous vacuole membrane	SL-0193
+Parasitophorous vacuole membranes	SL-0193
+P-body	SL-0230
+P-bodies	SL-0230
+peribacteroid membrane	SL-0195
+peribacteroid membranes	SL-0195
+peribacteroid space	SL-0196
+peribacteroid spaces	SL-0196
+Perikaryon	SL-0197
+Perikaryons	SL-0197
+perinuclear region	SL-0198
+perinuclear regions	SL-0198
+perinuclear theca	SL-0199
+perinuclear thecas	SL-0199
+Periplasm	SL-0200
+Periplasms	SL-0200
+Periplasmic flagellum	SL-0201
+Periplasmic flagellums	SL-0201
+perispore	SL-0367
+perispores	SL-0367
+Peroxisome	SL-0204
+Peroxisomes	SL-0204
+Peroxisome matrix	SL-0202
+Peroxisome matrixs	SL-0202
+Peroxisome membrane	SL-0203
+Peroxisome membranes	SL-0203
+phagocytic cup	SL-0473
+phagocytic cups	SL-0473
+phagosome	SL-0206
+phagosomes	SL-0206
+phagosome lumen	SL-0342
+phagosome lumens	SL-0342
+phagosome membrane	SL-0205
+phagosome membranes	SL-0205
+Photoreceptor inner segment	SL-0457
+Photoreceptor inner segments	SL-0457
+photoreceptor outer segment	SL-0458
+photoreceptor outer segments	SL-0458
+phragmoplast	SL-0207
+phragmoplasts	SL-0207
+plasmodesma	SL-0208
+plasmodesmas	SL-0208
+Plastid	SL-0209
+Plastids	SL-0209
+Plastid envelope	SL-0210
+Plastid envelopes	SL-0210
+Plastid inner membrane	SL-0211
+Plastid inner membranes	SL-0211
+Plastid intermembrane space	SL-0212
+Plastid intermembrane spaces	SL-0212
+Plastid membrane	SL-0213
+Plastid membranes	SL-0213
+plastid nucleoid	SL-0140
+plastid nucleoids	SL-0140
+Plastid outer membrane	SL-0214
+Plastid outer membranes	SL-0214
+Plastid stroma	SL-0215
+Plastid stromas	SL-0215
+Plastid thylakoid	SL-0278
+Plastid thylakoids	SL-0278
+Plastid thylakoid lumen	SL-0309
+Plastid thylakoid lumens	SL-0309
+Plastid thylakoid membrane	SL-0216
+Plastid thylakoid membranes	SL-0216
+plastoglobule	SL-0217
+plastoglobules	SL-0217
+PML body	SL-0465
+PML bodies	SL-0465
+podosome	SL-0295
+podosomes	SL-0295
+podosome membrane	SL-0296
+podosome membranes	SL-0296
+pollen coat	SL-0371
+pollen coats	SL-0371
+porosome	SL-0218
+porosomes	SL-0218
+postsynaptic cell membrane	SL-0219
+postsynaptic cell membranes	SL-0219
+postsynaptic density	SL-0297
+postsynaptic densities	SL-0297
+Preautophagosomal structure	SL-0220
+Preautophagosomal structures	SL-0220
+Preautophagosomal structure membrane	SL-0221
+Preautophagosomal structure membranes	SL-0221
+presynaptic cell membrane	SL-0222
+presynaptic cell membranes	SL-0222
+Prevacuolar compartment	SL-0223
+Prevacuolar compartments	SL-0223
+Prevacuolar compartment lumen	SL-0343
+Prevacuolar compartment lumens	SL-0343
+Prevacuolar compartment membrane	SL-0224
+Prevacuolar compartment membranes	SL-0224
+primary cell wall	SL-0225
+primary cell walls	SL-0225
+prolamellar body	SL-0226
+prolamellar bodies	SL-0226
+Prospore	SL-0369
+Prospores	SL-0369
+Prospore membrane	SL-0368
+Prospore membranes	SL-0368
+Protein storage vacuole	SL-0228
+Protein storage vacuoles	SL-0228
+Protein storage vacuole lumen	SL-0344
+Protein storage vacuole lumens	SL-0344
+Protein storage vacuole membrane	SL-0227
+Protein storage vacuole membranes	SL-0227
+Protoplasm	SL-0229
+Protoplasms	SL-0229
+pseudopodium	SL-0298
+pseudopodiums	SL-0298
+pseudopodium membrane	SL-0299
+pseudopodium membranes	SL-0299
+pseudopodium tip	SL-0471
+pseudopodium tips	SL-0471
+Recycling endosome	SL-0232
+Recycling endosomes	SL-0232
+Recycling endosome lumen	SL-0345
+Recycling endosome lumens	SL-0345
+Recycling endosome membrane	SL-0231
+Recycling endosome membranes	SL-0231
+rhoptry	SL-0233
+rhoptries	SL-0233
+rhoptry lumen	SL-0346
+rhoptry lumens	SL-0346
+rhoptry membrane	SL-0234
+rhoptry membranes	SL-0234
+Rough endoplasmic reticulum	SL-0235
+Rough endoplasmic reticulums	SL-0235
+Rough endoplasmic reticulum lumen	SL-0236
+Rough endoplasmic reticulum lumens	SL-0236
+Rough endoplasmic reticulum membrane	SL-0237
+Rough endoplasmic reticulum membranes	SL-0237
+ruffle	SL-0300
+ruffles	SL-0300
+ruffle membrane	SL-0301
+ruffle membranes	SL-0301
+sarcolemma	SL-0238
+sarcolemmas	SL-0238
+sarcomere	SL-0313
+sarcomeres	SL-0313
+sarcoplasm	SL-0311
+sarcoplasms	SL-0311
+Sarcoplasmic reticulum	SL-0239
+Sarcoplasmic reticulums	SL-0239
+Sarcoplasmic reticulum lumen	SL-0240
+Sarcoplasmic reticulum lumens	SL-0240
+Sarcoplasmic reticulum membrane	SL-0241
+Sarcoplasmic reticulum membranes	SL-0241
+secondary cell wall	SL-0242
+secondary cell walls	SL-0242
+Secreted	SL-0243
+Secreteds	SL-0243
+secretory vesicle	SL-0244
+secretory vesicles	SL-0244
+secretory vesicle lumen	SL-0347
+secretory vesicle lumens	SL-0347
+secretory vesicle membrane	SL-0245
+secretory vesicle membranes	SL-0245
+septate junction	SL-0246
+septate junctions	SL-0246
+S-layer	SL-0262
+S-layers	SL-0262
+slime layer	SL-0247
+slime layers	SL-0247
+Smooth endoplasmic reticulum	SL-0248
+Smooth endoplasmic reticulums	SL-0248
+Smooth endoplasmic reticulum lumen	SL-0249
+Smooth endoplasmic reticulum lumens	SL-0249
+Smooth endoplasmic reticulum membrane	SL-0250
+Smooth endoplasmic reticulum membranes	SL-0250
+spindle	SL-0251
+spindles	SL-0251
+spindle pole	SL-0448
+spindle poles	SL-0448
+spindle pole body	SL-0252
+spindle pole bodies	SL-0252
+spore coat	SL-0366
+spore coats	SL-0366
+Spore core	SL-0253
+Spore cores	SL-0253
+Spore core membrane	SL-0363
+Spore core membranes	SL-0363
+spore cortex	SL-0364
+spore cortexs	SL-0364
+spore outer membrane	SL-0365
+spore outer membranes	SL-0365
+Spore polar tube	SL-0436
+Spore polar tubes	SL-0436
+Spore wall	SL-0254
+Spore walls	SL-0254
+stereocilium	SL-0302
+stereociliums	SL-0302
+stereocilium membrane	SL-0303
+stereocilium membranes	SL-0303
+surface film	SL-0255
+surface films	SL-0255
+Symbiosome	SL-0256
+Symbiosomes	SL-0256
+Symplast	SL-0257
+Symplasts	SL-0257
+synapse	SL-0258
+synapses	SL-0258
+synaptic vesicle	SL-0259
+synaptic vesicles	SL-0259
+synaptic vesicle lumen	SL-0348
+synaptic vesicle lumens	SL-0348
+synaptic vesicle membrane	SL-0260
+synaptic vesicle membranes	SL-0260
+synaptosome	SL-0261
+synaptosomes	SL-0261
+Target cell	SL-0487
+Target cells	SL-0487
+target cell cytoplasm	SL-0486
+target cell cytoplasms	SL-0486
+Target cell membrane	SL-0451
+Target cell membranes	SL-0451
+Target membrane	SL-0452
+Target membranes	SL-0452
+Tegument	SL-0263
+Teguments	SL-0263
+Tegument membrane	SL-0264
+Tegument membranes	SL-0264
+telomere	SL-0276
+telomeres	SL-0276
+Thylakoid	SL-0450
+Thylakoids	SL-0450
+tight junction	SL-0265
+tight junctions	SL-0265
+trans-Golgi network	SL-0266
+trans-Golgi networks	SL-0266
+trans-Golgi network membrane	SL-0267
+trans-Golgi network membranes	SL-0267
+Trichocyst	SL-0268
+Trichocysts	SL-0268
+uropodium	SL-0141
+uropodiums	SL-0141
+Vacuole	SL-0272
+Vacuoles	SL-0272
+Vacuole lumen	SL-0270
+Vacuole lumens	SL-0270
+Vacuole membrane	SL-0271
+Vacuole membranes	SL-0271
+Virion	SL-0274
+Virions	SL-0274
+Virion membrane	SL-0275
+Virion membranes	SL-0275
+Virion tegument	SL-0273
+Virion teguments	SL-0273
+Z line	SL-0314
+Z lines	SL-0314

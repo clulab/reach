@@ -1,284 +1,298 @@
+vars:
+  specialized_entity_types: "(Gene_or_gene_product|Species|CellLine|Organ|CellType|TissueType|Family|Cellular_Component|Simple_Chemical|Site|BioProcess)"
+
+rules:
 ###################
 # Site rules
 ###################
 
-- name: site_long
-  label: Site
-  priority: 1
-  type: token
-  action: mkBioMention
-  pattern: |
-    [word = /(?i)^(alanine|arginine|asparagine|aspartic|aspartate|cysteine|glutamic|glutamate|glutamine|glycine|histidine|isoleucine|leucine|lysine|methionine|phenylalanine|proline|serine|threonine|tryptophan|tyrosine|valine)$/]
-    [word = /acid/]?
-    [word = /(?i)residue/]?
-    [word = /\d{3}$/]?
+  - name: site_long
+    label: Site
+    priority: 1
+    type: token
+    action: mkBioMention
+    pattern: |
+      [word = /(?i)^(alanine|arginine|asparagine|aspartic|aspartate|cysteine|glutamic|glutamate|glutamine|glycine|histidine|isoleucine|leucine|lysine|methionine|phenylalanine|proline|serine|threonine|tryptophan|tyrosine|valine)$/]
+      [word = /acid/]?
+      [word = /(?i)residue/]?
+      [word = /\d{3}$/]?
 
-# this one is ambiguous: there are proteins that have the same form; in such cases, prefer the proteins or chemicals
-- name: site_1letter_a
-  label: Site
-  priority: 5
-  type: token
-  action: mkBioMention
-  pattern: |
-    (?<! [word=/(?i)^(table|figure|delta)/]) [word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+$/ & !mention=/^(Family|Gene_or_gene_product|Simple_chemical)$/]
-  # old alt. pattern /^P\d+$/
+  # this one is ambiguous: there are proteins that have the same form; in such cases, prefer the proteins or chemicals
+  - name: site_1letter_a
+    label: Site
+    priority: 5
+    type: token
+    action: mkBioMention
+    pattern: |
+      (?<! [word=/(?i)^(table|figure|delta)/]) [word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+$/ & !mention=/^(Family|Gene_or_gene_product|Simple_chemical)$/]
+    # old alt. pattern /^P\d+$/
 
-# this one is ambiguous: there are proteins that have the same form; in such cases, prefer the proteins or chemicals
-- name: site_1letter_b
-  label: Site
-  priority: 5
-  type: token
-  action: mkBioMention
-  pattern: |
-    (?<! [word=/(?i)^(table|figure|fig|tab)/])
-    [word=/(?i)^\d+[ACDEFGHIKLMNQRSTVWY]$/ & !mention=/^(Family|Gene_or_gene_product|Simple_chemical)$/]
-    (?! ">")
+  # this one is ambiguous: there are proteins that have the same form; in such cases, prefer the proteins or chemicals
+  - name: site_1letter_b
+    label: Site
+    priority: 5
+    type: token
+    action: mkBioMention
+    pattern: |
+      (?<! [word=/(?i)^(table|figure|fig|tab)/])
+      [word=/(?i)^\d+[ACDEFGHIKLMNQRSTVWY]$/ & !mention=/^(Family|Gene_or_gene_product|Simple_chemical)$/]
+      (?! ">")
 
-# NB: the period is only there to handle errorful tokenization by processors at sentence endings.
-- name: site_1letter_c
-  label: Site
-  priority: 5
-  type: token
-  action: mkBioMention
-  pattern: |
-    (?<! [word=/(?i)^(table|figure)/]) [word=/(?i)^\d+$/] [word=/^[ACDEFGHIKLMNQRSTVWY]\.?$/]
+  # NB: the period is only there to handle errorful tokenization by processors at sentence endings.
+  - name: site_1letter_c
+    label: Site
+    priority: 5
+    type: token
+    action: mkBioMention
+    pattern: |
+      (?<! [word=/(?i)^(table|figure)/]) [word=/(?i)^\d+$/] [word=/^[ACDEFGHIKLMNQRSTVWY]\.?$/]
 
-- name: site_3letter
-  label: Site
-  priority: 1
-  type: token
-  action: mkBioMention
-  pattern: |
-   [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)\-?\d+$/]
-   (?! [lemma=mutant])
+  - name: site_3letter
+    label: Site
+    priority: 1
+    type: token
+    action: mkBioMention
+    pattern: |
+     [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)\-?\d+$/]
+     (?! [lemma=mutant])
 
-#- name: site_3letterALT1
-#  label: Site
-#  priority: 1
-#  type: token
-#  action: mkBioMention
-#  pattern: |
-#   [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)([-0-9]+)?/]
-#   [word=mutant]?
+  #- name: site_3letterALT1
+  #  label: Site
+  #  priority: 1
+  #  type: token
+  #  action: mkBioMention
+  #  pattern: |
+  #   [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)([-0-9]+)?/]
+  #   [word=mutant]?
 
-- name: site_3letterALT
-  label: Site
-  priority: 1
-  type: token
-  action: mkBioMention
-  pattern: |
-   [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)$/]
-   [word=/residue/]?
-   [word=/\d+/]
+  - name: site_3letterALT
+    label: Site
+    priority: 1
+    type: token
+    action: mkBioMention
+    pattern: |
+     [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)$/]
+     [word=/residue/]?
+     [word=/\d+/]
 
-- name: site_fragment
-  label: Site
-  priority: 1
-  type: token
-  action: mkBioMention
-  example: "Under the same conditions, ASPP2 (693-1128) fragment phosphorylated by p38 SAPK had very low levels of incorporated 32P"
-  pattern: |
-    ("("|"-LRB-")
-    /^\d+-\d+$/
-    (")"|"-RRB-")
-    "fragment"
+  - name: site_fragment
+    label: Site
+    priority: 1
+    type: token
+    action: mkBioMention
+    example: "Under the same conditions, ASPP2 (693-1128) fragment phosphorylated by p38 SAPK had very low levels of incorporated 32P"
+    pattern: |
+      ("("|"-LRB-")
+      /^\d+-\d+$/
+      (")"|"-RRB-")
+      "fragment"
 
-# TODO GUS: must be extended with words containing domain, such as "Ferlin B-domain", or "Transcription regulator Wos2-domain"
-- name: site_domain
-  label: Site
-  priority: 1
-  action: mkBioMention
-  type: token
-  pattern: |
-    /\(/? /^[A-Z0-9-]+$/ /\)/? /domain/
+  # TODO GUS: must be extended with words containing domain, such as "Ferlin B-domain", or "Transcription regulator Wos2-domain"
+  - name: site_domain
+    label: Site
+    priority: 1
+    action: mkBioMention
+    type: token
+    pattern: |
+      /\(/? /^[A-Z0-9-]+$/ /\)/? /domain/
 
-# TODO GUS: must be extended with a list of known domains
-- name: site_known_domain
-  label: Site
-  priority: 1
-  action: mkBioMention
-  type: token
-  pattern: |
-    "RBD"
+  # TODO GUS: must be extended with a list of known domains
+  - name: site_known_domain
+    label: Site
+    priority: 1
+    action: mkBioMention
+    type: token
+    pattern: |
+      "RBD"
 
-- name: site_number
-  label: Site
-  priority: 1
-  type: token
-  action: mkBioMention
-  example: "EGF treatment did not affect ROCK1 protein expression level; however, it increased MYPT1 phosphorylation on site 853."
-  pattern: |
-    (?<= (?<! [mention="Site"]) [word=/(?i)^site$/]) [word=/^\d+$/] [word=/^[ACDEFGHIKLMNQRSTVWY]$/]?
+  - name: site_number
+    label: Site
+    priority: 1
+    type: token
+    action: mkBioMention
+    example: "EGF treatment did not affect ROCK1 protein expression level; however, it increased MYPT1 phosphorylation on site 853."
+    pattern: |
+      (?<= (?<! [mention="Site"]) [word=/(?i)^site$/]) [word=/^\d+$/] [word=/^[ACDEFGHIKLMNQRSTVWY]$/]?
 
-# The negative lookaround used in this rule is incomplete and will need to be improved as more false positives are identified
-- name: multi-site
-  label: Site
-  action: unpackRelations
-  priority: 2+
-  example: "Experiments revealed ubiquitination at Lys residues 104, 103, and 147 of K-Ras."
-  type: token
-  pattern: |
-    (@Site | [lemma=residue]) [word="("|word="-LRB-"]?
-    ([word="," | tag=CC]* (@site:Site | (?<site> /[A-Za-z]?\d+$/ (?! /[ACDEFGHIKLMNQSTVWY]|mM/))))+ # note that (?! "mM") is to avoid capturing measurements and R is removed to allow for RRB
-    [word=")"|word="-RRB-"]?
+  # The negative lookaround used in this rule is incomplete and will need to be improved as more false positives are identified
+  - name: multi-site
+    label: Site
+    action: unpackRelations
+    priority: 2+
+    example: "Experiments revealed ubiquitination at Lys residues 104, 103, and 147 of K-Ras."
+    type: token
+    pattern: |
+      (@Site | [lemma=residue]) [word="("|word="-LRB-"]?
+      ([word="," | tag=CC]* (@site:Site | (?<site> /[A-Za-z]?\d+$/ (?! /[ACDEFGHIKLMNQSTVWY]|mM/))))+ # note that (?! "mM") is to avoid capturing measurements and R is removed to allow for RRB
+      [word=")"|word="-RRB-"]?
 
-###################
-# ner rules
-###################
+  ###################
+  # ner rules
+  ###################
 
-- name: ner-species
-  label: Species
-  action: mkNERMentions
-  priority: 3
-  type: token
-  pattern: |
-    [entity='B-Species'] [entity='I-Species']*
+  - name: ner-generic
+    label: BioEntity
+    action: mkGenericNERMentions
+    priority: 6
+    type: token
+    # The first token's constraint makes sure this generic rule doesn't work as a "catch all" rule when a specific
+    # entity type rule discards certain matches. i.e. Gene_or_gene_product substrate's constraint
+    pattern: |
+      [entity=/B-/ & !entity=/B-${ specialized_entity_types }/] [entity=/I-/]*
 
-- name: ner-cell-lines
-  label: CellLine
-  action: mkNERMentions
-  priority: 3
-  type: token
-  pattern: |
-    [entity='B-CellLine'] [entity='I-CellLine']*
+  - name: ner-species
+    label: Species
+    action: mkNERMentions
+    priority: 3
+    type: token
+    pattern: |
+      [entity='B-Species'] [entity='I-Species']*
 
-- name: ner-organ
-  label: Organ
-  action: mkNERMentions
-  priority: 3
-  type: token
-  pattern: |
-    [entity='B-Organ'] [entity='I-Organ']*
+  - name: ner-cell-lines
+    label: CellLine
+    action: mkNERMentions
+    priority: 3
+    type: token
+    pattern: |
+      [entity='B-CellLine'] [entity='I-CellLine']*
 
-- name: ner-cell-type
-  label: CellType
-  action: mkNERMentions
-  priority: 3
-  type: token
-  pattern: |
-    [entity='B-CellType'] [entity='I-CellType']*
+  - name: ner-organ
+    label: Organ
+    action: mkNERMentions
+    priority: 3
+    type: token
+    pattern: |
+      [entity='B-Organ'] [entity='I-Organ']*
 
-- name: ner-tissue-type
-  label: TissueType
-  action: mkNERMentions
-  priority: 3
-  type: token
-  pattern: |
-    [entity='B-TissueType'] [entity='I-TissueType']*
+  - name: ner-cell-type
+    label: CellType
+    action: mkNERMentions
+    priority: 3
+    type: token
+    pattern: |
+      [entity='B-CellType'] [entity='I-CellType']*
 
-# - name: ner-infered-cell-type
-#   label: [CellType]
-#   priority: 4
-#   type: token
-#   pattern: |
-#     @Organ [lemma=/^(cells?|tissue|fluids?)/]
+  - name: ner-tissue-type
+    label: TissueType
+    action: mkNERMentions
+    priority: 3
+    type: token
+    pattern: |
+      [entity='B-TissueType'] [entity='I-TissueType']*
 
-- name: ner-gene_or_gene_product-entities
-  label: Gene_or_gene_product
-  action: mkNERMentions
-  priority: 3
-  type: token
-  pattern: |
-    [entity='B-Gene_or_gene_product' & !word=/(?i)^([ACDEFGHIKLMNQRSTVWY]?\d+_|Delta)?[ACDEFGHIKLMNQRSTVWY]?\d+(del|ins|dup|fs)?[ACDEFGHIKLMNPQRSTVWY]*$/]+
-    # digits are fine
-    ([entity='I-Gene_or_gene_product' & word=/^\d+$/] |
-    # avoid likely mutants, etc.
-    [entity='I-Gene_or_gene_product' & !word=/(?i)^([ACDEFGHIKLMNQRSTVWY]?\d+_|Delta)?[ACDEFGHIKLMNQRSTVWY]?\d+(del|ins|dup|fs)?[ACDEFGHIKLMNPQRSTVWY]*$/])*
-    # we may see the word "protein"
-    # we can't always trust the crf.  Make sure it isn't an obvious family
-    (?!
-    [lemma=substrate | lemma=family]
-    |
-    [lemma=protein] [lemma=family]
-    |
-    [lemma=inhibitor & !entity=/Gene_or_gene_product/]
-    )
+  # - name: ner-infered-cell-type
+  #   label: [CellType]
+  #   priority: 4
+  #   type: token
+  #   pattern: |
+  #     @Organ [lemma=/^(cells?|tissue|fluids?)/]
 
-# TODO: verify this ontology
-- name: ner-family-entities
-  label: Family
-  action: mkNERMentions
-  priority: 3
-  type: token
-  pattern: |
-    [entity='B-Family']+ [entity='I-Family']* (?! [lemma=substrate] | [lemma=inhibitor & entity=/Family/])
-    | # we can't always trust the crf.
-    [entity='B-Gene_or_gene_product']+ [entity='I-Gene_or_gene_product']*
-    # only allow the GGP ner label iff lemma of next tok is "family"
-    (?=  [lemma=protein]? [lemma="family"])
+  - name: ner-gene_or_gene_product-entities
+    label: Gene_or_gene_product
+    action: mkNERMentions
+    priority: 3
+    type: token
+    pattern: |
+      [entity='B-Gene_or_gene_product' & !word=/(?i)^([ACDEFGHIKLMNQRSTVWY]?\d+_|Delta)?[ACDEFGHIKLMNQRSTVWY]?\d+(del|ins|dup|fs)?[ACDEFGHIKLMNPQRSTVWY]*$/]+
+      # digits are fine
+      ([entity='I-Gene_or_gene_product' & word=/^\d+$/] |
+      # avoid likely mutants, etc.
+      [entity='I-Gene_or_gene_product' & !word=/(?i)^([ACDEFGHIKLMNQRSTVWY]?\d+_|Delta)?[ACDEFGHIKLMNQRSTVWY]?\d+(del|ins|dup|fs)?[ACDEFGHIKLMNPQRSTVWY]*$/])*
+      # we may see the word "protein"
+      # we can't always trust the crf.  Make sure it isn't an obvious family
+      (?!
+      [lemma=substrate | lemma=family]
+      |
+      [lemma=protein] [lemma=family]
+      |
+      [lemma=inhibitor & !entity=/Gene_or_gene_product/]
+      )
 
-# TODO: verify this ontology
-- name: ner-cellular_component-entities
-  label: [Cellular_component]
-  action: mkNERMentions
-  priority: 3
-  type: token
-  pattern: |
-    [entity='B-Cellular_component'] [entity='I-Cellular_component']*
+  # TODO: verify this ontology
+  - name: ner-family-entities
+    label: Family
+    action: mkNERMentions
+    priority: 3
+    type: token
+    pattern: |
+      [entity='B-Family']+ [entity='I-Family']* (?! [lemma=substrate] | [lemma=inhibitor & entity=/Family/])
+      | # we can't always trust the crf.
+      [entity='B-Gene_or_gene_product']+ [entity='I-Gene_or_gene_product']*
+      # only allow the GGP ner label iff lemma of next tok is "family"
+      (?=  [lemma=protein]? [lemma="family"])
 
-- name: ner-simple_chemical-entities
-  label: Simple_chemical
-  action: mkNERMentions
-  priority: 3
-  type: token
-  pattern: |
-    [entity='B-Simple_chemical'] [entity='I-Simple_chemical']* (?! [lemma="substrate"])
+  # TODO: verify this ontology
+  - name: ner-cellular_component-entities
+    label: [Cellular_component]
+    action: mkNERMentions
+    priority: 3
+    type: token
+    pattern: |
+      [entity='B-Cellular_component'] [entity='I-Cellular_component']*
 
-- name: ner-domain-entities
-  label: Site
-  action: mkNERMentions
-  priority: 3
-  type: token
-  pattern: |
-    [entity='B-Site'] [entity='I-Site']*
+  - name: ner-simple_chemical-entities
+    label: Simple_chemical
+    action: mkNERMentions
+    priority: 3
+    type: token
+    pattern: |
+      [entity='B-Simple_chemical'] [entity='I-Simple_chemical']* (?! [lemma="substrate"])
 
-- name: ner-bioprocess-entities
-  label: BioProcess
-  action: mkNERMentions
-  example: "apoptosis"
-  priority: 3
-  type: token
-  pattern: |
-    [entity='B-BioProcess'] [entity='I-BioProcess']*
+  - name: ner-domain-entities
+    label: Site
+    action: mkNERMentions
+    priority: 3
+    type: token
+    pattern: |
+      [entity='B-Site'] [entity='I-Site']*
 
-- name: ner-disease-entities
-  label: Disease
-  action: mkNERMentions
-  example: "cystic fibrosis"
-  priority: 3
-  type: token
-  pattern: |
-    [entity='B-Disease'] [entity='I-Disease']*
+  - name: ner-bioprocess-entities
+    label: BioProcess
+    action: mkNERMentions
+    example: "apoptosis"
+    priority: 3
+    type: token
+    pattern: |
+      [entity='B-BioProcess'] [entity='I-BioProcess']*
 
-# TODO: Ideally, this should somehow be added to the KB
-- name: missing-simple_chemical
-  label: Simple_chemical
-  action: mkBioMention
-  priority: 4
-  type: token
-  pattern: |
-    [word=/(?i)\-G[TD]P/ & word=/^\d/] # this also allows for 32P-GTP, etc.
+  - name: ner-disease-entities
+    label: Disease
+    action: mkNERMentions
+    example: "cystic fibrosis"
+    priority: 3
+    type: token
+    pattern: |
+      [entity='B-Disease'] [entity='I-Disease']*
 
-# TODO: What labels should these guys have?
-- name: missing-location
-  label: Gene_or_gene_product
-  action: mkBioMention
-  priority: 4
-  type: token
-  pattern: |
-    @BioChemicalEntity /(?i)receptor/ # there must be other relevant terms.  This rule comes from us finding "ERBB", but missing "ERBB receptors"
+  # TODO: Ideally, this should somehow be added to the KB
+  - name: missing-simple_chemical
+    label: Simple_chemical
+    action: mkBioMention
+    priority: 4
+    type: token
+    pattern: |
+      [word=/(?i)\-G[TD]P/ & word=/^\d/] # this also allows for 32P-GTP, etc.
 
-- name: protein-inhibitor
-  label: Simple_chemical
-  action: mkBioMention
-  priority: 2
-  type: token
-  pattern: |
-    (
-    [entity='B-Gene_or_gene_product' & !word=/(?i)^([ACDEFGHIKLMNQRSTVWY]?\d+_|Delta)?[ACDEFGHIKLMNQRSTVWY]?\d+(del|ins|dup|fs)?[ACDEFGHIKLMNPQRSTVWY]*$/]+
-    [entity='I-Gene_or_gene_product' & !word=/(?i)^([ACDEFGHIKLMNQRSTVWY]?\d+_|Delta)?[ACDEFGHIKLMNQRSTVWY]?\d+(del|ins|dup|fs)?[ACDEFGHIKLMNPQRSTVWY]*$/]*
-    |
-    [entity='B-Family']+
-    [entity='I-Family']*
-    )
-    [lemma=inhibitor & !entity=/^(B|I)/]
+  # TODO: What labels should these guys have?
+  - name: missing-location
+    label: Gene_or_gene_product
+    action: mkBioMention
+    priority: 4
+    type: token
+    pattern: |
+      @BioChemicalEntity /(?i)receptor/ # there must be other relevant terms.  This rule comes from us finding "ERBB", but missing "ERBB receptors"
+
+  - name: protein-inhibitor
+    label: Simple_chemical
+    action: mkBioMention
+    priority: 2
+    type: token
+    pattern: |
+      (
+      [entity='B-Gene_or_gene_product' & !word=/(?i)^([ACDEFGHIKLMNQRSTVWY]?\d+_|Delta)?[ACDEFGHIKLMNQRSTVWY]?\d+(del|ins|dup|fs)?[ACDEFGHIKLMNPQRSTVWY]*$/]+
+      [entity='I-Gene_or_gene_product' & !word=/(?i)^([ACDEFGHIKLMNQRSTVWY]?\d+_|Delta)?[ACDEFGHIKLMNQRSTVWY]?\d+(del|ins|dup|fs)?[ACDEFGHIKLMNPQRSTVWY]*$/]*
+      |
+      [entity='B-Family']+
+      [entity='I-Family']*
+      )
+      [lemma=inhibitor & !entity=/^(B|I)/]
