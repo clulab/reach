@@ -32,6 +32,10 @@ class TestAssociationEvents extends FlatSpec with Matchers {
   val sent24 = "Enhanced levels of circulating immune mediators such as IL-6 are often taken as a surrogate for “inflammageing” and are consistently associated with the frail phenotype and mortality"
   val sent25 = "There is evidence that anti-inflammatory interleukins (ILs) such as IL-10 and IL-4, although implicated to a lesser extent, also associate with the frailty phenotype [19–21]"
   val sent26 = "other reports have associated augmented serum concentrations of IL-6 with lower gait speed and reduced muscle strength in a context of frailty"
+  val sent27 = "body of evidence connecting frailty within inflammaging and immunosenescence biomarkers"
+  val sent28 = "very few studies have assessed the link between lymphocyte subpopulations and frailty status in older adults"
+  val sent29 = "involvement of chronic inflammation in frailty in later life"
+  val sent30 = "Inflammatory molecules may directly contribute to frailty"
 
 
   sent1 should "contain four association events" in {
@@ -86,7 +90,7 @@ class TestAssociationEvents extends FlatSpec with Matchers {
 
   sent11 should "contain two association events" in {
     val mentions = getBioMentions(sent11)
-    mentions.filter(_.label == "Association") should have size 2
+    mentions.filter(_.label == "Association") should have size 5
   }
 
   sent12 should "contain two association events" in {
@@ -130,7 +134,7 @@ class TestAssociationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label == "Association") should have size 1
   }
 
-  sent20 should "contain three association events" in { // TODO consider "link" events in this example
+  sent20 should "contain three association events" ignore {
     val mentions = getBioMentions(sent20)
     mentions.filter(_.label == "Association") should have size 3
   }
@@ -140,7 +144,7 @@ class TestAssociationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label == "Association") should have size 1
   }
 
-  sent23 should "contain one association event" in { // TODO very complex sentence
+  sent23 should "contain one association event" in {
     val mentions = getBioMentions(sent23)
     mentions.filter(_.label == "Association") should have size 1
   }
@@ -158,5 +162,25 @@ class TestAssociationEvents extends FlatSpec with Matchers {
   sent26 should "contain two association events" in {
     val mentions = getBioMentions(sent26)
     mentions.filter(_.label == "Association") should have size 2
+  }
+
+  sent27 should "contain two association events" in {
+    val mentions = getBioMentions(sent27)
+    mentions.filter(_.label == "Association") should have size 2
+  }
+
+  sent28 should "contain one association event" in {
+    val mentions = getBioMentions(sent28)
+    mentions.filter(_.label == "Association") should have size 1
+  }
+
+  sent29 should "contain one association event" in {
+    val mentions = getBioMentions(sent29)
+    mentions.filter(_.label == "Association") should have size 1
+  }
+
+  sent30 should "contain one association event" in {
+    val mentions = getBioMentions(sent29)
+    mentions.filter(_.label == "Association") should have size 1
   }
 }

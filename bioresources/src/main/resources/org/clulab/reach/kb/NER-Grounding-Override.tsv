@@ -874,3 +874,9 @@ serum immune mediators	FR00027		frailty	BioEntity
 gait speed	FR00028		frailty	PossibleController
 muscle strength	FR00029		frailty	PossibleController
 frail phenotype	FR00001		frailty	BioProcess
+physiological dysregulation	FR00030		frailty	BioProcess
+immunosenescence	FR00031		frailty	BioProcess
+inflammaging	FR00033		frailty	BioProcess
+sTNF-RII	FR00032		frailty	BioEntity
+comorbidity	FR00034		frailty	PossibleController
+lymphocyte subpopulations	FR00035		frailty	BioEntity
