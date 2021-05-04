@@ -286,7 +286,7 @@ object AnnotationsCLI {
     encoding: Charset = UTF_8,
     restartFile: Option[File] = None
   ): AnnotationsCLI =
-    new AnnotationsCLI(papersDir, outputDir, Seq(outputFormat), statsKeeper, encoding, restartFile)
+    new AnnotationsCLI(papersDir, outputDir, statsKeeper, encoding, restartFile)
 }
 
 
