@@ -31,11 +31,8 @@ class FastInlineLexiconNERBuilder(caseInsensitiveMatching:Boolean) extends FastL
       }
     }
 
-    val order = Seq("Gene_or_gene_product", "Family", "Cellular_component", "Simple_chemical", "Site", "BioProcess", "Disease", "Species", "CellLine", "TissueType", "CellType", "Organ")
 
-//    kbs.foreach { case (label, kb) =>
-    order.foreach{
-      label =>
+    kbs.foreach { case (label, kb) =>
         val kb = kbs(label)
         val beforeCount = buildState.getCount
         kb foreach { line =>
