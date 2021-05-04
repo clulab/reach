@@ -5,7 +5,7 @@ import org.clulab.reach.TestUtils._
 import org.clulab.utils.Files
 import org.scalatest.{ FlatSpec, Matchers }
 
-import org.clulab.reach.ReachCLI
+import org.clulab.reach.AnnotationsCLI
 
 /**
   * Tests the functionality of ReachCLI on the NXML papers in src/test/resources/inputs/nxml
@@ -30,8 +30,8 @@ class TestReachCLI extends FlatSpec with Matchers {
   // Tests usage of multiple output types
   "ReachCLI" should "output TEXT and FRIES correctly on NXML papers without assembly" in {
     println(s"Will output TEXT and FRIES output in directory ${comboDir.getAbsolutePath}")
-    val cli = new ReachCLI(papersDir = nxmlDir, outputDir = comboDir, outputFormats = Seq("text", "fries"))
-    val errorCount = cli.processPapers(threadLimit = nThreads, withAssembly = false)
+    val cli = new AnnotationsCLI(papersDir = nxmlDir, outputDir = comboDir, outputFormats = Seq("text", "fries"))
+    val errorCount = cli.preAnnotatePapers(threadLimit = nThreads, withAssembly = false)
     errorCount should be (0)
   }
 
