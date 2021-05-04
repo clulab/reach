@@ -24,8 +24,19 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^${ triggers }/ & tag=/^V/]
-    theme1:${ controllerType } = /${ any_nominal_subject }/ /nmod_such_as/?
-    theme2:${ controlledType }= /nmod_(with|in|to)/ /(amod|compound)/?
+    theme1:${ controllerType } = (<acl? <xcomp?)? (/${ any_nominal_subject }/ /nmod_(of|such_as|by)/*)?
+    theme2:${ controlledType }= /${objects}|nmod_(with|in|to|such_as|of)/+ /(amod|compound)/? (/conj/ /compound/?)?
+
+- name: ${ ruleType }_syntax_1b
+  priotity: ${ priority }
+  example: "Frailty and pre-frailty were associated with significantly elevated CRP and IL-6 levels."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^${ triggers }/ & tag=/^V/]
+    theme1:${ controlledType }= /${objects}|nmod_of/+
+    theme2:${ controlledType }= (/${objects}/? /nmod_with/+ | (conj_and dobj))
+
 
 - name: ${ ruleType }_syntax_2
   priotity: ${ priority }
@@ -37,17 +48,35 @@ rules:
     theme1:${ controllerType } = /^nmod_between/
     theme2:${ controlledType } = /^conj_and/ /^nmod_of/?
 
-#- name: "Positive_activation_surface_treated_with"
-#  priority: ${ priority }
-#  example: "We now show that mTOR inhibition induces insulin receptor substrate-1 expression and abrogates feedback inhibition of the pathway , resulting in Akt activation both in cancer cell lines and in patient tumors treated with the rapamycin derivative , RAD001 ."
-#  type: token
-#  label: ${label}
-#  action: ${ actionFlow }
-#  pattern: |
-#    @controlled:BioEntity [lemma=activation]?
-#    # some number of interceding tokens
-#    []{,10}
-#    (?<trigger> treated with)
-#    # determiners, etc.
-#    []{,3}
-#    @controller:BioEntity
+
+- name: ${ ruleType }_syntax_3
+  priotity: ${ priority }
+  example: "we did not find IL-6 or CRP levels to be significantly associated with age"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^${ triggers }/ & tag=/^V/]
+    theme1:${ controllerType } = <advcl_to dobj
+    theme2:${ controllerType } = /${objects}|nmod_(with|in|to|such_as|of)/+ /(amod|compound)/? (/conj/ /compound/?)?
+#    theme2:${ controlledType }= /advcl_/? /${objects}|nmod_(of|with|in|to|such_as)/+ /(amod|compound)/? (/conj/ /compound/?)?
+
+- name: ${ ruleType }_syntax_3b
+  priotity: ${ priority }
+  example: "we did not find IL-6 or CRP levels to be significantly associated with age"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^${ triggers }/ & tag=/^V/]
+    theme1:${ controllerType } = (<acl? <xcomp?)? (/${ any_nominal_subject }/ /nmod_(of|such_as|by)/*)?
+    theme2:${ controlledType }= /advcl_/? /${objects}|nmod_(of|with|in|to|such_as)/+ /(amod|compound)/? (/conj/ /compound/?)?
+
+
+- name: ${ ruleType }_syntax_4
+  priotity: ${ priority }
+  example: "Elevated levels of IL-6 have been linked to multiple age associated conditions , such as atherosclerosis , dementia and frailty"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^${ triggers }/ & tag=/^V/]
+    theme1:${ controllerType } = <acl <xcomp?
+    theme2:${ controlledType }= <acl <xcomp? (/dobj/ | /dobj/? /nmod_(of|with|in|to|such_as)/+)

@@ -861,3 +861,16 @@ weakness	FR00015		frailty	BioProcess
 slowness	FR00016		frailty	BioProcess
 reduced physical activity	FR00017		frailty	BioProcess
 pre-frailty	FR00018		frailty	BioProcess
+inflammatory molecules	FR00019		frailty	BioEntity
+physiological dysregulation	FR00020		frailty	BioProcess
+morbidity	FR00022		frailty	BioProcess
+mortality	FR00023		frailty	BioProcess
+Upregulation of pro inflammatory cytokines	FR00021		frailty	BioProcess
+d-dimer	FR00024		frailty	BioEntity
+tumor necrosis factor-alpha	FR00025		frailty	BioEntity
+inflammatory index	FR00026		frailty	BioEntity
+inflammatory index score	FR00026		frailty	BioEntity
+serum immune mediators	FR00027		frailty	BioEntity
+gait speed	FR00028		frailty	PossibleController
+muscle strength	FR00029		frailty	PossibleController
+frail phenotype	FR00001		frailty	BioProcess

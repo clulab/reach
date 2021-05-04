@@ -59,7 +59,13 @@ class BioPOSPostProcessor extends SentencePostProcessor {
         case aa if aa == "Pro" => tags(i) = "NN"
 
         // pre-frailty case
-        case pf if pf == "pre-frailty" => tags(i) = "NN"
+        case pf if pf.toLowerCase == "pre-frailty" => tags(i) = "NN"
+        // pro-inflammatory molecules case
+//        case pi if pi.toLowerCase == "molecules"
+//          && i >=2 && sentence.words(i-1).toLowerCase == "inflammatory"
+//          &&  sentence.words(i-2).toLowerCase == "pro" =>
+//          tags(i-1) = "NN"
+//          tags(i-2) = "NN"
 
         case _ => ()
       }

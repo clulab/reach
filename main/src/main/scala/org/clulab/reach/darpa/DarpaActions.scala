@@ -255,8 +255,10 @@ class DarpaActions extends Actions with LazyLogging {
       val theme2s = m.arguments.getOrElse("theme2", Nil).map(_.toBioMention)
 
       (theme1s, theme2s) match {
-        case (t1s, t2s)  if t1s.size == 1 && t2s.size == 1
+        case (t1s, t2s)  if t1s.nonEmpty && t2s.nonEmpty
           => Seq(new BioEventMention(m - "theme1" - "theme2" + ("theme" -> Seq(t1s.head, t2s.head))))
+        case (t1s, t2a) if t2a.isEmpty =>
+          Seq(new BioEventMention(m - "theme1" - "theme2" + ("theme" -> t1s)))
         case _ => Nil
       }
   }
