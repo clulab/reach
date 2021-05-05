@@ -1,8 +1,6 @@
 package org.clulab.reach.`export`
 
-import org.clulab.reach.PaperReader
-import org.clulab.reach.AnnotationsCLI
-import org.clulab.reach.ReachTest
+import org.clulab.reach.{AnnotationsCLI, PaperReader, ReachCLI, ReachTest}
 
 import java.io.File
 
@@ -19,7 +17,7 @@ class TestCrashes extends ReachTest {
     val outputDir = new File(outputDirname)
     val outputFormats = Seq.empty[String]
 
-    new AnnotationsCLI(papersDir, outputDir, outputFormats)
+    new ReachCLI(papersDir, outputDir, outputFormats)
   }
 
   def getOutputFilenames(pmcid: String, outputFormat: String): Seq[String] = {
@@ -61,7 +59,7 @@ class TestCrashes extends ReachTest {
     val filename = mkFilename(pmcid)
     val file = new File(filename)
 
-    reachCLI.preAnnotatePaper(file, withAssembly)
+    reachCLI.processPaper(file, withAssembly)
   }
 
   {
