@@ -99,8 +99,9 @@ object KBGenerator {
     val kbEntries = loadFromConf()
     // This should only be performed on small collections.
     // It is important to keep both the labels and the KbEntries in the same order.
-    val labels = kbEntries.map(_.neLabel).distinct
-    val kbEntriesSeq = labels.map { label => kbEntries.filter(_.neLabel == label) }
+    val actualLabels = kbEntries.map(_.neLabel).distinct
+    val expectedLabels = Seq("Gene_or_gene_product", "Family", "Cellular_component", "Simple_chemical", "Site", "BioProcess", "Disease", "Species", "CellLine", "TissueType", "CellType", "Organ")
+    val kbEntriesSeq = expectedLabels.map { label => kbEntries.filter(_.neLabel == label) }
     val standardKbSources = kbEntriesSeq.map(new ReachMultiStandardKbSource(_, caseInsensitiveMatching))
 
     standardKbSources
