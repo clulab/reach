@@ -14,6 +14,7 @@ import java.nio.charset.StandardCharsets.UTF_8
 import ai.lum.common.FileUtils._
 import ai.lum.common.ConfigUtils._
 import org.clulab.odin._
+import org.clulab.processors.Document
 import org.clulab.reach.`export`.arizona.ArizonaOutputter
 import org.clulab.reach.`export`.cmu.CMUExporter
 import org.clulab.reach.assembly._
@@ -25,6 +26,7 @@ import org.clulab.reach.export.serial.SerialJsonOutput
 import org.clulab.reach.mentions.CorefMention
 import org.clulab.reach.mentions.serialization.json._
 import org.clulab.reach.utils.MentionManager
+import org.clulab.utils.Serializer
 
 /**
   * Class to run Reach reading and assembly and then produce FRIES format output
@@ -143,12 +145,24 @@ class ReachCLI (
     val startNS = System.nanoTime
     val startTime = ReachCLI.now
 
+    val isSerialized = file.getExtension() == "ser"
+
     logger.info(s"$startTime: Starting $paperId")
     logger.debug(s"  ${ durationToS(startNS, System.nanoTime) }s: $paperId: started reading")
 
-    // entry must be kept around for outputter
-    val entry = PaperReader.getEntryFromPaper(file)
-    val mentions = PaperReader.getMentionsFromEntry(entry)
+    val (entry, mentions) =
+      if(isSerialized){
+        val (entry, doc) = Serializer.load[(FriesEntry, Document)](file)
+        val mentions = PaperReader.reachSystem.extractFrom(doc)
+        (entry, mentions)
+      }
+      else{
+        // entry must be kept around for outputter
+        val entry = PaperReader.getEntryFromPaper(file)
+        val mentions = PaperReader.getMentionsFromEntry(entry)
+        (entry, mentions)
+      }
+
 
     logger.debug(s"  ${ durationToS(startNS, System.nanoTime) }s: $paperId: finished reading")
 

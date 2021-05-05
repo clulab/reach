@@ -157,7 +157,7 @@ class AnnotationsCLI(
     // NOTE: Assembly can't be run before calling this method without additional refactoring,
     // as different output formats apply different filters before running assembly
     val serializationOutcome =
-      Try(Serializer.save(doc, new File(outputDir, s"$paperId.ser")))
+      Try(Serializer.save((entry, doc), new File(outputDir, s"$paperId.ser")))
 
 
     // elapsed time: processing + writing output
@@ -186,83 +186,7 @@ class AnnotationsCLI(
     errorCount
   }
 
-  /** Write output for mentions originating from a single FriesEntry. */
-  def outputMentions (
-    mentions: Seq[Mention],
-    entry: FriesEntry,
-    paperId: String,
-    startTime: Date,
-    outputDir: File,
-    outputType: String,
-    withAssembly: Boolean
-  ) = {
 
-
-    val outFile = s"${outputDir.getAbsolutePath}${File.separator}$paperId"
-    (outputType.toLowerCase, withAssembly) match {
-
-      case ("text", _) =>
-        val mentionMgr = new MentionManager()
-        val lines = mentionMgr.sortMentionsToStrings(mentions)
-        val outFile = new File(outputDir, s"$paperId.txt")
-        FileUtils.writeLines(outFile, lines.asJavaCollection)
-
-      // Handle FRIES-style output (w/ assembly)
-      case ("fries", true) =>
-        val mentionsForOutput = prepareMentionsForMITRE(mentions)
-        val assembler = doAssembly(mentionsForOutput)
-        // time elapsed (w/ assembly)
-        val procTime = AnnotationsCLI.now
-        val outputter = new FriesOutput()
-        outputter.writeJSON(paperId, mentionsForOutput, Seq(entry), startTime, procTime, outFile)
-
-      // Handle FRIES-style output (w/o assembly)
-      case ("fries", false) =>
-        val mentionsForOutput = prepareMentionsForMITRE(mentions)
-        // time elapsed (w/o assembly)
-        val procTime = AnnotationsCLI.now
-        val outputter = new FriesOutput()
-        outputter.writeJSON(paperId, mentionsForOutput, Seq(entry), startTime, procTime, outFile)
-
-      // Handle Index cards (NOTE: outdated!)
-      case ("indexcard", _) =>
-        // time elapsed
-        val procTime = AnnotationsCLI.now
-        val outputter = new IndexCardOutput()
-        outputter.writeJSON(paperId, mentions, Seq(entry), startTime, procTime, outFile)
-
-      // Handle Serial-JSON output format (w/o assembly)
-      case ("serial-json", _) =>
-        val procTime = AnnotationsCLI.now
-        val outputter = new SerialJsonOutput(encoding)
-        outputter.writeJSON(paperId, mentions, Seq(entry), startTime, procTime, outFile)
-
-      // assembly output
-      case ("assembly-tsv", _) =>
-        val assembler = doAssembly(mentions)
-        val ae = new AssemblyExporter(assembler.am)
-        val outFile = new File(outputDir, s"$paperId-assembly-out.tsv")
-        val outFile2 = new File(outputDir, s"$paperId-assembly-out-unconstrained.tsv")
-        // MITRE's requirements
-        ae.writeRows(outFile, AssemblyExporter.DEFAULT_COLUMNS, AssemblyExporter.SEP, ExportFilters.MITREfilter)
-        // no filter
-        ae.writeRows(outFile2, AssemblyExporter.DEFAULT_COLUMNS, AssemblyExporter.SEP, (rows: Seq[AssemblyRow]) => rows.filter(_.seen > 0))
-
-      // Arizona's custom tabular output for assembly
-      case ("arizona", _) =>
-        val output = ArizonaOutputter.tabularOutput(mentions)
-        val outFile = new File(outputDir, s"$paperId-arizona-out.tsv")
-        outFile.writeString(output, java.nio.charset.StandardCharsets.UTF_8)
-
-      // CMU's custom tabular output for assembly
-      case ("cmu", _) =>
-        val output = CMUExporter.tabularOutput(mentions)
-        val outFile = new File(outputDir, s"$paperId-cmu-out.tsv")
-        outFile.writeString(output, java.nio.charset.StandardCharsets.UTF_8)
-
-      case _ => throw new RuntimeException(s"Output format ${outputType.toLowerCase} not yet supported!")
-    }
-  }
 
   /** Return the duration, in seconds, between the given nanosecond time values. */
   private def durationToS (startNS:Long, endNS:Long): Long = (endNS - startNS) / 1000000000L
