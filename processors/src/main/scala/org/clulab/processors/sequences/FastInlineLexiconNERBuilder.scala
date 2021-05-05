@@ -7,7 +7,7 @@ import org.clulab.utils.Serializer
 
 class FastInlineLexiconNERBuilder(caseInsensitiveMatching:Boolean) extends FastLexiconNERBuilder(caseInsensitiveMatching) {
 
-  def build(kbs: Map[String, Seq[String]], overrideKBs: Option[Seq[String]], entityValidator: EntityValidator, lexicalVariationEngine: LexicalVariations, useLemmasForMatching: Boolean): LexiconNER = {
+  def buildWithOrder(kbs: Seq[(String, Seq[String])], overrideKBs: Option[Seq[String]], entityValidator: EntityValidator, lexicalVariationEngine: LexicalVariations, useLemmasForMatching: Boolean): LexiconNER = {
     logger.info("Beginning to load the KBs for the rule-based NER...")
     val buildState = new BuildState(lexicalVariationEngine)
     addOverrideKBs(overrideKBs, buildState) // first so they take priority during matching
@@ -22,7 +22,7 @@ class FastInlineLexiconNERBuilder(caseInsensitiveMatching:Boolean) extends FastL
       new CombinedLexiconNER(buildState.intHashTrie, labels, buildState.knownCaseInsensitives.toSet, useLemmasForMatching, entityValidator)
   }
 
-  private def addInlineStandardKBs(kbs: Map[String, Seq[String]], buildState: BuildState): Unit = {
+  private def addInlineStandardKBs(kbs: Seq[(String, Seq[String])], buildState: BuildState): Unit = {
     def addLine(inputLine: String, label: String): Unit = {
       val line = inputLine.trim
       if (!line.startsWith("#")) {
@@ -33,7 +33,7 @@ class FastInlineLexiconNERBuilder(caseInsensitiveMatching:Boolean) extends FastL
 
 
     kbs.foreach { case (label, kb) =>
-        val kb = kbs(label)
+//        val kb = kbs(label)
         val beforeCount = buildState.getCount
         kb foreach { line =>
             addLine(line, label)
