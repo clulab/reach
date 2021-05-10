@@ -17,7 +17,7 @@ import org.clulab.odin.impl.Taxonomy
 package object reach {
 
   /** Pattern identifying files which Reach can potentially process. */
-  val ReachInputFilePattern = """.*\.(nxml|csv|tsv|txt)$"""
+  val ReachInputFilePattern = """.*\.(nxml|csv|tsv|txt|ser)$"""
 
   // Taxonomy object
   val taxonomy = readTaxonomy("org/clulab/reach/biogrammar/taxonomy.yml")
