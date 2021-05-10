@@ -14,6 +14,7 @@ import java.nio.charset.StandardCharsets.UTF_8
 import ai.lum.common.FileUtils._
 import ai.lum.common.ConfigUtils._
 import org.clulab.odin._
+import org.clulab.processors.Document
 import org.clulab.reach.`export`.arizona.ArizonaOutputter
 import org.clulab.reach.`export`.cmu.CMUExporter
 import org.clulab.reach.assembly._
@@ -25,6 +26,7 @@ import org.clulab.reach.export.serial.SerialJsonOutput
 import org.clulab.reach.mentions.CorefMention
 import org.clulab.reach.mentions.serialization.json._
 import org.clulab.reach.utils.MentionManager
+import org.clulab.utils.Serializer
 
 /**
   * Class to run Reach reading and assembly and then produce FRIES format output
@@ -35,99 +37,17 @@ import org.clulab.reach.utils.MentionManager
   *   - Remove assembly functionality (including output formats relying on assembly).
   */
 class ReachCLI (
-  val papersDir: File,
-  val outputDir: File,
+  override val papersDir: File,
+  override val outputDir: File,
   val outputFormats: Seq[String],
-  val statsKeeper: ProcessingStats = new ProcessingStats,
-  val encoding: Charset = UTF_8,
-  val restartFile: Option[File] = None
-) extends LazyLogging {
+  override val statsKeeper: ProcessingStats = new ProcessingStats,
+  override val encoding: Charset = UTF_8,
+  override val restartFile: Option[File] = None
+) extends CLI(papersDir, outputDir, statsKeeper, encoding, restartFile) {
 
-  /** Return a (possibly empty) set of filenames for input file (papers) which have
-      already been successfully processed and which can be skipped. */
-  val skipFiles: Set[String] = restartFile match {
-    case None => Set.empty[String]
-    case Some(f) =>
-      // get set of nonempty lines
-      val lines: Set[String] = f.readString(encoding).split("\n").filter(_.nonEmpty).toSet
-      lines
-  }
 
   /** Lock file object for restart file. */
   private val restartFileLock = new AnyRef
-
-  /** In the restart log file, record the given file as successfully completed. */
-  def fileSucceeded (file: File): Unit = if (restartFile.nonEmpty) {
-    restartFileLock.synchronized {
-      restartFile.get.writeString(
-        string = s"${file.getName}\n", 
-        charset = encoding, 
-        append = true,
-        gzipSupport = false
-      )
-    }
-  }
-
-  def reportException(file: File, e: Throwable): Unit = {
-    val filename = file.getName
-    val paperID = FilenameUtils.removeExtension(filename)
-    val report =
-      s"""
-         |==========
-         |
-         | ¡¡¡ NxmlReader error !!!
-         |
-         |paper: $paperID
-         |
-         |error:
-         |${e.toString}
-         |
-         |stack trace:
-         |${e.getStackTrace.mkString("\n")}
-         |
-         |==========
-         |""".stripMargin
-    logger.error(report)
-  }
-
-  /** Process papers **/
-  def processPapers (threadLimit: Option[Int], withAssembly: Boolean): Int = {
-    logger.info("Initializing Reach ...")
-
-    val files = papersDir.listFilesByRegex(pattern=ReachInputFilePattern, caseInsensitive = true, recursive = true).toVector.par
-
-    // limit parallelization
-    if (threadLimit.nonEmpty) {
-      files.tasksupport =
-        new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit.get))
-    }
-
-    val errorCounts = for {
-      file <- files
-      filename = file.getName
-      if ! skipFiles.contains(filename)
-    } yield {
-      val error: Int = try {
-        // Count the number of failed files, not failed formats.
-        math.signum(processPaper(file, withAssembly))
-      } catch {
-        case e: Exception =>
-          // The reading itself, rather than the format, could have failed.
-          reportException(file, e)
-          1
-      }
-      error
-    }
-    val paperCount = errorCounts.length
-    val errorCount = errorCounts.sum
-    val message =
-      if (errorCount > 0)
-        s"Reach encountered $errorCount error(s) with the $paperCount paper(s).  Please check the log."
-      else
-        s"Reach encountered no errors with the $paperCount paper(s)."
-    logger.info(message)
-    errorCount
-  }
 
   def prepareMentionsForMITRE (mentions: Seq[Mention]): Seq[CorefMention] = {
     // NOTE: We're already doing this in the exporter, but the mentions given to the
@@ -138,17 +58,29 @@ class ReachCLI (
   def doAssembly (mns: Seq[Mention]): Assembler = Assembler(mns)
 
   // Returns count of outputFormats which errored.
-  def processPaper (file: File, withAssembly: Boolean): Int = {
+  override def processPaper (file: File, withAssembly: Boolean): Int = {
     val paperId = FilenameUtils.removeExtension(file.getName)
     val startNS = System.nanoTime
     val startTime = ReachCLI.now
 
+    val isSerialized = file.getExtension() == "ser"
+
     logger.info(s"$startTime: Starting $paperId")
     logger.debug(s"  ${ durationToS(startNS, System.nanoTime) }s: $paperId: started reading")
 
-    // entry must be kept around for outputter
-    val entry = PaperReader.getEntryFromPaper(file)
-    val mentions = PaperReader.getMentionsFromEntry(entry)
+    val (entry, mentions) =
+      if(isSerialized){
+        val (entry, doc) = Serializer.load[(FriesEntry, Document)](file)
+        val mentions = PaperReader.reachSystem.extractFrom(doc)
+        (entry, mentions)
+      }
+      else{
+        // entry must be kept around for outputter
+        val entry = PaperReader.getEntryFromPaper(file)
+        val mentions = PaperReader.getMentionsFromEntry(entry)
+        (entry, mentions)
+      }
+
 
     logger.debug(s"  ${ durationToS(startNS, System.nanoTime) }s: $paperId: finished reading")
 
@@ -265,9 +197,6 @@ class ReachCLI (
       case _ => throw new RuntimeException(s"Output format ${outputType.toLowerCase} not yet supported!")
     }
   }
-
-  /** Return the duration, in seconds, between the given nanosecond time values. */
-  private def durationToS (startNS:Long, endNS:Long): Long = (endNS - startNS) / 1000000000L
 }
 
 
