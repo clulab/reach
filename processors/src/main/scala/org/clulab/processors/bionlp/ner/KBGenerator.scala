@@ -35,7 +35,7 @@ object KBGenerator {
 
   def loadFromConf():Seq[KBEntry] = {
 
-    val configuredKBs:Map[String, Seq[(String, Set[String])]] = {
+    val configuredKBs:Seq[(String, String, Set[String])] = {
       val conf = ConfigFactory.load()
       val kbConf = conf.getConfig("KnowledgeBases")
 
@@ -71,22 +71,27 @@ object KBGenerator {
       }
 
       // Make them a dictionary where the key is label and the value are the references to KBs with this label
-      loadedKBs groupBy {
-        case (label, _, _, _) => label
-      } mapValues {
-        _.sortBy{
-          case (label, path, priority, _) =>
-            priority
-        }.reverse.map{
-          case (_, path, _, species) => (path, species)
-        }.toList
-      }
+//      loadedKBs groupBy {
+//        case (label, _, _, _) => label
+//      } mapValues {
+//        _.sortBy{
+//          case (label, path, priority, _) =>
+//            priority
+//        }.reverse.map{
+//          case (_, path, _, species) => (path, species)
+//        }.toList
+//      }
+
+      loadedKBs.sortBy{
+        case (_, _, priority, _) => priority
+      }.map {
+        case (label, path, _, species) => (label, path, species)
+      }.toList
     }
 
     val entries =
       for{
-        (label, pathsWithSpecies) <- configuredKBs
-        (path, species) <- pathsWithSpecies
+        (label, path, species) <- configuredKBs
       } yield {
         val name = new File(path).getName.split("\\.").dropRight(1).mkString("")
         KBEntry(label, path, label, species)
