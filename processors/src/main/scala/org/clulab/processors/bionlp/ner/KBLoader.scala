@@ -45,7 +45,7 @@ object KBLoader {
 
   /** List of entity labeling files for the rule-based NER. If missing, an error is thrown.
     * NB: file order is important: it indicates priority! */
-  val RULE_NER_KBS: Map[String, Seq[String]] = KBGenerator.processKBFiles()
+  val RULE_NER_KBS: Seq[(String, Seq[String])] = KBGenerator.processKBFiles()
 
   /** A horrible hack to keep track of entities that should not be labeled when in
     * lower case, or upper initial case. */

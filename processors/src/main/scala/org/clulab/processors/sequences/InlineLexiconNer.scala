@@ -5,7 +5,7 @@ import org.clulab.sequences.{FastLexiconNERBuilder, LexicalVariations, LexiconNE
 import org.clulab.struct.EntityValidator
 
 object InlineLexiconNer {
-  def apply(kbs: Map[String, Seq[String]], overrideKBs: Option[Seq[String]],
+  def apply(kbs: Seq[(String, Seq[String])], overrideKBs: Option[Seq[String]],
             entityValidator: EntityValidator,
             lexicalVariationEngine: LexicalVariations,
             useLemmasForMatching: Boolean,
@@ -15,7 +15,7 @@ object InlineLexiconNer {
       else  entityValidator
 
 //    if (USE_FAST)
-      new FastInlineLexiconNERBuilder(caseInsensitiveMatching).build(kbs, overrideKBs, newEntityValidator,
+      new FastInlineLexiconNERBuilder(caseInsensitiveMatching).buildWithOrder(kbs, overrideKBs, newEntityValidator,
         lexicalVariationEngine, useLemmasForMatching)
 //    else
 //      new SlowLexiconNERBuilder(caseInsensitiveMatching).build(kbs, overrideKBs, newEntityValidator,
