@@ -1,8 +1,6 @@
 package org.clulab.reach.`export`
 
-import org.clulab.reach.PaperReader
-import org.clulab.reach.ReachCLI
-import org.clulab.reach.ReachTest
+import org.clulab.reach.{AnnotationsCLI, PaperReader, ReachCLI, ReachTest}
 
 import java.io.File
 
@@ -39,7 +37,7 @@ class TestCrashes extends ReachTest {
     val entry = PaperReader.getEntryFromPaper(file)
     val mentions = PaperReader.getMentionsFromEntry(entry)
     val paperId = pmcid
-    val startTime = ReachCLI.now
+    val startTime = AnnotationsCLI.now
 
     try {
       reachCLI.outputMentions(mentions, entry, paperId, startTime, reachCLI.outputDir, outputFormat, withAssembly)

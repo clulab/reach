@@ -3,9 +3,8 @@ package org.clulab.reach.export
 import java.io.File
 import org.clulab.reach.TestUtils._
 import org.clulab.utils.Files
-import org.scalatest.{ FlatSpec, Matchers }
-
-import org.clulab.reach.ReachCLI
+import org.scalatest.{FlatSpec, Matchers}
+import org.clulab.reach.{AnnotationsCLI, ReachCLI}
 
 /**
   * Tests the functionality of ReachCLI on the NXML papers in src/test/resources/inputs/nxml

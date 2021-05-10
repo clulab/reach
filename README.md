@@ -98,6 +98,10 @@ The most common use of Reach is to process a directory containing one or more pa
 
 Some configuration is necessary before running Reach. Please refer to the [Running Reach](https://github.com/clulab/reach/wiki/Running-Reach) Wiki page for detailed information on configuring and running Reach.
 
+## Pre-processing a directory of `.nxml` papers
+
+Reach supports pre-processing documents and storing intermediate results, containing lemmatization, POS tags, NER tags and dependency parses as serialized files. This allows for use cases where new rules are iteratively developed without having to spend computational resources more than once on parsing and tagging the nxml diles. See [pre-processing input formats](https://github.com/clulab/reach/wiki/Supported-Input-Formats#pre-processing) for the details.
+
 ## The Interactive Shell
 
 An interactive shell can be run from the command line to process small fragments of entered text. The shell is useful for reviewing and understanding the operation of Reach, including NER, entity, and event processing and rule debugging. To start a Reach shell, run the [runReachShell.sh](https://github.com/clulab/reach/blob/master/runReachShell.sh) script:
