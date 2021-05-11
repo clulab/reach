@@ -263,6 +263,15 @@ class DarpaActions extends Actions with LazyLogging {
       }
   }
 
+  def mkSignificance(mentions: Seq[Mention], state: State): Seq[Mention] = mentions //map {
+//    case m: RelationMention if m.matches("Significance") =>
+//      val rawKind = m.arguments("kind").head
+//      val rawVal = m.arguments("value").head
+//
+//      new BioRelationMention(m.copy( ))
+//
+//  }
+
   def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case m: EventMention if m.matches("Binding") =>
       // themes in a subject position

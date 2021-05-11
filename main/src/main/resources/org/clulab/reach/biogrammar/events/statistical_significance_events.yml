@@ -1,0 +1,36 @@
+# Detect p-values and correlation values
+
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
+  - name: significance_1
+    priority: ${ priority }
+    example: "age was positively associated with  fibrogen (r = 0.21; p = 0.04)"
+    label: Significance
+    type: token
+    action: mkSignificance
+    pattern: |
+      (?<kind> [word=/(?i)^[rp]$/])
+      [ word = /^=$/ ]
+      (?<value> [ tag = CD ]+)
+
+  - name: significance_2
+    priority: ${ priority }
+    example: "r= 0.21"
+    label: Significance
+    type: token
+    action: mkSignificance
+    pattern: |
+      (?<kind> [ word =/^(?i)[rp]=$/ ])
+      (?<value> [ tag = CD ]+)
+
+  - name: significance_3
+    priority: ${ priority }
+    example: "p =0.21"
+    label: Significance
+    type: token
+    action: mkSignificance
+    pattern: |
+      (?<kind> [word = /^(?i)[rp]$/])
+      (?<value> [word = /^=/ & tag = /CD/]+)

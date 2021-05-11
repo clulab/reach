@@ -519,3 +519,7 @@ rules:
       priority: "15" # must be 1 + priority of regulations!
       controlledType: "PossibleController"
       controllerType: "PossibleController"
+
+  - import: org/clulab/reach/biogrammar/events/statistical_significance_events.yml
+    vars:
+      priority: "16"
