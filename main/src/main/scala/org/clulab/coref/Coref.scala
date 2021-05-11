@@ -319,7 +319,7 @@ class Coref extends LazyLogging {
     val sevts = mentions.filter(m => m.isInstanceOf[CorefEventMention] && m.matches("SimpleEvent")).map(_.asInstanceOf[CorefEventMention])
     val cevts = mentions.filter(m => m.matches("ComplexEvent"))
     // Added by Enrique to avoid discarding the Significance relations
-    val significanceevts = mentions.filter(m => m.matches("Significance"))
+    val significanceevts = mentions.filter(m => m.matches("Significance") || m.matches("Confidence_interval"))
 
     val resolvedTBMs = resolveTBMs(tbms)
     val tbmSieveMap = tbmSieves(tbms.filter(_.isGeneric))

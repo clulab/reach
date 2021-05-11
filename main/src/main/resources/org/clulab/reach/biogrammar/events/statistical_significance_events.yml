@@ -6,14 +6,14 @@ rules:
 
   - name: significance_1
     priority: ${ priority }
-    example: "age was positively associated with  fibrogen (r = 0.21; p = 0.04)"
+    example: "(SMD = 1.12, p = 0.01; I2 = 99%)"
     label: Significance
     type: token
     action: mkSignificance
     pattern: |
-      (?<kind> [word=/(?i)^[rp]$/])
+      (?<kind> [word=/(?i)(${ significance_triggers })$/])
       [ word = /^=$/ ]
-      (?<value> [ tag = CD ]+)
+      (?<value> [ tag = CD ]+ [word = /\%/]?)
 
   - name: significance_2
     priority: ${ priority }
@@ -22,8 +22,8 @@ rules:
     type: token
     action: mkSignificance
     pattern: |
-      (?<kind> [ word =/^(?i)[rp]=$/ ])
-      (?<value> [ tag = CD ]+)
+      (?<kind> [ word =/(?i)${ significance_triggers }=$/ ])
+      (?<value> [ tag = CD ]+ [word = /\%/]?)
 
   - name: significance_3
     priority: ${ priority }
@@ -32,5 +32,17 @@ rules:
     type: token
     action: mkSignificance
     pattern: |
-      (?<kind> [word = /^(?i)[rp]$/])
-      (?<value> [word = /^=/ & tag = /CD/]+)
+      (?<kind> [word = /(?i)${ significance_triggers }$/])
+      (?<value> [word = /^=/ & tag = /CD/]+ [word = /\%/]?)
+
+  - name: confidence_inetrval_1
+    priority: ${ priority }
+    example: "95 CI: 0.27 - 2.13"
+    label: Confidence_interval
+    type: token
+    pattern: |
+      (?<degree> [ tag = CD ]+ [ word = /\%/]?)
+      [word = /(?i)ci$/]
+      [ word = /^[=:]$/ ]?
+      (?<start> [tag = CD])
+      ([ word = /^[-\/]$/ ]* (?<end> [tag = CD]))?
