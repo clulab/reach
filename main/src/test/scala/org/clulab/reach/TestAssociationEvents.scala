@@ -38,29 +38,29 @@ class TestAssociationEvents extends FlatSpec with Matchers {
   val sent30 = "Inflammatory molecules may directly contribute to frailty"
 
 
-  sent1 should "contain four association events" in {
+  sent1 should "contain four positive association events" in {
     val mentions = getBioMentions(sent1)
-    mentions.filter(_.label == "Association") should have size 6
+    mentions.filter(_.label == "Positive_association") should have size 6
   }
 
-  sent2 should "contain four association events" in {
+  sent2 should "contain four positive association events" in {
     val mentions = getBioMentions(sent2)
-    mentions.filter(_.label == "Association") should have size 4
+    mentions.filter(_.label == "Positive_association") should have size 4
   }
 
-  sent3 should "contain one association event" in {
+  sent3 should "contain one positive association event" in {
     val mentions = getBioMentions(sent3)
-    mentions.filter(_.label == "Association") should have size 1
+    mentions.filter(_.label == "Positive_association") should have size 1
   }
 
-  sent4 should "contain four association events" in {
+  sent4 should "contain four positive association events" in {
     val mentions = getBioMentions(sent4)
-    mentions.filter(_.label == "Association") should have size 4
+    mentions.filter(_.label == "Positive_association") should have size 4
   }
 
   sent5 should "contain four association events" in {
     val mentions = getBioMentions(sent5)
-    mentions.filter(_.label == "Association") should have size 4
+    mentions.filter(_.label == "Positive_association") should have size 4
   }
 
   sent6 should "contain two association events" in {
@@ -83,25 +83,24 @@ class TestAssociationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label == "Association") should have size 2
   }
 
-  sent10 should "contain four association events" in {
+  sent10 should "contain four positive association events" in {
     val mentions = getBioMentions(sent10)
-    mentions.filter(_.label == "Association") should have size 4
+    mentions.filter(_.label == "Positive_association") should have size 4
   }
 
-  sent11 should "contain two association events" in {
+  sent11 should "contain two positive association events" in {
     val mentions = getBioMentions(sent11)
-    mentions.filter(_.label == "Association") should have size 5
+    mentions.filter(_.label == "Positive_association") should have size 5
   }
 
-  sent12 should "contain two association events" in {
+  sent12 should "contain two positive association events" in {
     val mentions = getBioMentions(sent12)
-    mentions.filter(_.label == "Association") should have size 2
+    mentions.filter(_.label == "Positive_association") should have size 2
   }
 
-  sent13 should "contain six association events" in {
+  sent13 should "contain six positive association events" in {
     val mentions = getBioMentions(sent13)
-    mentions.filter(_.label == "Association") should have size 6
-    mentions.filter(_.label == "Association") should have size 6
+    mentions.filter(_.label == "Positive_association") should have size 6
   }
 
   sent14 should "contain one association event" in {
@@ -109,29 +108,29 @@ class TestAssociationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label == "Association") should have size 1
   }
 
-  sent15 should "contain four association events" in {
+  sent15 should "contain four positive association events" in {
     val mentions = getBioMentions(sent15)
-    mentions.filter(_.label == "Association") should have size 4
+    mentions.filter(_.label == "Positive_association") should have size 4
   }
 
-  sent16 should "contain two association events" in {
+  sent16 should "contain two positive association events" in {
     val mentions = getBioMentions(sent16)
-    mentions.filter(_.label == "Association") should have size 2
+    mentions.filter(_.label == "Positive_association") should have size 2
   }
 
-  sent17 should "contain two association events" in {
+  sent17 should "contain two positive association events" in {
     val mentions = getBioMentions(sent17)
-    mentions.filter(_.label == "Association") should have size 2
+    mentions.filter(_.label == "Positive_association") should have size 2
   }
 
-  sent18 should "contain two association event" in {
+  sent18 should "contain two positive association event" in {
     val mentions = getBioMentions(sent18)
-    mentions.filter(_.label == "Association") should have size 2
+    mentions.filter(_.label == "Positive_association") should have size 2
   }
 
-  sent19 should "contain one association event" in {
+  sent19 should "contain one positive association event" in {
     val mentions = getBioMentions(sent19)
-    mentions.filter(_.label == "Association") should have size 1
+    mentions.filter(_.label == "Positive_association") should have size 1
   }
 
   sent20 should "contain three association events" ignore {
@@ -144,9 +143,9 @@ class TestAssociationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label == "Association") should have size 1
   }
 
-  sent23 should "contain one association event" in {
+  sent23 should "contain one positive association event" in {
     val mentions = getBioMentions(sent23)
-    mentions.filter(_.label == "Association") should have size 1
+    mentions.filter(_.label == "Positive_association") should have size 1
   }
 
   sent24 should "contain two association events" in {
@@ -159,9 +158,9 @@ class TestAssociationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label == "Association") should have size 2
   }
 
-  sent26 should "contain two association events" in {
+  sent26 should "contain two negative association events" in {
     val mentions = getBioMentions(sent26)
-    mentions.filter(_.label == "Association") should have size 2
+    mentions.filter(_.label == "Negative_association") should have size 2
   }
 
   sent27 should "contain two association events" in {

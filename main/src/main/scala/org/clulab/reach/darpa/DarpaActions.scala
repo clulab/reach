@@ -4,8 +4,9 @@ import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin._
 import org.clulab.polarity.PolarityEngine
 import org.clulab.reach._
+import org.clulab.reach.darpa.StrengthHandler.weakLemmas
 import org.clulab.reach.mentions._
-import org.clulab.reach.mentions.serialization.json.BioTextBoundMention
+import org.clulab.reach.mentions.serialization.json.{BioTextBoundMention, formats}
 import org.clulab.struct.DirectedGraph
 
 import scala.annotation.tailrec
@@ -247,6 +248,8 @@ class DarpaActions extends Actions with LazyLogging {
       new BioEventMention(m.copy(arguments = arguments), isDirect = true)
   }
 
+  def detectCues(strongLemmas: Seq[String], m: EventMention):Boolean = false
+
   def mkAssociation(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case m: EventMention if m.matches("Association") =>
       // themes in a subject position
@@ -254,11 +257,25 @@ class DarpaActions extends Actions with LazyLogging {
       // themes in an object position
       val theme2s = m.arguments.getOrElse("theme2", Nil).map(_.toBioMention)
 
+      val hasStrongCues = StrengthHandler.detectStrongCues(m)
+      val hasWeakCues = StrengthHandler.detectWeakCues(m)
+
+      val newLabel =
+        if(hasStrongCues)
+          Seq("Positive_association")
+        else if(hasWeakCues)
+          Seq("Negative_association")
+        else
+          Seq.empty[String]
+
+      val labels = newLabel ++ m.labels
+
+
       (theme1s, theme2s) match {
         case (t1s, t2s)  if t1s.nonEmpty && t2s.nonEmpty
-          => Seq(new BioEventMention(m - "theme1" - "theme2" + ("theme" -> Seq(t1s.head, t2s.head))))
+          => Seq(new BioEventMention(m - "theme1" - "theme2" + ("theme" -> Seq(t1s.head, t2s.head))).copy(labels = labels))
         case (t1s, t2a) if t2a.isEmpty =>
-          Seq(new BioEventMention(m - "theme1" - "theme2" + ("theme" -> t1s)))
+          Seq(new BioEventMention(m - "theme1" - "theme2" + ("theme" -> t1s)).copy(labels = labels))
         case _ => Nil
       }
   }

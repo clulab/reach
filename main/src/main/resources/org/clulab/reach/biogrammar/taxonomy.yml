@@ -58,7 +58,9 @@
                 - Deribosylation
                 - Desumoylation
                 - Deubiquitination
-            - Association
+            - Association:
+                  - Positive_association
+                  - Negative_association
         - ComplexEvent:
             - Regulation:
                 - Positive_regulation
