@@ -5,11 +5,8 @@ import ai.lum.common.ConfigUtils._
 import org.clulab.sequences.LexiconNER
 import org.slf4j.LoggerFactory
 
-import java.io._
-import java.util.zip.GZIPOutputStream
 import org.clulab.processors.bionlp.{BioLexicalVariations, BioLexiconEntityValidator}
-import org.clulab.processors.sequences.InlineLexiconNer
-import org.clulab.utils.Files
+import org.clulab.sequences.ResourceOverrideKbSource
 
 class KBLoader
 
@@ -23,9 +20,6 @@ object KBLoader {
   val config: Config = ConfigFactory.load()         // load the configuration file
 
   private val logger = LoggerFactory.getLogger(classOf[KBLoader])
-  private val lock = new KBLoader // to be used for the singleton in loadAll
-
-
 
   // logger.debug(s"KBLoader.init): RULE_NER_KBS=$RULE_NER_KBS")
 
@@ -43,10 +37,6 @@ object KBLoader {
   val UNSLASHABLE_TOKENS_KBS: List[String] = NER_OVERRIDE_KBS ++ unslashable
   // logger.debug(s"KBLoader.init): UNSLASHABLE_TOKENS_KBS=$UNSLASHABLE_TOKENS_KBS")
 
-  /** List of entity labeling files for the rule-based NER. If missing, an error is thrown.
-    * NB: file order is important: it indicates priority! */
-  val RULE_NER_KBS: Seq[(String, Seq[String])] = KBGenerator.processKBFiles()
-
   /** A horrible hack to keep track of entities that should not be labeled when in
     * lower case, or upper initial case. */
   val stopListFile: Option[String] =
@@ -58,26 +48,20 @@ object KBLoader {
     else None
 
   // Load the rule NER just once, so multiple processors can share it
-  var ruleNerSingleton: Option[LexiconNER] = None
-
-  def loadAll():LexiconNER = {
-    lock.synchronized {
-      if(ruleNerSingleton.isEmpty) {
-
-        logger.debug("Loading LexiconNER from knowledge bases...")
-        ruleNerSingleton = Some(InlineLexiconNer(
-          RULE_NER_KBS,
-          Some(NER_OVERRIDE_KBS), // allow overriding for some key entities
-          new BioLexiconEntityValidator,
-          new BioLexicalVariations,
-          useLemmasForMatching = false,
-          caseInsensitiveMatching = true
-        ))
-        logger.debug("Completed NER loading.")
-
-      }
-      ruleNerSingleton.get
-    }
+  lazy val ruleNerSingleton: LexiconNER = {
+    logger.debug("Loading LexiconNER from knowledge bases...")
+    val caseInsensitiveMatching = true
+    val standardKbSources = KBGenerator.processKBFiles(caseInsensitiveMatching)
+    val overrideKbSources = NER_OVERRIDE_KBS.map(new ResourceOverrideKbSource(_))
+    val ruleNerSingleton = LexiconNER(
+      standardKbSources,
+      Some(overrideKbSources), // allow overriding for some key entities
+      new BioLexicalVariations,
+      new BioLexiconEntityValidator,
+      useLemmasForMatching = false,
+      defaultCaseInsensitive = caseInsensitiveMatching
+    )
+    logger.debug("Completed NER loading.")
+    ruleNerSingleton
   }
-
 }

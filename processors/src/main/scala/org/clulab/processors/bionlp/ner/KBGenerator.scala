@@ -2,18 +2,15 @@ package org.clulab.processors.bionlp.ner
 
 import com.typesafe.config.ConfigObject
 import com.typesafe.config.ConfigFactory
+
 import scala.collection.convert.ImplicitConversions._
 import scala.collection.JavaConverters.asScalaBufferConverter
-
-import java.io._
 import java.text.SimpleDateFormat
 import java.util.Date
-import java.util.zip.{GZIPInputStream, GZIPOutputStream}
 import scala.collection.mutable
-import scala.collection.mutable.{ArrayBuffer, ListBuffer}
-import scala.io.Source
 import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.processors.clu.tokenizer.Tokenizer
+import org.clulab.sequences.StandardKbSource
 import org.clulab.utils.ScienceUtils
 import org.slf4j.{Logger, LoggerFactory}
 
@@ -103,59 +100,15 @@ object KBGenerator {
     entries.toList
   }
 
-  def processKBFiles():Seq[(String, Seq[String])] = {
+  def processKBFiles(caseInsensitiveMatching: Boolean): Seq[StandardKbSource] = {
+    val kbEntries = loadFromConf()
+    // This should only be performed on small collections.
+    // It is important to keep both the labels and the KbEntries in the same order.
+    val labels = kbEntries.map(_.neLabel).distinct
+    val kbEntriesSeq = labels.map { label => kbEntries.filter(_.neLabel == label) }
+    val standardKbSources = kbEntriesSeq.map(new ReachMultiStandardKbSource(_, caseInsensitiveMatching))
 
-//    val entries = loadConfig(configFile)
-    val entries = loadFromConf()
-    logger.info(s"Will convert a total of ${entries.size} KBs:")
-
-    (for(entry <- entries) yield {
-      val processedLines = convertKB(entry)
-      entry.kbName -> processedLines
-    })//.groupBy(_._1).mapValues(_.flatMap(_._2))
-  }
-
-  def convertKB(entry:KBEntry): Seq[String] = {
-    logger.info(s"Loading ${entry.kbName}...")
-    val inputPath = entry.path//inputDir + File.separator + entry.kbName + ".tsv"
-    val b =
-      if(new File(inputPath).exists())
-        new BufferedReader(new InputStreamReader(new FileInputStream(inputPath)))
-      else
-        new BufferedReader(new InputStreamReader(new GZIPInputStream(new FileInputStream(inputPath + ".gz"))))
-
-    val tokenizer: Tokenizer = (new BioNLPProcessor).tokenizer
-
-    var done = false
-    var lineCount = 0
-    val outputLines = new ArrayBuffer[String]()
-    while(! done) {
-      val line = b.readLine()
-      if(line == null) {
-        done = true
-      } else {
-        val trimmedLine = line.trim
-        if(trimmedLine.nonEmpty && ! trimmedLine.startsWith("#")) { // skip comments
-          val kbTokens = line.split("\t")
-          if(containsValidSpecies(entry, kbTokens)) { // this is a protein from a species we want
-            lineCount += 1
-            val ne = kbTokens(0) // we enforce that the first token is the actual NE to be considered
-            val tokens = tokenizeResourceLine(ne, tokenizer) // tokenize using BioNLPProcessor
-            outputLines += tokens.mkString(" ")
-          }
-        }
-      }
-    }
-    b.close()
-
-
-    val uniqLines = outputLines
-      .filter(_.nonEmpty)
-      .sorted
-      .distinct
-
-    logger.info(s"Done. Read $lineCount lines (${uniqLines.size} distinct) from ${new File(entry.path).getName}")
-    uniqLines
+    standardKbSources
   }
 
   def now:String = {

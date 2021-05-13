@@ -9,7 +9,6 @@ import org.clulab.processors.bionlp.BioLexicalVariations
 import org.clulab.processors.bionlp.BioLexiconEntityValidator
 import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.processors.bionlp.ner.KBLoader.NER_OVERRIDE_KBS
-import org.clulab.processors.bionlp.ner.KBLoader.RULE_NER_KBS
 import org.clulab.processors.bionlp.ner.KBLoader.ruleNerSingleton
 import org.clulab.sequences.{ColumnsToDocument, LexiconNER, SeparatedLexiconNER}
 import org.clulab.struct.{BooleanHashTrie, DebugBooleanHashTrie}
