@@ -20,7 +20,7 @@ import scala.collection.JavaConverters._
   */
 class HybridNER(withCRFNER:Boolean, withRuleNER:Boolean) {
   lazy val bioNer = CRFNER.load(CRF_MODEL_PATH)
-  lazy val ruleNer = KBLoader.loadAll(fromSerializedModel = false)
+  lazy val ruleNer = KBLoader.ruleNerSingleton
 
   /** Runs the NER, and stores the output in place, in the .entities field in the sentences in the given Document */
   def recognizeNamedEntities(doc:Document, annotation:Option[Annotation]) {

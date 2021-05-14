@@ -20,6 +20,7 @@ class ReachGrounder extends LazyLogging {
 
   val config = ConfigFactory.load()
   val overrideSpecies = config.getBoolean("grounding.overrideSpecies")
+  val contextSpecies = configuredKBML("Species").head // TODO handle this case elegantly
 
   val mentionMgr = new MentionManager
 
@@ -97,7 +98,7 @@ class ReachGrounder extends LazyLogging {
   /** Return a possibly empty set of all species name strings for the given context of NS/IDs. */
   private def contextToSpeciesNameSet (context: Seq[String]): SpeciesNameSet = {
     val ctx:Set[String] = context.toSet
-    ctx.flatMap(ContextSpecies.speciesForNsId(_)).map(_.toLowerCase)
+    ctx.flatMap(contextSpecies.speciesForNsId(_)).map(_.toLowerCase)
   }
 
   private def printMention (mention:BioMention): Unit =

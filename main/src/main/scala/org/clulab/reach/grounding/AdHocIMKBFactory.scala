@@ -6,6 +6,8 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 import org.clulab.reach.grounding.ReachKBUtils._
 import org.clulab.reach.grounding.Speciated._
 
+import java.io.File
+
 /**
   * Factory class for creating and loading an in-memory KB from a mixed-namespaced TSV file.
   *   Written by: Tom Hicks. 1/19/2016.
@@ -41,7 +43,7 @@ class AdHocIMKBFactory {
     */
   private def loadFromKBDir (imkb:InMemoryKB, filename:String) = {
     if ((filename != null) && !filename.trim.isEmpty) { // skip loading if filename missing
-      val kbResourcePath = makePathInKBDir(filename)
+      val kbResourcePath = makePathInKBDir(new File(filename).getName)
       val source = sourceFromResource(kbResourcePath)
       source.getLines.map(tsvRowToFields(_)).filter(tsvValidateFields(_)).foreach { fields =>
         processFields(imkb, fields)

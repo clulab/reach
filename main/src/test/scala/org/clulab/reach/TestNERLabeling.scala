@@ -206,7 +206,6 @@ class TestNERLabeling extends FlatSpec with Matchers {
   it should "have labeled all mentions as Simple_chemical" in {
     drug_mentions.count(_ matches "Simple_chemical") should be (drug_ids.size)
   }
-
   it should "have display labeled all mentions as Simple_chemical" in {
     drug_mentions.count(_.displayLabel == "Simple_chemical") should be (drug_ids.size)
   }
