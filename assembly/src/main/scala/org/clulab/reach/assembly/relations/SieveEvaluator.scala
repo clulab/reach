@@ -1,14 +1,16 @@
 package org.clulab.reach.assembly.relations
 
 import com.typesafe.config.ConfigFactory
-import org.clulab.reach.assembly.relations.corpus.{ AnnotationUtils, Corpus, CorpusReader, EventPair }
+import org.clulab.reach.assembly.relations.corpus.{AnnotationUtils, Corpus, CorpusReader, EventPair}
 import org.clulab.odin._
-import org.clulab.reach.assembly.{ AssemblyManager, PrecedenceRelation }
+import org.clulab.reach.assembly.{AssemblyManager, PrecedenceRelation}
 import org.clulab.reach.assembly.sieves._
 import SieveUtils._
 import ai.lum.common.FileUtils._
 import ai.lum.common.RandomUtils._
 import com.typesafe.scalalogging.LazyLogging
+import org.clulab.utils.ThreadUtils
+
 import java.io.File
 
 
@@ -304,7 +306,6 @@ object ApplyRulesToDocuments extends App with LazyLogging {
   import org.clulab.reach.assembly.relations.corpus._
   import org.clulab.reach.assembly.relations.corpus.CorpusBuilder.selectEventPairs
   import org.clulab.reach.mentions.serialization.json.{ JSONSerializer => ReachJSONSerializer }
-  import scala.collection.parallel.ForkJoinTaskSupport
 
 
   val dedup = new DeduplicationSieves()
@@ -374,12 +375,9 @@ object ApplyRulesToDocuments extends App with LazyLogging {
   logger.info(s"Sample size: $sampleSize")
 
 
-  val sampledFiles = random.sample[File, Seq](jsonFiles, sampleSize, withReplacement = false).par
+  val sampledFiles = ThreadUtils.parallelize(random.sample[File, Seq](jsonFiles, sampleSize, withReplacement = false), threadLimit)
   // prepare corpus
   logger.info(s"Loading dataset ...")
-
-  sampledFiles.tasksupport =
-    new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
 
   val eps: Seq[EventPair] = sampledFiles.flatMap{ f =>
     val cms = ReachJSONSerializer.toCorefMentions(f)
