@@ -1,6 +1,8 @@
 package org.clulab.reach.context
 
+import org.clulab.odin.Mention
 import org.clulab.reach.mentions._
+
 import collection.mutable
 
 
@@ -19,8 +21,7 @@ class BoundedPaddingContext(
 
     // Assign context to each mention
     for(m <- mentions){
-      val interval = getInterval(m.sentence)
-      var contextMap = queryContext(interval)
+      var (contextMap, contextMetaData) = queryContext(m)
 
       // If the context map doesn't have species and there's a default
       if(!contextMap.keySet.contains("Species")
@@ -34,14 +35,17 @@ class BoundedPaddingContext(
       }
 
       // Assign the context map to the mention
-      m.context = if(contextMap != Map.empty) Some(contextMap) else None
+      m.context = if(contextMap.nonEmpty) Some(contextMap) else None
+      // Assign the context metadata map to the mention
+      m.contextMetaData = if(contextMetaData.nonEmpty) Some(contextMetaData) else None
     }
 
     mentions
   }
 
   // This queries the context mentions and builds the context map
-  def queryContext(interval:(Int, Int)):Map[String, Seq[String]] = {
+  def queryContext(m:Mention):(ContextMap, ContextMetaData) = {
+    val interval = getInterval(m.sentence)
     // Get the mentions we need
     val contextMentions = new mutable.ListBuffer[BioTextBoundMention]
     for(i <- interval._1 to interval._2){
@@ -53,9 +57,25 @@ class BoundedPaddingContext(
     }
 
     // Make the dictionary
-    val context:Map[String, Seq[String]] = (Nil ++ contextMentions) map ContextEngine.getContextKey groupBy (_._1) mapValues (t => t.map(_._2).take(1)) map identity
+    val context:Map[String, Seq[String]] =
+      (Nil ++ contextMentions) map ContextEngine.getContextKey groupBy (_._1) mapValues (t => t.map(_._2)) map identity
 
-    context
+    // Build the dictionary with the context metadata
+    val contextMetaData = new mutable.HashMap[(String, String), mutable.Map[Int, Int]]()
+
+      for{mention <- contextMentions} {
+        val key = ContextEngine.getContextKey(mention)
+        val distance = Math.abs(mention.sentence - m.sentence)
+        if(contextMetaData contains key){
+          contextMetaData(key)(distance) += 1
+        }
+        else{
+          val map = new mutable.HashMap[Int, Int]().withDefaultValue(0)
+          map(distance) = 1
+          contextMetaData += key -> map
+        }
+      }
+    (context, contextMetaData.mapValues(_.toMap).toMap)
   }
 
   // This is to be overriden by the subclasses!
@@ -71,10 +91,11 @@ class PaddingContext extends BoundedPaddingContext(Int.MaxValue)
 // Policy 3
 class FillingContext(bound:Int = 3) extends BoundedPaddingContext(bound){
 
-  override def queryContext(interval:(Int, Int)):Map[String, Seq[String]] = defaultContexts match {
+  override def queryContext(m:Mention):(ContextMap, ContextMetaData) = defaultContexts match {
     case Some(defaults) =>
       // Make a mutable map to add the default contexts
-      val context:mutable.Map[String, Seq[String]] = mutable.Map.empty ++ super.queryContext(interval)
+      val (contextMap, contextMetaData) = super.queryContext(m)
+      val context:mutable.Map[String, Seq[String]] = mutable.Map.empty ++ contextMap
 
       val existingKeys = context.keySet
       for(ctxClass <- defaults.keys){
@@ -83,10 +104,10 @@ class FillingContext(bound:Int = 3) extends BoundedPaddingContext(bound){
       }
 
       // Convert to an immutable map and return
-      Map.empty ++ context
+      (Map.empty ++ context, contextMetaData)
 
     // If there aren't any defaults
-    case None => super.queryContext(interval)
+    case None => super.queryContext(m)
   }
 }
 

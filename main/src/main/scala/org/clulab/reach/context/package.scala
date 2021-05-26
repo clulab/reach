@@ -9,6 +9,11 @@ package object context {
   /** Type alias for the context map which maps context types to a sequence of values. */
   type ContextMap = Map[String, Seq[String]]
 
+  /**
+    * Type alias for the context metadata map which maps context keys to a map with the frequencies per distance from the mention
+     */
+  type ContextMetaData = Map[(String, String), Map[Int, Int]]
+
   /** Tell whether the given mention has a context map containing species info or not. */
   def hasSpeciesContext (mention:BioMention): Boolean =
     mention.context.exists(_.contains("Species"))
