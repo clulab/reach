@@ -651,6 +651,59 @@ class AssemblyManager(
     */
   private def createComplex(m: Mention): Complex = createComplexWithID(m)._1
 
+
+  private def createAssociationEventWIthID(m: Mention): (Association, IDPointer) = {
+    //
+    // handle dispatch
+    //
+
+    // check for coref
+    val assoc = getResolvedForm(m)
+
+    // get polarity
+    val polarity = getPolarityLabel(assoc)
+
+    // mention should be a Regulation
+    require(assoc matches "Association", "createAssociationEventWIthID only handles Associations")
+    // mention's polarity should be either positive or negative
+//    require(polarity == AssemblyManager.positive || polarity == AssemblyManager.negative, "Polarity of Regulation must be positive or negative")
+//    // all controlled args must be simple events
+//    require(assoc.arguments("controlled").forall(_ matches "Event"), "The 'controlled' of any Regulation must be an Event")
+
+//    val controllers: Set[IDPointer] = {
+//      assoc.arguments("controller")
+//        .toSet[Mention]
+//        .map(c => getOrCreateEERwithID(c)._2)
+//    }
+
+    val themes: Set[IDPointer] = {
+      assoc.arguments("theme")
+        .toSet[Mention]
+        .map(c => getOrCreateEERwithID(c)._2)
+    }
+
+    // prepare id
+    val id = getOrCreateID(m)
+
+    // prepare Regulation
+
+    val eer =
+      Association(
+        id,
+        themes,
+        polarity,
+        Some(m),
+        this
+      )
+
+    // update LUTs
+    // use original mention for later lookup
+    updateLUTs(id, m, eer)
+
+    // eer and id pair
+    (eer, id)
+  }
+
   //
   // SimpleEvent creation
   //
@@ -1188,6 +1241,7 @@ class AssemblyManager(
       case se if se matches "SimpleEvent" => createSimpleEventWithID(m)
       case regulation if regulation matches "Regulation" => createRegulationWithID(m)
       case activation if activation matches "ActivationEvent" => createActivationWithID(m)
+      case association if association matches "Association" => createAssociationEventWIthID(m)
       case other => throw new Exception(s"createEERwithID failed for ${other.label}")
     }
   }
@@ -1887,6 +1941,10 @@ object AssemblyManager {
             case entity if entity matches "Entity" => false
             case event if event matches "Event" => isValidMention(event)
           }
+
+      // Assiciations must have two theme arguments
+      case association if association matches "Association" =>
+        (association.arguments contains "theme") && (association.arguments("theme").size == 2)
 
       // assume invalid otherwise
       case _ => false

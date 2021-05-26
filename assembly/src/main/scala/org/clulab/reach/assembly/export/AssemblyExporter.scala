@@ -121,9 +121,19 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
     case se: SimpleEvent =>
       se.input.values.flatten.map(m => createInput(m, mods)).mkString(", ")
 
+    case assoc: Association =>
+      assoc.controlled.map{
+        // get IDs of any events
+        case event: Event => EERLUT.getOrElse(event.equivalenceHash(ignoreMods = ignoreMods), reportError(assoc, event))
+        // represent entities directly
+        case entity: Entity =>
+          createInput(entity, s"$mods")
+      }.mkString(", ")
+
+
     // inputs to an activation are entities
     case act: Activation =>
-      act.controlled.map {
+      act.controller.map {
         // get IDs of any events
         case event: Event => EERLUT.getOrElse(event.equivalenceHash(ignoreMods = ignoreMods), reportError(act, event))
         // represent entities directly
@@ -151,6 +161,15 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
       se.output.map{
         case binding: Complex => createOutput(binding)
         case other => createInput(other, mods)
+      }.mkString(", ")
+
+    case assoc: Association =>
+      assoc.controlled.map{
+        // get IDs of any events
+        case event: Event => EERLUT.getOrElse(event.equivalenceHash(ignoreMods = ignoreMods), reportError(assoc, event))
+        // represent entities directly
+        case entity: Entity =>
+          createInput(entity, s"$mods")
       }.mkString(", ")
 
     // positive activations produce an activated output entity
@@ -293,6 +312,7 @@ object AssemblyExporter {
   val ENTITY = "entity"
   val REGULATION = "Regulation"
   val ACTIVATION = "Activation"
+  val ASSOCIATION = "Association"
   val TRANSLOCATION = "Translocation"
 
   // context types
@@ -388,6 +408,7 @@ object AssemblyExporter {
   def getEventLabel(e: EntityEventRepresentation): String = e match {
     case reg: Regulation => s"$REGULATION (${reg.polarity})"
     case act: Activation => s"$ACTIVATION (${act.polarity})"
+    case assoc: Association => s"$ASSOCIATION (${assoc.polarity})"
     case se: SimpleEvent => se.label
     case ptm: SimpleEntity if ptm.modifications.exists(_.isInstanceOf[representations.PTM]) =>
       ptm.modifications.find(_.isInstanceOf[representations.PTM]).get.asInstanceOf[representations.PTM].label

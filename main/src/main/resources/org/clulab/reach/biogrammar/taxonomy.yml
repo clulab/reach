@@ -59,9 +59,7 @@
                 - Deribosylation
                 - Desumoylation
                 - Deubiquitination
-            - Association:
-                  - Positive_association
-                  - Negative_association
+
         - ComplexEvent:
             - Regulation:
                 - Positive_regulation
@@ -69,6 +67,9 @@
             - ActivationEvent:
                 - Positive_activation
                 - Negative_activation
+            - Association:
+                  - Positive_association
+                  - Negative_association
 
     - Entity:
       # Any BioEntity may appear as the controlled in an Activation
