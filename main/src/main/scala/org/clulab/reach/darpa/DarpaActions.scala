@@ -248,8 +248,6 @@ class DarpaActions extends Actions with LazyLogging {
       new BioEventMention(m.copy(arguments = arguments), isDirect = true)
   }
 
-  def detectCues(strongLemmas: Seq[String], m: EventMention):Boolean = false
-
   def mkAssociation(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case m: EventMention if m.matches("Association") =>
       // themes in a subject position
@@ -257,14 +255,17 @@ class DarpaActions extends Actions with LazyLogging {
       // themes in an object position
       val theme2s = m.arguments.getOrElse("theme2", Nil).map(_.toBioMention)
 
-      val hasStrongCues = StrengthHandler.detectStrongCues(m)
-      val hasWeakCues = StrengthHandler.detectWeakCues(m)
+      val numPositiveCues = StrengthHandler.countPositiveCues(m)
+      val numNegativeCues = StrengthHandler.countNegativeCues(m)
 
       val newLabel =
-        if(hasStrongCues)
+        if(numPositiveCues > 0 && numNegativeCues == 0)
           Seq("Positive_association")
-        else if(hasWeakCues)
-          Seq("Negative_association")
+        else if(numNegativeCues > 0)
+          if(numNegativeCues % 2 == 0)
+            Seq("Positive_association")
+          else
+            Seq("Negative_association")
         else
           Seq.empty[String]
 

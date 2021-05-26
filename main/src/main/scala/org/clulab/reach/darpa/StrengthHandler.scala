@@ -8,8 +8,8 @@ object StrengthHandler {
   val degree = 2 // Degree up to which we should follow the links in the graph
 
 
-  val strongLemmas = Set("higher", "positively", "increase", "significantly", "elevated")
-  val weakLemmas = Set("lower", "negatively", "decrease", "insignificantly", "reduce")
+  val strongLemmas = Set("higher", "positively", "increase", "elevated")
+  val weakLemmas = Set("lower", "negatively", "decrease", "reduce")
 
   // Recursive function that helps us get the words outside the event
   def getSpannedIndexes(index: Int, degree: Int, dependencies: DirectedGraph[String]): Seq[Int] = {
@@ -43,11 +43,11 @@ object StrengthHandler {
     }
   }
 
-  def detectStrongCues(mention: Mention): Boolean = detectCues(mention, strongLemmas)
+  def countPositiveCues(mention: Mention): Int = countCues(mention, strongLemmas)
 
-  def detectWeakCues(mention: Mention): Boolean = detectCues(mention, weakLemmas)
+  def countNegativeCues(mention: Mention): Int = countCues(mention, weakLemmas)
 
-  def detectCues(mention: Mention, hints:Set[String]): Boolean = {
+  def countCues(mention: Mention, hints:Set[String]): Int = {
     mention match {
       case event: EventMention =>
 
@@ -69,9 +69,9 @@ object StrengthHandler {
         (for {
           // Zip the lemma with its index, this is necessary to build the Modifictaion
           lemma <- lemmas
-        } yield hints contains lemma).exists(identity)
+        } yield hints contains lemma).count(identity)
 
-      case _ => false
+      case _ => 0
     }
 
   }
