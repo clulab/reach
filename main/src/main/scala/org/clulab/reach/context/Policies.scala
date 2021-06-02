@@ -58,7 +58,7 @@ class BoundedPaddingContext(
 
     // Make the dictionary
     val context:Map[String, Seq[String]] =
-      (Nil ++ contextMentions) map ContextEngine.getContextKey groupBy (_._1) mapValues (t => t.map(_._2)) map identity
+      (Nil ++ contextMentions) map ContextEngine.getContextKey groupBy (_._1) mapValues (t => t.map(_._2).distinct) map identity
 
     // Build the dictionary with the context metadata
     val contextMetaData = new mutable.HashMap[(String, String), mutable.Map[Int, Int]]()
