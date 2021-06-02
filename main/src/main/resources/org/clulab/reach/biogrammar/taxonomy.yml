@@ -1,8 +1,9 @@
 - Alias
 - ModificationTrigger
 - Site
-- Significance
-- Confidence_interval
+- Statistic:
+    - Significance
+    - Confidence_interval
 - Context:
     - Species
     - CellLine

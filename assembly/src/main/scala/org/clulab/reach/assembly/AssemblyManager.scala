@@ -2,10 +2,12 @@ package org.clulab.reach.assembly
 
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.reach.assembly.representations._
-import collection.Map
-import collection.immutable
+
+import collection.{Map, immutable, mutable}
 import org.clulab.odin._
 import org.clulab.reach.mentions.{CorefMention, MentionOps}
+
+import scala.collection.mutable.ListBuffer
 // used to differentiate AssemblyModifications from Modifications on mentions
 import org.clulab.reach.mentions
 import java.io.File
@@ -13,7 +15,7 @@ import java.io.File
 
 /**
   * Stores precedence information for two distinct [[EntityEventRepresentation]]
-  * @param before the [[EntityEventRepresentation] that precedes [[PrecedenceRelation.after]]
+  * @param before the [[EntityEventRepresentation]] that precedes [[PrecedenceRelation.after]]
   * @param after the [[EntityEventRepresentation]] that follows [[PrecedenceRelation.before]]
   * @param evidence the mentions that serve as evidence for this precedence relation
   * @param foundBy the name of the Sieve which found this relation
@@ -69,6 +71,7 @@ class AssemblyManager(
 
   import AssemblyManager._
 
+  private val nonAssemblyMentions = new mutable.ListBuffer[Mention]()
   // Because modifications don't feature into the hashcode,
   // a mention's identify at assembly consists of both the mention and its mods (i.e., the "state" of the mention)
   private var mentionStateToID: immutable.Map[MentionState, IDPointer] = m2id.toMap
@@ -89,6 +92,8 @@ class AssemblyManager(
       .withDefaultValue(Set.empty[PrecedenceRelation])
   // initialize to size of LUT 2
   private var nextID: IDPointer = idToEER.size
+
+  def getNonAssemblyMentions:Iterable[Mention] = nonAssemblyMentions.toList
 
   /**
     * Retrieve the set of mentions currently tracked by the manager
@@ -293,12 +298,16 @@ class AssemblyManager(
     * See [[isValidMention]] for details on validation check
     * @param m an Odin Mention
     */
-  def trackMention(m: Mention): Unit = isValidMention(m) match {
-    // do not store Sites, Activations, etc. in LUT 1
-    case true =>
-      // get or create an EntityEventRepresentation
-      val _ = getOrCreateEER(m)
-    case false => ()
+  def trackMention(m: Mention): Unit = if (isValidMention(m)) {
+    m match {
+      case statistic if statistic matches "Statistic" =>
+        nonAssemblyMentions += statistic
+      case _ =>
+        // get or create an EntityEventRepresentation
+        val _ = getOrCreateEER(m)
+    }
+  } else {
+    ()
   }
 
   /**
@@ -572,7 +581,7 @@ class AssemblyManager(
       new SimpleEntity(
         id,
         // TODO: decide whether or not we should use a richer representation for the grounding ID
-        e.nsId,
+        e.nsId(),
         // modifications relevant to assembly
         if (mods.isDefined) modifications ++ mods.get else modifications,
         // source mention
@@ -652,7 +661,7 @@ class AssemblyManager(
   private def createComplex(m: Mention): Complex = createComplexWithID(m)._1
 
 
-  private def createAssociationEventWIthID(m: Mention): (Association, IDPointer) = {
+  private def createAssociationEventWithID(m: Mention): (Association, IDPointer) = {
     //
     // handle dispatch
     //
@@ -664,7 +673,7 @@ class AssemblyManager(
     val polarity = getPolarityLabel(assoc)
 
     // mention should be a Regulation
-    require(assoc matches "Association", "createAssociationEventWIthID only handles Associations")
+    require(assoc matches "Association", "createAssociationEventWithID only handles Associations")
     // mention's polarity should be either positive or negative
 //    require(polarity == AssemblyManager.positive || polarity == AssemblyManager.negative, "Polarity of Regulation must be positive or negative")
 //    // all controlled args must be simple events
@@ -814,7 +823,7 @@ class AssemblyManager(
             for (
               src <- hasSource.arguments(src).toSet[Mention]
             ) yield {
-              val gid = src.toBioMention.nsId
+              val gid = src.toBioMention.nsId()
               representations.Location(gid).asInstanceOf[AssemblyModification]
             }
           // no mods
@@ -849,7 +858,7 @@ class AssemblyManager(
             for (
               d <- hasSource.arguments(dest).toSet[Mention]
             ) yield {
-              val gid = d.toBioMention.nsId
+              val gid = d.toBioMention.nsId()
               representations.Location(gid)
             }
           // no mods
@@ -1198,13 +1207,11 @@ class AssemblyManager(
   private def getOrCreateEER(m: Mention): EER = {
     // ensure this mention should be stored in LUT 1
     require(isValidMention(m), s"mention with the label ${m.label} cannot be tracked by the AssemblyManager")
-    hasMention(m) match {
-      // if an ID already exists, retrieve the associated representation
-      case true =>
-        val id = mentionStateToID(getMentionState(m))
-        idToEER(id)
-      // create new representation
-      case false => createEER(m)
+    if (hasMention(m)) {
+      val id = mentionStateToID(getMentionState(m))
+      idToEER(id)
+    } else {
+      createEER(m)
     }
   }
 
@@ -1214,15 +1221,14 @@ class AssemblyManager(
     * @param m an Odin Mention
     * @return a tuple of ([[EntityEventRepresentation]], [[IDPointer]])
     */
-  private def getOrCreateEERwithID(m: Mention): (EER, IDPointer) = hasMention(m) match {
-    case true =>
-      val id = mentionStateToID(getMentionState(m))
-      val eer = getEER(id)
-      (eer, id)
-    case false =>
-      val eer = createEER(m)
-      val id = eer.uniqueID
-      (eer, id)
+  private def getOrCreateEERwithID(m: Mention): (EER, IDPointer) = if (hasMention(m)) {
+    val id = mentionStateToID(getMentionState(m))
+    val eer = getEER(id)
+    (eer, id)
+  } else {
+    val eer = createEER(m)
+    val id = eer.uniqueID
+    (eer, id)
   }
 
   /**
@@ -1241,7 +1247,7 @@ class AssemblyManager(
       case se if se matches "SimpleEvent" => createSimpleEventWithID(m)
       case regulation if regulation matches "Regulation" => createRegulationWithID(m)
       case activation if activation matches "ActivationEvent" => createActivationWithID(m)
-      case association if association matches "Association" => createAssociationEventWIthID(m)
+      case association if association matches "Association" => createAssociationEventWithID(m)
       case other => throw new Exception(s"createEERwithID failed for ${other.label}")
     }
   }
@@ -1812,9 +1818,9 @@ class AssemblyManager(
     s"Mention(label=${m.label}, text='${m.text}', modifications=${bio.modifications}, doc=$docRepr)"
   }
 
-  def summarizeMentionIndex: Unit = println(mentionIndexSummary.sorted.mkString("\n"))
+  def summarizeMentionIndex(): Unit = println(mentionIndexSummary.sorted.mkString("\n"))
 
-  def summarizeEntities: Unit = println(getSimpleEntities.map(_.summarize).toSeq.sorted.mkString("\n"))
+  def summarizeEntities(): Unit = println(getSimpleEntities.map(_.summarize).toSeq.sorted.mkString("\n"))
 
 
   //
@@ -1945,6 +1951,9 @@ object AssemblyManager {
       // Assiciations must have two theme arguments
       case association if association matches "Association" =>
         (association.arguments contains "theme") && (association.arguments("theme").size == 2)
+
+      case significance if significance matches "Significance" =>
+        (significance.arguments contains "kind") && (significance.arguments contains "value")
 
       // assume invalid otherwise
       case _ => false

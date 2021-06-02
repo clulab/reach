@@ -7,7 +7,7 @@ import org.clulab.reach.mentions._
 
 /** Fundamental attributes of an EER at export */
 trait EERDescription {
-  val eer: EntityEventRepresentation
+  val eer: Option[EntityEventRepresentation]
   val input: String
   val output: String
   val controller: String
@@ -34,7 +34,7 @@ class AssemblyRow(
   val negated: Boolean,
   val evidence: Set[Mention],
   // to make debugging easier
-  val eer: EntityEventRepresentation
+  val eer: Option[EntityEventRepresentation]
 ) extends EERDescription {
   // this might serve as a proxy for confidence, though
   // it would also be good to know how many times this event
@@ -71,9 +71,10 @@ class AssemblyRow(
     // replace multiple whitespace characters (newlines, tabs, etc) with a single space
     val cleanContents = contents.replaceAll("\\s+", " ")
     // check for only whitespace
-    AssemblyExporter.WHITESPACE.pattern.matcher(cleanContents).matches match {
-      case false => cleanContents
-      case true => AssemblyExporter.NONE
+    if (AssemblyExporter.WHITESPACE.pattern.matcher(cleanContents).matches) {
+      AssemblyExporter.NONE
+    } else {
+      cleanContents
     }
   }
 
@@ -150,6 +151,6 @@ object AssemblyRow {
     negated: Boolean,
     evidence: Set[Mention],
     // to make debugging easier
-    eer: EntityEventRepresentation
+    eer: Option[EntityEventRepresentation]
   ) = new AssemblyRow(input, output, source, destination, controller, eerID, label, precededBy, negated, evidence, eer)
 }

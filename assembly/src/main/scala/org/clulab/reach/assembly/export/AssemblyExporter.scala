@@ -26,7 +26,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
   val ignoreMods = false
 
   // distinct EntityEventRepresentations
-  val distinctEERS = manager.distinctEERs
+  val distinctEERS: Set[EER] = manager.distinctEERs
 
   // LUT for retrieving IDs to distinct EERs
   // TODO: A better version of this should probably belong to the manager
@@ -257,10 +257,43 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
           precededBy(event),
           event.negated,
           event.evidence,
-          event
+          Some(event)
         )
       }
-    rows.toSeq
+
+    val statisticRows: Set[AssemblyRow] = (manager.getNonAssemblyMentions collect {
+      case significance if significance matches "Significance" =>
+        AssemblyRow(
+          significance.arguments("kind").head.text,
+          significance.arguments("value").head.text,
+          NONE,
+          NONE,
+          NONE,
+          NONE,
+          significance.label,
+          Set.empty,
+          negated = false,
+          Set(significance),
+          None
+        )
+
+      case interval if interval matches "Confidence_interval" =>
+        AssemblyRow(
+          interval.arguments("start").head.text,
+          interval.arguments("end").head.text,
+          NONE,
+          NONE,
+          interval.arguments("degree").head.text,
+          NONE,
+          interval.label,
+          Set.empty,
+          negated = false,
+          Set(interval),
+          None
+        )
+    }).toSet
+
+    rows.toSeq ++ statisticRows.toSeq
   }
 
   /** for debugging purposes */
