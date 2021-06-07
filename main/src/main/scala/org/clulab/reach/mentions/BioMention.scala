@@ -3,7 +3,7 @@ package org.clulab.reach.mentions
 import org.clulab.odin._
 import org.clulab.struct.Interval
 import org.clulab.processors.Document
-import org.clulab.reach.context.Context
+import org.clulab.reach.context.{Context, ContextMap, ContextMetaData}
 
 import scala.collection.mutable
 
@@ -23,6 +23,10 @@ class BioTextBoundMention(
   }
 
   def this(m: Mention) = this(m.labels, m.tokenInterval, m.sentence, m.document, m.keep, m.foundBy)
+
+
+  override var context: Option[ContextMap] = None
+  override var contextMetaData: Option[ContextMetaData] = None
 }
 
 class BioEventMention(
@@ -66,6 +70,9 @@ class BioEventMention(
     bem.modifications = copyMods.toSet
     bem
   }
+
+  override var context: Option[ContextMap] = None
+  override var contextMetaData: Option[ContextMetaData] = None
 }
 
 class BioRelationMention(
@@ -104,6 +111,9 @@ class BioRelationMention(
     brm.modifications = copyMods.toSet
     brm
   }
+
+  override var context: Option[ContextMap] = None
+  override var contextMetaData: Option[ContextMetaData] = None
 }
 
 object BioMention{
