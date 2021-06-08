@@ -70,7 +70,7 @@ class BoundedPaddingContext(
       }
 
     val contextMetaData =
-      distances.groupBy(_._1).mapValues(d => new Counter(d map (_._2)))
+      distances.groupBy(_._1).mapValues(d => new Counter(d map (_._2))).map(identity)
 
     (context, contextMetaData)
   }
