@@ -2,6 +2,7 @@ package org.clulab.reach.context
 
 import org.clulab.odin.Mention
 import org.clulab.reach.mentions._
+import org.clulab.struct.Counter
 
 import collection.mutable
 
@@ -61,21 +62,17 @@ class BoundedPaddingContext(
       (Nil ++ contextMentions) map ContextEngine.getContextKey groupBy (_._1) mapValues (t => t.map(_._2).distinct) map identity
 
     // Build the dictionary with the context metadata
-    val contextMetaData = new mutable.HashMap[(String, String), mutable.Map[Int, Int]]()
-
-      for{mention <- contextMentions} {
+    val distances =
+      for{mention <- contextMentions} yield {
         val key = ContextEngine.getContextKey(mention)
         val distance = Math.abs(mention.sentence - m.sentence)
-        if(contextMetaData contains key){
-          contextMetaData(key)(distance) += 1
-        }
-        else{
-          val map = new mutable.HashMap[Int, Int]().withDefaultValue(0)
-          map(distance) = 1
-          contextMetaData += key -> map
-        }
+        (key, distance)
       }
-    (context, contextMetaData.mapValues(_.toMap).toMap)
+
+    val contextMetaData =
+      distances.groupBy(_._1).mapValues(d => new Counter(d map (_._2)))
+
+    (context, contextMetaData)
   }
 
   // This is to be overriden by the subclasses!

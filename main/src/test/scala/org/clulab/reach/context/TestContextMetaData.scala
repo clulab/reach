@@ -2,6 +2,7 @@ package org.clulab.reach.context
 
 import org.clulab.reach.TestUtils.getBioMentions
 import org.clulab.reach.mentions.BioEventMention
+import org.clulab.struct.Counter
 import org.scalatest.{FlatSpec, Matchers}
 
 
@@ -38,9 +39,9 @@ class TestContextMetaData extends FlatSpec with Matchers{
       organContext should contain ("uberon:UBERON:0002107")
 
       // Now test the metadata counts
-      metaData(("Species", "taxonomy:9606")) should equal (Map(2 -> 1, 3 ->1))
-      metaData(("Species", "taxonomy:4932")) should equal (Map(3 ->1))
-      metaData(("Organ","uberon:UBERON:0002107")) should equal (Map(2 -> 1))
+      metaData(("Species", "taxonomy:9606")) should equal (new Counter(Iterable(2, 3)))
+      metaData(("Species", "taxonomy:4932")) should equal (new Counter(Iterable(3)))
+      metaData(("Organ","uberon:UBERON:0002107")) should equal (new Counter(Iterable(2)))
 
     }
 }
