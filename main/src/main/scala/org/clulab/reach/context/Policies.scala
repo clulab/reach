@@ -16,23 +16,25 @@ class BoundedPaddingContext(
   def update(mentions: Seq[BioMention]){}
 
   /** assigns context to mentions given current state of the engine */
-  def assign(mentions: Seq[BioMention]) = {
+  def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
+    import BoundedPaddingContext.species
 
     assert(this.orderedContextMentions != null, "ContextEngine: infer must be called before assign")
 
     // Assign context to each mention
     for(m <- mentions){
-      var (contextMap, contextMetaData) = queryContext(m)
-
+      val (contextMap, contextMetaData) = queryContext(m)
       // If the context map doesn't have species and there's a default
-      val species = "Species" // Put this somewhere else
-      if (!contextMap.contains(species) && defaultContexts.exists(_.contains(species)))
-        contextMap += (species -> Array(defaultContexts.get(species)))
+      val contextMapWithDefaultSpecies =
+          if (!contextMap.contains(species) && defaultContexts.exists(_.contains(species)))
+            contextMap + (species -> Seq(defaultContexts.get(species)))
+          else
+            contextMap
 
       // Assign the context map to the mention
-      m.contextOpt = if(contextMap.nonEmpty) Some(contextMap) else None
+      m.setContext(contextMapWithDefaultSpecies)
       // Assign the context metadata map to the mention
-      m.contextMetaDataOpt = if(contextMetaData.nonEmpty) Some(contextMetaData) else None
+      m.setContextMetaData(contextMetaData)
     }
 
     mentions
@@ -46,13 +48,13 @@ class BoundedPaddingContext(
     // Extract the keys just once
     val contextKeys = contextMentions.map(ContextEngine.getContextKey)
     // Make the dictionary
-    val contextMap: ContextMap = contextKeys groupBy (_._1) mapValues (t => t.map(_._2).distinct)
+    val contextMap = contextKeys groupBy (_._1) mapValues (t => t.map(_._2).distinct)
     // Build the dictionary with the context metadata
     val distances = contextMentions.zip(contextKeys).map { case (mention, key) =>
       val distance = Math.abs(mention.sentence - m.sentence)
-      (key, distance)
+      key -> distance
     }
-    val contextMetaData = distances.groupBy(_._1).mapValues(d => new Counter(d map (_._2)))
+    val contextMetaData = distances groupBy (_._1) mapValues (d => new Counter(d map (_._2)))
 
     (contextMap, contextMetaData)
   }
@@ -62,6 +64,9 @@ class BoundedPaddingContext(
 
 }
 
+object BoundedPaddingContext {
+  val species = "Species"
+}
 
 // Policy 1
 class PaddingContext extends BoundedPaddingContext(Int.MaxValue)
