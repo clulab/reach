@@ -11,6 +11,8 @@ package object context {
   /** Type alias for the context map which maps context types to a sequence of values. */
   type ContextMap = Map[String, Seq[String]]
 
+  def newContextMap() = Map.empty[String, Seq[String]]
+
   /**
     * Type alias for the context metadata map which maps context keys to a map with the frequencies per distance from the mention
      */

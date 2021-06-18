@@ -26,7 +26,7 @@ class TestDeterministicPolicies extends FlatSpec with Matchers {
       }.map(_.asInstanceOf[BioEventMention])
 
     val context: Seq[ContextMap] = mentions.map{
-        _.contextOpt.getOrElse(new ContextMap())
+        _.contextOpt.getOrElse(newContextMap())
     }
 
     it should "Have some context" in {
@@ -53,7 +53,7 @@ class TestDeterministicPolicies extends FlatSpec with Matchers {
     it should "have fallback species" in {
         mentions foreach {
             m =>
-                val c = m.contextOpt.getOrElse(Map[String,Seq[String]]())
+                val c = m.contextOpt.getOrElse(newContextMap())
                 c.contains("Species") should be (true)
                 c("Species").length should equal (1)
         }
