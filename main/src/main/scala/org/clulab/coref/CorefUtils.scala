@@ -134,8 +134,8 @@ object CorefUtils {
     * @param b
     */
   def compatibleContext(a: CorefMention, b: CorefMention): Boolean = {
-    val aContext = a.context.getOrElse(Map[String,Seq[String]]())
-    val bContext = b.context.getOrElse(Map[String,Seq[String]]())
+    val aContext = a.contextOpt.getOrElse(Map[String,Seq[String]]())
+    val bContext = b.contextOpt.getOrElse(Map[String,Seq[String]]())
     a.label == b.label &&
       aContext.keySet.intersect(bContext.keySet)
         .forall(k => aContext(k).toSet.intersect(bContext(k).toSet).nonEmpty) // FIXME: Too strict?

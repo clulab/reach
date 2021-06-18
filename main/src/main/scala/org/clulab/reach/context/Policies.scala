@@ -36,9 +36,9 @@ class BoundedPaddingContext(
       }
 
       // Assign the context map to the mention
-      m.context = if(contextMap.nonEmpty) Some(contextMap) else None
+      m.contextOpt = if(contextMap.nonEmpty) Some(contextMap) else None
       // Assign the context metadata map to the mention
-      m.contextMetaData = if(contextMetaData.nonEmpty) Some(contextMetaData) else None
+      m.contextMetaDataOpt = if(contextMetaData.nonEmpty) Some(contextMetaData) else None
     }
 
     mentions
@@ -58,7 +58,7 @@ class BoundedPaddingContext(
     }
 
     // Make the dictionary
-    val context:Map[String, Seq[String]] =
+    val contextMap: ContextMap =
       (Nil ++ contextMentions) map ContextEngine.getContextKey groupBy (_._1) mapValues (t => t.map(_._2).distinct) map identity
 
     // Build the dictionary with the context metadata
@@ -72,7 +72,7 @@ class BoundedPaddingContext(
     val contextMetaData =
       distances.groupBy(_._1).mapValues(d => new Counter(d map (_._2))).map(identity)
 
-    (context, contextMetaData)
+    (contextMap, contextMetaData)
   }
 
   // This is to be overriden by the subclasses!

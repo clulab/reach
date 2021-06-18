@@ -135,7 +135,7 @@ package object display {
     println(summarizeArguments(b))
   }
 
-  def summarizeContext(b: BioMention): String = b.context match {
+  def summarizeContext(b: BioMention): String = b.contextOpt match {
     case Some(context) =>
       val contextSummary = for {
         (k, vs) <- context

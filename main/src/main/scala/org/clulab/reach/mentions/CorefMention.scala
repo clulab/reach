@@ -229,7 +229,7 @@ class CorefRelationMention(
 object CorefMention {
   def copyAttachments(src:BioMention, dst:CorefMention){
     dst.copyGroundingFrom(src)
-    dst.context = src.context
+    dst.contextOpt = src.contextOpt
     dst.modifications ++= corefMods(src.modifications)
   }
 

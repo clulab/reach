@@ -25,8 +25,8 @@ class TestContextMetaData extends FlatSpec with Matchers{
       events should have size 1
 
       val event = events.head
-      val context = event.context.get
-      val metaData = event.contextMetaData.get
+      val context = event.contextOpt.get
+      val metaData = event.contextMetaDataOpt.get
 
       // It should contain two species assignments and one Organ assignment
       val speciesContext = context("Species")

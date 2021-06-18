@@ -37,7 +37,7 @@ class ReachGrounder extends LazyLogging {
   def getSpeciesContext (mention: BioMention): Seq[String] = {
     // for now, we are using only species to help grounding:
     if (!overrideSpecies && hasSpeciesContext(mention))
-      mention.context.get.get("Species").get
+      mention.contextOpt.get.get("Species").get
     else
       Seq.empty[String]
   }

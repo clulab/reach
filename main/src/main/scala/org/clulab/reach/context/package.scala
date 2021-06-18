@@ -18,7 +18,7 @@ package object context {
 
   /** Tell whether the given mention has a context map containing species info or not. */
   def hasSpeciesContext (mention:BioMention): Boolean =
-    mention.context.exists(_.contains("Species"))
+    mention.contextOpt.exists(_.contains("Species"))
 
   /** Utility for returning context engine parameters from a configuration */
   def createContextEngineParams(contextConfig: ConfigObject): Map[String, String] = {
