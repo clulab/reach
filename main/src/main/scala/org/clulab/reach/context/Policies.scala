@@ -4,7 +4,7 @@ import org.clulab.odin.Mention
 import org.clulab.reach.mentions._
 import org.clulab.struct.Counter
 
-import collection.mutable
+import scala.collection.immutable.Range
 
 
 // Policy Two
@@ -25,15 +25,9 @@ class BoundedPaddingContext(
       var (contextMap, contextMetaData) = queryContext(m)
 
       // If the context map doesn't have species and there's a default
-      if(!contextMap.keySet.contains("Species")
-          && defaultContexts.isDefined){
-
-        val defaults = defaultContexts.get
-        if(defaults.keySet.contains("Species")){
-            contextMap += ("Species" -> Array(defaults("Species")))
-        }
-
-      }
+      val species = "Species" // Put this somewhere else
+      if (!contextMap.contains(species) && defaultContexts.exists(_.contains(species)))
+        contextMap += (species -> Array(defaultContexts.get(species)))
 
       // Assign the context map to the mention
       m.contextOpt = if(contextMap.nonEmpty) Some(contextMap) else None
@@ -46,37 +40,25 @@ class BoundedPaddingContext(
 
   // This queries the context mentions and builds the context map
   def queryContext(m:Mention):(ContextMap, ContextMetaData) = {
-    val interval = getInterval(m.sentence)
+    val range = getRange(m.sentence)
     // Get the mentions we need
-    val contextMentions = new mutable.ListBuffer[BioTextBoundMention]
-    for(i <- interval._1 to interval._2){
-      val mentions:Seq[BioTextBoundMention] = orderedContextMentions.lift(i) match{
-        case Some(mentions) => mentions
-        case None => Nil
-      }
-      contextMentions ++= mentions
-    }
-
+    val contextMentions = range.flatMap(orderedContextMentions.getOrElse(_, Nil))
+    // Extract the keys just once
+    val contextKeys = contextMentions.map(ContextEngine.getContextKey)
     // Make the dictionary
-    val contextMap: ContextMap =
-      (Nil ++ contextMentions) map ContextEngine.getContextKey groupBy (_._1) mapValues (t => t.map(_._2).distinct) map identity
-
+    val contextMap: ContextMap = contextKeys groupBy (_._1) mapValues (t => t.map(_._2).distinct)
     // Build the dictionary with the context metadata
-    val distances =
-      for{mention <- contextMentions} yield {
-        val key = ContextEngine.getContextKey(mention)
-        val distance = Math.abs(mention.sentence - m.sentence)
-        (key, distance)
-      }
-
-    val contextMetaData =
-      distances.groupBy(_._1).mapValues(d => new Counter(d map (_._2))).map(identity)
+    val distances = contextMentions.zip(contextKeys).map { case (mention, key) =>
+      val distance = Math.abs(mention.sentence - m.sentence)
+      (key, distance)
+    }
+    val contextMetaData = distances.groupBy(_._1).mapValues(d => new Counter(d map (_._2)))
 
     (contextMap, contextMetaData)
   }
 
   // This is to be overriden by the subclasses!
-  def getInterval(ix:Int):(Int, Int) = (ix-bound, ix)
+  def getRange(ix:Int): Range = Range.inclusive(ix-bound, ix)
 
 }
 
@@ -92,16 +74,11 @@ class FillingContext(bound:Int = 3) extends BoundedPaddingContext(bound){
     case Some(defaults) =>
       // Make a mutable map to add the default contexts
       val (contextMap, contextMetaData) = super.queryContext(m)
-      val context:mutable.Map[String, Seq[String]] = mutable.Map.empty ++ contextMap
+      val contextMapAdditions = defaults
+          .filterKeys(!contextMap.contains(_))
+          .mapValues(Seq(_))
 
-      val existingKeys = context.keySet
-      for(ctxClass <- defaults.keys){
-        if(!existingKeys.contains(ctxClass))
-          context += (ctxClass -> Seq(defaults(ctxClass)))
-      }
-
-      // Convert to an immutable map and return
-      (Map.empty ++ context, contextMetaData)
+      (contextMap ++ contextMapAdditions, contextMetaData)
 
     // If there aren't any defaults
     case None => super.queryContext(m)
@@ -112,5 +89,5 @@ class FillingContext(bound:Int = 3) extends BoundedPaddingContext(bound){
 class BidirectionalPaddingContext(
     bound:Int = 3 // Default bound to extend the policy
 ) extends BoundedPaddingContext{
-    override def getInterval(ix:Int):(Int, Int) = (ix-bound, ix+bound)
+    override def getRange(ix:Int): Range = Range.inclusive(ix-bound, ix+bound)
 }
