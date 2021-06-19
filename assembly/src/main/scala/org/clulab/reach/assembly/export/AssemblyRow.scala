@@ -59,8 +59,8 @@ class AssemblyRow(
     val contextMentions = for {
       m <- evidence
       cm = m.toCorefMention
-      if cm.context.nonEmpty
-      contextMap = cm.context.get
+      if cm.contextOpt.nonEmpty
+      contextMap = cm.contextOpt.get
       if contextMap contains contextLabel
       entry <- contextMap(contextLabel)
     } yield entry

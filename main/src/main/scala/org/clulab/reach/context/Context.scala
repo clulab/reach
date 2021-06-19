@@ -9,10 +9,15 @@ import scala.collection.{MapLike, immutable}
 
 trait Context {
 
-  var context: Option[ContextMap]
-  var contextMetaData: Option[ContextMetaData]
+  var contextOpt: Option[ContextMap] = None
+  var contextMetaDataOpt: Option[ContextMetaData] = None
 
   /** Tell whether context map exists and is non-empty or not. */
-  def hasContext (): Boolean = context.exists(_.nonEmpty)
+  def hasContext (): Boolean = contextOpt.exists(_.nonEmpty)
 
+  def setContext(contextMap: ContextMap): Unit =
+      contextOpt = if (contextMap.nonEmpty) Some(contextMap) else None
+
+  def setContextMetaData(contextMetaData: ContextMetaData): Unit =
+      contextMetaDataOpt = if (contextMetaData.nonEmpty) Some(contextMetaData) else None
 }

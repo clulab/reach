@@ -25,8 +25,8 @@ class BioTextBoundMention(
   def this(m: Mention) = this(m.labels, m.tokenInterval, m.sentence, m.document, m.keep, m.foundBy)
 
 
-  override var context: Option[ContextMap] = None
-  override var contextMetaData: Option[ContextMetaData] = None
+//  override var contextOpt: Option[ContextMap] = None
+//  override var contextMetaDataOpt: Option[ContextMetaData] = None
 }
 
 class BioEventMention(
@@ -71,8 +71,8 @@ class BioEventMention(
     bem
   }
 
-  override var context: Option[ContextMap] = None
-  override var contextMetaData: Option[ContextMetaData] = None
+//  override var contextOpt: Option[ContextMap] = None
+//  override var contextMetaDataOpt: Option[ContextMetaData] = None
 }
 
 class BioRelationMention(
@@ -112,14 +112,15 @@ class BioRelationMention(
     brm
   }
 
-  override var context: Option[ContextMap] = None
-  override var contextMetaData: Option[ContextMetaData] = None
+//  override var contextOpt: Option[ContextMap] = None
+//  override var contextMetaDataOpt: Option[ContextMetaData] = None
 }
 
 object BioMention{
     def copyAttachments(src:BioMention, dst:BioMention){
         dst.copyGroundingFrom(src)
-        dst.context = src.context
+        dst.contextOpt = src.contextOpt
+        dst.contextMetaDataOpt = src.contextMetaDataOpt
         dst.modifications ++= src.modifications
     }
 }
