@@ -1,9 +1,6 @@
 package org.clulab.reach
 
 import java.io._
-
-import scala.collection.parallel.ForkJoinTaskSupport
-import scala.collection.parallel.mutable.ParArray
 import scala.collection.JavaConverters._
 import scala.io.Source
 import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
@@ -16,6 +13,7 @@ import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.utils.{DSVParser, Preprocess}
 import org.clulab.utils.Serializer
+import org.clulab.utils.ThreadUtils
 
 object PaperReader extends LazyLogging {
 
@@ -65,15 +63,14 @@ object PaperReader extends LazyLogging {
   def readPapers(dir: File): Dataset = {
     require(dir.isDirectory, s"'${dir.getCanonicalPath}' is not a directory")
     // read papers in parallel
-    val files = dir.listFilesByRegex(
-      pattern=ReachInputFilePattern, caseInsensitive=true, recursive=true).toArray.par
-
     // limit parallelization
-    files.tasksupport =
-      new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
-
+    val files = ThreadUtils.parallelize(dir
+        .listFilesByRegex(pattern=ReachInputFilePattern, caseInsensitive=true, recursive=true)
+        .toArray,
+      threadLimit
+    )
     // build dataset
-    val data: ParArray[(String, Vector[Mention])] = for {
+    val data = for {
       file <- files                         // read papers in parallel
     } yield readPaper(file)
     data.seq.toMap
