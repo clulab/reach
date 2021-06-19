@@ -47,14 +47,14 @@ class BoundedPaddingContext(
     val contextMentions = range.flatMap(orderedContextMentions.getOrElse(_, Nil))
     // Extract the keys just once
     val contextKeys = contextMentions.map(ContextEngine.getContextKey)
-    // Make the dictionary
-    val contextMap = contextKeys groupBy (_._1) mapValues (t => t.map(_._2).distinct)
+    // Make the dictionary, whereby map(identity) is critical for producing a serializable result
+    val contextMap = contextKeys.groupBy(_._1).mapValues(value => value.map(_._2).distinct).map(identity)
     // Build the dictionary with the context metadata
     val distances = contextMentions.zip(contextKeys).map { case (mention, key) =>
       val distance = Math.abs(mention.sentence - m.sentence)
-      key -> distance
+      (key, distance)
     }
-    val contextMetaData = distances groupBy (_._1) mapValues (d => new Counter(d map (_._2)))
+    val contextMetaData = distances.groupBy(_._1).mapValues(value => new Counter(value.map(_._2))).map(identity)
 
     (contextMap, contextMetaData)
   }
