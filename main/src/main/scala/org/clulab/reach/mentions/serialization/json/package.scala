@@ -106,7 +106,7 @@ package object json {
         // grounding is optional
         ("grounding" -> tb.grounding.map(_.jsonAST)) ~
         // context is optional
-        ("context" -> tb.context.map(_.jsonAST)) ~
+        ("context" -> tb.contextOpt.map(_.jsonAST)) ~
         // usually just labels.head...
         ("displayLabel" -> tb.displayLabel)
         )
@@ -126,7 +126,7 @@ package object json {
         // grounding is optional
         ("grounding" -> em.grounding.map(_.jsonAST)) ~
         // context is optional
-        ("context" -> em.context.map(_.jsonAST)) ~
+        ("context" -> em.contextOpt.map(_.jsonAST)) ~
         // usually just labels.head...
         ("displayLabel" -> em.displayLabel) ~
         ("isDirect" -> em.isDirect)
@@ -147,7 +147,7 @@ package object json {
         // grounding is optional
         ("grounding" -> rm.grounding.map(_.jsonAST)) ~
         // context is optional
-        ("context" -> rm.context.map(_.jsonAST)) ~
+        ("context" -> rm.contextOpt.map(_.jsonAST)) ~
         // usually just labels.head...
         ("displayLabel" -> rm.displayLabel)
         )

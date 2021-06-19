@@ -188,8 +188,8 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
 
   /** Add the properties of the given context map to the given property map. */
   def mkContext (f:PropMap, mention:CorefMention): Unit = {
-    if (mention.context.exists(_.nonEmpty))
-      f("context") = mention.context.get
+    if (mention.contextOpt.exists(_.nonEmpty))
+      f("context") = mention.contextOpt.get
   }
 
   // It doesn't seem like a good idea to return Any from a method like mkArgument().

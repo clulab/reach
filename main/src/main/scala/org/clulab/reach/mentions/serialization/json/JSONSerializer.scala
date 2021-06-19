@@ -382,8 +382,8 @@ object JSONSerializer extends LazyLogging {
   }
   // update context
   private def setContext(m: Mention, mjson: JValue): Unit = (m, toContext(mjson)) match {
-    case (cm: CorefMention, Some(context)) => cm.context = Some(context)
-    case (bm: BioMention, Some(context)) => bm.context = Some(context)
+    case (cm: CorefMention, Some(context)) => cm.contextOpt = Some(context)
+    case (bm: BioMention, Some(context)) => bm.contextOpt = Some(context)
     case _ => ()
   }
 

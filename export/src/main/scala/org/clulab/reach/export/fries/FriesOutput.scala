@@ -287,7 +287,7 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     var contextFrame: Option[PropMap] = None
 
     if (mention.hasContext()) {
-      val context = mention.context.get
+      val context = mention.contextOpt.get
       contextId = contextIdMap.get(context) // get the context ID for the context
       if (contextId.isEmpty) {           // if this is a new context
       val ctxid = mkContextId(paperId, passage, mention.sentence) // generate new context ID
