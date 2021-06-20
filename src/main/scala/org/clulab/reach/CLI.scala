@@ -69,13 +69,12 @@ abstract class CLI (
   def processPapers (threadLimit: Option[Int], withAssembly: Boolean): Int = {
     logger.info("Initializing Reach ...")
 
-    val serFiles = papersDir.listFilesByRegex(pattern=ReachInputFilePattern, caseInsensitive = true, recursive = true).toVector.par
-
+    val serFiles = papersDir.listFilesByRegex(pattern=ReachInputFilePattern, caseInsensitive = true, recursive = true).toVector
     // limit parallelization
-    val files = threadLimit.map(ThreadUtils.parallelize(serFiles, _)).getOrElse(serFiles.par)
+    val parFiles = threadLimit.map(ThreadUtils.parallelize(serFiles, _)).getOrElse(serFiles.par)
 
     val errorCounts = for {
-      file <- serFiles
+      file <- parFiles
       filename = file.getName
       if ! skipFiles.contains(filename)
     } yield {
