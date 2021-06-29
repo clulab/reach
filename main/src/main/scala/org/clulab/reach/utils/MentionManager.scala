@@ -169,8 +169,8 @@ class MentionManager {
     if (mention.isInstanceOf[BioMention]) {
       val bioMention = mention.toBioMention
       mStrings ++= modificationsToStrings(bioMention, level)
-      if (bioMention.context.isDefined)
-        mStrings ++= contextToStrings(bioMention.context.get, level)
+      if (bioMention.contextOpt.isDefined)
+        mStrings ++= contextToStrings(bioMention.contextOpt.get, level)
     }
 
     mention.toCorefMention.antecedent foreach { ante =>

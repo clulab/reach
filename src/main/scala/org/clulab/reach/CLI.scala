@@ -3,10 +3,10 @@ package org.clulab.reach
 import ai.lum.common.FileUtils.LumAICommonFileWrapper
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.FilenameUtils
+import org.clulab.utils.ThreadUtils
 
 import java.io.File
 import java.nio.charset.Charset
-import scala.collection.parallel.ForkJoinTaskSupport
 
 abstract class CLI (
                  val papersDir: File,
@@ -69,16 +69,12 @@ abstract class CLI (
   def processPapers (threadLimit: Option[Int], withAssembly: Boolean): Int = {
     logger.info("Initializing Reach ...")
 
-    val files = papersDir.listFilesByRegex(pattern=ReachInputFilePattern, caseInsensitive = true, recursive = true).toVector.par
-
+    val serFiles = papersDir.listFilesByRegex(pattern=ReachInputFilePattern, caseInsensitive = true, recursive = true).toVector
     // limit parallelization
-    if (threadLimit.nonEmpty) {
-      files.tasksupport =
-        new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit.get))
-    }
+    val parFiles = threadLimit.map(ThreadUtils.parallelize(serFiles, _)).getOrElse(serFiles.par)
 
     val errorCounts = for {
-      file <- files
+      file <- parFiles
       filename = file.getName
       if ! skipFiles.contains(filename)
     } yield {

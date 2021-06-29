@@ -3,6 +3,7 @@ package org.clulab.reach.export.fries
 import java.io._
 import java.util.Date
 import com.typesafe.scalalogging.LazyLogging
+
 import scala.collection.mutable.{HashMap, ListBuffer, Set => MSet}
 import org.json4s.jackson.Serialization
 import org.clulab.odin._
@@ -18,6 +19,7 @@ import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
 import org.clulab.odin.serialization.json
 import org.clulab.serialization.json.JSONSerializer.formats
+import org.clulab.struct.Counter
 
 
 /**
@@ -287,12 +289,13 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     var contextFrame: Option[PropMap] = None
 
     if (mention.hasContext()) {
-      val context = mention.context.get
+      val context = mention.contextOpt.get
+      val contextMetaData = mention.contextMetaDataOpt.getOrElse(Map.empty)
       contextId = contextIdMap.get(context) // get the context ID for the context
       if (contextId.isEmpty) {           // if this is a new context
       val ctxid = mkContextId(paperId, passage, mention.sentence) // generate new context ID
         contextIdMap.put(context, ctxid)      // save the new context ID keyed by the context
-        contextFrame = Some(makeContextFrame(paperId, passage, mention, ctxid, context))
+        contextFrame = Some(makeContextFrame(paperId, passage, mention, ctxid, context, contextMetaData))
         contextId = Some(ctxid)               // save the new context ID
       }
     }
@@ -384,22 +387,55 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     passage: FriesEntry,
     mention: BioMention,
     contextId: String,
-    context: ContextMap): PropMap = {
+    context: ContextMap,
+    contextMetaData: ContextMetaData): PropMap = {
     val f = startFrame()
     f("frame-type") = "context"
     f("frame-id") = contextId
     f("scope") = mkSentenceId(paperId, passage, mention.sentence)
-    f("facets") = makeContextFacets(context)
+    f("facets") = makeContextFacets(context, contextMetaData)
     f
   }
 
   /** Create and return a new map containing the context facets from the given context info. */
-  private def makeContextFacets (context: ContextMap): PropMap = {
+  private def makeContextFacets (context: ContextMap, contextMetaData: ContextMetaData): PropMap = {
     val pm = new PropMap
     pm("object-type") = "facet-set"
+
+    // Frequencies PropMap for the context metadata
+    val freqs = new PropMap
     context.foreach { case(k, v) =>
       val friesFacetName = contextNameMap.getOrElse(k, k)
       pm(friesFacetName) = v
+
+      // Add the frequency of each context detected
+      for(contextType <- v) {
+        val metaDataKey = (k, contextType)
+        val freqFacetName = contextType
+        contextMetaData.get(metaDataKey) match {
+          case Some(metaData) =>
+            freqs(freqFacetName) = makeCounterDict(metaData)
+          case None =>
+            freqs(freqFacetName) = "default" // If no frequency metadata is available, then it was assigned as default context
+        }
+
+      }
+
+    }
+    pm("freqs") = freqs // Add the frequencies dictionary to the current prop map
+    pm
+  }
+
+  /**
+    * Generates a prop map of a Counter[Int] Instance with values as int strings
+    * @param counter
+    * @return
+    */
+  private def makeCounterDict(counter:Counter[Int]): PropMap = {
+    val pm = new PropMap
+    counter.keySet.toSeq.sorted.foreach{
+      k =>
+        pm(k.toString) = s"${counter.getCount(k).toInt}"
     }
     pm
   }

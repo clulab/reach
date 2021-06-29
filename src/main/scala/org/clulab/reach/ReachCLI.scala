@@ -1,8 +1,6 @@
 package org.clulab.reach
 
 import scala.collection.JavaConverters._
-import scala.collection.parallel.ForkJoinTaskSupport
-import scala.io.Source
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.{FileUtils, FilenameUtils}

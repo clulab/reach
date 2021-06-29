@@ -1,6 +1,7 @@
 package org.clulab.coref
 
 import org.clulab.odin.Mention
+import org.clulab.reach.context.newContextMap
 import org.clulab.reach.grounding.ReachKBConstants
 import org.clulab.reach.mentions._
 import org.clulab.reach.utils.DependencyUtils._
@@ -134,8 +135,8 @@ object CorefUtils {
     * @param b
     */
   def compatibleContext(a: CorefMention, b: CorefMention): Boolean = {
-    val aContext = a.context.getOrElse(Map[String,Seq[String]]())
-    val bContext = b.context.getOrElse(Map[String,Seq[String]]())
+    val aContext = a.contextOpt.getOrElse(newContextMap())
+    val bContext = b.contextOpt.getOrElse(newContextMap())
     a.label == b.label &&
       aContext.keySet.intersect(bContext.keySet)
         .forall(k => aContext(k).toSet.intersect(bContext(k).toSet).nonEmpty) // FIXME: Too strict?
