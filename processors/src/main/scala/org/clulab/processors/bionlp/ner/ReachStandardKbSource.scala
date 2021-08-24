@@ -11,6 +11,7 @@ import org.clulab.utils.Serializer
 
 import java.io.File
 import java.util.function.Consumer
+import scala.language.reflectiveCalls // required to access consumer.lineCount
 import scala.util.Try
 
 abstract class ReachStandardKbSource(caseInsensitiveMatching: Boolean) extends StandardKbSource(caseInsensitiveMatching)
