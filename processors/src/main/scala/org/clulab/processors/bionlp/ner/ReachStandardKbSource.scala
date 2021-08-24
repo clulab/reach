@@ -50,7 +50,7 @@ class ReachSingleStandardKbSource(kbEntry: KBEntry, caseInsensitiveMatching: Boo
     Serializer.using(bufferedReader) { bufferedReader =>
       bufferedReader.lines.forEach(consumer)
     }
-    logger.info(s"Done. Read $consumer.lineCount lines from ${new File(kbEntry.path).getName}")
+    logger.info(s"Done. Read ${consumer.lineCount} lines from ${new File(kbEntry.path).getName}")
   }
 }
 
