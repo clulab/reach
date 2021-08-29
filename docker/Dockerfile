@@ -6,7 +6,7 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y git curl \
     vim wget build-essential software-properties-common openjdk-8-jdk
 
 # Install Scala
-RUN wget https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.deb && \
+RUN wget -nv https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.deb && \
     dpkg -i scala-2.12.8.deb
 
 # Install SBT
