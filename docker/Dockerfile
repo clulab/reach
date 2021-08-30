@@ -1,21 +1,20 @@
-FROM ubuntu:bionic
+FROM ubuntu:focal
 
-# Install basic packages
-RUN apt-get update && apt-get install -y git vim wget build-essential \
-    software-properties-common
+# Install basic packages and Java
+RUN apt-get update
+RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y git curl \
+    vim wget build-essential software-properties-common openjdk-8-jdk
 
-# Add some extensions to apt sources and update
-RUN add-apt-repository -y ppa:openjdk-r/ppa && \
-    echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list && \
-    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823 && \
-    apt-get update
+# Install Scala
+RUN wget -nv https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.deb && \
+    dpkg -i scala-2.12.8.deb
 
-# Install Java, Scala and SBT
-RUN apt-get install -y openjdk-8-jdk && \
-    wget -nv https://www.scala-lang.org/files/archive/scala-2.12.8.deb && \
-    dpkg -i scala-2.12.8.deb && \
-    rm scala-2.12.8.deb && \
-    apt-get install -y sbt=1.4.0
+# Install SBT
+RUN echo "deb https://repo.scala-sbt.org/scalasbt/debian all main" | tee /etc/apt/sources.list.d/sbt.list && \
+    echo "deb https://repo.scala-sbt.org/scalasbt/debian /" | tee /etc/apt/sources.list.d/sbt_old.list && \
+    curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823" | apt-key add && \
+    apt-get update && \
+    apt-get install sbt=1.4.0
 
 # Clone and pre-build Reach so that the server starts up fast upon launch
 RUN git clone https://github.com/clulab/reach.git && \
