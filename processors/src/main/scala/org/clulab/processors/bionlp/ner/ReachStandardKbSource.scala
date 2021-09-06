@@ -11,6 +11,7 @@ import org.clulab.utils.Serializer
 
 import java.io.File
 import java.util.function.Consumer
+import scala.language.reflectiveCalls // required to access consumer.lineCount
 import scala.util.Try
 
 abstract class ReachStandardKbSource(caseInsensitiveMatching: Boolean) extends StandardKbSource(caseInsensitiveMatching)
@@ -44,13 +45,19 @@ class ReachSingleStandardKbSource(kbEntry: KBEntry, caseInsensitiveMatching: Boo
     val inputPath = kbEntry.path //inputDir + File.separator + entry.kbName + ".tsv"
     // This is different from the processors version in that a local file may override the resource.
     // If the original inputPath happens to end with .gz, then behavior has changed slightly.
-    val bufferedReader = Try(Files.loadFile(inputPath))
-        .getOrElse(Files.loadFile(inputPath + ".gz"))
+    val bufferedReader =
+      Try(Files.loadFile(inputPath)).getOrElse(
+        Try(Files.loadFile(inputPath + ".gz")).getOrElse(
+          Try(Files.loadStreamFromClasspath(inputPath)).getOrElse(
+            Files.loadStreamFromClasspath(inputPath + ".gz")
+          )
+        )
+      )
 
     Serializer.using(bufferedReader) { bufferedReader =>
       bufferedReader.lines.forEach(consumer)
     }
-    logger.info(s"Done. Read $consumer.lineCount lines from ${new File(kbEntry.path).getName}")
+    logger.info(s"Done. Read ${consumer.lineCount} lines from ${new File(kbEntry.path).getName}")
   }
 }
 
