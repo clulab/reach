@@ -17,7 +17,6 @@ import org.clulab.utils.{FileUtils, Files, StringUtils}
 import NxmlIndexer._
 import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.reach.utils.Preprocess
-import sun.jvm.hotspot.oops.BooleanField
 
 
 /**
