@@ -28,7 +28,7 @@ import org.clulab.reach.utils.Preprocess
 class NxmlIndexer {
   def index(docsDir:String, mapFiles:Iterable[String], indexDir:String): Unit = {
 //    val files = Files.findFiles(docsDir, "nxml")
-    val files = FileUtils.findFiles(docsDir, "xml") // Since Dec 2021, pubmed files use xml extensions
+    val files = FileUtils.walkTree(docsDir).filter(f => f.getName.endsWith(".xml")).toList // Since Dec 2021, pubmed files use xml extensions
     logger.info(s"Preparing to index ${files.length} files...")
     val nxmlReader = new NxmlReader(IGNORE_SECTIONS.toSet)
     val fileToPmc = readMapFiles(mapFiles)
@@ -36,7 +36,7 @@ class NxmlIndexer {
     // check that all files exist in the map
     var failed = false
     var count = 0
-    for(file <- files) {
+    for{file <- files} {
       val fn = getFileName(file, "xml") // Since Dec 2021, pubmed files use xml extensions
       if(! fileToPmc.contains(fn)) {
         logger.info(s"Did not find map for file $fn!")
