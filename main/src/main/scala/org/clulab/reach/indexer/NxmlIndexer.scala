@@ -43,7 +43,7 @@ class NxmlIndexer {
     var count = 0
     var nxmlErrors = 0
     for (meta <- fileToPmc.values) {
-      val file = new File(meta.path)
+      val file = meta.path
       // Preprocess bio text
       val source = Source.fromFile(file)
       val rawText = source.getLines.mkString("\n")
@@ -113,6 +113,7 @@ class NxmlIndexer {
     val map = new mutable.HashMap[String, PMCMetaData]()
     val errorCount = new MutableNumber[Int](0)
     val source = Source.fromFile(mapFile)
+    val directory = new File(mapFile).getAbsoluteFile.getParentFile
     for(line <- source.getLines().drop(1)) { // Drop the first line to ignore the headers
       val tokens = line.split("\\t")
       if(tokens.length > 2) { // skip headers
@@ -122,7 +123,7 @@ class NxmlIndexer {
         val journalName = tokens(1)
         val retracted = tokens(6)
         val year = extractPubYear(journalName, errorCount)
-        map += fn -> PMCMetaData(pmcId, year, retracted, path)
+        map += fn -> PMCMetaData(pmcId, year, retracted, new File(directory, path))
         // logger.debug(s"$fn -> $pmcId, $year")
       }
     }
@@ -156,7 +157,7 @@ case class PMCMetaData(
   pmcId:String,
   year:String,
   retracted:String,
-  path:String)
+  path:File)
 
 object NxmlIndexer {
   val logger = LoggerFactory.getLogger(classOf[NxmlIndexer])
