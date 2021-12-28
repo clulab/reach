@@ -26,8 +26,9 @@ import org.clulab.reach.utils.Preprocess
   * Last Modified: Refactor processor client to processor annotator.
   */
 class NxmlIndexer {
-  def index(mapFiles:Iterable[String], indexDir:String): Unit = {
+  def index(docs:String, mapFiles:Iterable[String], indexDir:String): Unit = {
 
+    val baseDir = new File(docs)
     val nxmlReader = new NxmlReader(IGNORE_SECTIONS.toSet)
     val fileToPmc = readMapFiles(mapFiles)
     logger.info(s"Preparing to index ${fileToPmc.size} files...")
@@ -43,7 +44,7 @@ class NxmlIndexer {
     var count = 0
     var nxmlErrors = 0
     for (meta <- fileToPmc.values) {
-      val file = meta.path
+      val file = new File(baseDir, meta.path)
       // Preprocess bio text
       val source = Source.fromFile(file)
       val rawText = source.getLines.mkString("\n")
@@ -113,7 +114,6 @@ class NxmlIndexer {
     val map = new mutable.HashMap[String, PMCMetaData]()
     val errorCount = new MutableNumber[Int](0)
     val source = Source.fromFile(mapFile)
-    val directory = new File(mapFile).getAbsoluteFile.getParentFile
     for(line <- source.getLines().drop(1)) { // Drop the first line to ignore the headers
       val tokens = line.split("\\t")
       if(tokens.length > 2) { // skip headers
@@ -123,7 +123,7 @@ class NxmlIndexer {
         val journalName = tokens(1)
         val retracted = tokens(6)
         val year = extractPubYear(journalName, errorCount)
-        map += fn -> PMCMetaData(pmcId, year, retracted, new File(directory, path))
+        map += fn -> PMCMetaData(pmcId, year, retracted,  path)
         // logger.debug(s"$fn -> $pmcId, $year")
       }
     }
@@ -157,7 +157,7 @@ case class PMCMetaData(
   pmcId:String,
   year:String,
   retracted:String,
-  path:File)
+  path:String)
 
 object NxmlIndexer {
   val logger = LoggerFactory.getLogger(classOf[NxmlIndexer])
@@ -168,12 +168,12 @@ object NxmlIndexer {
   def main(args:Array[String]): Unit = {
     val props = StringUtils.argsToProperties(args)
     val indexDir = props.getProperty("index")
-//    val docsDir = props.getProperty("docs")
+    val docsDir = props.getProperty("docs")
     val mapFile = props.getProperty("map")
 
     println(props)
 
     val indexer = new NxmlIndexer
-    indexer.index(mapFile.split(","), indexDir)
+    indexer.index(docsDir, mapFile.split(","), indexDir)
   }
 }
