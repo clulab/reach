@@ -72,7 +72,7 @@ class PubmedAbstractIndexer {
   }
 
   def addDocs(writer:IndexWriter, abstracts:Iterable[PubmedAbstract]): Int = {
-    abstracts map (abs => Try(addDoc(writer, abs))) count { case Success(_) => true}
+    abstracts map (abs => Try(addDoc(writer, abs))) count { case Success(_) => true ; case Failure(_) => false }
   }
 
   def addDoc(writer:IndexWriter, abs:PubmedAbstract): Unit = {
