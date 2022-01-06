@@ -3,7 +3,6 @@ package org.clulab.reach.indexer
 import java.io.File
 import java.nio.file.Paths
 import java.util.regex.Pattern
-
 import scala.collection.mutable
 import scala.io.Source
 import scala.util.{Failure, Success, Try}
@@ -14,7 +13,7 @@ import org.apache.lucene.index.{IndexWriter, IndexWriterConfig}
 import org.apache.lucene.store.FSDirectory
 import org.slf4j.LoggerFactory
 import org.clulab.struct.MutableNumber
-import org.clulab.utils.{Files, StringUtils}
+import org.clulab.utils.{FileUtils, Files, StringUtils}
 import NxmlIndexer._
 import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.reach.utils.Preprocess
@@ -27,26 +26,13 @@ import org.clulab.reach.utils.Preprocess
   * Last Modified: Refactor processor client to processor annotator.
   */
 class NxmlIndexer {
-  def index(docsDir:String, mapFile:String, indexDir:String): Unit = {
-    val files = Files.findFiles(docsDir, "nxml")
-    logger.info(s"Preparing to index ${files.length} files...")
-    val nxmlReader = new NxmlReader(IGNORE_SECTIONS.toSet)
-    val fileToPmc = readMapFile(mapFile)
+  def index(docs:String, mapFiles:Iterable[String], indexDir:String): Unit = {
 
-    // check that all files exist in the map
-    var failed = false
-    var count = 0
-    for(file <- files) {
-      val fn = getFileName(file, "nxml")
-      if(! fileToPmc.contains(fn)) {
-        logger.info(s"Did not find map for file $fn!")
-        failed = true
-        count += 1
-      }
-    }
-    // if(failed) throw new RuntimeException("Failed to map some files. Exiting...")
-    if(count > 0)
-      logger.info(s"Failed to find PMC id for ${count} files.")
+    val baseDir = new File(docs)
+    val nxmlReader = new NxmlReader(IGNORE_SECTIONS.toSet)
+    val fileToPmc = readMapFiles(mapFiles)
+    logger.info(s"Preparing to index ${fileToPmc.size} files...")
+
 
     // index
     val analyzer = new StandardAnalyzer
@@ -55,9 +41,10 @@ class NxmlIndexer {
     val writer = new IndexWriter(index, config)
     val procAnnotator = new BioNLPProcessor()
     val preproc = new Preprocess
-    count = 0
+    var count = 0
     var nxmlErrors = 0
-    for (file <- files) {
+    for (meta <- fileToPmc.values) {
+      val file = new File(baseDir, meta.path)
       // Preprocess bio text
       val source = Source.fromFile(file)
       val rawText = source.getLines.mkString("\n")
@@ -73,9 +60,8 @@ class NxmlIndexer {
           Nil
       }
 
-      if(nxmlDoc != Nil && fileToPmc.contains(getFileName(file, "nxml"))) {
+      if(nxmlDoc != Nil) {
         val doc = nxmlDoc.asInstanceOf[NxmlDocument]
-        val meta = fileToPmc.get(getFileName(file, "nxml")).get
         val text = doc.text
         val nxml = readNxml(file)
         addDoc(writer, meta, text, nxml)
@@ -84,11 +70,11 @@ class NxmlIndexer {
       }
       count += 1
       if(count % 100 == 0)
-        logger.info(s"Indexed ${count}/${files.size} files.")
+        logger.info(s"Indexed ${count}/${fileToPmc.size} files.")
 
     }
     writer.close()
-    logger.info(s"Indexing complete. Indexed ${count}/${files.size} files.")
+    logger.info(s"Indexing complete. Indexed ${count}/${fileToPmc.size} files.")
 
 
   }
@@ -99,6 +85,7 @@ class NxmlIndexer {
     d.add(new StringField("id", meta.pmcId, Field.Store.YES))
     d.add(new StringField("year", meta.year, Field.Store.YES)) // TODO: index as DateField or NumericField?
     d.add(new StoredField("nxml", nxml))
+    d.add(new StringField("retracted", meta.retracted, Field.Store.YES))
     writer.addDocument(d)
   }
 
@@ -113,19 +100,30 @@ class NxmlIndexer {
     os.toString()
   }
 
+  /**
+    * Reads multiple map files and merges them into a single map
+    * @param mapFiles list of paths to map files
+    * @return merged map of individual files from readMapFile
+    */
+  def readMapFiles(mapFiles:Iterable[String]):Map[String, PMCMetaData] = {
+    (mapFiles map readMapFile flatMap (_.toSeq)).toMap
+  }
+
   def readMapFile(mapFile:String):Map[String, PMCMetaData] = {
     // map from file name (wo/ extension) to pmc id
     val map = new mutable.HashMap[String, PMCMetaData]()
     val errorCount = new MutableNumber[Int](0)
     val source = Source.fromFile(mapFile)
-    for(line <- source.getLines()) {
+    for(line <- source.getLines().drop(1)) { // Drop the first line to ignore the headers
       val tokens = line.split("\\t")
       if(tokens.length > 2) { // skip headers
-      val fn = getFileName(tokens(0), "tar.gz")
+        val path = tokens(0)
+        val fn = getFileName(tokens(0), "xml")
         val pmcId = tokens(2)
         val journalName = tokens(1)
+        val retracted = tokens(6)
         val year = extractPubYear(journalName, errorCount)
-        map += fn -> new PMCMetaData(pmcId, year)
+        map += fn -> PMCMetaData(pmcId, year, retracted,  path)
         // logger.debug(s"$fn -> $pmcId, $year")
       }
     }
@@ -156,8 +154,10 @@ class NxmlIndexer {
 }
 
 case class PMCMetaData(
-  val pmcId:String,
-  val year:String)
+  pmcId:String,
+  year:String,
+  retracted:String,
+  path:String)
 
 object NxmlIndexer {
   val logger = LoggerFactory.getLogger(classOf[NxmlIndexer])
@@ -171,7 +171,9 @@ object NxmlIndexer {
     val docsDir = props.getProperty("docs")
     val mapFile = props.getProperty("map")
 
+    println(props)
+
     val indexer = new NxmlIndexer
-    indexer.index(docsDir, mapFile, indexDir)
+    indexer.index(docsDir, mapFile.split(","), indexDir)
   }
 }
