@@ -281,7 +281,7 @@ object EvalUnlabeledEventPairsRuleClassifier extends App with LazyLogging {
   }
 
   for {
-    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(mentionsUnlabeled).slice(0,1 ) // TODO: use only one classifier for now.
+    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(mentionsUnlabeled).slice(0, 1) // TODO: use only one classifier for now.
   } {
     logger.info(s"showing results for classifier ${lbl}.")
     // There are only two precedence classifiers returned from applyEachSieve.
@@ -832,3 +832,14 @@ object ForAlixEnvironment {
   }
 }
 
+object CheckDataMention extends App with LazyLogging {
+
+  val epsLabeledAllSplits = Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/train").instances ++
+    Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/test").instances
+
+  println("total number of eps:", epsLabeledAllSplits.length)
+
+  // for (ep <- epsLabeledAllSplits)
+
+
+}
