@@ -848,8 +848,8 @@ object CheckDataMention extends App with LazyLogging {
     "split_id": [{"train": [], "dev": [], "test": []} ,{...} ,{...} ,{...}, {...}],
   }
    */
-  val split_info_file_path = "/home/zhengzhongliang/CLU_Projects/2020_ASKE/ASKE_2020_CausalDetection/Experiments2/scala_data/split_info_for_scala.json"
-  val splitsJson = parse(new File(split_info_file_path))
+  val splitInfoFilePath = "/home/zhengzhongliang/CLU_Projects/2020_ASKE/ASKE_2020_CausalDetection/Experiments2/scala_data/split_info_for_scala.json"
+  val splitsJson = parse(new File(splitInfoFilePath))
   val allSplits = splitsJson.extract[Map[String, Seq[Map[String, Seq[Int]]]]]
 
 
@@ -867,5 +867,78 @@ object CheckDataMention extends App with LazyLogging {
 
   println("matched event count (should be 922): ", match_count)
 
+
+}
+
+object EvalRuleModelOnFinalSplit extends App with LazyLogging {
+  /*
+  This function evaluates the rule-based models on the split we use on 20220126
+   */
+
+  // Load the event pairs with the mentions.
+  val corpusTrain = Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/train")
+  val corpusTest = Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/test")
+  val allEventPairs = corpusTrain.instances ++ corpusTest.instances
+  val allMentions = corpusTrain.mentions ++ corpusTest.mentions
+
+
+  // Load the split information
+  val splitsInfoFilePath = "/home/zhengzhongliang/CLU_Projects/2020_ASKE/ASKE_2020_CausalDetection/Experiments2/scala_data/split_info_for_scala.json"
+  val splitsInfoJson = parse(new File(splitsInfoFilePath))
+  val splitsInfo = splitsInfoJson.extract[Map[String, Seq[Map[String, Seq[Int]]]]]
+
+  // For the rule-based model, we don't have to run it on 5 seeds. Just get all mentions.
+  val eventPairIdsOfInterest = splitsInfo("split_id")(0)("train") ++ splitsInfo("split_id")(0)("dev") ++ splitsInfo("split_id")(0)("test")
+  val eventPairsOfInterest = allEventPairs.filter{x => eventPairIdsOfInterest.contains(x.id)}
+  logger(s"total number of event pairs of interest: ${eventPairsOfInterest.length}")
+
+  // Build a reference map so that later when the rule-base classifier outputs the predictions we know where to save the results.
+  // Map structure: e1_hash + e2_hash -> ep_hash
+  val eventHashesPairToEventPairHashesMap = eventPairsOfInterest.map(ep =>
+    (ep.e1.hashCode().toString + "," + ep.e1.hashCode().toString, ep.id)).toMap
+
+  // Start evaluation.
+  val resultMap = scala.collection.mutable.Map[String, scala.collection.mutable.Map[Int, Int]]()
+  for {
+    (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(allMentions)
+  } {
+    logger.info(s"showing results for classifier ${lbl}.")
+    // There are only two precedence classifiers returned from applyEachSieve.
+    // The first is combinedRBPprecedence, the second is bioDRBpatterns.
+
+    if (!resultMap.contains(lbl)) {
+      resultMap(lbl) = scala.collection.mutable.Map[Int, Int]()  // event pair id -> prediction
+    }
+
+    val predicted = sieveResult.getPrecedenceRelations
+
+    var noCausalRelationCount = 0
+
+    for (precedRel <- predicted){
+      // The event in the prediction can be accessed by: precedRel.before.sourceMention.get.text
+      // The event hash can be accessed by: precedRel.before.sourceMention.get.hashCode().toString
+      val e1 = precedRel.before.sourceMention.get
+      val e2 = precedRel.after.sourceMention.get
+
+      val e1Hash = e1.hashCode().toString
+      val e2Hash = e2.hashCode().toString
+
+      if (eventHashesPairToEventPairHashesMap.contains(e1Hash +","+e2Hash)){
+        resultMap(lbl)(eventHashesPairToEventPairHashesMap(e1Hash +","+e2Hash)) = 1  // E1 precedes E2
+      }
+
+      else if (eventHashesPairToEventPairHashesMap.contains(e2Hash +","+e1Hash)) {
+        resultMap(lbl)(eventHashesPairToEventPairHashesMap(e2Hash +","+e1Hash)) = 2   // E2 precedes E1
+      }
+      else {
+        noCausalRelationCount += 1
+      }
+
+    }
+    println(s"rule based classifier name:${lbl}")
+    println(resultMap(lbl))
+    println(s"invalid event pair count:${noCausalRelationCount}")
+
+  }
 
 }
