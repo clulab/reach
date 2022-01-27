@@ -837,7 +837,11 @@ object CheckDataMention extends App with LazyLogging {
   val epsLabeledAllSplits = (Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/train").instances ++
     Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/test").instances)
 
+  // It has 945 examples in total, whereas the python script has only 922 examples.
+
   println("total number of eps:", epsLabeledAllSplits.length)
+
+  println(epsLabeledAllSplits(0).id)
 
   // for (ep <- epsLabeledAllSplits)
 

@@ -29,7 +29,8 @@ case class EventPair(
   relation: String,
   confidence: Double = AnnotationUtils.HIGH,
   annotatorID: String = "",
-  notes: Option[String] = None
+  notes: Option[String] = None,
+  id: String = ""
 ) extends JSONSerialization {
 
   import CorpusBuilder._
@@ -445,7 +446,8 @@ object Corpus extends LazyLogging {
       relation = aa.relation,
       confidence = aa.confidence,
       annotatorID = aa.`annotator-id`,
-      notes = aa.notes
+      notes = aa.notes,
+      id = mentionMap(aa.`id`)
     )
   }
 
