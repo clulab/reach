@@ -843,7 +843,7 @@ object CheckDataMention extends App with LazyLogging {
 
   val split_info_file_path = "/home/zhengzhongliang/CLU_Projects/2020_ASKE/ASKE_2020_CausalDetection/Experiments2/scala_data/split_info_for_scala.json"
   val splitsJson = parse(new File(split_info_file_path))
-  val allSplits = splitsJson.extract[Map[String, Seq[Seq[Int]]]]
+  val allSplits = splitsJson.extract[Map[String, Seq[Map[String, Seq[Int]]]]]
 
   println(allSplits("split_id"))
 
