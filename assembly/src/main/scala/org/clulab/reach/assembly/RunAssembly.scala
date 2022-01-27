@@ -859,6 +859,14 @@ object EvalRuleModelOnFinalSplit extends App with LazyLogging {
     println(resultMap(lbl))
     println(s"invalid event pair count:${nInvalidPred}")
 
+    val saveFolderPath = "/home/zhengzhongliang/CLU_Projects/2020_ASKE/ASKE_2020_CausalDetection/Experiments2/saved_models_scala_20220127/"
+    val saveFilePath = saveFolderPath + "rule_model_name_" + lbl + "_pred_all_splits.json"
+
+    val resultMapJson = org.json4s.jackson.Serialization.write(resultMap(lbl))
+
+    val pw = new PrintWriter(new File(saveFilePath))
+    pw.write(resultMapJson)
+    pw.close
   }
 
 }
