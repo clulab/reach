@@ -890,7 +890,7 @@ object EvalRuleModelOnFinalSplit extends App with LazyLogging {
   // For the rule-based model, we don't have to run it on 5 seeds. Just get all mentions.
   val eventPairIdsOfInterest = splitsInfo("split_id")(0)("train") ++ splitsInfo("split_id")(0)("dev") ++ splitsInfo("split_id")(0)("test")
   val eventPairsOfInterest = allEventPairs.filter{x => eventPairIdsOfInterest.contains(x.id)}
-  logger(s"total number of event pairs of interest: ${eventPairsOfInterest.length}")
+  logger.info(s"total number of event pairs of interest: ${eventPairsOfInterest.length}")
 
   // Build a reference map so that later when the rule-base classifier outputs the predictions we know where to save the results.
   // Map structure: e1_hash + e2_hash -> ep_hash
