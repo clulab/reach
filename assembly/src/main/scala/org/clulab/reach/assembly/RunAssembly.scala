@@ -868,6 +868,8 @@ object EvalRuleModelOnFinalSplit extends App with LazyLogging {
   * This function provides the baseline results of the SVM model under the same setting as in the python file.
   * Latest update: 20220126 using the final splits.
   */
+
+  /*
 object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
   // 1, load the train/test splits:
   val splitsInfoFilePath = "/home/zhengzhongliang/CLU_Projects/2020_ASKE/ASKE_2020_CausalDetection/Experiments2/scala_data/split_info_for_scala.json"
@@ -939,3 +941,4 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
 
   logger.info(s"all splits p:${precision}, r:${recall}, f1:${f1}")
 }
+  */
