@@ -869,7 +869,7 @@ object EvalRuleModelOnFinalSplit extends App with LazyLogging {
   * Latest update: 20220126 using the final splits.
   */
 
-  /*
+
 object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
   // 1, load the train/test splits:
   val splitsInfoFilePath = "/home/zhengzhongliang/CLU_Projects/2020_ASKE/ASKE_2020_CausalDetection/Experiments2/scala_data/split_info_for_scala.json"
@@ -880,9 +880,10 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
   // 2, load all labeled event pairs
   // note that the constraint of the sentence distance should be imposed, and this constraint should be the same as
   // implemented in the python file.
-  val eventPairIdsOfInterest = (splitsInfo("split_id")(0)("train") ++ splitsInfo("split_id")(0)("dev") ++ splitsInfo("split_id")(0)("test")).toSet
-  val eventPairsOfInterest = allEventPairs.filter{x => eventPairIdsOfInterest.contains(x.id)}
-  logger.info(s"total number of event pairs of interest: ${eventPairsOfInterest.length}")
+  val corpusTrain = Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/train")
+  val corpusTest = Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/test")
+  val allEventPairs = corpusTrain.instances ++ corpusTest.instances
+  val allEventPairsGroupedByEPID = allEventPairs.map{x => (x.id, x)}.toMap
 
   // 3, train the feature-based classifier on each split and get the prediction.
   val kFolds = 5
@@ -892,12 +893,13 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
   val allLabels = new ArrayBuffer[String]()
   val allPreds = new ArrayBuffer[String]()
 
+  // TODO: modify the seed so that it supports multiple seeds.
   for (split <- 0 until kFolds){
-    val train_index = allSplits("split"+split.toString)("train")
-    val test_index = allSplits("split"+split.toString)("test")
+    val trainIds = splitsInfo("split_id")(split)("train") ++ splitsInfo("split_id")(split)("dev")
+    val testIds = splitsInfo("split_id")(split)("test")
 
-    val epsTrain = for {idx <- train_index} yield epsLabeled(idx)
-    val epsTest = for {idx <- test_index} yield epsLabeled(idx)
+    val epsTrain = trainIds.map{x => allEventPairsGroupedByEPID(x)} // use train and dev as train.
+    val epsTest = testIds.map{x => allEventPairsGroupedByEPID(x)}
 
 
     val precedenceDatasetTrain = AssemblyRelationClassifier.mkRVFDataset(CorpusReader.filterRelations(epsTrain, precedenceRelations))
@@ -941,4 +943,3 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
 
   logger.info(s"all splits p:${precision}, r:${recall}, f1:${f1}")
 }
-  */
