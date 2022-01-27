@@ -837,17 +837,35 @@ object CheckDataMention extends App with LazyLogging {
   val epsLabeledAllSplits = Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/train").instances ++
     Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/test").instances
 
-
-  println("total number of eps:", epsLabeledAllSplits.length)
   // It has 945 examples in total, whereas the python script has only 922 examples.
+  println("total number of eps:", epsLabeledAllSplits.length)
 
+
+  /*
+  Load the split information. File structure:
+  {
+    "split_index": [{"train": [], "dev": [], "test": []} ,{...} ,{...} ,{...}, {...}],
+    "split_id": [{"train": [], "dev": [], "test": []} ,{...} ,{...} ,{...}, {...}],
+  }
+   */
   val split_info_file_path = "/home/zhengzhongliang/CLU_Projects/2020_ASKE/ASKE_2020_CausalDetection/Experiments2/scala_data/split_info_for_scala.json"
   val splitsJson = parse(new File(split_info_file_path))
   val allSplits = splitsJson.extract[Map[String, Seq[Map[String, Seq[Int]]]]]
 
-  println(allSplits("split_id"))
 
-  // for (ep <- epsLabeledAllSplits)
+  val ep_ids_all = scala.collection.mutable.Map[Int, Int]()
+  for (ep <- epsLabeledAllSplits) {
+    ep_ids_all(ep.id) = 0
+  }
+
+  var match_count = 0
+  for (split_event_id <- allSplits("split_id")(0)("train") ++ allSplits("split_id")(0)("dev") ++ allSplits("split_id")(0)("test")){
+    if (ep_ids_all.contains(split_event_id)){
+      match_count += 1
+    }
+  }
+
+  println("matched event count (should be 922): ", match_count)
 
 
 }
