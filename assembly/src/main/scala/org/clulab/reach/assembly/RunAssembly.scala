@@ -834,14 +834,18 @@ object ForAlixEnvironment {
 
 object CheckDataMention extends App with LazyLogging {
 
-  val epsLabeledAllSplits = (Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/train").instances ++
-    Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/test").instances)
+  val epsLabeledAllSplits = Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/train").instances ++
+    Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/test").instances
 
-  // It has 945 examples in total, whereas the python script has only 922 examples.
 
   println("total number of eps:", epsLabeledAllSplits.length)
+  // It has 945 examples in total, whereas the python script has only 922 examples.
 
-  println(epsLabeledAllSplits(0).id)
+  val split_info_file_path = "/home/zhengzhongliang/CLU_Projects/2020_ASKE/ASKE_2020_CausalDetection/Experiments2/scala_data/split_info_for_scala.json"
+  val splitsJson = parse(new File(split_info_file_path))
+  val allSplits = splitsJson.extract[Map[String, Seq[Seq[Int]]]]
+
+  println(allSplits("split_id"))
 
   // for (ep <- epsLabeledAllSplits)
 
