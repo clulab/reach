@@ -821,7 +821,9 @@ object EvalRuleModelOnFinalSplit extends App with LazyLogging {
   for {
     (lbl, sieveResult) <- SieveEvaluator.applyEachSieve(allMentions)
   } {
-    logger.info(s"showing results for classifier ${lbl}.")
+    val predicted = sieveResult.getPrecedenceRelations
+
+    logger.info(s"showing results for classifier ${lbl}. n pred: ${predicted.size}")
     // There are only two precedence classifiers returned from applyEachSieve.
     // The first is combinedRBPprecedence, the second is bioDRBpatterns.
 
@@ -829,9 +831,8 @@ object EvalRuleModelOnFinalSplit extends App with LazyLogging {
       resultMap(lbl) = scala.collection.mutable.Map[Int, Int]()  // event pair id -> prediction
     }
 
-    val predicted = sieveResult.getPrecedenceRelations
 
-    var noCausalRelationCount = 0
+    var nInvalidPred = 0
 
     for (precedRel <- predicted){
       // The event in the prediction can be accessed by: precedRel.before.sourceMention.get.text
@@ -850,13 +851,13 @@ object EvalRuleModelOnFinalSplit extends App with LazyLogging {
         resultMap(lbl)(eventHashesPairToEventPairHashesMap(e2Hash +","+e1Hash)) = 2   // E2 precedes E1
       }
       else {
-        noCausalRelationCount += 1
+        nInvalidPred += 1
       }
 
     }
     println(s"rule based classifier name:${lbl}")
     println(resultMap(lbl))
-    println(s"invalid event pair count:${noCausalRelationCount}")
+    println(s"invalid event pair count:${nInvalidPred}")
 
   }
 
@@ -869,21 +870,17 @@ object EvalRuleModelOnFinalSplit extends App with LazyLogging {
   */
 object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
   // 1, load the train/test splits:
-  val splitsJson = parse(new File("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/event_pairs_splits.json"))
-  val allSplits = splitsJson.extract[Map[String, Map[String, Seq[Int]]]]
+  val splitsInfoFilePath = "/home/zhengzhongliang/CLU_Projects/2020_ASKE/ASKE_2020_CausalDetection/Experiments2/scala_data/split_info_for_scala.json"
+  val splitsInfoJson = parse(new File(splitsInfoFilePath))
+  val splitsInfo = splitsInfoJson.extract[Map[String, Seq[Map[String, Seq[Int]]]]]
 
 
   // 2, load all labeled event pairs
   // note that the constraint of the sentence distance should be imposed, and this constraint should be the same as
   // implemented in the python file.
-  val epsLabeled = (Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/train").instances ++
-    Corpus("/work/zhengzhongliang/2020_ASKE/20200831/mcc_new/test").instances)
-    .filter(x => (x.e2.sentence - x.e1.sentence).abs <= 1) // TODO: this filter should change
-
-  logger.info(s"total number of labeled event pairs loaded:${epsLabeled.length}")
-  logger.info(s"total number of labeled event pairs in the split:${allSplits("split0")("train").length + allSplits("split0")("test").length}")
-  require(epsLabeled.length == allSplits("split0")("train").length + allSplits("split0")("test").length)
-
+  val eventPairIdsOfInterest = (splitsInfo("split_id")(0)("train") ++ splitsInfo("split_id")(0)("dev") ++ splitsInfo("split_id")(0)("test")).toSet
+  val eventPairsOfInterest = allEventPairs.filter{x => eventPairIdsOfInterest.contains(x.id)}
+  logger.info(s"total number of event pairs of interest: ${eventPairsOfInterest.length}")
 
   // 3, train the feature-based classifier on each split and get the prediction.
   val kFolds = 5
