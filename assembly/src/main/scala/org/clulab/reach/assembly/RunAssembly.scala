@@ -834,8 +834,8 @@ object ForAlixEnvironment {
 
 object CheckDataMention extends App with LazyLogging {
 
-  val epsLabeledAllSplits = Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/train").instances ++
-    Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/test").instances
+  val epsLabeledAllSplits = (Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/train").instances ++
+    Corpus("/home/zhengzhongliang/CLU_Projects/2020_ASKE/20200831/mcc_new/test").instances)
 
   println("total number of eps:", epsLabeledAllSplits.length)
 
