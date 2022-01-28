@@ -851,6 +851,7 @@ object EvalRuleModelOnFinalSplit extends App with LazyLogging {
         resultMap(lbl)(eventHashesPairToEventPairHashesMap(e2Hash +","+e1Hash)) = 2   // E2 precedes E1
       }
       else {
+        println()
         nInvalidPred += 1
       }
 
@@ -898,10 +899,8 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
   val model = "lin-svm-l2"
   val randomSeed:Int = 0  // After experiments, the seed value does not impact the result.
 
-  val allLabels = new ArrayBuffer[String]()
-  val allPreds = new ArrayBuffer[String]()
-
-  val allLabelsMap = scala.collection.mutable.Map[String, Int]()
+  val allLabels = new ArrayBuffer[Int]()
+  val allPreds = new ArrayBuffer[Int]()
 
   for (split <- 0 until kFolds){
     val trainIds = splitsInfo("split_id")(split)("train") ++ splitsInfo("split_id")(split)("dev")
@@ -926,20 +925,28 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
       val label = ep.relation
       val pred = classifier.classOf(AssemblyRelationClassifier.mkRVFDatum(label, ep.e1, ep.e2))
 
-      allLabels.append(label)
-      allPreds.append(pred)
-
-      if (!allLabelsMap.contains(label)){
-        allLabelsMap(label) = 0
+      if (label == "E1 precedes E2"){
+        allLabels.append(1)
       }
-      else{
-        allLabelsMap(label) = 1
+      else if (label == "E2 precedes E1"){
+        allLabels.append(2)
+      }
+      else { // None
+        allLabels.append(0)
+      }
+
+      if (pred == "E1 precedes E2"){
+        allPreds.append(1)
+      }
+      else if (pred == "E2 precedes E1"){
+        allPreds.append(2)
+      }
+      else {  // None
+        allPreds.append(0)
       }
 
     }
   }
-
-  println(allLabelsMap)
 
   var tp = 0f
   var fp = 0f
@@ -949,9 +956,9 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
     val pred = allPreds(idx)
     val label = allLabels(idx)
 
-    if (pred != "None" && pred == label){tp +=1}
-    if (pred !="None" && pred!=label){fp +=1}
-    if (pred =="None" && pred!=label) {fn+=1}
+    if (pred != 0 && pred == label){tp +=1}
+    if (pred != 0 && pred!=label){fp +=1}
+    if (pred == 0 && pred!=label){fn+=1}
   }
 
 
