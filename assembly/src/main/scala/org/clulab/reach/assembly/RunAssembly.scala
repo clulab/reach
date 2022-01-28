@@ -895,7 +895,7 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
 
   // 3, train the feature-based classifier on each split and get the prediction.
   val kFolds = 5
-  val model = "lin-svm-l1"
+  val model = "lin-svm-l2"
   val randomSeed:Int = 42
 
   val allLabels = new ArrayBuffer[String]()
@@ -950,4 +950,6 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
   val f1 = precision*recall*2/(precision + recall)
 
   logger.info(s"all splits p:${precision}, r:${recall}, f1:${f1}")
+
+  // pr: around 0.51
 }
