@@ -896,7 +896,7 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
 
   // 3, train the feature-based classifier on each split and get the prediction.
   val kFolds = 5
-  val modelName = "lin-svm-l2"
+  val modelName = "lin-svm-l1"
   val randomSeed:Int = 0  // After experiments, the seed value does not impact the result.
 
   val allLabels = new ArrayBuffer[Int]()
@@ -910,10 +910,10 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
     val epsTrain = trainIds.map{x => allEventPairsGroupedByEPID(x)} // use train and dev as train.
     val epsTest = testIds.map{x => allEventPairsGroupedByEPID(x)}
 
-    // Note that this filterRelations function removes the invalid event pairs.
-//    val precedenceDatasetTrain = AssemblyRelationClassifier.mkRVFDataset(CorpusReader.filterRelations(epsTrain, precedenceRelations))
-//    val precedenceAnnotationsTest = CorpusReader.filterRelations(epsTest, precedenceRelations)
-
+    // Note that the original code uses filterRelations function to remove the invalid event pairs.
+    // e.g., CorpusReader.filterRelations(epsTrain, precedenceRelations)
+    // But I don't think we should use that for a fair comparison between the neural model against this one.
+    // So I don't use it.
     val precedenceDatasetTrain = AssemblyRelationClassifier.mkRVFDataset(epsTrain)
     val precedenceAnnotationsTest = epsTest
 
@@ -973,7 +973,7 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
   logger.info(s"all splits p:${precision}, r:${recall}, f1:${f1}")
   logger.info(s"num all test samples: ${allEpIds.length}")
 
-  // svm l2: p:0.69014084, r:0.33561644, f1:0.4516129
+  // svm l2: p:0.5109489, r:0.4964539, f1:0.50359714
   // svm l1:
 
   // Save the results:
