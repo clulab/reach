@@ -910,9 +910,12 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
     val epsTrain = trainIds.map{x => allEventPairsGroupedByEPID(x)} // use train and dev as train.
     val epsTest = testIds.map{x => allEventPairsGroupedByEPID(x)}
 
+    // Note that this filterRelations function removes the invalid event pairs.
+//    val precedenceDatasetTrain = AssemblyRelationClassifier.mkRVFDataset(CorpusReader.filterRelations(epsTrain, precedenceRelations))
+//    val precedenceAnnotationsTest = CorpusReader.filterRelations(epsTest, precedenceRelations)
 
-    val precedenceDatasetTrain = AssemblyRelationClassifier.mkRVFDataset(CorpusReader.filterRelations(epsTrain, precedenceRelations))
-    val precedenceAnnotationsTest = CorpusReader.filterRelations(epsTest, precedenceRelations)
+    val precedenceDatasetTrain = AssemblyRelationClassifier.mkRVFDataset(epsTrain)
+    val precedenceAnnotationsTest = epsTest
 
     // 1, train the model
     val classifier = AssemblyRelationClassifier.getModel(modelName)
