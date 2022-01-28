@@ -896,12 +896,13 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
   // 3, train the feature-based classifier on each split and get the prediction.
   val kFolds = 5
   val model = "lin-svm-l2"
-  val randomSeed:Int = 0
+  val randomSeed:Int = 0  // After experiments, the seed value does not impact the result.
 
   val allLabels = new ArrayBuffer[String]()
   val allPreds = new ArrayBuffer[String]()
 
-  // TODO: modify the seed so that it supports multiple seeds.
+  val allLabelsMap = scala.collection.mutable.Map[String, Int]()
+
   for (split <- 0 until kFolds){
     val trainIds = splitsInfo("split_id")(split)("train") ++ splitsInfo("split_id")(split)("dev")
     val testIds = splitsInfo("split_id")(split)("test")
@@ -928,8 +929,17 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
       allLabels.append(label)
       allPreds.append(pred)
 
+      if (!allLabelsMap.contains(label)){
+        allLabelsMap(label) = 0
+      }
+      else{
+        allLabelsMap(label) = 1
+      }
+
     }
   }
+
+  println(allLabelsMap)
 
   var tp = 0f
   var fp = 0f
