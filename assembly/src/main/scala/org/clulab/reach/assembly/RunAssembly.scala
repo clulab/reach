@@ -896,11 +896,12 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
 
   // 3, train the feature-based classifier on each split and get the prediction.
   val kFolds = 5
-  val model = "lin-svm-l2"
+  val modelName = "lin-svm-l2"
   val randomSeed:Int = 0  // After experiments, the seed value does not impact the result.
 
   val allLabels = new ArrayBuffer[Int]()
   val allPreds = new ArrayBuffer[Int]()
+  val allEpIds = new ArrayBuffer[Int]()
 
   for (split <- 0 until kFolds){
     val trainIds = splitsInfo("split_id")(split)("train") ++ splitsInfo("split_id")(split)("dev")
@@ -914,12 +915,10 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
     val precedenceAnnotationsTest = CorpusReader.filterRelations(epsTest, precedenceRelations)
 
     // 1, train the model
-    val classifier = AssemblyRelationClassifier.getModel(model)
-
+    val classifier = AssemblyRelationClassifier.getModel(modelName)
     AssemblyRelationClassifier.train(precedenceDatasetTrain, classifier)
 
-
-    // 2, evaluate the model and saved the labels + predictions
+    // 2, evaluate the model and saved the ep ids + labels + predictions
     for (idx <- precedenceAnnotationsTest.indices){
       val ep = precedenceAnnotationsTest(idx)
       val label = ep.relation
@@ -945,6 +944,8 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
         allPreds.append(0)
       }
 
+      allEpIds.append(ep.id)
+
     }
   }
 
@@ -967,6 +968,23 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
   val f1 = precision*recall*2/(precision + recall)
 
   logger.info(s"all splits p:${precision}, r:${recall}, f1:${f1}")
+  logger.info(s"num all test samples: ${allEpIds.length}")
 
-  // pr: around 0.51
+  // svm l2: p:0.69014084, r:0.33561644, f1:0.4516129
+  // svm l1:
+
+  // Save the results:
+  val saveFolderPath = "/home/zhengzhongliang/CLU_Projects/2020_ASKE/ASKE_2020_CausalDetection/Experiments2/saved_models_scala_20220127/"
+  val saveFilePath = saveFolderPath + "svm_model_name_" + modelName + "_pred_all_splits.json"
+
+  val resultMap = Map(
+    "all_ids" -> allEpIds,
+    "all_preds" -> allPreds,
+    "all_labels" -> allLabels
+  )
+  val resultMapJson = org.json4s.jackson.Serialization.write(resultMap)
+
+  val pw = new PrintWriter(new File(saveFilePath))
+  pw.write(resultMapJson)
+  pw.close
 }
