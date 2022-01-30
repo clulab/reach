@@ -42,6 +42,18 @@ object CorpusReader extends LazyLogging {
       Seq(other.copy(relation = SieveUtils.NEG))
   }
 
+  /**  By zhengzhong. Intead of discarding the bug ones, count them as negative */
+  def filterRelations2(
+    eps: Seq[EventPair],
+    positiveLabels: Set[String]
+  ): Seq[EventPair] = eps flatMap {
+    // keep subsumption annotations
+    case valid if positiveLabels contains valid.relation => Seq(valid)
+    // set relation to NEG
+    case other =>
+      Seq(other.copy(relation = SieveUtils.NEG))
+  }
+
   /** Finds mention matching label and trigger text */
   def findMention(mns: Seq[Mention], label: String, triggerText: String): Mention = {
     mns.filter{ m =>

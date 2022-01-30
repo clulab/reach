@@ -903,6 +903,7 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
   val allPreds = new ArrayBuffer[Int]()
   val allEpIds = new ArrayBuffer[Int]()
 
+  val labelCount = scala.collection.mutable.Map[String, Int]()
   for (split <- 0 until kFolds){
     val trainIds = splitsInfo("split_id")(split)("train") ++ splitsInfo("split_id")(split)("dev")
     val testIds = splitsInfo("split_id")(split)("test")
@@ -913,9 +914,19 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
     // Note that the original code uses filterRelations function to remove the invalid event pairs.
     // e.g., CorpusReader.filterRelations(epsTrain, precedenceRelations)
     // But I don't think we should use that for a fair comparison between the neural model against this one.
-    // So I don't use it.
-    val precedenceDatasetTrain = AssemblyRelationClassifier.mkRVFDataset(epsTrain)
-    val precedenceAnnotationsTest = epsTest
+    // So I don't use it. Instead, I use a new one which keep the bug ones, but set their labels to NEG.
+    val precedenceAnnotationsTrain = CorpusReader.filterRelations2(epsTrain, precedenceRelations)
+    val precedenceDatasetTrain = AssemblyRelationClassifier.mkRVFDataset(precedenceAnnotationsTrain)
+    val precedenceAnnotationsTest = CorpusReader.filterRelations2(epsTest, precedenceRelations)
+
+    (precedenceAnnotationsTrain ++ precedenceAnnotationsTest).foreach{
+      x => {
+        if (!labelCount.contains(x.relation)) {labelCount(x.relation) = 1}
+        else {labelCount(x.relation) += 1}
+      }
+    }
+
+    println("label count (should have sum 858):", labelCount)
 
     // 1, train the model
     val classifier = AssemblyRelationClassifier.getModel(modelName)
@@ -973,7 +984,7 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
   logger.info(s"all splits p:${precision}, r:${recall}, f1:${f1}")
   logger.info(s"num all test samples: ${allEpIds.length}")
 
-  // svm l2: p:0.5109489, r:0.4964539, f1:0.50359714
+  // svm l2: p:0.41129032, r:0.39534885, f1:0.40316206
   // svm l1: p:0.29411766, r:0.4032258, f1:0.34013605
 
   // Save the results:
