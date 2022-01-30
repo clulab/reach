@@ -903,7 +903,6 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
   val allPreds = new ArrayBuffer[Int]()
   val allEpIds = new ArrayBuffer[Int]()
 
-  val labelCount = scala.collection.mutable.Map[String, Int]()
   for (split <- 0 until kFolds){
     val trainIds = splitsInfo("split_id")(split)("train") ++ splitsInfo("split_id")(split)("dev")
     val testIds = splitsInfo("split_id")(split)("test")
@@ -919,6 +918,8 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
     val precedenceDatasetTrain = AssemblyRelationClassifier.mkRVFDataset(precedenceAnnotationsTrain)
     val precedenceAnnotationsTest = CorpusReader.filterRelations2(epsTest, precedenceRelations)
 
+    // Print the labels to make sure the data is good.
+    val labelCount = scala.collection.mutable.Map[String, Int]()
     (precedenceAnnotationsTrain ++ precedenceAnnotationsTest).foreach{
       x => {
         if (!labelCount.contains(x.relation)) {labelCount(x.relation) = 1}
