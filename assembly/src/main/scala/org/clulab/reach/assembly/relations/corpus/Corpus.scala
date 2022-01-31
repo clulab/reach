@@ -68,8 +68,9 @@ case class EventPair(
     relation: String = this.relation,
     confidence: Double = this.confidence,
     annotatorID: String = this.annotatorID,
-    notes: Option[String] = this.notes
-  ): EventPair = EventPair(before, after, relation, confidence, annotatorID, notes)
+    notes: Option[String] = this.notes,
+    id: Int = this.id
+  ): EventPair = EventPair(before, after, relation, confidence, annotatorID, notes, id)
 
 
   def jsonAST: JValue = {
