@@ -936,9 +936,6 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
       }
     }
 
-    println(precedenceAnnotationsDev.map{x => x.id})
-    println(precedenceAnnotationsTest.map{x => x.id})
-
     println("label count (should have sum 858):", labelCount)
 
     // 1, train the model
@@ -976,7 +973,6 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
 
       allEpIdsDev(split).append(ep.id)
     }
-    scala.io.StdIn.readLine()
 
     // 3, evaluate the model and saved the ep ids + labels + predictions
     for (idx <- precedenceAnnotationsTest.indices){
