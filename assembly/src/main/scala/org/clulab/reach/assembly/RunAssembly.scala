@@ -918,6 +918,10 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
     val epsDev = devIds.map{x => allEventPairsGroupedByEPID(x)}
     val epsTest = testIds.map{x => allEventPairsGroupedByEPID(x)}
 
+    println(epsTrain.map{x => x.id})
+    println(epsDev.map{x => x.id})
+    println(epsTest.map{x => x.id})
+
     // Note that the original code uses filterRelations function to remove the invalid event pairs.
     // e.g., CorpusReader.filterRelations(epsTrain, precedenceRelations)
     // But I don't think we should use that for a fair comparison between the neural model against this one.
@@ -972,7 +976,6 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
       }
 
       allEpIdsDev(split).append(ep.id)
-      println(ep.id)
     }
     scala.io.StdIn.readLine()
 
