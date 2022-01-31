@@ -985,8 +985,8 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
   logger.info(s"all splits p:${precision}, r:${recall}, f1:${f1}")
   logger.info(s"num all test samples: ${allEpIds.length}")
 
-  // svm l2: p:p:0.5192308, r:0.1985294, f1:0.28723404
-  // svm l1: p:0.29411766, r:0.4032258, f1:0.34013605
+  // svm l2: p:0.5192308, r:0.1985294, f1:0.28723404
+  // svm l1: p:0.42307693, r:0.33846155, f1:0.37606835
 
   // Save the results:
   val saveFolderPath = "/home/zhengzhongliang/CLU_Projects/2020_ASKE/ASKE_2020_CausalDetection/Experiments2/saved_models_scala_20220127/"
