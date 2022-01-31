@@ -914,13 +914,6 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
     val devIds = splitsInfo("split_id")(split)("dev")
     val testIds = splitsInfo("split_id")(split)("test")
 
-    println("=" * 40)
-    println(trainIds)
-    println(devIds)
-    println(testIds)
-    println("=" * 40)
-    println(allEventPairsGroupedByEPID.keys)
-
     val epsTrain = trainIds.map{x => allEventPairsGroupedByEPID(x)} // use train and dev as train.
     val epsDev = devIds.map{x => allEventPairsGroupedByEPID(x)}
     val epsTest = testIds.map{x => allEventPairsGroupedByEPID(x)}
@@ -979,8 +972,8 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
       }
 
       allEpIdsDev(split).append(ep.id)
+      println(ep.id)
     }
-    println(allEpIdsDev(split))
     scala.io.StdIn.readLine()
 
     // 3, evaluate the model and saved the ep ids + labels + predictions
