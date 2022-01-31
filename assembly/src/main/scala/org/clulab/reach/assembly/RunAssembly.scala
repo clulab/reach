@@ -899,15 +899,23 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
   val modelName = "lin-svm-l1"
   val randomSeed:Int = 0  // After experiments, the seed value does not impact the result.
 
+  // Get the results of the dev set.
+  val allLabelsDev = scala.collection.mutable.Map[Int, ArrayBuffer[Int]]()
+  val allPredsDev = scala.collection.mutable.Map[Int, ArrayBuffer[Int]]()
+  val allEpIdsDev = scala.collection.mutable.Map[Int, ArrayBuffer[Int]]()
+
+  // Get the results of the test set
   val allLabels = new ArrayBuffer[Int]()
   val allPreds = new ArrayBuffer[Int]()
   val allEpIds = new ArrayBuffer[Int]()
 
   for (split <- 0 until kFolds){
-    val trainIds = splitsInfo("split_id")(split)("train") ++ splitsInfo("split_id")(split)("dev")
+    val trainIds = splitsInfo("split_id")(split)("train")
+    val devIds = splitsInfo("split_id")(split)("dev")
     val testIds = splitsInfo("split_id")(split)("test")
 
     val epsTrain = trainIds.map{x => allEventPairsGroupedByEPID(x)} // use train and dev as train.
+    val epsDev = devIds.map{x => allEventPairsGroupedByEPID(x)}
     val epsTest = testIds.map{x => allEventPairsGroupedByEPID(x)}
 
     // Note that the original code uses filterRelations function to remove the invalid event pairs.
@@ -916,11 +924,12 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
     // So I don't use it. Instead, I use a new one which keep the bug ones, but set their labels to NEG.
     val precedenceAnnotationsTrain = CorpusReader.filterRelations2(epsTrain, precedenceRelations)
     val precedenceDatasetTrain = AssemblyRelationClassifier.mkRVFDataset(precedenceAnnotationsTrain)
+    val precedenceAnnotationsDev = CorpusReader.filterRelations2(epsDev, precedenceRelations)
     val precedenceAnnotationsTest = CorpusReader.filterRelations2(epsTest, precedenceRelations)
 
     // Print the labels to make sure the data is good.
     val labelCount = scala.collection.mutable.Map[String, Int]()
-    (precedenceAnnotationsTrain ++ precedenceAnnotationsTest).foreach{
+    (precedenceAnnotationsTrain ++ precedenceAnnotationsDev ++ precedenceAnnotationsTest).foreach{
       x => {
         if (!labelCount.contains(x.relation)) {labelCount(x.relation) = 1}
         else {labelCount(x.relation) += 1}
@@ -933,7 +942,39 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
     val classifier = AssemblyRelationClassifier.getModel(modelName)
     AssemblyRelationClassifier.train(precedenceDatasetTrain, classifier)
 
-    // 2, evaluate the model and saved the ep ids + labels + predictions
+    // 2, evaluate the model on the dev set.
+    allLabelsDev(split) = new ArrayBuffer[Int]()
+    allPredsDev(split) = new ArrayBuffer[Int]()
+    allEpIdsDev(split) = new ArrayBuffer[Int]()
+    for (idx <- precedenceAnnotationsDev.indices) {
+      val ep = precedenceAnnotationsDev(idx)
+      val label = ep.relation
+      val pred = classifier.classOf(AssemblyRelationClassifier.mkRVFDatum(label, ep.e1, ep.e2))
+
+      if (label == "E1 precedes E2"){
+        allLabelsDev(split).append(1)
+      }
+      else if (label == "E2 precedes E1"){
+        allLabelsDev(split).append(2)
+      }
+      else { // None
+        allLabelsDev(split).append(0)
+      }
+
+      if (pred == "E1 precedes E2"){
+        allPredsDev(split).append(1)
+      }
+      else if (pred == "E2 precedes E1"){
+        allPredsDev(split).append(2)
+      }
+      else {  // None
+        allPredsDev(split).append(0)
+      }
+
+      allEpIdsDev(split).append(ep.id)
+    }
+
+    // 3, evaluate the model and saved the ep ids + labels + predictions
     for (idx <- precedenceAnnotationsTest.indices){
       val ep = precedenceAnnotationsTest(idx)
       val label = ep.relation
@@ -993,9 +1034,15 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
   val saveFilePath = saveFolderPath + "svm_model_name_" + modelName + "_pred_all_splits.json"
 
   val resultMap = Map(
-    "all_ids" -> allEpIds,
-    "all_preds" -> allPreds,
-    "all_labels" -> allLabels
+    "dev" -> Map(
+      "all_ids" -> allEpIdsDev,
+      "all_preds" -> allPredsDev,
+      "all_labels" -> allLabelsDev
+    ),
+    "test" -> Map(
+      "all_ids" -> allEpIds,
+      "all_preds" -> allPreds,
+      "all_labels" -> allLabels)
   )
   val resultMapJson = org.json4s.jackson.Serialization.write(resultMap)
 
