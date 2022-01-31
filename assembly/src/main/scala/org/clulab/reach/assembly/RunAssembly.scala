@@ -825,7 +825,7 @@ object EvalRuleModelOnFinalSplit extends App with LazyLogging {
 
     logger.info(s"showing results for classifier ${lbl}. n pred: ${predicted.size}")
     // There are only two precedence classifiers returned from applyEachSieve.
-    // The first is combinedRBPprecedence, the second is bioDRBpatterns.
+    // The first is combinedRBPrecedence, the second is bioDRBpatterns.
 
     if (!resultMap.contains(lbl)) {
       resultMap(lbl) = scala.collection.mutable.Map[Int, Int]()  // event pair id -> prediction
@@ -973,6 +973,8 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
 
       allEpIdsDev(split).append(ep.id)
     }
+    println(allEpIdsDev(split))
+    scala.io.StdIn.readLine()
 
     // 3, evaluate the model and saved the ep ids + labels + predictions
     for (idx <- precedenceAnnotationsTest.indices){
