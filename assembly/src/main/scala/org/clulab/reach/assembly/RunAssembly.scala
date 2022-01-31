@@ -896,7 +896,7 @@ object EvalFeatureClassifierOnSavedLabeledSplits extends App with LazyLogging{
 
   // 3, train the feature-based classifier on each split and get the prediction.
   val kFolds = 5
-  val modelName = "lin-svm-l1"
+  val modelName = "lin-svm-l2"
   val randomSeed:Int = 0  // After experiments, the seed value does not impact the result.
 
   // Get the results of the dev set.
