@@ -16,9 +16,6 @@ authors:
 - family-names: "Morrison"
   given-names: "Clayton"
 title: "https://github.com/clulab/reach"
-preferred-citation:
-  type: article
-  notes: "If you use Reach, please cite one of the papers that follows in the references."
 references:
 - type: article
   authors:
