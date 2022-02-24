@@ -1,9 +1,6 @@
 cff-version: "1.2.0"
-message: "If you use Reach, please cite one of the papers that follows in the references:"
+message: "If you use Reach, please cite one of the papers that follows in the references."
 authors:
-- family-names: "Valenzuela-Esc\\'{a}rcega"
-  given-names: "Marco A"
-
 - family-names: "Valenzuela"
   given-names: "Marco"
 - family-names: "Hahn-Powell"
@@ -19,53 +16,54 @@ authors:
 - family-names: "Morrison"
   given-names: "Clayton"
 title: "https://github.com/clulab/reach"
+preferred-citation:
+  type: article
+  notes: "If you use Reach, please cite one of the papers that follows in the references."
 references:
-- reference:
-    type: article
-    authors:
-    - family-names: "Valenzuela-Esc\\'{a}rcega"
-      given-names: "Marco A"
-    - family-names: "Babur"
-      given-names: "\\\"O}zg{\\\"u}n"
-    - family-names: "Hahn-Powell"
-      given-names: "Gus"
-    - family-names: "Bell"
-      given-names: "Dane"
-    - family-names: "Hicks"
-      given-names: "Thomas"
-    - family-names: "Noriega-Atala"
-      given-names: "Enrique"
-    - family-names: "Wang"
-      given-names: "Xia"
-    - family-names: "Surdeanu"
-      given-names: "Mihai"
-    - family-names: "Demir"
-      given-names: "Emek"
-    - family-names: "Morrison"
-      given-names: "Clayton T"
-    title: "Large-scale Automated Machine Reading Discovers New Cancer Driving Mechanisms"
-    journal: "Database: The Journal of Biological Databases and Curation"
-    url: "http://clulab.cs.arizona.edu/papers/escarcega2018.pdf"
-    doi: "10.1093/database/bay098"
-    year: 2018
-    publisher:
-      name: "Oxford University Press"
-- reference:
-    type: conference-paper
-    authors:
-    - family-names: "Valenzuela-Esc\\'{a}rcega"
-      given-names: "Marco A."
-    - family-names: "Hahn-Powell"
-      given-names: "Gustave"
-    - family-names: "Hicks"
-      given-names: "Thomas"
-    - family-names: "Surdeanu"
-      given-names: "Mihai"
-    title: "A Domain-independent Rule-based Framework for Event Extraction"
-    conference:
-      name: "ACL-IJCNLP 2015"
-    booktitle: "Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing of the Asian Federation of Natural Language Processing: Software Demonstrations (ACL-IJCNLP)"
-    url: "http://www.aclweb.org/anthology/P/P15/P15-4022.pdf"
-    year: 2015
-    start: 127
-    end: 132
+- type: article
+  authors:
+  - family-names: "Valenzuela-Esc\\'{a}rcega"
+    given-names: "Marco A"
+  - family-names: "Babur"
+    given-names: "\\\"O}zg{\\\"u}n"
+  - family-names: "Hahn-Powell"
+    given-names: "Gus"
+  - family-names: "Bell"
+    given-names: "Dane"
+  - family-names: "Hicks"
+    given-names: "Thomas"
+  - family-names: "Noriega-Atala"
+    given-names: "Enrique"
+  - family-names: "Wang"
+    given-names: "Xia"
+  - family-names: "Surdeanu"
+    given-names: "Mihai"
+  - family-names: "Demir"
+    given-names: "Emek"
+  - family-names: "Morrison"
+    given-names: "Clayton T"
+  title: "Large-scale Automated Machine Reading Discovers New Cancer Driving Mechanisms"
+  journal: "Database: The Journal of Biological Databases and Curation"
+  url: "http://clulab.cs.arizona.edu/papers/escarcega2018.pdf"
+  doi: "10.1093/database/bay098"
+  year: 2018
+  publisher:
+    name: "Oxford University Press"
+- type: conference-paper
+  authors:
+  - family-names: "Valenzuela-Esc\\'{a}rcega"
+    given-names: "Marco A."
+  - family-names: "Hahn-Powell"
+    given-names: "Gustave"
+  - family-names: "Hicks"
+    given-names: "Thomas"
+  - family-names: "Surdeanu"
+    given-names: "Mihai"
+  title: "A Domain-independent Rule-based Framework for Event Extraction"
+  conference:
+    name: "ACL-IJCNLP 2015"
+  booktitle: "Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing of the Asian Federation of Natural Language Processing: Software Demonstrations (ACL-IJCNLP)"
+  url: "http://www.aclweb.org/anthology/P/P15/P15-4022.pdf"
+  year: 2015
+  start: 127
+  end: 132
