@@ -45,8 +45,7 @@ references:
   url: "http://clulab.cs.arizona.edu/papers/escarcega2018.pdf"
   doi: "10.1093/database/bay098"
   year: 2018
-  publisher:
-    name: "Oxford University Press"
+  publisher: "Oxford University Press"
 - &ref2
   type: conference-paper
   authors:
