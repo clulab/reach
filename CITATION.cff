@@ -17,7 +17,8 @@ authors:
   given-names: "Clayton"
 title: "https://github.com/clulab/reach"
 references:
-- type: article
+- &ref1
+  type: article
   authors:
   - family-names: "Valenzuela-Esc\\'{a}rcega"
     given-names: "Marco A"
@@ -46,7 +47,8 @@ references:
   year: 2018
   publisher:
     name: "Oxford University Press"
-- type: conference-paper
+- &ref2
+  type: conference-paper
   authors:
   - family-names: "Valenzuela-Esc\\'{a}rcega"
     given-names: "Marco A."
@@ -64,3 +66,35 @@ references:
   year: 2015
   start: 127
   end: 132
+# GitHub apparently can't process variables.
+# preferred-citation: *ref1
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Valenzuela-Esc\\'{a}rcega"
+    given-names: "Marco A"
+  - family-names: "Babur"
+    given-names: "\\\"O}zg{\\\"u}n"
+  - family-names: "Hahn-Powell"
+    given-names: "Gus"
+  - family-names: "Bell"
+    given-names: "Dane"
+  - family-names: "Hicks"
+    given-names: "Thomas"
+  - family-names: "Noriega-Atala"
+    given-names: "Enrique"
+  - family-names: "Wang"
+    given-names: "Xia"
+  - family-names: "Surdeanu"
+    given-names: "Mihai"
+  - family-names: "Demir"
+    given-names: "Emek"
+  - family-names: "Morrison"
+    given-names: "Clayton T"
+  title: "Large-scale Automated Machine Reading Discovers New Cancer Driving Mechanisms"
+  journal: "Database: The Journal of Biological Databases and Curation"
+  url: "http://clulab.cs.arizona.edu/papers/escarcega2018.pdf"
+  doi: "10.1093/database/bay098"
+  year: 2018
+  publisher:
+    name: "Oxford University Press"
