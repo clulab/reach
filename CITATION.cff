@@ -70,6 +70,7 @@ references:
 # preferred-citation: *ref1
 preferred-citation:
   type: article
+  notes: "Please see the CITATION.cff file and pick the most appropriate reference.
   authors:
   - family-names: "Valenzuela-Esc{\\'a}rcega"
     given-names: "Marco A"
