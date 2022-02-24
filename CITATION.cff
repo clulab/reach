@@ -20,7 +20,7 @@ references:
 - &ref1
   type: article
   authors:
-  - family-names: "Valenzuela-Esc\\'{a}rcega"
+  - family-names: "Valenzuela-Esc{\\'a}rcega"
     given-names: "Marco A"
   - family-names: "Babur"
     given-names: "{\\\"O}zg{\\\"u}n"
@@ -71,7 +71,7 @@ references:
 preferred-citation:
   type: article
   authors:
-  - family-names: "Valenzuela-Esc\\'{a}rcega"
+  - family-names: "Valenzuela-Esc{\\'a}rcega"
     given-names: "Marco A"
   - family-names: "Babur"
     given-names: "{\\\"O}zg{\\\"u}n"
