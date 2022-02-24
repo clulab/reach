@@ -1,6 +1,9 @@
 cff-version: "1.2.0"
 message: "If you use Reach, please cite one of the papers that follows in the references:"
 authors:
+- family-names: "Valenzuela-Esc\\'{a}rcega"
+  given-names: "Marco A"
+
 - family-names: "Valenzuela"
   given-names: "Marco"
 - family-names: "Hahn-Powell"
