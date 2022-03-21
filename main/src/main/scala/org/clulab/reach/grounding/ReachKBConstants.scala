@@ -26,4 +26,13 @@ object ReachKBConstants {
   /** Resource Path to the directory which holds the entity knowledge bases. */
   val KBDirResourcePath = "/org/clulab/reach/kb"
 
+  /** Filename of a file containing just Protein Domain suffixes; one per line. */
+  val ProteinDomainShortNamesFilename = "proteinDomains-short.txt"
+
+  /** Filename of the protein kinases lookup table. */
+  val ProteinKinasesFilename = "uniprot-kinases.txt"
+
+  /** Filename of a file containing just Gene Name Affix strings, extracted from
+      the Sorger bioentities file. */
+  val GeneNameAffixesFilename = "geneNameAffixes.txt"
 }
