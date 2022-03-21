@@ -1,7 +1,8 @@
 package org.clulab.reach
 
-import org.scalatest.{Matchers, FlatSpec}
+import org.scalatest.{FlatSpec, Matchers}
 import TestUtils._
+import com.typesafe.config.ConfigFactory
 import org.clulab.reach.grounding._
 import org.clulab.reach.grounding.ReachKBConstants._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
@@ -68,7 +69,10 @@ class TestOrganResolutions extends FlatSpec with Matchers {
 
 // Protein family KB using alternate protein resolutions
 class TestOctKBL extends IMKBLookup {
-  val meta = new IMKBMetaInfo(kbFilename = Some(ContextOrganFilename))
+  private val conf = ConfigFactory.load()
+  private val path = conf.getString("KnowledgeBases.ContextOrgan.path")
+
+  val meta = new IMKBMetaInfo(kbFilename = Some(path))
   val keyTransforms = KBKeyTransformsGroup(DefaultKeyTransforms, OrganAuxKeyTransforms, DefaultKeyTransforms)
   memoryKB = (new TsvIMKBFactory).make(meta, keyTransforms)
 }
