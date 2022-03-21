@@ -219,6 +219,74 @@ class NxmlSearcher(val indexDir:String) {
     logger.debug("Done.")
   }
 
+  def frailtyUseCase(resultDir:String): Unit = {
+    val phrases = Seq(
+      "Musculoskeletal Development",
+      "Osseointegration",
+      "Eye Movement",
+      "Biomineralization",
+      "Bone Regeneration",
+      "Pinch Strength",
+      "Motor Activity",
+      "Cool-Down Exercise",
+      "Dependent Ambulation",
+      "Hand Strength",
+      "Skeletal Muscle Enlargement",
+      "Anaerobic Threshold",
+      "Walking",
+      "Gait",
+      "Standing Position",
+      "Physical Fitness",
+      "Muscle Stretching Exercises",
+      "Pronation",
+      "Psychomotor Performance",
+      "Bone Density",
+      "Posture",
+      "Osteolysis",
+      "Muscle Fatigue",
+      "Osteogenesis",
+      "Articular Range of Motion",
+      "Core Stability",
+      "Postural Balance",
+      "Locomotion",
+      "Physical Endurance",
+      "Exergaming",
+      "Isotonic Contraction",
+      "Physical Exertion",
+      "Musculoskeletal Physiological Phenomena",
+      "Excitation Contraction Coupling",
+      "Muscle Strength",
+      "Muscle Contraction",
+      "Intramuscular Absorption",
+      "Chondrogenesis",
+      "Muscle Development",
+      "Cardiorespiratory Fitness",
+      "Uterine Contraction",
+      "Tonic Immobility Response",
+      "Knee-Chest Position",
+      "Bone Resorption",
+      "Exercise Tolerance",
+      "Physiologic Calcification",
+      "Stair Climbing",
+      "Muscle Tonus",
+      "Plyometric Exercise",
+      "Isometric Contraction",
+      "Walking Speed",
+      "Muscle Relaxation",
+      "muscle tissue",
+      "muscular tissue",
+      "fat tissue",
+      "adipose tissue",
+      "lymphoid tissue",
+      "autophagy",
+      "nucleophagy",
+    )
+
+    val queryStr = phrases map (p => s"(${p})") mkString " OR "
+
+    vanillaUseCase(queryStr, resultDir, 1000000)
+  }
+
   /** Finds all NXML that contain at least one biochemical interaction */
   def useCaseAnyInteraction(resultDir:String, maxDocs:Int) {
     vanillaUseCase(
