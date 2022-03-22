@@ -219,6 +219,9 @@ class NxmlSearcher(val indexDir:String) {
     logger.debug("Done.")
   }
 
+  /**
+    * Use case for Frailty, specifically for muscle-related conditions
+    */
   def frailtyUseCase(resultDir:String): Unit = {
     val phrases = Seq(
       "Musculoskeletal Development",
