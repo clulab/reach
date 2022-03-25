@@ -1,10 +1,9 @@
 package org.clulab.reach
 
-import scala.util.Try                       // do not remove: needed for debugging
+import scala.util.Try
 import org.scalatest._
-
 import TestUtils._
-
+import com.typesafe.config.ConfigFactory
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding._
 import org.clulab.reach.grounding.ReachKBConstants._
@@ -85,8 +84,12 @@ class TestComplexResolutions extends FlatSpec with Matchers {
 
 // KB for Protein Complexes. Uses alternate protein lookups.
 class TestComplexKBL extends IMKBLookup {
+
+  private val conf = ConfigFactory.load()
+  private val path = conf.getString("KnowledgeBases.StaticProteinFamilyOrComplex.path")
+
   val meta = new IMKBMetaInfo(
-    kbFilename = Some(StaticProteinFamilyOrComplexFilename),
+    kbFilename = Some(path),
     namespace = "be",
     baseURI = "https://identifiers.org/fplx/",
     isProteinKB = true
