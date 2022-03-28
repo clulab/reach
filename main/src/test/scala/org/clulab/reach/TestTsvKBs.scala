@@ -1,8 +1,8 @@
 package org.clulab.reach
 
-import org.scalatest.{Matchers, FlatSpec}
-
+import org.scalatest.{FlatSpec, Matchers}
 import TestUtils._
+import com.typesafe.config.ConfigFactory
 import org.clulab.reach.grounding._
 import org.clulab.reach.grounding.ReachKBConstants._
 
@@ -114,8 +114,13 @@ class TestTsvKBs extends FlatSpec with Matchers {
 }
 
 class CellLocKBL extends IMKBLookup {
+
+  private val conf = ConfigFactory.load()
+  private val path = conf.getString("KnowledgeBases.StaticCellLocation2.path")
+
   val meta = new IMKBMetaInfo(
-    kbFilename = Some(StaticCellLocation2Filename),
+//    kbFilename = Some(StaticCellLocation2Filename),
+    kbFilename = Some(path),
     namespace = "uniprot",
     baseURI = "http://identifiers.org/uazclu/",
     resourceId = "MIR:00000000"
@@ -124,8 +129,12 @@ class CellLocKBL extends IMKBLookup {
 }
 
 class ProtFamKBL extends IMKBLookup {
+
+  private val conf = ConfigFactory.load()
+  private val path = conf.getString("KnowledgeBases.StaticProteinFamily2.path")
+
   val meta = new IMKBMetaInfo(
-    kbFilename = Some(StaticProteinFamily2Filename),
+    kbFilename = Some(path),
     namespace = "interpro",
     baseURI = "http://identifiers.org/uazclu/",
     resourceId = "MIR:00000000",

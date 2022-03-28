@@ -2,9 +2,8 @@ package org.clulab.reach
 
 import scala.util.Try
 import org.scalatest._
-
 import TestUtils._
-
+import com.typesafe.config.ConfigFactory
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding._
 import org.clulab.reach.grounding.ReachKBConstants._
@@ -18,9 +17,15 @@ import org.clulab.reach.grounding.ReachKBUtils._
   */
 class TestProteinResolutions extends FlatSpec with Matchers {
 
-  val imkbP0F = new TestProteinKBL(StaticProteinFilename)          // defined after this class (LOOK BELOW)
-  val imkbPGP = new TestProteinKBL(StaticProteinFilename2)
-  val imkbPQZ = new TestProteinKBL(StaticProteinFilename3)
+  private val conf = ConfigFactory.load()
+  private val path1 = conf.getString("KnowledgeBases.StaticProtein.path")
+  private val path2 = conf.getString("KnowledgeBases.StaticProtein2.path")
+  private val path3 = conf.getString("KnowledgeBases.StaticProtein3.path")
+
+
+  val imkbP0F = new TestProteinKBL(path1)          // defined after this class (LOOK BELOW)
+  val imkbPGP = new TestProteinKBL(path2)
+  val imkbPQZ = new TestProteinKBL(path3)
   // imkbPGP.memoryKB.dump                        // DEBUGGING
 
   "ProteinKBL resolves" should "should be marked as protein grounded but not family grounded" in {
