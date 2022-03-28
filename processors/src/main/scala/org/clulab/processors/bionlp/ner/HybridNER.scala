@@ -1,7 +1,6 @@
 package org.clulab.processors.bionlp.ner
 
 import java.util
-
 import org.clulab.processors.{Document, Sentence}
 import HybridNER._
 import edu.stanford.nlp.ling.CoreAnnotations.{SentencesAnnotation, TokensAnnotation}
@@ -11,6 +10,7 @@ import edu.stanford.nlp.pipeline.Annotation
 import org.clulab.sequences.LexiconNER
 
 import scala.collection.JavaConverters._
+import scala.collection.mutable.ListBuffer
 
 /**
   * Combines RuleNER and CRFNER into a, surprise surprise, hybrid NER
@@ -24,15 +24,20 @@ class HybridNER(withCRFNER:Boolean, withRuleNER:Boolean) {
 
   /** Runs the NER, and stores the output in place, in the .entities field in the sentences in the given Document */
   def recognizeNamedEntities(doc:Document, annotation:Option[Annotation]) {
-    if(annotation.isEmpty) return
-    val verboseMerge = false
+    if(annotation.isEmpty && withCRFNER) return
+
+    val crfPredictions = new ListBuffer[Array[String]]
 
     if(withRuleNER) {
       // run the rule-based NER on one sentence at a time
       for(sentence <- doc.sentences) {
+        // If there are some previous annotations in place, they come from a previous run of the crf ner
+        if(sentence.entities.isDefined)
+          crfPredictions += sentence.entities.get
         sentence.entities = Some(ruleNer.find(sentence))
       }
     }
+
 
     if (withCRFNER) {
       // run the CRF NER on one sentence at a time
@@ -56,11 +61,7 @@ class HybridNER(withCRFNER:Boolean, withRuleNER:Boolean) {
         // the actual sequence classification
         val bioNEs = bioNer.classify(inputSent).toArray
 
-        if(verboseMerge) {
-          if (ourSentence.entities.isDefined)
-            println( s"""ENTITIES FROM RULE-NER: ${ourSentence.entities.get.mkString(" ")}""")
-          println( s""" ENTITIES FROM CRF-NER: ${bioNEs.mkString(" ")}""")
-        }
+
 
         // store labels in the CoreNLP annotation for the sentence
         var labelOffset = 0
@@ -69,28 +70,51 @@ class HybridNER(withCRFNER:Boolean, withRuleNER:Boolean) {
           labelOffset += 1
         }
 
-        // BC2 annotations include context information in gene names (e.g., species)
-        // Here, we remove context info if they appear at the beginning of gene names,
-        //   because they are annotated by our RuleNER, and we want both the context and the gene in our output!
-        removeContextFromBeginningOfGenes(bioNEs, ourSentence.entities.get)
-
-        // store labels in our sentence
-        // the rule-based NER labels take priority!
-        // TODO: change to prefer longest entity here??
-        if(ourSentence.entities.isDefined) {
-          LexiconNER.mergeLabels(ourSentence.entities.get, bioNEs)
-        } else {
-          ourSentence.entities = Some(bioNEs)
-        }
-
-        if(verboseMerge)
-          println(s"""ENTITIES AFTER MERGING: ${ourSentence.entities.get.mkString(" ")}""")
+        crfPredictions += bioNEs
 
         // TODO: we should have s.norms as well...
 
         sentenceOffset += 1
       }
+
     }
+
+    // Merge both sets of entities
+    for((ourSentence, six) <- doc.sentences.zipWithIndex) {
+      val bioNEs = crfPredictions.lift(six) match {
+        case Some(nes) => nes
+        case None => Array.empty[String]
+      }
+      mergeNerPredictions(ourSentence, bioNEs)
+    }
+  }
+
+  private def mergeNerPredictions(ourSentence: Sentence, bioNEs: Array[String]) = {
+    val verboseMerge = false
+
+    if (verboseMerge) {
+      if (ourSentence.entities.isDefined)
+        println(s"""ENTITIES FROM RULE-NER: ${ourSentence.entities.get.mkString(" ")}""")
+      println(s""" ENTITIES FROM CRF-NER: ${bioNEs.mkString(" ")}""")
+    }
+
+    // BC2 annotations include context information in gene names (e.g., species)
+    // Here, we remove context info if they appear at the beginning of gene names,
+    //   because they are annotated by our RuleNER, and we want both the context and the gene in our output!
+    if(ourSentence.entities.isDefined)
+      removeContextFromBeginningOfGenes(bioNEs, ourSentence.entities.get)
+
+    // store labels in our sentence
+    // the rule-based NER labels take priority!
+    // TODO: change to prefer longest entity here??
+    if (ourSentence.entities.isDefined) {
+      LexiconNER.mergeLabels(ourSentence.entities.get, bioNEs)
+    } else {
+      ourSentence.entities = Some(bioNEs)
+    }
+
+    if (verboseMerge)
+      println(s"""ENTITIES AFTER MERGING: ${ourSentence.entities.get.mkString(" ")}""")
   }
 
   private def mkSent(sentence:Sentence):util.List[CoreLabel] = {
