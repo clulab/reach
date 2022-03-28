@@ -5,12 +5,13 @@ import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.{FileUtils, FilenameUtils}
 
-import java.io.File
+import java.io.{BufferedReader, File, FileInputStream}
 import java.util.Date
 import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets.UTF_8
 import ai.lum.common.FileUtils._
 import ai.lum.common.ConfigUtils._
+import jline.internal.InputStreamReader
 import org.clulab.odin._
 import org.clulab.processors.Document
 import org.clulab.reach.`export`.arizona.ArizonaOutputter
@@ -24,6 +25,7 @@ import org.clulab.reach.export.serial.SerialJsonOutput
 import org.clulab.reach.mentions.CorefMention
 import org.clulab.reach.mentions.serialization.json._
 import org.clulab.reach.utils.MentionManager
+import org.clulab.serialization.DocumentSerializer
 import org.clulab.utils.Serializer
 
 /**
@@ -55,6 +57,27 @@ class ReachCLI (
 
   def doAssembly (mns: Seq[Mention]): Assembler = Assembler(mns)
 
+  def deserializeDoc(file: File) = {
+    val br = new BufferedReader(new InputStreamReader(new FileInputStream(file)))
+    val entryStr = new StringBuilder()
+
+    var line = br.readLine().trim
+    while (line != "#FS#") {
+      entryStr ++= line
+      line = br.readLine().trim
+    }
+
+    val tokens = entryStr.toString.split('\t')
+    val entry = FriesEntry.mkFriesEntry(tokens.head, tokens.last)
+
+    val serializer = new DocumentSerializer
+    val doc = serializer.load(br)
+    br.close()
+    doc.id = Some(entry.name)
+    doc.text = Some(entry.text)
+    (entry, doc)
+  }
+
   // Returns count of outputFormats which errored.
   override def processPaper (file: File, withAssembly: Boolean): Int = {
     val paperId = FilenameUtils.removeExtension(file.getName)
@@ -68,7 +91,8 @@ class ReachCLI (
 
     val (entry, mentions) =
       if(isSerialized){
-        val (entry, doc) = Serializer.load[(FriesEntry, Document)](file)
+        // Load pre-annotated objects
+        val (entry: FriesEntry, doc: Document) = deserializeDoc(file)
         val mentions = PaperReader.reachSystem.extractFrom(doc)
         (entry, mentions)
       }

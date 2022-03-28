@@ -78,6 +78,9 @@ class ReachSystem(
   }
 
   def extractFrom(doc: Document, nxmlDoc: Option[NxmlDocument]): Seq[BioMention] = {
+    // Do rule-based NER before proceeding
+    PaperReader.reachSystem.procAnnotator.recognizeRuleNamedEntities(doc)
+
     // initialize the context engine
     val contextEngine = ContextEngineFactory.buildEngine(contextEngineType, contextParams)
 
