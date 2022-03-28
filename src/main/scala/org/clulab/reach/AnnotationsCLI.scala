@@ -2,17 +2,20 @@ package org.clulab.reach
 
 import util.{Failure, Success, Try}
 import scala.collection.JavaConverters._
-
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.{FileUtils, FilenameUtils}
 
-import java.io.File
+import java.io.{File, PrintWriter}
 import java.util.Date
 import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets.UTF_8
 import ai.lum.common.ConfigUtils._
+import org.clulab.processors.Document
+import org.clulab.serialization.DocumentSerializer
 import org.clulab.utils.Serializer
+
+import java.nio.file.Path
 
 /**
   * Class to run Reach reading and assembly and then produce FRIES format output
@@ -41,6 +44,7 @@ class AnnotationsCLI(
     val paperId = FilenameUtils.removeExtension(file.getName)
     val startNS = System.nanoTime
     val startTime = AnnotationsCLI.now
+    val documentSerializer = new DocumentSerializer
 
     logger.info(s"$startTime: Starting $paperId")
     logger.debug(s"  ${ durationToS(startNS, System.nanoTime) }s: $paperId: started reading")
@@ -54,8 +58,11 @@ class AnnotationsCLI(
     // generate outputs
     // NOTE: Assembly can't be run before calling this method without additional refactoring,
     // as different output formats apply different filters before running assembly
+
     val serializationOutcome =
-      Try(Serializer.save((entry, doc), new File(outputDir, s"$paperId.ser")))
+      Try {
+        serializeDoc(paperId, documentSerializer, entry, doc)
+      }
 
 
     // elapsed time: processing + writing output
@@ -84,6 +91,20 @@ class AnnotationsCLI(
     errorCount
   }
 
+  /**
+    * Serialized the annotated document and entry objects using DocumentSerializator
+    * @param paperId
+    * @param documentSerializer
+    * @param entry
+    * @param doc
+    */
+  private def serializeDoc(paperId: String, documentSerializer: DocumentSerializer, entry: FriesEntry, doc: Document): Unit = {
+    val pw = new PrintWriter(new File(outputDir, s"$paperId.ser"))
+    pw.println(entry.toString())
+    pw.println(AnnotationsCLI.serializationSeparator)
+    documentSerializer.save(doc, pw)
+    pw.close()
+  }
 }
 
 
@@ -92,6 +113,7 @@ class AnnotationsCLI(
   * run it on the papers in the specified directory.
   */
 object AnnotationsCLI {
+  val serializationSeparator: String = "#FS#"
   /** Return a new timestamp each time called. */
   def now = new Date()
 

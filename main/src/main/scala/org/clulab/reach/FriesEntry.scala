@@ -12,7 +12,9 @@ case class FriesEntry(
   text: String
 ) {
 
-  override def toString(): String =  s"$chunkId\t$sectionName\t$sectionId\t${if(isTitle) 1 else 0}\t$text"
+  override def toString: String =  s"$chunkId\t$sectionName\t$sectionId\t${if(isTitle) 1 else 0}\t$text"
+
+
 
   def this(nxmldoc: NxmlDocument) = this(
     name = nxmldoc.pmc,
@@ -47,6 +49,18 @@ object FriesEntry {
       sectionName = "",
       isTitle = false,
       text
+    )
+  }
+
+  def fromString(str: String): FriesEntry = {
+    val tokens = str.split("\t", 4)
+    FriesEntry(
+      tokens(0),
+      tokens(1),
+      tokens(2),
+      tokens(3),
+      if (tokens(4).toShort == 1) true else false,
+      tokens(5)
     )
   }
 }
