@@ -52,15 +52,4 @@ object FriesEntry {
     )
   }
 
-  def fromString(str: String): FriesEntry = {
-    val tokens = str.split("\t", 4)
-    FriesEntry(
-      tokens(0),
-      tokens(1),
-      tokens(2),
-      tokens(3),
-      if (tokens(4).toShort == 1) true else false,
-      tokens(5)
-    )
-  }
 }
