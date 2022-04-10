@@ -7,5 +7,5 @@ fi
 
 CONF=$1
 
-sbt -Dconfig.file=$CONF "run-main org.clulab.reach.RunReachCLI"
+sbt -Dconfig.file=$CONF "runMain org.clulab.reach.RunReachCLI"
 
