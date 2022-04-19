@@ -220,11 +220,13 @@ class NxmlSearcher(val indexDir:String) {
   }
 
   def shahriarKeywordsUseCase(resultsDir:String, maxDocs:Int = Int.MaxValue): Unit = {
-    val query = Source.fromFile("keywords_query.txt").mkString
-    val keywordDocs = search(query)
-    logger.debug(s"The result contains ${keywordDocs.size} documents.")
-    saveDocs(resultsDir, keywordDocs, maxDocs)
-    logger.debug("Done.")
+    for(ix <- 2 to 166) {
+      val query = Source.fromFile(s"keywords_query_$ix.txt").mkString
+      val keywordDocs = search(query)
+      logger.debug(s"The result contains ${keywordDocs.size} documents.")
+      saveDocs(resultsDir, keywordDocs, maxDocs)
+      logger.debug("Done.")
+    }
   }
 
   /** Finds all NXML that contain at least one biochemical interaction */
