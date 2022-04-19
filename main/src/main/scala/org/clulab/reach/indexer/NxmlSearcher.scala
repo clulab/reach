@@ -219,6 +219,14 @@ class NxmlSearcher(val indexDir:String) {
     logger.debug("Done.")
   }
 
+  def shahriarKeywordsUseCase(resultsDir:String, maxDocs:Int = Int.MaxValue): Unit = {
+    val query = Source.fromFile("keywords_query.txt").mkString
+    val keywordDocs = search(query)
+    logger.debug(s"The result contains ${keywordDocs.size} documents.")
+    saveDocs(resultsDir, keywordDocs, maxDocs)
+    logger.debug("Done.")
+  }
+
   /** Finds all NXML that contain at least one biochemical interaction */
   def useCaseAnyInteraction(resultDir:String, maxDocs:Int) {
     vanillaUseCase(
