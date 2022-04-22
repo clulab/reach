@@ -1,6 +1,8 @@
 package org.clulab.reach
 
+import ai.lum.common.Interval
 import ai.lum.nxmlreader.NxmlDocument
+import ai.lum.nxmlreader.standoff.Implicits._
 
 
 case class FriesEntry(
@@ -9,7 +11,8 @@ case class FriesEntry(
   sectionId: String,
   sectionName: String,
   isTitle: Boolean,
-  text: String
+  text: String,
+  sectionNamesIntervals:Option[Map[Interval, Seq[String]]]
 ) {
 
   override def toString(): String =  s"$chunkId\t$sectionName\t$sectionId\t${if(isTitle) 1 else 0}\t$text"
@@ -22,7 +25,8 @@ case class FriesEntry(
     sectionId = nxmldoc.standoff.path,
     sectionName = "",
     false,
-    nxmldoc.standoff.text
+    nxmldoc.standoff.text,
+    Some(nxmldoc.standoff.sectionNamesIntervals)
   )
 
   def this(paperId: String, nxmldoc: NxmlDocument) = this(
@@ -33,7 +37,8 @@ case class FriesEntry(
     sectionId = nxmldoc.standoff.path,
     sectionName = "",
     isTitle = false,
-    text = nxmldoc.standoff.text
+    text = nxmldoc.standoff.text,
+    Some(nxmldoc.standoff.sectionNamesIntervals)
   )
 }
 
@@ -46,7 +51,8 @@ object FriesEntry {
       sectionId = "",
       sectionName = "",
       isTitle = false,
-      text
+      text,
+      None
     )
   }
 }

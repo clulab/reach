@@ -1,8 +1,6 @@
 package ai.lum.nxmlreader.standoff
 
 import ai.lum.common.Interval
-import ai.lum.nxmlreader.NxmlReader
-import org.clulab.reach.utils.Preprocess
 
 object Implicits {
 
@@ -49,5 +47,3 @@ object Implicits {
       }).toMap
   }
 }
-
-

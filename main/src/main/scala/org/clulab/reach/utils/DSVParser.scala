@@ -55,7 +55,8 @@ class DSVParser {
         sectionId = trim(sectionID),
         sectionName = "",
         isTitle = false,
-        text = trim(text)
+        text = trim(text),
+        None
       )
     }
 
@@ -84,7 +85,8 @@ class DSVParser {
       sectionId = "",
       sectionName = "",
       isTitle = false,
-      text = allText
+      text = allText,
+      None
     )
   }
 

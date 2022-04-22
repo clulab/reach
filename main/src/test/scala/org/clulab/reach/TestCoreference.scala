@@ -499,8 +499,8 @@ class TestCoreference extends FlatSpec with Matchers {
   val sent45a = "Akt1, previously known as Akt334, AktTR, or Akt4H, is also phosphorylated."
   val sent45b = "AktTR is ubiquitinated."
   "Intra-document alias" should "share Akt1 grounding across sections" in {
-    val fe1 = FriesEntry("test", "aliasDoc", "01", "start", isTitle = false, sent45a)
-    val fe2 = FriesEntry("test", "aliasDoc", "01", "start", isTitle = false, sent45b)
+    val fe1 = FriesEntry("test", "aliasDoc", "01", "start", isTitle = false, sent45a, None)
+    val fe2 = FriesEntry("test", "aliasDoc", "01", "start", isTitle = false, sent45b, None)
     val mentions = testReach.extractFrom(Seq(fe1, fe2))
     val akt = mentions.find(_.text == "Akt1").get
     mentions.filter(_.text == "AktTR").forall(m => m.grounding.get == akt.grounding.get) should be (true)
@@ -508,7 +508,7 @@ class TestCoreference extends FlatSpec with Matchers {
   // No problem if no mentions in a document.
   val sent46 = "This sentence has no mentions."
   "Empty document: coref" should "share Akt grounding across sections" in {
-    val fe = FriesEntry("anotherTest", "noMentions", "02", "end", isTitle = false, sent46)
+    val fe = FriesEntry("anotherTest", "noMentions", "02", "end", isTitle = false, sent46, None)
     val mentions = testReach.extractFrom(Seq(fe))
     mentions.isEmpty should be (true)
   }

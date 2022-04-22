@@ -22,7 +22,7 @@ class TestFriesOutput extends FlatSpec with Matchers {
 
   val text1 = "AKT1 phosphorylates PTHR2"
   val mentions1 = getBioMentions(text1)
-  val entry = FriesEntry("text1", "1", "test", "test", isTitle = false, text1)
+  val entry = FriesEntry("text1", "1", "test", "test", isTitle = false, text1, None)
   val jStr = outputter.toJSON(paperId, mentions1, Seq(entry), startTime, new Date(), paperId)
   val json = parse(jStr)
 
@@ -141,7 +141,7 @@ class TestFriesOutput extends FlatSpec with Matchers {
   // Test output for regulation of regulation:
   val text2 = "The phosphorylation of AFT by BEF is inhibited by the ubiquitination of Akt."
   val mentions2 = getBioMentions(text2)
-  val entry2 = FriesEntry("text2", "1", "test", "test", isTitle = false, text2)
+  val entry2 = FriesEntry("text2", "1", "test", "test", isTitle = false, text2, None)
   val jStr2 = outputter.toJSON(paperId, mentions2, Seq(entry2), startTime, new Date(), paperId)
   val json2 = parse(jStr2)
 
@@ -172,7 +172,7 @@ class TestFriesOutput extends FlatSpec with Matchers {
   // Test output for regulation *by* a regulation:
   val text3 = "The phosphorylation of AFT by BEF inhibits the ubiquitination of Akt."
   val mentions3 = getBioMentions(text3)
-  val entry3 = FriesEntry("text3", "1", "test", "test", isTitle = false, text3)
+  val entry3 = FriesEntry("text3", "1", "test", "test", isTitle = false, text3, None)
   val jStr3 = outputter.toJSON(paperId, mentions2, Seq(entry2), startTime, new Date(), paperId)
   val json3 = parse(jStr3)
 

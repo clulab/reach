@@ -52,14 +52,14 @@ object ApiRuler {
   /** Annotates some text by converting it to a FriesEntry and calling annotateEntry().
       Uses fake document ID and chunk ID. */
   def annotateText(text: String, outFormat: String): Response = {
-    annotateEntry(FriesEntry(prefix, suffix, "NoSection", "NoSection", isTitle = false, text), outFormat)
+    annotateEntry(FriesEntry(prefix, suffix, "NoSection", "NoSection", isTitle = false, text, None), outFormat)
   }
 
   /** annotates some text by converting it to a FriesEntry and calling annotateEntry(). */
   def annotateText(text: String, docId: String=prefix, chunkId: String=suffix,
                    outFormat: String="fries"): Response =
   {
-    annotateEntry(FriesEntry(docId, chunkId, "NoSection", "NoSection", isTitle = false, text), outFormat)
+    annotateEntry(FriesEntry(docId, chunkId, "NoSection", "NoSection", isTitle = false, text, None), outFormat)
   }
 
 
