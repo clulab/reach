@@ -5,14 +5,13 @@ resolvers += ("Artifactory" at "http://artifactory.cs.arizona.edu:8081/artifacto
 
 
 libraryDependencies ++= {
-  val procVer = "8.3.3"
+  val procVer = "8.5.0-SNAPSHOT"//"8.3.3"
 
   Seq(
     "com.typesafe"         %  "config"      % "1.3.1",
 
     "org.clulab"          %%  "processors-main"          % procVer,
     "org.clulab"          %%  "processors-corenlp"       % procVer,
-    "org.clulab"          %%  "processors-odin"          % procVer,
 
     "ai.lum" %% "common" % "0.1.4",
     
