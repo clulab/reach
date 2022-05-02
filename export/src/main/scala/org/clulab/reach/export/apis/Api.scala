@@ -47,7 +47,7 @@ object Api {
 
   /** Annotates text by converting it to a FriesEntry and calling runOnFriesEntry(). */
   def runOnText (text: String, docId: String=Prefix, chunkId: String=Suffix): ReachResults = {
-    reach.extractFrom(text, docId, chunkId)
+    reach.extractFrom(text, docId, chunkId, None)
   }
 
   /** Annotates a single FriesEntry and returns Reach results. */

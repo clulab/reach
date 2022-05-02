@@ -56,7 +56,7 @@ object PolarityDatasetPreprocessor extends App with LazyLogging{
 
       // Annotate the sentence
       val sentence = tokens.last
-      val extractions = extractorEngine.extractFrom(sentence, "", "")
+      val extractions = extractorEngine.extractFrom(sentence, "", "", None)
 
       def matchesCriteria(m:BioMention) = m match {
         case evt:CorefEventMention if evt matches "ComplexEvent" =>

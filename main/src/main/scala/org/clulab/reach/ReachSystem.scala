@@ -13,9 +13,11 @@ import org.clulab.reach.context.ContextEngineFactory.Engine._
 import org.clulab.reach.darpa.{DarpaActions, HyphenHandle, MentionFilter, NegationHandler, RegulationHandler}
 import org.clulab.reach.grounding._
 import org.clulab.reach.mentions._
-import RuleReader.{Rules, readResource}
+import RuleReader.{Rules, contextRelationsFile, readResource}
+import ai.lum.common.Interval
 import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.reach.utils.Preprocess
+import ai.lum.nxmlreader.standoff.Implicits._
 
 // import org.clulab.reach.utils.MentionManager
 
@@ -53,24 +55,42 @@ class ReachSystem(
   def allRules: String =
     Seq(entityRules, modificationRules, eventRules, contextRules).mkString("\n\n")
 
-  def mkDoc(text: String, docId: String, chunkId: String = ""): Document = {
+  def mkDoc(text: String, docId: String, chunkId: String = "", sectionNameIntervals: Option[Map[Interval, Seq[String]]] = None): Document = {
     // note that this messes with the character offsets in the text...
     val preprocessedText = textPreProc.preprocessText(text)
     // annotate() now preserves chatracter offsets in text, but it is too late due to preprocessText() above
     val doc = procAnnotator.annotate(text, keepText = true)
     val id = if (chunkId.isEmpty) docId else s"${docId}_${chunkId}"
     doc.id = Some(id)
+    // If section names are given, add them to the doc object
+    sectionNameIntervals match {
+      case Some(sectionNames) =>
+        // Order the intervals
+        val sectionIntervals = sectionNames.keys.toSeq.sorted
+        // Iterate through each sentence to get its section name
+        doc.sentences foreach {
+          sent =>
+            val interval = Interval.open(sent.startOffsets.head, sent.endOffsets.last)
+            val containingInterval = sectionIntervals.filter(si => si.intersects(interval))
+            if(containingInterval.nonEmpty)
+              sent.section = Some(sectionNames(containingInterval.head).toArray)
+            else
+              sent.section = None
+        }
+
+      case None => ()
+    }
     doc
   }
 
   def mkDoc(nxml: NxmlDocument): Document = {
     // we are using the PMC as the chunk-id because we now read
     // the whole paper in a single chunk
-    mkDoc(nxml.text, nxml.pmc, nxml.pmc)
+    mkDoc(nxml.text, nxml.pmc, nxml.pmc, Some(nxml.standoff.sectionNamesIntervals))
   }
 
   def extractFrom(entry: FriesEntry): Seq[BioMention] =
-    extractFrom(entry.text, entry.name, entry.chunkId)
+    extractFrom(entry.text, entry.name, entry.chunkId, entry.sectionNamesIntervals)
 
   def extractFrom(nxml: NxmlDocument): Seq[BioMention] = {
     // use standoff hashcode as the chunkId
@@ -119,7 +139,7 @@ class ReachSystem(
 
   def extractFrom(entries: Seq[FriesEntry]): Seq[BioMention] =
     extractFrom(entries, entries.map{
-        e => mkDoc(e.text, e.name, e.chunkId)
+        e => mkDoc(e.text, e.name, e.chunkId, None)
     })
 
   def extractFrom(entries: Seq[FriesEntry], documents: Seq[Document]): Seq[BioMention] = {
@@ -145,8 +165,8 @@ class ReachSystem(
     resolveDisplay(complete)
   }
 
-  def extractFrom(text: String, docId: String, chunkId: String): Seq[BioMention] = {
-    extractFrom(mkDoc(text, docId, chunkId))
+  def extractFrom(text: String, docId: String, chunkId: String, sectionNameIntervals:Option[Map[Interval, Seq[String]]]): Seq[BioMention] = {
+    extractFrom(mkDoc(text, docId, chunkId, sectionNameIntervals))
   }
 
   def extractFrom(doc: Document): Seq[BioMention] = {

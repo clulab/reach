@@ -143,7 +143,7 @@ object PaperReader extends LazyLogging {
   def getMentionsFromPaper(file: File): Vector[Mention] = readPaper(file)._2
 
   /** Extract mentions from a single text string. */
-  def getMentionsFromText(text: String): Seq[Mention] = reachSystem.extractFrom(text, "", "")
+  def getMentionsFromText(text: String): Seq[Mention] = reachSystem.extractFrom(text, "", "", None)
 
 }
 

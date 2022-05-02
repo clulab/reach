@@ -22,7 +22,7 @@ class TestEntities extends FlatSpec with Matchers {
   }
 
   it should "extract mentions from text" in {
-    val result = Try(testReach.extractFrom(text, docId, chunkId))
+    val result = Try(testReach.extractFrom(text, docId, chunkId, None))
     result.isSuccess should be (true)
   }
 

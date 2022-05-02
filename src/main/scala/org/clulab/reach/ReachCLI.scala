@@ -1,16 +1,10 @@
 package org.clulab.reach
 
-import scala.collection.JavaConverters._
+import ai.lum.common.ConfigUtils._
+import ai.lum.common.FileUtils._
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.{FileUtils, FilenameUtils}
-
-import java.io.File
-import java.util.Date
-import java.nio.charset.Charset
-import java.nio.charset.StandardCharsets.UTF_8
-import ai.lum.common.FileUtils._
-import ai.lum.common.ConfigUtils._
 import org.clulab.odin._
 import org.clulab.processors.Document
 import org.clulab.reach.`export`.arizona.ArizonaOutputter
@@ -22,9 +16,14 @@ import org.clulab.reach.export.fries.FriesOutput
 import org.clulab.reach.export.indexcards.IndexCardOutput
 import org.clulab.reach.export.serial.SerialJsonOutput
 import org.clulab.reach.mentions.CorefMention
-import org.clulab.reach.mentions.serialization.json._
 import org.clulab.reach.utils.MentionManager
 import org.clulab.utils.Serializer
+
+import java.io.File
+import java.nio.charset.Charset
+import java.nio.charset.StandardCharsets.UTF_8
+import java.util.Date
+import scala.collection.JavaConverters._
 
 /**
   * Class to run Reach reading and assembly and then produce FRIES format output

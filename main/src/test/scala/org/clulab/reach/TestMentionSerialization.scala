@@ -16,7 +16,7 @@ import TestUtils._
 class TestMentionSerialization extends FlatSpec with Matchers {
 
   val text1 = "Mek was not phosphorylized by AKT1"  // this one serializes
-  val mentions1 = testReach.extractFrom(text1, "serialization-test", "1")
+  val mentions1 = testReach.extractFrom(text1, "serialization-test", "1", None)
   val tempFile1 = java.io.File.createTempFile("TestMention1", ".ser")
   val serfile1 = tempFile1.getPath
 
@@ -35,7 +35,7 @@ class TestMentionSerialization extends FlatSpec with Matchers {
 
 
   val text2 = "Mouse AKT2 phosphorylates PTHR2 in chicken adenoid."
-  val mentions2 = testReach.extractFrom(text2, "serialization-test", "2")
+  val mentions2 = testReach.extractFrom(text2, "serialization-test", "2", None)
   val tempFile2 = java.io.File.createTempFile("TestMention2", ".ser")
   val serfile2 = tempFile2.getPath
 
@@ -53,7 +53,7 @@ class TestMentionSerialization extends FlatSpec with Matchers {
   }
 
   val text3 = "Tbet Rag2 mice (Garrett et al., 2010) as well as Bacteroides spp. (Bloom et al., 2011), Helicobacter spp. (Fox et al., 2011), and Bilophila wadsworthia (Devkota et al., 2012) in Il10 have been shown to enhance intestinal inflammation.The acute dextran sulfate sodium"
-  val mentions3 = testReach.extractFrom(text3, "serialization-test", "3")
+  val mentions3 = testReach.extractFrom(text3, "serialization-test", "3", None)
   val koTriggers3 = getKOtriggers(mentions3)
   val tempFile3 = java.io.File.createTempFile("TestMention3", ".ser")
   val serfile3 = tempFile3.getPath
