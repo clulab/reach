@@ -3,6 +3,8 @@ package org.clulab.reach.context
 import collection.immutable
 import org.clulab.reach.mentions._
 import py4j.ClientServer
+import py4j.GatewayServer
+import py4j.Gateway
 
 
 trait NeuralContextEnginePythonInterface {
