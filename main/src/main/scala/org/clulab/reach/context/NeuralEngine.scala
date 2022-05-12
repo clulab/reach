@@ -61,6 +61,8 @@ object BenchmarkNeuralContextEngine extends App {
     // https://github.com/timsetsfire/urban-barnacle/blob/383ab8412391cabe4dc8ec565890a8b13db4be3c/src/main/scala/WandB.scala
 
     val valF1 = interface.runValidation()
+
+    valF1
   }
 
   // sbt "runMain org.clulab.reach.context.BenchmarkNeuralContextEngine"
