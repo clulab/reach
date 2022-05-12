@@ -3,6 +3,7 @@ import torch.nn as nn
 from transformers import AutoTokenizer, AutoModel
 
 import time
+import json
 
 from py4j.java_gateway import JavaGateway
 from py4j.clientserver import ClientServer
@@ -38,6 +39,9 @@ class BioContextClassifierPyTorch(nn.Module):
     CON_END = "<CON_END>"
 
     DEVICE = torch.device("cuda:0")
+
+    data_path = "/home/zhengzhongliang/CLU_Projects/2022_ASKE/model_n_data/context_validation_data.json"
+    pyscala_model_path = "/home/zhengzhongliang/CLU_Projects/2022_ASKE/model_n_data/pyscala_model_converted"
 
     def __init__(self, ensemble_opt="vote"):
         '''
@@ -336,6 +340,24 @@ class BioContextClassifierPyTorch(nn.Module):
             final_pred = 1 if sum(preds_before_vote) > 0.5 else 0
 
         return final_pred
+
+    @classmethod
+    def read_json(cls, file_path):
+        with open(file_path, "r") as handle:
+            json_item = json.load(handle)
+
+        return json_item
+
+    @classmethod
+    def load_and_validate(cls):
+        '''
+        This function loads a trained model and evaluates the model on the test split. It should reach a certain score.
+        :return:
+        '''
+
+        data_json = cls.read_json(cls.data_path)
+
+        return data_json
 
     @classmethod
     def get_p_r_f1(cls, labels, preds):
