@@ -47,7 +47,11 @@ abstract class NeuralContextEngine extends ContextEngine {
 
 object BenchmarkNeuralContextEngine extends App {
 
-  def runValidation(): Unit = {
+  val f1 = runValidation()
+
+  println("final f1 (scala side):", f1)
+
+  def runValidation(): Float = {
     val scalaPythonClientServer = new ClientServer()
     val interface: NeuralContextEnginePythonInterface = scalaPythonClientServer.getPythonServerEntryPoint(Array[Class[_]]( classOf[NeuralContextEnginePythonInterface])).asInstanceOf[NeuralContextEnginePythonInterface]
     // some usage of getPythonServerEntryPoint:
@@ -58,5 +62,7 @@ object BenchmarkNeuralContextEngine extends App {
 
     val valF1 = interface.runValidation()
   }
+
+  // sbt "runMain org.clulab.reach.context.BenchmarkNeuralContextEngine"
 
 }
