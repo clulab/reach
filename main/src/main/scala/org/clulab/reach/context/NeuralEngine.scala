@@ -2,10 +2,12 @@ package org.clulab.reach.context
 
 import collection.immutable
 import org.clulab.reach.mentions._
+import py4j.ClientServer
+
 
 trait NeuralContextEnginePythonInterface {
 
-  def run_validation(): Unit
+  def runValidation(): Float
 }
 
 abstract class NeuralContextEngine extends ContextEngine {
@@ -45,6 +47,16 @@ abstract class NeuralContextEngine extends ContextEngine {
 
 object BenchmarkNeuralContextEngine extends App {
 
+  def runValidation(): Unit = {
+    val scalaPythonClientServer = new ClientServer()
+    val interface: NeuralContextEnginePythonInterface = scalaPythonClientServer.getPythonServerEntryPoint(Array[Class[_]]( classOf[NeuralContextEnginePythonInterface])).asInstanceOf[NeuralContextEnginePythonInterface]
+    // some usage of getPythonServerEntryPoint:
+    // https://programtalk.com/vs/py4j/py4j-java/src/test/java/py4j/instrumented/InstrumentedApplication.java/#
 
+    // The final method that works comes from here:
+    // https://github.com/timsetsfire/urban-barnacle/blob/383ab8412391cabe4dc8ec565890a8b13db4be3c/src/main/scala/WandB.scala
+
+    val valF1 = interface.runValidation()
+  }
 
 }

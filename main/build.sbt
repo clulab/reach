@@ -21,7 +21,8 @@ libraryDependencies ++= {
     "org.slf4j"                    %  "slf4j-api"        % "1.7.10",
 
     // testing
-    "org.scalatest"       %%  "scalatest"      % "3.0.1"  % "test"
+    "org.scalatest"       %%  "scalatest"      % "3.0.1"  % "test",
+    "net.sf.py4j" % "py4j" % "0.10.9.3"
   )
 
 }

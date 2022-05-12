@@ -432,7 +432,7 @@ class NeuralContextEnginePythonInterface:
         implements = ['org.clulab.reach.context.NeuralContextEnginePythonInterface']
 
     @staticmethod
-    def run_validation():
+    def runValidation():
 
         f1 = BioContextClassifierPyTorch.run_validation()
 
