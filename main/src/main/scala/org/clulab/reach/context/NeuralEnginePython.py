@@ -101,12 +101,9 @@ class RunPythonModel:
         :return:
         '''
 
-        instance = {
-            "data": [],
-            "label": scala_obj.apply("label")
-        }
+        instance = []
 
-        for ele_idx in range(scala_obj.apply("data").size()):
+        for ele_idx in range(scala_obj.size()):
             scala_element = scala_obj.apply(ele_idx)
 
             python_element = (
@@ -116,7 +113,7 @@ class RunPythonModel:
                 scala_element.apply(3),  # 3: sentence distance, int
             )
 
-            instance["data"].append(python_element)
+            instance.append(python_element)
 
         return instance
 
@@ -132,8 +129,26 @@ class NeuralContextEnginePythonInterface:
 
         return f1
 
+    @staticmethod
+    def forwardOneInstance(scala_instance):
+
+        python_instance = RunPythonModel.convert_scala_input_object_to_python_format(scala_instance)
+
+        print(json.dumps(python_instance, indents=2))
+
+        pred = b.get_prediction(python_instance)
+
+        return pred
+
 # We should a ClientServer instance, which starts a python server and a java client.
 # https://www.py4j.org/py4j_client_server.html
 
 ClientServer(java_parameters=None, python_parameters=None, python_server_entry_point=NeuralContextEnginePythonInterface)
+print("Start loading python saved neural model ...")
+
+b = torch.load(RunPythonModel.pyscala_model_path)
+b = b.to(b.DEVICE)
+b.eval()
+
 print("Python server started! Waiting for Java request ...")
+
