@@ -119,6 +119,12 @@ class RunPythonModel:
 
 class NeuralContextEnginePythonInterface:
 
+    print("Start loading python saved neural model ...")
+
+    b = torch.load(RunPythonModel.pyscala_model_path)
+    b = b.to(b.DEVICE)
+    b.eval()
+
     class Java:
         implements = ['org.clulab.reach.context.NeuralContextEnginePythonInterface']
 
@@ -136,7 +142,7 @@ class NeuralContextEnginePythonInterface:
 
         print(json.dumps(python_instance, indents=2))
 
-        pred = b.get_prediction(python_instance)
+        pred = NeuralContextEnginePythonInterface.b.get_prediction(python_instance)
 
         return pred
 
@@ -144,11 +150,6 @@ class NeuralContextEnginePythonInterface:
 # https://www.py4j.org/py4j_client_server.html
 
 ClientServer(java_parameters=None, python_parameters=None, python_server_entry_point=NeuralContextEnginePythonInterface)
-print("Start loading python saved neural model ...")
-
-b = torch.load(RunPythonModel.pyscala_model_path)
-b = b.to(b.DEVICE)
-b.eval()
 
 print("Python server started! Waiting for Java request ...")
 
