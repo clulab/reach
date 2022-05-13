@@ -134,7 +134,10 @@ class NeuralContextEngine extends ContextEngine {
     // Format: https://stackoverflow.com/questions/32378429/extract-string-value-using-json4s
     implicit val formats = DefaultFormats
     val parsedJson = parse(jsonString)
-    println(parsedJson(0).extract[Map[String, Any]])
+    val oneInstance = parsedJson(0).extract[Map[String, String]]
+    val data = oneInstance("data")
+
+    println(data)
   }
 
 }
