@@ -7,6 +7,8 @@ import py4j.GatewayServer
 import py4j.Gateway
 import py4j.ClientServer
 
+import java.util.List
+
 /***
   * This class is used to store a single event-context pair. Usually an bio instance has multiple event-context pairs.
   * @param text: the text as a single string
@@ -42,7 +44,7 @@ trait NeuralContextEnginePythonInterface {
     * @return
     */
   def forwardInstances(texts: Seq[Seq[String]], evtStarts: Seq[Seq[Int]], evtEnds: Seq[Seq[Int]],
-                       ctxStarts: Seq[Seq[Int]], ctxEnds: Seq[Seq[Int]], evtCtxDists: Seq[Seq[Int]]): Seq[Int]
+                       ctxStarts: Seq[Seq[Int]], ctxEnds: Seq[Seq[Int]], evtCtxDists: Seq[Seq[Int]]): java.util.List[Int]
 
 }
 
@@ -81,7 +83,7 @@ class NeuralContextEngine extends ContextEngine {
     * This function takes a sequence of bio event context instances and get the predictions.
     * It passes the instances to python and get the predictions using the neural model from the python side.
     */
-  def forwardInstances(bioEvtCtxInstances: Seq[BioEventContextInstance]): Seq[Int] = {
+  def forwardInstances(bioEvtCtxInstances: Seq[BioEventContextInstance]): java.util.List[Int] = {
 
     val (texts, evtStarts, evtEnds, ctxStarts, ctxEnds, evtCtxDists) = convertDataFormatForPython(bioEvtCtxInstances)
 

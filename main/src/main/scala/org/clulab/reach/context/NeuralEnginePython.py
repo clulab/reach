@@ -127,13 +127,19 @@ class RunPythonModel:
         The method is from here: https://stackoverflow.com/questions/59951283/convert-python-list-to-java-array-using-py4j
         :return:
         '''
-        gateway = JavaGateway()
-        object_class = gateway.jvm.java.lang.Integer
-        my_java_array = gateway.new_array(object_class, len(python_list))
-        for i in range(len(python_list)):
-            my_java_array[i]=python_list[i]
+        # gateway = JavaGateway()
+        # object_class = gateway.jvm.java.lang.Integer
+        # my_java_array = gateway.new_array(object_class, len(python_list))
+        # for i in range(len(python_list)):
+        #     my_java_array[i]=python_list[i]
 
-        return my_java_array
+        # Second source: https://www.py4j.org/advanced_topics.html
+        gateway = JavaGateway()
+        java_list = gateway.jvm.java.util.ArrayList()
+        for pred in python_list:
+            java_list.add(pred)
+
+        return java_list
 
 class NeuralContextEnginePythonInterface:
 
