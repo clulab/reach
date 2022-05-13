@@ -82,12 +82,6 @@ class NeuralContextEngine extends ContextEngine {
   /** assigns context to mentions given current state of the engine */
   def assign(mentions: Seq[BioMention]): Seq[BioMention] = {Seq()}
 
-  def runValidation(): Float = {
-
-    val valF1 = interface.runValidation()
-    valF1
-  }
-
   /***
     * This function takes a sequence of bio event context instances and get the predictions.
     * It passes the instances to python and get the predictions using the neural model from the python side.
@@ -119,7 +113,12 @@ class NeuralContextEngine extends ContextEngine {
 
   }
 
-  def runValidationScala():Unit = {
+  def runValidation(): Float = {
+    val valF1 = interface.runValidation()
+    valF1
+  }
+
+  def runValidationScala():Float = {
     // TODO: I am not sure if this is necessary. Maybe we can load the validation data in scala and run validation
     //  using the forwardInstances method. This is different from our current runValidation function where the
     //  validation data is processed in python. However, given the current evidence, I think there is very very little
@@ -169,7 +168,8 @@ class NeuralContextEngine extends ContextEngine {
     val allPreds = forwardInstances(allParsedInstances)
 
     val (p, r, f1) = calculate_p_r_f1(allPreds, allLabels)
-    println("scala run validation f1:", f1)
+
+    f1.toFloat
   }
 
   def calculate_p_r_f1(preds: Seq[Int], labels: Seq[Int]): (Double, Double, Double) = {
@@ -232,8 +232,7 @@ object BenchmarkNeuralContextEngine extends App {
 
   // println("start running validation ...")
   // val f1 = neuralContextEngine.runValidation()
-  // println("validation finished! val f1 (should be around 0.507):", f1)
-
-  neuralContextEngine.runValidationScala()
+  val f1 = neuralContextEngine.runValidationScala()
+  println("validation finished! val f1 (should be around 0.507):", f1)
 
 }
