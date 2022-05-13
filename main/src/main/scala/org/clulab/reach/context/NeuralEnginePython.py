@@ -94,23 +94,27 @@ class RunPythonModel:
         return [scala_seq[i] for i in range(scala_seq.size())]
 
     @classmethod
-    def convert_scala_input_object_to_python_format(cls, scala_obj):
+    def convert_scala_input_object_to_python_format(cls, texts, eventStarts, eventEnds, contextStarts, contextEnds, evtCtxDists):
         '''
         This function converts the scala object to the python format so the script is able to deal with it.
-        :param instance:
-        :return:
+        :param texts: list[String]
+        :param eventStarts: list[Int]
+        :param eventEnds: list[Int]
+        :param contextStarts: list[Int]
+        :param contextEnds: list[Int]
+        :param evtCtxDists: list[Int]
+        :return: an instance. i.e., a list of event-context pairs that is consistent with the python API
         '''
 
         instance = []
 
-        for ele_idx in range(scala_obj.size()):
-            scala_element = scala_obj.apply(ele_idx)
+        for pair_idx in range(texts.size()):
 
             python_element = (
-                scala_element.apply(0),  # 0: sentence string
-                cls.convert_scala_seq_to_python_list(scala_element.apply(1)),  # 1: event indices tuple
-                cls.convert_scala_seq_to_python_list(scala_element.apply(2)),  # 2: context indices tuple
-                scala_element.apply(3),  # 3: sentence distance, int
+                texts.apply(pair_idx),  #  sentence string
+                (eventStarts.apply(pair_idx), eventEnds.apply(pair_idx)),  # event indices tuple
+                (contextStarts.apply(pair_idx), contextEnds.apply(pair_idx)),  # context indices tuple
+                evtCtxDists.apply(pair_idx),  # 3: sentence distance, int
             )
 
             instance.append(python_element)
@@ -136,15 +140,31 @@ class NeuralContextEnginePythonInterface:
         return f1
 
     @staticmethod
-    def forwardOneInstance(scala_instance):
+    def forwardInstances(texts, eventStarts, eventEnds, contextStarts, contextEnds, evtCtxDists):
+        '''
+        The interface between scala and python. All of the arguments are passed from the scala side.
+        :param texts: list[list[string]]
+        :param eventStarts: list[list[int]]
+        :param eventEnds: list[list[int]]
+        :param contextStarts: list[list[int]]
+        :param contextEnds: list[list[int]]
+        :param evtCtxDists: list[list[int]]
+        :return:
+        '''
 
-        python_instance = RunPythonModel.convert_scala_input_object_to_python_format(scala_instance)
+        preds = []
+        for inst_idx in range(texts.size()):
+            python_instance = RunPythonModel.convert_scala_input_object_to_python_format(
+                texts.apply(inst_idx), eventStarts.apply(inst_idx), eventEnds.apply(inst_idx),
+                contextStarts.apply(inst_idx), contextEnds.apply(inst_idx), evtCtxDists.apply(inst_idx)
+            )
 
-        print(json.dumps(python_instance, indents=2))
+            print(json.dumps(python_instance, indents=2))
 
-        pred = NeuralContextEnginePythonInterface.b.get_prediction(python_instance)
+            pred = NeuralContextEnginePythonInterface.b.get_prediction(python_instance)
+            preds.append(pred)
 
-        return pred
+        return preds
 
 # We should a ClientServer instance, which starts a python server and a java client.
 # https://www.py4j.org/py4j_client_server.html
