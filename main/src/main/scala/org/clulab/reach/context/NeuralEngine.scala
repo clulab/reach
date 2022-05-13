@@ -139,20 +139,21 @@ class NeuralContextEngine extends ContextEngine {
     for (oneInstance <- parsedJsonAllInstances.slice(0, 1)) {
       val label = oneInstance("label")
 
-      val bioEventContextInstance = oneInstance("data").extract[Seq[JArray]]
+      val bioEventContextInstanceJson = oneInstance("data").extract[Seq[JArray]]
 
-      for (evtCtxPair <- bioEventContextInstance) {
-        println("==" * 40)
-        val sent = evtCtxPair(0).extract[String]
-        val evtSpan = evtCtxPair(1).extract[Seq[Int]]
-        val ctxSpan = evtCtxPair(2).extract[Seq[Int]]
-        val dist = evtCtxPair(3).extract[Int]
+      val bioEventContextInstance = BioEventContextInstance(
+        bioEventContextInstanceJson.map{evtCtxPair =>
+          val sent = evtCtxPair(0).extract[String]
+          val evtSpan = evtCtxPair(1).extract[Seq[Int]].asInstanceOf[(Int, Int)]
+          val ctxSpan = evtCtxPair(2).extract[Seq[Int]].asInstanceOf[(Int, Int)]
+          val dist = evtCtxPair(3).extract[Int]
 
-        println(sent)
-        println(evtSpan)
-        println(ctxSpan)
-        println(dist)
-      }
+          BioEventContextPair(text=sent, eventSpan = evtSpan, contextSpan = ctxSpan, evtCtxDist = dist)
+        }
+      )
+
+      println("finished building one example!")
+
     }
 
 
