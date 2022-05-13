@@ -7,7 +7,7 @@ import py4j.Gateway
 import py4j.ClientServer
 import java.util.List
 
-import org.json4s.DefaultFormats
+import org.json4s.{DefaultFormats, JValue}
 import org.json4s.jackson.JsonMethods._
 
 /***
@@ -133,14 +133,14 @@ class NeuralContextEngine extends ContextEngine {
     // This usage is from another file in the reach project
     // Format: https://stackoverflow.com/questions/32378429/extract-string-value-using-json4s
     implicit val formats = DefaultFormats
-    val parsedJsonAllInstances = parse(jsonString).extract[Seq[Map[String, Any]]]
+    val parsedJsonAllInstances = parse(jsonString).extract[Seq[Map[String, JValue]]]
 
     for (oneInstance <- parsedJsonAllInstances.slice(0, 1)) {
       val label = oneInstance("label")
 
-      val bioEventContextInstance = oneInstance("data").asInstanceOf[Seq[java.util.List[String, Seq[Int], Seq[Int], Int]]]
+      val bioEventContextInstance = oneInstance("data").asInstanceOf[Seq[(String, Seq[Int], Seq[Int], Int)]]
 
-      println(bioEventContextInstance(0)(0))
+      println(bioEventContextInstance(0))
     }
 
 
