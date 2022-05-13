@@ -6,6 +6,9 @@ import time
 import json
 
 from py4j.clientserver import ClientServer
+from py4j.java_collections import SetConverter, MapConverter, ListConverter
+from py4j.java_gateway import JavaGateway
+
 from PyScalaInterface import BioContextClassifierPyTorch
 
 class RunPythonModel:
@@ -117,6 +120,21 @@ class RunPythonModel:
 
         return instance
 
+    @classmethod
+    def convert_python_int_list_to_java_int_list(cls, python_list):
+        '''
+        We need this function because scala could not take pure python list as input
+        The method is from here: https://stackoverflow.com/questions/59951283/convert-python-list-to-java-array-using-py4j
+        :return:
+        '''
+        gateway = JavaGateway()
+        object_class = gateway.jvm.java.lang.Int
+        my_java_array = gateway.new_array(object_class, len(python_list))
+        for i in range(len(python_list)):
+            my_java_array[i]=python_list[i]
+
+        return my_java_array
+
 class NeuralContextEnginePythonInterface:
 
     print("Start loading python saved neural model ...")
@@ -155,14 +173,14 @@ class NeuralContextEnginePythonInterface:
                 contextStarts.apply(inst_idx), contextEnds.apply(inst_idx), evtCtxDists.apply(inst_idx)
             )
 
-            print(json.dumps(python_instance, indent=2))
+            #  print(json.dumps(python_instance, indent=2))  # This step has no problem
 
             pred = NeuralContextEnginePythonInterface.model.get_prediction(python_instance)
             preds.append(pred)
 
-        print("predictions:", preds)
+        # print("predictions:", preds)  # The prediction has no problem
 
-        return preds
+        return RunPythonModel.convert_python_int_list_to_java_int_list(preds)
 
 # We should a ClientServer instance, which starts a python server and a java client.
 # https://www.py4j.org/py4j_client_server.html
