@@ -134,6 +134,7 @@ class RunPythonModel:
         #     my_java_array[i]=python_list[i]
 
         # Second source: https://www.py4j.org/advanced_topics.html
+        gateway.detach()
         java_list = gateway.jvm.java.util.ArrayList()
         for pred in python_list:
             java_list.add(pred)
@@ -148,7 +149,7 @@ class NeuralContextEnginePythonInterface:
     model = model.to(model.DEVICE)
     model.eval()
 
-    gateway = JavaGateway()  # This is used for constructing java array/list.
+    gateway = JavaGateway()  # This is used for constructing java array/list so that we can return.
 
     class Java:
         implements = ['org.clulab.reach.context.NeuralContextEnginePythonInterface']
