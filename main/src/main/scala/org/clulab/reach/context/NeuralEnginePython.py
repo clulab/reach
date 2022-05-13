@@ -155,7 +155,7 @@ class NeuralContextEnginePythonInterface:
                 contextStarts.apply(inst_idx), contextEnds.apply(inst_idx), evtCtxDists.apply(inst_idx)
             )
 
-            print(json.dumps(python_instance, indents=2))
+            print(json.dumps(python_instance, indent=2))
 
             pred = NeuralContextEnginePythonInterface.model.get_prediction(python_instance)
             preds.append(pred)
