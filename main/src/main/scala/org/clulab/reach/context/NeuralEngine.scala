@@ -10,8 +10,6 @@ import py4j.ClientServer
 import java.util.List
 
 import org.json4s.jackson.JsonMethods._
-import os
-
 
 /***
   * This class is used to store a single event-context pair. Usually an bio instance has multiple event-context pairs.
