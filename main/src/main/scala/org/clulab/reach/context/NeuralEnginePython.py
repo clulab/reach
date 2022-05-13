@@ -134,7 +134,6 @@ class RunPythonModel:
         #     my_java_array[i]=python_list[i]
 
         # Second source: https://www.py4j.org/advanced_topics.html
-        gateway.detach()
         java_list = gateway.jvm.java.util.ArrayList()
         for pred in python_list:
             java_list.add(pred)
@@ -143,6 +142,7 @@ class RunPythonModel:
 
 class NeuralContextEnginePythonInterface:
 
+    print("*" * 40)
     print("Start loading python saved neural model ...")
 
     model = torch.load(RunPythonModel.pyscala_model_path)
