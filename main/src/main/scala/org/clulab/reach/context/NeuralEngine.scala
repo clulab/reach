@@ -136,9 +136,12 @@ object BenchmarkNeuralContextEngine extends App {
   val neuralContextEngine = new NeuralContextEngine()
 
 
+  println("start checking processing one example ...")
   val preds = neuralContextEngine.forwardInstances(Seq(bioEvtCtxInstance))
+  println("prediction result:", preds)
 
+  // println("start running validation ...")
   // val f1 = neuralContextEngine.runValidation()
-
+  // println("validation finished! val f1:", f1)
 
 }
