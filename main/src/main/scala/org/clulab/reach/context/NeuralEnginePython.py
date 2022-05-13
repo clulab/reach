@@ -160,6 +160,8 @@ class NeuralContextEnginePythonInterface:
             pred = NeuralContextEnginePythonInterface.model.get_prediction(python_instance)
             preds.append(pred)
 
+        print("predictions:", preds)
+
         return preds
 
 # We should a ClientServer instance, which starts a python server and a java client.
