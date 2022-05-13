@@ -128,7 +128,7 @@ class RunPythonModel:
         :return:
         '''
         gateway = JavaGateway()
-        object_class = gateway.jvm.java.lang.Int
+        object_class = gateway.jvm.java.lang.Integer
         my_java_array = gateway.new_array(object_class, len(python_list))
         for i in range(len(python_list)):
             my_java_array[i]=python_list[i]
