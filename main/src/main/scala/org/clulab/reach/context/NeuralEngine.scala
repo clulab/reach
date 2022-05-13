@@ -143,10 +143,10 @@ class NeuralContextEngine extends ContextEngine {
 
       for (evtCtxPair <- bioEventContextInstance) {
         println("==" * 40)
-        val sent = evtCtxPair(0)
-        val evtSpan = evtCtxPair(1)
-        val ctxSpan = evtCtxPair(2)
-        val dist = evtCtxPair(3)
+        val sent = evtCtxPair(0).extract[String]
+        val evtSpan = evtCtxPair(1).extract[Seq[Int]]
+        val ctxSpan = evtCtxPair(2).extract[Seq[Int]]
+        val dist = evtCtxPair(3).extract[Int]
 
         println(sent)
         println(evtSpan)
