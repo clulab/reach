@@ -144,7 +144,8 @@ class NeuralContextEngine extends ContextEngine {
     val allLabels = scala.collection.mutable.ArrayBuffer[Int]()
 
     for (oneInstance <- parsedJsonAllInstances.slice(0, 100)) {
-      val label = oneInstance("label").extract[Int]
+      val label = {
+        if (oneInstance("label").extract[Boolean]) 1 else 0}
 
       val bioEventContextInstanceJson = oneInstance("data").extract[Seq[JArray]]
 
