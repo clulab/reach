@@ -2,13 +2,12 @@ package org.clulab.reach.context
 
 import collection.immutable
 import org.clulab.reach.mentions._
-
 import py4j.GatewayServer
 import py4j.Gateway
 import py4j.ClientServer
-
 import java.util.List
 
+import org.json4s.DefaultFormats
 import org.json4s.jackson.JsonMethods._
 
 /***
@@ -132,8 +131,9 @@ class NeuralContextEngine extends ContextEngine {
     // https://stackoverflow.com/questions/4170949/how-to-parse-json-in-scala-using-standard-scala-classes
 
     // This usage is from another file in the reach project
+    // Format: https://stackoverflow.com/questions/32378429/extract-string-value-using-json4s
+    implicit val formats = DefaultFormats
     val parsedJson = parse(jsonString)
-
     println(parsedJson(0).extract[Map[String, Any]])
   }
 
