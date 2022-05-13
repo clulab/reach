@@ -138,7 +138,7 @@ class NeuralContextEngine extends ContextEngine {
     for (oneInstance <- parsedJsonAllInstances.slice(0, 1)) {
       val label = oneInstance("label")
 
-      val bioEventContextInstance = oneInstance("data").asInstanceOf[Seq[(String, (Int, Int), (Int, Int), Int)]]
+      val bioEventContextInstance = oneInstance("data").asInstanceOf[Seq[(String, Seq[Int], Seq[Int], Int)]]
 
       println(bioEventContextInstance(0)._1)
     }
