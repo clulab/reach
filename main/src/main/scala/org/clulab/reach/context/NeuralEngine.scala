@@ -133,11 +133,17 @@ class NeuralContextEngine extends ContextEngine {
     // This usage is from another file in the reach project
     // Format: https://stackoverflow.com/questions/32378429/extract-string-value-using-json4s
     implicit val formats = DefaultFormats
-    val parsedJson = parse(jsonString)
-    val oneInstance = parsedJson(0).extract[Map[String, String]]
-    val data = oneInstance("data")
+    val parsedJsonAllInstances = parse(jsonString).extract[Seq[Map[String, Any]]]
 
-    println(data)
+    for (oneInstance <- parsedJsonAllInstances.slice(0, 1)) {
+      val label = oneInstance("label")
+
+      val bioEventContextInstance = oneInstance("data")
+
+      println(bioEventContextInstance)
+    }
+
+
   }
 
 }
