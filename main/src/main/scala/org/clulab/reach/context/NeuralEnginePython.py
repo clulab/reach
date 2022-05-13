@@ -121,7 +121,7 @@ class RunPythonModel:
         return instance
 
     @classmethod
-    def convert_python_int_list_to_java_int_list(cls, python_list):
+    def convert_python_int_list_to_java_int_list(cls, python_list, gateway):
         '''
         We need this function because scala could not take pure python list as input
         The method is from here: https://stackoverflow.com/questions/59951283/convert-python-list-to-java-array-using-py4j
@@ -134,12 +134,10 @@ class RunPythonModel:
         #     my_java_array[i]=python_list[i]
 
         # Second source: https://www.py4j.org/advanced_topics.html
-        gateway = JavaGateway()
         java_list = gateway.jvm.java.util.ArrayList()
         for pred in python_list:
             java_list.add(pred)
 
-        del gateway  # TODO: not sure if this will solve the memory issue.
         return java_list
 
 class NeuralContextEnginePythonInterface:
@@ -149,6 +147,8 @@ class NeuralContextEnginePythonInterface:
     model = torch.load(RunPythonModel.pyscala_model_path)
     model = model.to(model.DEVICE)
     model.eval()
+
+    gateway = JavaGateway()  # This is used for constructing java array/list.
 
     class Java:
         implements = ['org.clulab.reach.context.NeuralContextEnginePythonInterface']
