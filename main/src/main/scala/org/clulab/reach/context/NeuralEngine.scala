@@ -133,8 +133,8 @@ object BenchmarkNeuralContextEngine extends App {
 
   val neuralContextEngine = new NeuralContextEngine()
 
-  //val f1 = neuralContextEngine.runValidation()
+  val f1 = neuralContextEngine.runValidation()
 
-  val preds = neuralContextEngine.forwardInstances(Seq(bioEvtCtxInstance))
+  // val preds = neuralContextEngine.forwardInstances(Seq(bioEvtCtxInstance))
 
 }
