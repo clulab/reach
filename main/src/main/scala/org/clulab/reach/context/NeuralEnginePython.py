@@ -139,6 +139,7 @@ class RunPythonModel:
         for pred in python_list:
             java_list.add(pred)
 
+        del gateway  # TODO: not sure if this will solve the memory issue.
         return java_list
 
 class NeuralContextEnginePythonInterface:
