@@ -144,8 +144,10 @@ class NeuralContextEngine extends ContextEngine {
       val bioEventContextInstance = BioEventContextInstance(
         bioEventContextInstanceJson.map{evtCtxPair =>
           val sent = evtCtxPair(0).extract[String]
-          val evtSpan = evtCtxPair(1).extract[Seq[Int]].asInstanceOf[(Int, Int)]
-          val ctxSpan = evtCtxPair(2).extract[Seq[Int]].asInstanceOf[(Int, Int)]
+          val evtSpanSeq = evtCtxPair(1).extract[Seq[Int]]
+          val evtSpan = (evtSpanSeq(0), evtSpanSeq(1))
+          val ctxSpanSeq = evtCtxPair(2).extract[Seq[Int]]
+          val ctxSpan = (ctxSpanSeq(0), ctxSpanSeq(1))
           val dist = evtCtxPair(3).extract[Int]
 
           BioEventContextPair(text=sent, eventSpan = evtSpan, contextSpan = ctxSpan, evtCtxDist = dist)
