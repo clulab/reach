@@ -9,6 +9,10 @@ import py4j.ClientServer
 
 import java.util.List
 
+import org.json4s.jackson.JsonMethods._
+import os
+
+
 /***
   * This class is used to store a single event-context pair. Usually an bio instance has multiple event-context pairs.
   * @param text: the text as a single string
@@ -39,8 +43,13 @@ trait NeuralContextEnginePythonInterface {
   def runValidation(): Float
 
   /***
-    * This function
-    * @param bioEvtCtxInstances
+    * Forward a few instances, and each instance consists of a few event context pairs.
+    * @param texts:
+    * @param evtStarts
+    * @param evtEnds
+    * @param ctxStarts
+    * @param ctxEnds
+    * @param evtCtxDists
     * @return
     */
   def forwardInstances(texts: Seq[Seq[String]], evtStarts: Seq[Seq[Int]], evtEnds: Seq[Seq[Int]],
@@ -110,6 +119,26 @@ class NeuralContextEngine extends ContextEngine {
 
   }
 
+  def runValidationScala():Unit = {
+    // TODO: I am not sure if this is necessary. Maybe we can load the validation data in scala and run validation
+    //  using the forwardInstances method. This is different from our current runValidation function where the
+    //  validation data is processed in python. However, given the current evidence, I think there is very very little
+    //  chance that our current data processing method in scala is not good. So I will leave this at this moment.
+
+    val valDataPath = "/home/zhengzhongliang/CLU_Projects/2022_ASKE/model_n_data/context_validation_data.json"
+
+    // Read file: https://stackoverflow.com/questions/40172313/scala-read-and-parse-json
+    val jsonString = scala.io.Source.fromFile(valDataPath).mkString
+
+    // Parse json in scala:
+    // https://stackoverflow.com/questions/4170949/how-to-parse-json-in-scala-using-standard-scala-classes
+
+    // This usage is from another file in the reach project
+    val parsedJson = parse(jsonString)
+
+    println(parsedJson(0))
+  }
+
 }
 
 /***
@@ -134,14 +163,15 @@ object BenchmarkNeuralContextEngine extends App {
   )
 
   val neuralContextEngine = new NeuralContextEngine()
-
-
-  println("start checking processing one example ...")
-  val preds = neuralContextEngine.forwardInstances(Seq(bioEvtCtxInstance))
-  println("prediction result:", preds)
+//
+//  println("start checking processing one example ...")
+//  val preds = neuralContextEngine.forwardInstances(Seq(bioEvtCtxInstance))
+//  println("prediction result:", preds)
 
   // println("start running validation ...")
   // val f1 = neuralContextEngine.runValidation()
-  // println("validation finished! val f1:", f1)
+  // println("validation finished! val f1 (should be around 0.507):", f1)
+
+  neuralContextEngine.runValidationScala()
 
 }
