@@ -187,7 +187,7 @@ class NeuralContextEnginePythonInterface:
 
         # print("predictions:", preds)  # The prediction has no problem
 
-        return RunPythonModel.convert_python_int_list_to_java_int_list(preds)
+        return RunPythonModel.convert_python_int_list_to_java_int_list(preds, gateway=NeuralContextEnginePythonInterface.gateway)
 
 # We should a ClientServer instance, which starts a python server and a java client.
 # https://www.py4j.org/py4j_client_server.html
