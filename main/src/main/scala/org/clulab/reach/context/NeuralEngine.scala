@@ -53,7 +53,7 @@ trait NeuralContextEnginePythonInterface {
     * @return
     */
   def forwardInstances(texts: Seq[Seq[String]], evtStarts: Seq[Seq[Int]], evtEnds: Seq[Seq[Int]],
-                       ctxStarts: Seq[Seq[Int]], ctxEnds: Seq[Seq[Int]], evtCtxDists: Seq[Seq[Int]]): Seq[Int]
+                       ctxStarts: Seq[Seq[Int]], ctxEnds: Seq[Seq[Int]], evtCtxDists: Seq[Seq[Int]]): java.util.List[Int]
 
 }
 
