@@ -134,8 +134,6 @@ class RunPythonModel:
         #     my_java_array[i]=python_list[i]
 
         # Second source: https://www.py4j.org/advanced_topics.html
-        print("*" * 40)
-        print("start processing the python to java .. ")
         java_list = gateway.jvm.java.util.ArrayList()
         for pred in python_list:
             java_list.add(pred)
@@ -175,6 +173,9 @@ class NeuralContextEnginePythonInterface:
         :param evtCtxDists: list[list[int]]
         :return:
         '''
+
+        print("*" * 40)
+        print("start processing the python to java .. ")
 
         preds = []
         for inst_idx in range(texts.size()):
