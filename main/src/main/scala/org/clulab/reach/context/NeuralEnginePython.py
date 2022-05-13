@@ -57,23 +57,19 @@ class RunPythonModel:
         return p, r, f1
 
     @classmethod
-    def run_validation(cls):
+    def run_validation(cls, model):
 
         labels = []
         preds = []
 
         instances = cls.load_and_validate()
 
-        print("start loading model ...")
-        b = torch.load(cls.pyscala_model_path)
-        b = b.to(b.DEVICE)
-        b.eval()
-        print("model loaded! device:", b.DEVICE)
+        print("model loaded! device:", model.DEVICE)
 
         start_time = time.time()
         for inst_idx, instance in enumerate(instances):
 
-            pred = b.get_prediction(instance["data"])
+            pred = model.get_prediction(instance["data"])
             answer = instance["label"]
 
             labels.append(answer)
@@ -125,9 +121,9 @@ class NeuralContextEnginePythonInterface:
 
     print("Start loading python saved neural model ...")
 
-    b = torch.load(RunPythonModel.pyscala_model_path)
-    b = b.to(b.DEVICE)
-    b.eval()
+    model = torch.load(RunPythonModel.pyscala_model_path)
+    model = model.to(model.DEVICE)
+    model.eval()
 
     class Java:
         implements = ['org.clulab.reach.context.NeuralContextEnginePythonInterface']
@@ -135,7 +131,7 @@ class NeuralContextEnginePythonInterface:
     @staticmethod
     def runValidation():
 
-        f1 = RunPythonModel.run_validation()
+        f1 = RunPythonModel.run_validation(NeuralContextEnginePythonInterface.model)
 
         return f1
 
@@ -161,7 +157,7 @@ class NeuralContextEnginePythonInterface:
 
             print(json.dumps(python_instance, indents=2))
 
-            pred = NeuralContextEnginePythonInterface.b.get_prediction(python_instance)
+            pred = NeuralContextEnginePythonInterface.model.get_prediction(python_instance)
             preds.append(pred)
 
         return preds
