@@ -11,6 +11,8 @@ import org.json4s.JsonAST.JArray
 import org.json4s.{DefaultFormats, JString, JValue}
 import org.json4s.jackson.JsonMethods._
 
+import scala.collection.JavaConverters._
+
 /***
   * This class is used to store a single event-context pair. Usually an bio instance has multiple event-context pairs.
   * @param text: the text as a single string
@@ -51,7 +53,7 @@ trait NeuralContextEnginePythonInterface {
     * @return
     */
   def forwardInstances(texts: Seq[Seq[String]], evtStarts: Seq[Seq[Int]], evtEnds: Seq[Seq[Int]],
-                       ctxStarts: Seq[Seq[Int]], ctxEnds: Seq[Seq[Int]], evtCtxDists: Seq[Seq[Int]]): java.util.List[Int]
+                       ctxStarts: Seq[Seq[Int]], ctxEnds: Seq[Seq[Int]], evtCtxDists: Seq[Seq[Int]]): Seq[Int]
 
 }
 
@@ -90,13 +92,13 @@ class NeuralContextEngine extends ContextEngine {
     * This function takes a sequence of bio event context instances and get the predictions.
     * It passes the instances to python and get the predictions using the neural model from the python side.
     */
-  def forwardInstances(bioEvtCtxInstances: Seq[BioEventContextInstance]): java.util.List[Int] = {
+  def forwardInstances(bioEvtCtxInstances: Seq[BioEventContextInstance]): Seq[Int] = {
 
     val (texts, evtStarts, evtEnds, ctxStarts, ctxEnds, evtCtxDists) = convertDataFormatForPython(bioEvtCtxInstances)
 
     val preds = interface.forwardInstances(texts, evtStarts, evtEnds, ctxStarts, ctxEnds, evtCtxDists)
 
-    preds
+    preds.asScala.toSeq
   }
 
   /***
@@ -136,8 +138,13 @@ class NeuralContextEngine extends ContextEngine {
     implicit val formats = DefaultFormats
     val parsedJsonAllInstances = parse(jsonString).extract[Seq[Map[String, JValue]]]
 
-    for (oneInstance <- parsedJsonAllInstances.slice(0, 1)) {
-      val label = oneInstance("label")
+
+    // Build the event context instances for prediction
+    val allParsedInstances = scala.collection.mutable.ArrayBuffer[BioEventContextInstance]()
+    val allLabels = scala.collection.mutable.ArrayBuffer[Int]()
+
+    for (oneInstance <- parsedJsonAllInstances.slice(0, 100)) {
+      val label = oneInstance("label").extract[Int]
 
       val bioEventContextInstanceJson = oneInstance("data").extract[Seq[JArray]]
 
@@ -154,11 +161,43 @@ class NeuralContextEngine extends ContextEngine {
         }
       )
 
-      println("finished building one example!")
-
+      allParsedInstances.append(bioEventContextInstance)
+      allLabels.append(label)
     }
 
+    val allPreds = forwardInstances(allParsedInstances)
 
+    val (p, r, f1) = calculate_p_r_f1(allPreds, allLabels)
+    println("scala run validation f1:", f1)
+  }
+
+  def calculate_p_r_f1(preds: Seq[Int], labels: Seq[Int]): (Double, Double, Double) = {
+    var tp = 0f
+    var fp = 0f
+    var fn = 0f
+    val epsilon = 1e-5
+
+    for (idx <- preds.indices) {
+      if (preds(idx) == 1) {
+        if (labels(idx) == 1) {
+          tp += 1
+        }
+        else {
+          fp += 1
+        }
+      }
+      else{
+        if (labels(idx) == 1) {
+          fn += 1
+        }
+      }
+    }
+
+    val p = tp / (tp + fp + epsilon)
+    val r = tp / (tp + fn + epsilon)
+    val f1 = 2 * p * r / (p + r + epsilon)
+
+    (p, r, f1)
   }
 
 }
