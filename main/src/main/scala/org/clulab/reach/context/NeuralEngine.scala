@@ -134,7 +134,7 @@ class NeuralContextEngine extends ContextEngine {
     // This usage is from another file in the reach project
     val parsedJson = parse(jsonString)
 
-    println(parsedJson(0).asInstanceOf[Map[String, Any]]("data"))
+    println(parsedJson(0).extract[Map[String, Any]])
   }
 
 }
