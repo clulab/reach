@@ -7,7 +7,7 @@ import py4j.Gateway
 import py4j.ClientServer
 import java.util.List
 
-import org.json4s.{DefaultFormats, JValue}
+import org.json4s.{DefaultFormats, JString, JValue}
 import org.json4s.jackson.JsonMethods._
 
 /***
@@ -138,7 +138,7 @@ class NeuralContextEngine extends ContextEngine {
     for (oneInstance <- parsedJsonAllInstances.slice(0, 1)) {
       val label = oneInstance("label")
 
-      val bioEventContextInstance = oneInstance("data").extract[Seq[(String, Seq[Int], Seq[Int], Int)]]
+      val bioEventContextInstance = oneInstance("data").extract[Seq[(JString, (Int, Int), (Int, Int), Int)]]
 
       println(bioEventContextInstance(0))
     }
