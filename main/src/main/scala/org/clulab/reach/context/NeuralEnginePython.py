@@ -491,6 +491,8 @@ class NeuralContextEnginePythonInterface:
     model = model.to(model.DEVICE)
     model.eval()
 
+    print(next(model.parameters()).is_cuda)   # checks whether the model is loaded on the correct device
+
     gateway = JavaGateway()  # This is used for constructing java array/list so that we can return.
 
     class Java:
