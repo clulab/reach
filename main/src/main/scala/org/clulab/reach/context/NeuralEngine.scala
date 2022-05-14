@@ -176,7 +176,7 @@ class NeuralContextEngine extends ContextEngine {
       val batchPreds = forwardInstances(allParsedInstances.slice(batchStart, batchEnd))
       val batchLabels = allLabels.slice(batchStart, batchEnd)
 
-      val bp, br, bf1 = calculate_p_r_f1(batchPreds, batchLabels)
+      val (bp, br, bf1) = calculate_p_r_f1(batchPreds, batchLabels)
 
       println("\tprocessing batch ", batchIdx, " f1:", bf1)
 
