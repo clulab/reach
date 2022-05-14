@@ -475,11 +475,11 @@ class RunPythonModel:
 class NeuralContextEnginePythonInterface:
 
     print("*" * 40)
-    print("Start loading the config file ...")
     python_file_dir = os.path.abspath("NeuralEnginePython.py")
     root_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(python_file_dir))))))
     config_dir = os.path.join(root_dir, 'resources/NeuralContextEnginePython.conf')
-    print(root_dir, config_dir,)
+    print("Start loading neural context classifier python config file from: " + config_dir)
+
     config = RunPythonModel.read_json(config_dir)
 
     print(config["device"])
