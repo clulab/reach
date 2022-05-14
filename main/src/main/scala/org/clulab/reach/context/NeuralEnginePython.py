@@ -478,8 +478,9 @@ class NeuralContextEnginePythonInterface:
     print("Start loading the config file ...")
     dirname = os.path.dirname(__file__)
     config_dir = os.path.join(dirname, '../../../../resources/NeuralContextEngine.conf')
+    config = RunPythonModel.read_json(config_dir)
 
-    print(config_dir)
+    print(config_dir, config["device"])
     print("Start loading python saved neural model ...")
 
     model = torch.load(RunPythonModel.pyscala_model_path)
