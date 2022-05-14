@@ -174,26 +174,20 @@ class NeuralContextEnginePythonInterface:
         :return:
         '''
 
-        print("*" * 40)
-        print("start processing the python to java .. ")
-
         preds = []
         for inst_idx in range(texts.size()):
 
-            print("\tstart getting data for ", inst_idx)
+            # The error happens in and after this step, but definitely before forward.
             python_instance = RunPythonModel.convert_scala_input_object_to_python_format(
                 texts.apply(inst_idx), eventStarts.apply(inst_idx), eventEnds.apply(inst_idx),
                 contextStarts.apply(inst_idx), contextEnds.apply(inst_idx), evtCtxDists.apply(inst_idx)
             )
-            print("\t\tgetting data finished! start forward")
 
             #  print(json.dumps(python_instance, indent=2))  # This step has no problem
 
             pred = NeuralContextEnginePythonInterface.model.get_prediction(python_instance)
 
-            print("\t\t\tforward finished")
             preds.append(pred)
-            print("\t\t\t\tresult appended")
 
         # print("predictions:", preds)  # The prediction has no problem
 
