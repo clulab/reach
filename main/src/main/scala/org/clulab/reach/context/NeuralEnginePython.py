@@ -491,7 +491,7 @@ class NeuralContextEnginePythonInterface:
     model = model.to(model.DEVICE)
     model.eval()
 
-    print(next(model.parameters()).is_cuda)   # checks whether the model is loaded on the correct device
+    # print(next(model.parameters()).is_cuda)   # checks whether the model is loaded on the correct device
 
     gateway = JavaGateway()  # This is used for constructing java array/list so that we can return.
 
@@ -543,5 +543,5 @@ class NeuralContextEnginePythonInterface:
 
 ClientServer(java_parameters=None, python_parameters=None, python_server_entry_point=NeuralContextEnginePythonInterface)
 
-print("Python server started! Waiting for Java request ...")
+print("Python server started! Now please launch the Java/Scala program. Waiting for Java request ...")
 

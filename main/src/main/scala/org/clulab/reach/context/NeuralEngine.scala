@@ -74,6 +74,14 @@ class NeuralContextEngine extends ContextEngine {
   val scalaPythonClientServer = new ClientServer()
   val interface: NeuralContextEnginePythonInterface = scalaPythonClientServer.getPythonServerEntryPoint(Array[Class[_]](classOf[NeuralContextEnginePythonInterface])).asInstanceOf[NeuralContextEnginePythonInterface]
 
+  /***
+    * This is used to shutdown the scala service. It is not used currently, but the user can choose to shutdown the service
+    * in their code.
+    */
+  def shutdownInterface(): Unit = {
+    scalaPythonClientServer.shutdown()
+  }
+
   def infer(mentions: Seq[BioMention]): Unit = {}
 
   /** updates those data structures with any new info */
