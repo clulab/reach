@@ -140,6 +140,7 @@ class RunPythonModel:
 
         return java_list
 
+
 class NeuralContextEnginePythonInterface:
 
     print("*" * 40)
@@ -177,7 +178,8 @@ class NeuralContextEnginePythonInterface:
         preds = []
         for inst_idx in range(texts.size()):
 
-            # The error happens in and after this step, but definitely before forward.
+            # TODO: Sometimes some errors are thrown in and after this step, but definitely before forward.
+            #   But figuring out the reason for such errors is beyond my scope at this point.
             python_instance = RunPythonModel.convert_scala_input_object_to_python_format(
                 texts.apply(inst_idx), eventStarts.apply(inst_idx), eventEnds.apply(inst_idx),
                 contextStarts.apply(inst_idx), contextEnds.apply(inst_idx), evtCtxDists.apply(inst_idx)

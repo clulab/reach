@@ -142,7 +142,7 @@ class NeuralContextEngine extends ContextEngine {
     val allParsedInstances = scala.collection.mutable.ArrayBuffer[BioEventContextInstance]()
     val allLabels = scala.collection.mutable.ArrayBuffer[Int]()
 
-    for (oneInstance <- parsedJsonAllInstances.slice(0, 20)) {
+    for (oneInstance <- parsedJsonAllInstances) {
       val label = {
         if (oneInstance("label").extract[Boolean]) 1 else 0}
 
@@ -165,8 +165,23 @@ class NeuralContextEngine extends ContextEngine {
       allLabels.append(label)
     }
 
-    val allPreds = forwardInstances(allParsedInstances)
+    val allPreds = scala.collection.mutable.ArrayBuffer[Int]()
+    val batchSize = 50
+    val numBatches = (allParsedInstances.length.toFloat / batchSize.toFloat).ceil.toInt
 
+
+    for (batchIdx <- Range(0, numBatches)) {
+      val batchStart = batchIdx * batchSize
+      val batchEnd = ((batchIdx + 1) * batchSize).min(allParsedInstances.length)
+      val batchPreds = forwardInstances(allParsedInstances.slice(batchStart, batchEnd))
+      val batchLabels = allLabels.slice(batchStart, batchEnd)
+
+      val bp, br, bf1 = calculate_p_r_f1(batchPreds, batchLabels)
+
+      println("\tprocessing batch ", batchIdx, " f1:", bf1)
+
+      allPreds.appendAll(batchPreds)
+    }
     val (p, r, f1) = calculate_p_r_f1(allPreds, allLabels)
 
     f1.toFloat
