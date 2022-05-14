@@ -115,7 +115,7 @@ class BioContextClassifierPyTorch(nn.Module):
 
         # Step 1: add the special tokens around the event and context span in the original sentence tokens.
         if evt_start_char_idx < con_start_char_idx:
-            # TODO: assert evt_e < con_s?  No overlap allowed, confirm with Enrique
+            # It assumes evt_e < con_s, no overlap allowed,
             sent_string_added_span = (
                     sent_string[:evt_start_char_idx]   # End with space
                     + self.EVT_START + " "
