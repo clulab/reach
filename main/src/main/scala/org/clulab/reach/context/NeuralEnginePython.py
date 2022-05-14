@@ -345,7 +345,6 @@ class BioContextClassifierPyTorch(nn.Module):
 class RunPythonModel:
 
     data_path = "/home/zhengzhongliang/CLU_Projects/2022_ASKE/model_n_data/context_validation_data.json"
-    pyscala_model_path = "/home/zhengzhongliang/CLU_Projects/2022_ASKE/model_n_data/pyscala_model_converted"
 
     @classmethod
     def read_json(cls, file_path):
@@ -487,7 +486,8 @@ class NeuralContextEnginePythonInterface:
     print(json.dumps(config, indent=2))
     print("Start loading python saved neural model ...")
 
-    model = torch.load(RunPythonModel.pyscala_model_path)
+    model = torch.load(config["model_path"], map_location=torch.device(config["device"]))
+    model.DEVICE = torch.device(config["device"])
     model = model.to(model.DEVICE)
     model.eval()
 
