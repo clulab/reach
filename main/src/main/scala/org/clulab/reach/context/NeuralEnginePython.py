@@ -1,9 +1,10 @@
+import time
+import json
+import os
+
 import torch
 import torch.nn as nn
 from transformers import AutoTokenizer, AutoModel
-
-import time
-import json
 
 from py4j.clientserver import ClientServer
 from py4j.java_collections import SetConverter, MapConverter, ListConverter
@@ -474,6 +475,11 @@ class RunPythonModel:
 class NeuralContextEnginePythonInterface:
 
     print("*" * 40)
+    print("Start loading the config file ...")
+    dirname = os.path.dirname(__file__)
+    config_dir = os.path.join(dirname, '../../../../resources/NeuralContextEngine.conf')
+
+    print(config_dir)
     print("Start loading python saved neural model ...")
 
     model = torch.load(RunPythonModel.pyscala_model_path)
