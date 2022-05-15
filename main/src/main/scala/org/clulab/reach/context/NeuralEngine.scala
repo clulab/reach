@@ -57,19 +57,21 @@ trait NeuralContextEnginePythonInterface {
 
 }
 
+/***
+  * This class implements a neural-based context classifier. The backbone network is a RoBERTa transformer, and the
+  * backbone is implemented in Pytorch.
+  *
+  * To use this context engine, one must start the corresponding python code at first (e.g., using python XXX.py in
+  * the directory, with the correct python interpreter and all needed python libraries). Running that python code will start a
+  * local server, and this scala side function will act as a client. Whenever there is a request from the client
+  * (i.e., the "assign" function is called from the scala side), it will create a request to the running python code
+  * (i.e., the server). The input examples will be processed in the python code by the RoBERTa transformer neural
+  * model. When the processing is done, the results will be returned by the python service to the scala side.
+  *
+  * The function that actually interacts with the python side is the "forwardInstances" function. All other functions
+  * should be implemented based this "forwardInstances" function.
+  */
 class NeuralContextEngine extends ContextEngine {
-  /***
-    * This class implements a neural-based context classifier. The backbone network is a RoBERTa transformer, and the
-    * backbone is implemented in Pytorch.
-    *
-    * To use this context engine, one must start the corresponding python code at first (e.g., using python XXX.py in
-    * the directory, with the correct python interpreter and all needed python libraries). Running that python code will start a
-    * local server, and this scala side function will act as a client. Whenever there is a request from the client
-    * (i.e., the "assign" function is called from the scala side), it will create a request to the running python code
-    * (i.e., the server). The input examples will be processed in the python code by the RoBERTa transformer neural
-    * model. When the processing is done, the results will be returned by the python service to the scala side.
-    *
-    */
 
   val scalaPythonClientServer = new ClientServer()
   val interface: NeuralContextEnginePythonInterface = scalaPythonClientServer.getPythonServerEntryPoint(Array[Class[_]](classOf[NeuralContextEnginePythonInterface])).asInstanceOf[NeuralContextEnginePythonInterface]
