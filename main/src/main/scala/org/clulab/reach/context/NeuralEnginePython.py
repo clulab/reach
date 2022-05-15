@@ -26,7 +26,9 @@ It has three classes:
     
 How to use this script:
  - Two parameters need to be set before running this script, the saved_model_dir and device. Both can be found in the 
-    NeuralContextEnginePython.conf file. Currently the saved model can be found at: TODO
+    NeuralContextEnginePython.conf file. Currently the saved model (and the validation data) can be found at: 
+    
+    https://drive.google.com/drive/folders/17Mqvco9UbPA0mCVmgfpG4w77-7GFehru?usp=sharing
     
  - After settling the two parameters, one should run "python NeuralEnginePython.py" first so that this service can be 
     later accessed from the java/scala side. 
@@ -373,6 +375,7 @@ class RunPythonModel:
     '''
 
     data_path = "/home/zhengzhongliang/CLU_Projects/2022_ASKE/model_n_data/context_validation_data.json"
+    # The validation data can be found at: https://drive.google.com/drive/folders/17Mqvco9UbPA0mCVmgfpG4w77-7GFehru?usp=sharing
 
     @classmethod
     def read_json(cls, file_path):

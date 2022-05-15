@@ -70,6 +70,8 @@ trait NeuralContextEnginePythonInterface {
   *
   * The function that actually interacts with the python side is the "forwardInstances" function. All other functions
   * should be implemented based this "forwardInstances" function.
+  *
+  * The data and model can be found at: https://drive.google.com/drive/folders/17Mqvco9UbPA0mCVmgfpG4w77-7GFehru?usp=sharing
   */
 class NeuralContextEngine extends ContextEngine {
 
@@ -140,6 +142,7 @@ class NeuralContextEngine extends ContextEngine {
   def runValidationScala():Float = {
 
     val valDataPath = "/home/zhengzhongliang/CLU_Projects/2022_ASKE/model_n_data/context_validation_data.json"
+    // Validation data can be found at: https://drive.google.com/drive/folders/17Mqvco9UbPA0mCVmgfpG4w77-7GFehru?usp=sharing
 
     // Read file: https://stackoverflow.com/questions/40172313/scala-read-and-parse-json
     val jsonString = scala.io.Source.fromFile(valDataPath).mkString
