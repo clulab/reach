@@ -10,6 +10,39 @@ from py4j.clientserver import ClientServer
 from py4j.java_collections import SetConverter, MapConverter, ListConverter
 from py4j.java_gateway import JavaGateway
 
+'''
+This file implements a bio event classifier based on RoBERTa in python. It has an interface so that it can iteract
+with the Java side. 
+
+It has three classes:
+ - BioContextClassifierPyTorch: The neural model's class. It has the parameters of the model (roberta and an MLP), and
+    several basic functions to process the input examples (e.g., build_example and get_prediction)
+ - RunPythonModel: this class has a few functions to run the classifier model, including run_validation function (run
+    the trained model on a validation dataset and get the validation precision, recall, f1), and some functions to
+    process the examples from the java/scala side. 
+ - NeuralContextEnginePythonInterface: It defines the communication interface between java/scala and python. It 
+    implements the class defined in the java/scala side. The functions in this class can be called from the java/scala
+    side.
+    
+How to use this script:
+ - Two parameters need to be set before running this script, the saved_model_dir and device. Both can be found in the 
+    NeuralContextEnginePython.conf file. Currently the saved model can be found at: TODO
+    
+ - After settling the two parameters, one should run "python NeuralEnginePython.py" first so that this service can be 
+    later accessed from the java/scala side. 
+    
+The python libraries needed to launch the python service:
+ - pip install torch==1.11.0
+ - pip transformers==4.1.0
+ - pip install py4j==0.10.9.5
+ 
+Other issues:
+There are still two little issues of this function.
+ - After the python service is launched, the java/scala service can only be launched once. I.e., if the java/scala service
+    is terminated, the python service also needs to be terminated and restart to restart the java/scala service.
+ - If this protocol is not satisfied, some error message will be thrown by the python side when passing the varaibles from/to 
+    the java/scala side. But this does not seem to affect the result. 
+'''
 
 class BioContextClassifierPyTorch(nn.Module):
 
@@ -90,8 +123,7 @@ class BioContextClassifierPyTorch(nn.Module):
 
     def build_example(self, input_instance, debug_flag=False):
         '''
-        This function should basically finish the task of the "get_item" function in the BioDataset.
-        It should at least finish the following tasks:
+        This function should at least finish the following tasks:
          - identify the mention (event) and the context
          - Add the mask token properly to the input sequence
          - tokenize the sequence
@@ -257,17 +289,10 @@ class BioContextClassifierPyTorch(nn.Module):
             # The sentence distance field is not used for now, but probably useful later.
 
             model:
-                [ensemble-voting, ensemble-average]
-
-            config:
-                use the reach config to pass the parameters.
+                [ensemble-voting]
 
             return:
-                [
-                    scalar for sent 1,
-                    scalar for sent 2,
-                    ...
-                ]
+                one single scalar for sent 1, sent 2, ... (ensembled prediction)
 
         :return:
         '''
@@ -305,7 +330,6 @@ class BioContextClassifierPyTorch(nn.Module):
             con_indices = con_indices[:, 0, :].unsqueeze(1)
             # con_indices: batch_size * 2 * hidden_dim -> batch_size * 1 * 768
 
-            # TODO: I don't fully understand this API. Maybe need to verify this more carefully later.
             context_embedding = embedding.gather(1, con_indices)
             event_embedding = embedding.gather(1, evt_indices)
             # Size of each embedding: batch_size * 1 * hidden_dim
@@ -344,6 +368,10 @@ class BioContextClassifierPyTorch(nn.Module):
 
 class RunPythonModel:
 
+    '''
+    This class has the functions to run the model and convert the data formats passed from the java/scala side.
+    '''
+
     data_path = "/home/zhengzhongliang/CLU_Projects/2022_ASKE/model_n_data/context_validation_data.json"
 
     @classmethod
@@ -354,7 +382,7 @@ class RunPythonModel:
         return json_item
 
     @classmethod
-    def load_and_validate(cls):
+    def load_validation_data(cls):
         '''
         This function loads a trained model and evaluates the model on the test split. It should reach a certain score.
         :return:
@@ -395,7 +423,7 @@ class RunPythonModel:
         labels = []
         preds = []
 
-        instances = cls.load_and_validate()
+        instances = cls.load_validation_data()
 
         print("model loaded! device:", model.DEVICE)
 
@@ -472,6 +500,11 @@ class RunPythonModel:
 
 
 class NeuralContextEnginePythonInterface:
+
+    '''
+    This class defines and implements the interface that communicates between the java/scala side and the python side.
+    The functions in this classes can be called from the java/scala side.
+    '''
 
     print("*" * 40)
     python_file_dir = os.path.abspath("NeuralEnginePython.py")

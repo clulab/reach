@@ -126,11 +126,16 @@ class NeuralContextEngine extends ContextEngine {
     valF1
   }
 
+  /***
+    * This function loads the validation data in scala and run validation
+    * using the forwardInstances method. This is different from the previous runValidation function where the
+    * validation data is processed in python. It should yield a 0.507 dev f1.
+    *
+    * One needs to change this validation data dir accordingly before running this.
+    *
+    * @return
+    */
   def runValidationScala():Float = {
-    // TODO: I am not sure if this is necessary. Maybe we can load the validation data in scala and run validation
-    //  using the forwardInstances method. This is different from our current runValidation function where the
-    //  validation data is processed in python. However, given the current evidence, I think there is very very little
-    //  chance that our current data processing method in scala is not good. So I will leave this at this moment.
 
     val valDataPath = "/home/zhengzhongliang/CLU_Projects/2022_ASKE/model_n_data/context_validation_data.json"
 
@@ -253,8 +258,11 @@ object BenchmarkNeuralContextEngine extends App {
   val preds = neuralContextEngine.forwardInstances(Seq(bioEvtCtxInstance))
   println("prediction result:", preds)
 
+  // Uncomment this part to run the validation using the full python service
   // println("start running validation ...")
   // val f1 = neuralContextEngine.runValidation()
+
+  // Uncomment this part to run the validation using the forwardInstances function in the scala class
 //  val f1 = neuralContextEngine.runValidationScala()
 //  println("validation finished! val f1 (should be around 0.507):", f1)
 
