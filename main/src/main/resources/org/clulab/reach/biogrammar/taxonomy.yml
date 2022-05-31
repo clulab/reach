@@ -75,6 +75,10 @@
     - Entity:
       # Any BioEntity may appear as the controlled in an Activation
       - BioEntity:
+          - TissueTypeAsParticipant
+          - OrganAsParticipant
+          - CellLineAsParticipant
+          - CellTypeAsParticipant
           - Disease
           - BioProcess   # ex. "apoptosis"
           - BioChemicalEntity:
