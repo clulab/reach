@@ -222,7 +222,7 @@ class NxmlSearcher(val indexDir:String) {
   def chiltonUseCase(resultDir:String):Unit = {
     val phrases = Seq("adipose-specific phospholipase a2",
       "adpla",
-      "group xvi phospholipase a1/a2",
+      "group xvi phospholipase a1\\/a2",
       "hras-like suppressor 1",
       "hras-like suppressor 3",
       "hrasls3",
