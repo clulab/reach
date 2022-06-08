@@ -1,9 +1,9 @@
 package org.clulab.reach
 
 
-import org.scalatest.{Matchers, FlatSpec}
+import org.scalatest.{FlatSpec, Matchers}
 import TestUtils._
-
+import com.typesafe.config.ConfigFactory
 import org.clulab.reach.grounding._
 import org.clulab.reach.grounding.ReachKBConstants._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
@@ -344,8 +344,12 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
 
 // InterPro Protein Family KB using alternate protein family resolutions
 class IPProtFamKBL extends IMKBLookup {
+
+  private val conf = ConfigFactory.load()
+  private val path = conf.getString("KnowledgeBases.StaticProteinFamily2.path")
+
   val meta = new IMKBMetaInfo(
-    kbFilename = Some(StaticProteinFamily2Filename),
+    kbFilename = Some(path),
     namespace = "interpro",
     baseURI = "http://identifiers.org/interpro/",
     resourceId = "MIR:00000011",
@@ -359,8 +363,12 @@ class IPProtFamKBL extends IMKBLookup {
 
 // Bioentities Protein Family KB using alternate protein family resolutions
 class BEProtFamKBL extends IMKBLookup {
+
+  private val conf = ConfigFactory.load()
+  private val path = conf.getString("KnowledgeBases.StaticProteinFamilyOrComplex.path")
+
   val meta = new IMKBMetaInfo(
-    kbFilename = Some(StaticProteinFamilyOrComplexFilename),
+    kbFilename = Some(path),
     namespace = "be",
     baseURI = "https://identifiers.org/fplx/",
     isFamilyKB = true
