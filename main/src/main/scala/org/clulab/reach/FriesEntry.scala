@@ -12,7 +12,9 @@ case class FriesEntry(
   text: String
 ) {
 
-  override def toString(): String =  s"$chunkId\t$sectionName\t$sectionId\t${if(isTitle) 1 else 0}\t$text"
+  override def toString: String =  s"$chunkId\t$sectionName\t$sectionId\t${if(isTitle) 1 else 0}\t$text"
+
+
 
   def this(nxmldoc: NxmlDocument) = this(
     name = nxmldoc.pmc,
@@ -49,4 +51,5 @@ object FriesEntry {
       text
     )
   }
+
 }

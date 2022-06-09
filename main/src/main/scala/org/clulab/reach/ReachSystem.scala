@@ -65,7 +65,7 @@ class ReachSystem(
 
   def mkDoc(nxml: NxmlDocument): Document = {
     // we are using the PMC as the chunk-id because we now read
-    // the whole paper in a single chunk
+    // the whole paper in a  single chunk
     mkDoc(nxml.text, nxml.pmc, nxml.pmc)
   }
 
@@ -78,6 +78,7 @@ class ReachSystem(
   }
 
   def extractFrom(doc: Document, nxmlDoc: Option[NxmlDocument]): Seq[BioMention] = {
+
     // initialize the context engine
     val contextEngine = ContextEngineFactory.buildEngine(contextEngineType, contextParams)
 
@@ -161,6 +162,8 @@ class ReachSystem(
   }
 
   def extractEntitiesFrom(doc: Document): Seq[BioMention] = {
+    // Do rule-based NER before proceeding
+    this.procAnnotator.recognizeRuleNamedEntities(doc)
     // extract entities
     val entities = entityEngine.extractByType[BioMention](doc)
     //displayEntitySummary(entities, "after extractByType")
