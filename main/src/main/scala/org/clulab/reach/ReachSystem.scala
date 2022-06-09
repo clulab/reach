@@ -65,7 +65,7 @@ class ReachSystem(
 
   def mkDoc(nxml: NxmlDocument): Document = {
     // we are using the PMC as the chunk-id because we now read
-    // the whole paper in a single chunk
+    // the whole paper in a  single chunk
     mkDoc(nxml.text, nxml.pmc, nxml.pmc)
   }
 
