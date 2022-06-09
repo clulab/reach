@@ -10,7 +10,7 @@ import org.scalatest._
   * Last Modified: Update for BE KBs.
   */
 class TestBioNLPProcessor extends FlatSpec with Matchers {
-  var proc:Processor = new BioNLPProcessor()
+  var proc: BioNLPProcessor = new BioNLPProcessor()
 
   "BioNLPProcessor" should "recognize some tricky entity names" in {
     var doc = proc.mkDocument("We tested the level of neurofibromin present in the sample")
@@ -376,6 +376,7 @@ class TestBioNLPProcessor extends FlatSpec with Matchers {
     proc.tagPartsOfSpeech(doc)
     proc.lemmatize(doc)
     proc.recognizeNamedEntities(doc)
+    proc.recognizeRuleNamedEntities(doc)
     doc.clear()
   }
 
