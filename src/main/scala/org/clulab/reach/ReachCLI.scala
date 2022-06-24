@@ -61,14 +61,20 @@ class ReachCLI (
     val br = new BufferedReader(new InputStreamReader(new FileInputStream(file)))
     val entryStr = new StringBuilder()
 
-    var line = br.readLine().trim
+    var line = br.readLine()
     while (line != "#FS#") {
-      entryStr ++= line
-      line = br.readLine().trim
+      entryStr ++= line + "\n"
+      line = br.readLine()
     }
 
     val tokens = entryStr.toString.split('\t')
-    val entry = FriesEntry.mkFriesEntry(tokens.head, tokens.last)
+
+    // If we don't have the paper id available, take if from the paper
+    val paperId =
+        file.getName.split("\\.").dropRight(1).mkString(".")
+
+
+    val entry = FriesEntry.mkFriesEntry(paperId, tokens.last)
 
     val serializer = new DocumentSerializer
     val doc = serializer.load(br)
