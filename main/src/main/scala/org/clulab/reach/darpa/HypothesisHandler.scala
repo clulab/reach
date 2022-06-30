@@ -78,7 +78,7 @@ object HypothesisHandler {
       case event:BioEventMention =>
 
         // Get the dependencies of the sentence
-        val dependencies = event.sentenceObj.dependencies.getOrElse(new DirectedGraph[String](Nil, Set[Int]()))
+        val dependencies = event.sentenceObj.dependencies.getOrElse(new DirectedGraph[String](Nil, None, Some(Set[Int]())))
 
         val eventInterval:Seq[Int] = event.tokenInterval
 
