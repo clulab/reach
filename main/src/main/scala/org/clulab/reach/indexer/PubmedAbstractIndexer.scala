@@ -88,8 +88,10 @@ class PubmedAbstractIndexer {
         d.add(new StringField("published", meta.published, Field.Store.YES))
         d.add(new TextField("journal", meta.name, Field.Store.YES))
         d.add(new StringField("issn", meta.issn, Field.Store.YES))
-        d.add(new IntField("volume", meta.volume, Field.Store.YES))
-        d.add(new IntField("issue", meta.volume, Field.Store.YES))
+        d.add(new IntPoint("volume", meta.volume))
+        d.add(new StoredField("volume", meta.volume))
+        d.add(new IntPoint("issue", meta.issue))
+        d.add(new StoredField("issue", meta.issue))
     }
 
     writer.addDocument(d)
