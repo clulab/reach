@@ -1,10 +1,17 @@
 package org.clulab.reach
 
-import ai.lum.common.ConfigUtils._
-import ai.lum.common.FileUtils._
+import scala.collection.JavaConverters._
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.{FileUtils, FilenameUtils}
+
+import java.io.{BufferedReader, File, FileInputStream}
+import java.util.Date
+import java.nio.charset.Charset
+import java.nio.charset.StandardCharsets.UTF_8
+import ai.lum.common.FileUtils._
+import ai.lum.common.ConfigUtils._
+import jline.internal.InputStreamReader
 import org.clulab.odin._
 import org.clulab.processors.Document
 import org.clulab.reach.`export`.arizona.ArizonaOutputter
@@ -95,6 +102,7 @@ class ReachCLI (
 
     val (entry, mentions) =
       if(isSerialized){
+        // Load pre-annotated objects
         val (entry: FriesEntry, doc: Document) = deserializeDoc(file)
         val mentions = PaperReader.reachSystem.extractFrom(doc)
         (entry, mentions)

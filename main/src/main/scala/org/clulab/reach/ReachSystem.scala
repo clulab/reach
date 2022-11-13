@@ -55,7 +55,7 @@ class ReachSystem(
   def allRules: String =
     Seq(entityRules, modificationRules, eventRules, contextRules).mkString("\n\n")
 
-  def mkDoc(text: String, docId: String, chunkId: String = "", sectionNameIntervals: Option[Map[Interval, Seq[String]]] = None): Document = {
+  def mkDoc(text: String, docId: String, chunkId: String = ""): Document = {
     // note that this messes with the character offsets in the text...
     val preprocessedText = textPreProc.preprocessText(text)
     // annotate() now preserves chatracter offsets in text, but it is too late due to preprocessText() above
@@ -90,7 +90,7 @@ class ReachSystem(
   }
 
   def extractFrom(entry: FriesEntry): Seq[BioMention] =
-    extractFrom(entry.text, entry.name, entry.chunkId, entry.sectionNamesIntervals)
+    extractFrom(entry.text, entry.name, entry.chunkId)
 
   def extractFrom(nxml: NxmlDocument): Seq[BioMention] = {
     // use standoff hashcode as the chunkId
@@ -98,6 +98,7 @@ class ReachSystem(
   }
 
   def extractFrom(doc: Document, nxmlDoc: Option[NxmlDocument]): Seq[BioMention] = {
+
     // initialize the context engine
     val contextEngine = ContextEngineFactory.buildEngine(contextEngineType, contextParams)
 
@@ -139,7 +140,7 @@ class ReachSystem(
 
   def extractFrom(entries: Seq[FriesEntry]): Seq[BioMention] =
     extractFrom(entries, entries.map{
-        e => mkDoc(e.text, e.name, e.chunkId, None)
+        e => mkDoc(e.text, e.name, e.chunkId)
     })
 
   def extractFrom(entries: Seq[FriesEntry], documents: Seq[Document]): Seq[BioMention] = {
@@ -165,8 +166,8 @@ class ReachSystem(
     resolveDisplay(complete)
   }
 
-  def extractFrom(text: String, docId: String, chunkId: String, sectionNameIntervals:Option[Map[Interval, Seq[String]]]): Seq[BioMention] = {
-    extractFrom(mkDoc(text, docId, chunkId, sectionNameIntervals))
+  def extractFrom(text: String, docId: String, chunkId: String): Seq[BioMention] = {
+    extractFrom(mkDoc(text, docId, chunkId))
   }
 
   def extractFrom(doc: Document): Seq[BioMention] = {
@@ -181,6 +182,8 @@ class ReachSystem(
   }
 
   def extractEntitiesFrom(doc: Document): Seq[BioMention] = {
+    // Do rule-based NER before proceeding
+    this.procAnnotator.recognizeRuleNamedEntities(doc)
     // extract entities
     val entities = entityEngine.extractByType[BioMention](doc)
     //displayEntitySummary(entities, "after extractByType")

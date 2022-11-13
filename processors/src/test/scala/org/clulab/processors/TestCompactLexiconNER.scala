@@ -120,7 +120,7 @@ class TestCompactLexiconNER extends FlatSpec with Matchers {
   val proc = new BioNLPProcessor()
   val start = System.currentTimeMillis
 
-  val oldNer: LexiconNER = proc.hybridNER.ruleNer
+  val oldNer: LexiconNER = proc.crfNER.ruleNer
 //  fileSave(oldNer)
 //  val (newNer, loadTime) = fileLoad[LexiconNER]
 //  val ner = newNer

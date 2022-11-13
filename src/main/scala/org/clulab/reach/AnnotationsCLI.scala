@@ -2,11 +2,12 @@ package org.clulab.reach
 
 import util.{Failure, Success, Try}
 import scala.collection.JavaConverters._
+
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.{FileUtils, FilenameUtils}
 
-import java.io.{File, PrintWriter}
+import java.io.File
 import java.util.Date
 import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets.UTF_8
@@ -14,6 +15,8 @@ import ai.lum.common.ConfigUtils._
 import org.clulab.processors.Document
 import org.clulab.serialization.DocumentSerializer
 import org.clulab.utils.Serializer
+
+import java.nio.file.Path
 
 /**
   * Class to run Reach reading and assembly and then produce FRIES format output
@@ -49,13 +52,14 @@ class AnnotationsCLI(
 
     // entry must be kept around for outputter
     val entry = PaperReader.getEntryFromPaper(file)
-    val doc = PaperReader.reachSystem.mkDoc(entry.text, entry.name, entry.chunkId, entry.sectionNamesIntervals)
+    val doc = PaperReader.reachSystem.mkDoc(entry.text, entry.name, entry.chunkId)
 
     logger.debug(s"  ${ durationToS(startNS, System.nanoTime) }s: $paperId: finished annotating")
 
     // generate outputs
     // NOTE: Assembly can't be run before calling this method without additional refactoring,
     // as different output formats apply different filters before running assembly
+
     val serializationOutcome =
       Try {
         serializeDoc(paperId, documentSerializer, entry, doc)
