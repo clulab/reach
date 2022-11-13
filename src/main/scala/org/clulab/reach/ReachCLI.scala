@@ -17,9 +17,10 @@ import org.clulab.reach.export.indexcards.IndexCardOutput
 import org.clulab.reach.export.serial.SerialJsonOutput
 import org.clulab.reach.mentions.CorefMention
 import org.clulab.reach.utils.MentionManager
+import org.clulab.serialization.DocumentSerializer
 import org.clulab.utils.Serializer
 
-import java.io.File
+import java.io.{BufferedReader, File, FileInputStream, InputStreamReader}
 import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets.UTF_8
 import java.util.Date
@@ -54,6 +55,33 @@ class ReachCLI (
 
   def doAssembly (mns: Seq[Mention]): Assembler = Assembler(mns)
 
+  def deserializeDoc(file: File) = {
+    val br = new BufferedReader(new InputStreamReader(new FileInputStream(file)))
+    val entryStr = new StringBuilder()
+
+    var line = br.readLine()
+    while (line != "#FS#") {
+      entryStr ++= line + "\n"
+      line = br.readLine()
+    }
+
+    val tokens = entryStr.toString.split('\t')
+
+    // If we don't have the paper id available, take if from the paper
+    val paperId =
+      file.getName.split("\\.").dropRight(1).mkString(".")
+
+
+    val entry = FriesEntry.mkFriesEntry(paperId, tokens.last)
+
+    val serializer = new DocumentSerializer
+    val doc = serializer.load(br)
+    br.close()
+    doc.id = Some(entry.name)
+    doc.text = Some(entry.text)
+    (entry, doc)
+  }
+
   // Returns count of outputFormats which errored.
   override def processPaper (file: File, withAssembly: Boolean): Int = {
     val paperId = FilenameUtils.removeExtension(file.getName)
@@ -67,7 +95,7 @@ class ReachCLI (
 
     val (entry, mentions) =
       if(isSerialized){
-        val (entry, doc) = Serializer.load[(FriesEntry, Document)](file)
+        val (entry: FriesEntry, doc: Document) = deserializeDoc(file)
         val mentions = PaperReader.reachSystem.extractFrom(doc)
         (entry, mentions)
       }

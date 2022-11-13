@@ -73,9 +73,9 @@ class ReachSystem(
             val interval = Interval.open(sent.startOffsets.head, sent.endOffsets.last)
             val containingInterval = sectionIntervals.filter(si => si.intersects(interval))
             if(containingInterval.nonEmpty)
-              sent.section = Some(sectionNames(containingInterval.head).toArray)
+              sent.sections = Some(sectionNames(containingInterval.head).toArray)
             else
-              sent.section = None
+              sent.sections = None
         }
 
       case None => ()
