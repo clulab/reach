@@ -11,7 +11,7 @@ import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets.UTF_8
 import ai.lum.common.FileUtils._
 import ai.lum.common.ConfigUtils._
-import jline.internal.InputStreamReader
+//import jline.internal.InputStreamReader
 import org.clulab.odin._
 import org.clulab.processors.Document
 import org.clulab.reach.`export`.arizona.ArizonaOutputter

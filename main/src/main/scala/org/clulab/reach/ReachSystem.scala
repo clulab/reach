@@ -55,7 +55,7 @@ class ReachSystem(
   def allRules: String =
     Seq(entityRules, modificationRules, eventRules, contextRules).mkString("\n\n")
 
-  def mkDoc(text: String, docId: String, chunkId: String = ""): Document = {
+  def mkDoc(text: String, docId: String, chunkId: String = "", sectionNameIntervals: Option[Map[Interval, Seq[String]]] = None): Document = {
     // note that this messes with the character offsets in the text...
     val preprocessedText = textPreProc.preprocessText(text)
     // annotate() now preserves chatracter offsets in text, but it is too late due to preprocessText() above
@@ -72,7 +72,7 @@ class ReachSystem(
           sent =>
             val interval = Interval.open(sent.startOffsets.head, sent.endOffsets.last)
             val containingInterval = sectionIntervals.filter(si => si.intersects(interval))
-            if(containingInterval.nonEmpty)
+            if (containingInterval.nonEmpty)
               sent.sections = Some(sectionNames(containingInterval.head).toArray)
             else
               sent.sections = None
@@ -168,6 +168,10 @@ class ReachSystem(
 
   def extractFrom(text: String, docId: String, chunkId: String): Seq[BioMention] = {
     extractFrom(mkDoc(text, docId, chunkId))
+  }
+
+  def extractFrom(text: String, docId: String, chunkId: String, sectionNameIntervals: Option[Map[Interval, Seq[String]]]): Seq[BioMention] = {
+    extractFrom(mkDoc(text, docId, chunkId, sectionNameIntervals))
   }
 
   def extractFrom(doc: Document): Seq[BioMention] = {

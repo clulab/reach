@@ -2,12 +2,11 @@ package org.clulab.reach
 
 import util.{Failure, Success, Try}
 import scala.collection.JavaConverters._
-
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.{FileUtils, FilenameUtils}
 
-import java.io.File
+import java.io.{File, PrintWriter}
 import java.util.Date
 import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets.UTF_8
