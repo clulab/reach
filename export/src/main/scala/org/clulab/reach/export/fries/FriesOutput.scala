@@ -739,6 +739,12 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     f("start-pos") = makeRelativePosition(paperId, passageMeta, sentenceStartCharacterOffset(passageDoc, offset))
     f("end-pos") = makeRelativePosition(paperId, passageMeta, sentenceEndCharacterOffset(passageDoc, offset))
     f("text") = passageDoc.sentences(offset).getSentenceText
+    passageDoc.sentences(offset).sections match {
+      case Some(sections) =>
+        f("sections") = sections
+      case None => ()
+    }
+
     f
   }
 
