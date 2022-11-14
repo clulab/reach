@@ -51,7 +51,7 @@ class AnnotationsCLI(
 
     // entry must be kept around for outputter
     val entry = PaperReader.getEntryFromPaper(file)
-    val doc = PaperReader.reachSystem.mkDoc(entry.text, entry.name, entry.chunkId)
+    val doc = PaperReader.reachSystem.mkDoc(entry.text, entry.name, entry.chunkId, entry.sectionNamesIntervals)
 
     logger.debug(s"  ${ durationToS(startNS, System.nanoTime) }s: $paperId: finished annotating")
 
