@@ -8,6 +8,7 @@ import org.clulab.coref.Alias
 import org.clulab.coref.Coref
 import org.clulab.odin._
 import org.clulab.processors.{Document, Processor}
+import org.clulab.reach.ReachSentence.Converter
 import org.clulab.reach.context._
 import org.clulab.reach.context.ContextEngineFactory.Engine._
 import org.clulab.reach.darpa.{DarpaActions, HyphenHandle, MentionFilter, NegationHandler, RegulationHandler}
@@ -55,32 +56,29 @@ class ReachSystem(
   def allRules: String =
     Seq(entityRules, modificationRules, eventRules, contextRules).mkString("\n\n")
 
-  def mkDoc(text: String, docId: String, chunkId: String = "", sectionNameIntervals: Option[Map[Interval, Seq[String]]] = None): Document = {
+  def mkDoc(text: String, docId: String, chunkId: String = "", sectionNameIntervalsOpt: Option[Map[Interval, Seq[String]]] = None): Document = {
     // note that this messes with the character offsets in the text...
     val preprocessedText = textPreProc.preprocessText(text)
-    // annotate() now preserves chatracter offsets in text, but it is too late due to preprocessText() above
+    // annotate() now preserves character offsets in text, but it is too late due to preprocessText() above
     val doc = procAnnotator.annotate(text, keepText = true)
     val id = if (chunkId.isEmpty) docId else s"${docId}_${chunkId}"
     doc.id = Some(id)
     // If section names are given, add them to the doc object
-    sectionNameIntervals match {
-      case Some(sectionNames) =>
-        // Order the intervals
-        val sectionIntervals = sectionNames.keys.toSeq.sorted
-        // Iterate through each sentence to get its section name
-        doc.sentences foreach {
-          sent =>
-            val interval = Interval.open(sent.startOffsets.head, sent.endOffsets.last)
-            val containingInterval = sectionIntervals.filter(si => si.intersects(interval))
-            if (containingInterval.nonEmpty)
-              sent.sections = Some(sectionNames(containingInterval.head).toArray)
-            else
-              sent.sections = None
-        }
+    val sectionNameIntervals = sectionNameIntervalsOpt.getOrElse(Map.empty[Interval, Seq[String]])
+    val sectionIntervals = sectionNameIntervals.keys.toSeq.sorted
+    // Iterate through each sentence to get its section name
+    val sections = doc.sentences.map { sent =>
+      val interval = Interval.open(sent.startOffsets.head, sent.endOffsets.last)
+      val containingInterval = sectionIntervals.filter(si => si.intersects(interval))
 
-      case None => ()
+      if (containingInterval.nonEmpty)
+        Some(sectionNameIntervals(containingInterval.head).toArray)
+      else
+        None
     }
-    doc
+    val reachDoc = ReachDocument(doc, sections)
+
+    reachDoc
   }
 
   def mkDoc(nxml: NxmlDocument): Document = {

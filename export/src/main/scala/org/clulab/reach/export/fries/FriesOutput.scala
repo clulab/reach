@@ -9,6 +9,7 @@ import org.json4s.jackson.Serialization
 import org.clulab.odin._
 import org.clulab.processors.Document
 import org.clulab.reach.FriesEntry
+import org.clulab.reach.ReachSentence.Converter
 import org.clulab.reach.context._
 import org.clulab.reach.display._
 import org.clulab.reach.export._
