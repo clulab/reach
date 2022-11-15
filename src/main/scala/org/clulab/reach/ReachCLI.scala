@@ -24,7 +24,6 @@ import org.clulab.reach.export.indexcards.IndexCardOutput
 import org.clulab.reach.export.serial.SerialJsonOutput
 import org.clulab.reach.mentions.CorefMention
 import org.clulab.reach.utils.MentionManager
-import org.clulab.serialization.DocumentSerializer
 import org.clulab.utils.Serializer
 
 import java.io.{BufferedReader, File, FileInputStream, InputStreamReader}
@@ -81,7 +80,7 @@ class ReachCLI (
 
     val entry = FriesEntry.mkFriesEntry(paperId, tokens.last)
 
-    val serializer = new DocumentSerializer
+    val serializer = new ReachDocumentSerializer
     val doc = serializer.load(br)
     br.close()
     doc.id = Some(entry.name)
