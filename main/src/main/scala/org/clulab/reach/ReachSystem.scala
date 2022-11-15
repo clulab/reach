@@ -59,7 +59,8 @@ class ReachSystem(
     // note that this messes with the character offsets in the text...
     val preprocessedText = textPreProc.preprocessText(text)
     // annotate() now preserves chatracter offsets in text, but it is too late due to preprocessText() above
-    val doc = procAnnotator.annotate(text, keepText = true)
+    val doc = ReachDocument(procAnnotator.annotate(text, keepText = true))
+
     val id = if (chunkId.isEmpty) docId else s"${docId}_${chunkId}"
     doc.id = Some(id)
     // If section names are given, add them to the doc object
@@ -68,7 +69,7 @@ class ReachSystem(
         // Order the intervals
         val sectionIntervals = sectionNames.keys.toSeq.sorted
         // Iterate through each sentence to get its section name
-        doc.sentences foreach {
+        doc.reachSentences foreach {
           sent =>
             val interval = Interval.open(sent.startOffsets.head, sent.endOffsets.last)
             val containingInterval = sectionIntervals.filter(si => si.intersects(interval))
