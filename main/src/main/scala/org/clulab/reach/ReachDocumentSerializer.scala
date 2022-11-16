@@ -4,12 +4,11 @@ import org.clulab.processors.Document
 import org.clulab.reach.ReachSentence.Converter
 import org.clulab.serialization.DocumentSerializer
 
-import java.io.{BufferedReader, ByteArrayInputStream, ByteArrayOutputStream, InputStreamReader, PrintWriter}
+import java.io.{BufferedReader, PrintWriter}
 
-class ReachDocumentSerializer {
-  val documentSerializer = new DocumentSerializer()
+class ReachDocumentSerializer extends DocumentSerializer {
 
-  // These first two are for compatibility with the processors version.
+  // This is private in the superclass, unfortunately.
   protected def read(bufferedReader: BufferedReader, howManyTokens: Int = 0): Array[String] = {
     val line = bufferedReader.readLine()
 
@@ -17,19 +16,8 @@ class ReachDocumentSerializer {
     else line.split(ReachDocumentSerializer.SEP, howManyTokens)
   }
 
-  def load(string: String, encoding: String = "UTF-8"): ReachDocument = {
-    val byteArrayInputStream = new ByteArrayInputStream(string.getBytes(encoding))
-    val bufferedReader = new BufferedReader(new InputStreamReader(byteArrayInputStream))
-    val doc = load(bufferedReader)
-
-    bufferedReader.close()
-    doc
-  }
-
-  def load(bufferedReader: BufferedReader): ReachDocument = loadDocument(bufferedReader)
-
-  def loadDocument(bufferedReader: BufferedReader): ReachDocument = {
-    val document = documentSerializer.load(bufferedReader)
+  override def load(bufferedReader: BufferedReader): ReachDocument = {
+    val document = super.load(bufferedReader)
     val arrayOfSectionsOpt = loadSections(bufferedReader, document.sentences.length)
 
     val bits = read(bufferedReader)
@@ -58,22 +46,8 @@ class ReachDocumentSerializer {
     sections.toArray
   }
 
-  def save(doc: Document, encoding: String = "UTF-8", keepText: Boolean = false): String = {
-    val byteArrayOutputStream = new ByteArrayOutputStream
-    val printWriter = new PrintWriter(byteArrayOutputStream)
-
-    save(doc, printWriter, keepText)
-    printWriter.flush()
-    printWriter.close()
-    byteArrayOutputStream.toString(encoding)
-  }
-
-  def save(doc: Document, printWriter: PrintWriter): Unit = save(doc, printWriter, keepText = false)
-
-  def save(doc: Document, printWriter: PrintWriter, keepText: Boolean): Unit = saveDocument(doc, printWriter, keepText)
-
-  def saveDocument(doc: Document, printWriter: PrintWriter, keepText: Boolean): Unit = {
-    documentSerializer.save(doc, printWriter, keepText)
+  override def save(doc: Document, printWriter: PrintWriter, keepText: Boolean): Unit = {
+    super.save(doc, printWriter, keepText)
     doc.sentences.foreach { sentence =>
       val sections = sentence.sections.getOrElse(Array.empty[String])
 
