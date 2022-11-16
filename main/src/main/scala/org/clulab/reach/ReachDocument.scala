@@ -12,12 +12,15 @@ class ReachDocument(doc: Document, val reachSentences: Array[ReachSentence])
     this.addAttachment(key, doc.getAttachment(key).get)
   }
   doc.getDCT.foreach(this.setDCT)
-
-  def serialize(): Unit = ???
 }
 
 object ReachDocument {
 
+  def apply(doc: Document): ReachDocument = {
+    val arrayOfSectionsOpt = doc.sentences.map(_ => None: Option[Array[String]])
+
+    apply(doc, arrayOfSectionsOpt)
+  }
   def apply(doc: Document, arrayOfSectionsOpt: Array[Option[Array[String]]]): ReachDocument = {
     val reachSentences = doc.sentences.zip(arrayOfSectionsOpt).map { case (sentence, sectionsOpt) =>
       new ReachSentence(sentence, sectionsOpt)
