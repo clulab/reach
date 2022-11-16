@@ -20,8 +20,12 @@ class ReachSentence(sentence: Sentence, val sections: Option[Array[String]] = No
 }
 
 object ReachSentence {
+
   implicit class Converter(sentence: Sentence) {
-    // If it's not a ReachSentence, it could return None.
-    def sections = sentence.asInstanceOf[ReachSentence].sections
+    
+    def sections: Option[Array[String]] = sentence match {
+      case sentence: ReachSentence => sentence.sections
+      case _ => None
+    }
   }
 }
