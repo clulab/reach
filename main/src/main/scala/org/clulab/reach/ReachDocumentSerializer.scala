@@ -10,22 +10,28 @@ class ReachDocumentSerializer extends DocumentSerializer {
 
   // This is private in the superclass, unfortunately.
   protected def read(bufferedReader: BufferedReader, howManyTokens: Int = 0): Array[String] = {
-    val line = bufferedReader.readLine()
+    val lineOpt = Option(bufferedReader.readLine())
 
-    if (line.isEmpty) Array.empty[String]
-    else line.split(ReachDocumentSerializer.SEP, howManyTokens)
+    lineOpt.map { line =>
+      if (line.isEmpty) Array.empty[String]
+      else line.split(ReachDocumentSerializer.SEP, howManyTokens)
+    }.getOrElse(Array.empty[String])
   }
 
   override def load(bufferedReader: BufferedReader): ReachDocument = {
     val document = super.load(bufferedReader)
-    val arrayOfSectionsOpt = loadSections(bufferedReader, document.sentences.length)
-
     val bits = read(bufferedReader)
-    assert(bits(0) == ReachDocumentSerializer.END_OF_REACH, s"END_OF_DOCUMENT expected, found ${bits(0)}")
 
-    ReachDocument(document, arrayOfSectionsOpt)
+    if (bits.isEmpty || bits(0) != ReachDocumentSerializer.BEG_OF_REACH)
+      ReachDocument(document)
+    else {
+      val arrayOfSectionsOpt = loadSections(bufferedReader, document.sentences.length)
+      val bits = read(bufferedReader)
+
+      assert(bits(0) == ReachDocumentSerializer.END_OF_REACH, s"END_OF_REACH expected, found ${bits(0)}")
+      ReachDocument(document, arrayOfSectionsOpt)
+    }
   }
-
   def loadSections(bufferedReader: BufferedReader, sentenceCount: Int): Array[Option[Array[String]]] = {
     val sections = Range(0, sentenceCount).map { _ =>
       val numSubSections = {
@@ -48,6 +54,7 @@ class ReachDocumentSerializer extends DocumentSerializer {
 
   override def save(doc: Document, printWriter: PrintWriter, keepText: Boolean): Unit = {
     super.save(doc, printWriter, keepText)
+    printWriter.println(ReachDocumentSerializer.BEG_OF_REACH)
     doc.sentences.foreach { sentence =>
       val sections = sentence.sections.getOrElse(Array.empty[String])
 
@@ -69,5 +76,6 @@ class ReachDocumentSerializer extends DocumentSerializer {
 object ReachDocumentSerializer {
   val SEP = "\t"
   val START_SECTION = "Z"
+  val BEG_OF_REACH = "BOR"
   val END_OF_REACH = "EOR"
 }

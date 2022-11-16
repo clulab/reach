@@ -4,6 +4,7 @@ import org.clulab.processors.Processor
 import org.clulab.processors.corenlp.CoreNLPProcessor
 import org.clulab.processors.shallownlp.ShallowNLPProcessor
 import org.clulab.reach.ReachSentence.Converter
+import org.clulab.serialization.DocumentSerializer
 import org.scalatest.OptionValues.convertOptionToValuable
 import org.scalatest._
 
@@ -101,6 +102,17 @@ Phosphorylation of ASPP2 by MAPK is required for the RAS-induced translocation o
     val out2 = ser.save(doc2, keepText=true)
     // println(out2)                          // DEBUGGING
     (out2) should be (out1)
+  }
+
+  "DocumentSerialier" should "generate empty section names if necessary" in {
+    val doc1 = proc.annotate(text, true)
+    val out1 = new DocumentSerializer().save(doc1, keepText = true)
+
+    val doc2 = ser.load(out1)
+
+    doc2.sentences.foreach { sentence =>
+      sentence.sections should be (None)
+    }
   }
 
   "DocumentSerializer" should "save and section names when provided" in {
