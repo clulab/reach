@@ -8,7 +8,8 @@ import scala.collection.mutable.{HashMap, ListBuffer, Set => MSet}
 import org.json4s.jackson.Serialization
 import org.clulab.odin._
 import org.clulab.processors.Document
-import org.clulab.reach.FriesEntry
+import org.clulab.reach.{FriesEntry, ReachDocument}
+import org.clulab.reach.ReachSentence.Converter
 import org.clulab.reach.context._
 import org.clulab.reach.display._
 import org.clulab.reach.export._
@@ -728,10 +729,10 @@ class FriesOutput extends JsonOutputter with LazyLogging {
 
   /** Create and return a sentence frame. */
   private def makeSentence (model: PropMap,
-    paperId: String,
-    passageMeta: FriesEntry,
-    passageDoc: Document,
-    offset: Int): PropMap = {
+                            paperId: String,
+                            passageMeta: FriesEntry,
+                            passageDoc: ReachDocument,
+                            offset: Int): PropMap = {
     val f = startFrame(Some("BioNLPProcessor"))
     f("frame-type") = "sentence"
     f("frame-id") = mkSentenceId(paperId, passageMeta, offset)
@@ -739,7 +740,7 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     f("start-pos") = makeRelativePosition(paperId, passageMeta, sentenceStartCharacterOffset(passageDoc, offset))
     f("end-pos") = makeRelativePosition(paperId, passageMeta, sentenceEndCharacterOffset(passageDoc, offset))
     f("text") = passageDoc.sentences(offset).getSentenceText
-    passageDoc.sentences(offset).sections match {
+    passageDoc.reachSentences(offset).sections match {
       case Some(sections) =>
         f("sections") = sections
       case None => ()
@@ -752,7 +753,7 @@ class FriesOutput extends JsonOutputter with LazyLogging {
   private def makeSentences (model: PropMap,
     paperId: String,
     passageMeta: FriesEntry,
-    passageDoc: Document): Seq[PropMap] = {
+    passageDoc: ReachDocument): Seq[PropMap] = {
     val sents = new ListBuffer[PropMap]
     for (i <- passageDoc.sentences.indices) {
       sents += makeSentence(model, paperId, passageMeta, passageDoc, i)
@@ -799,11 +800,11 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     addMetaInfo(model, paperId, startTime, endTime, otherMetaData)
 
     // keeps track of all documents created for each entry
-    val passageDocs = new HashMap[String, Document]()
+    val passageDocs = new HashMap[String, ReachDocument]()
     for (m <- mentions)  {
       val chunkId = getChunkId(m)
       if (!passageDocs.contains(chunkId)) {
-        passageDocs += chunkId -> m.document
+        passageDocs += chunkId -> m.document.asInstanceOf[ReachDocument]
       }
     }
 

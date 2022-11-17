@@ -12,7 +12,6 @@ import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets.UTF_8
 import ai.lum.common.ConfigUtils._
 import org.clulab.processors.Document
-import org.clulab.serialization.DocumentSerializer
 import org.clulab.utils.Serializer
 
 import java.nio.file.Path
@@ -44,7 +43,7 @@ class AnnotationsCLI(
     val paperId = FilenameUtils.removeExtension(file.getName)
     val startNS = System.nanoTime
     val startTime = AnnotationsCLI.now
-    val documentSerializer = new DocumentSerializer
+    val documentSerializer = new ReachDocumentSerializer
 
     logger.info(s"$startTime: Starting $paperId")
     logger.debug(s"  ${ durationToS(startNS, System.nanoTime) }s: $paperId: started reading")
@@ -99,7 +98,7 @@ class AnnotationsCLI(
     * @param entry
     * @param doc
     */
-  private def serializeDoc(paperId: String, documentSerializer: DocumentSerializer, entry: FriesEntry, doc: Document): Unit = {
+  private def serializeDoc(paperId: String, documentSerializer: ReachDocumentSerializer, entry: FriesEntry, doc: Document): Unit = {
     val pw = new PrintWriter(new File(outputDir, s"$paperId.ser"))
     pw.println(entry.toString())
     pw.println(AnnotationsCLI.serializationSeparator)
