@@ -88,7 +88,7 @@ class ReachSystem(
   }
 
   def extractFrom(entry: FriesEntry): Seq[BioMention] =
-    extractFrom(entry.text, entry.name, entry.chunkId)
+    extractFrom(entry.text, entry.name, entry.chunkId, entry.sectionNamesIntervals)
 
   def extractFrom(nxml: NxmlDocument): Seq[BioMention] = {
     // use standoff hashcode as the chunkId
@@ -162,10 +162,6 @@ class ReachSystem(
     val complete = MentionFilter.filterOverlappingMentions(MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention))
 
     resolveDisplay(complete)
-  }
-
-  def extractFrom(text: String, docId: String, chunkId: String): Seq[BioMention] = {
-    extractFrom(mkDoc(text, docId, chunkId))
   }
 
   def extractFrom(text: String, docId: String, chunkId: String, sectionNameIntervals: Option[Map[Interval, Seq[String]]]): Seq[BioMention] = {

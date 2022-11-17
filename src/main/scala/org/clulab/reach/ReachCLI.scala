@@ -102,7 +102,7 @@ class ReachCLI (
     val (entry, mentions) =
       if(isSerialized){
         // Load pre-annotated objects
-        val (entry: FriesEntry, doc: Document) = deserializeDoc(file)
+        val (entry: FriesEntry, doc: ReachDocument) = deserializeDoc(file)
         val mentions = PaperReader.reachSystem.extractFrom(doc)
         (entry, mentions)
       }
