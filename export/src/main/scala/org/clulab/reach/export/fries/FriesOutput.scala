@@ -21,7 +21,6 @@ import org.clulab.reach.mentions._
 import org.clulab.odin.serialization.json
 import org.clulab.serialization.json.JSONSerializer.formats
 import org.clulab.struct.Counter
-import org.clulab.reach.ReachSentence.Converter
 
 
 /**
