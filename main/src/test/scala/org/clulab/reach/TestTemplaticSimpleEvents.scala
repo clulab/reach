@@ -66,7 +66,7 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   // there is a phosphorylation event in the example text
   val sent7 = "The ubiquitinated Ras protein phosphorylates AKT."
   sent7 should "contain a phosphorylation" in {
-    val mentions = testReach.extractFrom(sent7, "testdoc", "1")
+    val mentions = testReach.extractFrom(sent7, "testdoc", "1", None)
     val phospho = mentions.find(_ matches "Phosphorylation")
     phospho.isDefined should be (true)
     phospho.get.arguments.contains("theme") should be (true)

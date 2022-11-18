@@ -82,7 +82,7 @@ object PaperReader extends LazyLogging {
     * @return (PaperID, Mentions)
     */
   def readPaper(file: File): (String, Vector[Mention]) = file match {
-    case nxml if nxml.getName.endsWith(".nxml") =>
+    case nxml if nxml.getName.endsWith(".nxml") || nxml.getName.endsWith(".xml") =>
       readNXMLPaper(nxml)
     case dsv if dsv.getName.endsWith(".csv") || dsv.getName.endsWith(".tsv") =>
       readDSVPaper(dsv)
@@ -93,7 +93,7 @@ object PaperReader extends LazyLogging {
   }
 
   private def readNXMLPaper(file: File): (String, Vector[Mention]) = {
-    require(file.getName.endsWith(".nxml"), s"Given ${file.getAbsolutePath}, but readNXMLPaper only handles .nxml files!")
+    require(file.getName.endsWith(".nxml")  || file.getName.endsWith(".xml"), s"Given ${file.getAbsolutePath}, but readNXMLPaper only handles .nxml files!")
     val paperID = FilenameUtils.removeExtension(file.getName)
     logger.debug(s"reading paper $paperID ...")
     paperID -> reachSystem.extractFrom(nxmlReader.read(file)).toVector
@@ -122,7 +122,7 @@ object PaperReader extends LazyLogging {
     * @return [[FriesEntry]]
     */
   def getEntryFromPaper(file: File): FriesEntry = file match {
-    case nxml if nxml.getName.endsWith(".nxml") =>
+    case nxml if nxml.getName.endsWith(".nxml") || nxml.getName.endsWith(".xml") =>
       val nxmlDoc: NxmlDocument = nxmlReader.read(nxml)
       new FriesEntry(nxmlDoc)
 
@@ -143,7 +143,7 @@ object PaperReader extends LazyLogging {
   def getMentionsFromPaper(file: File): Vector[Mention] = readPaper(file)._2
 
   /** Extract mentions from a single text string. */
-  def getMentionsFromText(text: String): Seq[Mention] = reachSystem.extractFrom(text, "", "")
+  def getMentionsFromText(text: String): Seq[Mention] = reachSystem.extractFrom(text, "", "", None)
 
 }
 

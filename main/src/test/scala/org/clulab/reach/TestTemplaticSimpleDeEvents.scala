@@ -64,7 +64,7 @@ class TestTemplaticSimpleDeEvents extends FlatSpec with Matchers {
   // there is a dephosphorylation event in the example text
   val sent7 = "The ubiquitinated Ras protein dephosphorylates AKT."
   sent7 should "contain a dephosphorylation" in {
-    val mentions = testReach.extractFrom(sent7, "testdoc", "1")
+    val mentions = testReach.extractFrom(sent7, "testdoc", "1", None)
     val dephosphorylation = mentions.find(_ matches "Dephosphorylation")
     dephosphorylation.isDefined should be (true)
     dephosphorylation.get.arguments.contains("theme") should be (true)

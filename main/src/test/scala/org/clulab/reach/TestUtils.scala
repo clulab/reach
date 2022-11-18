@@ -80,7 +80,7 @@ object TestUtils {
   } yield m.toCorefMention
 
   def getBioMentions(text:String, verbose:Boolean = false):Seq[BioMention] = {
-    val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text)
+    val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text, None)
     val result = testReach.extractFrom(entry)
     //if(! result.isSuccess)
       //throw new RuntimeException("ERROR: getBioMentions failed on sentence: " + text)

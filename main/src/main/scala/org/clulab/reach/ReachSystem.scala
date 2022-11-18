@@ -8,14 +8,17 @@ import org.clulab.coref.Alias
 import org.clulab.coref.Coref
 import org.clulab.odin._
 import org.clulab.processors.{Document, Processor}
+import org.clulab.reach.ReachSentence.Converter
 import org.clulab.reach.context._
 import org.clulab.reach.context.ContextEngineFactory.Engine._
 import org.clulab.reach.darpa.{DarpaActions, HyphenHandle, MentionFilter, NegationHandler, RegulationHandler}
 import org.clulab.reach.grounding._
 import org.clulab.reach.mentions._
-import RuleReader.{Rules, readResource}
+import RuleReader.{Rules, contextRelationsFile, readResource}
+import ai.lum.common.Interval
 import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.reach.utils.Preprocess
+import ai.lum.nxmlreader.standoff.Implicits._
 
 // import org.clulab.reach.utils.MentionManager
 
@@ -53,24 +56,39 @@ class ReachSystem(
   def allRules: String =
     Seq(entityRules, modificationRules, eventRules, contextRules).mkString("\n\n")
 
-  def mkDoc(text: String, docId: String, chunkId: String = ""): Document = {
+  def mkDoc(text: String, docId: String, chunkId: String = "", sectionNameIntervalsOpt: Option[Map[Interval, Seq[String]]] = None): Document = {
     // note that this messes with the character offsets in the text...
     val preprocessedText = textPreProc.preprocessText(text)
-    // annotate() now preserves chatracter offsets in text, but it is too late due to preprocessText() above
+    // annotate() now preserves character offsets in text, but it is too late due to preprocessText() above
     val doc = procAnnotator.annotate(text, keepText = true)
     val id = if (chunkId.isEmpty) docId else s"${docId}_${chunkId}"
     doc.id = Some(id)
-    doc
+    // If section names are given, add them to the doc object
+    val sectionNameIntervals = sectionNameIntervalsOpt.getOrElse(Map.empty[Interval, Seq[String]])
+    val sectionIntervals = sectionNameIntervals.keys.toSeq.sorted
+    // Iterate through each sentence to get its section name
+    val sections = doc.sentences.map { sent =>
+      val interval = Interval.open(sent.startOffsets.head, sent.endOffsets.last)
+      val containingInterval = sectionIntervals.filter(si => si.intersects(interval))
+
+      if (containingInterval.nonEmpty)
+        Some(sectionNameIntervals(containingInterval.head).toArray)
+      else
+        None
+    }
+    val reachDoc = ReachDocument(doc, sections)
+
+    reachDoc
   }
 
   def mkDoc(nxml: NxmlDocument): Document = {
     // we are using the PMC as the chunk-id because we now read
-    // the whole paper in a  single chunk
-    mkDoc(nxml.text, nxml.pmc, nxml.pmc)
+    // the whole paper in a single chunk
+    mkDoc(nxml.text, nxml.pmc, nxml.pmc, Some(nxml.standoff.sectionNamesIntervals))
   }
 
   def extractFrom(entry: FriesEntry): Seq[BioMention] =
-    extractFrom(entry.text, entry.name, entry.chunkId)
+    extractFrom(entry.text, entry.name, entry.chunkId, entry.sectionNamesIntervals)
 
   def extractFrom(nxml: NxmlDocument): Seq[BioMention] = {
     // use standoff hashcode as the chunkId
@@ -146,8 +164,8 @@ class ReachSystem(
     resolveDisplay(complete)
   }
 
-  def extractFrom(text: String, docId: String, chunkId: String): Seq[BioMention] = {
-    extractFrom(mkDoc(text, docId, chunkId))
+  def extractFrom(text: String, docId: String, chunkId: String, sectionNameIntervals: Option[Map[Interval, Seq[String]]]): Seq[BioMention] = {
+    extractFrom(mkDoc(text, docId, chunkId, sectionNameIntervals))
   }
 
   def extractFrom(doc: Document): Seq[BioMention] = {

@@ -17,7 +17,7 @@ class TestApi extends FlatSpec with Matchers {
 
   // basic function cases:
   it should "return Reach results from a FriesEntry" in {
-    val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text)
+    val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text, None)
     val results = Api.runOnFriesEntry(entry)
     results.isEmpty should be (false)
   }
@@ -44,7 +44,7 @@ class TestApi extends FlatSpec with Matchers {
 
   // no results cases:
   textNone should "not contain any results from FriesEntry" in {
-    val entry = FriesEntry(docId, chunkId, "example", "example", false, textNone)
+    val entry = FriesEntry(docId, chunkId, "example", "example", false, textNone, None)
     val results = Api.runOnFriesEntry(entry)
     results.size should be (0)
   }
@@ -66,13 +66,13 @@ class TestApi extends FlatSpec with Matchers {
 
   // some results cases:
   text2 should "return 1 positive activation result from a FriesEntry" in {
-    val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text2)
+    val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text2, None)
     val results = Api.runOnFriesEntry(entry)
     results.filter(_.label == "Positive_activation") should have size (1)
   }
 
   text2 should "return 4 entity results from a FriesEntry" in {
-    val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text2)
+    val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text2, None)
     val results = Api.runOnFriesEntry(entry)
     hasEntity("RAS", results) should be (true)
     hasEntity("p53", results) should be (true)
