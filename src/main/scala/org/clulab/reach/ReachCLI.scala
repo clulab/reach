@@ -25,7 +25,6 @@ import org.clulab.reach.export.serial.SerialJsonOutput
 import org.clulab.reach.mentions.CorefMention
 import org.clulab.reach.utils.MentionManager
 import org.clulab.utils.Serializer
-import org.clulab.reach.ReachSentence.Converter
 
 import java.io.{BufferedReader, File, FileInputStream, InputStreamReader}
 import java.nio.charset.Charset
