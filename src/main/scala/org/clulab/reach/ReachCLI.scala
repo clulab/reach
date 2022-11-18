@@ -25,6 +25,7 @@ import org.clulab.reach.export.serial.SerialJsonOutput
 import org.clulab.reach.mentions.CorefMention
 import org.clulab.reach.utils.MentionManager
 import org.clulab.utils.Serializer
+import org.clulab.reach.ReachSentence.Converter
 
 import java.io.{BufferedReader, File, FileInputStream, InputStreamReader}
 import java.nio.charset.Charset
@@ -102,7 +103,7 @@ class ReachCLI (
     val (entry, mentions) =
       if(isSerialized){
         // Load pre-annotated objects
-        val (entry: FriesEntry, doc: ReachDocument) = deserializeDoc(file)
+        val (entry: FriesEntry, doc: Document) = deserializeDoc(file)
         val mentions = PaperReader.reachSystem.extractFrom(doc)
         (entry, mentions)
       }
