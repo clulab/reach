@@ -52,7 +52,7 @@ object StrengthHandler {
       case event: EventMention =>
 
         // Get the dependencies of the sentence
-        val dependencies = event.sentenceObj.dependencies.getOrElse(new DirectedGraph[String](Nil, Set[Int]()))
+        val dependencies = event.sentenceObj.dependencies.getOrElse(new DirectedGraph[String](Nil, None))
 
         val eventInterval: Seq[Int] = event.tokenInterval
 
