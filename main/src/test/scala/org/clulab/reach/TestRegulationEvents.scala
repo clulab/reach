@@ -23,7 +23,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   // it is the cause of the phosphorylation
   val sent2 = "The ubiquitinated Ras protein phosphorylates AKT."
   sent2 should "contain a regulation" in {
-    val mentions = testReach.extractFrom(sent2, "testdoc", "1")
+    val mentions = testReach.extractFrom(sent2, "testdoc", "1", None)
     val reg = mentions.find(_.label == "Positive_regulation")
     reg.isDefined should be (true)
     reg.get.arguments.contains("controlled") should be (true)

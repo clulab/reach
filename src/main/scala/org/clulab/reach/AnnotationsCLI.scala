@@ -12,7 +12,6 @@ import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets.UTF_8
 import ai.lum.common.ConfigUtils._
 import org.clulab.processors.Document
-import org.clulab.serialization.DocumentSerializer
 import org.clulab.utils.Serializer
 
 import java.nio.file.Path
@@ -44,14 +43,14 @@ class AnnotationsCLI(
     val paperId = FilenameUtils.removeExtension(file.getName)
     val startNS = System.nanoTime
     val startTime = AnnotationsCLI.now
-    val documentSerializer = new DocumentSerializer
+    val documentSerializer = new ReachDocumentSerializer
 
     logger.info(s"$startTime: Starting $paperId")
     logger.debug(s"  ${ durationToS(startNS, System.nanoTime) }s: $paperId: started reading")
 
     // entry must be kept around for outputter
     val entry = PaperReader.getEntryFromPaper(file)
-    val doc = PaperReader.reachSystem.mkDoc(entry.text, entry.name, entry.chunkId)
+    val doc = PaperReader.reachSystem.mkDoc(entry.text, entry.name, entry.chunkId, entry.sectionNamesIntervals)
 
     logger.debug(s"  ${ durationToS(startNS, System.nanoTime) }s: $paperId: finished annotating")
 
@@ -93,18 +92,20 @@ class AnnotationsCLI(
 
   /**
     * Serialized the annotated document and entry objects using DocumentSerializator
+    *
     * @param paperId
     * @param documentSerializer
     * @param entry
     * @param doc
     */
-  private def serializeDoc(paperId: String, documentSerializer: DocumentSerializer, entry: FriesEntry, doc: Document): Unit = {
+  private def serializeDoc(paperId: String, documentSerializer: ReachDocumentSerializer, entry: FriesEntry, doc: Document): Unit = {
     val pw = new PrintWriter(new File(outputDir, s"$paperId.ser"))
     pw.println(entry.toString())
     pw.println(AnnotationsCLI.serializationSeparator)
     documentSerializer.save(doc, pw)
     pw.close()
   }
+
 }
 
 
@@ -113,9 +114,10 @@ class AnnotationsCLI(
   * run it on the papers in the specified directory.
   */
 object AnnotationsCLI {
-  val serializationSeparator: String = "#FS#"
   /** Return a new timestamp each time called. */
   def now = new Date()
+
+  val serializationSeparator: String = "#FS#"
 
   /** legacy constructor for a single output format */
   def apply (

@@ -11,7 +11,7 @@ import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets.UTF_8
 import ai.lum.common.FileUtils._
 import ai.lum.common.ConfigUtils._
-import jline.internal.InputStreamReader
+//import jline.internal.InputStreamReader
 import org.clulab.odin._
 import org.clulab.processors.Document
 import org.clulab.reach.`export`.arizona.ArizonaOutputter
@@ -23,10 +23,14 @@ import org.clulab.reach.export.fries.FriesOutput
 import org.clulab.reach.export.indexcards.IndexCardOutput
 import org.clulab.reach.export.serial.SerialJsonOutput
 import org.clulab.reach.mentions.CorefMention
-import org.clulab.reach.mentions.serialization.json._
 import org.clulab.reach.utils.MentionManager
-import org.clulab.serialization.DocumentSerializer
 import org.clulab.utils.Serializer
+
+import java.io.{BufferedReader, File, FileInputStream, InputStreamReader}
+import java.nio.charset.Charset
+import java.nio.charset.StandardCharsets.UTF_8
+import java.util.Date
+import scala.collection.JavaConverters._
 
 /**
   * Class to run Reach reading and assembly and then produce FRIES format output
@@ -71,12 +75,12 @@ class ReachCLI (
 
     // If we don't have the paper id available, take if from the paper
     val paperId =
-        file.getName.split("\\.").dropRight(1).mkString(".")
+      file.getName.split("\\.").dropRight(1).mkString(".")
 
 
     val entry = FriesEntry.mkFriesEntry(paperId, tokens.last)
 
-    val serializer = new DocumentSerializer
+    val serializer = new ReachDocumentSerializer
     val doc = serializer.load(br)
     br.close()
     doc.id = Some(entry.name)

@@ -16,13 +16,13 @@ class TestEntities extends FlatSpec with Matchers {
   val text = "The ubiquitinated Ras protein phosphorylates AKT."
 
   "ReachSystem" should "extract mentions from FriesEntry" in {
-    val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text)
+    val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text, None)
     val result = Try(testReach.extractFrom(entry))
     result.isSuccess should be (true)
   }
 
   it should "extract mentions from text" in {
-    val result = Try(testReach.extractFrom(text, docId, chunkId))
+    val result = Try(testReach.extractFrom(text, docId, chunkId, None))
     result.isSuccess should be (true)
   }
 
