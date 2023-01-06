@@ -4,8 +4,8 @@ pipeline {
     stage('Test') {
       steps {
         ansiColor('xterm') {
-          sh 'echo "Testing..."'
-          sh './runAllTests.sh'
+          echo "Testing..."
+          sh "sbt +test"
         }
       }
     }

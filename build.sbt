@@ -63,11 +63,11 @@ lazy val commonSettings = Seq(
 
 lazy val root = (project in file("."))
   .settings(commonSettings: _*)
-  .aggregate(main, causalAssembly, export)
+  .aggregate(processors, main, causalAssembly, export)
   .dependsOn(main % "test->test;compile", causalAssembly, export) // so that we can import from the console
   .settings(
     name := "reach-exe",
-    aggregate in test := false,
+    aggregate in test := true,
     aggregate in assembly := false,
     test in assembly := {},
     assemblyMergeStrategy in assembly := {
