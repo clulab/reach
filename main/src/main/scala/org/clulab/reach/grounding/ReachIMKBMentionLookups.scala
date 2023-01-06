@@ -6,8 +6,7 @@ import org.clulab.reach.grounding.ReachKBConstants._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
 
 import java.io.File
-import scala.collection.JavaConverters.asScalaBufferConverter
-import scala.collection.convert.ImplicitConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable
 
 /**
@@ -139,7 +138,7 @@ object ReachIMKBMentionLookups {
     val loadedKBs = mutable.ListBuffer[(String, IMKBMentionLookup)]()
     // Load all the KBs specified in the configuraction file of bioresources
     //val loadedKBs =
-      (kbConf.root() foreach  {
+      (kbConf.root().asScala.foreach  {
         case (_, obj:ConfigObject) =>
           val (labels, kb) = buildKb(obj.toConfig)
           loadedKBs ++= (labels map (l => (l, kb)))

@@ -79,8 +79,8 @@ lazy val root = (project in file("."))
       case other => (assemblyMergeStrategy in assembly).value(other)
     },
     mainClass in assembly := {
-      val sysMain = System.getProperty("mainClass")
-      Option(if (sysMain != null) sysMain else "org.clulab.reach.RunReachCLI")
+      val sysMainOpt = Option(System.getProperty("mainClass"))
+      sysMainOpt.orElse(Some("org.clulab.reach.RunReachCLI"))
     },
     assemblyJarName in assembly := s"reach-${version.value}-FAT.jar"
   )

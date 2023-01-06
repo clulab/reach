@@ -2,12 +2,6 @@ package org.clulab.processors.bionlp.ner
 
 import com.typesafe.config.ConfigObject
 import com.typesafe.config.ConfigFactory
-
-import scala.collection.convert.ImplicitConversions._
-import scala.collection.JavaConverters.asScalaBufferConverter
-import java.text.SimpleDateFormat
-import java.util.Date
-import scala.collection.mutable
 import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.processors.clu.tokenizer.Tokenizer
 import org.clulab.sequences.StandardKbSource
@@ -15,6 +9,11 @@ import org.clulab.utils.ScienceUtils
 import org.slf4j.{Logger, LoggerFactory}
 
 import java.io.File
+import java.text.SimpleDateFormat
+import java.util.Date
+
+import scala.collection.JavaConverters._
+import scala.collection.mutable
 
 case class KBEntry(kbName:String, path:String, neLabel:String, validSpecies:Set[String])
 
@@ -41,7 +40,7 @@ object KBGenerator {
 
       val loadedKBs = mutable.ListBuffer[(String, String, Int, Set[String])]()
       // Load all the KBs specified in the configuraction file of bioresources
-      kbConf.root() foreach  {
+      kbConf.root().asScala.foreach {
         case (_, obj:ConfigObject) =>
           val c = obj.toConfig
 
@@ -61,7 +60,7 @@ object KBGenerator {
 
           val species =
             if(c.hasPath("species"))
-              c.getStringList("species").toSet
+              c.getStringList("species").asScala.toSet
             else
               Set.empty[String]
 
