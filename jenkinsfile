@@ -1,5 +1,9 @@
 pipeline {
   agent any
+  environment {
+    _JAVA_OPTIONS = "-Xmx10g"
+    JAVA_TOOL_OPTIONS = "-Dfile.encoding=UTF-8"
+  }
   stages {
     stage('Test') {
       steps {
