@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    _JAVA_OPTIONS = "-Xmx16g"
+    _JAVA_OPTIONS = "-Xmx24g"
     JAVA_TOOL_OPTIONS = "-Dfile.encoding=UTF-8"
   }
   stages {
