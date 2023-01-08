@@ -9,7 +9,7 @@ pipeline {
       steps {
         ansiColor('xterm') {
           echo "Testing..."
-          sbt +test
+          sh "sbt +test"
         }
       }
     }
