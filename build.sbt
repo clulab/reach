@@ -63,11 +63,11 @@ lazy val commonSettings = Seq(
 
 lazy val root = (project in file("."))
   .settings(commonSettings: _*)
-  .aggregate(main, causalAssembly, export)
+  .aggregate(processors, main, causalAssembly, export)
   .dependsOn(main % "test->test;compile", causalAssembly, export) // so that we can import from the console
   .settings(
     name := "reach-exe",
-    aggregate in test := false,
+    aggregate in test := true,
     aggregate in assembly := false,
     test in assembly := {},
     assemblyMergeStrategy in assembly := {
@@ -79,8 +79,8 @@ lazy val root = (project in file("."))
       case other => (assemblyMergeStrategy in assembly).value(other)
     },
     mainClass in assembly := {
-      val sysMain = System.getProperty("mainClass")
-      Option(if (sysMain != null) sysMain else "org.clulab.reach.RunReachCLI")
+      val sysMainOpt = Option(System.getProperty("mainClass"))
+      sysMainOpt.orElse(Some("org.clulab.reach.RunReachCLI"))
     },
     assemblyJarName in assembly := s"reach-${version.value}-FAT.jar"
   )

@@ -7,7 +7,9 @@ import scala.io.Source
 
 import com.typesafe.config.{ Config, ConfigFactory }
 
+import akka.actor.ActorSystem
 import akka.event.Logging
+import akka.http.scaladsl.testkit.RouteTestTimeout
 // import akka.http.scaladsl.Http
 import akka.http.scaladsl.model._
 import akka.http.scaladsl.server._
@@ -172,6 +174,7 @@ class TestApiServer extends WordSpec
     }
 
     "POST upload nxml, default output" in {
+      implicit def default(implicit system: ActorSystem) = RouteTestTimeout(5.seconds)
       val mpForm = Multipart.FormData(
         Multipart.FormData.BodyPart.Strict(
           "file",

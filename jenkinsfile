@@ -1,11 +1,15 @@
 pipeline {
   agent any
+  environment {
+    _JAVA_OPTIONS = "-Xmx24g"
+    JAVA_TOOL_OPTIONS = "-Dfile.encoding=UTF-8"
+  }
   stages {
     stage('Test') {
       steps {
         ansiColor('xterm') {
-          sh 'echo "Testing..."'
-          sh './runAllTests.sh'
+          echo "Testing..."
+          sh "sbt +test"
         }
       }
     }
