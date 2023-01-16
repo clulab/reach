@@ -59,7 +59,7 @@ object JSONSerializer extends LazyLogging {
     require(json \ "mentions" != JNothing, "\"mentions\" key missing from json")
 
     // build the documents once
-    val docMap = mkDocumentMap(json \ "documents")
+    val docMap = mkDocumentMap((json \ "documents").asInstanceOf[JObject])
     val mmjson = (json \ "mentions").asInstanceOf[JArray]
 
     mmjson.arr.map(mjson => toBioMention(mjson, docMap))
@@ -160,7 +160,7 @@ object JSONSerializer extends LazyLogging {
     require(json \ "mentions" != JNothing, "\"mentions\" key missing from json")
 
     // build the documents once
-    val docMap = mkDocumentMap(json \ "documents")
+    val docMap = mkDocumentMap((json \ "documents").asInstanceOf[JObject])
     val mmjson = (json \ "mentions").asInstanceOf[JArray]
 
     mmjson.arr.map(mjson => toCorefMentionWithId(mjson, docMap)).toMap
