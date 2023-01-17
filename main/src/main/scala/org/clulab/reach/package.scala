@@ -2,7 +2,7 @@ package org.clulab
 
 import java.util.Collection
 
-import scala.io.Source
+import _root_.scala.io.Source
 
 import org.yaml.snakeyaml.Yaml
 import org.yaml.snakeyaml.constructor.Constructor
