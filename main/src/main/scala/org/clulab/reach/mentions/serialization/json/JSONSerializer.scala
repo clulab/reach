@@ -38,10 +38,13 @@ object JSONSerializer extends LazyLogging {
 
   def jsonAST(mentions: Seq[Mention]): JValue = {
 
-    val mentionList: List[JValue] = mentions.map{
-      case cm: CorefMention => CorefMentionOps(cm).jsonAST
-      case bm: BioMention => BioMentionOps(bm).jsonAST
-      case m: Mention => OdinMentionOps(m).jsonAST
+    val mentionList: List[JValue] = mentions.zipWithIndex.map { case (mention, index) =>
+      println(s"$index ${mention.text}")
+      mention match {
+        case cm: CorefMention => CorefMentionOps(cm).jsonAST
+        case bm: BioMention => BioMentionOps(bm).jsonAST
+        case m: Mention => OdinMentionOps(m).jsonAST
+      }
     }.toList
     val docMap: Map[String, JValue] = mentionsToDocsJMap(mentions)
     ("documents" -> docMap) ~ ("mentions" -> mentionList)
