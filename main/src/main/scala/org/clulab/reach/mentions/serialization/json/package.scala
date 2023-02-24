@@ -91,55 +91,11 @@ package object json {
     case _ => JNothing
   }
 
-
-  implicit class LocalTextBoundMentionOps(tb: TextBoundMention) extends JSONSerialization with Equivalency {
-
-    val stringCode = s"org.clulab.odin.${TextBoundMention.string}"
-
-    def equivalenceHash: Int = {
-      // the seed (not counted in the length of finalizeHash)
-      val h0 = stringHash(stringCode)
-      // labels
-      val h1 = mix(h0, tb.labels.hashCode)
-      // interval.start
-      val h2 = mix(h1, tb.tokenInterval.start)
-      // interval.end
-      val h3 = mix(h2, tb.tokenInterval.end)
-      // sentence index
-      val h4 = mix(h3, tb.sentence)
-      // document.equivalenceHash
-      val h5 = mix(h4, 5) // tb.document.equivalenceHash) // cache these
-      finalizeHash(h5, 5)
-    }
-
-    override def id: String = s"${TextBoundMention.shortString}:$equivalenceHash"
-
-    def jsonAST: JValue = {
-      ("type" -> TextBoundMention.string) ~
-        // used for correspondence with paths map
-        ("id" -> id) ~ // do not call tb.id because it will just created another of these
-        ("text" -> tb.text) ~
-        ("labels" -> tb.labels) ~
-        ("tokenInterval" -> Map("start" -> tb.tokenInterval.start, "end" -> tb.tokenInterval.end)) ~
-        ("characterStartOffset" -> tb.startOffset) ~
-        ("characterEndOffset" -> tb.endOffset) ~
-        ("sentence" -> tb.sentence) ~
-        ("document" -> "keith") ~ // tb.document.equivalenceHash.toString) ~ // cache these
-        ("keep" -> tb.keep) ~
-        ("foundBy" -> tb.foundBy)
-    }
-  }
-
   implicit class BioTextBoundMentionOps(tb: BioTextBoundMention) extends TextBoundMentionOps(tb) {
 
-//    override val stringCode = s"org.clulab.odin.${BioTextBoundMention.string}"
-//    override def id: String = s"${BioTextBoundMention.shortString}:$equivalenceHash"
-
     override def jsonAST: JValue = {
-
-      val ast = LocalTextBoundMentionOps(tb).jsonAST replace
-        (List("type"), BioTextBoundMention.string) replace
-        (List("id"), tb.id)
+      val ast = super.jsonAST replace
+        (List("type"), BioTextBoundMention.string)
 
       ast merge (
         ("modifications" -> tb.modifications.jsonAST) ~
@@ -149,76 +105,15 @@ package object json {
         ("context" -> tb.contextOpt.map(_.jsonAST)) ~
         // usually just labels.head...
         ("displayLabel" -> tb.displayLabel)
-        )
-    }
-  }
-
-  implicit class LocalEventMentionOps(em: EventMention) extends JSONSerialization with Equivalency {
-
-    private def argsHash(args: Map[String, Seq[Mention]]): Int = {
-      import org.clulab.odin.serialization.json.MentionOps
-      // TODO: fix this
-
-      val argHashes = for {
-        (role, mns) <- args
-        bh = stringHash(s"role:$role")
-        hs = mns.map( _ => 5) // TODO _.equivalenceHash)
-      } yield mix(bh, unorderedHash(hs))
-      val h0 = stringHash("org.clulab.odin.Mention.arguments")
-      finalizeHash(h0, unorderedHash(argHashes))
-    }
-
-    val stringCode = s"org.clulab.odin.${EventMention.string}"
-
-    def equivalenceHash: Int = {
-      // the seed (not counted in the length of finalizeHash)
-      val h0 = stringHash(stringCode)
-      // labels
-      val h1 = mix(h0, em.labels.hashCode)
-      // interval.start
-      val h2 = mix(h1, em.tokenInterval.start)
-      // interval.end
-      val h3 = mix(h2, em.tokenInterval.end)
-      // sentence index
-      val h4 = mix(h3, em.sentence)
-      // document.equivalenceHash
-      val h5 = mix(h4, em.document.equivalenceHash)
-      // args
-      val h6 = mix(h5, argsHash(em.arguments))
-      // trigger
-      val h7 = mix(h6, TextBoundMentionOps(em.trigger).equivalenceHash)
-      finalizeHash(h7, 7)
-    }
-
-    override def id: String = s"${EventMention.shortString}:$equivalenceHash"
-
-    def jsonAST: JValue = {
-      ("type" -> EventMention.string) ~
-        // used for paths map
-        ("id" -> id) ~
-        ("text" -> em.text) ~
-        ("labels" -> em.labels) ~
-        ("trigger" -> "dean") ~ // em.trigger.jsonAST) ~ // TODO
-        ("arguments" -> argsAST(em.arguments)) ~
-        // paths are encoded as (arg name -> (mentionID -> path))
-        ("paths" -> pathsAST(em.paths)) ~
-        ("tokenInterval" -> Map("start" -> em.tokenInterval.start, "end" -> em.tokenInterval.end)) ~
-        ("characterStartOffset" -> em.startOffset) ~
-        ("characterEndOffset" -> em.endOffset) ~
-        ("sentence" -> em.sentence) ~
-        ("document" -> "brad") ~ // em.document.equivalenceHash.toString) ~
-        ("keep" -> em.keep) ~
-        ("foundBy" -> em.foundBy)
+      )
     }
   }
 
   implicit class BioEventMentionOps(em: BioEventMention) extends EventMentionOps(em) {
-    override def jsonAST: JValue = {
 
-      val ast = EventMentionOps(em).jsonAST replace
-        (List("type"), BioEventMention.string) replace
-        (List("id"), em.id) replace
-        (List("arguments"), argsAST(em.arguments))
+    override def jsonAST: JValue = {
+      val ast = super.jsonAST replace
+        (List("type"), BioEventMention.string)
 
       ast merge (
         ("modifications" -> em.modifications.jsonAST) ~
@@ -229,16 +124,15 @@ package object json {
         // usually just labels.head...
         ("displayLabel" -> em.displayLabel) ~
         ("isDirect" -> em.isDirect)
-        )
+      )
     }
   }
 
   implicit class BioRelationMentionOps(rm: BioRelationMention) extends RelationMentionOps(rm) {
-    override def jsonAST: JValue = {
 
-      val ast = RelationMentionOps(rm).jsonAST replace
+    override def jsonAST: JValue = {
+      val ast = super.jsonAST replace
         (List("type"), BioRelationMention.string) replace
-        (List("id"), rm.id) replace
         (List("arguments"), argsAST(rm.arguments))
 
       ast merge (
@@ -249,51 +143,47 @@ package object json {
         ("context" -> rm.contextOpt.map(_.jsonAST)) ~
         // usually just labels.head...
         ("displayLabel" -> rm.displayLabel)
-        )
+      )
     }
   }
 
   implicit class CorefTextBoundMentionOps(tb: CorefTextBoundMention) extends BioTextBoundMentionOps(tb) {
-    override def jsonAST: JValue = {
 
-      val ast = BioTextBoundMentionOps(tb).jsonAST replace
-        (List("type"), CorefTextBoundMention.string) replace
-        (List("id"), tb.id)
+    override def jsonAST: JValue = {
+      val ast = super.jsonAST replace
+        (List("type"), CorefTextBoundMention.string)
 
       ast merge (
         ("antecedents" -> tb.antecedents.jsonAST) ~
         ("sieves" -> tb.sieves.jsonAST)
-        )
+      )
     }
   }
 
   implicit class CorefEventMentionOps(em: CorefEventMention) extends BioEventMentionOps(em) {
-    override def jsonAST: JValue = {
 
-      val ast = BioEventMentionOps(em).jsonAST replace
+    override def jsonAST: JValue = {
+      val ast = super.jsonAST replace
         (List("type"), CorefEventMention.string) replace
-        (List("id"), em.id) replace
         (List("arguments"), argsAST(em.arguments))
 
       ast merge (
         ("antecedents" -> em.antecedents.jsonAST) ~
         ("sieves" -> em.sieves.jsonAST)
-        )
+      )
     }
   }
 
   implicit class CorefRelationMentionOps(rm: CorefRelationMention) extends BioRelationMentionOps(rm) {
     override def jsonAST: JValue = {
-
-      val ast = BioRelationMentionOps(rm).jsonAST replace
+      val ast = super.jsonAST replace
         (List("type"), CorefRelationMention.string) replace
-        (List("id"), rm.id) replace
         (List("arguments"), argsAST(rm.arguments))
 
       ast merge (
         ("antecedents" -> rm.antecedents.jsonAST) ~
         ("sieves" -> rm.sieves.jsonAST)
-        )
+      )
     }
   }
 
