@@ -94,8 +94,8 @@ package object json {
   implicit class BioTextBoundMentionOps(tb: BioTextBoundMention) extends TextBoundMentionOps(tb) {
 
     override def jsonAST: JValue = {
-      val ast = super.jsonAST replace
-        (List("type"), BioTextBoundMention.string)
+      val ast = super.jsonAST
+          .replace(List("type"), BioTextBoundMention.string)
 
       ast merge (
         ("modifications" -> tb.modifications.jsonAST) ~
@@ -111,9 +111,13 @@ package object json {
 
   implicit class BioEventMentionOps(em: BioEventMention) extends EventMentionOps(em) {
 
+    override def triggerJsonAST: JValue = mentionToJsonAST(em.trigger)
+
+    override def argumentsJsonAST: JObject = argsAST(em.arguments)
+
     override def jsonAST: JValue = {
-      val ast = super.jsonAST replace
-        (List("type"), BioEventMention.string)
+      val ast = super.jsonAST
+          .replace(List("type"), BioEventMention.string)
 
       ast merge (
         ("modifications" -> em.modifications.jsonAST) ~
@@ -130,10 +134,11 @@ package object json {
 
   implicit class BioRelationMentionOps(rm: BioRelationMention) extends RelationMentionOps(rm) {
 
+    override def argumentsJsonAST: JObject = argsAST(rm.arguments)
+
     override def jsonAST: JValue = {
-      val ast = super.jsonAST replace
-        (List("type"), BioRelationMention.string) replace
-        (List("arguments"), argsAST(rm.arguments))
+      val ast = super.jsonAST
+          .replace(List("type"), BioRelationMention.string)
 
       ast merge (
         ("modifications" -> rm.modifications.jsonAST) ~
@@ -150,8 +155,8 @@ package object json {
   implicit class CorefTextBoundMentionOps(tb: CorefTextBoundMention) extends BioTextBoundMentionOps(tb) {
 
     override def jsonAST: JValue = {
-      val ast = super.jsonAST replace
-        (List("type"), CorefTextBoundMention.string)
+      val ast = super.jsonAST
+          .replace(List("type"), CorefTextBoundMention.string)
 
       ast merge (
         ("antecedents" -> tb.antecedents.jsonAST) ~
@@ -163,9 +168,8 @@ package object json {
   implicit class CorefEventMentionOps(em: CorefEventMention) extends BioEventMentionOps(em) {
 
     override def jsonAST: JValue = {
-      val ast = super.jsonAST replace
-        (List("type"), CorefEventMention.string) replace
-        (List("arguments"), argsAST(em.arguments))
+      val ast = super.jsonAST
+          .replace(List("type"), CorefEventMention.string)
 
       ast merge (
         ("antecedents" -> em.antecedents.jsonAST) ~
@@ -175,10 +179,10 @@ package object json {
   }
 
   implicit class CorefRelationMentionOps(rm: CorefRelationMention) extends BioRelationMentionOps(rm) {
+
     override def jsonAST: JValue = {
-      val ast = super.jsonAST replace
-        (List("type"), CorefRelationMention.string) replace
-        (List("arguments"), argsAST(rm.arguments))
+      val ast = super.jsonAST
+          .replace(List("type"), CorefRelationMention.string)
 
       ast merge (
         ("antecedents" -> rm.antecedents.jsonAST) ~
