@@ -3,10 +3,8 @@ package org.clulab.reach.export.indexcards
 import java.io.File
 import java.util.Date
 import java.util.regex.Pattern
-
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
-
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin.Mention
 import org.clulab.reach.ReachConstants._
@@ -14,8 +12,8 @@ import org.clulab.reach.{FriesEntry, display}
 import org.clulab.reach.export.JsonOutputter._
 import org.clulab.reach.export.{JsonOutputter, OutputDegrader}
 import org.clulab.reach.grounding.KBResolution
-import org.clulab.reach.mentions._
-import org.clulab.reach.mentions.serialization.json.mentionToJSON
+import org.clulab.reach.mentions.{BioEventMention, CorefMention, Mutant, PTM, MentionOps => ImplicitMentionOps}
+import org.clulab.reach.mentions.serialization.json.{JSONSerializer, MentionOps}
 import org.clulab.reach.utils.MentionManager
 import IndexCardOutput._
 
@@ -173,7 +171,7 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
       case "amount" => mkSimpleEventIndexCard(mention, mention.label)
       case _ =>
         // "conversion" is one example of an eventType not handled.
-        val json = mentionToJSON(mention, pretty = true)
+        val json = MentionOps(mention).json(pretty = true)
         val message = s"""Event type "$eventType" is not supported for indexcard output:\n$json"""
         // throw new RuntimeException(message)
         logger.warn(message)
@@ -211,7 +209,7 @@ class IndexCardOutput extends JsonOutputter with LazyLogging {
       case "complex" => Some(new PropMapOrFrameList(mkComplexArgument(derefArg))) // FrameList
       case _ => {
         // "event" is a typical culprit.
-        val json = mentionToJSON(arg, pretty = true)
+        val json = MentionOps(arg).json(pretty = true)
         val message = s"""Argument type "$argType" is not supported for indexcard output:\n$json"""
         logger.warn(message)
         None
