@@ -3,14 +3,15 @@ package org.clulab.reach.mentions.serialization.json
 import org.clulab.odin.Mention
 import org.clulab.odin.serialization.json.{EventMentionOps, RelationMentionOps, TextBoundMentionOps}
 import org.clulab.odin.serialization.json.{MentionOps => OdinMentionOps}
+import org.clulab.reach.context.Context
 import org.clulab.reach.grounding.KBResolution
-import org.clulab.reach.mentions.{Anaphoric, BioEventMention, BioMention, BioRelationMention, BioTextBoundMention, CorefEventMention, CorefMention, CorefRelationMention, CorefTextBoundMention, Display, EventSite, Grounding, Modification, Modifications, Mutant, PTM, SimpleModification}
+import org.clulab.reach.mentions.{Anaphoric, BioEventMention, BioRelationMention, BioTextBoundMention, CorefEventMention, CorefMention, CorefRelationMention, CorefTextBoundMention, Display, EventSite, Grounding, Modification, Modifications, Mutant, PTM, SimpleModification}
 import org.clulab.serialization.json.JSONSerialization
 import org.json4s._
 import org.json4s.JsonDSL._
 import org.json4s.jackson._
+
 import ReachImplicits._
-import org.clulab.reach.context.Context
 
 object MentionOps {
   implicit val formats = org.json4s.DefaultFormats
@@ -36,11 +37,11 @@ object MentionsOps {
   def apply(mentions: Seq[Mention]): JSONSerialization = new SeqMentionOps(mentions)
 }
 
-//trait BioMention extends Mention with Modifications with Grounding with Display with Context
-//trait CorefMention extends Mention with Modifications with Grounding with Display with Context with Anaphoric
-
 trait BioMentionOps {
+  this: OdinMentionOps =>
+
   type BioMention = Modifications with Grounding with Display with Context
+  override def asMentionOps(mention: Mention): OdinMentionOps = MentionOps(mention)
 
   def bioJsonAST(bioMention: BioMention): JObject = {
     ("modifications" -> bioMention.modifications.jsonAST) ~
@@ -54,7 +55,6 @@ trait BioMentionOps {
 }
 
 class BioTextBoundMentionOps(tb: BioTextBoundMention) extends TextBoundMentionOps(tb) with BioMentionOps {
-  override def asMentionOps(mention: Mention): OdinMentionOps = MentionOps(mention)
 
   override def longString: String = BioTextBoundMentionOps.string
 
@@ -62,8 +62,6 @@ class BioTextBoundMentionOps(tb: BioTextBoundMention) extends TextBoundMentionOp
 }
 
 class BioEventMentionOps(em: BioEventMention) extends EventMentionOps(em) with BioMentionOps {
-
-  override def asMentionOps(mention: Mention): OdinMentionOps = MentionOps(mention)
 
   override def longString: String = BioEventMentionOps.string
 
@@ -73,7 +71,6 @@ class BioEventMentionOps(em: BioEventMention) extends EventMentionOps(em) with B
 }
 
 class BioRelationMentionOps(rm: BioRelationMention) extends RelationMentionOps(rm) with BioMentionOps {
-  override def asMentionOps(mention: Mention): OdinMentionOps = MentionOps(mention)
 
   override def longString: String = BioRelationMentionOps.string
 
