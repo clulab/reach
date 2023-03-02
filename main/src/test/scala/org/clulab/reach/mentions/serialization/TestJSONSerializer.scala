@@ -82,7 +82,7 @@ class TestJSONSerializer extends FlatSpec with Matchers {
   it should "produce identical json for a Seq[CorefMention] before and after serialization/deserialization" in {
     val json = MentionsOps(corefmentions).json(pretty = true)
     val rejson = MentionsOps(JSONSerializer.toCorefMentions(MentionsOps(corefmentions).jsonAST)).json(pretty = true)
-    rejson should equal (json) // This was not checked before.
+    rejson should equal (json) // This was not checked before and had been failing!
   }
 
   s"json for '$text'" should "be identical before and after serialization/deserialzation" in {

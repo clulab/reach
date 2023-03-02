@@ -4,15 +4,13 @@ import org.clulab.odin.Mention
 import org.clulab.odin.serialization.json.{EventMentionOps, RelationMentionOps, TextBoundMentionOps}
 import org.clulab.odin.serialization.json.{MentionOps => OdinMentionOps}
 import org.clulab.reach.grounding.KBResolution
-import org.clulab.reach.mentions.{Anaphoric, CorefMention, EventSite, Modification, Mutant, PTM, SimpleModification}
-import org.clulab.reach.mentions.{BioEventMention, BioRelationMention, BioTextBoundMention}
-import org.clulab.reach.mentions.{CorefEventMention, CorefRelationMention, CorefTextBoundMention}
+import org.clulab.reach.mentions.{Anaphoric, BioEventMention, BioMention, BioRelationMention, BioTextBoundMention, CorefEventMention, CorefMention, CorefRelationMention, CorefTextBoundMention, Display, EventSite, Grounding, Modification, Modifications, Mutant, PTM, SimpleModification}
 import org.clulab.serialization.json.JSONSerialization
 import org.json4s._
 import org.json4s.JsonDSL._
 import org.json4s.jackson._
-
 import ReachImplicits._
+import org.clulab.reach.context.Context
 
 object MentionOps {
   implicit val formats = org.json4s.DefaultFormats
@@ -38,103 +36,78 @@ object MentionsOps {
   def apply(mentions: Seq[Mention]): JSONSerialization = new SeqMentionOps(mentions)
 }
 
-class BioTextBoundMentionOps(tb: BioTextBoundMention) extends TextBoundMentionOps(tb) {
+//trait BioMention extends Mention with Modifications with Grounding with Display with Context
+//trait CorefMention extends Mention with Modifications with Grounding with Display with Context with Anaphoric
+
+trait BioMentionOps {
+  type BioMention = Modifications with Grounding with Display with Context
+
+  def bioJsonAST(bioMention: BioMention): JObject = {
+    ("modifications" -> bioMention.modifications.jsonAST) ~
+    // grounding is optional
+    ("grounding" -> bioMention.grounding.map(_.jsonAST)) ~
+    // context is optional
+    ("context" -> bioMention.contextOpt.map(_.jsonAST)) ~
+    // usually just labels.head...
+    ("displayLabel" -> bioMention.displayLabel)
+  }
+}
+
+class BioTextBoundMentionOps(tb: BioTextBoundMention) extends TextBoundMentionOps(tb) with BioMentionOps {
   override def asMentionOps(mention: Mention): OdinMentionOps = MentionOps(mention)
 
-  override def jsonAST: JValue = {
-    val ast = super.jsonAST
-        .replace(List("type"), BioTextBoundMentionOps.string)
+  override def longString: String = BioTextBoundMentionOps.string
 
-    ast merge (
-      ("modifications" -> tb.modifications.jsonAST) ~
-      // grounding is optional
-      ("grounding" -> tb.grounding.map(_.jsonAST)) ~
-      // context is optional
-      ("context" -> tb.contextOpt.map(_.jsonAST)) ~
-      // usually just labels.head...
-      ("displayLabel" -> tb.displayLabel)
-    )
-  }
+  override def jsonAST: JValue = super.jsonAST.merge(bioJsonAST(tb))
 }
 
-class BioEventMentionOps(em: BioEventMention) extends EventMentionOps(em) {
+class BioEventMentionOps(em: BioEventMention) extends EventMentionOps(em) with BioMentionOps {
+
   override def asMentionOps(mention: Mention): OdinMentionOps = MentionOps(mention)
 
-  override def jsonAST: JValue = {
-    if (em.text == "MEK activates K-RAS")
-      println("Here it is!")
-    val ast = super.jsonAST
-        .replace(List("type"), BioEventMentionOps.string)
+  override def longString: String = BioEventMentionOps.string
 
-    ast merge (
-      ("modifications" -> em.modifications.jsonAST) ~
-      // grounding is optional
-      ("grounding" -> em.grounding.map(_.jsonAST)) ~
-      // context is optional
-      ("context" -> em.contextOpt.map(_.jsonAST)) ~
-      // usually just labels.head...
-      ("displayLabel" -> em.displayLabel) ~
-      ("isDirect" -> em.isDirect)
-    )
-  }
+  override def jsonAST: JValue = super.jsonAST
+      .merge(bioJsonAST(em))
+      .merge(JObject(List(JField("isDirect", em.isDirect))))
 }
 
-class BioRelationMentionOps(rm: BioRelationMention) extends RelationMentionOps(rm) {
+class BioRelationMentionOps(rm: BioRelationMention) extends RelationMentionOps(rm) with BioMentionOps {
   override def asMentionOps(mention: Mention): OdinMentionOps = MentionOps(mention)
 
-  override def jsonAST: JValue = {
-    val ast = super.jsonAST
-        .replace(List("type"), BioRelationMentionOps.string)
+  override def longString: String = BioRelationMentionOps.string
 
-    ast merge (
-      ("modifications" -> rm.modifications.jsonAST) ~
-      // grounding is optional
-      ("grounding" -> rm.grounding.map(_.jsonAST)) ~
-      // context is optional
-      ("context" -> rm.contextOpt.map(_.jsonAST)) ~
-      // usually just labels.head...
-      ("displayLabel" -> rm.displayLabel)
-    )
+  override def jsonAST: JValue = super.jsonAST.merge(bioJsonAST(rm))
+}
+
+trait CorefMentionOps {
+  type CorefMention = Modifications with Grounding with Display with Context with Anaphoric
+
+  def corefJsonAST(corefMention: CorefMention): JObject = {
+    ("antecedents" -> corefMention.antecedents.jsonAST) ~
+    ("sieves" -> corefMention.sieves.jsonAST)
   }
 }
 
-class CorefTextBoundMentionOps(tb: CorefTextBoundMention) extends BioTextBoundMentionOps(tb) {
+class CorefTextBoundMentionOps(tb: CorefTextBoundMention) extends BioTextBoundMentionOps(tb) with CorefMentionOps {
 
-  override def jsonAST: JValue = {
-    val ast = super.jsonAST
-        .replace(List("type"), CorefTextBoundMentionOps.string)
+  override def longString: String = CorefTextBoundMentionOps.string
 
-    ast merge (
-      ("antecedents" -> tb.antecedents.jsonAST) ~
-      ("sieves" -> tb.sieves.jsonAST)
-    )
-  }
+  override def jsonAST: JValue = super.jsonAST.merge(corefJsonAST(tb))
 }
 
-class CorefEventMentionOps(em: CorefEventMention) extends BioEventMentionOps(em) {
+class CorefEventMentionOps(em: CorefEventMention) extends BioEventMentionOps(em) with CorefMentionOps {
 
-  override def jsonAST: JValue = {
-    val ast = super.jsonAST
-        .replace(List("type"), CorefEventMentionOps.string)
+  override def longString: String = CorefEventMentionOps.string
 
-    ast merge (
-      ("antecedents" -> em.antecedents.jsonAST) ~
-      ("sieves" -> em.sieves.jsonAST)
-    )
-  }
+  override def jsonAST: JValue = super.jsonAST.merge(corefJsonAST(em))
 }
 
-class CorefRelationMentionOps(rm: CorefRelationMention) extends BioRelationMentionOps(rm) {
+class CorefRelationMentionOps(rm: CorefRelationMention) extends BioRelationMentionOps(rm) with CorefMentionOps {
 
-  override def jsonAST: JValue = {
-    val ast = super.jsonAST
-        .replace(List("type"), CorefRelationMentionOps.string)
+  override def longString: String = CorefRelationMentionOps.string
 
-    ast merge (
-      ("antecedents" -> rm.antecedents.jsonAST) ~
-      ("sieves" -> rm.sieves.jsonAST)
-    )
-  }
+  override def jsonAST: JValue = super.jsonAST.merge(corefJsonAST(rm))
 }
 
 object ReachImplicits {
@@ -209,30 +182,24 @@ object ReachImplicits {
 
 object BioTextBoundMentionOps {
   val string = "BioTextBoundMention"
-  val shortString = "T"
 }
 
 object BioEventMentionOps {
   val string = "BioEventMention"
-  val shortString = "E"
 }
 
 object BioRelationMentionOps {
   val string = "BioRelationMention"
-  val shortString = "R"
 }
 
 object CorefTextBoundMentionOps {
   val string = "CorefTextBoundMention"
-  val shortString = "T"
 }
 
 object CorefEventMentionOps {
   val string = "CorefEventMention"
-  val shortString = "E"
 }
 
 object CorefRelationMentionOps {
   val string = "CorefRelationMention"
-  val shortString = "R"
 }

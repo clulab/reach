@@ -444,9 +444,9 @@ object JSONSerializer extends LazyLogging {
     case JString(BioEventMentionOps.string) => Some(toBioMention(mjson, docMap))
     case JString(BioRelationMentionOps.string) => Some(toBioMention(mjson, docMap))
     // Mentions
-    case JString(org.clulab.odin.serialization.json.TextBoundMention.string) => Some(OdinJSONSerializer.toMention(mjson, docMap))
-    case JString(org.clulab.odin.serialization.json.EventMention.string) => Some(OdinJSONSerializer.toMention(mjson, docMap))
-    case JString(org.clulab.odin.serialization.json.RelationMention.string) => Some(OdinJSONSerializer.toMention(mjson, docMap))
+    case JString(org.clulab.odin.serialization.json.TextBoundMentionOps.string) => Some(OdinJSONSerializer.toMention(mjson, docMap))
+    case JString(org.clulab.odin.serialization.json.EventMentionOps.string) => Some(OdinJSONSerializer.toMention(mjson, docMap))
+    case JString(org.clulab.odin.serialization.json.RelationMentionOps.string) => Some(OdinJSONSerializer.toMention(mjson, docMap))
     // failure
     case _ => None
   }
