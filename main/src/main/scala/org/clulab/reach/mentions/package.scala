@@ -25,9 +25,9 @@ package object mentions {
       case m: EventMention =>
         new BioEventMention(
           m.labels,
-          m.trigger, // TODO keith .toBioMention.asInstanceOf[BioTextBoundMention],
+          m.trigger.toBioMention.asInstanceOf[BioTextBoundMention],
           convertArguments(m.arguments),
-          m.paths,
+          m.paths, // TODO: these paths should be converted as well
           m.sentence,
           m.document,
           m.keep,
@@ -37,7 +37,7 @@ package object mentions {
         new BioRelationMention(
           m.labels,
           convertArguments(m.arguments),
-          m.paths,
+          m.paths, // TODO: these paths should be converted as well
           m.sentence,
           m.document,
           m.keep,
@@ -62,9 +62,9 @@ package object mentions {
       case m: BioEventMention => {
         val ev = new CorefEventMention(
           m.labels,
-          m.trigger, // TODO keith.toCorefMention.asInstanceOf[CorefTextBoundMention],
+          m.trigger.toCorefMention.asInstanceOf[CorefTextBoundMention],
           corefArguments(m.arguments),
-          m.paths,
+          m.paths, // TODO: these paths should be converted as well
           m.sentence,
           m.document,
           m.keep,
