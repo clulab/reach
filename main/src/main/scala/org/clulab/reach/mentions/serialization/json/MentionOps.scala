@@ -41,6 +41,11 @@ trait BioMentionOps {
   this: OdinMentionOps =>
 
   type BioMention = Modifications with Grounding with Display with Context
+
+  // The mention is accessible through the OdinMentionOps which records it as a val.
+  override lazy val documentEquivalenceHash: Int = EquivalencyHashes.get(mention.document)
+  override val stringCode = s"org.clulab.odin.$longString"
+
   override def asMentionOps(mention: Mention): OdinMentionOps = MentionOps(mention)
 
   def bioJsonAST(bioMention: BioMention): JObject = {

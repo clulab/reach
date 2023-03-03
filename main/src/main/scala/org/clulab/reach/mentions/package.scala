@@ -25,7 +25,7 @@ package object mentions {
       case m: EventMention =>
         new BioEventMention(
           m.labels,
-          m.trigger.toBioMention.asInstanceOf[BioTextBoundMention],
+          m.trigger, // TODO keith .toBioMention.asInstanceOf[BioTextBoundMention],
           convertArguments(m.arguments),
           m.paths,
           m.sentence,
@@ -62,7 +62,7 @@ package object mentions {
       case m: BioEventMention => {
         val ev = new CorefEventMention(
           m.labels,
-          m.trigger.toCorefMention.asInstanceOf[CorefTextBoundMention],
+          m.trigger, // TODO keith.toCorefMention.asInstanceOf[CorefTextBoundMention],
           corefArguments(m.arguments),
           m.paths,
           m.sentence,
