@@ -4,15 +4,17 @@ import org.clulab.processors.Document
 import org.clulab.reach.assembly.relations.classifier.AssemblyRelationClassifier
 import org.clulab.reach.assembly.sieves.Constraints
 import org.clulab.reach.mentions.CorefMention
-import org.clulab.reach.mentions.serialization.json.{MentionJSONOps, REACHMentionSeq, JSONSerializer}
+import org.clulab.reach.mentions.serialization.json.{JSONSerializer, MentionOps, MentionsOps}
 import org.clulab.serialization.json.JSONSerialization
 import org.json4s.jackson.JsonMethods._
 import org.json4s.JsonDSL._
 import org.json4s._
+
 import scala.util.hashing.MurmurHash3._
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.FileUtils.forceMkdir
 import ai.lum.common.FileUtils._
+
 import java.io.File
 
 
@@ -44,8 +46,8 @@ case class EventPair(
     // the seed (not counted in the length of finalizeHash)
     val h0 = stringHash("org.clulab.assembly.TrainingInstance")
     // get hashes for each event
-    val h1 = mix(h0, e1.equivalenceHash)
-    val h2 = mix(h1, e2.equivalenceHash)
+    val h1 = mix(h0, MentionOps(e1).equivalenceHash)
+    val h2 = mix(h1, MentionOps(e2).equivalenceHash)
     // is it cross-sentence?
     val h3 = mix(h2, isCrossSentence.hashCode)
     // the text of the sentences containing the two event mentions
@@ -66,34 +68,37 @@ case class EventPair(
 
 
   def jsonAST: JValue = {
+    val e1EventOps = new EventOps(e1)
+    val e2EventOps = new EventOps(e2)
+
     // build json
     ("id" -> this.equivalenceHash) ~
     ("text" -> this.text) ~
     ("coref" -> this.coref) ~
     // event 1
-    ("e1-id" -> this.e1.id) ~
-    ("e1-label" -> this.e1.eventLabel) ~
-    ("e1-sentence-text" -> this.e1.sentenceText) ~
+    ("e1-id" -> MentionOps(this.e1).id) ~
+    ("e1-label" -> e1EventOps.eventLabel) ~
+    ("e1-sentence-text" -> e1EventOps.sentenceText) ~
     ("e1-sentence-index" -> this.e1.sentence) ~
     ("e1-sentence-tokens" -> this.e1.sentenceObj.words.toList) ~
     // can be used to highlight event span in annotation UI
     ("e1-start" -> this.e1.start) ~
     ("e1-end" -> this.e1.end) ~
-    ("e1-trigger" -> this.e1.trigger.text) ~
-    ("e1-trigger-start" -> this.e1.trigger.start) ~
-    ("e1-trigger-end" -> this.e1.trigger.end) ~
+    ("e1-trigger" -> e1EventOps.trigger.text) ~
+    ("e1-trigger-start" -> e1EventOps.trigger.start) ~
+    ("e1-trigger-end" -> e1EventOps.trigger.end) ~
     // event 2
-    ("e2-id" -> this.e2.id) ~
-    ("e2-label" -> this.e2.eventLabel) ~
-    ("e2-sentence-text" -> this.e2.sentenceText) ~
+    ("e2-id" -> MentionOps(this.e2).id) ~
+    ("e2-label" -> e2EventOps.eventLabel) ~
+    ("e2-sentence-text" -> e2EventOps.sentenceText) ~
     ("e2-sentence-index" -> this.e2.sentence) ~
     ("e2-sentence-tokens" -> this.e2.sentenceObj.words.toList) ~
     // can be used to highlight event span in annotation UI
     ("e2-start" -> this.e2.start) ~
     ("e2-end" -> this.e2.end) ~
-    ("e2-trigger" -> this.e2.trigger.text) ~
-    ("e2-trigger-start" -> this.e2.trigger.start) ~
-    ("e2-trigger-end" -> this.e2.trigger.end) ~
+    ("e2-trigger" -> e2EventOps.trigger.text) ~
+    ("e2-trigger-start" -> e2EventOps.trigger.start) ~
+    ("e2-trigger-end" -> e2EventOps.trigger.end) ~
     // these will be filled out during annotation
     ("annotator-id" -> this.annotatorID) ~
     ("relation" -> this.relation) ~
@@ -155,7 +160,7 @@ case class Corpus(instances: Seq[EventPair]) extends JSONSerialization {
     // for each doc, write doc + mentions to a json file
     for ((paperID, cms) <- dmLUT) {
       val of = new File(mentionDataDir, s"$paperID-mention-data.json")
-      of.writeString(cms.json(pretty), java.nio.charset.StandardCharsets.UTF_8)
+      of.writeString(MentionsOps(cms).json(pretty), java.nio.charset.StandardCharsets.UTF_8)
     }
     // write event pair info to json file
     val epf = new File(corpusDir, s"${Corpus.EVENT_PAIRS}.json")
