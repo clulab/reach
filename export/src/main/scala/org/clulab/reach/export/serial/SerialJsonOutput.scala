@@ -3,19 +3,16 @@ package org.clulab.reach.export.serial
 import java.io.File
 import java.util.Date
 import java.util.regex.Pattern
-
 import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets.UTF_8
-
 import ai.lum.common.FileUtils._
-
 import com.typesafe.scalalogging.LazyLogging
-
 import org.clulab.odin.Mention
+import org.clulab.processors.Document
 import org.clulab.reach.FriesEntry
 import org.clulab.reach.export.JsonOutputter
 import org.clulab.reach.mentions.{MentionOps => ImplicitMentionOps}
-import org.clulab.reach.mentions.serialization.json.MentionsOps
+import org.clulab.reach.mentions.serialization.json.{EquivalenceHashes, MentionsOps}
 
 /**
   * Defines classes and methods used to output the serial-json output format.
@@ -42,6 +39,16 @@ class SerialJsonOutput (
     MentionsOps(mentions).json(true)                     // true = pretty print
   }
 
+  def withDocument[T](documentOpt: Option[Document])(f: => T) = {
+    try {
+      f
+    }
+    finally {
+      documentOpt.foreach(EquivalenceHashes.remove)
+    }
+  }
+
+
   /**
    * Writes the given mentions to an output file in Mention-JSON format.
    * The output file is prefixed with the given prefix string.
@@ -56,13 +63,25 @@ class SerialJsonOutput (
   ): Unit = {
     val f: File = new File(outFilePrefix + ".json")
     val mentions = allMentions.map(_.toCorefMention)
+    // The mentions are all going to a single file, so they should all have originated
+    // with the same single document.  Verify this and then make sure the document's
+    // equivalency hash gets removed from the cache so that they don't pile up.
+    val documentOpt =
+        if (mentions.isEmpty) None
+        else {
+          val document = mentions.head.document
 
-    f.writeString(
-      string = MentionsOps(mentions).json(true),
-      charset = encoding, 
-      append = false, 
-      gzipSupport = false
-    )
+          require(mentions.forall(_.document.eq(document)))
+          Some(document)
+        }
+
+    withDocument(documentOpt) {
+      f.writeString(
+        string = MentionsOps(mentions).json(true),
+        charset = encoding,
+        append = false,
+        gzipSupport = false
+      )
+    }
   }
-
 }

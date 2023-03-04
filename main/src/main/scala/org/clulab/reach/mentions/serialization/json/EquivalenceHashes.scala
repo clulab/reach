@@ -7,7 +7,7 @@ import java.util
 object EquivalenceHashes {
   protected val equivalenceHashes: util.IdentityHashMap[Document, Int] = new util.IdentityHashMap[Document, Int]()
 
-  def get(document: Document): Int = {
+  def get(document: Document): Int = synchronized {
     if (equivalenceHashes.containsKey(document))
       equivalenceHashes.get(document)
     else {
@@ -18,11 +18,7 @@ object EquivalenceHashes {
     }
   }
 
-  def remove(document: Document): Option[Int] = {
+  def remove(document: Document): Option[Int] = synchronized {
     Option(equivalenceHashes.remove(document))
-  }
-
-  def clear(): Unit = {
-    equivalenceHashes.clear()
   }
 }
