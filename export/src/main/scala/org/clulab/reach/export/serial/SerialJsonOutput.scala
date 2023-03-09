@@ -2,20 +2,15 @@ package org.clulab.reach.export.serial
 
 import java.io.File
 import java.util.Date
-import java.util.regex.Pattern
-
 import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets.UTF_8
-
 import ai.lum.common.FileUtils._
-
 import com.typesafe.scalalogging.LazyLogging
-
 import org.clulab.odin.Mention
 import org.clulab.reach.FriesEntry
 import org.clulab.reach.export.JsonOutputter
-import org.clulab.reach.mentions._
-import org.clulab.reach.mentions.serialization.json._
+import org.clulab.reach.mentions.{MentionOps => ImplicitMentionOps}
+import org.clulab.reach.mentions.serialization.json.MentionsOps
 
 /**
   * Defines classes and methods used to output the serial-json output format.
@@ -39,7 +34,7 @@ class SerialJsonOutput (
     outFilePrefix:String
   ): String = {
     val mentions = allMentions.map(_.toCorefMention)
-    mentions.json(true)                     // true = pretty print
+    MentionsOps(mentions).json(pretty = true)
   }
 
   /**
@@ -58,11 +53,10 @@ class SerialJsonOutput (
     val mentions = allMentions.map(_.toCorefMention)
 
     f.writeString(
-      string = mentions.json(true), 
-      charset = encoding, 
-      append = false, 
+      string = MentionsOps(mentions).json(true),
+      charset = encoding,
+      append = false,
       gzipSupport = false
     )
   }
-
 }

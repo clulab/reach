@@ -11,6 +11,8 @@ import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets.UTF_8
 import ai.lum.common.FileUtils._
 import ai.lum.common.ConfigUtils._
+import org.clulab.reach.mentions.serialization.json.EquivalenceHashes
+import org.clulab.utils.Timer
 //import jline.internal.InputStreamReader
 import org.clulab.odin._
 import org.clulab.processors.Document
@@ -116,21 +118,51 @@ class ReachCLI (
 
     logger.debug(s"  ${ durationToS(startNS, System.nanoTime) }s: $paperId: finished reading")
 
+    // The mentions come from a single file, so they should all have originated
+    // with the same single document.  Verify this and then make sure the document's
+    // equivalency hash gets added and removed from the cache.
+    def withDocument[T](mentions: Seq[Mention])(f: => T): T = {
+      val documentOpt =
+          if (mentions.isEmpty) None
+          else {
+            val document = mentions.head.document
+
+            require(mentions.forall(_.document.eq(document)))
+            Some(document)
+          }
+
+      try {
+        documentOpt.foreach(EquivalenceHashes.get)
+
+        val timer = new Timer("ReachCLI")
+        val result = timer.time {
+          f
+        }
+        println(s"Time to output ${file.getName} is ${timer.elapsedToString()}.")
+        result
+      }
+      finally {
+        documentOpt.foreach(EquivalenceHashes.remove)
+      }
+    }
+
     // generate outputs
     // NOTE: Assembly can't be run before calling this method without additional refactoring,
     // as different output formats apply different filters before running assembly
-    val errorCount = outputFormats
-      .map { outputFormat =>
-        try {
-          outputMentions(mentions, entry, paperId, startTime, outputDir, outputFormat, withAssembly)
-          0
-        }
-        catch {
-          case throwable: Throwable =>
-            reportException(file, throwable)
-            1
-        }
-      }.sum
+    val errorCount = withDocument(mentions) {
+      outputFormats
+        .map { outputFormat =>
+          try {
+            outputMentions(mentions, entry, paperId, startTime, outputDir, outputFormat, withAssembly)
+            0
+          }
+          catch {
+            case throwable: Throwable =>
+              reportException(file, throwable)
+              1
+          }
+        }.sum
+    }
 
     // elapsed time: processing + writing output
     val endTime = ReachCLI.now
