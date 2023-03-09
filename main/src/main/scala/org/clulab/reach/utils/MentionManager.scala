@@ -82,7 +82,7 @@ class MentionManager {
   // Private Methods
   //
 
-  private def computeHash (mention:Mention): Int = {
+  def computeHash(mention: Mention): Int = {
     // val hash = computeHash(mention, symmetricSeed)
     // return finalize(hash)
     computeHash(mention, symmetricSeed)

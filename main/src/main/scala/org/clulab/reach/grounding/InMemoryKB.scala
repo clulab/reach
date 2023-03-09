@@ -211,7 +211,7 @@ object InMemoryKB {
     *   Written by: Tom Hicks. 10/25/2015.
     *   Last Modified: Limit the scope of the KBEntry class by embedding it in IMKB.
     */
-  private class KBEntry (
+  class KBEntry (
 
     /** Text for this entry, loaded from the external KB. */
     val text: String,
