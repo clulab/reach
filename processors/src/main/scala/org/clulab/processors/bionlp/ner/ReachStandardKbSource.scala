@@ -6,6 +6,7 @@ import org.clulab.processors.bionlp.ner.KBGenerator.logger
 import org.clulab.processors.bionlp.ner.KBGenerator.tokenizeResourceLine
 import org.clulab.processors.clu.tokenizer.Tokenizer
 import org.clulab.sequences.StandardKbSource
+import org.clulab.utils.Closer.AutoCloser
 import org.clulab.utils.Files
 import org.clulab.utils.Serializer
 
@@ -54,7 +55,7 @@ class ReachSingleStandardKbSource(kbEntry: KBEntry, caseInsensitiveMatching: Boo
         )
       )
 
-    Serializer.using(bufferedReader) { bufferedReader =>
+    bufferedReader.autoClose { bufferedReader =>
       bufferedReader.lines.forEach(consumer)
     }
     logger.info(s"Done. Read ${consumer.lineCount} lines from ${new File(kbEntry.path).getName}")

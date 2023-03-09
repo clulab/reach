@@ -2,11 +2,11 @@ package org.clulab.reach.utils
 
 import java.io._
 import scala.collection.mutable.MutableList
-import scala.util.hashing.MurmurHash3._
 import org.clulab.odin._
 import org.clulab.processors.Document
 import org.clulab.reach.context._
 import org.clulab.reach.mentions._
+import org.clulab.utils.Hash
 
 
 /**
@@ -85,26 +85,33 @@ class MentionManager {
   def computeHash(mention: Mention): Int = {
     // val hash = computeHash(mention, symmetricSeed)
     // return finalize(hash)
-    computeHash(mention, symmetricSeed)
+    computeHash(mention, Hash.symmetricSeed)
   }
 
-  private def computeHash (mention:Mention, hash:Int): Int = {
+  private def computeHash(mention: Mention, hash: Int): Int = {
     mention match {
       case mention: TextBoundMention =>
-        mix(hash, stringHash("TEXT" + mention.label + mention.text))
+        val h1 = Hash.mix(hash, Hash("TEXT" + mention.label + mention.text))
+        h1
       case mention: EventMention =>
-        val h1 = mix(hash, stringHash("EVENT" + mention.label))
-        mix(h1, unorderedHash(mention.arguments.filterNot(ignoreArg).map(computeHash(_,0))))
+        val h1 = Hash.mix(hash, Hash("EVENT" + mention.label))
+        // TODO: This appears to leave out the argument keys.  See also Mention.argsHash().
+        val h2 = mention.arguments.filterNot(ignoreArg).map(computeHash(_, 0))
+        Hash.mix(h1, Hash.unordered(h2))
       case mention: RelationMention =>
-        val h1 = mix(hash, stringHash("EVENT" + mention.label))
-        mix(h1, unorderedHash(mention.arguments.filterNot(ignoreArg).map(computeHash(_,0))))
+        val h1 = Hash.mix(hash, Hash("EVENT" + mention.label))
+        // TODO: This appears to leave out the argument keys.  See also Mention.argsHash().
+        val h2 = mention.arguments.filterNot(ignoreArg).map(computeHash(_, 0))
+        Hash.mix(h1, Hash.unordered(h2))
       case _ => 0
     }
   }
 
-  private def computeHash (entry:Tuple2[String,Seq[Mention]], hash:Int): Int = {
-    mix(mix(hash, stringHash(entry._1)),             // add argument name (key) to hash
-        orderedHash(entry._2.map(computeHash(_,0)))) // recursively add mentions of this argument
+  private def computeHash(entry: (String, Seq[Mention]), hash: Int): Int = {
+    Hash.mix(
+      Hash.mix(hash, Hash(entry._1)), // add argument name (key) to hash
+      Hash.ordered(entry._2.map(computeHash(_, 0))) // recursively add mentions of this argument
+    )
   }
 
   /** Filter to decide which mention arguments to ignore. */
