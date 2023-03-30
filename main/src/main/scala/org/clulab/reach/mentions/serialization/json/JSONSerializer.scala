@@ -161,20 +161,29 @@ object JSONSerializer extends LazyLogging {
     toCorefMentionsMap(json: JValue).values.toSeq
   }
 
+  def toCorefMentions2(json: JValue): Seq[CorefMention] = {
+    val idsAndMentions = toCorefIdsAndMentions(json)
+    val mentions = idsAndMentions.map(_._2)
+
+    mentions
+  }
+
   /** Produce a Map of id -> mentions from a json file */
   def toCorefMentionsMap(file: File): Map[String, CorefMention] = toCorefMentionsMap(jsonAST(file))
   
   /** Produce a Map of id -> mentions from json */
-  def toCorefMentionsMap(json: JValue): Map[String, CorefMention] = {
+  def toCorefMentionsMap(json: JValue): Map[String, CorefMention] = toCorefIdsAndMentions(json).toMap
 
+  def toCorefIdsAndMentions(json: JValue): Seq[(String, CorefMention)] = {
     require(json \ "documents" != JNothing, "\"documents\" key missing from json")
     require(json \ "mentions" != JNothing, "\"mentions\" key missing from json")
 
     // build the documents once
     val docMap = OdinJSONSerializer.mkDocumentMap((json \ "documents").asInstanceOf[JObject])
     val mmjson = (json \ "mentions").asInstanceOf[JArray]
+    val idsAndMentions = mmjson.arr.map(mjson => toCorefMentionWithId(mjson, docMap))
 
-    mmjson.arr.map(mjson => toCorefMentionWithId(mjson, docMap)).toMap
+    idsAndMentions
   }
 
   /** Build mention from json of mention and corresponding json map of documents <br>
@@ -241,6 +250,9 @@ object JSONSerializer extends LazyLogging {
       case other => toMentionByType(mjson, docMap).get.toCorefMention
     }
 
+    val antecedentsOpt = (mjson \ "antecedents").extractOpt[JArray]
+    if (antecedentsOpt.nonEmpty)
+      println("How can these be read in!")
     m.antecedents = toAntecedents(mjson, docMap)
     m.sieves = (mjson \ "sieves").extract[Set[String]]
 
@@ -266,11 +278,21 @@ object JSONSerializer extends LazyLogging {
   private def toAntecedents(mjson: JValue, docMap: Map[String, Document]): Set[Anaphoric] = mjson \ "antecedents" match {
     case JNothing => Set.empty[Anaphoric]
     case antecedents =>
-      antecedents
-        .asInstanceOf[JArray]
-        .arr
-        .map(mjson => toCorefMention(mjson, docMap)).map(_.toCorefMention)
-        .toSet
+      val arr = antecedents.asInstanceOf[JArray].arr
+      val ids = arr.map { elem => (elem \ "id").extract[String] }
+      if (ids.contains("T:-401089887") || ids.contains("T:-463773910"))
+        println("It's about to happen")
+      val list = arr.map(mjson => toCorefMention(mjson, docMap))
+      val listLength = list.length
+      val next = list.map(_.toCorefMention)
+      val nextLength = next.length
+      val set: Set[Anaphoric] = next.toSet
+      val setLength = set.size
+
+      if (listLength != nextLength || listLength != setLength)
+        println("This isn't supposed to happen!")
+
+      set
   }
 
   private def toModifications(mjson: JValue, docMap: Map[String, Document]): Set[Modification] = mjson \ "modifications" match {

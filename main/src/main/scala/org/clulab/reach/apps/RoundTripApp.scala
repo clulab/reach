@@ -37,7 +37,7 @@ object RoundTripApp extends App {
 
     val json = MentionsOps(mentions).json(pretty = true)
 
-    val mentions2 = JSONSerializer.toCorefMentions(parse(json))
+    val mentions2 = JSONSerializer.toCorefMentions2(parse(json))
     val json2 = MentionsOps(mentions2).json(pretty = true)
     val result = json == json2
 

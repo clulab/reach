@@ -147,7 +147,11 @@ object ReachImplicits {
 
   implicit class ModificationsOps(mods: Set[Modification]) extends JSONSerialization {
     def jsonAST: JValue = mods match {
-      case hasMods if hasMods.nonEmpty => hasMods.map(_.jsonAST).toList
+      case hasMods if hasMods.nonEmpty =>
+        val sortedMods = hasMods.toSeq.sortBy(_.label)
+        val jValue = sortedMods.toList.map(_.jsonAST)
+
+        JArray(jValue)
       case _ => JNothing
     }
   }
@@ -164,21 +168,33 @@ object ReachImplicits {
 
   implicit class ContextOps(context: Map[String, Seq[String]]) extends JSONSerialization {
     def jsonAST: JValue = context match {
-      case hasContext if hasContext.nonEmpty => hasContext
+      case hasContext if hasContext.nonEmpty =>
+        val sortedContext = context.toSeq.sortBy(_._1).toList
+        val mappedContext = sortedContext.map { case (key, value) => key -> JArray(value.toList.map(JString)) }
+
+        JObject(mappedContext)
       case _ => JNothing
     }
   }
 
   implicit class AnaphoricOps(antecedents: Set[Anaphoric]) extends JSONSerialization {
     def jsonAST: JValue = antecedents match {
-      case hasAntecedents if hasAntecedents.nonEmpty => hasAntecedents.map(m => MentionOps(m.asInstanceOf[CorefMention]).jsonAST)
+      case hasAntecedents if hasAntecedents.nonEmpty =>
+        val sortedCorefMentions = hasAntecedents.toSeq.map(_.asInstanceOf[CorefMention]).sorted(OdinMentionOps.mentionOrdering)
+        val jValues = sortedCorefMentions.toList.map(MentionOps(_).jsonAST)
+
+        JArray(jValues)
       case _ => JNothing
     }
   }
 
   implicit class StringSetOps(ss: Set[String]) extends JSONSerialization {
     def jsonAST: JValue = ss match {
-      case contents if contents.nonEmpty => contents
+      case contents if contents.nonEmpty =>
+        val sortedStrings = ss.toSeq.sorted
+        val jValues = sortedStrings.toList.map(JString)
+
+        JArray(jValues)
       case _ => JNothing
     }
   }
