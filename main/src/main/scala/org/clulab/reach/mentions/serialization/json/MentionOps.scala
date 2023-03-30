@@ -118,7 +118,7 @@ object ReachImplicits {
 
   implicit class SeqMentionOps(mentions: Seq[Mention]) extends JSONSerialization {
 
-    def jsonAST: JValue = JSONSerializer.jsonAST(mentions)
+    def jsonAST: JValue = JSONSerializer.jsonAST(mentions.sorted(OdinMentionOps.mentionOrdering))
   }
 
   implicit class ModificationOps(mod: Modification) extends JSONSerialization {
