@@ -14,6 +14,8 @@ object RoundTripApp extends App {
   def testProcessorsSerialization(mentions: Seq[Mention]): Boolean = {
     import org.clulab.odin.serialization.json.JSONSerializer
 
+    val sortedMentions = mentions.sorted(org.clulab.odin.serialization.json.MentionOps.mentionOrdering)
+
     val jValue = JSONSerializer.jsonAST(mentions)
     val json = stringify(jValue, pretty = true)
 

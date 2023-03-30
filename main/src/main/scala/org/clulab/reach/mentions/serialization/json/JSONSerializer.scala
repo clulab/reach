@@ -51,6 +51,7 @@ object JSONSerializer extends LazyLogging {
   def jsonAST(mentions: Seq[Mention]): JValue = {
 
     val mentionList: List[JValue] = mentions.zipWithIndex.map { case (mention, index) =>
+      println(s"Serializing mention $index.")
       MentionOps(mention).jsonAST
     }.toList
     val docMap: Map[String, JValue] = mentionsToDocsJMap(mentions)
