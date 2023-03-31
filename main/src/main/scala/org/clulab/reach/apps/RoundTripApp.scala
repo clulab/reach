@@ -14,8 +14,6 @@ object RoundTripApp extends App {
   def testProcessorsSerialization(mentions: Seq[Mention]): Boolean = {
     import org.clulab.odin.serialization.json.JSONSerializer
 
-    val sortedMentions = mentions.sorted(org.clulab.odin.serialization.json.MentionOps.mentionOrdering)
-
     val jValue = JSONSerializer.jsonAST(mentions)
     val json = stringify(jValue, pretty = true)
 
@@ -24,11 +22,8 @@ object RoundTripApp extends App {
     val json2 = stringify(jValue2, pretty = true)
     val result = json == json2
 
-    if (json != json2) {
+    if (!result)
       println("Processors mentions are not equal!  Do something about it!")
-      println(json)
-      println(json2)
-    }
     result
   }
 
@@ -41,19 +36,25 @@ object RoundTripApp extends App {
     val json2 = MentionsOps(mentions2).json(pretty = true)
     val result = json == json2
 
-    if (json != json2) {
+    if (!result)
       println("Reach mentions are not equal!  Do something about it!")
-      println(json)
-      println(json2)
-    }
     result
   }
 
-  files.foreach { file =>
+  var failCount = 0
+
+  files.par.foreach { file =>
     val entry = PaperReader.getEntryFromPaper(file)
     val mentions = PaperReader.getMentionsFromEntry(entry)
 
-    testProcessorsSerialization(mentions)
-    testReachSerialization(mentions)
+    val result1 = testProcessorsSerialization(mentions)
+    val result2 = testReachSerialization(mentions)
+
+    if (!(result1 && result2)) {
+      println(s"File ${file.getName} failed.")
+      failCount += 1
+    }
   }
+  if (failCount != 0)
+    println(s"There were $failCount failures!")
 }
