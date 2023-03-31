@@ -7,14 +7,29 @@ import org.clulab.reach.context.Context
 import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions.{Anaphoric, BioEventMention, BioRelationMention, BioTextBoundMention, CorefEventMention, CorefMention, CorefRelationMention, CorefTextBoundMention, Display, EventSite, Grounding, Modification, Modifications, Mutant, PTM, SimpleModification}
 import org.clulab.serialization.json.JSONSerialization
+import org.clulab.utils.Unordered.OrderingOrElseBy
 import org.json4s._
 import org.json4s.JsonDSL._
 import org.json4s.jackson._
+
+import scala.math.Ordering.Implicits._ // Allow Seqs to be compared to each other.
 
 import ReachImplicits._
 
 object MentionOps {
   implicit val formats = org.json4s.DefaultFormats
+
+  implicit val mentionOrdering: Ordering[Mention] = OdinMentionOps.mentionOrdering
+      .orElseBy { mention =>
+        if (mention.isInstanceOf[Anaphoric]) {
+          val antecedents = mention.asInstanceOf[Anaphoric].antecedents
+          // As with the arguments in processors, use sorted token intervals.
+          val tokenIntervals = antecedents.toSeq.map(_.asInstanceOf[Mention].tokenInterval)
+
+          tokenIntervals.sorted
+        }
+        else Seq.empty
+      }
 
   def apply(mention: Mention): OdinMentionOps = {
     mention match {
@@ -118,7 +133,7 @@ object ReachImplicits {
 
   implicit class SeqMentionOps(mentions: Seq[Mention]) extends JSONSerialization {
 
-    def jsonAST: JValue = JSONSerializer.jsonAST(mentions.sorted(OdinMentionOps.mentionOrdering))
+    def jsonAST: JValue = JSONSerializer.jsonAST(mentions.sorted(MentionOps.mentionOrdering))
   }
 
   implicit class ModificationOps(mod: Modification) extends JSONSerialization {
