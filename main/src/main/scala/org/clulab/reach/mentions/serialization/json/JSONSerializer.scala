@@ -49,9 +49,7 @@ object JSONSerializer extends LazyLogging {
   def jsonAST(mention: Mention): JValue = jsonAST(Seq(mention))
 
   def jsonAST(mentions: Seq[Mention]): JValue = {
-
-    val mentionList: List[JValue] = mentions.zipWithIndex.map { case (mention, index) =>
-      println(s"Serializing mention $index.")
+    val mentionList: List[JValue] = mentions.map { mention =>
       MentionOps(mention).jsonAST
     }.toList
     val docMap: Map[String, JValue] = mentionsToDocsJMap(mentions)
@@ -250,9 +248,6 @@ object JSONSerializer extends LazyLogging {
       case other => toMentionByType(mjson, docMap).get.toCorefMention
     }
 
-    val antecedentsOpt = (mjson \ "antecedents").extractOpt[JArray]
-    if (antecedentsOpt.nonEmpty)
-      println("How can these be read in!")
     m.antecedents = toAntecedents(mjson, docMap)
     m.sieves = (mjson \ "sieves").extract[Set[String]]
 
@@ -279,18 +274,8 @@ object JSONSerializer extends LazyLogging {
     case JNothing => Set.empty[Anaphoric]
     case antecedents =>
       val arr = antecedents.asInstanceOf[JArray].arr
-      val ids = arr.map { elem => (elem \ "id").extract[String] }
-      if (ids.contains("T:-401089887") || ids.contains("T:-463773910"))
-        println("It's about to happen")
-      val list = arr.map(mjson => toCorefMention(mjson, docMap))
-      val listLength = list.length
-      val next = list.map(_.toCorefMention)
-      val nextLength = next.length
-      val set: Set[Anaphoric] = next.toSet
-      val setLength = set.size
-
-      if (listLength != nextLength || listLength != setLength)
-        println("This isn't supposed to happen!")
+      val list = arr.map(mjson => toCorefMention(mjson, docMap)).map(_.toCorefMention)
+      val set: Set[Anaphoric] = list.toSet
 
       set
   }
