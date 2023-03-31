@@ -55,6 +55,5 @@ object RoundTripApp extends App {
       failCount += 1
     }
   }
-  if (failCount != 0)
-    println(s"There were $failCount failures!")
+  println(s"There were $failCount failures!")
 }
