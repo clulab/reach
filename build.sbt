@@ -8,7 +8,7 @@ lazy val commonSettings = Seq(
   // 2.12.12 results in an exception when trying to access
   // a resource through getResource().  There might be a
   // change related to the leading / or something similar.
-  scalaVersion := "2.12.8",
+  scalaVersion := "2.12.16",
 
   crossScalaVersions := Seq("2.11.12", "2.12.8"),
 
