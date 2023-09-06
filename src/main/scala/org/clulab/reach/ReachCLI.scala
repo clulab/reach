@@ -19,6 +19,7 @@ import org.clulab.reach.`export`.cmu.CMUExporter
 import org.clulab.reach.assembly._
 import org.clulab.reach.assembly.export.{AssemblyExporter, AssemblyRow, ExportFilters}
 import org.clulab.reach.export.OutputDegrader
+import org.clulab.reach.export.TrainingDataExporter
 import org.clulab.reach.export.fries.FriesOutput
 import org.clulab.reach.export.indexcards.IndexCardOutput
 import org.clulab.reach.export.serial.SerialJsonOutput
@@ -224,6 +225,11 @@ class ReachCLI (
       case ("cmu", _) =>
         val output = CMUExporter.tabularOutput(mentions)
         val outFile = new File(outputDir, s"$paperId-cmu-out.tsv")
+        outFile.writeString(output, java.nio.charset.StandardCharsets.UTF_8)
+
+      case ("training-data", _) =>
+        val output = TrainingDataExporter.jsonOutput(mentions)
+        val outFile = new File(outputDir, s"$paperId-classifictaion-out.json")
         outFile.writeString(output, java.nio.charset.StandardCharsets.UTF_8)
 
       case _ => throw new RuntimeException(s"Output format ${outputType.toLowerCase} not yet supported!")
