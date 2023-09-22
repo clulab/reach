@@ -73,7 +73,7 @@ object TrainingDataExporter {
             getPolarity(e.label),
             getIndices(e, Some("controller")),
             getIndices(e, Some("controlled")),
-            getIndices(trigger),
+            getIndices(trigger)
           )
       }
 
