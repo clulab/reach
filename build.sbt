@@ -10,7 +10,7 @@ lazy val commonSettings = Seq(
   // change related to the leading / or something similar.
   scalaVersion := "2.12.16",
 
-  crossScalaVersions := Seq("2.11.12", "2.12.8"),
+  crossScalaVersions := Seq("2.11.12", "2.12.16"),
 
   scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation"),
 

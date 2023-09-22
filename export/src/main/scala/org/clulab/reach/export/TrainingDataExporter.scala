@@ -50,12 +50,8 @@ object TrainingDataExporter {
   def jsonOutput(mentions: Seq[Mention]): String = {
 
     def filterCriteria(e:EventMention): Boolean = {
-      if((e.label.toLowerCase contains "activation") || (e.label.toLowerCase contains "regulation")){
-        if(e.arguments.contains("controller") && e.arguments.contains("controlled"))
-          true
-        else
-          false
-      }
+      if((e.label.toLowerCase contains "activation") || (e.label.toLowerCase contains "regulation"))
+        e.arguments.contains("controller") && e.arguments.contains("controlled")
       else
         false
     }
