@@ -11,6 +11,7 @@ import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets.UTF_8
 import ai.lum.common.FileUtils._
 import ai.lum.common.ConfigUtils._
+import org.clulab.reach.RuleReader.readResource
 //import jline.internal.InputStreamReader
 import org.clulab.odin._
 import org.clulab.processors.Document
@@ -228,8 +229,21 @@ class ReachCLI (
         outFile.writeString(output, java.nio.charset.StandardCharsets.UTF_8)
 
       case ("training-data", _) =>
-        val output = TrainingDataExporter.jsonOutput(mentions)
+        val output = TrainingDataExporter.jsonOutput(mentions,
+          allowedLabels = Some(Set("Positive_activation", "Negative_activation", "Activation",
+            "Positive_regulation", "Negative_regulation", "Regulation")),
+        )
         val outFile = new File(outputDir, s"$paperId-classifictaion-out.json")
+        outFile.writeString(output, java.nio.charset.StandardCharsets.UTF_8)
+
+      case ("rule-learning", _) =>
+        val rulesDictionary = PaperReader.reachSystem.rulePatternsMap
+        val output = TrainingDataExporter.jsonOutput(mentions,
+          allowedLabels = Some(Set("Positive_activation", "Negative_activation", "Activation")),
+          includeRule = true,
+          rulesDictionary = Some(rulesDictionary))
+        // Only look at activations
+        val outFile = new File(outputDir, s"$paperId-rule_learning-out.json")
         outFile.writeString(output, java.nio.charset.StandardCharsets.UTF_8)
 
       case _ => throw new RuntimeException(s"Output format ${outputType.toLowerCase} not yet supported!")

@@ -1,5 +1,6 @@
 package org.clulab.reach.`export`
 
+import de.heikoseeberger.akkahttpjson4s.Json4sSupport.ShouldWritePretty.False
 import org.clulab.odin.{CrossSentenceMention, EventMention, Mention, RelationMention, TextBoundMention}
 import org.json4s.JsonAST.JArray
 import org.json4s._
@@ -15,16 +16,20 @@ case class Datum(
                 polarity: Boolean,
                 controllerIndices: Range,
                 controlledIndices: Range,
-                triggerIndices:Range
+                triggerIndices:Range,
+                ruleName:Option[String],
+                rule:Option[String]
                 ) {
   val json: JValue =
     ("sentence_tokens" -> words.toList) ~
-      ("event_indices" -> eventIndices.toList) ~
+      ("event_indices" -> eventIndices) ~
       ("type" -> type_) ~
       ("polarity" -> polarity) ~
-      ("controller_indices" -> controllerIndices.toList) ~
-      ("controlled_indices" -> controlledIndices.toList) ~
-      ("trigger_indices" -> triggerIndices.toList)
+      ("controller_indices" -> controllerIndices) ~
+      ("controlled_indices" -> controlledIndices) ~
+      ("trigger_indices" -> triggerIndices) ~
+      ("rule_name" -> ruleName.orNull) ~
+      ("rule" -> rule.orNull)
 }
 
 object TrainingDataExporter {
@@ -47,10 +52,13 @@ object TrainingDataExporter {
     }
   }
 
-  def jsonOutput(mentions: Seq[Mention]): String = {
+  def jsonOutput(mentions: Seq[Mention],
+                 allowedLabels:Option[Set[String]] = None,    // If not specified, every event will be returned
+                 includeRule:Boolean = false,
+                 rulesDictionary:Option[Map[String, String]] = None): String = {
 
     def filterCriteria(e:EventMention): Boolean = {
-      if((e.label.toLowerCase contains "activation") || (e.label.toLowerCase contains "regulation"))
+      if(allowedLabels.isEmpty || allowedLabels.get.contains(e.label))
         e.arguments.contains("controller") && e.arguments.contains("controlled")
       else
         false
@@ -73,7 +81,13 @@ object TrainingDataExporter {
             getPolarity(e.label),
             getIndices(e, Some("controller")),
             getIndices(e, Some("controlled")),
-            getIndices(trigger)
+            getIndices(trigger),
+            Some(e.foundBy),
+            if(includeRule && rulesDictionary.isDefined) {
+              val x = Some(rulesDictionary.get.getOrElse(e.foundBy, "MISSING VAL"))
+              x
+            } else
+              None
           )
       }
 
