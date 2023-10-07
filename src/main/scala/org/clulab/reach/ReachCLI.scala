@@ -12,6 +12,7 @@ import java.nio.charset.StandardCharsets.UTF_8
 import ai.lum.common.FileUtils._
 import ai.lum.common.ConfigUtils._
 import org.clulab.reach.RuleReader.readResource
+import org.clulab.reach.`export`.VisualAnalyticsDataExporter
 //import jline.internal.InputStreamReader
 import org.clulab.odin._
 import org.clulab.processors.Document
@@ -244,6 +245,11 @@ class ReachCLI (
           rulesDictionary = Some(rulesDictionary))
         // Only look at activations
         val outFile = new File(outputDir, s"$paperId-rule_learning-out.json")
+        outFile.writeString(output, java.nio.charset.StandardCharsets.UTF_8)
+
+      case ("visual-analytics", _) =>
+        val output = VisualAnalyticsDataExporter.jsonOutput(mentions)
+        val outFile = new File(outputDir, s"$paperId-va.json")
         outFile.writeString(output, java.nio.charset.StandardCharsets.UTF_8)
 
       case _ => throw new RuntimeException(s"Output format ${outputType.toLowerCase} not yet supported!")
