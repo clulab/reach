@@ -9,6 +9,13 @@ import org.json4s.jackson.JsonMethods._
 
 import scala.annotation.tailrec
 
+abstract class BaseDatum{
+  def json: JValue
+}
+case class EmptyDatum(words:Seq[String]) extends BaseDatum {
+  def json = ("sentence_tokens" -> words.toList)
+}
+
 case class Datum(
                 words: Seq[String],
                 eventIndices: Range,
@@ -19,7 +26,7 @@ case class Datum(
                 triggerIndices:Range,
                 ruleName:Option[String],
                 rule:Option[String]
-                ) {
+                ) extends BaseDatum {
   val json: JValue =
     ("sentence_tokens" -> words.toList) ~
       ("event_indices" -> eventIndices) ~
@@ -69,6 +76,19 @@ object TrainingDataExporter {
         case e:EventMention if filterCriteria(e) => e
       }
 
+    // Get all the sentences with no event associated to it
+    val emptySentences =
+      if(events.nonEmpty){
+        val sentences = events.head.document.sentences
+        val positiveSentenceIndices = events.map(_.sentence).toSet
+        (for{
+          (s, ix) <- sentences.zipWithIndex
+          if !positiveSentenceIndices.contains(ix)
+        } yield EmptyDatum(words = s.words)).toSeq
+      }
+      else
+        Seq.empty[Datum]
+
     val values =
       events map {
         e =>
@@ -91,7 +111,9 @@ object TrainingDataExporter {
           )
       }
 
-    pretty(render(JArray(values.map(_.json).toList)))
+    val allDatums:Seq[BaseDatum] = values ++ emptySentences
+
+    pretty(render(JArray(allDatums.map(_.json).toList)))
   }
 
 
