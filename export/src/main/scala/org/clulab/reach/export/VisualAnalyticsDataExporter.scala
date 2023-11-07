@@ -12,9 +12,9 @@ import scala.annotation.tailrec
 case class RelationDatum(
                           // Information about the event
                           controller: String,
-                          controllerId: String,
+                          controllerId: Seq[String],
                           controlled: Option[String],
-                          controlledId: Option[String],
+                          controlledId: Option[Seq[String]],
                           sentenceTokens: Seq[String],
                           eventIndices: Tuple2[Int, Int],
                           label: String,
@@ -32,7 +32,7 @@ case class RelationDatum(
     ("controller" -> controller)~
       ("controller_id" -> controllerId) ~
       ("controlled" -> controlled.orNull) ~
-      ("controller_id" -> controlledId.orNull) ~
+      ("controlled_id" -> controlledId.orNull) ~
       ("sentence_tokens" -> sentenceTokens) ~
       ("event_indices" -> List(eventIndices._1, eventIndices._2)) ~
       ("label" -> label) ~
@@ -99,13 +99,18 @@ object RelationDatum{
 
     RelationDatum(
       controller = controller.text,
-      controllerId = controller.asInstanceOf[BioTextBoundMention].grounding().get.id,
+      controllerId = {
+        val controllerGrounding = controller.asInstanceOf[BioTextBoundMention].grounding().get
+        Seq(controllerGrounding.namespace,  controllerGrounding.id)
+      },
       controlled = controlled match {
         case Some(c) => Some(c.text)
         case _ => None
       },
       controlledId = controlled match {
-        case Some(c) => Some(c.asInstanceOf[BioTextBoundMention].grounding().get.id)
+        case Some(c) =>
+          val controlledGrounding = c.asInstanceOf[BioTextBoundMention].grounding().get
+          Some(Seq(controlledGrounding.namespace, controlledGrounding.id))
         case _ => None
       },
       sentenceTokens = evt.sentenceObj.words,
