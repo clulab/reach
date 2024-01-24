@@ -47,7 +47,7 @@ def filter_exclude_list(txt):
 
 def read_manual_entries():
     """Load the old manual entries."""
-    fname = os.path.join(kb_dir, 'bio_process_manual.tsv')
+    fname = 'bio_process_manual.tsv'
     with open(fname, 'r') as fh:
         reader = csv.reader(fh, delimiter='\t')
         return [row for row in reader]
