@@ -2,13 +2,13 @@
 14-3-3	p14_3_3
 14-3-3 proteins	p14_3_3
 4EBP	EIF4EBP
+5-hydroxytryptamine-receptors-G-protein-coupled	5_hydroxytryptamine_receptors_G_protein_coupled
 5-hydroxytryptamine-receptors-ionotropic	5_hydroxytryptamine_receptors_ionotropic
 55S Mitoribosome	Mitochondrial_Ribosome
 55S mammalian mitochondrial ribosome	Mitochondrial_Ribosome
 55S mitoribosome	Mitochondrial_Ribosome
 55s Mitoribosome	Mitochondrial_Ribosome
 55s mitoribosome	Mitochondrial_Ribosome
-9-1-1	9_1_1
 9-1-1	9_1_1
 9-1-1 complex	9_1_1
 A2t	Annexin_II_heterotetramer
@@ -31,6 +31,7 @@ ADRA	ADRA
 ADRA2	ADRA2
 ADRB	ADRB
 ADRBK	ADRBK
+AGTR	AGTR
 AKT	AKT
 AKT family	AKT
 ALDH	ALDH
@@ -178,6 +179,9 @@ Acetyl-CoA synthetase	Acetyl_CoA_synthetase
 Acetyl-CoA-synthetase	Acetyl_CoA_synthetase
 Acsl	ACSL
 Actin	Actin
+Actin-related protein	Actin_related_proteins
+Actin-related proteins	Actin_related_proteins
+Actin-related-proteins	Actin_related_proteins
 Activin	Activin
 Activin A	Activin_A
 Activin A protein	Activin_A
@@ -186,8 +190,13 @@ Activin-AB	Activin_AB
 Activin-B	Activin_B
 Acyl-CoA Oxidase	ACOX
 Adaptor Protein 2 complex	Adaptor_protein_II
+Adaptor-protein	Adaptor_protein
+Adaptor-protein-I	Adaptor_protein_I
 Adaptor-protein-II	Adaptor_protein_II
 Adaptor-protein-III	Adaptor_protein_III
+Adaptor-protein-IV	Adaptor_protein_IV
+Adaptor-protein-V	Adaptor_protein_V
+Adenosine-deaminase-family	Adenosine_deaminase_family
 Akt	AKT
 Aldehyde dehydrogenase	ALDH
 Alpha-1,2-glucosyltransferase	ALG10
@@ -196,14 +205,20 @@ Alpha-1,3-glucosyltransferase	ALG6_family
 Alpha-1,3-glucosyltransferases	ALG6_family
 Alpha-1,4-glucosyltransferase	ALG6_family
 Alpha-1,4-glucosyltransferases	ALG6_family
+Angiotensin receptor	AGTR
+Angiotensin receptors	AGTR
 Annexin-II-heterotetramer	Annexin_II_heterotetramer
 ApoA	APOA
 Apolipoprotein	Apolipoprotein
+Arp	Actin_related_proteins
 Arp2-3-protein	Arp2_3_protein
 Arp2/3	Arp2_3_protein
 Atg4	ATG4
 Augmin	Augmin
 Axin	AXIN
+Axonemal-dynein	Axonemal_dynein
+Axonemal-dynein-IDA	Axonemal_dynein_IDA
+Axonemal-dynein-ODA	Axonemal_dynein_ODA
 B3GAT	B3GAT
 BARK	ADRBK
 BCKDC	BCKDC
@@ -222,8 +237,15 @@ BMP-receptor	BMP_receptor
 BMP-receptor-type-I	BMP_receptor_type_I
 BMP-receptor-type-II	BMP_receptor_type_II
 BRCA	BRCA
+BRCC3 isopeptidase complex	BRISC_complex
+BRCC36 (BRCC3) isopeptidase complex	BRISC_complex
+BRCC36 isopeptidase complex	BRISC_complex
 BRI	BMP_receptor_type_I
 BRII	BMP_receptor_type_II
+BRISC deubiquinating enzyme complex	BRISC_complex
+BRISC deubiquitinating enzyme complex	BRISC_complex
+BRISC deubiquitylating enzyme complex	BRISC_complex
+BRISC-complex	BRISC_complex
 BVR	BLVR
 Beta 3-glycosyltransferase	Beta_3_4_GTF
 Beta 3-glycosyltransferases	Beta_3_4_GTF
@@ -234,7 +256,9 @@ Beta tubulin	TUBB
 Beta-1,3-glucuronyltransferase	B3GAT
 Beta-1,3-glucuronyltransferases	B3GAT
 Beta-3-4-GTF	Beta_3_4_GTF
+Beta-HEX	Beta_HEX
 Beta-Tubulin	TUBB
+Beta-hexosaminidase	Beta_HEX
 Beta-tubulin	TUBB
 C/EBP	CEBP
 C1	C1
@@ -253,6 +277,7 @@ CAMK2	CAMK2_complex
 CAMK2-complex	CAMK2_complex
 CAMK2-family	CAMK2_family
 CAMKII	CAMK2_complex
+CAP	CAP
 CAPN	CAPN
 CATSPER	CATSPER
 CAV	CAV
@@ -271,6 +296,8 @@ CD8	CD8
 CDC25	CDC25
 CDC25 family	CDC25
 CDK	CDK
+CDK activating kinase	CDK_activating_kinase_complex
+CDK-activating-kinase-complex	CDK_activating_kinase_complex
 CDK1-2	CDK1_2
 CDK1/2	CDK1_2
 CDKN	CDKN
@@ -288,6 +315,7 @@ CK1	CSNK1
 CK2	CK2
 CKIs	CDKN
 CLCN	CLCN
+CLEC	CLEC
 CLIC	CLIC
 CLK	CLK
 CNG	CNG
@@ -317,6 +345,32 @@ CTNNA	CTNNA
 CUL	CUL
 CXCL-ELR-negative	CXCL_ELR_negative
 CXCL-ELR-positive	CXCL_ELR_positive
+CYP	CYP
+CYP enzyme	CYP
+CYP enzymes	CYP
+CYP epoxygenase	CYP_epoxygenases
+CYP epoxygenases	CYP_epoxygenases
+CYP gene	CYP
+CYP genes	CYP
+CYP isoforms	CYP
+CYP isozymes	CYP
+CYP-epoxygenases	CYP_epoxygenases
+CYP1	CYP1
+CYP11	CYP11
+CYP1s	CYP1
+CYP2	CYP2
+CYP26	CYP26
+CYP27	CYP27
+CYP3	CYP3
+CYP3A enzymes	CYP3
+CYP3A protein	CYP3
+CYP4	CYP4
+CYP450	CYP
+CYP450 enzyme	CYP
+CYP450 enzymes	CYP
+CYP7	CYP7
+CYP8	CYP8
+CYPs	CYP
 Ca(2+)-calmodulin-dependent protein kinase II	CAMK2_complex
 Ca(2+)/calmodulin-dependent kinase II	CAMK2_complex
 CaM	CALM
@@ -336,11 +390,13 @@ Calcineurin regulatory subunit	PPP3R
 Calcium channel	Calcium_channels
 Calcium channels	Calcium_channels
 Calcium-channels	Calcium_channels
+Calcium-sensing-receptors	Calcium_sensing_receptors
 Calmodulin	CALM
 Carboxylesterase	Carboxylesterase
 Casein kinase 1	CSNK1
 Caspase	Caspase
 Caspase-3-7	Caspase_3_7
+Cathepsin	Cathepsin
 Cation channel	Cation_channels
 Cation channels	Cation_channels
 Cation-channels	Cation_channels
@@ -361,7 +417,7 @@ Class 1 NF-kappaBs	NFkappaB_1
 Class 1 NF-κBs	NFkappaB_1
 Class 2 NF-kappaBs	NFkappaB_2
 Class 2 NF-κBs	NFkappaB_2
-Class C GPCR	GPCR
+Class C GPCR	GPCR_C
 Class I HDACs	HDAC_I
 Class I NF-kappaBs	NFkappaB_1
 Class I NF-κBs	NFkappaB_1
@@ -374,6 +430,7 @@ Cofilin	Cofilin
 Cohesin	Cohesin
 Col4	COL4
 ColIV	COL4
+Collagen	Collagen
 Collagen Type IV	COL4
 Collagen beta(1-O)galactosyltransferase	COLGALT
 Collagen beta(1-O)galactosyltransferases	COLGALT
@@ -391,33 +448,78 @@ Cyclin	Cyclin
 Cyclin A	Cyclin_A
 Cyclin D	Cyclin_D
 Cyclin-A	Cyclin_A
-Cyclin-A	Cyclin_A
+Cyclin-B	Cyclin_B
 Cyclin-D	Cyclin_D
 Cyclin-E	Cyclin_E
+Cyclin-G	Cyclin_G
 Cyclophilin	Cyclophilin
+Cyp1	CYP1
+Cyp26	CYP26
+Cyp3a	CYP3
+Cytochrome P-450	CYP
+Cytochrome P450	CYP
 Cytochrome c oxidase subunit 6a	COX6A
+Cytochrome p450	CYP
+Cytoplasmic dynein	Cytoplasmic_dynein
 Cytoplasmic-dynein	Cytoplasmic_dynein
+D-type cyclins	Cyclin_D
 DAG kinase	DGK
 DAPK	DAPK
 DAPk	DAPK
+DESI	DESI
 DGC	DGC
 DGK	DGK
+DNA polymerase alpha	DNA_polymerase_alpha
+DNA polymerase alpha-primase	DNA_polymerase_alpha
 DNA polymerase delta	DNA_polymerase_delta
 DNA polymerase δ	DNA_polymerase_delta
 DNA replication factor C	RFC
 DNA replication factor C complex	RFC
+DNA-polymerase-alpha	DNA_polymerase_alpha
 DNA-polymerase-delta	DNA_polymerase_delta
 DNM	DNM
+DNMT	DNMT
 DP complex	TFDP
 DRD	DRD
+DUB	Deubiquitinase
+DUBs	Deubiquitinase
 DUSP	DUSP
 DVL	DVL
+DYNC1	DYNC1
+DYNC2	DYNC2
 DYRK	DYRK
 Death-receptor	Death_receptor
+Deiodinase	Deiodinase
 Deoxyribonucleoside-kinases	Deoxyribonucleoside_kinases
 Desmoglein	Desmoglein
+Desumolating isopeptidase	DESI
+Desumolating isopeptidases	DESI
+Desumoylase	Desumoylase
+Desumoylating isopeptidase	DESI
+Desumoylating isopeptidases	DESI
+Deubiquinatase	Deubiquitinase
+Deubiquinatases	Deubiquitinase
+Deubiquinating Enzyme	Deubiquitinase
+Deubiquinating Enzymes	Deubiquitinase
+Deubiquinating enzyme	Deubiquitinase
+Deubiquinating enzymes	Deubiquitinase
+Deubiquitinase	Deubiquitinase
+Deubiquitinases	Deubiquitinase
+Deubiquitinating Enzyme	Deubiquitinase
+Deubiquitinating Enzymes	Deubiquitinase
+Deubiquitinating enzyme	Deubiquitinase
+Deubiquitinating enzymes	Deubiquitinase
+Deubiquitylase	Deubiquitinase
+Deubiquitylases	Deubiquitinase
+Deubiquitylating Enzyme	Deubiquitinase
+Deubiquitylating Enzymes	Deubiquitinase
+Deubiquitylating enzyme	Deubiquitinase
+Deubiquitylating enzymes	Deubiquitinase
 Dgk	DGK
 Dvl	DVL
+Dynein	Dynein
+Dyneins	Dynein
+E2 conjugating enzyme	UBE2
 E2 enzyme	UBE2
 E2 ubiquitin-conjugating enzyme	UBE2
 E2F	E2F
@@ -425,6 +527,11 @@ E3	E3_Ub_ligase
 E3 ubiquitin ligase	E3_Ub_ligase
 E3-Ub-ligase	E3_Ub_ligase
 EDN	EDN
+EDNR	EDNR
+EEF	EEF
+EEF1	EEF1
+EEF1A	EEF1A
+EEF1B	EEF1B
 EFN	EFN
 EGFR ligand	EGFR_ligand
 EGFR ligands	EGFR_ligand
@@ -435,6 +542,7 @@ EIF4A	EIF4A
 EIF4EBP	EIF4EBP
 EIF4G	EIF4G
 ELA	ELA
+ELOVL	ELOVL
 ELR (+) CXC chemokines	CXCL_ELR_positive
 ELR (-) CXC chemokines	CXCL_ELR_negative
 ELR-negative CXC chemokine	CXCL_ELR_negative
@@ -454,13 +562,15 @@ ERK-1/2	ERK
 ERK1/2	ERK
 ERK1/2 MAPK	ERK
 ERKs	ERK
+ERM	ERM
+ERM protein	ERM
+ERM proteins	ERM
 ESR	ESR
 ETC-complex-I	ETC_complex_I
 ETC-complex-I-core	ETC_complex_I_core
 ETC-complex-I-supernumerary	ETC_complex_I_supernumerary
 ETC-complex-II	ETC_complex_II
 ETC-complex-III	ETC_complex_III
-ETC-complex-IV	ETC_complex_IV
 ETC-complex-V	ETC_complex_V
 ETNK	ETNK
 ETS	ETS
@@ -477,29 +587,74 @@ Erk1/2	ERK
 Exostosin glycosyltransferase family	EXT
 Extracellular Signal Regulated Kinase	ERK
 F-actin	F_actin
-F-actin	F_actin
+FABP	FABP
 FANC	FANC
 FANC proteins	FANC
+FERMT	FERMT
 FGF	FGF
 FGFR	FGFR
 FLOT	FLOT
 FLRT	FLRT
 FLRT family	FLRT
 FLRT proteins	FLRT
+FNR	FNR
 FNT	FNT
 FOS	FOS_family
 FOS-family	FOS_family
+FOX	FOX
+FOX-A	FOXA
+FOXA	FOXA
+FOXB	FOXB
+FOXC	FOXC
+FOXD	FOXD
+FOXD4L	FOXD4L
+FOXE	FOXE
+FOXF	FOXF
+FOXF proteins	FOXF
+FOXI	FOXI
+FOXJ	FOXJ
+FOXK	FOXK
+FOXK proteins	FOXK
+FOXKs	FOXK
+FOXL	FOXL
+FOXN	FOXN
 FOXO	FOXO
+FOXP	FOXP
+FOXP proteins	FOXP
+FOXR	FOXR
 FPR	FPR
 FSH	FSH
 FTase	FNT
 FUT	FUT
 FZD	FZD
+Fermitin	FERMT
+Fermitins	FERMT
 Fibrin	Fibrin
 Fibrinogen	Fibrinogen
 Flrt family	FLRT
 Fos	FOS_family
+FoxA	FOXA
+FoxB	FOXB
+FoxC	FOXC
+FoxD	FOXD
+FoxF	FOXF
+FoxF proteins	FOXF
+FoxK	FOXK
+FoxL	FOXL
 FoxO	FOXO
+FoxP	FOXP
+FoxP proteins	FOXP
+FoxR	FOXR
+Foxb	FOXB
+Foxc	FOXC
+Foxd	FOXD
+Foxf	FOXF
+Foxf family	FOXF
+Foxf genes	FOXF
+Foxk	FOXK
+Foxk proteins	FOXK
+Foxp	FOXP
+Foxp proteins	FOXP
 Fucosyltransferase	FUT
 Fucosyltransferases	FUT
 Fz	FZD
@@ -534,7 +689,8 @@ G-Protein alpha-s	G_s_alpha
 G-Protein α-i	G_i_alpha
 G-Protein α-q	G_q_alpha
 G-Protein α-s	G_s_alpha
-G-alpha	G_alpha
+G-actin	G_actin
+G-actins	G_actin
 G-alpha	G_alpha
 G-alpha(s)	G_s_alpha
 G-beta	G_beta
@@ -557,10 +713,13 @@ G-αS	G_s_alpha
 G12	G_12
 G12 family	G_12
 G12 proteins	G_12
+G6Pase	G6Pase
 GABA receptor	GABR
 GABA receptors	GABR
 GABA-A receptor	GABR
+GABBR	GABBR
 GABR	GABR
+GAD	GAD
 GALNT	GALNT
 GAP	GAP
 GARP	GARP
@@ -575,13 +734,16 @@ GIIPLA2	PLA2G2
 GJ	GJ
 GLRA-GLRB	GLRA_GLRB
 GLUT	SLC2A
+GNRH	GNRH
+GOT	GOT
 GPCR	GPCR
 GPCR kinases	GRK
+GPCR-C	GPCR_C
+GPCR-C-orphans	GPCR_C_orphans
 GPCRs	GPCR
 GPI transamidase complex	GPIT
 GPIT	GPIT
 GPIT complex	GPIT
-GPIb-IX-V	GPIb_IX_V
 GPIb-IX-V	GPIb_IX_V
 GPIb-IX-V complex	GPIb_IX_V
 GPX	GPX
@@ -627,6 +789,7 @@ Gi alpha subunit	G_i_alpha
 Gi protein	G_i
 Gi α	G_i_alpha
 Gi α subunit	G_i_alpha
+Glucose-6-phosphatase	G6Pase
 Glutamate receptors, ionotropic, kainate	Kainate_family
 Glycogen phosphorylase	PYG
 Glycogen phosphorylases	PYG
@@ -638,12 +801,19 @@ Glycosyltransferase family 29	GTF_family_29
 Glycosyltransferase family 6	GTF_family_6
 Glycosyltransferase family 8	GTF_family_8
 Glycosyltransferase family 90	GTF_family_90
+GnRH	GNRH
+GnRh	GNRH
+Gnrh	GNRH
+Gonadotropin releasing hormone	GNRH
+Gonadotropin-releasing hormone	GNRH
 GpIb-V-IX	GPIb_IX_V
 Gq alpha	G_q_alpha
 Gq alpha subunit	G_q_alpha
 Gq α	G_q_alpha
 Gq α subunit	G_q_alpha
 Gq/11	G_q
+Growth factor	Growth_factor
+Growth-factor	Growth_factor
 Gs alpha	G_s_alpha
 Gs alpha subunit	G_s_alpha
 Gs family	G_s
@@ -658,6 +828,8 @@ Gβ	G_beta
 H2B	Histone_H2B
 H3	Histone_H3
 H4	Histone_H4
+HACD	HACD
+HACD1-4	HACD
 HAUS	Augmin
 HAUS complex	Augmin
 HDAC	HDAC
@@ -666,7 +838,10 @@ HDAC-II	HDAC_II
 HDAC-III	HDAC_III
 HDAC-IV	HDAC_IV
 HDL	HDL
+HECT E3 ligase	HECT_E3_ligase
+HECT-E3-ligase	HECT_E3_ligase
 HES	HES
+HEX	HEX
 HIF	HIF
 HIF-1	HIF1
 HIF-alpha	HIF_alpha
@@ -678,8 +853,14 @@ HIFs	HIF
 HIFα	HIF_alpha
 HIFβ	HIF_beta
 HLA-DR	HLA_DR
-HLA-DR	HLA_DR
+HLA1	HLA1
+HLA2 alpha chain	HLA2_alpha
+HLA2 beta chain	HLA2_beta
+HLA2-alpha	HLA2_alpha
+HLA2-beta	HLA2_beta
 HMOX	HMOX
+HOMER	HOMER
+HRH	HRH
 HSP70	HSPA
 HSP90	HSP90
 HSP90A	HSP90A
@@ -687,6 +868,9 @@ HSP90AA	HSP90AA
 HSPA	HSPA
 HSPB	HSPB
 HSPB proteins	HSPB
+HTR	HTR
+HTR1	HTR1
+HTR2	HTR2
 HVCN	HVCN
 Heat Shock Protein 70	HSPA
 Hedgehog	Hedgehog
@@ -695,6 +879,8 @@ Hemoglobin	Hemoglobin
 Hes	HES
 Hes gene family	HES
 Hes genes	HES
+Hexokinase	Hexokinase
+Hgb	Hemoglobin
 Hh	Hedgehog
 Hifalpha	HIF_alpha
 Hifbeta	HIF_beta
@@ -709,13 +895,17 @@ Histone-H2A	Histone_H2A
 Histone-H2B	Histone_H2B
 Histone-H3	Histone_H3
 Histone-H4	Histone_H4
+Homer	HOMER
 Hsp70	HSPA
 Hsp90	HSP90
+ICAM	ICAM
+IFITM	IFITM
 IFN	Interferon
 IFN-a	IFNA
 IFN-alpha	IFNA
 IFN-α	IFNA
 IFNA	IFNA
+IFNAR	IFNAR
 IFNB	IFNB
 IFNGR	Interferon_gamma_receptor
 IFNalpha	IFNA
@@ -734,18 +924,26 @@ IL-12	IL12
 IL-15 receptor	IL15R
 IL-15R	IL15R
 IL-2 receptor	IL2R
+IL-23	IL23
 IL-2R	IL2R
 IL1	IL1
 IL1 family	IL1
 IL12	IL12
 IL15R	IL15R
+IL23	IL23
 IL2R	IL2R
 IRS	IRS
 IRS family	IRS
 IRX	IRX
+ITGA	ITGA
+ITGA2B1	ITGA2B1
+ITGA2B3	ITGA2B3
+ITGB	ITGB
 ITPR	ITPR
+Ifnar	IFNAR
 IkappaB	IKB
 IkappaB kinase	IKK_complex
+Il23	IL23
 Inhibin	Inhibin
 Inhibin-A	Inhibin_A
 Inhibin-B	Inhibin_B
@@ -754,14 +952,36 @@ Integrins	Integrins
 Interferon	Interferon
 Interferon beta	IFNB
 Interferon β	IFNB
+Interferon-alpha/beta receptor	IFNAR
 Interferon-gamma-receptor	Interferon_gamma_receptor
+Interleukin-23	IL23
 Iroquois family	IRX
 Iroquois proteins	IRX
 Iroquois-class homeodomain proteins	IRX
 IκB	IKB
 IκB kinase	IKK_complex
+JAB1/MPN/MOV34 Pad1 N-terminal (MPN) domain protease	JAMM
+JAB1/MPN/MOV34 Pad1 N-terminal (MPN) domain proteases	JAMM
+JAB1/MPN/MOV34 Pad1 N-terminal domain protease	JAMM
+JAB1/MPN/MOV34 Pad1 N-terminal domain proteases	JAMM
+JAB1/MPN/MOV34 Pad1 N-terminal+ (MPN) domain protease	JAMM
+JAB1/MPN/MOV34 Pad1 N-terminal+ (MPN) domain proteases	JAMM
+JAB1/MPN/MOV34 Pad1 N-terminal+ (MPN+) domain protease	JAMM
+JAB1/MPN/MOV34 Pad1 N-terminal+ (MPN+) domain proteases	JAMM
+JAB1/MPN/MOV34 Pad1 N-terminal+ domain protease	JAMM
+JAB1/MPN/MOV34 Pad1 N-terminal+ domain proteases	JAMM
+JAB1/MPN/MOV34 metalloenzyme	JAMM
+JAB1/MPN/MOV34 metalloenzyme domain	JAMM
 JAK	JAK
 JAKs	JAK
+JAMM	JAMM
+JAMM deubiquinatase	JAMM
+JAMM deubiquinatases	JAMM
+JAMM deubiquitinase	JAMM
+JAMM deubiquitinases	JAMM
+JAMM deubiquitylase	JAMM
+JAMM deubiquitylases	JAMM
+JAMM family	JAMM
 JNK	JNK
 JNK MAPK	JNK
 JNK1/2	JNK
@@ -777,14 +997,19 @@ KCNK	KCNK
 KCNT	KCNT
 KLK	KLK
 KLKs	KLK
+KMT	KMT
 KSR	KSR
 Kainate receptors	Kainate_family
 Kainate-family	Kainate_family
+Kindlin	FERMT
+Kindlins	FERMT
 Kinesin	Kinesin
 Kinetochore	Kinetochore
+Kir	KCNJ
+LATS	LATS
 LC3	MAP1LC3
 LDH	LDH
-LFA-1 (integrin)	Integrins
+LFA-1	LFA_1
 LH	LH
 LM-1	Laminin_111
 LPAR	LPAR
@@ -795,17 +1020,27 @@ Laminin-111	Laminin_111
 Laminin-332	Laminin_332
 Laminin-5	Laminin_332
 Large Mitoribosomal Subunit	MRPL
+Let-7	MIRLET7
+Let-7a	MIRLET7A
+Let-7f	MIRLET7F
 Ligand-gated ion channel	Ligand_gated_ion_channels
 Ligand-gated ion channels	Ligand_gated_ion_channels
 Ligand-gated-ion-channels	Ligand_gated_ion_channels
+Liprin-alpha	Liprin_alpha
+Liprin-α	Liprin_alpha
 Liver X receptor	LXR
 Liver X receptors	LXR
 Luteinizing hormone	LH
 MAC	MAC
-MAC-1 (integrin)	Integrins
+MAC-1	MAC_1
 MAP kinase	MAPK
 MAP kinases	MAPK
+MAP1	MAP1
+MAP1 family	MAP1
+MAP1-family proteins	MAP1
 MAP1LC3	MAP1LC3
+MAP2 family	MAP2
+MAP2-family proteins	MAP2
 MAP2K	MAP2K
 MAP3K	MAP3K
 MAPK	MAPK
@@ -815,6 +1050,7 @@ MAPK p38	p38
 MAPKK kinases	MAP3K
 MAPKKK	MAP3K
 MAPKs	MAPK
+MAPRE	MAPRE
 MCM	MCM
 MED	MED
 MEF2	MEF2
@@ -823,6 +1059,25 @@ MEK	MEK
 MEK 1/2	MEK
 MEK1/2	MEK
 MGAT	MGAT
+MGluR	GRM
+MINDY	MINDY
+MINDY deubiquinatase	MINDY
+MINDY deubiquinatases	MINDY
+MINDY deubiquitinase	MINDY
+MINDY deubiquitinases	MINDY
+MINDY deubiquitylase	MINDY
+MINDY deubiquitylases	MINDY
+MIRLET7	MIRLET7
+MIRLET7A	MIRLET7A
+MIRLET7F	MIRLET7F
+MJD	MJD
+MJD deubiquinating enzyme	MJD
+MJD deubiquinating enzymes	MJD
+MJD deubiquitinating enzyme	MJD
+MJD deubiquitinating enzymes	MJD
+MJD deubiquitylating enzyme	MJD
+MJD deubiquitylating enzymes	MJD
+MKKs	MAP2K
 MKNK	MKNK
 MLC	MYL
 MMP	MMP
@@ -830,8 +1085,13 @@ MMPs	MMP
 MNK1 and MNK2	MKNK
 MNK1 and MNK2 kinases	MKNK
 MOB	MOB
+MOB1	MOB1
+MRC	MRC
+MRN complex	MRN_complex
+MRN-complex	MRN_complex
 MRPS	MRPS
 MT	Metallothionein
+MTNR	MTNR
 MYH	MYH
 MYL	MYL
 MYL-alkali	MYL_alkali
@@ -850,8 +1110,18 @@ MYST histone acetylase	MYST
 MYST proteins	MYST
 Macrophage-inflammatory-proteins	Macrophage_inflammatory_proteins
 Maf subfamily	MAF
+Mcm	MCM
+Mechanosensitive-ion-channels	Mechanosensitive_ion_channels
+Melatonin receptor	MTNR
+Melatonin receptors	MTNR
 Metallothionein	Metallothionein
+Methyltransferase	Methyltransferases
+Methyltransferases	Methyltransferases
 Mhc	MYH
+Microtubule-associated protein	Microtubule_associated_proteins
+Microtubule-associated protein RP/EB family	MAPRE
+Microtubule-associated proteins	Microtubule_associated_proteins
+Microtubule-associated-proteins	Microtubule_associated_proteins
 Mitochondrial Ribosome	Mitochondrial_Ribosome
 Mitochondrial Ribosomes	Mitochondrial_Ribosome
 Mitochondrial ribosome	Mitochondrial_Ribosome
@@ -860,6 +1130,8 @@ Mitochondrial-Ribosome	Mitochondrial_Ribosome
 Mitoribosome	Mitochondrial_Ribosome
 Mnk1 and Mnk2	MKNK
 Mnk1 and Mnk2 kinases	MKNK
+Mre11/Rad50 (M/R) DNA-repair complex	MRN_complex
+Myosin	Myosin_complex
 Myosin heavy chain	MYH
 Myosin heavy chains	MYH
 Myosin-complex	Myosin_complex
@@ -927,6 +1199,10 @@ NFkappaB-2	NFkappaB_2
 NFκB	NFkappaB
 NFκB complexes	NFkappaB
 NKD	NKD
+NMDA Receptor	GRIN
+NMDA receptor	GRIN
+NMDA receptors	GRIN
+NMDAR	GRIN
 NOS	NOS
 NOTCH	Notch
 NPBWR	NPBWR
@@ -958,11 +1234,14 @@ Natriuretic Peptides	Natriuretic_peptide
 Natriuretic peptide	Natriuretic_peptide
 Natriuretic peptides	Natriuretic_peptide
 Natriuretic-peptide	Natriuretic_peptide
+Netrin	Netrin
 Neuregulin	NRG
 Neuregulins	NRG
 Neurexins	Neurexins
 Neuropeptide-receptor	Neuropeptide_receptor
 Neuropeptides	Neuropeptides
+Neuropilin	Neuropilins
+Neuropilins	Neuropilins
 Neuroregulin	NRG
 Notch	Notch
 Nuclear Receptor Co-Repressor	NCOR
@@ -987,6 +1266,12 @@ OR6	OR6
 OR7	OR7
 OR8	OR8
 OR9	OR9
+OTU	OTU
+OTUB	OTUB
+OTUD	OTUD
+OTUD6	OTUD6
+OTUD7	OTUD7
+Opioid-receptor	Opioid_receptor
 P2R	P2R
 P2RX	P2RX
 P2RY	P2RY
@@ -996,11 +1281,16 @@ P2X purinoreceptors	P2RX
 P2X receptor	P2RX
 P2X receptors	P2RX
 P2Y receptor	P2RY
+P38	p38
 P38 MAPK	p38
+P450	CYP
+P450s	CYP
 P53 family	p53_family
 P70RSK	P70S6K
 P70S6K	P70S6K
 P90RSK	P90RSK
+PAF1-complex	PAF1_complex
+PAFc	PAF1_complex
 PAK	PAK
 PARP genes	PARP
 PARPs	PARP
@@ -1008,6 +1298,7 @@ PARV	PARV
 PATCHED	Patched
 PBX	PBX
 PBXs	PBX
+PCSK	PCSK
 PDE	PDE
 PDE 3	PDE3
 PDE1	PDE1
@@ -1027,14 +1318,9 @@ PDGF CC	PDGF_CC
 PDGF DD	PDGF_DD
 PDGF receptors	PDGFR
 PDGF-AA	PDGF_AA
-PDGF-AA	PDGF_AA
-PDGF-AB	PDGF_AB
 PDGF-AB	PDGF_AB
 PDGF-BB	PDGF_BB
-PDGF-BB	PDGF_BB
 PDGF-CC	PDGF_CC
-PDGF-CC	PDGF_CC
-PDGF-DD	PDGF_DD
 PDGF-DD	PDGF_DD
 PDGF-aa	PDGF_AA
 PDGF-ab	PDGF_AB
@@ -1046,10 +1332,7 @@ PDGFAB	PDGF_AB
 PDGFBB	PDGF_BB
 PDGFR	PDGFR
 PDGFR-AA	PDGFR_AA
-PDGFR-AA	PDGFR_AA
 PDGFR-AB	PDGFR_AB
-PDGFR-AB	PDGFR_AB
-PDGFR-BB	PDGFR_BB
 PDGFR-BB	PDGFR_BB
 PDGFR-alphaalpha	PDGFR_AA
 PDGFR-alphabeta	PDGFR_AB
@@ -1065,7 +1348,9 @@ PDGFRαβ	PDGFR_AB
 PDGFRββ	PDGFR_BB
 PDH	PDH
 PDKs	PDK
+PFK	PFK
 PFN	PFN
+PGAM	PGAM
 PI 3-kinase	PI3K
 PI 3-kinases	PI3K
 PI-3-K	PI3K
@@ -1109,6 +1394,8 @@ PLCB	PLCB
 PLCD	PLCD
 PLCG	PLCG
 PLD	PLD
+PLOD	PLOD
+PP-1	PPP1
 PP1	PPP1
 PP1 regulator	PPP1
 PP1C	PPP1C
@@ -1139,6 +1426,7 @@ PPP3R	PPP3R
 PRC1-complex	PRC1_complex
 PRC2	PRC2_complex
 PRC2-complex	PRC2_complex
+PRDUB-complex	PRDUB_complex
 PRDX	PRDX
 PRKAA	AMPK_alpha
 PRKAB	AMPK_beta
@@ -1146,6 +1434,8 @@ PRKAC	PRKAC
 PRKAG	AMPK_gamma
 PRKAR	PRKAR
 PRKG	PRKG
+PRMT	PRMT
+PTEFb	PTEFb
 PTGER	PTGER
 PTX	Pertussis_toxin
 PYG	PYG
@@ -1154,6 +1444,7 @@ Parvin	PARV
 Parvins	PARV
 Patched	Patched
 Pbx	PBX
+Pcdhalpha	Protocadherin_alpha
 Peroxiredoxin	PRDX
 Peroxiredoxins	PRDX
 Pertussis toxin	Pertussis_toxin
@@ -1174,6 +1465,8 @@ Phosphodiesterase-6	PDE6
 Phosphodiesterase-7	PDE7
 Phosphodiesterase-8	PDE8
 Phosphodiesterases	PDE
+Phosphofructokinase	PFK
+Phosphoglycerate mutase	PGAM
 Phosphoinositide 3-kinase	PI3K
 Phospholipase A2 Group IV	PLA2G4
 Phospholipase C	PLC
@@ -1188,8 +1481,15 @@ Phospholipase Cδ	PLCD
 Phospholipase D	PLD
 Phospholipase-C	PLC
 Phosphorylase kinase	PhK
+Pocket protein	Pocket_protein
+Pocket protein family	Pocket_protein
+Pocket proteins	Pocket_protein
+Pocket-protein	Pocket_protein
 Pol I	RNApo_I
 Pol delta	DNA_polymerase_delta
+Pol α	DNA_polymerase_alpha
+Pol α-primase	DNA_polymerase_alpha
+Pol α-primase complex	DNA_polymerase_alpha
 Pol δ	DNA_polymerase_delta
 Poly(ADP-ribose) polymerase	PARP
 Poly(ADP-ribose) polymerases	PARP
@@ -1203,6 +1503,7 @@ Polycomb repressive complex PRC1	PRC1_complex
 Polycomb repressive complex PRC2	PRC2_complex
 Polycomb-repressive complex 1	PRC1_complex
 Polycomb-repressive complex 2	PRC2_complex
+Polα/primase complex	DNA_polymerase_alpha
 Porin	Porins
 Porins	Porins
 Potassium channel	KCN
@@ -1213,6 +1514,8 @@ Profilin	PFN
 Profilins	PFN
 Propionyl-CoA carboxylase	Propionyl_CoA_carboxylase
 Propionyl-CoA-carboxylase	Propionyl_CoA_carboxylase
+Proprotein convertase	PCSK
+Proprotein convertases	PCSK
 Protease	Protease
 Proteases	Protease
 Proteasome	Proteasome
@@ -1222,6 +1525,11 @@ Protein kinase A regulatory subunit	PRKAR
 Protein kinase A regulatory subunits	PRKAR
 Proteinase	Protease
 Proteinases	Protease
+Protocadherin alpha	Protocadherin_alpha
+Protocadherin beta	Protocadherin_beta
+Protocadherin-alpha	Protocadherin_alpha
+Protocadherin-beta	Protocadherin_beta
+Prx	PRDX
 Ptdins 3-Kinase	PI3K
 Ptdins 3-kinase	PI3K
 Purinergic receptor	Purinergic_receptors
@@ -1247,6 +1555,8 @@ RASGRF	RASGRF
 RASGRP	RASGRP
 RASSF	RASSF
 RASSF family	RASSF
+RBR E3 ligase	RBR_E3_ligase
+RBR-E3-ligase	RBR_E3_ligase
 RF-C	RFC
 RF-X	RFX
 RFC	RFC
@@ -1257,6 +1567,8 @@ RGL	RGL
 RHO	RHO
 RHOGDI	RhoGDI
 RIG-I like receptors	RLR
+RING E3 ligase	RING_E3_ligase
+RING-E3-ligase	RING_E3_ligase
 RIPK	RIPK
 RLR	RLR
 RLRs	RLR
@@ -1313,8 +1625,10 @@ S1PR	S1PR
 S6K	P70S6K
 SAA	SAA
 SAPK	JNK
+SCAR	SCAR
 SCN	SCN
 SCNN	SCNN
+SENP	SENP
 SERCA	SERCA
 SERCAs	SERCA
 SERPINB	SERPINB
@@ -1345,6 +1659,7 @@ SNAI	SNAI
 SNAI family	SNAI
 SOD	SOD
 SOS	SOS
+SP	SP
 SPHK	SPHK
 SPRED	SPRED
 SPRY	SPRY
@@ -1352,16 +1667,29 @@ SR Ca(2+)-ATPase	SERCA
 SRC-family kinases	SRC
 SREBF	SREBF
 SREBF family	SREBF
+STAG	STAG
 STAT	STAT
 STAT5	STAT5
 STATs	STAT
+STK3-4	STK3_4
+STK3/4	STK3_4
 STT3	STT3
+SUMO specific peptidase	SENP
+SUMO specific peptidases	SENP
+SUMO-specific peptidase	SENP
+SUMO-specific peptidases	SENP
 SUR	Sulfonylurea_receptor
 SWI and SNF complex	SWI_SNF
 SWI-SNF	SWI_SNF
 SWI/SNF	SWI_SNF
 SWI/SNF complex	SWI_SNF
 SWI/SNF-like	SWI_SNF
+Sarcoglycan	Sarcoglycan_complex
+Sarcoglycan-complex	Sarcoglycan_complex
+Sarcoglycans	Sarcoglycan_complex
+Scavenger receptor	SCAR
+Scavenger receptors	SCAR
+Selectin	Selectin
 Shc	SHC
 Shc family	SHC
 Sialytransferase	GTF_family_29
@@ -1378,6 +1706,8 @@ Sodium-voltage-gated-channel-beta-subunits	Sodium_voltage_gated_channel_beta_sub
 Soluble Guanylate Cyclase	SGC
 Soluble guanylyl cyclase	SGC
 Soluble guanylyl/guanylate cyclase	SGC
+Sp	SP
+Spectrin beta	SPTB
 SphK	SPHK
 Sphingosine 1-phosphate receptor	S1PR
 Sphingosine kinase	SPHK
@@ -1389,7 +1719,11 @@ Stearoyl-CoA desaturase	SCD
 Sulfonylurea Receptor	Sulfonylurea_receptor
 Sulfonylurea-receptor	Sulfonylurea_receptor
 T-cell factor (TCF)/lymphoid enhancer factor	TCF_LEF
+TAB	TAB
 TAC	TAC
+TAK-1 binding protein	TAB
+TAK1 binding protein	TAB
+TAK1-binding protein	TAB
 TAOK	TAOK
 TAP	TAP
 TAP transporter	TAP
@@ -1422,16 +1756,22 @@ TGFbeta	TGFB
 TGFβ	TGFB
 TGFβ receptor	TGFBR
 TGFβ receptors	TGFBR
+TGM	TGM
 THBS	THBS
 THR	THR
 TIAM	TIAM
 TIF-IB	TIF_IB
-TIF-IB	TIF_IB
+TIM22 complex	TIM22_complex
+TIM22-complex	TIM22_complex
 TK	TK
+TLE family	TLE
 TLR	TLR
 TN	TN
 TN-C	Troponin_C
+TNF receptor associated factors	TRAF
+TNF receptor-associated factors	TRAF
 TNF-R superfamily	TNFRSF
+TNF-receptor associated factors	TRAF
 TNF-receptor family	TNFRSF
 TNFR	TNFRSF
 TNFR family	TNFRSF
@@ -1447,6 +1787,9 @@ TORC2	mTORC2
 TPCN	TPCN
 TPNI	Troponin_I
 TPNT	Troponin_T
+TRAF	TRAF
+TRAFs	TRAF
+TRMT	TRMT
 TRP	TRP
 TRiC	CCT_complex
 TSC	TSC
@@ -1454,6 +1797,7 @@ TUBA	TUBA
 TUBB	TUBB
 TUBG	TUBG
 TXNRD	TXNRD
+TcR	TCR
 Tcf	TCF_LEF
 Tcf/Lef	TCF_LEF
 Tenascin	TN
@@ -1462,8 +1806,12 @@ Thioredoxin reductase	TXNRD
 Thrombin-antithrombin	Thrombin_antithrombin
 Thrombospondin	THBS
 Thrombospondins	THBS
+Tim22 complex	TIM22_complex
 TnC	Troponin_C
+Traf	TRAF
 Transcription factor AP-2	TFAP2
+Transglutaminase	TGM
+Transglutaminases	TGM
 Trk receptor	NTRK
 Trk receptors	NTRK
 Troponin	Troponin
@@ -1474,10 +1822,39 @@ Tryptase	Tryptase
 Tubulin	Tubulin
 Type I collagen	COL1
 UBE2	UBE2
+UCH deubiquinating enzyme	UCHL
+UCH deubiquinating enzymes	UCHL
+UCH deubiquitinating enzyme	UCHL
+UCH deubiquitinating enzymes	UCHL
+UCH deubiquitylating enzyme	UCHL
+UCH deubiquitylating enzymes	UCHL
+UCH family	UCHL
+UCHL	UCHL
 UGGT	UGGT
 UGT	UGT
+UNC5	UNC5
+USP	USP
+USP17L	USP17L
+USP9	USP9
+USPL	USPL
 Ub	Ubiquitin
 Ubiquitin	Ubiquitin
+Ubiquitin C-terminal hydrolase	UCHL
+Ubiquitin C-terminal hydrolase deubiquinating enzyme	UCHL
+Ubiquitin C-terminal hydrolase deubiquinating enzymes	UCHL
+Ubiquitin C-terminal hydrolase deubiquitinating enzyme	UCHL
+Ubiquitin C-terminal hydrolase deubiquitinating enzymes	UCHL
+Ubiquitin C-terminal hydrolase deubiquitylating enzyme	UCHL
+Ubiquitin C-terminal hydrolase deubiquitylating enzymes	UCHL
+Ubiquitin C-terminal hydrolase family	UCHL
+Ubiquitin C-terminal hydrolases	UCHL
+Ubiquitin C-terminal hydrolases deubiquinating enzyme	UCHL
+Ubiquitin C-terminal hydrolases deubiquinating enzymes	UCHL
+Ubiquitin C-terminal hydrolases deubiquitinating enzyme	UCHL
+Ubiquitin C-terminal hydrolases deubiquitinating enzymes	UCHL
+Ubiquitin C-terminal hydrolases deubiquitylating enzyme	UCHL
+Ubiquitin C-terminal hydrolases deubiquitylating enzymes	UCHL
+Ubiquitin C-terminal hydrolases family	UCHL
 VAV	VAV
 VAV family	VAV
 VDAC	VDAC
@@ -1485,8 +1862,8 @@ VEGF	VEGF
 VEGF receptor	VEGFR
 VEGF receptors	VEGFR
 VEGFR	VEGFR
-VEGFR ligand	VEGFR
 VEGFRs	VEGFR
+VTNR	VTNR
 Vav	VAV
 Voltage-gated-ion-channels	Voltage_gated_ion_channels
 WNT	Wnt
@@ -1510,7 +1887,9 @@ acetyl-CoA synthetase	Acetyl_CoA_synthetase
 acetyl-coenzyme A synthase	Acetyl_CoA_synthetase
 acetylcholine receptor	CHRM
 actin	Actin
-actin filament	Actin
+actin filament	F_actin
+actin-related protein	Actin_related_proteins
+actin-related proteins	Actin_related_proteins
 actinin	ACTN
 actins	Actin
 activin	Activin
@@ -1526,6 +1905,7 @@ acyl-CoA dehydrogenase	ACAD
 acyl-CoA oxidases	ACOX
 adaptor protein complex 2	Adaptor_protein_II
 adaptor protein complex 3	Adaptor_protein_III
+adenosine deaminase	Adenosine_deaminase_family
 adenylate cyclase	ADCY
 adenylyl cyclase	ADCY
 alcohol dehydrogenase	ADH
@@ -1555,11 +1935,18 @@ alpha1beta2gamma1	AMPK_A1B2G1
 alpha1beta2gamma2	AMPK_A1B2G2
 alpha2 adrenoceptor	ADRA2
 alpha2-AR	ADRA2
-alpha2beta1 integrin	Integrins
+alpha2beta1 integrin	ITGA2B1
 alpha2beta1gamma1	AMPK_A2B1G1
 alpha2beta2gamma1	AMPK_A2B2G1
 alpha2beta2gamma2	AMPK_A2B2G2
 alpha2beta2gamma3	AMPK_A2B2G3
+alpha5beta1 integrins	FNR
+alpha5beta1-integrin	FNR
+alphavbeta3 integrins	VTNR
+alphavbeta3-integrin	VTNR
+angiotensin receptor	AGTR
+angiotensin receptors	AGTR
+angiotensin-receptor	AGTR
 annexin A2 heterotetramer	Annexin_II_heterotetramer
 annexin II heterotetramer	Annexin_II_heterotetramer
 apoA	APOA
@@ -1569,6 +1956,9 @@ apolipoprotein A	APOA
 apolipoprotein(A)	APOA
 apolipoprotein(a)	APOA
 apolipoproteins	Apolipoprotein
+aspartate aminotransferase	GOT
+aspartate transaminase	GOT
+axonemal dynein	Axonemal_dynein
 b-adrenergic receptor	ADRB
 b-arrestin	ARRB
 b-receptors	ADRB
@@ -1611,7 +2001,7 @@ cAMP-dependent PK	PKA
 cAMP-dependent protein kinase	PKA
 cPLA2	PLA2
 cTnC	Troponin_C
-cTnI	Troponin_C
+cTnI	Troponin_I
 cTnT	Troponin_T
 cadherin	Cadherin
 calcineurin	PPP3
@@ -1635,10 +2025,13 @@ caspases	Caspase
 catalytic subunit of calcineurin	PPP3C
 catenin alpha	CTNNA
 catenin α	CTNNA
+cathepsin	Cathepsin
+cathepsins	Cathepsin
 cation channel	Cation_channels
 cation channels	Cation_channels
 caveolin	CAV
 cdk1/2	CDK1_2
+cell cycle regulatory protein	CDK
 chaperonin	CCT_complex
 chaperonin containing TCP-1	CCT_complex
 chaperonin-containing TCP1 complex	CCT_complex
@@ -1669,6 +2062,7 @@ class III histone deacetylases	HDAC_III
 class IV HDACs	HDAC_IV
 class IV histone deacetylases	HDAC_IV
 clathrin	Clathrin
+clathrin associated protein	Adaptor_protein
 clathrin coat	Clathrin
 cofilin	Cofilin
 cohesin	Cohesin
@@ -1688,11 +2082,15 @@ creatine kinase	Creatine_kinase
 cullin	CUL
 cullin proteins	CUL
 cullins	CUL
+cyclase associated protein	CAP
+cyclase associated proteins	CAP
 cyclic AMP-dependent protein kinase	PKA
 cyclic-AMP-dependent protein kinase	PKA
 cyclin	Cyclin
 cyclin A	Cyclin_A
+cyclin B	Cyclin_B
 cyclin E	Cyclin_E
+cyclin G	Cyclin_G
 cyclin dependent kinase inhibitors	CDKN
 cyclin family	Cyclin
 cyclin-dependent kinase inhibitor	CDKN
@@ -1702,9 +2100,18 @@ cyclophilin	Cyclophilin
 cyclophilins	Cyclophilin
 cysteine rich secretory proteins	CRISP
 cysteine-rich secretory proteins	CRISP
+cytochrome	CYP
+cytochrome P-450	CYP
+cytochrome P-450 enzyme	CYP
+cytochrome P-450 enzymes	CYP
+cytochrome P-450 isozymes	CYP
+cytochrome P450	CYP
+cytochrome P450s	CYP
 cytochrome bc1 complex	ETC_complex_III
 cytochrome c oxidase	COX
 cytochrome c oxidase subunit VIII	COX8
+cytochrome p450	CYP
+cytochromes P-450	CYP
 cytoplasmic dynein	Cytoplasmic_dynein
 cytosolic PLA2	PLA2
 cytosolic phospholipase A(2)	PLA2
@@ -1712,9 +2119,26 @@ cytosolic phospholipase A2	PLA2
 dTK	TK
 death receptor	Death_receptor
 death receptors	Death_receptor
+deiodinase	Deiodinase
 derived growth factor	PDGFR
 desmoglein	Desmoglein
 desmogleins	Desmoglein
+desumolating isopeptidase	DESI
+desumolating isopeptidases	DESI
+desumoylating isopeptidase	DESI
+desumoylating isopeptidases	DESI
+deubiquinatase	Deubiquitinase
+deubiquinatases	Deubiquitinase
+deubiquinating enzyme	Deubiquitinase
+deubiquinating enzymes	Deubiquitinase
+deubiquitinase	Deubiquitinase
+deubiquitinases	Deubiquitinase
+deubiquitinating enzyme	Deubiquitinase
+deubiquitinating enzymes	Deubiquitinase
+deubiquitylase	Deubiquitinase
+deubiquitylases	Deubiquitinase
+deubiquitylating enzyme	Deubiquitinase
+deubiquitylating enzymes	Deubiquitinase
 diacyl glycerol kinase	DGK
 diacylglycerol kinase	DGK
 discoidin domain receptor family	DDR
@@ -1725,6 +2149,13 @@ dopamine receptor	DRD
 dopamine receptors	DRD
 dynamin	DNM
 dynamin family	DNM
+dynein	Dynein
+dynein complex	Dynein
+dynein complexes	Dynein
+dynein motor	Dynein
+dynein motor complex	Dynein
+dynein motors	Dynein
+dyneins	Dynein
 dystrophin glycoprotein	DGC
 dystrophin glycoprotein complex	DGC
 dystrophin-associated glycoprotein complex	DGC
@@ -1735,6 +2166,10 @@ eIF4G	EIF4G
 early growth response proteins	EGR
 elastase	ELA
 endothelin	EDN
+endothelin receptor	EDNR
+endothelin receptors	EDNR
+endothelin-1 receptor	EDNR
+endothelin-1 receptors	EDNR
 endothelins	EDN
 enolase	ENO
 eotaxin	Eotaxin
@@ -1746,19 +2181,29 @@ epsin	EPN
 epsins	EPN
 erbB	ERBB
 ethanolamine kinase	CHK
+eukaryotic elongation factor	EEF
 eukaryotic initiation factor-4A	EIF4A
 exocyst	EXOC
 exocyst complex	EXOC
 exostosin glycosyltransferase family	EXT
 extracellular signal-regulated kinase	ERK
+ezrin-radixin-moesin	ERM
+ezrin/radixin/moesin	ERM
 farnesyltransferase	FNT
+fatty acid binding protein	FABP
+fermitin	FERMT
+fermitins	FERMT
 fibrin	Fibrin
 fibrinogen	Fibrinogen
+fibronectin receptor	FNR
 flotillin	FLOT
 follicle-stimulating hormone	FSH
+foxA	FOXA
+foxD	FOXD
 fructose-bisphosphate aldolase	ALDO
 fucosyltransferase	FUT
 fucosyltransferases	FUT
+g6pase	G6Pase
 gIV-PLA(2)	PLA2G4
 gamma secretase	Gamma_secretase
 gamma tubulin	TUBG
@@ -1769,12 +2214,18 @@ general transcription factor II E	GTF2E
 general transcription factor II F	GTF2F
 glucose transporter	SLC2A
 glucose transporters	SLC2A
+glutamate decarboxylase	GAD
 glutamate metabotropic receptors	GRM
+glutamate oxaloacetate transaminase	GOT
+glutamic acid decarboxylase 	GAD
+glutamic-oxaloacetic transaminase	GOT
 glutathione S-transferase	GST
 glutathione peroxidase	GPX
+glutathione-S-transferase	GST
 glycogen phosphorylase	PYG
 glycogen phosphorylases	PYG
 glycogen synthase	GYS
+glycogenin	GTF_family_8
 glycoprotein Ib-V-IX complex	GPIb_IX_V
 glycosylphosphatidylinositol transamidase complex	GPIT
 glycosyltransferase family 2	GTF_family_2
@@ -1782,6 +2233,8 @@ glycosyltransferase family 29	GTF_family_29
 glycosyltransferase family 6	GTF_family_6
 glycosyltransferase family 8	GTF_family_8
 glycosyltransferase family 90	GTF_family_90
+gonadotropin releasing hormone	GNRH
+gonadotropin-releasing hormone	GNRH
 group IV-PLA(2)	PLA2G4
 guanylate cyclase	GUCY
 guanylyl cyclase	GUCY
@@ -1789,12 +2242,16 @@ h9-1-1 complex	9_1_1
 hAxin	AXIN
 hCG	hCG
 hER	ESR
+hH	HRH
 haem oxygenase	HMOX
 heat shock protein family B	HSPB
 hedgehog protein	Hedgehog
 hedgehog signaling proteins	Hedgehog
 heme oxygenase	HMOX
 hemoglobin	Hemoglobin
+hexosaminidase	HEX
+histamine receptor	HRH
+histamine receptors	HRH
 histone	Histone
 histone H1	Histone_H1
 histone H2A	Histone_H2A
@@ -1807,6 +2264,7 @@ histone-3	Histone_H3
 histones	Histone
 homeodomain iroquois proteins	IRX
 hypoxia-inducible factors	HIF
+il23	IL23
 inhibin	Inhibin
 inhibin A	Inhibin_A
 inhibin B	Inhibin_B
@@ -1815,22 +2273,40 @@ inhibin-B	Inhibin_B
 inhibin-a	Inhibin_A
 inhibin-b	Inhibin_B
 initiation factor 4E binding proteins	EIF4EBP
-insulin family	INS
 insulin receptor family	INSR
 insulin receptor substrate	IRS
 insulin receptor/insulin-like growth factor receptor family	INSR
 insulin-like growth factor binding proteins	IGFBP
 integrin	Integrins
+integrin alpha	ITGA
+integrin receptors	Integrins
+integrin α5β1	FNR
+integrin αIIbβ3	ITGA2B3
 integrins	Integrins
+integrins alphavbeta3	VTNR
 interferon	Interferon
 interferon beta	IFNB
 interferon gamma receptor	Interferon_gamma_receptor
+interferon induced transmembrane protein	IFITM
+interferon induced transmembrane proteins	IFITM
 interferon β	IFNB
 interferon γ receptor	Interferon_gamma_receptor
 interferon-gamma receptor	Interferon_gamma_receptor
+interferon-α/β receptor	IFNAR
 interferon-γ receptor	Interferon_gamma_receptor
+interleukin 23	IL23
+interleukin-23	IL23
+josephin deubiquinatase	MJD
+josephin deubiquinatases	MJD
+josephin deubiquitinatase	MJD
+josephin deubiquitinatases	MJD
+josephin deubiquitylase	MJD
+josephin deubiquitylases	MJD
+josephin domain containing	MJD
 kallikrein	KLK
 kallikrein-related peptidases	KLK
+kindlin	FERMT
+kindlins	FERMT
 kinesin	Kinesin
 kinesins	Kinesin
 kinetochore	Kinetochore
@@ -1844,6 +2320,8 @@ laminin-332 chains	Laminin_332
 laminin-5	Laminin_332
 large mitoribosomal subunit	MRPL
 large subunit of the mammalian mitochondrial ribosome	MRPL
+large tumor suppressor kinase	LATS
+large tumor suppressor kinases	LATS
 ligand-gated ion channel	Ligand_gated_ion_channels
 ligand-gated ion channels	Ligand_gated_ion_channels
 liver X receptor	LXR
@@ -1855,11 +2333,23 @@ mGluRs	GRM
 mTORC1	mTORC1
 mTORC2	mTORC2
 mammalian mitochondrial ribosome	Mitochondrial_Ribosome
+mannose receptor	MRC
+mannose receptors	MRC
+mechanosensitive ion channel	Mechanosensitive_ion_channels
+mechanosensitive ion channels	Mechanosensitive_ion_channels
+melatonin receptor	MTNR
+melatonin receptors	MTNR
 membrane attack	MAC
 membrane attack complex	MAC
 metabotrophic glutamate receptor	GRM
 metabotropic glutamate receptor	GRM
 metallothionein	Metallothionein
+methyltransferase	Methyltransferases
+methyltransferases	Methyltransferases
+microtubule motor cytoplasmic dynein	Cytoplasmic_dynein
+microtubule-associated protein	Microtubule_associated_proteins
+microtubule-associated protein RP/EB family	MAPRE
+microtubule-associated proteins	Microtubule_associated_proteins
 mini-chromosome maintenance complex	MCM
 minichromosome maintenance complex	MCM
 minichromosome maintenance protein complex	MCM
@@ -1872,6 +2362,16 @@ mitogen-activated protein kinase	MAPK
 mitogen-activated protein kinase kinase	MAP2K
 mitogen-activated protein kinases	MAPK
 mitoribosome	Mitochondrial_Ribosome
+motif interacting with Ub-containing novel DUB family	MINDY
+motif interacting with ubiquitin-containing novel DUB family	MINDY
+motif interacting with ubiquitin-containing novel deubiquinating enzyme family	MINDY
+motif interacting with ubiquitin-containing novel deubiquinating enzymes family	MINDY
+motif interacting with ubiquitin-containing novel deubiquitinating enzyme family	MINDY
+motif interacting with ubiquitin-containing novel deubiquitinating enzymes family	MINDY
+motif interacting with ubiquitin-containing novel deubiquitylating enzyme family	MINDY
+motif interacting with ubiquitin-containing novel deubiquitylating enzymes family	MINDY
+motor dynein	Dynein
+motor protein dynein	Dynein
 myosin	Myosin_complex
 myosin alkali light chain	MYL_alkali
 myosin alkali light chain proteins	MYL_alkali
@@ -1887,17 +2387,22 @@ nAChR	CHRN
 naked cuticle	NKD
 natriuretic peptide	Natriuretic_peptide
 natriuretic peptides	Natriuretic_peptide
+netrin	Netrin
 neuregulin	NRG
 neuregulin family	NRG
 neuregulins	NRG
+neuropeptide	Neuropeptides
 neuropeptide FF receptor	NPFFR
 neuropeptide FF receptors	NPFFR
 neuropeptide Y receptor	NPYR
 neuropeptide Y receptors	NPYR
 neuropeptide receptor	Neuropeptide_receptor
 neuropeptide receptors	Neuropeptide_receptor
+neuropeptides	Neuropeptides
 neuropeptides B and W receptor	NPBWR
 neuropeptides B and W receptors	NPBWR
+neuropilin	Neuropilins
+neuropilins	Neuropilins
 neuroregulin	NRG
 nicotine class acetylcholine receptors	CHRN
 nicotinic acetylcholine receptor	CHRN
@@ -1910,6 +2415,9 @@ ofalpha(2)-adrenoceptor	ADRA2
 ofα(2)-adrenoceptor	ADRA2
 olfactory receptor	OR
 olfactory receptors	OR
+opioid receptor	Opioid_receptor
+opioid receptors	Opioid_receptor
+outer dynein	Axonemal_dynein_ODA
 ov-serpins	SERPINB
 p-38	p38
 p-CaMKII	CAMK2_complex
@@ -1931,6 +2439,7 @@ p42 and p44MAP kinase	ERK
 p42(mapk) and p44(mapk)	ERK
 p42/44	ERK
 p44 and p42	ERK
+p450	CYP
 p53 Family	p53_family
 p53 family	p53_family
 p53-family	p53_family
@@ -1981,11 +2490,18 @@ phospholipase Cδ	PLCD
 phospholipase D	PLD
 phospholipase-C	PLC
 phosphorylase kinase	PhK
+pocket protein	Pocket_protein
+pocket protein family	Pocket_protein
+pocket proteins	Pocket_protein
 pol delta	DNA_polymerase_delta
+pol α	DNA_polymerase_alpha
+pol α-primase	DNA_polymerase_alpha
+pol α-primase complex	DNA_polymerase_alpha
 pol δ	DNA_polymerase_delta
 polycomb Repressive Complex (PRC) 1	PRC1_complex
 polycomb repressive complex 1	PRC1_complex
 polycomb repressive complex 2	PRC2_complex
+polα/primase complex	DNA_polymerase_alpha
 porin	Porins
 porins	Porins
 potassium channel	KCN
@@ -1993,6 +2509,8 @@ potassium channels	KCN
 profilin	PFN
 profilins	PFN
 propionyl-CoA carboxylase	Propionyl_CoA_carboxylase
+proprotein convertase	PCSK
+proprotein convertases	PCSK
 prostaglandin E receptor	PTGER
 protease	Protease
 proteases	Protease
@@ -2008,6 +2526,7 @@ protein kinase C	PKC
 protein kinase G	PRKG
 protein phosphatase 2	PPP2
 protein phosphatase 2B	PPP3
+protein phosphatases	Phosphatase
 proteinase	Protease
 proteinases	Protease
 purinergic receptor	Purinergic_receptors
@@ -2037,7 +2556,15 @@ rhoGDI	RhoGDI
 s6k	P70S6K
 sGC	SGC
 salt inducible kinase	SIK
+sarcoglycan	Sarcoglycan_complex
+sarcoglycans	Sarcoglycan_complex
 sarcoplasmic/endoplasmic reticulum calcium ATPase	SERCA
+scavenger receptor	SCAR
+scavenger receptors	SCAR
+sentrin specific protease	SENP
+sentrin specific proteases	SENP
+sentrin-specific protease	SENP
+sentrin-specific proteases	SENP
 serine/threonine protein kinase CK1	CSNK1
 sialytransferase	GTF_family_29
 sialytransferases	GTF_family_29
@@ -2065,6 +2592,7 @@ succinate dehydrogenase	ETC_complex_II
 succinate dehydrogenase (ubiquinone)	ETC_complex_II
 sulfonylurea receptor	Sulfonylurea_receptor
 sulfonylurea receptors	Sulfonylurea_receptor
+tea domain	TEAD
 tenascin	TN
 thioredoxin	TXN
 thioredoxin reductase	TXNRD
@@ -2089,6 +2617,8 @@ transforming growth factor beta	TGFB
 transforming growth factor β	TGFB
 transforming growth factor-beta	TGFB
 transforming growth factor-β	TGFB
+transglutaminase	TGM
+transglutaminases	TGM
 trk receptor	NTRK
 trk receptors	NTRK
 troponin	Troponin
@@ -2121,7 +2651,7 @@ ubiquitin	Ubiquitin
 ubiquitin conjugating enzyme	UBE2
 ubiquitin-conjugating enzymes	UBE2
 vascular endothelial growth factor	VEGF
-vitronectin receptor (integrin)	Integrins
+vitronectin receptor	VTNR
 voltage gated	Voltage_gated_ion_channels
 voltage-gated	Voltage_gated_ion_channels
 xylosyltransferase	GCNT
@@ -2144,10 +2674,13 @@ xylosyltransferases	GCNT
 α2β2γ1	AMPK_A2B2G1
 α2β2γ2	AMPK_A2B2G2
 α2β2γ3	AMPK_A2B2G3
+α5β1 integrin	FNR
+αvβ3 integrin	VTNR
 β adrenergic receptor kinase	ADRBK
 β interferons	IFNB
 β-adrenergic receptor	ADRB
 β-adrenoreceptor	ADRB
+β-hexosaminidase	Beta_HEX
 βAR	ADRB
 βARK	ADRBK
 γ secretase	Gamma_secretase

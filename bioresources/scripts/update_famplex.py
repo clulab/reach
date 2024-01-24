@@ -1,3 +1,4 @@
+import re
 import os
 import requests
 
@@ -15,14 +16,24 @@ def get_real_lines(fname):
 
 
 def get_other_strings(fname):
-    kb_files = [row[0] + '.tsv' for row in get_real_lines(fname)]
+    kb_lines = get_real_lines(fname)
+    kb_fnames = []
+    for line in kb_lines:
+        # path = ${KnowledgeBasesPath}/GO-subcellular-locations.tsv
+        match = re.match(r'path = \${KnowledgeBasesPath}/(.+)',
+                         line[0].strip())
+        if match:
+            kb_fnames.append(match.groups()[0])
+    print('Found %d KB files' % len(kb_fnames))
+
     strings = []
-    for kb_fname in kb_files:
+    for kb_fname in kb_fnames:
         # We skip famplex here to avoid redundancy
         if kb_fname == 'famplex.tsv':
             continue
         strings += [row[0] for row in
                     get_real_lines(os.path.join(kb_dir, kb_fname))]
+    print('Found %d other strings in KB files' % len(strings))
     return set(strings)
 
 
@@ -75,8 +86,9 @@ if __name__ == '__main__':
 
     # Now get all the "other" strings so we can figure out what to add
     # to the overrides file
-    other_strings = get_other_strings(os.path.join(here, os.pardir,
-                                      'ner_kb.config'))
+    conf_fname = os.path.join(here, os.pardir, 'src', 'main', 'resources',
+                              'application.conf')
+    other_strings = get_other_strings(conf_fname)
 
     overrides = get_overrides(groundings_rows, other_strings,
                               famplex_only=True)
