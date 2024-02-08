@@ -914,3 +914,44 @@ porin	Porins		fplx	Family
 stearoyl-CoA desaturase	SCD		fplx	Family
 thioredoxin	TXN		fplx	Family
 ubiquitin	Ubiquitin		fplx	Family
+PPE	D000067393		mesh	BioProcess
+MERS-CoV	D065207		mesh	BioProcess
+SARS-CoV	D045473		mesh	BioProcess
+SARS	D045169		mesh	Disease
+SARS-CoV-2	C000656484		mesh	BioProcess
+COVID-19	C000657245		mesh	BioProcess
+HCQ	CHEBI:5801		chebi	Simple_chemical
+fluspirilene	3396		pubchem	Simple_chemical
+E-64-D	CHEBI:101381		chebi	Simple_chemical
+smoking	D012907		mesh	BioProcess
+dsRNA	CHEBI:67208		chebi	Simple_chemical
+viral replication	GO:0039694		go	BioProcess
+chloroquine phosphate	64927		pubchem	Simple_chemical
+chloroquine diphosphate	64927		pubchem	Simple_chemical
+amodiaquine hydrochloride	6246		pubchem	Simple_chemical
+amodiaquin hydrochloride	6246		pubchem	Simple_chemical
+hydroxychloroquine sulfate	12947		pubchem	Simple_chemical
+chloroquine hydrochloride	83820		pubchem	Simple_chemical
+amodiaquin dihydrochloride dihydrate	64646		pubchem	Simple_chemical
+amodiaquine dihydrochloride dihydrate	64646		pubchem	Simple_chemical
+tetrandrine	73078		pubchem	Simple_chemical
+oxyclozanide	16779		pubchem	Simple_chemical
+tilorone	5475		pubchem	Simple_chemical
+CD4+	D015496		mesh	CellType
+CD4 +	D015496		mesh	CellType
+CD4+ T cell	D015496		mesh	CellType
+CD4 + T cell	D015496		mesh	CellType
+CD4 þ T cells	D015496		mesh	CellType
+CD4 ϩ T cells	D015496		mesh	CellType
+CD4+ T cells	D015496		mesh	CellType
+CD4 T cells	D015496		mesh	CellType
+CD4+ T helper	D006377		mesh	CellType
+CD4+ T helper cells	D006377		mesh	CellType
+CD8+	D018414		mesh	CellType
+CD8 +	D018414		mesh	CellType
+CD8+ T cell	D018414		mesh	CellType
+CD8 + T cell	D018414		mesh	CellType
+CD8 þ T cells	D018414		mesh	CellType
+CD8 ϩ T cells	D018414		mesh	CellType
+CD8+ T cells	D018414		mesh	CellType
+CD8 T cells	D018414		mesh	CellType
