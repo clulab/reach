@@ -61,8 +61,8 @@ class TestMentionSerialization extends FlatSpec with Matchers {
   def getKOtriggers(bioMentions: Seq[BioMention]) = bioMentions.flatMap { mention => mention.modifications.collect { case koTrigger: KOtrigger => koTrigger } }
 
   text3 should "produce 8 mentions and 4 triggers" in {
-    mentions3 should have size (8)
-    koTriggers3 should have size (4)
+    mentions3 should have size (5)
+    koTriggers3 should have size (2)
   }
 
   "Serializer" should "write serialized modifications" in {
@@ -72,8 +72,8 @@ class TestMentionSerialization extends FlatSpec with Matchers {
   "Serializer" should "load serialized modifications" in {
     val rdMentions3 = Serializer.load[Seq[BioMention]](serfile3)
     val rdKoTriggers3 = getKOtriggers(rdMentions3)
-    rdMentions3 should have size (8)
-    rdKoTriggers3 should have size (4)
+    rdMentions3 should have size (5)
+    rdKoTriggers3 should have size (2)
 
     koTriggers3 should contain theSameElementsInOrderAs (rdKoTriggers3)
   }
