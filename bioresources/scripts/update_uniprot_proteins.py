@@ -9,18 +9,26 @@ from collections import defaultdict
 from protmapper.resources import _process_feature
 
 # Base URL for UniProt
-uniprot_url = 'http://www.uniprot.org/uniprot'
+uniprot_url = 'https://rest.uniprot.org/uniprotkb/stream'
 # Get protein names, gene names and the organism
-columns = ['id', 'protein%20names', 'genes', 'organism',
-           'feature(CHAIN)', 'feature(PEPTIDE)', 'organism-id']
+columns = [
+    'accession',        # 'id',
+    'protein_name',    # 'protein%20names',
+    'gene_names',       # 'genes',
+    'organism_name',    # 'organism',
+    'ft_chain',         # 'feature(CHAIN)',
+    'ft_signal',        # 'feature(SIGNAL)',
+    'ft_peptide',       # 'feature(PEPTIDE)',
+    'organism_id'       # 'organism-id'
+]
 # Only get reviewed entries and use TSV format
 params = {
-    'sort': 'id',
-    'desc': 'no',
-    'compress': 'no',
-    'query': 'reviewed:yes',
-    'format': 'tab',
-    'columns': ','.join(columns)
+    #'sort': 'id',
+    #'desc': 'no',
+    'compressed': 'false',
+    'query': 'reviewed:true',
+    'format': 'tsv',
+    'fields': ','.join(columns)
 }
 
 
@@ -88,7 +96,7 @@ def get_extra_organism_synonyms(organism_id, extra_organism_mappings):
 
 
 def process_row(row, extra_organism_mappings=None):
-    entry, protein_names, genes, organisms, chains, peptides, organism_id = row
+    entry, protein_names, genes, organisms, chains, signal, peptides, organism_id = row
     # Gene names are space separated
     gene_synonyms = genes.split(' ') if genes else []
     # We use a more complex function to parse protein synonyms which appear
@@ -286,7 +294,8 @@ if __name__ == '__main__':
                 process_row(row,
                             extra_organism_mappings=extra_organism_mappings)
     # Add more SARS-CoV-2 synonyms
-    processed_entries += get_sars_cov2_synonyms()
+    #processed_entries += get_sars_cov2_synonyms()
+
     # Add HGNC syonyms
     hgnc_entries = generate_hgnc_terms()
     # We sort the entries first by the synonym but in a way that special
