@@ -32,40 +32,6 @@ params = {
 }
 
 
-def get_sars_cov2_synonyms():
-    """This function imports additional SARS-CoV-2 protein synonyms.
-
-    UniProt is missing some important and widely used synonyms like
-    Nsp1 for some SARS-CoV-2 proteins. These are added by this function
-    from names used in the Gordon et al. Nature paper's interactome
-    network.
-    """
-    # This package can be cloned from https://github.com/indralab/covid-19
-    from covid_19.process_gordon_ndex import mappings
-    entries = []
-    organism_synonyms = ['2019-nCoV', 'SARS-CoV-2',
-                         'Severe acute respiratory syndrome coronavirus 2']
-    organism_id = '2697049'
-    organism_synonyms += get_extra_organism_synonyms(organism_id,
-                                                     extra_organism_mappings)
-    for text, groundings in mappings.items():
-        # We skip entries with no grounding
-        if not groundings:
-            continue
-        # We skip synonyms that are either too short or common English words
-        if len(text) < 2 or text == 'Spike':
-            continue
-        # If this is a protein fragment, we format its grounding in the standard
-        # way, similar to other protein fragments
-        if 'UPPRO' in groundings:
-            grounding = f"{groundings['UP']}#{groundings['UPPRO']}"
-        else:
-            grounding = groundings['UP']
-        for organism in organism_synonyms:
-            entries.append((text, grounding, organism))
-    return entries
-
-
 def make_organism_mappings(taxonomy_ids):
     import obonet
     import networkx
@@ -293,8 +259,6 @@ if __name__ == '__main__':
             processed_entries += \
                 process_row(row,
                             extra_organism_mappings=extra_organism_mappings)
-    # Add more SARS-CoV-2 synonyms
-    #processed_entries += get_sars_cov2_synonyms()
 
     # Add HGNC syonyms
     hgnc_entries = generate_hgnc_terms()
