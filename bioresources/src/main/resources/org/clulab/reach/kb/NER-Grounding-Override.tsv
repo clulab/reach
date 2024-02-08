@@ -409,10 +409,12 @@ Actin	Actin		fplx	Family
 Activin A	Activin_A		fplx	Family
 Akt	AKT		fplx	Family
 Aldehyde dehydrogenase	ALDH		fplx	Family
+Alpha-1,4-glucosyltransferase	ALG6_family		fplx	Family
 Apolipoprotein	Apolipoprotein		fplx	Family
 Arp	Actin_related_proteins		fplx	Family
 Axin	AXIN		fplx	Family
 BARK	ADRBK		fplx	Family
+BCKDH	BCKDC		fplx	Family
 BEST	BEST		fplx	Family
 BLVR	BLVR		fplx	Family
 BMP	BMP		fplx	Family
@@ -548,7 +550,6 @@ FGF	FGF		fplx	Family
 FGFR	FGFR		fplx	Family
 FNR	FNR		fplx	Family
 FOS	FOS_family		fplx	Family
-FOX	FOX		fplx	Family
 FOXO	FOXO		fplx	Family
 FPR	FPR		fplx	Family
 Fibrin	Fibrin		fplx	Family
@@ -584,6 +585,7 @@ Galphaq	G_q_alpha		fplx	Family
 Gamma tubulin	TUBG		fplx	Family
 Glucose-6-phosphatase	G6Pase		fplx	Family
 Glycogen phosphorylase	PYG		fplx	Family
+Glycosyltransferase	Glycosyltransferase		fplx	Family
 Glycosyltransferase family 6	GTF_family_6		fplx	Family
 GnRH	GNRH		fplx	Family
 Gnrh	GNRH		fplx	Family
@@ -630,7 +632,6 @@ Ifnar	IFNAR		fplx	Family
 IkappaB kinase	IKK_complex		fplx	Family
 Interferon	Interferon		fplx	Family
 Interferon beta	IFNB		fplx	Family
-Interleukin-23	IL23		fplx	Family
 JAB1/MPN/MOV34 metalloenzyme domain	JAMM		fplx	Family
 JAK	JAK		fplx	Family
 JNK	JNK		fplx	Family
@@ -639,6 +640,7 @@ KCN	KCN		fplx	Family
 KLK	KLK		fplx	Family
 KSR	KSR		fplx	Family
 Kinesin	Kinesin		fplx	Family
+Kinetochore	Kinetochore		fplx	Family
 Kir	KCNJ		fplx	Family
 LC3	MAP1LC3		fplx	Family
 LDH	LDH		fplx	Family
@@ -682,7 +684,9 @@ Metallothionein	Metallothionein		fplx	Family
 Mhc	MYH		fplx	Family
 Microtubule-associated protein	Microtubule_associated_proteins		fplx	Family
 Myosin heavy chain	MYH		fplx	Family
+NAD(P)H oxidase	NADPH_oxidase		fplx	Family
 NADH dehydrogenase	NADH_dehydrogenase		fplx	Family
+NADPH oxidase	NADPH_oxidase		fplx	Family
 NDRG	NDRG		fplx	Family
 NF-E2	NFE		fplx	Family
 NF-kappaB	NFkappaB		fplx	Family
@@ -709,6 +713,7 @@ PAK	PAK		fplx	Family
 PBX	PBX		fplx	Family
 PDE	PDE		fplx	Family
 PDE1	PDE1		fplx	Family
+PDE4	PDE4		fplx	Family
 PDE8	PDE8		fplx	Family
 PDGF	PDGF		fplx	Family
 PDGFR	PDGFR		fplx	Family
@@ -743,6 +748,7 @@ PPP2	PPP2		fplx	Family
 PRC2	PRC2_complex		fplx	Family
 PRKAA	AMPK_alpha		fplx	Family
 PTX	Pertussis_toxin		fplx	Family
+Pak	PAK		fplx	Family
 Parvin	PARV		fplx	Family
 Patched	Patched		fplx	Family
 Peroxiredoxin	PRDX		fplx	Family
@@ -762,6 +768,7 @@ Pol I	RNApo_I		fplx	Family
 Porin	Porins		fplx	Family
 Potassium channel	KCN		fplx	Family
 Profilin	PFN		fplx	Family
+Propionyl-CoA carboxylase	Propionyl_CoA_carboxylase		fplx	Family
 Proprotein convertase	PCSK		fplx	Family
 Protease	Protease		fplx	Family
 Proteasome	Proteasome		fplx	Family
@@ -793,6 +800,7 @@ RSK	RSK		fplx	Family
 RTK	RTK		fplx	Family
 RXR	RXR		fplx	Family
 RYR	RYR		fplx	Family
+Rab	RAB		fplx	Family
 Raf	RAF		fplx	Family
 Rap guanine nucleotide exchange factor	RAPGEF		fplx	Family
 Rap1	RAP1		fplx	Family
@@ -896,8 +904,6 @@ foxA	FOXA		fplx	Family
 hAxin	AXIN		fplx	Family
 hemoglobin	Hemoglobin		fplx	Family
 histone	Histone		fplx	Family
-kinetochore	Kinetochore		fplx	Family
-kinetochores	Kinetochore		fplx	Family
 mitochondrial ribosomes	Mitochondrial_Ribosome		fplx	Family
 p110	PI3K_p110		fplx	Family
 p38	p38		fplx	Family

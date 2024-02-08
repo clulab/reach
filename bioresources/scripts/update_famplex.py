@@ -66,6 +66,9 @@ def extend_overrides(override_fname, overrides):
             fh.write('%s\n' % line)
 
 
+exclude_list = {'FOX', 'GOT'}
+
+
 if __name__ == '__main__':
     # Basic positioning of folders
     here = os.path.dirname(os.path.abspath(__file__))
@@ -82,6 +85,9 @@ if __name__ == '__main__':
     with open(groundings_fname, 'w') as fh:
         for line in groundings_rows:
             if line[2] == 'fplx':
+                # Skip excluded strings
+                if line[0] in exclude_list:
+                    continue
                 fh.write('%s\t%s\n' % (line[0], line[1]))
 
     # Now get all the "other" strings so we can figure out what to add
