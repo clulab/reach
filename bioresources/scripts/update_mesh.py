@@ -1,6 +1,7 @@
 import os
 import re
 import csv
+import gzip
 import xml.etree.ElementTree as ET
 from urllib.request import urlretrieve
 
@@ -52,8 +53,8 @@ def entries_from_names(names):
 
 
 def load_mesh_resource_file():
-    url = 'ftp://nlmpubs.nlm.nih.gov/online/mesh/2019/xmlmesh/desc2019.gz'
-    desc_path = os.path.join(here, 'mesh_desc2019.gz')
+    url = 'ftp://nlmpubs.nlm.nih.gov/online/mesh/2024/xmlmesh/desc2024.gz'
+    desc_path = os.path.join(here, 'mesh_desc2024.gz')
     if not os.path.exists(desc_path):
         print('Download MeSH descriptors from %s' % url)
         urlretrieve(url, desc_path)

@@ -3,10 +3,10 @@
 2K	PR:000036831
 2K fragment	PR:000036831
 2KNS4B	PR:000036842
-2'-O-methyltransferase (SARS-CoV-2)	PR:000050288
+2'-O-methyltransferase nsp16 (SARS-CoV-2)	PR:000050288
 2'-O-ribose methyltransferase (SARS-CoV-2)	PR:000050288
 30S ribosomal protein S1 isoform 1 unmodified form	PR:000024987
-3C-like proteinase (SARS-CoV-2)	PR:000050274
+3C-like proteinase nsp5 (SARS-CoV-2)	PR:000050274
 3CL-PRO (SARS-CoV-2)	PR:000050274
 3CLpro (SARS-CoV-2)	PR:000050274
 3CLp (SARS-CoV-2)	PR:000050274
@@ -115,14 +115,8 @@ BID/iso:1/Clv:1	PR:000002439
 BID/iso:1/Clv:2	PR:000002440
 BID/iso:1/Clv:3	PR:000002441
 biglycan proteolytic cleavage product	PR:000019131
-BMP2 proteolytic cleavage product	PR:000018286
-BMP4 proteolytic cleavage product	PR:000018287
-BMP5 proteolytic cleavage product	PR:000021931
-BMP6 proteolytic cleavage product	PR:000021932
-BMP7 proteolytic cleavage product	PR:000018288
 C3a anaphylatoxin	PR:000050122
 C3/alpha	PR:000050120
-C3/alpha/ClvPrd	PR:000050113
 C3 anaphylatoxin	PR:000050122
 C3/ASP	PR:000050123
 C3/b-alpha'	PR:000050124
@@ -217,7 +211,6 @@ cathepsin G proteolytic cleavage product	PR:000019568
 cathepsin H proteolytic cleavage product	PR:000019571
 cathepsin J proteolytic cleavage product	PR:000019639
 cathepsin K proteolytic cleavage product	PR:000018547
-cathepsin L1 proteolytic cleavage product	PR:000019574
 cathepsin L2 proteolytic cleavage product	PR:000019575
 cathepsin M proteolytic cleavage product	PR:000019640
 cathepsin O proteolytic cleavage product	PR:000019576
@@ -286,7 +279,6 @@ collagen type II alpha chain isoform 2 cleaved 1	PR:000003368
 complement C2 proteolytic cleavage product	PR:000019175
 complement C3 acylation stimulating protein	PR:000050123
 complement C3 alpha chain	PR:000050120
-complement C3 alpha chain (human)	PR:000050135
 complement C3b alpha' chain	PR:000050124
 complement C3 beta chain	PR:000050119
 complement C3c alpha' chain fragment 1	PR:000050149
@@ -315,8 +307,14 @@ ctxA/Clv:A1	PR:000021965
 ctxA/Clv:A2	PR:000021966
 cubilin proteolytic cleavage product	PR:000019581
 cyclin-dependent kinase 5 activator 1 cleaved 1	PR:000050087
+CYFRA 21-1 (human)	PR:000050382
+Cyfra 21.1 (human)	PR:000050382
+CYFRA21-1 (human)	PR:000050382
+cysteine desulfurase cleaved 1 (yeast)	PR:000029994
 cytochrome b-c1 complex Rieske-derived subunit 9	PR:000050072
 cytochrome P450 4A11 proteolytic cleavage product	PR:000019624
+cytokeratin-19 fragment 21-1 (human)	PR:000050382
+cytokeratin 19 fragment 21-1 (human)	PR:000050382
 DCN/iso:A/Clv:2	PR:000000550
 decorin isoform A cleaved 2	PR:000000550
 decorin proteolytic cleavage product	PR:000018276
@@ -350,9 +348,9 @@ dermcidin proteolytic cleavage product	PR:000019649
 dipeptidase 1 proteolytic cleavage product	PR:000019700
 DN85	PR:000003424
 DNA replication regulator sld2 unmodified form	PR:000027525
-dystroglycan alpha chain (mouse)	PR:000037405
-dystroglycan beta chain (mouse)	PR:000037406
-dystroglycan proteolytic cleavage product	PR:000019642
+dystroglycan 1 alpha chain (mouse)	PR:000037405
+dystroglycan 1 beta chain (mouse)	PR:000037406
+dystroglycan 1 proteolytic cleavage product	PR:000019642
 ectodysplasin-A proteolytic cleavage product	PR:000019727
 elafin proteolytic cleavage product	PR:000020960
 endoRNAse (SARS-CoV-2)	PR:000050287
@@ -425,8 +423,8 @@ GTP-binding protein era isoform 1 unmodified form	PR:000024942
 guanylin proteolytic cleavage product	PR:000020083
 hAGER/Clv:ecto	PR:000045356
 haptoglobin proteolytic cleavage product	PR:000020180
-hC3/alpha	PR:000050135
-helicase (SARS-CoV-2)	PR:000050285
+hCYFRA21-1	PR:000050382
+helicase nsp13 (SARS-CoV-2)	PR:000050285
 Hel (SARS-CoV-2)	PR:000050285
 heparanase 50 kDa subunit	PR:000050115
 heparanase 8 kDa subunit	PR:000050114
@@ -486,6 +484,7 @@ interleukin-17A proteolytic cleavage product	PR:000025428
 interleukin-18 proteolytic cleavage product	PR:000018438
 interleukin-1 alpha proteolytic cleavage product	PR:000018344
 interleukin-1 beta proteolytic cleavage product	PR:000018345
+interleukin-37 proteolytic cleavage product	PR:000020293
 interleukin-8 proteolytic cleavage product	PR:000018461
 isdA/Clv:1	PR:000029211
 isdB/Clv:1	PR:000029212
@@ -593,8 +592,6 @@ neuropeptide W proteolytic cleavage product	PR:000020786
 neuropeptide Y proteolytic cleavage product	PR:000020789
 neurotrophin-3 proteolytic cleavage product	PR:000020795
 neurotrophin-4 proteolytic cleavage product	PR:000020796
-neutrophil defensin 1 proteolytic cleavage product	PR:000029401
-neutrophil defensin 3 proteolytic cleavage product	PR:000029404
 neutrophil elastase proteolytic cleavage product	PR:000019773
 NF-KAPPA-B P50	PR:000001757
 NFKB1 p50	PR:000001757
@@ -670,7 +667,6 @@ N-terminal fragment (mouse)	PR:000037261
 nuclear factor NF-kappa-B p50 subunit	PR:000001757
 NUDT21/InitMet-	PR:000020807
 oncostatin-M proteolytic cleavage product	PR:000020841
-orexin proteolytic cleavage product	PR:000020124
 ORF1ab/Clv:nsp12 (SARS2)	PR:000050284
 ORF1ab/Clv:nsp13 (SARS2)	PR:000050285
 ORF1ab/Clv:nsp14 (SARS2)	PR:000050286
@@ -688,7 +684,7 @@ P3(40)	PR:000025588
 P3(42)	PR:000025587
 p65 homolog (SARS-CoV-2)	PR:000050271
 pancreatic prohormone proteolytic cleavage product	PR:000021066
-papain-like proteinase (SARS-CoV-2)	PR:000050272
+papain-like proteinase nsp3 (SARS-CoV-2)	PR:000050272
 pappalysin-1 proteolytic cleavage product	PR:000020867
 pappalysin-2 proteolytic cleavage product	PR:000020868
 parathyroid hormone proteolytic cleavage product	PR:000021170
@@ -723,7 +719,6 @@ presenilin-2 isoform 1 CTF subunit	PR:000036889
 presenilin-2 isoform 1 N-terminal fragment	PR:000036887
 presenilin-2 proteolytic cleavage product	PR:000036880
 prM	PR:000036837
-PRO_0000005909	PR:000050135
 PRO_0000021067	PR:000037405
 PRO_0000021068	PR:000037406
 PRO_0000022682	PR:000043586
@@ -758,6 +753,7 @@ PRO_0000449647	PR:000050267
 PRO_0000449648	PR:000050268
 pro-adrenomedullin proteolytic cleavage product	PR:000018914
 probetacellulin proteolytic cleavage product	PR:000019150
+procathepsin L proteolytic cleavage product	PR:000019574
 PROC/Clv:act_pep	PR:000035918
 PROC/Clv:H	PR:000035920
 PROC/Clv:proL	PR:000026177
@@ -770,6 +766,7 @@ progonadoliberin-2 proteolytic cleavage product	PR:000020033
 progranulin proteolytic cleavage product	PR:000020062
 pro-MCH proteolytic cleavage product	PR:000021016
 promotilin proteolytic cleavage product	PR:000020602
+proofreading exoribonuclease nsp14 (SARS-CoV-2)	PR:000050286
 pro-opiomelanocortin proteolytic cleavage product	PR:000021036
 pro-protein C light chain	PR:000026177
 prorelaxin H2 proteolytic cleavage product	PR:000021267
@@ -823,7 +820,7 @@ RHOA/iso:1/IpCysEst:1	PR:000000615
 ribonuclease R isoform 1 unmodified form	PR:000025010
 RICD	PR:000045350
 RNA directed RNA polymerase NS5	PR:000036835
-RNA-directed RNA polymerase (SARS-CoV-2)	PR:000050284
+RNA-directed RNA polymerase nsp12 (SARS-CoV-2)	PR:000050284
 ROCK1/iso:1/Clv:1	PR:000000563
 ROCK2/iso:1/Clv:1	PR:000000564
 RPS27A/Clv:RPS27a	PR:000035718
@@ -852,6 +849,7 @@ sensor protein PhoQ isoform 1 unmodified form	PR:000025185
 sensor protein QseC isoform 1 unmodified form	PR:000025059
 sensor protein TorS isoform 1 unmodified form	PR:000025230
 serase-1B active form	PR:000003056
+serine protease 1 proteolytic cleavage product	PR:000021126
 serine protease NS3	PR:000036828
 Serine protease subunit NS2B	PR:000036827
 serine/threonine-protein kinase 3 36kDa subunit	PR:000035906
@@ -962,7 +960,6 @@ transcription factor ste11 unmodified form	PR:000027540
 transcription factor zip1 unmodified form	PR:000027616
 transketolase 1 isoform 1 unmodified form	PR:000025237
 transketolase 2 isoform 1 unmodified form	PR:000025234
-trypsin-1 proteolytic cleavage product	PR:000021126
 trypsin-3 proteolytic cleavage product	PR:000021127
 tryptase beta-2 proteolytic cleavage product	PR:000021730
 tryptase gamma proteolytic cleavage product	PR:000021731
@@ -975,7 +972,7 @@ UBA52/Clv:RPL40	PR:000035724
 UBA52/Clv:ubiq	PR:000035722
 UBB/Clv:ubiq	PR:000035726
 UBC/Clv:ubiq	PR:000035720
-ubiquitin	PR:000035728
+Ubiq	PR:000035728
 ubiquitin	PR:000035728
 ubiquitin-like protein FUBI	PR:000050155
 ubiquitin (RPS27A)	PR:000035716
@@ -986,7 +983,6 @@ unmodified p53	PR:000003037
 unmodified regulator protein DcuR	PR:000025385
 unphosphorylated regulator protein DcuR	PR:000025385
 UQCRFS1/Clv:1	PR:000050072
-uridylate-specific endoribonuclease (SARS-CoV-2)	PR:000050287
 urocortin-3 proteolytic cleavage product	PR:000021784
 urocortin proteolytic cleavage product	PR:000021783
 urotensin-2 proteolytic cleavage product	PR:000021806

@@ -66,10 +66,14 @@ if __name__ == '__main__':
 
     # Download ChEBI resource file
     url = 'ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi.obo'
+    #url = 'chebi.obo'
     g = obonet.read_obo(url)
     allowed_synonyms = {'EXACT', 'RELATED'}
     entries = []
     for node, data in g.nodes(data=True):
+        if 'name' not in data:
+            print('WARNING: node %s has no name' % node)
+            continue
         name = data['name']
         synonyms = get_synonyms(data.get('synonyms', []))
         entries += [(txt, node) for txt in ([name] + synonyms)

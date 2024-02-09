@@ -375,6 +375,7 @@ slp-76	UA-CLine-100047		uaz	CellLine
 #
 14-3-3	p14_3_3		fplx	Family
 ABL	ABL_family		fplx	Family
+ACAD	ACAD		fplx	Family
 ACC	ACC		fplx	Family
 ACOX	ACOX		fplx	Family
 ACS	Acetyl_CoA_synthetase		fplx	Family
@@ -405,11 +406,15 @@ Acetate-CoA ligase	Acetyl_CoA_synthetase		fplx	Family
 Acetyl-CoA carboxylase	ACC		fplx	Family
 Acetyl-CoA synthetase	Acetyl_CoA_synthetase		fplx	Family
 Actin	Actin		fplx	Family
+Activin A	Activin_A		fplx	Family
 Akt	AKT		fplx	Family
 Aldehyde dehydrogenase	ALDH		fplx	Family
+Alpha-1,4-glucosyltransferase	ALG6_family		fplx	Family
 Apolipoprotein	Apolipoprotein		fplx	Family
+Arp	Actin_related_proteins		fplx	Family
 Axin	AXIN		fplx	Family
 BARK	ADRBK		fplx	Family
+BCKDH	BCKDC		fplx	Family
 BEST	BEST		fplx	Family
 BLVR	BLVR		fplx	Family
 BMP	BMP		fplx	Family
@@ -417,6 +422,7 @@ BMP type II receptor	BMP_receptor_type_II		fplx	Family
 BRI	BMP_receptor_type_I		fplx	Family
 BVR	BLVR		fplx	Family
 Beta tubulin	TUBB		fplx	Family
+Beta-hexosaminidase	Beta_HEX		fplx	Family
 Beta-tubulin	TUBB		fplx	Family
 C/EBP	CEBP		fplx	Family
 C1	C1		fplx	Family
@@ -425,6 +431,7 @@ CALM	CALM		fplx	Family
 CAMK	CAMK		fplx	Family
 CAMK-II	CAMK2_complex		fplx	Family
 CAMK2	CAMK2_complex		fplx	Family
+CAP	CAP		fplx	Family
 CATSPER	CATSPER		fplx	Family
 CAV	CAV		fplx	Family
 CBF3	CBF3		fplx	Family
@@ -458,14 +465,25 @@ CRISP	CRISP		fplx	Family
 CRSP	CRSP		fplx	Family
 CRTC	CRTC		fplx	Family
 CSNK	CSNK		fplx	Family
+CYP	CYP		fplx	Family
+CYP1	CYP1		fplx	Family
+CYP2	CYP2		fplx	Family
+CYP26	CYP26		fplx	Family
+CYP27	CYP27		fplx	Family
+CYP3	CYP3		fplx	Family
+CYP4	CYP4		fplx	Family
+CYP7	CYP7		fplx	Family
+CYP8	CYP8		fplx	Family
 CaM	CALM		fplx	Family
 CaM kinase II	CAMK2_complex		fplx	Family
+CaMK	CAMK		fplx	Family
 CaMK2	CAMK2_complex		fplx	Family
 CaMKII	CAMK2_complex		fplx	Family
 Cadherin	Cadherin		fplx	Family
 Calcineurin regulatory subunit	PPP3R		fplx	Family
 Calmodulin	CALM		fplx	Family
 Carboxylesterase	Carboxylesterase		fplx	Family
+Casein kinase 1	CSNK1		fplx	Family
 Caspase	Caspase		fplx	Family
 Caveolin	CAV		fplx	Family
 Cdc25	CDC25		fplx	Family
@@ -474,6 +492,7 @@ Cholinesterase	Cholinesterase		fplx	Family
 Clathrin	Clathrin		fplx	Family
 Cofilin	Cofilin		fplx	Family
 Cohesin	Cohesin		fplx	Family
+Collagen	Collagen		fplx	Family
 Connexin	GJ		fplx	Family
 Cox4	COX4		fplx	Family
 Cox6b	COX6B		fplx	Family
@@ -481,57 +500,76 @@ Cox7a	COX7A		fplx	Family
 Cox7b	COX7B		fplx	Family
 Cox8	COX8		fplx	Family
 Cyclin	Cyclin		fplx	Family
+Cyclin A	Cyclin_A		fplx	Family
 Cyclin D	Cyclin_D		fplx	Family
 Cyclin-A	Cyclin_A		fplx	Family
 Cyclin-D	Cyclin_D		fplx	Family
+Cyclin-G	Cyclin_G		fplx	Family
 Cyclophilin	Cyclophilin		fplx	Family
+Cyp1	CYP1		fplx	Family
+Cyp26	CYP26		fplx	Family
+Cytochrome P450	CYP		fplx	Family
 DAG kinase	DGK		fplx	Family
 DAPK	DAPK		fplx	Family
 DGC	DGC		fplx	Family
 DGK	DGK		fplx	Family
 DNM	DNM		fplx	Family
+DNMT	DNMT		fplx	Family
+DUB	Deubiquitinase		fplx	Family
 DUSP	DUSP		fplx	Family
 DVL	DVL		fplx	Family
 DYRK	DYRK		fplx	Family
 Desmoglein	Desmoglein		fplx	Family
+Deubiquitinase	Deubiquitinase		fplx	Family
+Deubiquitinating enzyme	Deubiquitinase		fplx	Family
 Dgk	DGK		fplx	Family
 Dvl	DVL		fplx	Family
 E2 ubiquitin-conjugating enzyme	UBE2		fplx	Family
 E3	E3_Ub_ligase		fplx	Family
-E3 ubiquitin ligase	E3_Ub_ligase		fplx	Family
 EDN	EDN		fplx	Family
+EEF1A	EEF1A		fplx	Family
+EEF1B	EEF1B		fplx	Family
 EFN	EFN		fplx	Family
 EIF2B	EIF2B		fplx	Family
 EIF4A	EIF4A		fplx	Family
 EIF4G	EIF4G		fplx	Family
 ELA	ELA		fplx	Family
+ELOVL	ELOVL		fplx	Family
 ENO	ENO		fplx	Family
 EPN	EPN		fplx	Family
 ERBB	ERBB		fplx	Family
 ERK	ERK		fplx	Family
+ERM	ERM		fplx	Family
 ESR	ESR		fplx	Family
 ETS	ETS		fplx	Family
 EXT	EXT		fplx	Family
 Eotaxin	Eotaxin		fplx	Family
 Erk	ERK		fplx	Family
+FABP	FABP		fplx	Family
 FGF	FGF		fplx	Family
 FGFR	FGFR		fplx	Family
+FNR	FNR		fplx	Family
 FOS	FOS_family		fplx	Family
 FOXO	FOXO		fplx	Family
 FPR	FPR		fplx	Family
+Fibrin	Fibrin		fplx	Family
 Fibrinogen	Fibrinogen		fplx	Family
 Fos	FOS_family		fplx	Family
+FoxF	FOXF		fplx	Family
 Fz	FZD		fplx	Family
 G protein	G_protein		fplx	Family
 G-alpha	G_alpha		fplx	Family
 G-gamma	G_gamma		fplx	Family
 G12	G_12		fplx	Family
 G12 family	G_12		fplx	Family
+G6Pase	G6Pase		fplx	Family
+GAD	GAD		fplx	Family
 GAP	GAP		fplx	Family
 GARP	GARP		fplx	Family
 GATA	GATA		fplx	Family
 GEF	GEF		fplx	Family
 GLUT	SLC2A		fplx	Family
+GNRH	GNRH		fplx	Family
 GPCR	GPCR		fplx	Family
 GPX	GPX		fplx	Family
 GRI	GRI		fplx	Family
@@ -541,40 +579,60 @@ GSK3	GSK3		fplx	Family
 GST	GST		fplx	Family
 GTPase-activating protein	GAP		fplx	Family
 GYS	GYS		fplx	Family
+Galpha	G_alpha		fplx	Family
 Galphai	G_i_alpha		fplx	Family
 Galphaq	G_q_alpha		fplx	Family
 Gamma tubulin	TUBG		fplx	Family
+Glucose-6-phosphatase	G6Pase		fplx	Family
 Glycogen phosphorylase	PYG		fplx	Family
+Glycosyltransferase	Glycosyltransferase		fplx	Family
 Glycosyltransferase family 6	GTF_family_6		fplx	Family
+GnRH	GNRH		fplx	Family
+Gnrh	GNRH		fplx	Family
+Gonadotropin releasing hormone	GNRH		fplx	Family
+Gonadotropin-releasing hormone	GNRH		fplx	Family
+Growth factor	Growth_factor		fplx	Family
 Gs family	G_s		fplx	Family
 H2B	Histone_H2B		fplx	Family
 H3	Histone_H3		fplx	Family
 H4	Histone_H4		fplx	Family
+HACD	HACD		fplx	Family
 HDAC	HDAC		fplx	Family
+HEX	HEX		fplx	Family
 HIF-1	HIF1		fplx	Family
 HIF1	HIF1		fplx	Family
 HSP70	HSPA		fplx	Family
 HSP90	HSP90		fplx	Family
 HSP90A	HSP90A		fplx	Family
+HTR1	HTR1		fplx	Family
+HTR2	HTR2		fplx	Family
 Hemoglobin	Hemoglobin		fplx	Family
+Hexokinase	Hexokinase		fplx	Family
+Hgb	Hemoglobin		fplx	Family
 Histone	Histone		fplx	Family
 Histone H2A	Histone_H2A		fplx	Family
+Homer	HOMER		fplx	Family
 Hsp70	HSPA		fplx	Family
 Hsp90	HSP90		fplx	Family
 IFN	Interferon		fplx	Family
 IFN-alpha	IFNA		fplx	Family
 IFNA	IFNA		fplx	Family
+IFNAR	IFNAR		fplx	Family
 IFNB	IFNB		fplx	Family
 IFNGR	Interferon_gamma_receptor		fplx	Family
 IGFBP	IGFBP		fplx	Family
 IK1	KCNJ		fplx	Family
+IL-23	IL23		fplx	Family
 IL1	IL1		fplx	Family
 IL12	IL12		fplx	Family
+IL23	IL23		fplx	Family
 IL2R	IL2R		fplx	Family
 IRS	IRS		fplx	Family
+Ifnar	IFNAR		fplx	Family
 IkappaB kinase	IKK_complex		fplx	Family
 Interferon	Interferon		fplx	Family
 Interferon beta	IFNB		fplx	Family
+JAB1/MPN/MOV34 metalloenzyme domain	JAMM		fplx	Family
 JAK	JAK		fplx	Family
 JNK	JNK		fplx	Family
 JUN	JUN_family		fplx	Family
@@ -582,14 +640,21 @@ KCN	KCN		fplx	Family
 KLK	KLK		fplx	Family
 KSR	KSR		fplx	Family
 Kinesin	Kinesin		fplx	Family
+Kinetochore	Kinetochore		fplx	Family
+Kir	KCNJ		fplx	Family
 LC3	MAP1LC3		fplx	Family
 LDH	LDH		fplx	Family
+LFA-1	LFA_1		fplx	Family
 LH	LH		fplx	Family
 LM-1	Laminin_111		fplx	Family
 LRRC8	LRRC8		fplx	Family
 Ligand-gated ion channel	Ligand_gated_ion_channels		fplx	Family
+Liprin-alpha	Liprin_alpha		fplx	Family
 Liver X receptor	LXR		fplx	Family
+Luteinizing hormone	LH		fplx	Family
 MAC	MAC		fplx	Family
+MAC-1	MAC_1		fplx	Family
+MAP1	MAP1		fplx	Family
 MAP1LC3	MAP1LC3		fplx	Family
 MAP2K	MAP2K		fplx	Family
 MAPK	MAPK		fplx	Family
@@ -601,9 +666,12 @@ MED	MED		fplx	Family
 MEF2	MEF2		fplx	Family
 MEK	MEK		fplx	Family
 MGAT	MGAT		fplx	Family
+MJD	MJD		fplx	Family
 MLC	MYL		fplx	Family
 MMP	MMP		fplx	Family
 MOB	MOB		fplx	Family
+MOB1	MOB1		fplx	Family
+MRC	MRC		fplx	Family
 MT	Metallothionein		fplx	Family
 MYH	MYH		fplx	Family
 MYL	MYL		fplx	Family
@@ -611,10 +679,14 @@ MYO1	MYO1		fplx	Family
 MYO15	MYO15		fplx	Family
 MYO3	MYO3		fplx	Family
 MYO5	MYO5		fplx	Family
+Melatonin receptor	MTNR		fplx	Family
 Metallothionein	Metallothionein		fplx	Family
 Mhc	MYH		fplx	Family
+Microtubule-associated protein	Microtubule_associated_proteins		fplx	Family
 Myosin heavy chain	MYH		fplx	Family
+NAD(P)H oxidase	NADPH_oxidase		fplx	Family
 NADH dehydrogenase	NADH_dehydrogenase		fplx	Family
+NADPH oxidase	NADPH_oxidase		fplx	Family
 NDRG	NDRG		fplx	Family
 NF-E2	NFE		fplx	Family
 NF-kappaB	NFkappaB		fplx	Family
@@ -625,19 +697,29 @@ NPYR	NPYR		fplx	Family
 NRG	NRG		fplx	Family
 Natriuretic peptide	Natriuretic_peptide		fplx	Family
 Neuregulin	NRG		fplx	Family
+Neuropilin	Neuropilins		fplx	Family
 Notch	Notch		fplx	Family
+OR	OR		fplx	Family
 OR1	OR1		fplx	Family
 OR2	OR2		fplx	Family
+OR9	OR9		fplx	Family
+OTU	OTU		fplx	Family
+OTUD7	OTUD7		fplx	Family
 P2X	P2RX		fplx	Family
 P2X purinoreceptor	P2RX		fplx	Family
+P38	p38		fplx	Family
+P450	CYP		fplx	Family
 PAK	PAK		fplx	Family
 PBX	PBX		fplx	Family
 PDE	PDE		fplx	Family
 PDE1	PDE1		fplx	Family
+PDE4	PDE4		fplx	Family
 PDE8	PDE8		fplx	Family
 PDGF	PDGF		fplx	Family
 PDGFR	PDGFR		fplx	Family
 PDH	PDH		fplx	Family
+PFK	PFK		fplx	Family
+PGAM	PGAM		fplx	Family
 PI3-kinase	PI3K		fplx	Family
 PI3K	PI3K		fplx	Family
 PI4K	PI4K		fplx	Family
@@ -654,6 +736,7 @@ PLA2G4	PLA2G4		fplx	Family
 PLC	PLC		fplx	Family
 PLC-gamma	PLCG		fplx	Family
 PLD	PLD		fplx	Family
+PLOD	PLOD		fplx	Family
 PP1	PPP1		fplx	Family
 PP1C	PPP1C		fplx	Family
 PP1c	PPP1C		fplx	Family
@@ -665,25 +748,33 @@ PPP2	PPP2		fplx	Family
 PRC2	PRC2_complex		fplx	Family
 PRKAA	AMPK_alpha		fplx	Family
 PTX	Pertussis_toxin		fplx	Family
+Pak	PAK		fplx	Family
 Parvin	PARV		fplx	Family
 Patched	Patched		fplx	Family
 Peroxiredoxin	PRDX		fplx	Family
 Phosphatase	Phosphatase		fplx	Family
+Phosphodiesterase	PDE		fplx	Family
 Phosphodiesterase 1	PDE1		fplx	Family
 Phosphodiesterase 3	PDE3		fplx	Family
 Phosphodiesterase 4	PDE4		fplx	Family
 Phosphodiesterase 6	PDE6		fplx	Family
 Phosphodiesterase 7	PDE7		fplx	Family
+Phosphodiesterase 8	PDE8		fplx	Family
+Phosphofructokinase	PFK		fplx	Family
+Phosphoglycerate mutase	PGAM		fplx	Family
 Phospholipase C	PLC		fplx	Family
 Phospholipase D	PLD		fplx	Family
 Pol I	RNApo_I		fplx	Family
 Porin	Porins		fplx	Family
 Potassium channel	KCN		fplx	Family
 Profilin	PFN		fplx	Family
+Propionyl-CoA carboxylase	Propionyl_CoA_carboxylase		fplx	Family
+Proprotein convertase	PCSK		fplx	Family
 Protease	Protease		fplx	Family
 Proteasome	Proteasome		fplx	Family
 Protein kinase A regulatory subunit	PRKAR		fplx	Family
 Proteinase	Protease		fplx	Family
+Prx	PRDX		fplx	Family
 Purinergic receptor	Purinergic_receptors		fplx	Family
 Pyruvate dehydrogenase kinase	PDK		fplx	Family
 RAB	RAB		fplx	Family
@@ -700,6 +791,7 @@ RFX	RFX		fplx	Family
 RGL	RGL		fplx	Family
 RHO	RHO		fplx	Family
 RHOGDI	RhoGDI		fplx	Family
+RIPK	RIPK		fplx	Family
 RLR	RLR		fplx	Family
 ROCK	ROCK		fplx	Family
 RPA	RPA		fplx	Family
@@ -708,6 +800,7 @@ RSK	RSK		fplx	Family
 RTK	RTK		fplx	Family
 RXR	RXR		fplx	Family
 RYR	RYR		fplx	Family
+Rab	RAB		fplx	Family
 Raf	RAF		fplx	Family
 Rap guanine nucleotide exchange factor	RAPGEF		fplx	Family
 Rap1	RAP1		fplx	Family
@@ -718,24 +811,31 @@ S100A	S100A		fplx	Family
 S6K	P70S6K		fplx	Family
 SAA	SAA		fplx	Family
 SAPK	JNK		fplx	Family
+SCAR	SCAR		fplx	Family
 SCN	SCN		fplx	Family
 SERCA	SERCA		fplx	Family
 SFK	SRC		fplx	Family
 SGC	SGC		fplx	Family
 SHC	SHC		fplx	Family
 SIK	SIK		fplx	Family
+SLC2	SLC2A		fplx	Family
 SMC1	SMC1		fplx	Family
+SNAI	SNAI		fplx	Family
 SOD	SOD		fplx	Family
+SP	SP		fplx	Family
 SPHK	SPHK		fplx	Family
 SPRY	SPRY		fplx	Family
+STAG	STAG		fplx	Family
 STAT	STAT		fplx	Family
 STAT5	STAT5		fplx	Family
 STT3	STT3		fplx	Family
 SUR	Sulfonylurea_receptor		fplx	Family
 Shc	SHC		fplx	Family
 Smc1	SMC1		fplx	Family
+Sp	SP		fplx	Family
 Sphingosine 1-phosphate receptor	S1PR		fplx	Family
 Stearoyl-CoA desaturase	SCD		fplx	Family
+TAB	TAB		fplx	Family
 TAC	TAC		fplx	Family
 TAP	TAP		fplx	Family
 TCF	TCF_LEF		fplx	Family
@@ -755,6 +855,8 @@ TOP	TOP		fplx	Family
 TOP2	TOP2		fplx	Family
 TORC1	mTORC1		fplx	Family
 TORC2	mTORC2		fplx	Family
+TRAF	TRAF		fplx	Family
+TRMT	TRMT		fplx	Family
 TRP	TRP		fplx	Family
 TSC	TSC		fplx	Family
 TUBA	TUBA		fplx	Family
@@ -764,37 +866,49 @@ Tenascin	TN		fplx	Family
 Thioredoxin	TXN		fplx	Family
 Thioredoxin reductase	TXNRD		fplx	Family
 Transcription factor AP-2	TFAP2		fplx	Family
+Transglutaminase	TGM		fplx	Family
 Troponin	Troponin		fplx	Family
 Tryptase	Tryptase		fplx	Family
 Tubulin	Tubulin		fplx	Family
 UBE2	UBE2		fplx	Family
 UGGT	UGGT		fplx	Family
 UGT	UGT		fplx	Family
+USP	USP		fplx	Family
+USP17L	USP17L		fplx	Family
+USP9	USP9		fplx	Family
 Ubiquitin	Ubiquitin		fplx	Family
 VAV	VAV		fplx	Family
 VDAC	VDAC		fplx	Family
 VEGF	VEGF		fplx	Family
 VEGFR	VEGFR		fplx	Family
+VTNR	VTNR		fplx	Family
 Vav	VAV		fplx	Family
 WNT5	Wnt5		fplx	Family
 Wnt	Wnt		fplx	Family
 Wnt5	Wnt5		fplx	Family
 XYLT	GCNT		fplx	Family
 Xylosyltransferase	GCNT		fplx	Family
-actin filament	Actin		fplx	Family
+actin filament	F_actin		fplx	Family
 activin	Activin		fplx	Family
+adenosine deaminase	Adenosine_deaminase_family		fplx	Family
+apolipoprotein	Apolipoprotein		fplx	Family
 cPLA2	PLA2		fplx	Family
 cTnT	Troponin_T		fplx	Family
 cadherin	Cadherin		fplx	Family
+cytochrome	CYP		fplx	Family
+cytochrome P450	CYP		fplx	Family
 eIF4A	EIF4A		fplx	Family
 eIF4G	EIF4G		fplx	Family
 eotaxin	Eotaxin		fplx	Family
+foxA	FOXA		fplx	Family
 hAxin	AXIN		fplx	Family
-kinetochore	Kinetochore		fplx	Family
-kinetochores	Kinetochore		fplx	Family
+hemoglobin	Hemoglobin		fplx	Family
+histone	Histone		fplx	Family
+mitochondrial ribosomes	Mitochondrial_Ribosome		fplx	Family
 p110	PI3K_p110		fplx	Family
 p38	p38		fplx	Family
 p38 MAPK	p38		fplx	Family
+p450	CYP		fplx	Family
 p85	PI3K_p85		fplx	Family
 porin	Porins		fplx	Family
 stearoyl-CoA desaturase	SCD		fplx	Family

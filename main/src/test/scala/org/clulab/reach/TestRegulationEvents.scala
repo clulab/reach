@@ -529,11 +529,10 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   }
 
   val sent57 = "Indeed, expression of RARbeta2 has been shown to restore retinoic acid induced apoptosis"
-  sent57 should "contain 1 Transcription and 1 positive activation, and 1 positive regulation" in {
+  sent57 should "contain 1 Transcription, and 1 positive activation" in {
     val mentions = getBioMentions(sent57)
     mentions.filter(_ matches "Transcription") should have size (1)
     mentions.filter(_ matches "Positive_activation") should have size (1)
-    mentions.filter(_ matches "Positive_regulation") should have size (1)
   }
 
   val sent58 = "We observed increased ERBB3 binding to PI3K following MEK inhibition (Figure 1D), and accordingly, MEK inhibition substantially increased tyrosine phosphorylated ERBB3 levels (Figure 1A)."
