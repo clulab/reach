@@ -1,10 +1,9 @@
 package org.clulab.reach.`export`
 
-import de.heikoseeberger.akkahttpjson4s.Json4sSupport.ShouldWritePretty.False
-import org.clulab.odin.{CrossSentenceMention, EventMention, Mention, RelationMention, TextBoundMention}
-import org.json4s.JsonAST.JArray
-import org.json4s._
+import org.clulab.odin.{EventMention, Mention, TextBoundMention}
+import org.clulab.struct.Interval
 import org.json4s.JsonDSL._
+import org.json4s._
 import org.json4s.jackson.JsonMethods._
 
 import scala.annotation.tailrec
@@ -13,10 +12,10 @@ abstract class BaseDatum{
   def json: JValue
 }
 case class EmptyDatum(words:Seq[String]) extends BaseDatum {
-  def json = ("sentence_tokens" -> words.toList)
+  def json: JValue = ("sentence_tokens" -> words.toList)
 }
 
-case class Datum(
+case class RegulationDatum(
                 words: Seq[String],
                 eventIndices: Range,
                 type_ : String,
@@ -37,6 +36,17 @@ case class Datum(
       ("trigger_indices" -> triggerIndices) ~
       ("rule_name" -> ruleName.orNull) ~
       ("rule" -> rule.orNull)
+}
+
+
+case class NoRegulationDatum(
+              words: Seq[String],
+              entitiesIndices: Seq[Range],
+            ) extends BaseDatum {
+
+  val json: JValue =
+    ("sentence_tokens" -> words.toList) ~
+      ("entities_indices" -> entitiesIndices.toList)
 }
 
 object TrainingDataExporter {
@@ -76,44 +86,94 @@ object TrainingDataExporter {
         case e:EventMention if filterCriteria(e) => e
       }
 
+    val sentencesWithRegulationIndices = events.map(_.sentence).toSet
+
+    // Get the TB mentions
+    val tbMentions:Seq[TextBoundMention] =
+      mentions collect {
+        case tb:TextBoundMention if tb.matches("BioEntity")=> tb
+      }
+
     // Get all the sentences with no event associated to it
-    val emptySentences =
+    val emptyValues =
       if(events.nonEmpty){
         val sentences = events.head.document.sentences
-        val positiveSentenceIndices = events.map(_.sentence).toSet
         (for{
           (s, ix) <- sentences.zipWithIndex
-          if !positiveSentenceIndices.contains(ix)
+          if !sentencesWithRegulationIndices.contains(ix)
         } yield EmptyDatum(words = s.words)).toSeq
       }
       else
-        Seq.empty[Datum]
+        Seq.empty[RegulationDatum]
 
-    val values =
-      events map {
+    // Get the sentences with mentions but w/o regulations
+    val sentenceIxToMentions = tbMentions.groupBy(_.sentence)
+
+    val mentionsWORegulationValues =
+      for {
+        (sIx, tbs) <- sentenceIxToMentions
+        if !(sentencesWithRegulationIndices contains sIx)
+      } yield {
+        val words = tbs.head.sentenceObj.words
+        NoRegulationDatum(
+          words = words, entitiesIndices = tbs.map(tb => getIndices(tb, None))
+        )
+      }
+
+    val (regulationValues, hardNoRegulationValues) =
+      (events map {
         e =>
           val trigger = e.trigger
 
-          Datum(
-            e.sentenceObj.words,
-            getIndices(e),
-            e.label,
-            getPolarity(e.label),
-            getIndices(e, Some("controller")),
-            getIndices(e, Some("controlled")),
-            getIndices(trigger),
-            Some(e.foundBy),
-            if(includeRule && rulesDictionary.isDefined) {
-              val x = Some(rulesDictionary.get.getOrElse(e.foundBy, "MISSING VAL"))
-              x
-            } else
-              None
-          )
-      }
+          val controllerIndices = getIndices(e, Some("controller"))
+          val controlledIndices = getIndices(e, Some("controlled"))
 
-    val allDatums:Seq[BaseDatum] = values ++ emptySentences
+          val words = e.sentenceObj.words
 
-    pretty(render(JArray(allDatums.map(_.json).toList)))
+          // The positive instance
+          val datum =
+            RegulationDatum(
+              words,
+              getIndices(e),
+              e.label,
+              getPolarity(e.label),
+              controllerIndices,
+              controlledIndices,
+              getIndices(trigger),
+              Some(e.foundBy),
+              if(includeRule && rulesDictionary.isDefined) {
+                Some(rulesDictionary.get.getOrElse(e.foundBy, "MISSING VAL"))
+              } else
+                None
+
+           )
+
+          // The "hard" negative instance
+          // Get all the tb mentions in the same sentence
+          val sentenceTbMentions = sentenceIxToMentions.getOrElse(e.sentence, Seq.empty)
+          // Get all the eligible tb mentions (those that aren't participant in the event
+          val iController = Interval(controllerIndices.start, controllerIndices.end)
+          val iControlled = Interval(controlledIndices.start, controlledIndices.end)
+          val otherMentions = sentenceTbMentions.map(tb => getIndices(tb)).filter(ix => {
+            val iTb = Interval(ix.start, ix.end)
+            !((iTb overlaps iController) || (iTb overlaps iControlled))
+          })
+
+          // Now do the cross product of all the mentions that aren't participant
+          val hardNegative = if(otherMentions.nonEmpty) Some(NoRegulationDatum(words, otherMentions)) else None
+
+          (datum, hardNegative)
+      }).unzip
+
+//    val allDatums:Seq[BaseDatum] = regulationValues ++ hardNoRegulationValues ++ emptyValues ++ mentionsWORegulationValues
+
+    val ret = ("regulations" -> regulationValues.map(_.json)) ~
+      ("hardInstances" -> hardNoRegulationValues.collect{case Some(d) => d}.map(_.json)) ~
+      ("withoutRegulations" -> mentionsWORegulationValues.map(_.json)) ~
+      ("emptySentences" -> emptyValues.map(_.json))
+
+
+    pretty(render(ret))
   }
 
 
