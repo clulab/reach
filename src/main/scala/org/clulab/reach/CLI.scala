@@ -82,7 +82,7 @@ abstract class CLI (
         // Count the number of failed files, not failed formats.
         math.signum(processPaper(file, withAssembly))
       } catch {
-        case e: Exception =>
+        case e: Throwable =>
           // The reading itself, rather than the format, could have failed.
           reportException(file, e)
           1
