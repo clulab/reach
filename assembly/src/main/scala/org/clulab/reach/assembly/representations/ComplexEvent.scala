@@ -2,8 +2,8 @@ package org.clulab.reach.assembly.representations
 
 import org.clulab.reach.assembly._
 import org.clulab.reach.assembly.AssemblyManager
+import org.clulab.utils.Hash
 import org.clulab.odin.Mention
-import scala.util.hashing.MurmurHash3._
 
 
 /**
@@ -54,10 +54,12 @@ trait ComplexEvent extends Event {
    * @return an Int hash based on the [[EntityEventRepresentation.equivalenceHash]] of each element in the [[controller]]
    */
   def controllerHash(ignoreMods: Boolean): Int = {
-    val h0 = stringHash(s"$eerString.controller")
     val hs = controller.map(_.equivalenceHash(ignoreMods))
-    val h = mixLast(h0, unorderedHash(hs))
-    finalizeHash(h, controller.size)
+
+    Hash.withLast(controller.size)(
+      Hash(s"$eerString.controller"),
+      Hash.unordered(hs)
+    )
   }
 
   /**
@@ -67,10 +69,12 @@ trait ComplexEvent extends Event {
    * @return an Int hash based on the [[EntityEventRepresentation.equivalenceHash]] of each element in the [[controlled]]
    */
   def controlledHash(ignoreMods: Boolean): Int = {
-    val h0 = stringHash(s"$eerString.controlled")
     val hs = controlled.map(_.equivalenceHash(ignoreMods))
-    val h = mixLast(h0, unorderedHash(hs))
-    finalizeHash(h, controlled.size)
+
+    Hash.withLast(controlled.size)(
+      Hash(s"$eerString.controlled"),
+      Hash.unordered(hs)
+    )
   }
 
   /**
@@ -78,20 +82,13 @@ trait ComplexEvent extends Event {
    * @param ignoreMods whether or not to ignore modifications when calculating the controlledHash
    * @return an Int hash based on the [[polarity]], [[controllerHash]], [[controlledHash]], and [[negated.hashCode]]
    */
-  def equivalenceHash(ignoreMods: Boolean): Int = {
-    // the seed (not counted in the length of finalizeHash)
-    // decided to use the class name
-    val h0 = stringHash(eerString)
-    // the polarity of the Regulation
-    val h1 = mix(h0, stringHash(polarity))
-    // controller
-    val h2 = mix(h1, controllerHash(ignoreMods))
-    // controlled
-    val h3 = mix(h2, controlledHash(ignoreMods))
-    // whether or not the representation is negated
-    val h4 = mixLast(h3, negated.hashCode)
-    finalizeHash(h4, 4)
-  }
+  def equivalenceHash(ignoreMods: Boolean): Int = Hash.withLast(
+    Hash(eerString),
+    Hash(polarity),
+    controllerHash(ignoreMods),
+    controlledHash(ignoreMods),
+    negated.hashCode
+  )
 
   /**
    * Used to compare against another [[ComplexEvent]]. <br>

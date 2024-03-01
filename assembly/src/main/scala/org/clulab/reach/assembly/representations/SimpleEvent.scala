@@ -3,9 +3,8 @@ package org.clulab.reach.assembly.representations
 import org.clulab.reach.assembly.AssemblyManager
 import org.clulab.reach.assembly._
 import org.clulab.odin.Mention
+import org.clulab.utils.Hash
 import scala.collection.Map
-import scala.util.hashing.MurmurHash3._
-
 
 /**
  * Representation for any Mention with the label SimpleEvent.  Note that a Binding is represented using a [[Complex]].
@@ -65,10 +64,12 @@ class SimpleEvent(
    * @return an Int hash based on hashes of the keys in the [[input]] and the [[Entity.equivalenceHash]] of each element contained in the corresponding value in the [[input]]
    */
   def inputHash(ignoreMods: Boolean): Int = {
-    val h0 = stringHash(s"$eerString.input")
     val hs = output.map(_.equivalenceHash(ignoreMods))
-    val h = mixLast(h0, unorderedHash(hs))
-    finalizeHash(h, input.size)
+
+    Hash.withLast(input.size)(
+      Hash(s"$eerString.input"),
+      Hash.unordered(hs)
+    )
   }
 
   /**
@@ -78,10 +79,12 @@ class SimpleEvent(
    * @return an Int hash based on the [[Entity.equivalenceHash]] of each element in the [[output]]
    */
   def outputHash(ignoreMods: Boolean): Int = {
-    val h0 = stringHash(s"$eerString.output")
     val hs = output.map(_.equivalenceHash(ignoreMods))
-    val h = mixLast(h0, unorderedHash(hs))
-    finalizeHash(h, output.size)
+
+    Hash.withLast(output.size)(
+      Hash(s"$eerString.output"),
+      Hash.unordered(hs)
+    )
   }
 
   /**
@@ -89,20 +92,13 @@ class SimpleEvent(
    * @param ignoreMods whether or not to ignore modifications when calculating the equivalenceHash
    * @return an Int hash based primarily on the [[label]], [[inputHash]], and [[outputHash]]
    */
-  def equivalenceHash(ignoreMods: Boolean): Int = {
-    // the seed (not counted in the length of finalizeHash)
-    // decided to use the class name
-    val h0 = stringHash(eerString)
-    // the label of the SimpleEvent
-    val h1 = mix(h0, label.hashCode)
-    // the input of the SimpleEvent
-    val h2 = mix(h1, inputHash(ignoreMods))
-    // the output of the SimpleEvent
-    val h3 = mix(h2, outputHash(ignoreMods))
-    // whether or not the representation is negated
-    val h4 = mixLast(h3, negated.hashCode)
-    finalizeHash(h4, 4)
-  }
+  def equivalenceHash(ignoreMods: Boolean): Int = Hash.withLast(
+    Hash(eerString),
+    label.hashCode,
+    inputHash(ignoreMods),
+    outputHash(ignoreMods),
+    negated.hashCode
+  )
 
   /**
    * Used to compare against another [[SimpleEvent]]. <br>

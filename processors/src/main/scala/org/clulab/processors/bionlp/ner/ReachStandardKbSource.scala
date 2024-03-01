@@ -11,8 +11,8 @@ import org.clulab.utils.Serializer
 
 import java.io.File
 import java.util.function.Consumer
-import scala.language.reflectiveCalls // required to access consumer.lineCount
-import scala.util.Try
+import scala.language.reflectiveCalls
+import scala.util.{Try, Using}
 
 abstract class ReachStandardKbSource(caseInsensitiveMatching: Boolean) extends StandardKbSource(caseInsensitiveMatching)
 
@@ -54,7 +54,7 @@ class ReachSingleStandardKbSource(kbEntry: KBEntry, caseInsensitiveMatching: Boo
         )
       )
 
-    Serializer.using(bufferedReader) { bufferedReader =>
+    Using.resource(bufferedReader) { bufferedReader =>
       bufferedReader.lines.forEach(consumer)
     }
     logger.info(s"Done. Read ${consumer.lineCount} lines from ${new File(kbEntry.path).getName}")

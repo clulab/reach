@@ -1,15 +1,15 @@
 package org.clulab.reach.grounding
 
 import scala.Serializable
-import scala.util.hashing.MurmurHash3._
 import collection.mutable.{ HashMap, HashSet, Map, MultiMap, Set }
 
+import org.clulab.reach.grounding.InMemoryKB._
 import org.clulab.reach.grounding.ReachKBConstants._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
 import org.clulab.reach.grounding.ReachKBUtils._
 import org.clulab.reach.grounding.Speciated._
+import org.clulab.utils.Hash
 
-import org.clulab.reach.grounding.InMemoryKB._
 
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
@@ -211,7 +211,7 @@ object InMemoryKB {
     *   Written by: Tom Hicks. 10/25/2015.
     *   Last Modified: Limit the scope of the KBEntry class by embedding it in IMKB.
     */
-  private class KBEntry (
+  class KBEntry (
 
     /** Text for this entry, loaded from the external KB. */
     val text: String,
@@ -243,14 +243,13 @@ object InMemoryKB {
     }
 
     /** Redefine hashCode. */
-    override def hashCode: Int = {
-      val h0 = stringHash("org.clulab.reach.grounding.KBEntry")
-      val h1 = mix(h0, text.toLowerCase.hashCode)
-      val h2 = mix(h1, namespace.hashCode)
-      val h3 = mix(h2, id.hashCode)
-      val h4 = mixLast(h3, species.hashCode)
-      finalizeHash(h4, 4)
-    }
+    override def hashCode: Int = Hash.withLast(
+      Hash("org.clulab.reach.grounding.KBEntry"),
+      text.toLowerCase.hashCode,
+      namespace.hashCode,
+      id.hashCode,
+      species.hashCode
+    )
 
     /** Tell whether this entry has an associated species or not. */
     def hasSpecies: Boolean = (species != NoSpeciesValue)

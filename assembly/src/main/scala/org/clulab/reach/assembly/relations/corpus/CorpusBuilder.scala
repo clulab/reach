@@ -1,20 +1,17 @@
 package org.clulab.reach.assembly.relations.corpus
 
-import org.clulab.reach.mentions._
-import org.clulab.reach.assembly.AssemblyManager
-import org.clulab.reach.assembly.sieves.Constraints
-import org.clulab.odin._
 import ai.lum.common.ConfigUtils._
-import ai.lum.common.RandomUtils._
-import ai.lum.common.FileUtils._
-
-import collection.JavaConversions._
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
-
-import java.io.File
+import org.clulab.odin._
+import org.clulab.reach.assembly.AssemblyManager
+import org.clulab.reach.assembly.sieves.Constraints
+import org.clulab.reach.mentions._
 import org.clulab.reach.mentions.serialization.json.{JSONSerializer => ReachJSONSerializer}
 import org.clulab.utils.ThreadUtils
+
+import java.io.File
+import scala.jdk.CollectionConverters._
 
 /**
   * RELATION CORPUS REQUIREMENTS:
@@ -31,7 +28,7 @@ object CorpusBuilder extends LazyLogging {
 
   val config = ConfigFactory.load()
   val kWindow = config.getInt("assembly.windowSize")
-  val validLabels: Set[String] = config.getStringList("assembly.corpus.validLabels").toSet
+  val validLabels: Set[String] = config.getStringList("assembly.corpus.validLabels").asScala.toSet
 
   /**
     * Find mentions in sentences of interest. <br>

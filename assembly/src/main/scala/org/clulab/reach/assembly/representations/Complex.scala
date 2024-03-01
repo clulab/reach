@@ -3,7 +3,7 @@ package org.clulab.reach.assembly.representations
 import org.clulab.odin.Mention
 import org.clulab.reach.assembly.AssemblyManager
 import org.clulab.reach.assembly._
-import scala.util.hashing.MurmurHash3._
+import org.clulab.utils.Hash
 
 
 /**
@@ -58,10 +58,12 @@ class Complex(
    * @return an Int hash based on the [[Entity.equivalenceHash]] of each member
    */
   def membersHash(ignoreMods: Boolean): Int = {
-    val h0 = stringHash(s"$eerString.members")
     val hs = members.map(_.equivalenceHash(ignoreMods))
-    val h = mixLast(h0, unorderedHash(hs))
-    finalizeHash(h, members.size)
+
+    Hash.withLast(members.size)(
+      Hash(s"$eerString.members"),
+      Hash.unordered(hs)
+    )
   }
 
   /**
@@ -69,16 +71,11 @@ class Complex(
    * @param ignoreMods whether or not to ignore modifications when calculating the equivalenceHash
    * @return a hash (Int) based primarily on the [[membersHash]]
    */
-  def equivalenceHash(ignoreMods: Boolean): Int = {
-    // the seed (not counted in the length of finalizeHash)
-    // decided to use the class name
-    val h0 = stringHash(eerString)
-    // comprised of the equiv. hash of members
-    val h1 = mix(h0, membersHash(ignoreMods))
-    // whether or not the representation is negated
-    val h2 = mixLast(h1, negated.hashCode)
-    finalizeHash(h2, 2)
-  }
+  def equivalenceHash(ignoreMods: Boolean): Int = Hash.withLast(
+    Hash(eerString),
+    membersHash(ignoreMods),
+    negated.hashCode
+  )
 
   /**
    * Used to compare against another [[Complex]]. <br>

@@ -39,6 +39,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     val se = am.getSimpleEntity(ras)
 
     se.getPTMs should have size(0)
+    se.equivalenceHash(ignoreMods = false) should be (-1879068248) // SimpleEntity
+    se.equivalenceHash(ignoreMods = true) should be (-11559465) // SimpleEntity
   }
 
   it should "have 3 mentions as evidence" in {
@@ -87,6 +89,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     val phos = am.getSimpleEvent(p)
 
     phos.evidence should have size(1)
+    phos.equivalenceHash(ignoreMods = true) should be (-90854158) // SimpleEvent
+    phos.equivalenceHash(ignoreMods = false) should be (-24500179) // SimpleEvent
 
     phos.output should have size(1)
 
@@ -157,6 +161,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     val (c1, c2) = (complexes.head, complexes.last)
     c1.isEquivalentTo(c2, ignoreMods = false) should be(true)
     c1.isEquivalentTo(c2, ignoreMods = true) should be(true)
+    c1.equivalenceHash(ignoreMods = false) should be (-1357391490) // Complex
+    c1.equivalenceHash(ignoreMods = true) should be (686730731) // Complex
   }
 
   it should "have 2 mentions as evidence" in {
@@ -226,6 +232,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
     am.getRegulations should have size (1)
     am.distinctRegulations should have size (1)
+    am.getRegulations.head.equivalenceHash(ignoreMods = false) should be (832895248) // ComplexEvent
+    am.getRegulations.head.equivalenceHash(ignoreMods = true) should be (738272956) // ComplexEvent
   }
 
   val regText2 = "Akt inhibits the phosphorylation of AFT by BEF."

@@ -9,7 +9,7 @@ import org.clulab.serialization.json.JSONSerialization
 import org.json4s.jackson.JsonMethods._
 import org.json4s.JsonDSL._
 import org.json4s._
-import scala.util.hashing.MurmurHash3._
+import org.clulab.utils.Hash
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.FileUtils.forceMkdir
 import ai.lum.common.FileUtils._
@@ -40,20 +40,17 @@ case class EventPair(
   def isCrossSentence = sentenceIndices.length > 1
 
   /** Create a unique hash to identify this training instance */
-  def equivalenceHash: Int = {
-    // the seed (not counted in the length of finalizeHash)
-    val h0 = stringHash("org.clulab.assembly.TrainingInstance")
+  def equivalenceHash: Int = Hash.withLast(
+    Hash("org.clulab.assembly.TrainingInstance"),
     // get hashes for each event
-    val h1 = mix(h0, e1.equivalenceHash)
-    val h2 = mix(h1, e2.equivalenceHash)
-    // is it cross-sentence?
-    val h3 = mix(h2, isCrossSentence.hashCode)
+    e1.equivalenceHash,
+    e2.equivalenceHash,
+    isCrossSentence.hashCode,
     // the text of the sentences containing the two event mentions
-    val h4 = mix(h3, text.hashCode)
+    text.hashCode,
     // what paper did this come from?
-    val h5 = mixLast(h4, pmid.hashCode)
-    finalizeHash(h5, 5)
-  }
+    pmid.hashCode
+  )
 
   def copy(
     before: CorefMention = this.e1,

@@ -1,32 +1,34 @@
 package org.clulab.polarity.ml
 
-import java.io
-import java.io.FileNotFoundException
-import java.nio.charset.StandardCharsets
-import java.nio.file.{Paths, Files}
-
-
 import com.typesafe.config.ConfigFactory
 import edu.cmu.dynet._
 import edu.cmu.dynet.Expression._
 import org.clulab.fatdynet.utils.BaseTextModelLoader
 import org.clulab.fatdynet.utils.CloseableModelSaver
-import org.clulab.fatdynet.utils.Closer.AutoCloser
 import org.clulab.fatdynet.utils.Initializer
 import org.clulab.fatdynet.utils.Synchronizer
 import org.clulab.odin.{EventMention, Mention, RelationMention, TextBoundMention}
 import org.clulab.polarity.{NegativePolarity, NeutralPolarity, Polarity, PositivePolarity}
 import org.clulab.reach.mentions.BioEventMention
 
+import java.io
+import java.io.FileNotFoundException
+import java.nio.charset.StandardCharsets
 import scala.collection.mutable
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 import scala.io.BufferedSource
 import scala.io.Source
-import scala.util.Random
-
-
+import scala.util.{Random, Using}
+import scala.util.Using.Releasable
 
 class DeepLearningPolarityClassifier() extends PolarityClassifier{
+  // These can be removed after processors updates to the newest version of fatdynet.
+  implicit object CloseableModelSaverReleaser extends Releasable[CloseableModelSaver] {
+    override def release(resource: CloseableModelSaver): Unit = resource.close()
+  }
+  implicit object BaseTextModelLoaderReleaser extends Releasable[BaseTextModelLoader] {
+    override def release(resource: BaseTextModelLoader): Unit = resource.close()
+  }
 
   var IS_DYNET_INITIALIZED = false
 
@@ -131,7 +133,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
   // implement this strategy internally.
   try {
     logger.info(s"Loading saved model $savedModelPath ...")
-    BaseTextModelLoader.newTextModelLoader(savedModelPath).autoClose { modelLoader =>
+    Using.resource(BaseTextModelLoader.newTextModelLoader(savedModelPath)) { modelLoader =>
       modelLoader.populateModel(pc, "/allParams")
       _isFitted = true
     }
@@ -358,7 +360,7 @@ class DeepLearningPolarityClassifier() extends PolarityClassifier{
     */
   override def save(modelPath: String=savedModelPath, w2iPath:String = w2iPath, c2iPath:String = c2iPath): Unit = {
     logger.info("Saving model ...")
-    new CloseableModelSaver(modelPath).autoClose { modelSaver =>
+    Using.resource(new CloseableModelSaver(modelPath)) { modelSaver =>
       modelSaver.addModel(pc, "/allParams")
     }
     writeMap2Csv(w2i, w2iPath)
