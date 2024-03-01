@@ -5,7 +5,6 @@ import org.clulab.odin._
 import org.clulab.polarity.PolarityEngine
 import org.clulab.reach._
 import org.clulab.reach.mentions._
-import org.clulab.reach.mentions.serialization.json.BioTextBoundMention
 import org.clulab.struct.DirectedGraph
 
 import scala.annotation.tailrec

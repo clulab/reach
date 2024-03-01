@@ -1,21 +1,22 @@
 package org.clulab.reach.export.serial
 
-import java.io.File
+import java.io.{File, PrintWriter}
 import java.util.Date
-import java.util.regex.Pattern
-
 import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets.UTF_8
-
 import ai.lum.common.FileUtils._
-
+import com.fasterxml.jackson.databind.ObjectWriter
 import com.typesafe.scalalogging.LazyLogging
-
 import org.clulab.odin.Mention
 import org.clulab.reach.FriesEntry
 import org.clulab.reach.export.JsonOutputter
-import org.clulab.reach.mentions._
-import org.clulab.reach.mentions.serialization.json._
+import org.clulab.reach.mentions.{MentionOps => ImplicitMentionOps}
+import org.clulab.reach.mentions.serialization.json.MentionsOps
+import org.clulab.serialization.json.stringify
+import org.clulab.utils.Closer.AutoCloser
+import org.clulab.utils.Sink
+import org.json4s.JValue
+import org.json4s.jackson.{JsonMethods, prettyJson, renderJValue}
 
 /**
   * Defines classes and methods used to output the serial-json output format.
@@ -28,6 +29,7 @@ class SerialJsonOutput (
   encoding: Charset = UTF_8
 
 ) extends JsonOutputter with LazyLogging {
+  val objectWriter = JsonMethods.mapper.writerWithDefaultPrettyPrinter()
 
   /** Returns the given mentions in the serial-json format, as one big string. */
   override def toJSON (
@@ -39,7 +41,7 @@ class SerialJsonOutput (
     outFilePrefix:String
   ): String = {
     val mentions = allMentions.map(_.toCorefMention)
-    mentions.json(true)                     // true = pretty print
+    MentionsOps(mentions).json(pretty = true)
   }
 
   /**
@@ -54,15 +56,17 @@ class SerialJsonOutput (
     endTime:Date,
     outFilePrefix:String
   ): Unit = {
-    val f: File = new File(outFilePrefix + ".json")
     val mentions = allMentions.map(_.toCorefMention)
+    val jsonAST = MentionsOps(mentions).jsonAST
+    // Code here has been modified so that no json string is produced.
+    // String lengths max out at 2GB, unlike files, and with large inputs
+    // we were crashing when output could not be stuffed into a string.
+    val renderedJsonAST = JsonMethods.render(jsonAST)
+    val file = new File(outFilePrefix + ".json")
+    val printWriter = new PrintWriter(new Sink(file, encoding.name, append = false))
 
-    f.writeString(
-      string = mentions.json(true), 
-      charset = encoding, 
-      append = false, 
-      gzipSupport = false
-    )
+    printWriter.autoClose { printWriter =>
+      objectWriter.writeValue(printWriter, renderedJsonAST)
+    }
   }
-
 }

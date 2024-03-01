@@ -124,7 +124,7 @@ object CorpusBuilder extends LazyLogging {
       // create training instance
       ep = EventPair(Set(m1, m2))
       // triggers should not be the same
-      if ep.e1.trigger != ep.e2.trigger
+      if new EventOps(ep.e1).trigger != new EventOps(ep.e2).trigger
     } yield ep
 
     distinctEventPairs(eps.toSeq)
@@ -133,7 +133,7 @@ object CorpusBuilder extends LazyLogging {
   def distinctEventPairs(eps: Seq[EventPair]): Seq[EventPair] = {
     eps.distinct.groupBy(ep =>
       // distinct by...
-      (ep.e1.sentence, ep.e2.trigger, ep.e1.label, ep.e1.text, ep.e2.sentence, ep.e2.trigger, ep.e2.label, ep.e2.text)
+      (ep.e1.sentence, new EventOps(ep.e2).trigger, ep.e1.label, ep.e1.text, ep.e2.sentence, new EventOps(ep.e2).trigger, ep.e2.label, ep.e2.text)
     ).values.map(_.head) // get one value for each key
       .toSeq
       .sortBy{ ep => (ep.doc.id.getOrElse(""), ep.sentenceIndices.head) }

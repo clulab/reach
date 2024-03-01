@@ -1,23 +1,33 @@
 package org.clulab.reach.mentions.serialization.json
 
-import org.clulab.serialization.json.DocOps
-import org.clulab.odin.serialization.json.JSONSerializer._
-import org.clulab.odin.serialization.json.{ MentionOps => OdinMentionOps }
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin
 import org.clulab.odin._
+import org.clulab.odin.serialization.json.{JSONSerializer => OdinJSONSerializer}
+import org.clulab.processors.Document
 import org.clulab.reach.grounding.KBResolution
-import org.clulab.reach.mentions._
+import org.clulab.reach.mentions.{Anaphoric, EventSite, Hypothesis, Modification, Mutant, Negation, PTM}
+import org.clulab.reach.mentions.{BioEventMention, BioMention, BioRelationMention, BioTextBoundMention}
+import org.clulab.reach.mentions.{CHEMtrigger, DNtrigger, KDtrigger, KOtrigger, OEtrigger, UnassignedTrigger}
+import org.clulab.reach.mentions.{CorefEventMention, CorefMention, CorefRelationMention, CorefTextBoundMention}
+import org.clulab.reach.mentions.{MentionOps => OdinMentionOps}
+import org.clulab.serialization.json.{DocOps, stringify}
 import org.clulab.struct.{DirectedGraph, Edge, Interval}
 import org.json4s.JsonDSL._
 import org.json4s._
 import org.json4s.jackson.JsonMethods._
+import org.json4s.jackson.{prettyJson, renderJValue}
+
 import java.io.File
-import com.typesafe.scalalogging.LazyLogging
-import org.clulab.processors.Document
 
 
 /** JSON serialization utilities */
 object JSONSerializer extends LazyLogging {
+  implicit val formats = org.json4s.DefaultFormats
+
+  def prettify(json: JValue): String = prettyJson(renderJValue(json))
+
+  def json(jsonAST: JValue, pretty: Boolean = false): String = stringify(jsonAST, pretty)
 
   private def mentionsToDocsJMap(mentions: Seq[Mention]): Map[String, JValue] = {
     docsToDocsJMap(mentions.map(m => m.document))
@@ -34,14 +44,13 @@ object JSONSerializer extends LazyLogging {
   /** Creates a Map of a Document.equivalenceHash (as String) -> Document <br>
     * Used for deserialization of mention JSON
     */
-  def docsToDocumentMap(docs: Seq[Document]): Map[String, Document] = mkDocumentMap(docsToDocsJMap(docs))
+  def docsToDocumentMap(docs: Seq[Document]): Map[String, Document] = OdinJSONSerializer.mkDocumentMap(docsToDocsJMap(docs))
+
+  def jsonAST(mention: Mention): JValue = jsonAST(Seq(mention))
 
   def jsonAST(mentions: Seq[Mention]): JValue = {
-
-    val mentionList: List[JValue] = mentions.map{
-      case cm: CorefMention => CorefMentionOps(cm).jsonAST
-      case bm: BioMention => BioMentionOps(bm).jsonAST
-      case m: Mention => OdinMentionOps(m).jsonAST
+    val mentionList: List[JValue] = mentions.map { mention =>
+      MentionOps(mention).jsonAST
     }.toList
     val docMap: Map[String, JValue] = mentionsToDocsJMap(mentions)
     ("documents" -> docMap) ~ ("mentions" -> mentionList)
@@ -59,7 +68,7 @@ object JSONSerializer extends LazyLogging {
     require(json \ "mentions" != JNothing, "\"mentions\" key missing from json")
 
     // build the documents once
-    val docMap = mkDocumentMap((json \ "documents").asInstanceOf[JObject])
+    val docMap = OdinJSONSerializer.mkDocumentMap((json \ "documents").asInstanceOf[JObject])
     val mmjson = (json \ "mentions").asInstanceOf[JArray]
 
     mmjson.arr.map(mjson => toBioMention(mjson, docMap))
@@ -84,7 +93,7 @@ object JSONSerializer extends LazyLogging {
     // NOTE: while it would be cleaner to create a Mention and THEN add the needed bio and coref attributes,
     // it would not be easy to transform the arguments & trigger post-hoc using the json...
     val m = mjson \ "type" match {
-      case JString(BioEventMention.string) =>
+      case JString(BioEventMentionOps.string) =>
         new BioEventMention(
           labels,
           // trigger must be (Bio)TextBoundMention
@@ -98,7 +107,7 @@ object JSONSerializer extends LazyLogging {
           isDirect = getIsDirect(mjson)
         )
 
-      case JString(BioRelationMention.string) =>
+      case JString(BioRelationMentionOps.string) =>
         new BioRelationMention(
           labels,
           mkArgumentsFromJsonAST(mjson \ "arguments", docMap),
@@ -109,7 +118,7 @@ object JSONSerializer extends LazyLogging {
           foundBy
         )
 
-      case JString(BioTextBoundMention.string) =>
+      case JString(BioTextBoundMentionOps.string) =>
         new BioTextBoundMention(
           labels,
           tokInterval,
@@ -150,20 +159,29 @@ object JSONSerializer extends LazyLogging {
     toCorefMentionsMap(json: JValue).values.toSeq
   }
 
+  def toCorefMentions2(json: JValue): Seq[CorefMention] = {
+    val idsAndMentions = toCorefIdsAndMentions(json)
+    val mentions = idsAndMentions.map(_._2)
+
+    mentions
+  }
+
   /** Produce a Map of id -> mentions from a json file */
   def toCorefMentionsMap(file: File): Map[String, CorefMention] = toCorefMentionsMap(jsonAST(file))
   
   /** Produce a Map of id -> mentions from json */
-  def toCorefMentionsMap(json: JValue): Map[String, CorefMention] = {
+  def toCorefMentionsMap(json: JValue): Map[String, CorefMention] = toCorefIdsAndMentions(json).toMap
 
+  def toCorefIdsAndMentions(json: JValue): Seq[(String, CorefMention)] = {
     require(json \ "documents" != JNothing, "\"documents\" key missing from json")
     require(json \ "mentions" != JNothing, "\"mentions\" key missing from json")
 
     // build the documents once
-    val docMap = mkDocumentMap((json \ "documents").asInstanceOf[JObject])
+    val docMap = OdinJSONSerializer.mkDocumentMap((json \ "documents").asInstanceOf[JObject])
     val mmjson = (json \ "mentions").asInstanceOf[JArray]
+    val idsAndMentions = mmjson.arr.map(mjson => toCorefMentionWithId(mjson, docMap))
 
-    mmjson.arr.map(mjson => toCorefMentionWithId(mjson, docMap)).toMap
+    idsAndMentions
   }
 
   /** Build mention from json of mention and corresponding json map of documents <br>
@@ -191,7 +209,7 @@ object JSONSerializer extends LazyLogging {
     // it would not be easy to transform the arguments & trigger post-hoc using the json...
     val mentionId: String = (mjson \ "id").extract[String]
     val m = mjson \ "type" match {
-      case JString(CorefEventMention.string) =>
+      case JString(CorefEventMentionOps.string) =>
         new CorefEventMention(
           labels,
           // trigger must be (Bio)TextBoundMention
@@ -205,7 +223,7 @@ object JSONSerializer extends LazyLogging {
           isDirect = getIsDirect(mjson)
         )
 
-      case JString(CorefRelationMention.string) =>
+      case JString(CorefRelationMentionOps.string) =>
         new CorefRelationMention(
           labels,
           mkArgumentsFromJsonAST(mjson \ "arguments", docMap),
@@ -216,7 +234,7 @@ object JSONSerializer extends LazyLogging {
           foundBy
         )
 
-      case JString(CorefTextBoundMention.string) =>
+      case JString(CorefTextBoundMentionOps.string) =>
         new CorefTextBoundMention(
           labels,
           tokInterval,
@@ -255,11 +273,11 @@ object JSONSerializer extends LazyLogging {
   private def toAntecedents(mjson: JValue, docMap: Map[String, Document]): Set[Anaphoric] = mjson \ "antecedents" match {
     case JNothing => Set.empty[Anaphoric]
     case antecedents =>
-      antecedents
-        .asInstanceOf[JArray]
-        .arr
-        .map(mjson => toCorefMention(mjson, docMap)).map(_.toCorefMention)
-        .toSet
+      val arr = antecedents.asInstanceOf[JArray].arr
+      val list = arr.map(mjson => toCorefMention(mjson, docMap)).map(_.toCorefMention)
+      val set: Set[Anaphoric] = list.toSet
+
+      set
   }
 
   private def toModifications(mjson: JValue, docMap: Map[String, Document]): Set[Modification] = mjson \ "modifications" match {
@@ -425,17 +443,17 @@ object JSONSerializer extends LazyLogging {
 
   def toMentionByType(mjson: JValue, docMap: Map[String, Document]): Option[Mention] = mjson \ "type" match {
     // CorefMentions
-    case JString(CorefTextBoundMention.string) => Some(toCorefMention(mjson, docMap))
-    case JString(CorefEventMention.string) => Some(toCorefMention(mjson, docMap))
-    case JString(CorefRelationMention.string) => Some(toCorefMention(mjson, docMap))
+    case JString(CorefTextBoundMentionOps.string) => Some(toCorefMention(mjson, docMap))
+    case JString(CorefEventMentionOps.string) => Some(toCorefMention(mjson, docMap))
+    case JString(CorefRelationMentionOps.string) => Some(toCorefMention(mjson, docMap))
     // BioMentions
-    case JString(BioTextBoundMention.string) => Some(toBioMention(mjson, docMap))
-    case JString(BioEventMention.string) => Some(toBioMention(mjson, docMap))
-    case JString(BioRelationMention.string) => Some(toBioMention(mjson, docMap))
+    case JString(BioTextBoundMentionOps.string) => Some(toBioMention(mjson, docMap))
+    case JString(BioEventMentionOps.string) => Some(toBioMention(mjson, docMap))
+    case JString(BioRelationMentionOps.string) => Some(toBioMention(mjson, docMap))
     // Mentions
-    case JString(org.clulab.odin.serialization.json.TextBoundMention.string) => Some(toMention(mjson, docMap))
-    case JString(org.clulab.odin.serialization.json.EventMention.string) => Some(toMention(mjson, docMap))
-    case JString(org.clulab.odin.serialization.json.RelationMention.string) => Some(toMention(mjson, docMap))
+    case JString(org.clulab.odin.serialization.json.TextBoundMentionOps.string) => Some(OdinJSONSerializer.toMention(mjson, docMap))
+    case JString(org.clulab.odin.serialization.json.EventMentionOps.string) => Some(OdinJSONSerializer.toMention(mjson, docMap))
+    case JString(org.clulab.odin.serialization.json.RelationMentionOps.string) => Some(OdinJSONSerializer.toMention(mjson, docMap))
     // failure
     case _ => None
   }
