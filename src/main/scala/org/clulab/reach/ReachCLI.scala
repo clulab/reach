@@ -164,7 +164,7 @@ class ReachCLI (
     outputDir: File,
     outputType: String,
     withAssembly: Boolean
-  ) = {
+  ): Unit = {
 
 
     val outFile = s"${outputDir.getAbsolutePath}${File.separator}$paperId"
@@ -248,7 +248,7 @@ class ReachCLI (
         outFile.writeString(output, java.nio.charset.StandardCharsets.UTF_8)
 
       case ("visual-analytics", _) =>
-        val output = VisualAnalyticsDataExporter.jsonOutput(mentions)
+        val output = VisualAnalyticsDataExporter.jsonOutput(mentions, Some(entry))
         val outFile = new File(outputDir, s"$paperId-va.json")
         outFile.writeString(output, java.nio.charset.StandardCharsets.UTF_8)
 
