@@ -40,17 +40,15 @@ case class RelationDatum(
       ("controlled_id" -> controlledId.orNull) ~
       ("sentence_tokens" -> sentenceTokens) ~
       ("event_indices" -> List(eventIndices._1, eventIndices._2)) ~
+      ("event_char_span" -> List(eventCharSpan._1, eventCharSpan._2)) ~
       ("label" -> label) ~
       ("polarity" -> polarity) ~
       ("controller_indices" -> List(controllerIndices._1, controllerIndices._2)) ~
-      ("controlled_indices" -> (controlledIndices match {
-        case Some(i) => Some(List(i._1, i._2))
-        case _ => None
-      })) ~
-      ("trigger_indices" -> (triggerIndices match {
-        case Some(i) => Some(List(i._1, i._2))
-        case _ => None
-      })) ~
+      ("controlled_indices" -> controlledIndices.map(i => List(i._1, i._2))) ~
+      ("trigger_indices" -> triggerIndices.map(i => List(i._1, i._2))) ~
+      ("controller_char_span" -> List(controllerCharSpan._1, controllerCharSpan._2)) ~
+      ("controlled_char_span" -> controlledCharSpan.map(i => List(i._1, i._2))) ~
+      ("trigger_char_span" -> triggerCharSpan.map(i => List(i._1, i._2))) ~
       ("rule_name" -> ruleName.orNull) ~
       ("context_left" -> contextLeft.orNull) ~
       ("context_right" -> contextRight.orNull)
