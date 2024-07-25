@@ -4,7 +4,7 @@ libraryDependencies ++= {
   val luceVer = "5.3.1"
 
   Seq(
-    "ai.lum"              %%  "nxmlreader"  % "0.1.2",
+    "ai.lum"              %%  "nxmlreader"  % "0.1.6-SNAPSHOT",
     "ai.lum"              %%  "common"      % "0.1.4",
     "commons-io"           %  "commons-io"  % "2.4",
     "jline"                %  "jline"       % "2.12.1",
