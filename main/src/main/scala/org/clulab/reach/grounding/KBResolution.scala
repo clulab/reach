@@ -1,10 +1,12 @@
 package org.clulab.reach.grounding
 
-import scala.Serializable
-import scala.util.hashing.MurmurHash3._
-
+import org.clulab.utils.Hash
+import org.clulab.reach.context.BoundedPaddingContext.species
 import org.clulab.reach.grounding.ReachKBConstants._
 import org.clulab.reach.grounding.Speciated._
+import org.clulab.utils.Hash
+
+import scala.Serializable
 
 /**
   * Class holding information about a specific resolution from the in-memory Knowledge Base.
@@ -46,14 +48,13 @@ class KBResolution (
   }
 
   /** Redefine hashCode. */
-  override def hashCode: Int = {
-    val h0 = stringHash("org.clulab.reach.grounding.KBResolution")
-    val h1 = mix(h0, text.toLowerCase.hashCode)
-    val h2 = mix(h1, namespace.hashCode)
-    val h3 = mix(h2, id.hashCode)
-    val h4 = mixLast(h3, species.hashCode)
-    finalizeHash(h4, 4)
-  }
+  override def hashCode: Int = Hash.withLast(
+    Hash("org.clulab.reach.grounding.KBResolution"),
+    text.toLowerCase.hashCode,
+    namespace.hashCode,
+    id.hashCode,
+    species.hashCode
+  )
 
   /** Tell whether this entry has an associated species or not. */
   def hasSpecies: Boolean = (species != NoSpeciesValue)

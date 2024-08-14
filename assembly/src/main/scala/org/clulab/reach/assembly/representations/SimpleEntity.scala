@@ -3,7 +3,7 @@ package org.clulab.reach.assembly.representations
 import org.clulab.reach.assembly.AssemblyManager
 import org.clulab.reach.assembly._
 import org.clulab.odin.Mention
-import scala.util.hashing.MurmurHash3._
+import org.clulab.utils.Hash
 
 
 /**
@@ -71,24 +71,12 @@ class SimpleEntity(
    * @return a hash (Int) based primarily on the [[grounding]] and [[modsHash]]
    */
   def equivalenceHash(ignoreMods: Boolean): Int = {
-    // the seed (not counted in the length of finalizeHash)
-    // decided to use the class name
-    val h0 = stringHash(eerString)
-    // a representation of the ID
-    val h1 = mix(h0, grounding.hashCode)
-    ignoreMods match {
-      // include the modifications
-      case false =>
-        // a representation of the set of modifications
-        val h2 = mix(h1, modsHash)
-        // whether or not the representation is negated
-        val h3 = mixLast(h2, negated.hashCode)
-        finalizeHash(h3, 3)
-      // ignore the mods
-      case true =>
-        val h2 = mixLast(h1, negated.hashCode)
-        finalizeHash(h2, 2)
-    }
+    val h0 = Hash(eerString)
+    val h1 = grounding.hashCode // a representation of the ID
+    val h3 = negated.hashCode
+
+    if (ignoreMods) Hash.withLast(h0, h1,           h3)
+    else            Hash.withLast(h0, h1, modsHash, h3)
   }
 
   /**
@@ -98,10 +86,12 @@ class SimpleEntity(
    * @return an Int hash based on the hashcodes of the modifications
    */
   def modsHash: Int = {
-    val h0 = stringHash(s"$eerString.modifications")
     val hs = modifications.map(_.hashCode)
-    val h = mixLast(h0, unorderedHash(hs))
-    finalizeHash(h, modifications.size)
+
+    Hash.withLast(modifications.size)(
+      Hash(s"$eerString.modifications"),
+      Hash.unordered(hs)
+    )
   }
 
   /**
