@@ -24,6 +24,7 @@ object HypothesisHandler {
       "hypotheses",
       "hypothesize",
       "implication",
+      "implicate",
       "imply",
       "indicate",
       "predict",

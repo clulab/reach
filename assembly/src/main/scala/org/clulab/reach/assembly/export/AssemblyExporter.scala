@@ -26,7 +26,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
   val ignoreMods = false
 
   // distinct EntityEventRepresentations
-  val distinctEERS = manager.distinctEERs
+  val distinctEERS: Set[EER] = manager.distinctEERs
 
   // LUT for retrieving IDs to distinct EERs
   // TODO: A better version of this should probably belong to the manager
@@ -121,9 +121,19 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
     case se: SimpleEvent =>
       se.input.values.flatten.map(m => createInput(m, mods)).mkString(", ")
 
+    case assoc: Association =>
+      assoc.controlled.map{
+        // get IDs of any events
+        case event: Event => EERLUT.getOrElse(event.equivalenceHash(ignoreMods = ignoreMods), reportError(assoc, event))
+        // represent entities directly
+        case entity: Entity =>
+          createInput(entity, s"$mods")
+      }.mkString(", ")
+
+
     // inputs to an activation are entities
     case act: Activation =>
-      act.controlled.map {
+      act.controller.map {
         // get IDs of any events
         case event: Event => EERLUT.getOrElse(event.equivalenceHash(ignoreMods = ignoreMods), reportError(act, event))
         // represent entities directly
@@ -151,6 +161,15 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
       se.output.map{
         case binding: Complex => createOutput(binding)
         case other => createInput(other, mods)
+      }.mkString(", ")
+
+    case assoc: Association =>
+      assoc.controlled.map{
+        // get IDs of any events
+        case event: Event => EERLUT.getOrElse(event.equivalenceHash(ignoreMods = ignoreMods), reportError(assoc, event))
+        // represent entities directly
+        case entity: Entity =>
+          createInput(entity, s"$mods")
       }.mkString(", ")
 
     // positive activations produce an activated output entity
@@ -238,10 +257,43 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
           precededBy(event),
           event.negated,
           event.evidence,
-          event
+          Some(event)
         )
       }
-    rows.toSeq
+
+    val statisticRows: Set[AssemblyRow] = (manager.getNonAssemblyMentions collect {
+      case significance if significance matches "Significance" =>
+        AssemblyRow(
+          significance.arguments("kind").head.text,
+          significance.arguments("value").head.text,
+          NONE,
+          NONE,
+          NONE,
+          NONE,
+          significance.label,
+          Set.empty,
+          negated = false,
+          Set(significance),
+          None
+        )
+
+      case interval if interval matches "Confidence_interval" =>
+        AssemblyRow(
+          interval.arguments("start").head.text,
+          interval.arguments("end").head.text,
+          NONE,
+          NONE,
+          interval.arguments("degree").head.text,
+          NONE,
+          interval.label,
+          Set.empty,
+          negated = false,
+          Set(interval),
+          None
+        )
+    }).toSet
+
+    rows.toSeq ++ statisticRows.toSeq
   }
 
   /** for debugging purposes */
@@ -293,6 +345,7 @@ object AssemblyExporter {
   val ENTITY = "entity"
   val REGULATION = "Regulation"
   val ACTIVATION = "Activation"
+  val ASSOCIATION = "Association"
   val TRANSLOCATION = "Translocation"
 
   // context types
@@ -388,6 +441,7 @@ object AssemblyExporter {
   def getEventLabel(e: EntityEventRepresentation): String = e match {
     case reg: Regulation => s"$REGULATION (${reg.polarity})"
     case act: Activation => s"$ACTIVATION (${act.polarity})"
+    case assoc: Association => s"$ASSOCIATION (${assoc.polarity})"
     case se: SimpleEvent => se.label
     case ptm: SimpleEntity if ptm.modifications.exists(_.isInstanceOf[representations.PTM]) =>
       ptm.modifications.find(_.isInstanceOf[representations.PTM]).get.asInstanceOf[representations.PTM].label
