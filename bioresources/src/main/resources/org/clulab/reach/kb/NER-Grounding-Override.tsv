@@ -841,3 +841,106 @@ CD8 þ T cells	D018414		mesh	CellType
 CD8 ϩ T cells	D018414		mesh	CellType
 CD8+ T cells	D018414		mesh	CellType
 CD8 T cells	D018414		mesh	CellType
+frailty	FR00001		frailty	BioProcess
+loss of fat	FR00002		frailty	BioProcess
+loss of skeleton muscle	FR00003		frailty	BioProcess
+sarcopenia	FR00003		frailty	BioProcess
+frailty index	FR00005		frailty	BioProcess
+frailty syndrome	FR00001		frailty	BioProcess
+disrupted muscle mitochondrial homeostasis	FR00004		frailty	BioProcess
+mitochondrial imbalance	FR00006		frailty	BioProcess
+inflammatory dysregulation	FR00007		frailty	BioProcess
+vascular homeostasis	FR00008		frailty	BioProcess
+lipid metabolism	FR00009		frailty	BioProcess
+insulin resistance	FR00010		frailty	BioProcess
+energy imbalance	FR00011		frailty	BioProcess
+decrease in grip strength	FR00012		frailty	BioProcess
+weight loss	FR00013		frailty	BioProcess
+exhaustion	FR00014		frailty	BioProcess
+weakness	FR00015		frailty	BioProcess
+slowness	FR00016		frailty	BioProcess
+reduced physical activity	FR00017		frailty	BioProcess
+pre-frailty	FR00018		frailty	BioProcess
+inflammatory molecules	FR00019		frailty	BioEntity
+physiological dysregulation	FR00020		frailty	BioProcess
+morbidity	FR00022		frailty	BioProcess
+mortality	FR00023		frailty	BioProcess
+Upregulation of pro inflammatory cytokines	FR00021		frailty	BioProcess
+d-dimer	FR00024		frailty	BioEntity
+tumor necrosis factor-alpha	FR00025		frailty	BioEntity
+inflammatory index	FR00026		frailty	BioEntity
+inflammatory index score	FR00026		frailty	BioEntity
+serum immune mediators	FR00027		frailty	BioEntity
+gait speed	FR00028		frailty	PossibleController
+muscle strength	FR00029		frailty	PossibleController
+frail phenotype	FR00001		frailty	BioProcess
+physiological dysregulation	FR00030		frailty	BioProcess
+immunosenescence	FR00031		frailty	BioProcess
+inflammaging	FR00033		frailty	BioProcess
+sTNF-RII	FR00032		frailty	BioEntity
+comorbidity	FR00034		frailty	PossibleController
+lymphocyte subpopulations	FR00035		frailty	BioEntity
+Osseointegration	FR00036	frailty	BioProcess
+Biomineralization	FR00037	frailty	BioProcess
+Bone Regeneration	FR00038	frailty	BioProcess
+Pinch Strength	FR00039	frailty	BioProcess
+Motor Activity	FR00040	frailty	BioProcess
+excercise	FR00041	frailty	BioProcess
+Cool-Down Exercise	FR00041	frailty	BioProcess
+Hand Strength	FR00043	frailty	BioProcess
+Skeletal Muscle Enlargement	FR00044	frailty	BioProcess
+Anaerobic Threshold	FR00045	frailty	BioProcess
+Walking	FR00046	frailty	BioProcess
+Gait	FR00047	frailty	BioProcess
+Standing Position	FR00048	frailty	BioProcess
+Physical Fitness	FR00049	frailty	BioProcess
+Muscle Stretching Exercises	FR00050	frailty	BioProcess
+Muscle Stretching Exercise	FR00050	frailty	BioProcess
+Stretching Exercise	FR00050	frailty	BioProcess
+Stretching Exercises	FR00050	frailty	BioProcess
+Pronation	FR00051	frailty	BioProcess
+Psychomotor Performance	FR00052	frailty	BioProcess
+Bone Density	FR00053	frailty	BioProcess
+Posture	FR00054	frailty	BioProcess
+Osteolysis	FR00055	frailty	BioProcess
+Muscle Fatigue	FR00056	frailty	BioProcess
+Osteogenesis	FR00057	frailty	BioProcess
+Articular Range of Motion	FR00058	frailty	BioProcess
+Core Stability	FR00059	frailty	BioProcess
+Postural Balance	FR00060	frailty	BioProcess
+Locomotion	FR00061	frailty	BioProcess
+Physical Endurance	FR00062	frailty	BioProcess
+Exergaming	FR00063	frailty	BioProcess
+Isotonic Contraction	FR00064	frailty	BioProcess
+Physical Exertion	FR00065	frailty	BioProcess
+Musculoskeletal Physiological Phenomena	FR00066	frailty	BioProcess
+Musculoskeletal Phenomena	FR00066	frailty	BioProcess
+Excitation Contraction Coupling	FR00068	frailty	BioProcess
+Muscle Strength	FR00069	frailty	BioProcess
+Muscular Strength	FR00069	frailty	BioProcess
+Muscle Contraction	FR00070	frailty	BioProcess
+Muscle Contractions	FR00070	frailty	BioProcess
+Muscular Contraction	FR00070	frailty	BioProcess
+Muscular Contractions	FR00070	frailty	BioProcess
+Intramuscular Absorption	FR00071	frailty	BioProcess
+Chondrogenesis	FR00072	frailty	BioProcess
+Muscle Development	FR00073	frailty	BioProcess
+Muscular Development	FR00073	frailty	BioProcess
+Cardiorespiratory Fitness	FR00074	frailty	BioProcess
+Cardio respiratory Fitness	FR00074	frailty	BioProcess
+Cardio-respiratory Fitness	FR00074	frailty	BioProcess
+Uterine Contraction	FR00075	frailty	BioProcess
+Tonic Immobility Response	FR00076	frailty	BioProcess
+Bone Resorption	FR00077	frailty	BioProcess
+Exercise Tolerance	FR00078	frailty	BioProcess
+Physiologic Calcification	FR00079	frailty	BioProcess
+Stair Climbing	FR00080	frailty	BioProcess
+Muscle Tonus	FR00081	frailty	BioProcess
+Muscular Tonus	FR00081	frailty	BioProcess
+Plyometric Exercise	FR00082	frailty	BioProcess
+Plyometric Exercises	FR00082	frailty	BioProcess
+Isometric Contraction	FR00083	frailty	BioProcess
+Isometric Contractions	FR00083	frailty	BioProcess
+Walking Speed	FR00084	frailty	BioProcess
+Muscle Relaxation	FR00085	frailty	BioProcess
+Muscular Relaxation	FR00085	frailty	BioProcess

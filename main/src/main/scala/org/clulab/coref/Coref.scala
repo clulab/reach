@@ -318,6 +318,8 @@ class Coref extends LazyLogging {
     val tbms = mentions.filter(_.isInstanceOf[CorefTextBoundMention]).map(_.asInstanceOf[CorefTextBoundMention])
     val sevts = mentions.filter(m => m.isInstanceOf[CorefEventMention] && m.matches("SimpleEvent")).map(_.asInstanceOf[CorefEventMention])
     val cevts = mentions.filter(m => m.matches("ComplexEvent"))
+    // Added by Enrique to avoid discarding the Significance relations
+    val significanceevts = mentions.filter(m => m.matches("Significance") || m.matches("Confidence_interval"))
 
     val resolvedTBMs = resolveTBMs(tbms)
     val tbmSieveMap = tbmSieves(tbms.filter(_.isGeneric))
@@ -332,7 +334,7 @@ class Coref extends LazyLogging {
     val resolved = resolvedTBMs ++ resolvedSimple ++ resolvedComplex
 
     val retVal = corefDistinct(mentions.flatMap(mention => resolved.getOrElse(mention, Nil)))
-    retVal
+    retVal ++ significanceevts
   }
 
 

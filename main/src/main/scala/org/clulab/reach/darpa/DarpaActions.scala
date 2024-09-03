@@ -4,8 +4,9 @@ import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin._
 import org.clulab.polarity.PolarityEngine
 import org.clulab.reach._
+import org.clulab.reach.darpa.StrengthHandler.weakLemmas
 import org.clulab.reach.mentions._
-import org.clulab.reach.mentions.serialization.json.BioTextBoundMention
+import org.clulab.reach.mentions.serialization.json.{BioTextBoundMention, formats}
 import org.clulab.struct.DirectedGraph
 
 import scala.annotation.tailrec
@@ -246,6 +247,48 @@ class DarpaActions extends Actions with LazyLogging {
       val arguments = Map("theme" -> themes)
       new BioEventMention(m.copy(arguments = arguments), isDirect = true)
   }
+
+  def mkAssociation(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
+    case m: EventMention if m.matches("Association") =>
+      // themes in a subject position
+      val theme1s = m.arguments.getOrElse("theme1", Nil).map(_.toBioMention)
+      // themes in an object position
+      val theme2s = m.arguments.getOrElse("theme2", Nil).map(_.toBioMention)
+
+      val numPositiveCues = StrengthHandler.countPositiveCues(m)
+      val numNegativeCues = StrengthHandler.countNegativeCues(m)
+
+      val newLabel =
+        if(numPositiveCues > 0 && numNegativeCues == 0)
+          Seq("Positive_association")
+        else if(numNegativeCues > 0)
+          if(numNegativeCues % 2 == 0)
+            Seq("Positive_association")
+          else
+            Seq("Negative_association")
+        else
+          Seq.empty[String]
+
+      val labels = newLabel ++ m.labels
+
+
+      (theme1s, theme2s) match {
+        case (t1s, t2s)  if t1s.nonEmpty && t2s.nonEmpty
+          => Seq(new BioEventMention(m - "theme1" - "theme2" + ("theme" -> Seq(t1s.head, t2s.head))).copy(labels = labels))
+        case (t1s, t2a) if t2a.isEmpty =>
+          Seq(new BioEventMention(m - "theme1" - "theme2" + ("theme" -> t1s)).copy(labels = labels))
+        case _ => Nil
+      }
+  }
+
+  def mkSignificance(mentions: Seq[Mention], state: State): Seq[Mention] = mentions //map {
+//    case m: RelationMention if m.matches("Significance") =>
+//      val rawKind = m.arguments("kind").head
+//      val rawVal = m.arguments("value").head
+//
+//      new BioRelationMention(m.copy( ))
+//
+//  }
 
   def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case m: EventMention if m.matches("Binding") =>

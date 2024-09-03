@@ -1,6 +1,9 @@
 - Alias
 - ModificationTrigger
 - Site
+- Statistic:
+    - Significance
+    - Confidence_interval
 - Context:
     - Species
     - CellLine
@@ -57,6 +60,7 @@
                 - Deribosylation
                 - Desumoylation
                 - Deubiquitination
+
         - ComplexEvent:
             - Regulation:
                 - Positive_regulation
@@ -64,9 +68,17 @@
             - ActivationEvent:
                 - Positive_activation
                 - Negative_activation
+            - Association:
+                  - Positive_association
+                  - Negative_association
+
     - Entity:
       # Any BioEntity may appear as the controlled in an Activation
       - BioEntity:
+          - TissueTypeAsParticipant
+          - OrganAsParticipant
+          - CellLineAsParticipant
+          - CellTypeAsParticipant
           - Disease
           - BioProcess   # ex. "apoptosis"
           - BioChemicalEntity:

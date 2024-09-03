@@ -149,7 +149,7 @@ rules:
       [entity='B-Species'] [entity='I-Species']*
 
   - name: ner-cell-lines
-    label: CellLine
+    label: [CellLine, CellLineAsParticipant]
     action: mkNERMentions
     priority: 3
     type: token
@@ -157,7 +157,7 @@ rules:
       [entity='B-CellLine'] [entity='I-CellLine']*
 
   - name: ner-organ
-    label: Organ
+    label: [Organ, OrganAsParticipant]
     action: mkNERMentions
     priority: 3
     type: token
@@ -165,7 +165,7 @@ rules:
       [entity='B-Organ'] [entity='I-Organ']*
 
   - name: ner-cell-type
-    label: CellType
+    label: [CellType, CellTypeAsParticipant]
     action: mkNERMentions
     priority: 3
     type: token
@@ -173,7 +173,7 @@ rules:
       [entity='B-CellType'] [entity='I-CellType']*
 
   - name: ner-tissue-type
-    label: TissueType
+    label: [TissueType, TissueTypeAsParticipant]
     action: mkNERMentions
     priority: 3
     type: token
