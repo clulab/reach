@@ -1,17 +1,13 @@
 package org.clulab.reach.assembly.export
 
-import org.clulab.odin.{EventMention, Mention, TextBoundMention}
+import org.clulab.odin.Mention
 import org.clulab.reach.assembly.representations.EntityEventRepresentation
 import org.clulab.reach.mentions._
-import org.clulab.struct.Interval
-
-import scala.collection.mutable.ListBuffer
-
 
 
 /** Fundamental attributes of an EER at export */
 trait EERDescription {
-  val eer: Option[EntityEventRepresentation]
+  val eer: EntityEventRepresentation
   val input: String
   val output: String
   val controller: String
@@ -26,20 +22,20 @@ trait EERDescription {
 
 /** A Row in the column-based, AssemblyExporter format */
 class AssemblyRow(
-                   val input: String,
-                   val output: String,
-                   // FIXME: these should be generated from within AssemblyRow
-                   val source: String, // only for Translocation
-                   val destination: String, // only for Translocation
-                   val controller: String,
-                   val eerID: String,
-                   val label: String,
-                   val precededBy: Set[String],
-                   val negated: Boolean,
-                   val evidence: Set[Mention],
-                   // to make debugging easier
-                   val eer: Option[EntityEventRepresentation]
-                 ) extends EERDescription {
+  val input: String,
+  val output: String,
+  // FIXME: these should be generated from within AssemblyRow
+  val source: String, // only for Translocation
+  val destination: String, // only for Translocation
+  val controller: String,
+  val eerID: String,
+  val label: String,
+  val precededBy: Set[String],
+  val negated: Boolean,
+  val evidence: Set[Mention],
+  // to make debugging easier
+  val eer: EntityEventRepresentation
+) extends EERDescription {
   // this might serve as a proxy for confidence, though
   // it would also be good to know how many times this event
   // was involved in other events (input, controller, etc)
@@ -54,7 +50,7 @@ class AssemblyRow(
 
   def getTextualEvidence: Seq[String] = {
     evidence.toSeq.map { m =>
-      val text = getSentenceMarkup(m)
+      val text = m.sentenceObj.getSentenceText
       cleanText(text)
     }
   }
@@ -75,10 +71,9 @@ class AssemblyRow(
     // replace multiple whitespace characters (newlines, tabs, etc) with a single space
     val cleanContents = contents.replaceAll("\\s+", " ")
     // check for only whitespace
-    if (AssemblyExporter.WHITESPACE.pattern.matcher(cleanContents).matches) {
-      AssemblyExporter.NONE
-    } else {
-      cleanContents
+    AssemblyExporter.WHITESPACE.pattern.matcher(cleanContents).matches match {
+      case false => cleanContents
+      case true => AssemblyExporter.NONE
     }
   }
 
@@ -131,48 +126,6 @@ class AssemblyRow(
     )
   }
 
-  def getSentenceMarkup(m:Mention):String = m match {
-    case evt:BioEventMention =>
-      val sent = m.sentenceObj
-
-      val mentionInterval = evt.tokenInterval
-      val label = evt.label
-
-      val argIntervals:Seq[(Interval, String)] =
-        (Seq((evt.trigger.tokenInterval, s"trigger")) ++ evt.arguments.flatMap{
-          a =>
-            val role = a._1
-            val intervals = a._2.map(_.tokenInterval)
-            intervals.sorted.map(i => i -> role)
-        }.toSeq).sortBy{
-          case (interval, _) => (interval.start, interval.end)
-        }
-
-
-      val tokens = new ListBuffer[String]()
-      for(ix <- sent.words.indices){
-        if(ix == mentionInterval.start)
-          tokens += "<span class=\"event "+ label +"\">"
-
-
-        for((int, arg) <- argIntervals){
-          if(ix == int.start)
-            tokens += "<span class=\"argument " + arg +" \">"
-
-          if(ix == int.end)
-            tokens += "</span>"
-        }
-
-        if(ix == mentionInterval.end)
-          tokens += "</span>"
-
-        tokens += sent.words(ix)
-      }
-
-      tokens.mkString(" ")
-    case _ => m.sentenceObj.getSentenceText
-  }
-
   val columns: Map[String, String] = baseColumns
 
   def toRow(cols: Seq[String], sep: String = AssemblyExporter.SEP): String = {
@@ -185,18 +138,18 @@ class AssemblyRow(
 
 object AssemblyRow {
   def apply(
-             input: String,
-             output: String,
-             // FIXME: these should be generated from within AssemblyRow
-             source: String, // only for Translocation
-             destination: String, // only for Translocation
-             controller: String,
-             eerID: String,
-             label: String,
-             precededBy: Set[String],
-             negated: Boolean,
-             evidence: Set[Mention],
-             // to make debugging easier
-             eer: Option[EntityEventRepresentation]
-           ) = new AssemblyRow(input, output, source, destination, controller, eerID, label, precededBy, negated, evidence, eer)
+    input: String,
+    output: String,
+    // FIXME: these should be generated from within AssemblyRow
+    source: String, // only for Translocation
+    destination: String, // only for Translocation
+    controller: String,
+    eerID: String,
+    label: String,
+    precededBy: Set[String],
+    negated: Boolean,
+    evidence: Set[Mention],
+    // to make debugging easier
+    eer: EntityEventRepresentation
+  ) = new AssemblyRow(input, output, source, destination, controller, eerID, label, precededBy, negated, evidence, eer)
 }
