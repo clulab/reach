@@ -2,7 +2,7 @@ package org.clulab.reach.`export`
 
 import org.clulab.odin.{EventMention, Mention, TextBoundMention}
 import org.clulab.reach.FriesEntry
-import org.clulab.reach.mentions.BioTextBoundMention
+import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention, Negation}
 import org.json4s.{JObject, JValue}
 import org.json4s.JsonAST.JArray
 import org.json4s.JsonDSL._
@@ -20,6 +20,7 @@ case class RelationDatum(
                           eventIndices: (Int, Int),
                           eventCharSpan: (Int, Int),
                           label: String,
+                          negatedTrigger:Boolean,
                           polarity: Option[Boolean], // True for positive, False for negative, None for undefined
                           controllerIndices: (Int, Int),
                           controllerCharSpan: (Int, Int),
@@ -42,6 +43,7 @@ case class RelationDatum(
       ("event_indices" -> List(eventIndices._1, eventIndices._2)) ~
       ("event_char_span" -> List(eventCharSpan._1, eventCharSpan._2)) ~
       ("label" -> label) ~
+      ("negated_trigger" -> negatedTrigger) ~
       ("polarity" -> polarity) ~
       ("controller_indices" -> List(controllerIndices._1, controllerIndices._2)) ~
       ("controlled_indices" -> controlledIndices.map(i => List(i._1, i._2))) ~
@@ -81,6 +83,14 @@ object RelationDatum{
       Some(false)
     else
       None
+  }
+
+  private def isNegated(evt:BioEventMention): Boolean = {
+    evt.modifications.exists {
+      case _: Negation =>
+        true
+      case _ => false
+    }
   }
 
   private def getCharSpan(mention:Mention): (Int, Int) = {
@@ -126,6 +136,7 @@ object RelationDatum{
       eventIndices = (evt.start, evt.end),
       eventCharSpan = getCharSpan(evt),
       label = evt.label,
+      negatedTrigger = isNegated(evt.asInstanceOf[BioEventMention]),
       polarity = getPolarity(evt.label),
       controllerIndices = (controller.start, controller.end),
       controllerCharSpan = getCharSpan(controller),
