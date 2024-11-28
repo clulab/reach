@@ -1,13 +1,17 @@
 package org.clulab.reach.assembly.export
 
-import org.clulab.odin.Mention
+import org.clulab.odin.{EventMention, Mention, TextBoundMention}
 import org.clulab.reach.assembly.representations.EntityEventRepresentation
 import org.clulab.reach.mentions._
+import org.clulab.struct.Interval
+
+import scala.collection.mutable.ListBuffer
+
 
 
 /** Fundamental attributes of an EER at export */
 trait EERDescription {
-  val eer: EntityEventRepresentation
+  val eer: Option[EntityEventRepresentation]
   val input: String
   val output: String
   val controller: String
@@ -34,7 +38,7 @@ class AssemblyRow(
   val negated: Boolean,
   val evidence: Set[Mention],
   // to make debugging easier
-  val eer: EntityEventRepresentation
+  val eer: Option[EntityEventRepresentation]
 ) extends EERDescription {
   // this might serve as a proxy for confidence, though
   // it would also be good to know how many times this event
@@ -50,7 +54,7 @@ class AssemblyRow(
 
   def getTextualEvidence: Seq[String] = {
     evidence.toSeq.map { m =>
-      val text = m.sentenceObj.getSentenceText
+      val text = getSentenceMarkup(m)
       cleanText(text)
     }
   }
@@ -71,9 +75,10 @@ class AssemblyRow(
     // replace multiple whitespace characters (newlines, tabs, etc) with a single space
     val cleanContents = contents.replaceAll("\\s+", " ")
     // check for only whitespace
-    AssemblyExporter.WHITESPACE.pattern.matcher(cleanContents).matches match {
-      case false => cleanContents
-      case true => AssemblyExporter.NONE
+    if (AssemblyExporter.WHITESPACE.pattern.matcher(cleanContents).matches) {
+      AssemblyExporter.NONE
+    } else {
+      cleanContents
     }
   }
 
@@ -126,6 +131,48 @@ class AssemblyRow(
     )
   }
 
+  def getSentenceMarkup(m:Mention):String = m match {
+    case evt:BioEventMention =>
+      val sent = m.sentenceObj
+
+      val mentionInterval = evt.tokenInterval
+      val label = evt.label
+
+      val argIntervals:Seq[(Interval, String)] =
+        (Seq((evt.trigger.tokenInterval, s"trigger")) ++ evt.arguments.flatMap{
+        a =>
+          val role = a._1
+          val intervals = a._2.map(_.tokenInterval)
+          intervals.sorted.map(i => i -> role)
+      }.toSeq).sortBy{
+        case (interval, _) => (interval.start, interval.end)
+      }
+
+
+      val tokens = new ListBuffer[String]()
+      for(ix <- sent.words.indices){
+        if(ix == mentionInterval.start)
+          tokens += "<span class=\"event "+ label +"\">"
+
+
+        for((int, arg) <- argIntervals){
+          if(ix == int.start)
+            tokens += "<span class=\"argument " + arg +" \">"
+
+          if(ix == int.end)
+            tokens += "</span>"
+        }
+
+        if(ix == mentionInterval.end)
+          tokens += "</span>"
+
+        tokens += sent.words(ix)
+      }
+
+      tokens.mkString(" ")
+    case _ => m.sentenceObj.getSentenceText
+  }
+
   val columns: Map[String, String] = baseColumns
 
   def toRow(cols: Seq[String], sep: String = AssemblyExporter.SEP): String = {
@@ -150,6 +197,6 @@ object AssemblyRow {
     negated: Boolean,
     evidence: Set[Mention],
     // to make debugging easier
-    eer: EntityEventRepresentation
+    eer: Option[EntityEventRepresentation]
   ) = new AssemblyRow(input, output, source, destination, controller, eerID, label, precededBy, negated, evidence, eer)
 }

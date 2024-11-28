@@ -64,7 +64,7 @@ object CorefUtils {
     lbls match {
       case binding if lbls contains "Binding" =>
         args.contains("theme") && args("theme").length >= 2 // Binding is not required to be binary anymore (see binding_token_5)
-      case simple if lbls contains "SimpleEvent" =>
+      case simple if (lbls contains "SimpleEvent" )|| (lbls contains "Association") =>
         ((args.contains("theme") && args("theme").nonEmpty) ||
           (args.contains("substrate") && args("substrate").nonEmpty &&
             args.contains("product") && args("product").nonEmpty))

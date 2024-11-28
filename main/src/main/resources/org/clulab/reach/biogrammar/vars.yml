@@ -76,6 +76,8 @@ noun_modifier_[^bt]: "nmod_[^bt]"
 noun_modifier_(by|of): "nmod_(by|of)"
 noun_modifier_o[nf]$: "^nmod_o[nf]$"
 
+significance_triggers: "^([rp]|SMD|I\\d+)"
+
 #ATTN: there are relations mentioned in the folders and files below, but the rules there are fairly specific,
 #so substituting with a variable could be damaging; changes might need to be made manually in these files if the names of
 #relations change in the next versions of Universal Dependencies

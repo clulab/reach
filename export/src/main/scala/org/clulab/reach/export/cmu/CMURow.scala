@@ -34,7 +34,7 @@ class CMURow(
   precededBy,
   negated,
   evidence,
-  eer
+  Some(eer)
 ) {
   /**
     * Translates Reach namespaces into element types

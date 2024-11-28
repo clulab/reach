@@ -1,0 +1,112 @@
+#
+# The rules below apply ONLY to activations (not regulations)
+#
+
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
+
+- name: ${ ruleType }_syntax_results_in
+  priority: ${ priority }
+  example: "IL-6 results in subsequent frailty association."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controller:${ controllerType } = </${preps_general}/ [lemma=result] ${agents} /${noun_modifiers}|${conjunctions}/{,2}
+    controlled:${ controlledType } = /${noun_modifiers}|${genitive_case_marker}/
+
+- name: ${ ruleType }_syntax_directional_conjunction
+  priority: ${ priority }
+  example: "very few studies have assessed the link between lymphocyte subpopulations and frailty status in older adults"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/]
+    theme1:${ controllerType } = /${directional_preposition}/ /${noun_modifiers}|dep/?
+    theme2:${ controlledType } = /${and_or_conjunctions}/ /${noun_modifiers}|dep/?
+
+- name: ${ ruleType }_syntax_nmod_location
+  priority: ${ priority }
+  example: "very few studies have assessed the link between lymphocyte subpopulations and frailty status in older adults"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/]
+    theme1:${ controllerType } = /nmod_(by|of)/ /${noun_modifiers}|dep/?
+    theme2:${ controlledType } = /nmod_(in|on)/ /${noun_modifiers}|dep/?
+
+- name: ${ ruleType }_syntax_nsubj_nmod
+  priority: ${ priority }
+  example: "Inflammaging has been postulated to be an underlying mechanism of frailty"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/]
+    theme1:${ controllerType } = /${any_nominal_subject}/ /${noun_modifiers}|dep/?
+    theme2:${ controlledType } = /nmod_(in|on|by|of)/ /${noun_modifiers}|dep/?
+
+- name: ${ ruleType }_syntax_1
+  priotity: ${ priority }
+  example: "Frailty and pre-frailty were associated with significantly elevated CRP and IL-6 levels."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^${ triggers }/ & tag=/^V/]
+    theme1:${ controllerType } = (<acl? <xcomp?)? (/${ any_nominal_subject }/ /nmod_(of|such_as|by|within)/*)?
+    theme2:${ controlledType }= /${complements}|${objects}|nmod_(with|in|to|such_as|of)/+ /(amod|compound)/? (/conj/ /compound/?)?
+
+- name: ${ ruleType }_syntax_1b
+  priotity: ${ priority }
+  example: "Frailty and pre-frailty were associated with significantly elevated CRP and IL-6 levels."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^${ triggers }/ & tag=/^V/]
+    theme1:${ controlledType }= /${objects}|nmod_of/+
+    theme2:${ controlledType }= (/${objects}/? /nmod_(with|within)/+ compound? | (conj_and dobj))
+
+
+- name: ${ ruleType }_syntax_2
+  priotity: ${ priority }
+  example: "A direct association between frailty and elevated levels of inflammation, as marked by elevated interleukin-6 (IL-6)"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^${ triggers }/ & tag=/^N/]
+    theme1:${ controllerType } = /^nmod_between/
+    theme2:${ controlledType } = /^conj_and/ /^nmod_of/?
+
+
+- name: ${ ruleType }_syntax_3
+  priotity: ${ priority }
+  example: "we did not find IL-6 or CRP levels to be significantly associated with age"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^${ triggers }/ & tag=/^V/]
+    theme1:${ controllerType } = <advcl_to dobj
+    theme2:${ controllerType } = /${objects}|nmod_(with|in|to|such_as|of)/+ /(amod|compound)/? (/conj/ /compound/?)?
+#    theme2:${ controlledType }= /advcl_/? /${objects}|nmod_(of|with|in|to|such_as)/+ /(amod|compound)/? (/conj/ /compound/?)?
+
+- name: ${ ruleType }_syntax_3b
+  priotity: ${ priority }
+  example: "we did not find IL-6 or CRP levels to be significantly associated with age"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^${ triggers }/ & tag=/^V/]
+    theme1:${ controllerType } = (<acl? <xcomp?)? (/${ any_nominal_subject }/ /nmod_(of|such_as|by)/*)?
+    theme2:${ controlledType }= /advcl_/? /${objects}|nmod_(of|with|in|to|such_as)/+ /(amod|compound)/? (/conj/ /compound/?)?
+
+
+- name: ${ ruleType }_syntax_4
+  priotity: ${ priority }
+  example: "Elevated levels of IL-6 have been linked to multiple age associated conditions , such as atherosclerosis , dementia and frailty"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^${ triggers }/ & tag=/^V/]
+    theme1:${ controllerType } = <acl <xcomp?
+    theme2:${ controlledType }= <acl <xcomp? (/dobj/ | /dobj/? /nmod_(of|with|in|to|such_as)/+)

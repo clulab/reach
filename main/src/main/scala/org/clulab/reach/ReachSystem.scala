@@ -19,6 +19,9 @@ import ai.lum.common.Interval
 import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.reach.utils.Preprocess
 import ai.lum.nxmlreader.standoff.Implicits._
+import org.clulab.odin.impl.RuleReader
+
+import java.nio.charset.StandardCharsets
 
 // import org.clulab.reach.utils.MentionManager
 
@@ -51,6 +54,20 @@ class ReachSystem(
   // initialize processor annotator
   val textPreProc = new Preprocess
   val procAnnotator = new BioNLPProcessor()
+
+
+  /** Returns a map with all the rule patterns in the system keyed by their name */
+  lazy val rulePatternsMap:Map[String, String] = {
+    Seq(entityRules, modificationRules, eventRules) flatMap {
+      rules =>
+        val reader = new RuleReader(actions, StandardCharsets.UTF_8, None)
+        val parsedRules = reader.getRules(rules)
+        parsedRules map {
+          pr =>
+            pr.name -> pr.pattern
+        }
+    }
+  }.toMap
 
   /** returns string with all rules used by the system */
   def allRules: String =
