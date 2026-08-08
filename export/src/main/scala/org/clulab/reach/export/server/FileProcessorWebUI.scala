@@ -19,8 +19,8 @@ import akka.stream.{ActorMaterializer, Materializer}
 import akka.stream.scaladsl._
 import akka.util.ByteString
 
-import org.clulab.reach.mentions._
-import org.clulab.reach.mentions.serialization.json._
+import org.clulab.reach.mentions.{MentionOps => ImplicitMentionOps}
+import org.clulab.reach.mentions.serialization.json.MentionsOps
 import org.clulab.reach.PaperReader
 
 
@@ -102,7 +102,7 @@ object FileProcessorWebUI extends App with FileUpload {
   def processFile(tempFile: File, outputType: String): String = {
     val cms = PaperReader.getMentionsFromPaper(tempFile).map(_.toCorefMention)
     outputType match {
-      case JSON => cms.json(false)
+      case JSON => MentionsOps(cms).json(false)
     }
   }
 

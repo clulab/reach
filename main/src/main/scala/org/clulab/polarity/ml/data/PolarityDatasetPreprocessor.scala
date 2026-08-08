@@ -2,7 +2,6 @@ package org.clulab.polarity.ml.data
 
 import java.io.PrintWriter
 import java.util.{Calendar, Date}
-
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.polarity.{NegativePolarity, Polarity, PositivePolarity}
 import org.clulab.reach.{PaperReader, ReachSystem}
@@ -11,8 +10,8 @@ import org.clulab.reach.mentions.{BioEventMention, BioMention, CorefEventMention
 import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
 import scala.util.{Failure, Success, Try}
-import org.clulab.reach.mentions.serialization.json._
-import org.clulab.reach.mentions.{MentionOps => MOps}
+import org.clulab.reach.mentions.serialization.json.{JSONSerializer, MentionsOps}
+import org.clulab.reach.mentions.{MentionOps => ImplicitMentionOps}
 import org.json4s.JsonAST.JValue
 import org.json4s.JsonDSL._
 import org.json4s._
@@ -119,7 +118,7 @@ object PolarityDatasetPreprocessor extends App with LazyLogging{
   def saveOutput(digestedData: Seq[(BioEventMention, Polarity)], outputPath: String): Unit = {
     val (evts, labels) = digestedData.unzip
 
-    val jsonEvts = evts.jsonAST
+    val jsonEvts = MentionsOps(evts).jsonAST
 
 
     val json =
