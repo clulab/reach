@@ -13,7 +13,7 @@ libraryDependencies ++= {
     "org.clulab"          %%  "processors-main"          % procVer,
     "org.clulab"          %%  "processors-corenlp"       % procVer,
 
-    "ai.lum" %% "common" % "0.1.4",
+    "ai.lum" %% "common" % "0.1.6",
     
     // logging
     "com.typesafe.scala-logging"  %%  "scala-logging"    % "3.7.2",
