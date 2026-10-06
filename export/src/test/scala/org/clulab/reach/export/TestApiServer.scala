@@ -34,7 +34,9 @@ class TestApiServer extends WordSpec
   implicit val executionContext = system.dispatcher
   val logger = Logging(system, getClass)
 
-  val argMap = Map[String,String]()
+  val argMap = Map[String,String](
+    "port" -> "0" // Use the wildcard in case a fixed port is not available during testing.
+  )
   val appConfig = new AkkaServerConfig(argMap, Some("ApiServer"))
   val serverConfig = appConfig.config
 
@@ -174,7 +176,14 @@ class TestApiServer extends WordSpec
     }
 
     "POST upload nxml, default output" in {
-      implicit def default(implicit system: ActorSystem) = RouteTestTimeout(5.seconds)
+      // The line below seems to necessitate the ActorSystem needing to access a real port.
+      // By default, that is 8080, but it is not necessarily available.  Although this test
+      // usually completes in less than the default timeout of 1 second when run with all
+      // the other tests of this file, if it is run in isolation, all of the initialization
+      // time is spent here and the 1 second is grossly exceeded.  The timeout has been
+      // increased to 60 seconds to account for either case and the port is set above to a
+      // wildcard value of 0 to avoid used ports.
+      implicit def default(implicit system: ActorSystem) = RouteTestTimeout(60.seconds)
       val mpForm = Multipart.FormData(
         Multipart.FormData.BodyPart.Strict(
           "file",
