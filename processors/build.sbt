@@ -5,7 +5,7 @@ resolvers += "clulab" at "https://artifactory.clulab.org/artifactory/sbt-release
 
 
 libraryDependencies ++= {
-  val procVer = "8.5.3"
+  val procVer = "8.5.4-SNAPSHOT"
 
   Seq(
     "com.typesafe"         %  "config"      % "1.3.1",

@@ -4,7 +4,6 @@ import org.clulab.reach.mentions._
 import org.scalatest._
 import TestUtils._
 import org.clulab.reach.mentions.serialization.json.JSONSerializer
-import org.clulab.reach.mentions.serialization.json.prettify
 
 /**
  * Unit tests to ensure PTM rules are matching correctly
@@ -1196,7 +1195,7 @@ class TestModifications extends FlatSpec with Matchers {
     koTriggers1 should not be ('empty)
 
     val jValue = JSONSerializer.jsonAST(bioMentions1)
-    val json = prettify(jValue)
+    val json = JSONSerializer.prettify(jValue)
 
     json should include ("KOtrigger")
 

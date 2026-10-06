@@ -8,7 +8,7 @@ import com.typesafe.scalalogging.Logger
 import org.clulab.odin.Mention
 import org.clulab.reach.FriesEntry
 import org.clulab.reach.ReachConstants._
-import org.clulab.odin.serialization.json._
+import org.clulab.odin.serialization.json.MentionOps
 import org.json4s.jackson.Serialization
 import org.slf4j.LoggerFactory
 
@@ -154,7 +154,7 @@ object JsonOutputter {
     else {
       // "Gene_or_gene_product" is another possibility.
       // Also "Family", "Disease", "Simple_chemical"
-      val json = mention.json(pretty = true)
+      val json = MentionOps(mention).json(pretty = true)
       val message = s"""Unknown event type "$label" in event:\n$json"""
       // throw new RuntimeException(message)
       logger.warn(message)

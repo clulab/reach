@@ -4,8 +4,8 @@ import org.apache.commons.io.FilenameUtils
 import org.clulab.reach.assembly.relations.corpus.{CorpusReader, EventPair}
 import org.clulab.odin.Mention
 import org.clulab.reach.PaperReader
-import org.clulab.reach.mentions._
-import org.clulab.reach.mentions.serialization.json._
+import org.clulab.reach.mentions.{CorefMention, MentionOps => ImplicitMentionOps}
+import org.clulab.reach.mentions.serialization.json.MentionsOps
 import org.clulab.utils.Serializer
 
 import com.typesafe.config.ConfigFactory
@@ -127,9 +127,6 @@ object RunAnnotationEval extends App with LazyLogging {
   * Serialize each paper in a directory to json
   */
 object SerializePapersToJSON extends App with LazyLogging {
-
-  import org.clulab.reach.mentions.serialization.json._
-
   val config = ConfigFactory.load()
   val papersDir = new File(config.getString("papersDir"))
   val outDir = new File(config.getString("outDir"))
@@ -150,7 +147,8 @@ object SerializePapersToJSON extends App with LazyLogging {
     val mentions = PaperReader.getMentionsFromPaper(paper)
     val cms: Seq[CorefMention] = mentions.map(_.toCorefMention)
     logger.info(s"extracted ${mentions.size} mentions for $paperID")
-    cms.saveJSON(outFile, pretty = true)
+
+    MentionsOps(cms).saveJSON(outFile, pretty = true)
     logger.info(s"saved json to $outFile")
   }
 }
